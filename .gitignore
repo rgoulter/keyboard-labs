@@ -1,0 +1,10 @@
+.DS_Store
+
+*.sch-bak
+*.kicad_pcb-bak
+*.bck
+*.rpt
+fp-info-cache
+*-cache.lib
+
+pcb/gerber
