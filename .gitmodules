@@ -1,0 +1,12 @@
+[submodule "pcb/Keebio-Parts.pretty"]
+	path = pcb/Keebio-Parts.pretty
+	url = https://github.com/keebio/Keebio-Parts.pretty
+[submodule "pcb/keebio-components"]
+	path = pcb/keebio-components
+	url = https://github.com/keebio/keebio-components
+[submodule "pcb/Switch_Keyboard"]
+	path = pcb/Switch_Keyboard
+	url = https://github.com/perigoso/Switch_Keyboard.git
+[submodule "pcb/keyswitches.pretty"]
+	path = pcb/keyswitches.pretty
+	url = https://github.com/daprice/keyswitches.pretty.git
