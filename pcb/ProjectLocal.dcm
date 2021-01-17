@@ -1,0 +1,13 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MiniF4
+D STM32 Blue Pill ; KLC compliant
+K module black pill STM32
+$ENDCMP
+#
+$CMP MiniF4_or_BluePill
+D STM32 Blue Pill ; KLC compliant
+K module black pill STM32
+$ENDCMP
+#
+#End Doc Library
