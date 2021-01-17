@@ -1,0 +1,38 @@
+[package]
+name = "keyberon-f4-split-dp"
+version = "0.1.0"
+authors = ["Richard Goulter <rchard.goulter@gmail.com>", "Guillaume Pinot <texitoi@texitoi.eu>"]
+edition = "2018"
+
+[features]
+default = ["split-left"]
+split-left = []
+split-right = []
+
+[dependencies]
+stm32f4xx-hal = { version = "0.7.0", features = ["rt", "stm32f401", "usb_fs"] }
+cortex-m = "0.6"
+cortex-m-rt = { version = "0.6.10", features = ["device"] }
+panic-halt = "0.2.0"
+keyberon = { git = "https://github.com/TeXitoi/keyberon", branch = "master" }
+cortex-m-rtic = "0.5"
+generic-array = "0.13"
+embedded-hal = "0.2"
+usb-device = "0.2.0"
+heapless = "0.5"
+nb = "1.0.0"
+usbd-serial = "0.1.0"
+
+[profile.release]
+lto = true
+incremental = false
+opt-level = "z"
+debug = true
+
+[[bin]]
+name = "serial"
+path = "src/serial.rs"
+
+[[bin]]
+name = "usb-serial"
+path = "src/usb_serial.rs"
