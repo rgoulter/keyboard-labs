@@ -5,11 +5,11 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Reversible Split Keyboard Half"
-Date "2020-12-01"
-Rev "2020.1"
+Date "2021-02-24"
+Rev "2021.1"
 Comp "Richard Goulter"
-Comment1 "SK6812mini-e used for per-key RGBs."
-Comment2 "TRRS Jacks connected to UART or I2C. Jumpers used to support reversibility."
+Comment1 "SK6812mini-e used for per-key RGBs. SK6812 for underglow."
+Comment2 "TRRS Jacks connected to UART or I2C."
 Comment3 "Switch \"matrix\" is a collection of switches, each directly connected to the controller."
 Comment4 "Split keyboard half for the WeAct Studio MiniF4 dev board."
 $EndDescr
@@ -584,7 +584,7 @@ U 1 1 60D9AF80
 P 5600 3150
 F 0 "R_RGB_1" H 5530 3196 50  0000 R CNN
 F 1 "300 - 500R" H 5530 3105 50  0000 R CNN
-F 2 "Keebio-Parts:Resistor-Hybrid" V 5530 3150 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 5530 3150 50  0001 C CNN
 F 3 "~" H 5600 3150 50  0001 C CNN
 	1    5600 3150
 	1    0    0    -1  
@@ -594,58 +594,38 @@ Wire Wire Line
 $Comp
 L Jumper:SolderJumper_3_Open JP_TRRS_1
 U 1 1 60FF4E5E
-P 3650 6850
-F 0 "JP_TRRS_1" V 3650 6918 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 3695 6918 50  0001 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 3650 6850 50  0001 C CNN
-F 3 "~" H 3650 6850 50  0001 C CNN
-	1    3650 6850
+P 4250 6900
+F 0 "JP_TRRS_1" V 4250 6968 50  0000 L CNN
+F 1 "SolderJumper_3_Open" V 4295 6968 50  0001 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4250 6900 50  0001 C CNN
+F 3 "~" H 4250 6900 50  0001 C CNN
+	1    4250 6900
 	0    1    1    0   
 $EndComp
 $Comp
 L Jumper:SolderJumper_3_Open JP_TRRS_2
 U 1 1 60FF5D91
-P 3650 7400
-F 0 "JP_TRRS_2" V 3650 7468 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 3695 7468 50  0001 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 3650 7400 50  0001 C CNN
-F 3 "~" H 3650 7400 50  0001 C CNN
-	1    3650 7400
+P 4250 7450
+F 0 "JP_TRRS_2" V 4250 7518 50  0000 L CNN
+F 1 "SolderJumper_3_Open" V 4295 7518 50  0001 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4250 7450 50  0001 C CNN
+F 3 "~" H 4250 7450 50  0001 C CNN
+	1    4250 7450
 	0    1    1    0   
 $EndComp
-Text Label 3650 6650 0    50   ~ 0
-SCL_TX_r
-Text Label 3650 7200 0    50   ~ 0
+Text Label 4250 7250 0    50   ~ 0
 SDA_RX_r
-Text Label 3650 7050 0    50   ~ 0
-SDA_RX_r
-Text Label 3650 7600 0    50   ~ 0
+Text Label 4250 7650 0    50   ~ 0
 SCL_TX_r
 Text Label 5800 2900 0    50   ~ 0
 3V3
 Text Label 8950 6450 2    50   ~ 0
 GND
 Connection ~ 8950 6350
-Text Label 1200 3950 0    50   ~ 0
-GND
-Wire Wire Line
-	3500 7200 3500 6850
-Wire Wire Line
-	3500 7300 3500 7400
-Text Label 1200 4700 0    50   ~ 0
-RGB_DIN
-Text Label 3250 7000 1    50   ~ 0
-TRRS_R1
-Text Label 3400 7000 1    50   ~ 0
-TRRS_R2
 Wire Wire Line
 	900  7300 1150 7300
 Wire Wire Line
 	900  7200 1300 7200
-Text Label 1150 7000 1    50   ~ 0
-TRRS_R1
-Text Label 1300 7000 1    50   ~ 0
-TRRS_R2
 Wire Wire Line
 	1150 7300 1150 7000
 Connection ~ 1150 7300
@@ -656,20 +636,6 @@ Wire Wire Line
 Connection ~ 1300 7200
 Wire Wire Line
 	1300 7200 1450 7200
-Wire Wire Line
-	3000 7200 3400 7200
-Wire Wire Line
-	3400 7200 3400 7000
-Wire Wire Line
-	3000 7300 3250 7300
-Wire Wire Line
-	3250 7300 3250 7000
-Wire Wire Line
-	3400 7200 3500 7200
-Connection ~ 3400 7200
-Wire Wire Line
-	3250 7300 3500 7300
-Connection ~ 3250 7300
 $Comp
 L Device:C_Small C_12
 U 1 1 60412CB4
@@ -725,24 +691,19 @@ F 3 "" H 2800 7500 60  0001 C CNN
 	1    2650 7500
 	-1   0    0    -1  
 $EndComp
-Text Label 1150 2350 2    50   ~ 0
-RESET_r
-NoConn ~ 1150 2050
 $Comp
 L ProjectLocal:MiniF4 U1
 U 1 1 5FD347E3
 P 1950 1750
 F 0 "U1" H 1950 2915 50  0000 C CNN
 F 1 "MiniF4" H 1950 2824 50  0000 C CNN
-F 2 "ProjectLocal:WeAct_MiniF4" H 4200 2200 50  0001 C CNN
+F 2 "ProjectLocal:WeAct_MiniF4_ZigZag" H 4200 2200 50  0001 C CNN
 F 3 "" V 2600 900 50  0001 C CNN
 	1    1950 1750
 	1    0    0    -1  
 $EndComp
 NoConn ~ 1150 850 
-NoConn ~ 2750 2050
 NoConn ~ 1150 2450
-NoConn ~ 2750 2450
 NoConn ~ 2750 2550
 NoConn ~ 2750 2650
 Text Label 2750 1950 0    50   ~ 0
@@ -759,7 +720,7 @@ Text Label 2750 1450 0    50   ~ 0
 SW33
 Text Label 2750 1350 0    50   ~ 0
 SW32
-Text Label 2750 1250 0    50   ~ 0
+Text Label 2750 2050 0    50   ~ 0
 SW31
 Text Label 2750 1150 0    50   ~ 0
 SW25
@@ -769,9 +730,9 @@ Text Label 1150 1850 2    50   ~ 0
 SW23
 Text Label 1150 1750 2    50   ~ 0
 SW22
-Text Label 1150 1650 2    50   ~ 0
+Text Label 1150 2050 2    50   ~ 0
 SW21
-Text Label 1150 1550 2    50   ~ 0
+Text Label 2750 2450 0    50   ~ 0
 SW15
 Text Label 1150 1450 2    50   ~ 0
 SW14
@@ -781,82 +742,22 @@ Text Label 1150 1250 2    50   ~ 0
 SW12
 Text Label 1150 1150 2    50   ~ 0
 SW11
-Text Label 2750 2350 0    50   ~ 0
-RESET
 NoConn ~ 2750 2750
-NoConn ~ 1800 3250
-NoConn ~ 1900 3250
-NoConn ~ 2000 3250
-NoConn ~ 2100 3250
 NoConn ~ 1150 2750
 NoConn ~ 1150 2650
 NoConn ~ 1150 2550
 NoConn ~ 2750 850 
-Text Label 800  2200 2    50   ~ 0
+Text Label 1150 2250 2    50   ~ 0
 SDA_RX
 Text Label 1150 2150 2    50   ~ 0
 SCL_TX
-Text Label 3100 2300 0    50   ~ 0
-RGB
-Text Label 800  2300 2    50   ~ 0
-RGB_r
-Wire Wire Line
-	800  2250 1150 2250
-Wire Wire Line
-	800  2250 800  2300
-Wire Wire Line
-	800  2250 800  2200
-Connection ~ 800  2250
-Text Label 3100 2200 0    50   ~ 0
-SDA_RX_r
-Wire Wire Line
-	3100 2200 3100 2250
-Wire Wire Line
-	3100 2250 2750 2250
-Wire Wire Line
-	3100 2300 3100 2250
-Connection ~ 3100 2250
-Text Label 2750 2150 0    50   ~ 0
-SCL_TX_r
-$Comp
-L Jumper:SolderJumper_3_Open JP_LED_1
-U 1 1 5FEF7EBA
-P 1050 4700
-F 0 "JP_LED_1" V 1050 4768 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 1005 4768 50  0001 L CNN
-F 2 "ProjectLocal:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_Dual" H 1050 4700 50  0001 C CNN
-F 3 "~" H 1050 4700 50  0001 C CNN
-	1    1050 4700
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Jumper:SolderJumper_3_Open JP_PWR_2
-U 1 1 5FEF86C2
-P 1050 3950
-F 0 "JP_PWR_2" V 1050 4018 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 1005 4018 50  0001 L CNN
-F 2 "ProjectLocal:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_Dual" H 1050 3950 50  0001 C CNN
-F 3 "~" H 1050 3950 50  0001 C CNN
-	1    1050 3950
-	0    -1   -1   0   
-$EndComp
-Text Label 1050 4500 2    50   ~ 0
-RGB
-Text Label 1050 4900 2    50   ~ 0
-RGB_r
-Text Label 1150 1050 2    50   ~ 0
-3V3_r
-Text Label 1150 950  2    50   ~ 0
-GND_r
-Text Label 1050 4150 2    50   ~ 0
-GND_r
+Text Label 2750 2250 0    50   ~ 0
+RGB_DIN
 Wire Wire Line
 	5800 2900 5800 3000
 Connection ~ 5800 3000
 Wire Wire Line
 	8950 6350 8950 6450
-Text Label 2800 4700 0    50   ~ 0
-GND
 Text Label 3000 7400 0    50   ~ 0
 GND
 Text Label 3000 7100 0    50   ~ 0
@@ -870,29 +771,16 @@ Wire Wire Line
 Connection ~ 8950 5500
 Connection ~ 8950 4650
 Text Label 2750 1050 0    50   ~ 0
-3V3_l
+3V3
 Text Label 2750 950  0    50   ~ 0
-GND_l
-Text Label 1050 3750 2    50   ~ 0
-GND_l
-$Comp
-L power:PWR_FLAG #FLG0101
-U 1 1 5FDB1290
-P 1200 3950
-F 0 "#FLG0101" H 1200 4025 50  0001 C CNN
-F 1 "PWR_FLAG" H 1200 4123 50  0000 C CNN
-F 2 "" H 1200 3950 50  0001 C CNN
-F 3 "~" H 1200 3950 50  0001 C CNN
-	1    1200 3950
-	1    0    0    -1  
-$EndComp
+GND
 $Comp
 L Device:R R1
 U 1 1 5FDD65E1
 P 850 5900
 F 0 "R1" H 920 5900 50  0000 L CNN
 F 1 "2.2k - 10k" H 920 5855 50  0000 L TNN
-F 2 "Keebio-Parts:Resistor-Hybrid" V 780 5900 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 780 5900 50  0001 C CNN
 F 3 "~" H 850 5900 50  0001 C CNN
 	1    850  5900
 	1    0    0    -1  
@@ -911,7 +799,7 @@ U 1 1 5FDD4F32
 P 1500 5900
 F 0 "R2" H 1570 5900 50  0000 L CNN
 F 1 "2.2k - 10k" H 1570 5855 50  0000 L TNN
-F 2 "Keebio-Parts:Resistor-Hybrid" V 1430 5900 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 1430 5900 50  0001 C CNN
 F 3 "~" H 1500 5900 50  0001 C CNN
 	1    1500 5900
 	1    0    0    -1  
@@ -924,10 +812,6 @@ Wire Notes Line
 	500  3350 4800 3350
 Wire Notes Line
 	500  5350 4800 5350
-Text Notes 2400 6350 0    50   ~ 0
-The TRRS jacks for connecting the two PCB halves.\n\nOnly one-of J1 or J_1_r assembled depending on\nwhether PCB is left or right half.\n\nResistors pull the data inputs up so that the PCB half\ncan be used without the other half being connected.\n\nJumpers used to allow either PB6, PB7 of the left half\nto connect to PB6, PB7 or to PB7, PB6 of the right half.
-Text Notes 3150 3850 0    50   ~ 0
-Jumpers used to allow the PCB to be\nreversible while U1 uses the same\nPTHs on each half, without having to\nflip either dev board upside down.
 Text Label 6400 1950 3    50   ~ 0
 GND
 Text Label 7000 1950 3    50   ~ 0
@@ -1014,7 +898,7 @@ U 1 1 5FDE5173
 P 6200 1950
 F 0 "SW_31" H 6200 2235 50  0000 C CNN
 F 1 "SW_Push" H 6200 2144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 6200 2150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6200 2150 50  0001 C CNN
 F 3 "~" H 6200 2150 50  0001 C CNN
 	1    6200 1950
 	1    0    0    -1  
@@ -1025,7 +909,7 @@ U 1 1 5FDF323B
 P 8000 1950
 F 0 "SW_34" H 8000 2235 50  0000 C CNN
 F 1 "SW_Push" H 8000 2144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8000 2150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8000 2150 50  0001 C CNN
 F 3 "~" H 8000 2150 50  0001 C CNN
 	1    8000 1950
 	1    0    0    -1  
@@ -1036,7 +920,7 @@ U 1 1 5FDF2DC3
 P 7400 1950
 F 0 "SW_33" H 7400 2235 50  0000 C CNN
 F 1 "SW_Push" H 7400 2144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 7400 2150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7400 2150 50  0001 C CNN
 F 3 "~" H 7400 2150 50  0001 C CNN
 	1    7400 1950
 	1    0    0    -1  
@@ -1047,7 +931,7 @@ U 1 1 5FDF2621
 P 6800 1950
 F 0 "SW_32" H 6800 2235 50  0000 C CNN
 F 1 "SW_Push" H 6800 2144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 6800 2150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6800 2150 50  0001 C CNN
 F 3 "~" H 6800 2150 50  0001 C CNN
 	1    6800 1950
 	1    0    0    -1  
@@ -1058,7 +942,7 @@ U 1 1 5FDF1BC1
 P 6800 1450
 F 0 "SW_22" H 6800 1735 50  0000 C CNN
 F 1 "SW_Push" H 6800 1644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 6800 1650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6800 1650 50  0001 C CNN
 F 3 "~" H 6800 1650 50  0001 C CNN
 	1    6800 1450
 	1    0    0    -1  
@@ -1069,7 +953,7 @@ U 1 1 5FDF1620
 P 7400 1450
 F 0 "SW_23" H 7400 1735 50  0000 C CNN
 F 1 "SW_Push" H 7400 1644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 7400 1650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7400 1650 50  0001 C CNN
 F 3 "~" H 7400 1650 50  0001 C CNN
 	1    7400 1450
 	1    0    0    -1  
@@ -1080,7 +964,7 @@ U 1 1 5FDF0DF7
 P 8000 1450
 F 0 "SW_24" H 8000 1735 50  0000 C CNN
 F 1 "SW_Push" H 8000 1644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8000 1650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8000 1650 50  0001 C CNN
 F 3 "~" H 8000 1650 50  0001 C CNN
 	1    8000 1450
 	1    0    0    -1  
@@ -1091,7 +975,7 @@ U 1 1 5FDF0949
 P 7400 2450
 F 0 "SW_41" H 7400 2735 50  0000 C CNN
 F 1 "SW_Push" H 7400 2644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 7400 2650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7400 2650 50  0001 C CNN
 F 3 "~" H 7400 2650 50  0001 C CNN
 	1    7400 2450
 	1    0    0    -1  
@@ -1102,7 +986,7 @@ U 1 1 5FDF0012
 P 8000 2450
 F 0 "SW_42" H 8000 2735 50  0000 C CNN
 F 1 "SW_Push" H 8000 2644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8000 2650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8000 2650 50  0001 C CNN
 F 3 "~" H 8000 2650 50  0001 C CNN
 	1    8000 2450
 	1    0    0    -1  
@@ -1113,7 +997,7 @@ U 1 1 5FDEF97E
 P 8600 2450
 F 0 "SW_43" H 8600 2735 50  0000 C CNN
 F 1 "SW_Push" H 8600 2644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8600 2650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8600 2650 50  0001 C CNN
 F 3 "~" H 8600 2650 50  0001 C CNN
 	1    8600 2450
 	1    0    0    -1  
@@ -1124,7 +1008,7 @@ U 1 1 5FDEF11F
 P 8600 1950
 F 0 "SW_35" H 8600 2235 50  0000 C CNN
 F 1 "SW_Push" H 8600 2144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8600 2150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8600 2150 50  0001 C CNN
 F 3 "~" H 8600 2150 50  0001 C CNN
 	1    8600 1950
 	1    0    0    -1  
@@ -1135,7 +1019,7 @@ U 1 1 5FDEE777
 P 8600 1450
 F 0 "SW_25" H 8600 1735 50  0000 C CNN
 F 1 "SW_Push" H 8600 1644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8600 1650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8600 1650 50  0001 C CNN
 F 3 "~" H 8600 1650 50  0001 C CNN
 	1    8600 1450
 	1    0    0    -1  
@@ -1146,7 +1030,7 @@ U 1 1 5FDED702
 P 8600 950
 F 0 "SW_15" H 8600 1235 50  0000 C CNN
 F 1 "SW_Push" H 8600 1144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8600 1150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8600 1150 50  0001 C CNN
 F 3 "~" H 8600 1150 50  0001 C CNN
 	1    8600 950 
 	1    0    0    -1  
@@ -1157,7 +1041,7 @@ U 1 1 5FDECF29
 P 8000 950
 F 0 "SW_14" H 8000 1235 50  0000 C CNN
 F 1 "SW_Push" H 8000 1144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 8000 1150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 8000 1150 50  0001 C CNN
 F 3 "~" H 8000 1150 50  0001 C CNN
 	1    8000 950 
 	1    0    0    -1  
@@ -1168,7 +1052,7 @@ U 1 1 5FDEC2EC
 P 7400 950
 F 0 "SW_13" H 7400 1235 50  0000 C CNN
 F 1 "SW_Push" H 7400 1144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 7400 1150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7400 1150 50  0001 C CNN
 F 3 "~" H 7400 1150 50  0001 C CNN
 	1    7400 950 
 	1    0    0    -1  
@@ -1179,7 +1063,7 @@ U 1 1 5FDEB649
 P 6800 950
 F 0 "SW_12" H 6800 1235 50  0000 C CNN
 F 1 "SW_Push" H 6800 1144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 6800 1150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6800 1150 50  0001 C CNN
 F 3 "~" H 6800 1150 50  0001 C CNN
 	1    6800 950 
 	1    0    0    -1  
@@ -1190,7 +1074,7 @@ U 1 1 5FDE48F6
 P 6200 1450
 F 0 "SW_21" H 6200 1735 50  0000 C CNN
 F 1 "SW_Push" H 6200 1644 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 6200 1650 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6200 1650 50  0001 C CNN
 F 3 "~" H 6200 1650 50  0001 C CNN
 	1    6200 1450
 	1    0    0    -1  
@@ -1201,7 +1085,7 @@ U 1 1 5FD3A369
 P 6200 950
 F 0 "SW_11" H 6200 1235 50  0000 C CNN
 F 1 "SW_Push" H 6200 1144 50  0000 C CNN
-F 2 "keyswitches:SW_PG1350_reversible" H 6200 1150 50  0001 C CNN
+F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6200 1150 50  0001 C CNN
 F 3 "~" H 6200 1150 50  0001 C CNN
 	1    6200 950 
 	1    0    0    -1  
@@ -1210,60 +1094,294 @@ Text Notes 9100 950  0    50   ~ 0
 Grid of switches for the PCB half.\n\nEach switch is connected directly to\na pin of the microcontroller, and to GND.
 Text Notes 9150 3150 0    50   ~ 0
 Grid of WS2812-compatible RGB LEDs,\narranged in the same order as the key switches.\n\nEach DOUT connects to the DIN of the next LED.
-Text Notes 3100 1900 0    50   ~ 0
-The WeAct Studo MiniF4 dev board.\n\nSince the PCB is reversible, the same\nPTHs are used for the dev board for\nearch side, and the dev board isn’t\nintended to be ‘flipped’,\nthe pins for the RHS are mirrored\nfrom the pins on the LHS.\n(e.g. SCL_TX opposite of SCL_TX_r).\n\nErrata: Note than pins PA11, PA12, PB2\ncannot be used for GPIO pins.\nPA2, PB5, PB9, can be used\ninstead, and the connections from\nthe PTH for PA11, PA12, PB2\ncan be jumed to these pins.
+Text Notes 3150 1400 0    50   ~ 0
+The WeAct Studo MiniF4 dev board.
+NoConn ~ 2750 1250
+NoConn ~ 1150 1550
+NoConn ~ 1150 1650
+NoConn ~ 1150 2350
+NoConn ~ 2750 2150
+NoConn ~ 1150 950 
+NoConn ~ 1150 1050
 $Comp
-L power:PWR_FLAG #FLG0102
-U 1 1 5FDB3AF2
-P 2400 3950
-F 0 "#FLG0102" H 2400 4025 50  0001 C CNN
-F 1 "PWR_FLAG" H 2400 4123 50  0000 C CNN
-F 2 "" H 2400 3950 50  0001 C CNN
-F 3 "~" H 2400 3950 50  0001 C CNN
-	1    2400 3950
+L Mechanical:MountingHole H1
+U 1 1 602E59E6
+P 1050 3800
+F 0 "H1" H 1150 3846 50  0000 L CNN
+F 1 "MountingHole" H 1150 3755 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 1050 3800 50  0001 C CNN
+F 3 "~" H 1050 3800 50  0001 C CNN
+	1    1050 3800
 	1    0    0    -1  
 $EndComp
-Text Label 2250 3750 2    50   ~ 0
-3V3_l
-Text Label 2250 4150 2    50   ~ 0
-3V3_r
 $Comp
-L Jumper:SolderJumper_3_Open JP_PWR_1
-U 1 1 5FEF70EE
-P 2250 3950
-F 0 "JP_PWR_1" V 2250 4018 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 2205 4018 50  0001 L CNN
-F 2 "ProjectLocal:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_Dual" H 2250 3950 50  0001 C CNN
-F 3 "~" H 2250 3950 50  0001 C CNN
-	1    2250 3950
-	0    -1   -1   0   
-$EndComp
-Text Label 2250 4900 2    50   ~ 0
-RESET_r
-$Comp
-L Jumper:SolderJumper_3_Open JP_RESET_1
-U 1 1 5FEBCD81
-P 2250 4700
-F 0 "JP_RESET_1" V 2250 4768 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 2205 4768 50  0001 L CNN
-F 2 "ProjectLocal:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_Dual" H 2250 4700 50  0001 C CNN
-F 3 "~" H 2250 4700 50  0001 C CNN
-	1    2250 4700
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Switch:SW_Push SW_RST_1
-U 1 1 613EC46F
-P 2600 4700
-F 0 "SW_RST_1" H 2600 4893 50  0000 C CNN
-F 1 "RESET" H 2600 4894 50  0001 C CNN
-F 2 "Keebio-Parts:SW_SPST_3x3" H 2600 4900 50  0001 C CNN
-F 3 "~" H 2600 4900 50  0001 C CNN
-	1    2600 4700
+L Mechanical:MountingHole H2
+U 1 1 602EA31E
+P 1050 4000
+F 0 "H2" H 1150 4046 50  0000 L CNN
+F 1 "MountingHole" H 1150 3955 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 1050 4000 50  0001 C CNN
+F 3 "~" H 1050 4000 50  0001 C CNN
+	1    1050 4000
 	1    0    0    -1  
 $EndComp
-Text Label 2250 4500 2    50   ~ 0
-RESET
-Text Label 2400 3950 0    50   ~ 0
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 602EA63D
+P 1050 4200
+F 0 "H3" H 1150 4246 50  0000 L CNN
+F 1 "MountingHole" H 1150 4155 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 1050 4200 50  0001 C CNN
+F 3 "~" H 1050 4200 50  0001 C CNN
+	1    1050 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 602EA8E5
+P 1050 4400
+F 0 "H4" H 1150 4446 50  0000 L CNN
+F 1 "MountingHole" H 1150 4355 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 1050 4400 50  0001 C CNN
+F 3 "~" H 1050 4400 50  0001 C CNN
+	1    1050 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H5
+U 1 1 602EEB15
+P 1050 4600
+F 0 "H5" H 1150 4646 50  0000 L CNN
+F 1 "MountingHole" H 1150 4555 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 1050 4600 50  0001 C CNN
+F 3 "~" H 1050 4600 50  0001 C CNN
+	1    1050 4600
+	1    0    0    -1  
+$EndComp
+Text Label 4250 7100 0    50   ~ 0
+SDA_RX_r
+Text Label 4050 7350 1    50   ~ 0
+TRRS_R1
+Text Label 1300 7000 1    50   ~ 0
+TRRS_R2
+Text Label 1150 7000 1    50   ~ 0
+TRRS_R1
+Text Label 4250 6700 0    50   ~ 0
+SCL_TX_r
+Text Label 3000 7200 0    50   ~ 0
+SCL_TX_r
+Text Label 3000 7300 0    50   ~ 0
+SDA_RX_r
+Text Label 3950 6900 2    50   ~ 0
+SCL_TX
+Text Label 3950 7450 2    50   ~ 0
+SDA_RX
+Wire Wire Line
+	4100 6900 4050 6900
+Wire Wire Line
+	4100 7450 4050 7450
+Text Label 4050 6800 1    50   ~ 0
+TRRS_R2
+Text Notes 2400 6350 0    50   ~ 0
+The TRRS jacks for connecting the two PCB halves.\n\nOnly one-of J1 or J_1_r assembled depending on\nwhether PCB is left or right half.\n\nResistors pull the data inputs up so that the PCB half\ncan be used without the other half being connected.\n\nJumpers used to allow either PB6, PB7 of the left half\nto connect to PB6, PB7 or to PB7, PB6 of the right half.
+Wire Wire Line
+	4050 6800 4050 6900
+Connection ~ 4050 6900
+Wire Wire Line
+	4050 6900 3950 6900
+Wire Wire Line
+	4050 7350 4050 7450
+Connection ~ 4050 7450
+Wire Wire Line
+	4050 7450 3950 7450
+NoConn ~ 2750 2350
+$Comp
+L Mechanical:MountingHole H6
+U 1 1 603C44C9
+P 1900 3800
+F 0 "H6" H 2000 3846 50  0000 L CNN
+F 1 "MountingHole" H 2000 3755 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 1900 3800 50  0001 C CNN
+F 3 "~" H 1900 3800 50  0001 C CNN
+	1    1900 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H7
+U 1 1 603C4D5A
+P 1900 4000
+F 0 "H7" H 2000 4046 50  0000 L CNN
+F 1 "MountingHole" H 2000 3955 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 1900 4000 50  0001 C CNN
+F 3 "~" H 1900 4000 50  0001 C CNN
+	1    1900 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H8
+U 1 1 603C5079
+P 1900 4200
+F 0 "H8" H 2000 4246 50  0000 L CNN
+F 1 "MountingHole" H 2000 4155 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 1900 4200 50  0001 C CNN
+F 3 "~" H 1900 4200 50  0001 C CNN
+	1    1900 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H9
+U 1 1 603C53A9
+P 1900 4400
+F 0 "H9" H 2000 4446 50  0000 L CNN
+F 1 "MountingHole" H 2000 4355 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 1900 4400 50  0001 C CNN
+F 3 "~" H 1900 4400 50  0001 C CNN
+	1    1900 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H10
+U 1 1 603C55A7
+P 1900 4600
+F 0 "H10" H 2000 4646 50  0000 L CNN
+F 1 "MountingHole" H 2000 4555 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 1900 4600 50  0001 C CNN
+F 3 "~" H 1900 4600 50  0001 C CNN
+	1    1900 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED:SK6812 D_BL_1
+U 1 1 603FF78B
+P 10100 3850
+F 0 "D_BL_1" V 10054 4194 50  0000 L CNN
+F 1 "SK6812" V 10145 4194 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 3550 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 3475 50  0001 L TNN
+	1    10100 3850
+	0    1    1    0   
+$EndComp
+$Comp
+L LED:SK6812 D_BL_2
+U 1 1 60401C03
+P 10100 4450
+F 0 "D_BL_2" V 10054 4794 50  0000 L CNN
+F 1 "SK6812" V 10145 4794 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 4150 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 4075 50  0001 L TNN
+	1    10100 4450
+	0    1    1    0   
+$EndComp
+$Comp
+L LED:SK6812 D_BL_3
+U 1 1 60409922
+P 10100 5050
+F 0 "D_BL_3" V 10054 5394 50  0000 L CNN
+F 1 "SK6812" V 10145 5394 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 4750 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 4675 50  0001 L TNN
+	1    10100 5050
+	0    1    1    0   
+$EndComp
+$Comp
+L LED:SK6812 D_BL_4
+U 1 1 6040B9B5
+P 10100 5650
+F 0 "D_BL_4" V 10054 5994 50  0000 L CNN
+F 1 "SK6812" V 10145 5994 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 5350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 5275 50  0001 L TNN
+	1    10100 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C_1
+U 1 1 6040C40C
+P 9650 3950
+F 0 "C_1" V 9513 3950 50  0000 C BNN
+F 1 "100nF" V 9512 3950 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 3950 50  0001 C CNN
+F 3 "~" H 9650 3950 50  0001 C CNN
+	1    9650 3950
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C_Small C_2
+U 1 1 6040D1BF
+P 9650 4550
+F 0 "C_2" V 9513 4550 50  0000 C BNN
+F 1 "100nF" V 9512 4550 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 4550 50  0001 C CNN
+F 3 "~" H 9650 4550 50  0001 C CNN
+	1    9650 4550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C_Small C_3
+U 1 1 6040D6FB
+P 9650 5150
+F 0 "C_3" V 9513 5150 50  0000 C BNN
+F 1 "100nF" V 9512 5150 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 5150 50  0001 C CNN
+F 3 "~" H 9650 5150 50  0001 C CNN
+	1    9650 5150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C_Small C_4
+U 1 1 6040D957
+P 9700 5750
+F 0 "C_4" V 9563 5750 50  0000 C BNN
+F 1 "100nF" V 9562 5750 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9700 5750 50  0001 C CNN
+F 3 "~" H 9700 5750 50  0001 C CNN
+	1    9700 5750
+	-1   0    0    1   
+$EndComp
+Text Label 9550 6000 0    50   ~ 0
+GND
+Text Label 8900 5850 3    50   ~ 0
+DOUT_4
+Text Label 10100 3550 0    50   ~ 0
+DOUT_4
+Text Label 10400 3650 0    50   ~ 0
 3V3
+Wire Wire Line
+	9800 3850 9650 3850
+Wire Wire Line
+	9800 4450 9650 4450
+Wire Wire Line
+	9800 5050 9650 5050
+Wire Wire Line
+	9800 5650 9700 5650
+Wire Wire Line
+	9650 4050 9550 4050
+Wire Wire Line
+	9550 4050 9550 4650
+Wire Wire Line
+	9550 4650 9650 4650
+Wire Wire Line
+	9550 4650 9550 5250
+Wire Wire Line
+	9550 5250 9650 5250
+Connection ~ 9550 4650
+Wire Wire Line
+	9550 5250 9550 5850
+Wire Wire Line
+	9550 5850 9700 5850
+Connection ~ 9550 5250
+Wire Wire Line
+	9550 5850 9550 6000
+Connection ~ 9550 5850
+Wire Wire Line
+	10400 3650 10400 3850
+Wire Wire Line
+	10400 3850 10400 4450
+Connection ~ 10400 3850
+Wire Wire Line
+	10400 4450 10400 5050
+Connection ~ 10400 4450
+Wire Wire Line
+	10400 5050 10400 5650
+Connection ~ 10400 5050
 $EndSCHEMATC
