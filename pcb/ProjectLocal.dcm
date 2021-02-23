@@ -5,6 +5,11 @@ D STM32 Blue Pill ; KLC compliant
 K module black pill STM32
 $ENDCMP
 #
+$CMP MiniF4_SWD
+D STM32 Blue Pill ; KLC compliant
+K module black pill STM32
+$ENDCMP
+#
 $CMP MiniF4_or_BluePill
 D STM32 Blue Pill ; KLC compliant
 K module black pill STM32
