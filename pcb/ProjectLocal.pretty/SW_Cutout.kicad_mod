@@ -1,0 +1,17 @@
+(module SW_Cutout (layer F.Cu) (tedit 60326726)
+  (fp_text reference REF** (at 0 2.1 unlocked) (layer F.SilkS) hide
+    (effects (font (size 0.7 0.7) (thickness 0.15)))
+  )
+  (fp_text value SW_Cutout (at 0 -3.81 unlocked) (layer Dwgs.User) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_line (start 7 -7) (end 7 7) (layer Edge.Cuts) (width 0.12))
+  (fp_line (start 7 7) (end -7 7) (layer Edge.Cuts) (width 0.12))
+  (fp_line (start -7 7) (end -7 -7) (layer Edge.Cuts) (width 0.12))
+  (fp_line (start -7 -7) (end 7 -7) (layer Edge.Cuts) (width 0.12))
+  (model "${KIPRJMOD}/Keebio-Parts.pretty/3dmodels/SK6812MINI-E v1.step"
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 90 0 0))
+  )
+)
