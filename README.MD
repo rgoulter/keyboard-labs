@@ -5,10 +5,9 @@ designs and keyboard firmware.
 
 ## Keyboards
 
-Source files under `pcb`.
+Kicad source files are in `pcb`.
 
-The keyboard PCBs have been designed in KiCad.
-These projects can be plotted to gerbers and fabricated.
+Plotted gerber files can be found in [releases](https://github.com/rgoulter/keyboard-labs/releases/).
 
 #### 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
 
