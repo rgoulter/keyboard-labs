@@ -25,15 +25,6 @@ Design goals:
 - Column-staggered arrangement of key switches.
 - Per-key RGB LEDs.
 
-Errata:
-
-- Pins PA11, PA12, PB2 aren't suitable for use for GPIO
-  on the MiniF4 board, since these are used for other things.
-  This can be mitigated by jumping from PTHs underneath unused
-  pins of the devboard.
-
-![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard5_fix_prototype.jpg)
-
 ## Firmware
 
 Source files under `firmware`.
