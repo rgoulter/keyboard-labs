@@ -26,12 +26,21 @@ Design goals:
 
 ## CAD Designs
 
+CAD design files found under `cad/`:
+
 #### Tenting Stand
 
 `keyboard_tenting_stand.scad` describes a design which can be laser cut
-and assembled to form an adjustable tenting stand.
+and assembled to form a adjustable tenting stand. The stand can be adjusted
+using an extra wedge piece.
+
+The design accepts various parameters (e.g. width, height, angle, screw diameter).
+
+Example of what the assembled stand looks like:
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/cad/docs/images/tenting_stand_3d_preview.png" width=700 />
+
+Example of the tenting stand's pieces:
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/cad/docs/images/tent_puzzle_all.svg" width=700 />
 
