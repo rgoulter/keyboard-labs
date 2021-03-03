@@ -524,7 +524,7 @@ Connection ~ 8800 6350
 Wire Wire Line
 	8800 6350 8950 6350
 Text Label 5600 3000 1    50   ~ 0
-RGB_DIN
+RGB_DIN_5V
 Wire Wire Line
 	5800 3000 6200 3000
 Wire Wire Line
@@ -618,7 +618,7 @@ SDA_RX_r
 Text Label 4250 7650 0    50   ~ 0
 SCL_TX_r
 Text Label 5800 2900 0    50   ~ 0
-3V3
+5V
 Text Label 8950 6450 2    50   ~ 0
 GND
 Connection ~ 8950 6350
@@ -746,13 +746,12 @@ NoConn ~ 2750 2750
 NoConn ~ 1150 2750
 NoConn ~ 1150 2650
 NoConn ~ 1150 2550
-NoConn ~ 2750 850 
 Text Label 1150 2250 2    50   ~ 0
 SDA_RX
 Text Label 1150 2150 2    50   ~ 0
 SCL_TX
 Text Label 2750 2250 0    50   ~ 0
-RGB_DIN
+RGB_DIN_3V3
 Wire Wire Line
 	5800 2900 5800 3000
 Connection ~ 5800 3000
@@ -761,9 +760,9 @@ Wire Wire Line
 Text Label 3000 7400 0    50   ~ 0
 GND
 Text Label 3000 7100 0    50   ~ 0
-3V3
+5V
 Text Label 1450 7100 2    50   ~ 0
-3V3
+5V
 Text Label 1450 7400 2    50   ~ 0
 GND
 Wire Wire Line
@@ -1345,7 +1344,7 @@ DOUT_4
 Text Label 10100 3550 0    50   ~ 0
 DOUT_4
 Text Label 10400 3650 0    50   ~ 0
-3V3
+5V
 Wire Wire Line
 	9800 3850 9650 3850
 Wire Wire Line
@@ -1384,4 +1383,40 @@ Connection ~ 10400 4450
 Wire Wire Line
 	10400 5050 10400 5650
 Connection ~ 10400 5050
+$Comp
+L Logic_LevelTranslator:SN74LVC1T45DBV U2
+U 1 1 603EC747
+P 3950 2850
+F 0 "U2" H 4394 2896 50  0000 L CNN
+F 1 "SN74LVC1T45DBV" H 4394 2805 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 3950 2400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 3050 2200 50  0001 C CNN
+	1    3950 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 603F5BAE
+P 3400 3050
+F 0 "R3" H 3470 3050 50  0000 L CNN
+F 1 "2.2k - 10k" H 3470 3005 50  0000 L TNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 3330 3050 50  0001 C CNN
+F 3 "~" H 3400 3050 50  0001 C CNN
+	1    3400 3050
+	0    1    1    0   
+$EndComp
+Text Label 3250 3050 2    50   ~ 0
+5V
+Text Label 4350 2850 0    50   ~ 0
+RGB_DIN_5V
+Text Label 3550 2850 2    50   ~ 0
+RGB_DIN_3V3
+Text Label 4050 2450 1    50   ~ 0
+5V
+Text Label 3850 2450 1    50   ~ 0
+3V3
+Text Label 2750 850  0    50   ~ 0
+5V
+Text Label 3950 3250 3    50   ~ 0
+GND
 $EndSCHEMATC
