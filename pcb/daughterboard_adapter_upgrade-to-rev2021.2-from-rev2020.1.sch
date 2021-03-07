@@ -182,7 +182,7 @@ U 1 1 60452D1B
 P 2350 4000
 F 0 "U1" H 2350 5165 50  0000 C CNN
 F 1 "MiniF4" H 2350 5074 50  0000 C CNN
-F 2 "ProjectLocal:WeAct_MiniF4" H 2850 5150 50  0001 C CNN
+F 2 "ProjectLocal:WeAct_MiniF4_Staggerable_rev2020.1" H 2850 5150 50  0001 C CNN
 F 3 "" V 3000 3150 50  0001 C CNN
 	1    2350 4000
 	1    0    0    -1  
@@ -193,7 +193,7 @@ U 1 1 6045557F
 P 8100 4100
 F 0 "U3" H 8100 5265 50  0000 C CNN
 F 1 "MiniF4" H 8100 5174 50  0000 C CNN
-F 2 "ProjectLocal:WeAct_MiniF4" H 8600 5250 50  0001 C CNN
+F 2 "ProjectLocal:WeAct_MiniF4_Staggerable_rev2020.1" H 8600 5250 50  0001 C CNN
 F 3 "" V 8750 3250 50  0001 C CNN
 	1    8100 4100
 	1    0    0    -1  
