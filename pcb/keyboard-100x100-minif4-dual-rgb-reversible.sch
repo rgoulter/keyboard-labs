@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Reversible Split Keyboard Half"
-Date "2021-02-24"
-Rev "2021.1"
+Date "2021-03-07"
+Rev "2021.2"
 Comp "Richard Goulter"
 Comment1 "SK6812mini-e used for per-key RGBs. SK6812 for underglow."
 Comment2 "TRRS Jacks connected to UART or I2C."
@@ -579,10 +579,10 @@ Wire Wire Line
 	5800 4700 5800 5550
 Connection ~ 5800 4700
 $Comp
-L Device:R R_RGB_1
+L Device:R R_4
 U 1 1 60D9AF80
 P 5600 3150
-F 0 "R_RGB_1" H 5530 3196 50  0000 R CNN
+F 0 "R_4" H 5530 3196 50  0000 R CNN
 F 1 "300 - 500R" H 5530 3105 50  0000 R CNN
 F 2 "ProjectLocal:Resistor-Hybrid" V 5530 3150 50  0001 C CNN
 F 3 "~" H 5600 3150 50  0001 C CNN
@@ -592,30 +592,30 @@ $EndComp
 Wire Wire Line
 	5600 3300 5900 3300
 $Comp
-L Jumper:SolderJumper_3_Open JP_TRRS_1
+L Jumper:SolderJumper_3_Open JP_1
 U 1 1 60FF4E5E
-P 4250 6900
-F 0 "JP_TRRS_1" V 4250 6968 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 4295 6968 50  0001 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4250 6900 50  0001 C CNN
-F 3 "~" H 4250 6900 50  0001 C CNN
-	1    4250 6900
+P 4050 6900
+F 0 "JP_1" V 4050 6968 50  0000 L CNN
+F 1 "SolderJumper_3_Open" V 4095 6968 50  0001 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4050 6900 50  0001 C CNN
+F 3 "~" H 4050 6900 50  0001 C CNN
+	1    4050 6900
 	0    1    1    0   
 $EndComp
 $Comp
-L Jumper:SolderJumper_3_Open JP_TRRS_2
+L Jumper:SolderJumper_3_Open JP_2
 U 1 1 60FF5D91
-P 4250 7450
-F 0 "JP_TRRS_2" V 4250 7518 50  0000 L CNN
-F 1 "SolderJumper_3_Open" V 4295 7518 50  0001 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4250 7450 50  0001 C CNN
-F 3 "~" H 4250 7450 50  0001 C CNN
-	1    4250 7450
+P 4050 7500
+F 0 "JP_2" V 4050 7568 50  0000 L CNN
+F 1 "SolderJumper_3_Open" V 4095 7568 50  0001 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4050 7500 50  0001 C CNN
+F 3 "~" H 4050 7500 50  0001 C CNN
+	1    4050 7500
 	0    1    1    0   
 $EndComp
-Text Label 4250 7250 0    50   ~ 0
+Text Label 4200 7300 0    50   ~ 0
 SDA_RX_r
-Text Label 4250 7650 0    50   ~ 0
+Text Label 4200 7700 0    50   ~ 0
 SCL_TX_r
 Text Label 5800 2900 0    50   ~ 0
 5V
@@ -681,77 +681,61 @@ F 3 "" H 1950 7500 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L keebio:TRRS J_r_1
+L keebio:TRRS J_2
 U 1 1 5FDFA2E7
 P 2650 7500
-F 0 "J_r_1" H 2567 8187 60  0000 C CNN
+F 0 "J_2" H 2567 8187 60  0000 C CNN
 F 1 "TRRS" H 2567 8081 60  0000 C CNN
 F 2 "Keebio-Parts:TRRS-PJ-320A" H 2800 7500 60  0001 C CNN
 F 3 "" H 2800 7500 60  0001 C CNN
 	1    2650 7500
 	-1   0    0    -1  
 $EndComp
-$Comp
-L ProjectLocal:MiniF4 U1
-U 1 1 5FD347E3
-P 1950 1750
-F 0 "U1" H 1950 2915 50  0000 C CNN
-F 1 "MiniF4" H 1950 2824 50  0000 C CNN
-F 2 "ProjectLocal:WeAct_MiniF4_ZigZag" H 4200 2200 50  0001 C CNN
-F 3 "" V 2600 900 50  0001 C CNN
-	1    1950 1750
-	1    0    0    -1  
-$EndComp
-NoConn ~ 1150 850 
-NoConn ~ 1150 2450
-NoConn ~ 2750 2550
-NoConn ~ 2750 2650
-Text Label 2750 1950 0    50   ~ 0
+NoConn ~ 800  1100
+NoConn ~ 800  2700
+NoConn ~ 2400 2800
+NoConn ~ 2400 2900
+Text Label 2400 2200 0    50   ~ 0
 SW43
-Text Label 2750 1850 0    50   ~ 0
+Text Label 2400 2100 0    50   ~ 0
 SW42
-Text Label 2750 1750 0    50   ~ 0
+Text Label 2400 2000 0    50   ~ 0
 SW41
-Text Label 2750 1650 0    50   ~ 0
+Text Label 2400 1900 0    50   ~ 0
 SW35
-Text Label 2750 1550 0    50   ~ 0
+Text Label 2400 1800 0    50   ~ 0
 SW34
-Text Label 2750 1450 0    50   ~ 0
+Text Label 2400 1700 0    50   ~ 0
 SW33
-Text Label 2750 1350 0    50   ~ 0
+Text Label 2400 1600 0    50   ~ 0
 SW32
-Text Label 2750 2050 0    50   ~ 0
+Text Label 2400 2300 0    50   ~ 0
 SW31
-Text Label 2750 1150 0    50   ~ 0
+Text Label 2400 1400 0    50   ~ 0
 SW25
-Text Label 1150 1950 2    50   ~ 0
+Text Label 800  2200 2    50   ~ 0
 SW24
-Text Label 1150 1850 2    50   ~ 0
+Text Label 800  2100 2    50   ~ 0
 SW23
-Text Label 1150 1750 2    50   ~ 0
+Text Label 800  2000 2    50   ~ 0
 SW22
-Text Label 1150 2050 2    50   ~ 0
+Text Label 800  2300 2    50   ~ 0
 SW21
-Text Label 2750 2450 0    50   ~ 0
+Text Label 2400 2700 0    50   ~ 0
 SW15
-Text Label 1150 1450 2    50   ~ 0
+Text Label 800  1700 2    50   ~ 0
 SW14
-Text Label 1150 1350 2    50   ~ 0
+Text Label 800  1600 2    50   ~ 0
 SW13
-Text Label 1150 1250 2    50   ~ 0
+Text Label 800  1500 2    50   ~ 0
 SW12
-Text Label 1150 1150 2    50   ~ 0
+Text Label 800  1400 2    50   ~ 0
 SW11
-NoConn ~ 2750 2750
-NoConn ~ 1150 2750
-NoConn ~ 1150 2650
-NoConn ~ 1150 2550
-Text Label 1150 2250 2    50   ~ 0
+NoConn ~ 2400 3000
+Text Label 800  2500 2    50   ~ 0
 SDA_RX
-Text Label 1150 2150 2    50   ~ 0
+Text Label 800  2400 2    50   ~ 0
 SCL_TX
-Text Label 2750 2250 0    50   ~ 0
-RGB_DIN_3V3
 Wire Wire Line
 	5800 2900 5800 3000
 Connection ~ 5800 3000
@@ -769,9 +753,9 @@ Wire Wire Line
 	8950 5500 8950 4650
 Connection ~ 8950 5500
 Connection ~ 8950 4650
-Text Label 2750 1050 0    50   ~ 0
+Text Label 2400 1300 0    50   ~ 0
 3V3
-Text Label 2750 950  0    50   ~ 0
+Text Label 2400 1200 0    50   ~ 0
 GND
 $Comp
 L Device:R R1
@@ -785,9 +769,9 @@ F 3 "~" H 850 5900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 850  5750 1    50   ~ 0
-3V3
+5V
 Text Label 1500 5750 1    50   ~ 0
-3V3
+5V
 Text Label 1500 6050 3    50   ~ 0
 TRRS_R2
 Text Label 850  6050 3    50   ~ 0
@@ -803,8 +787,6 @@ F 3 "~" H 1500 5900 50  0001 C CNN
 	1    1500 5900
 	1    0    0    -1  
 $EndComp
-Wire Notes Line
-	4800 500  4800 7750
 Wire Notes Line
 	4800 2650 11200 2650
 Wire Notes Line
@@ -1093,15 +1075,15 @@ Text Notes 9100 950  0    50   ~ 0
 Grid of switches for the PCB half.\n\nEach switch is connected directly to\na pin of the microcontroller, and to GND.
 Text Notes 9150 3150 0    50   ~ 0
 Grid of WS2812-compatible RGB LEDs,\narranged in the same order as the key switches.\n\nEach DOUT connects to the DIN of the next LED.
-Text Notes 3150 1400 0    50   ~ 0
+Text Notes 600  650  0    50   ~ 0
 The WeAct Studo MiniF4 dev board.
-NoConn ~ 2750 1250
-NoConn ~ 1150 1550
-NoConn ~ 1150 1650
-NoConn ~ 1150 2350
-NoConn ~ 2750 2150
-NoConn ~ 1150 950 
-NoConn ~ 1150 1050
+NoConn ~ 2400 1500
+NoConn ~ 800  1800
+NoConn ~ 800  1900
+NoConn ~ 800  2600
+NoConn ~ 2400 2400
+NoConn ~ 800  1200
+NoConn ~ 800  1300
 $Comp
 L Mechanical:MountingHole H1
 U 1 1 602E59E6
@@ -1157,43 +1139,41 @@ F 3 "~" H 1050 4600 50  0001 C CNN
 	1    1050 4600
 	1    0    0    -1  
 $EndComp
-Text Label 4250 7100 0    50   ~ 0
-SDA_RX_r
-Text Label 4050 7350 1    50   ~ 0
+Text Label 3850 7400 2    50   ~ 0
 TRRS_R1
 Text Label 1300 7000 1    50   ~ 0
 TRRS_R2
 Text Label 1150 7000 1    50   ~ 0
 TRRS_R1
-Text Label 4250 6700 0    50   ~ 0
+Text Label 4200 6700 0    50   ~ 0
 SCL_TX_r
 Text Label 3000 7200 0    50   ~ 0
 SCL_TX_r
 Text Label 3000 7300 0    50   ~ 0
 SDA_RX_r
-Text Label 3950 6900 2    50   ~ 0
+Text Label 3750 6900 2    50   ~ 0
 SCL_TX
-Text Label 3950 7450 2    50   ~ 0
+Text Label 3750 7500 2    50   ~ 0
 SDA_RX
 Wire Wire Line
-	4100 6900 4050 6900
+	3900 6900 3850 6900
 Wire Wire Line
-	4100 7450 4050 7450
-Text Label 4050 6800 1    50   ~ 0
+	3900 7500 3850 7500
+Text Label 3850 6800 2    50   ~ 0
 TRRS_R2
-Text Notes 2400 6350 0    50   ~ 0
-The TRRS jacks for connecting the two PCB halves.\n\nOnly one-of J1 or J_1_r assembled depending on\nwhether PCB is left or right half.\n\nResistors pull the data inputs up so that the PCB half\ncan be used without the other half being connected.\n\nJumpers used to allow either PB6, PB7 of the left half\nto connect to PB6, PB7 or to PB7, PB6 of the right half.
+Text Notes 2400 6500 0    50   ~ 0
+The TRRS jacks for connecting the two PCB halves.\n\nOnly one-of J1 or J_2 assembled depending on\nwhether PCB is left or right half.\n\nResistors pull the data inputs up so that the PCB half\ncan be used without the other half being connected.\n\nJumpers used to allow either PB6, PB7 of the left half\nto connect to PB6, PB7 or to PB7, PB6 of the right half.\ni.e. jumping:\n pad 1: I2C with SCL<->SCL, SDA<->SDA; or\n pad 3: UART with TX->RX, RX<-TX.
 Wire Wire Line
-	4050 6800 4050 6900
-Connection ~ 4050 6900
+	3850 6800 3850 6900
+Connection ~ 3850 6900
 Wire Wire Line
-	4050 6900 3950 6900
+	3850 6900 3750 6900
 Wire Wire Line
-	4050 7350 4050 7450
-Connection ~ 4050 7450
+	3850 7400 3850 7500
+Connection ~ 3850 7500
 Wire Wire Line
-	4050 7450 3950 7450
-NoConn ~ 2750 2350
+	3850 7500 3750 7500
+NoConn ~ 2400 2600
 $Comp
 L Mechanical:MountingHole H6
 U 1 1 603C44C9
@@ -1383,40 +1363,113 @@ Connection ~ 10400 4450
 Wire Wire Line
 	10400 5050 10400 5650
 Connection ~ 10400 5050
+Text Label 3650 2000 2    50   ~ 0
+5V
+Text Label 2400 1100 0    50   ~ 0
+5V
 $Comp
-L Logic_LevelTranslator:SN74LVC1T45DBV U2
-U 1 1 603EC747
-P 3950 2850
-F 0 "U2" H 4394 2896 50  0000 L CNN
-F 1 "SN74LVC1T45DBV" H 4394 2805 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6" H 3950 2400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 3050 2200 50  0001 C CNN
-	1    3950 2850
+L ProjectLocal:MiniF4 U1
+U 1 1 5FD347E3
+P 1600 2000
+F 0 "U1" H 1600 3165 50  0000 C CNN
+F 1 "MiniF4" H 1600 3074 50  0000 C CNN
+F 2 "ProjectLocal:WeAct_MiniF4_ZigZag" H 3850 2450 50  0001 C CNN
+F 3 "" V 2250 1150 50  0001 C CNN
+	1    1600 2000
+	1    0    0    -1  
+$EndComp
+Text Label 2400 2500 0    50   ~ 0
+RGB_DIN_3V3
+$Comp
+L Connector:Conn_01x04_Female TP_2
+U 1 1 6044DBF5
+P 5600 7450
+F 0 "TP_2" H 5628 7426 50  0000 L CNN
+F 1 "Conn_01x04_Female" H 5628 7335 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5600 7450 50  0001 C CNN
+F 3 "~" H 5600 7450 50  0001 C CNN
+	1    5600 7450
 	1    0    0    -1  
 $EndComp
 $Comp
+L Connector:Conn_01x04_Female TP_1
+U 1 1 6044A893
+P 5600 6850
+F 0 "TP_1" H 5628 6826 50  0000 L CNN
+F 1 "Conn_01x04_Female" H 5628 6735 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5600 6850 50  0001 C CNN
+F 3 "~" H 5600 6850 50  0001 C CNN
+	1    5600 6850
+	1    0    0    -1  
+$EndComp
+Text Label 5400 6750 2    50   ~ 0
+GND
+Text Label 5400 7050 2    50   ~ 0
+GND
+Text Label 5400 6850 2    50   ~ 0
+5V
+Text Label 5400 6950 2    50   ~ 0
+RGB_DIN_5V
+Text Label 5400 7350 2    50   ~ 0
+GND
+Text Label 5400 7650 2    50   ~ 0
+GND
+Text Label 5400 7450 2    50   ~ 0
+5V
+Text Label 10100 5950 0    50   ~ 0
+DOUT_BL
+Text Label 5400 7550 2    50   ~ 0
+DOUT_BL
+Text Notes 4950 6600 0    50   ~ 0
+01x04 test point connectors for interfacing\nwith the WS2812-compatible RGBs.\n\nThis facilitates testing.\nIt allows the RGB LEDs to be driven\nwithout the U1 dev board being soldered in.\nIt also provides a way to use U1 to drive\nother WS2812-compatible RGB strips.
+Text Label 3950 1800 2    50   ~ 0
+RGB_DIN_3V3
+Text Label 4350 2200 3    50   ~ 0
+GND
+Text Label 4250 1400 1    50   ~ 0
+3V3
+Text Label 4450 1400 1    50   ~ 0
+5V
+Text Label 4750 1800 0    50   ~ 0
+RGB_DIN_5V
+$Comp
 L Device:R R3
 U 1 1 603F5BAE
-P 3400 3050
-F 0 "R3" H 3470 3050 50  0000 L CNN
-F 1 "2.2k - 10k" H 3470 3005 50  0000 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 3330 3050 50  0001 C CNN
-F 3 "~" H 3400 3050 50  0001 C CNN
-	1    3400 3050
+P 3800 2000
+F 0 "R3" H 3870 2000 50  0000 L CNN
+F 1 "2.2k - 10k" H 3870 1955 50  0000 L TNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 3730 2000 50  0001 C CNN
+F 3 "~" H 3800 2000 50  0001 C CNN
+	1    3800 2000
 	0    1    1    0   
 $EndComp
-Text Label 3250 3050 2    50   ~ 0
-5V
-Text Label 4350 2850 0    50   ~ 0
-RGB_DIN_5V
-Text Label 3550 2850 2    50   ~ 0
-RGB_DIN_3V3
-Text Label 4050 2450 1    50   ~ 0
-5V
-Text Label 3850 2450 1    50   ~ 0
-3V3
-Text Label 2750 850  0    50   ~ 0
-5V
-Text Label 3950 3250 3    50   ~ 0
-GND
+$Comp
+L Logic_LevelTranslator:SN74LVC1T45DBV U2
+U 1 1 603EC747
+P 4350 1800
+F 0 "U2" H 4700 2050 50  0000 L CNN
+F 1 "SN74LVC1T45DBV" H 4700 1950 50  0000 L CNN
+F 2 "ProjectLocal:SOT-23-6_Handsoldering_Reversible" H 4350 1350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 3450 1150 50  0001 C CNN
+	1    4350 1800
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	3000 500  3000 3350
+Wire Notes Line
+	4800 2650 4800 7800
+Wire Notes Line
+	5800 500  5800 2650
+Text Notes 3150 850  0    50   ~ 0
+Convert the voltage of the RGB_DIN_3V3 signal to 5V\nso that the SK6812mini-e and SK6812 receive the\nRGB data reliably.
+Text Label 4200 7100 0    50   ~ 0
+SDA_RX_r
+Wire Wire Line
+	4050 6700 4200 6700
+Wire Wire Line
+	4050 7100 4200 7100
+Wire Wire Line
+	4050 7300 4200 7300
+Wire Wire Line
+	4050 7700 4200 7700
 $EndSCHEMATC
