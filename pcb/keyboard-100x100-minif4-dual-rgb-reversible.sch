@@ -692,7 +692,7 @@ F 3 "" H 2800 7500 60  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 NoConn ~ 800  1100
-NoConn ~ 800  2700
+NoConn ~ 2400 2700
 NoConn ~ 2400 2800
 NoConn ~ 2400 2900
 Text Label 2400 2200 0    50   ~ 0
@@ -709,7 +709,7 @@ Text Label 2400 1700 0    50   ~ 0
 SW33
 Text Label 2400 1600 0    50   ~ 0
 SW32
-Text Label 2400 2300 0    50   ~ 0
+Text Label 800  2700 2    50   ~ 0
 SW31
 Text Label 2400 1400 0    50   ~ 0
 SW25
@@ -721,7 +721,7 @@ Text Label 800  2000 2    50   ~ 0
 SW22
 Text Label 800  2300 2    50   ~ 0
 SW21
-Text Label 2400 2700 0    50   ~ 0
+Text Label 2400 2300 0    50   ~ 0
 SW15
 Text Label 800  1700 2    50   ~ 0
 SW14

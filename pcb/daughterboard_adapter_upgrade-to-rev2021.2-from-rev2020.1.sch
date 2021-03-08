@@ -33,7 +33,7 @@ Text Label 4650 5800 1    50   ~ 0
 Text Label 4750 6600 3    50   ~ 0
 GND
 NoConn ~ 1550 3100
-NoConn ~ 1550 4700
+NoConn ~ 3150 4700
 NoConn ~ 3150 4800
 NoConn ~ 3150 4900
 Text Label 3150 4200 0    50   ~ 0
@@ -50,7 +50,7 @@ Text Label 3150 3700 0    50   ~ 0
 SW33
 Text Label 3150 3600 0    50   ~ 0
 SW32
-Text Label 3150 4300 0    50   ~ 0
+Text Label 1550 4700 2    50   ~ 0
 SW31
 Text Label 3150 3400 0    50   ~ 0
 SW25
@@ -62,7 +62,7 @@ Text Label 1550 4000 2    50   ~ 0
 SW22
 Text Label 1550 4300 2    50   ~ 0
 SW21
-Text Label 3150 4700 0    50   ~ 0
+Text Label 3150 4300 0    50   ~ 0
 SW15
 Text Label 1550 3700 2    50   ~ 0
 SW14
@@ -94,7 +94,7 @@ NoConn ~ 3150 4600
 Text Label 3150 3100 0    50   ~ 0
 5V
 Text Notes 700  1700 0    50   ~ 0
-Fixes for Errata Revision 2020.1 of\nkeyboard 100x100 MiniF4 36-key split:\n\n1. Switches:\n\nSW : r2020.1 - r2021.1\nSW31 : PB2 -  PA2\nSW15 : PA11 -  PC15\nSW21 : PA12 -  PB5\n\n2. Incorrect voltage for SK6812mini-e VDD, DIN.\nr2020.1 uses the top-right 3V3 pin - needs 5V.\nr2020.1’s A0 is used directly to RGB in - needs conversion to 5V signal.
+Fixes for Errata Revision 2020.1 of\nkeyboard 100x100 MiniF4 36-key split:\n\n1. Switches:\n\nSW : r2020.1 - r2021.2\nSW31 : PB2 -  PB9\nSW15 : PA11 -  PA2\nSW21 : PA12 -  PB5\n\n2. Incorrect voltage for SK6812mini-e VDD, DIN.\nr2020.1 uses the top-right 3V3 pin - needs 5V.\nr2020.1’s A0 is used directly to RGB in - needs conversion to 5V signal.
 Text Label 4350 6200 2    50   ~ 0
 RGB_DIN_3V3
 Text Label 4050 6400 2    50   ~ 0
