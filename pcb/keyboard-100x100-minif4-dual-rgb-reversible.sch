@@ -579,10 +579,10 @@ Wire Wire Line
 	5800 4700 5800 5550
 Connection ~ 5800 4700
 $Comp
-L Device:R R_4
+L Device:R R4
 U 1 1 60D9AF80
 P 5600 3150
-F 0 "R_4" H 5530 3196 50  0000 R CNN
+F 0 "R4" H 5530 3196 50  0000 R CNN
 F 1 "300 - 500R" H 5530 3105 50  0000 R CNN
 F 2 "ProjectLocal:Resistor-Hybrid" V 5530 3150 50  0001 C CNN
 F 3 "~" H 5600 3150 50  0001 C CNN
@@ -592,10 +592,10 @@ $EndComp
 Wire Wire Line
 	5600 3300 5900 3300
 $Comp
-L Jumper:SolderJumper_3_Open JP_1
+L Jumper:SolderJumper_3_Open JP1
 U 1 1 60FF4E5E
 P 4050 6900
-F 0 "JP_1" V 4050 6968 50  0000 L CNN
+F 0 "JP1" V 4050 6968 50  0000 L CNN
 F 1 "SolderJumper_3_Open" V 4095 6968 50  0001 L CNN
 F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4050 6900 50  0001 C CNN
 F 3 "~" H 4050 6900 50  0001 C CNN
@@ -603,10 +603,10 @@ F 3 "~" H 4050 6900 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Jumper:SolderJumper_3_Open JP_2
+L Jumper:SolderJumper_3_Open JP2
 U 1 1 60FF5D91
 P 4050 7500
-F 0 "JP_2" V 4050 7568 50  0000 L CNN
+F 0 "JP2" V 4050 7568 50  0000 L CNN
 F 1 "SolderJumper_3_Open" V 4095 7568 50  0001 L CNN
 F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 4050 7500 50  0001 C CNN
 F 3 "~" H 4050 7500 50  0001 C CNN
@@ -681,10 +681,10 @@ F 3 "" H 1950 7500 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L keebio:TRRS J_2
+L keebio:TRRS J2
 U 1 1 5FDFA2E7
 P 2650 7500
-F 0 "J_2" H 2567 8187 60  0000 C CNN
+F 0 "J2" H 2567 8187 60  0000 C CNN
 F 1 "TRRS" H 2567 8081 60  0000 C CNN
 F 2 "Keebio-Parts:TRRS-PJ-320A" H 2800 7500 60  0001 C CNN
 F 3 "" H 2800 7500 60  0001 C CNN
@@ -1269,10 +1269,10 @@ F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf"
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:C_Small C_1
+L Device:C_Small C_BL_1
 U 1 1 6040C40C
 P 9650 3950
-F 0 "C_1" V 9513 3950 50  0000 C BNN
+F 0 "C_BL_1" V 9513 3950 50  0000 C BNN
 F 1 "100nF" V 9512 3950 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 3950 50  0001 C CNN
 F 3 "~" H 9650 3950 50  0001 C CNN
@@ -1280,10 +1280,10 @@ F 3 "~" H 9650 3950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:C_Small C_2
+L Device:C_Small C_BL_2
 U 1 1 6040D1BF
 P 9650 4550
-F 0 "C_2" V 9513 4550 50  0000 C BNN
+F 0 "C_BL_2" V 9513 4550 50  0000 C BNN
 F 1 "100nF" V 9512 4550 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 4550 50  0001 C CNN
 F 3 "~" H 9650 4550 50  0001 C CNN
@@ -1291,10 +1291,10 @@ F 3 "~" H 9650 4550 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:C_Small C_3
+L Device:C_Small C_BL_3
 U 1 1 6040D6FB
 P 9650 5150
-F 0 "C_3" V 9513 5150 50  0000 C BNN
+F 0 "C_BL_3" V 9513 5150 50  0000 C BNN
 F 1 "100nF" V 9512 5150 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 5150 50  0001 C CNN
 F 3 "~" H 9650 5150 50  0001 C CNN
@@ -1302,10 +1302,10 @@ F 3 "~" H 9650 5150 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:C_Small C_4
+L Device:C_Small C_BL_4
 U 1 1 6040D957
 P 9700 5750
-F 0 "C_4" V 9563 5750 50  0000 C BNN
+F 0 "C_BL_4" V 9563 5750 50  0000 C BNN
 F 1 "100nF" V 9562 5750 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9700 5750 50  0001 C CNN
 F 3 "~" H 9700 5750 50  0001 C CNN
@@ -1365,10 +1365,10 @@ Text Label 2400 1100 0    50   ~ 0
 Text Label 2400 2500 0    50   ~ 0
 RGB_DIN_3V3
 $Comp
-L Connector:Conn_01x04_Female TP_2
+L Connector:Conn_01x04_Female TP2
 U 1 1 6044DBF5
 P 5600 7450
-F 0 "TP_2" H 5628 7426 50  0000 L CNN
+F 0 "TP2" H 5628 7426 50  0000 L CNN
 F 1 "Conn_01x04_Female" H 5628 7335 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5600 7450 50  0001 C CNN
 F 3 "~" H 5600 7450 50  0001 C CNN
@@ -1376,10 +1376,10 @@ F 3 "~" H 5600 7450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x04_Female TP_1
+L Connector:Conn_01x04_Female TP1
 U 1 1 6044A893
 P 5600 6850
-F 0 "TP_1" H 5628 6826 50  0000 L CNN
+F 0 "TP1" H 5628 6826 50  0000 L CNN
 F 1 "Conn_01x04_Female" H 5628 6735 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5600 6850 50  0001 C CNN
 F 3 "~" H 5600 6850 50  0001 C CNN
@@ -1492,10 +1492,10 @@ Mechanical:\nH1-H5 for silkscreen hints for bumpons\n(and aid PCB layout),\nH6-H
 Text Notes 550  3550 0    50   ~ 0
 Rotary encoder + switch.
 $Comp
-L Device:Rotary_Encoder_Switch SW_RE_1
+L Device:Rotary_Encoder_Switch SW_RE1
 U 1 1 604C2BC3
 P 1150 4150
-F 0 "SW_RE_1" H 1150 4517 50  0000 C CNN
+F 0 "SW_RE1" H 1150 4517 50  0000 C CNN
 F 1 "Rotary_Encoder_Switch" H 1150 4426 50  0000 C CNN
 F 2 "" H 1000 4310 50  0001 C CNN
 F 3 "~" H 1150 4410 50  0001 C CNN
@@ -1668,10 +1668,10 @@ OLED_SCL
 Text Label 3650 5200 2    50   ~ 0
 OLED_SDA
 $Comp
-L Device:R R4
+L Device:R R5
 U 1 1 605F4492
 P 850 4900
-F 0 "R4" V 1050 4850 50  0000 L CNN
+F 0 "R5" V 1050 4850 50  0000 L CNN
 F 1 "2.2k - 10k" V 950 4700 50  0000 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid" V 780 4900 50  0001 C CNN
 F 3 "~" H 850 4900 50  0001 C CNN
@@ -1683,10 +1683,10 @@ Wire Notes Line
 Wire Notes Line
 	1800 4500 500  4500
 $Comp
-L Device:R R5
+L Device:R R6
 U 1 1 6061DE45
 P 850 5250
-F 0 "R5" V 1050 5200 50  0000 L CNN
+F 0 "R6" V 1050 5200 50  0000 L CNN
 F 1 "2.2k - 10k" V 950 5050 50  0000 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid" V 780 5250 50  0001 C CNN
 F 3 "~" H 850 5250 50  0001 C CNN
