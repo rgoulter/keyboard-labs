@@ -691,49 +691,49 @@ F 3 "" H 2800 7500 60  0001 C CNN
 	1    2650 7500
 	-1   0    0    -1  
 $EndComp
-NoConn ~ 2400 2700
-NoConn ~ 2400 2800
-NoConn ~ 2400 2900
-Text Label 2400 2200 0    50   ~ 0
+NoConn ~ 2500 2700
+NoConn ~ 2500 2800
+NoConn ~ 2500 2900
+Text Label 2500 2200 0    50   ~ 0
 SW43
-Text Label 2400 2100 0    50   ~ 0
+Text Label 2500 2100 0    50   ~ 0
 SW42
-Text Label 2400 2000 0    50   ~ 0
+Text Label 2500 2000 0    50   ~ 0
 SW41
-Text Label 2400 1900 0    50   ~ 0
+Text Label 2500 1900 0    50   ~ 0
 SW35
-Text Label 2400 1800 0    50   ~ 0
+Text Label 2500 1800 0    50   ~ 0
 SW34
-Text Label 2400 1700 0    50   ~ 0
+Text Label 2500 1700 0    50   ~ 0
 SW33
-Text Label 2400 1600 0    50   ~ 0
+Text Label 2500 1600 0    50   ~ 0
 SW32
-Text Label 800  2700 2    50   ~ 0
+Text Label 2500 2400 0    50   ~ 0
 SW31
-Text Label 2400 1400 0    50   ~ 0
+Text Label 2500 1400 0    50   ~ 0
 SW25
-Text Label 800  2200 2    50   ~ 0
+Text Label 900  2200 2    50   ~ 0
 SW24
-Text Label 800  2100 2    50   ~ 0
+Text Label 900  2100 2    50   ~ 0
 SW23
-Text Label 800  2000 2    50   ~ 0
+Text Label 900  2000 2    50   ~ 0
 SW22
-Text Label 800  2300 2    50   ~ 0
+Text Label 900  2300 2    50   ~ 0
 SW21
-Text Label 2400 2300 0    50   ~ 0
+Text Label 2500 2300 0    50   ~ 0
 SW15
-Text Label 800  1700 2    50   ~ 0
+Text Label 900  1700 2    50   ~ 0
 SW14
-Text Label 800  1600 2    50   ~ 0
+Text Label 900  1600 2    50   ~ 0
 SW13
-Text Label 800  1500 2    50   ~ 0
+Text Label 900  1500 2    50   ~ 0
 SW12
-Text Label 800  1400 2    50   ~ 0
+Text Label 900  1400 2    50   ~ 0
 SW11
-NoConn ~ 2400 3000
-Text Label 800  2500 2    50   ~ 0
+NoConn ~ 2500 3000
+Text Label 900  2500 2    50   ~ 0
 SDA_RX
-Text Label 800  2400 2    50   ~ 0
+Text Label 900  2400 2    50   ~ 0
 SCL_TX
 Wire Wire Line
 	5800 2900 5800 3000
@@ -752,9 +752,9 @@ Wire Wire Line
 	8950 5500 8950 4650
 Connection ~ 8950 5500
 Connection ~ 8950 4650
-Text Label 2400 1300 0    50   ~ 0
+Text Label 2500 1300 0    50   ~ 0
 3V3
-Text Label 2400 1200 0    50   ~ 0
+Text Label 2500 1200 0    50   ~ 0
 GND
 $Comp
 L Device:R R1
@@ -1072,13 +1072,11 @@ Text Notes 9100 950  0    50   ~ 0
 Grid of switches for the PCB half.\n\nEach switch is connected directly to\na pin of the microcontroller, and to GND.
 Text Notes 9150 3150 0    50   ~ 0
 Grid of WS2812-compatible RGB LEDs,\narranged in the same order as the key switches.\n\nEach DOUT connects to the DIN of the next LED.
-Text Notes 600  650  0    50   ~ 0
+Text Notes 700  650  0    50   ~ 0
 The WeAct Studo MiniF4 dev board.
-NoConn ~ 2400 1500
-NoConn ~ 800  1800
-NoConn ~ 800  1900
-NoConn ~ 800  2600
-NoConn ~ 2400 2400
+NoConn ~ 2500 1500
+NoConn ~ 900  1800
+NoConn ~ 900  1900
 $Comp
 L Mechanical:MountingHole H1
 U 1 1 602E59E6
@@ -1168,7 +1166,7 @@ Wire Wire Line
 Connection ~ 3850 7500
 Wire Wire Line
 	3850 7500 3750 7500
-NoConn ~ 2400 2600
+NoConn ~ 2500 2600
 $Comp
 L Mechanical:MountingHole H6
 U 1 1 603C44C9
@@ -1360,9 +1358,9 @@ Wire Wire Line
 Connection ~ 10400 5050
 Text Label 3650 2000 2    50   ~ 0
 5V
-Text Label 2400 1100 0    50   ~ 0
+Text Label 2500 1100 0    50   ~ 0
 5V
-Text Label 2400 2500 0    50   ~ 0
+Text Label 2500 2500 0    50   ~ 0
 RGB_DIN_3V3
 $Comp
 L Connector:Conn_01x04_Female TP2
@@ -1469,19 +1467,19 @@ GND
 $Comp
 L ProjectLocal:MiniF4 U1
 U 1 1 5FD347E3
-P 1600 2000
-F 0 "U1" H 1600 3165 50  0000 C CNN
-F 1 "MiniF4" H 1600 3074 50  0000 C CNN
-F 2 "ProjectLocal:WeAct_MiniF4_ZigZag" H 3850 2450 50  0001 C CNN
-F 3 "" V 2250 1150 50  0001 C CNN
-	1    1600 2000
+P 1700 2000
+F 0 "U1" H 1700 3165 50  0000 C CNN
+F 1 "MiniF4" H 1700 3074 50  0000 C CNN
+F 2 "ProjectLocal:WeAct_MiniF4_ZigZag" H 3950 2450 50  0001 C CNN
+F 3 "" V 2350 1150 50  0001 C CNN
+	1    1700 2000
 	1    0    0    -1  
 $EndComp
-Text Label 800  1100 2    50   ~ 0
+Text Label 900  1100 2    50   ~ 0
 RE_A
-Text Label 800  1200 2    50   ~ 0
+Text Label 900  1200 2    50   ~ 0
 RE_B
-Text Label 800  1300 2    50   ~ 0
+Text Label 900  1300 2    50   ~ 0
 SW_RE
 Wire Notes Line
 	11200 1250 9000 1250
@@ -1497,7 +1495,7 @@ U 1 1 604C2BC3
 P 1150 4150
 F 0 "SW_RE1" H 1150 4517 50  0000 C CNN
 F 1 "Rotary_Encoder_Switch" H 1150 4426 50  0000 C CNN
-F 2 "" H 1000 4310 50  0001 C CNN
+F 2 "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm" H 1000 4310 50  0001 C CNN
 F 3 "~" H 1150 4410 50  0001 C CNN
 	1    1150 4150
 	1    0    0    -1  
@@ -1508,7 +1506,7 @@ U 1 1 60521A32
 P 4450 3700
 F 0 "J3" V 4650 3700 50  0000 R CNN
 F 1 "Conn_01x04_Female" V 4550 4150 50  0001 R CNN
-F 2 "" H 4450 3700 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 4450 3700 50  0001 C CNN
 F 3 "~" H 4450 3700 50  0001 C CNN
 	1    4450 3700
 	0    -1   -1   0   
@@ -1519,7 +1517,7 @@ U 1 1 60528B37
 P 2450 4450
 F 0 "JP3" H 2450 4563 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 2450 4564 50  0001 C CNN
-F 2 "" H 2450 4450 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 2450 4450 50  0001 C CNN
 F 3 "~" H 2450 4450 50  0001 C CNN
 	1    2450 4450
 	1    0    0    -1  
@@ -1532,7 +1530,7 @@ U 1 1 6052FAA5
 P 2450 4700
 F 0 "JP4" H 2450 4813 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 2450 4814 50  0001 C CNN
-F 2 "" H 2450 4700 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 2450 4700 50  0001 C CNN
 F 3 "~" H 2450 4700 50  0001 C CNN
 	1    2450 4700
 	1    0    0    -1  
@@ -1543,7 +1541,7 @@ U 1 1 6053034C
 P 2450 4950
 F 0 "JP5" H 2450 5063 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 2450 5064 50  0001 C CNN
-F 2 "" H 2450 4950 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 2450 4950 50  0001 C CNN
 F 3 "~" H 2450 4950 50  0001 C CNN
 	1    2450 4950
 	1    0    0    -1  
@@ -1554,7 +1552,7 @@ U 1 1 60530B58
 P 2450 5200
 F 0 "JP6" H 2450 5313 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 2450 5314 50  0001 C CNN
-F 2 "" H 2450 5200 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 2450 5200 50  0001 C CNN
 F 3 "~" H 2450 5200 50  0001 C CNN
 	1    2450 5200
 	1    0    0    -1  
@@ -1565,7 +1563,7 @@ U 1 1 60552AED
 P 3800 4450
 F 0 "JP7" H 3800 4563 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 3800 4564 50  0001 C CNN
-F 2 "" H 3800 4450 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 3800 4450 50  0001 C CNN
 F 3 "~" H 3800 4450 50  0001 C CNN
 	1    3800 4450
 	1    0    0    -1  
@@ -1576,7 +1574,7 @@ U 1 1 60553356
 P 3800 4700
 F 0 "JP8" H 3800 4813 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 3800 4814 50  0001 C CNN
-F 2 "" H 3800 4700 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 3800 4700 50  0001 C CNN
 F 3 "~" H 3800 4700 50  0001 C CNN
 	1    3800 4700
 	1    0    0    -1  
@@ -1587,7 +1585,7 @@ U 1 1 60553C5A
 P 3800 4950
 F 0 "JP9" H 3800 5063 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 3800 5064 50  0001 C CNN
-F 2 "" H 3800 4950 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 3800 4950 50  0001 C CNN
 F 3 "~" H 3800 4950 50  0001 C CNN
 	1    3800 4950
 	1    0    0    -1  
@@ -1598,7 +1596,7 @@ U 1 1 605571DE
 P 3800 5200
 F 0 "JP10" H 3800 5313 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 3800 5314 50  0001 C CNN
-F 2 "" H 3800 5200 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 3800 5200 50  0001 C CNN
 F 3 "~" H 3800 5200 50  0001 C CNN
 	1    3800 5200
 	1    0    0    -1  
@@ -1658,7 +1656,7 @@ Text Label 2300 4700 2    50   ~ 0
 Text Label 2300 4950 2    50   ~ 0
 OLED_SCL
 Text Label 2300 5200 2    50   ~ 0
-OLED_SCA
+OLED_SDA
 Text Label 3650 4450 2    50   ~ 0
 GND
 Text Label 3650 4700 2    50   ~ 0
@@ -1705,4 +1703,8 @@ Wire Notes Line
 	500  5350 4800 5350
 Text Notes 500  4600 0    50   ~ 0
 Pull OLED I2C up.
+Text Label 900  2700 2    50   ~ 0
+OLED_SDA
+Text Label 900  2600 2    50   ~ 0
+OLED_SCL
 $EndSCHEMATC
