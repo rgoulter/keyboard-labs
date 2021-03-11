@@ -790,8 +790,6 @@ Wire Notes Line
 	4800 2650 11200 2650
 Wire Notes Line
 	500  3350 4800 3350
-Wire Notes Line
-	500  5350 4800 5350
 Text Label 6400 1950 3    50   ~ 0
 GND
 Text Label 7000 1950 3    50   ~ 0
@@ -1504,4 +1502,207 @@ F 3 "~" H 1150 4410 50  0001 C CNN
 	1    1150 4150
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector:Conn_01x04_Female J3
+U 1 1 60521A32
+P 4450 3700
+F 0 "J3" V 4650 3700 50  0000 R CNN
+F 1 "Conn_01x04_Female" V 4550 4150 50  0001 R CNN
+F 2 "" H 4450 3700 50  0001 C CNN
+F 3 "~" H 4450 3700 50  0001 C CNN
+	1    4450 3700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP3
+U 1 1 60528B37
+P 2450 4450
+F 0 "JP3" H 2450 4563 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 2450 4564 50  0001 C CNN
+F 2 "" H 2450 4450 50  0001 C CNN
+F 3 "~" H 2450 4450 50  0001 C CNN
+	1    2450 4450
+	1    0    0    -1  
+$EndComp
+Text Notes 1850 3800 0    50   ~ 0
+OLED module with I2C.\nPins are GND, VCC, SCL, SDA.\nHowever, since the board is reversible, and it’s easier\nto use the same 01x04 pins on the PCB,\nthe connections each have to be jumped.
+$Comp
+L Jumper:SolderJumper_2_Open JP4
+U 1 1 6052FAA5
+P 2450 4700
+F 0 "JP4" H 2450 4813 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 2450 4814 50  0001 C CNN
+F 2 "" H 2450 4700 50  0001 C CNN
+F 3 "~" H 2450 4700 50  0001 C CNN
+	1    2450 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP5
+U 1 1 6053034C
+P 2450 4950
+F 0 "JP5" H 2450 5063 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 2450 5064 50  0001 C CNN
+F 2 "" H 2450 4950 50  0001 C CNN
+F 3 "~" H 2450 4950 50  0001 C CNN
+	1    2450 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP6
+U 1 1 60530B58
+P 2450 5200
+F 0 "JP6" H 2450 5313 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 2450 5314 50  0001 C CNN
+F 2 "" H 2450 5200 50  0001 C CNN
+F 3 "~" H 2450 5200 50  0001 C CNN
+	1    2450 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP7
+U 1 1 60552AED
+P 3800 4450
+F 0 "JP7" H 3800 4563 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 3800 4564 50  0001 C CNN
+F 2 "" H 3800 4450 50  0001 C CNN
+F 3 "~" H 3800 4450 50  0001 C CNN
+	1    3800 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP8
+U 1 1 60553356
+P 3800 4700
+F 0 "JP8" H 3800 4813 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 3800 4814 50  0001 C CNN
+F 2 "" H 3800 4700 50  0001 C CNN
+F 3 "~" H 3800 4700 50  0001 C CNN
+	1    3800 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP9
+U 1 1 60553C5A
+P 3800 4950
+F 0 "JP9" H 3800 5063 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 3800 5064 50  0001 C CNN
+F 2 "" H 3800 4950 50  0001 C CNN
+F 3 "~" H 3800 4950 50  0001 C CNN
+	1    3800 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP10
+U 1 1 605571DE
+P 3800 5200
+F 0 "JP10" H 3800 5313 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 3800 5314 50  0001 C CNN
+F 2 "" H 3800 5200 50  0001 C CNN
+F 3 "~" H 3800 5200 50  0001 C CNN
+	1    3800 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 3900 2600 3900
+Wire Wire Line
+	4350 5200 3950 5200
+Connection ~ 4350 3900
+Wire Wire Line
+	4450 3900 4450 4000
+Wire Wire Line
+	4450 4000 2700 4000
+Wire Wire Line
+	2700 4700 2600 4700
+Wire Wire Line
+	4450 4950 3950 4950
+Connection ~ 4450 4000
+Wire Wire Line
+	4550 3900 4550 4100
+Wire Wire Line
+	4550 4100 2800 4100
+Wire Wire Line
+	2800 4950 2600 4950
+Wire Wire Line
+	4550 4700 3950 4700
+Connection ~ 4550 4100
+Wire Wire Line
+	4650 4450 3950 4450
+Wire Wire Line
+	2600 3900 2600 4450
+Wire Wire Line
+	2700 4000 2700 4700
+Wire Wire Line
+	2800 4100 2800 4950
+Wire Wire Line
+	4650 3900 4650 4200
+Wire Wire Line
+	4550 4100 4550 4700
+Wire Wire Line
+	4450 4000 4450 4950
+Wire Wire Line
+	4350 3900 4350 5200
+Wire Wire Line
+	4650 4200 2900 4200
+Wire Wire Line
+	2900 4200 2900 5200
+Wire Wire Line
+	2900 5200 2600 5200
+Connection ~ 4650 4200
+Wire Wire Line
+	4650 4200 4650 4450
+Text Label 2300 4450 2    50   ~ 0
+GND
+Text Label 2300 4700 2    50   ~ 0
+5V
+Text Label 2300 4950 2    50   ~ 0
+OLED_SCL
+Text Label 2300 5200 2    50   ~ 0
+OLED_SCA
+Text Label 3650 4450 2    50   ~ 0
+GND
+Text Label 3650 4700 2    50   ~ 0
+5V
+Text Label 3650 4950 2    50   ~ 0
+OLED_SCL
+Text Label 3650 5200 2    50   ~ 0
+OLED_SDA
+$Comp
+L Device:R R4
+U 1 1 605F4492
+P 850 4900
+F 0 "R4" V 1050 4850 50  0000 L CNN
+F 1 "2.2k - 10k" V 950 4700 50  0000 L TNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 780 4900 50  0001 C CNN
+F 3 "~" H 850 4900 50  0001 C CNN
+	1    850  4900
+	0    -1   -1   0   
+$EndComp
+Wire Notes Line
+	1800 3350 1800 4500
+Wire Notes Line
+	1800 4500 500  4500
+$Comp
+L Device:R R5
+U 1 1 6061DE45
+P 850 5250
+F 0 "R5" V 1050 5200 50  0000 L CNN
+F 1 "2.2k - 10k" V 950 5050 50  0000 L TNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 780 5250 50  0001 C CNN
+F 3 "~" H 850 5250 50  0001 C CNN
+	1    850  5250
+	0    -1   -1   0   
+$EndComp
+Text Label 700  4900 2    50   ~ 0
+3V3
+Text Label 700  5250 2    50   ~ 0
+3V3
+Text Label 1000 4900 0    50   ~ 0
+OLED_SCL
+Text Label 1000 5250 0    50   ~ 0
+OLED_SDA
+Wire Notes Line
+	500  5350 4800 5350
+Text Notes 500  4600 0    50   ~ 0
+Pull OLED I2C up.
 $EndSCHEMATC
