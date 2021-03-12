@@ -1080,56 +1080,56 @@ NoConn ~ 900  1900
 $Comp
 L Mechanical:MountingHole H1
 U 1 1 602E59E6
-P 9700 1750
-F 0 "H1" H 9800 1796 50  0000 L CNN
-F 1 "MountingHole" H 9800 1705 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 9700 1750 50  0001 C CNN
-F 3 "~" H 9700 1750 50  0001 C CNN
-	1    9700 1750
+P 9200 1750
+F 0 "H1" H 9300 1796 50  0000 L CNN
+F 1 "MountingHole" H 9300 1705 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 9200 1750 50  0001 C CNN
+F 3 "~" H 9200 1750 50  0001 C CNN
+	1    9200 1750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H2
 U 1 1 602EA31E
-P 9700 1950
-F 0 "H2" H 9800 1996 50  0000 L CNN
-F 1 "MountingHole" H 9800 1905 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 9700 1950 50  0001 C CNN
-F 3 "~" H 9700 1950 50  0001 C CNN
-	1    9700 1950
+P 9200 1950
+F 0 "H2" H 9300 1996 50  0000 L CNN
+F 1 "MountingHole" H 9300 1905 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 9200 1950 50  0001 C CNN
+F 3 "~" H 9200 1950 50  0001 C CNN
+	1    9200 1950
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H3
 U 1 1 602EA63D
-P 9700 2150
-F 0 "H3" H 9800 2196 50  0000 L CNN
-F 1 "MountingHole" H 9800 2105 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 9700 2150 50  0001 C CNN
-F 3 "~" H 9700 2150 50  0001 C CNN
-	1    9700 2150
+P 9200 2150
+F 0 "H3" H 9300 2196 50  0000 L CNN
+F 1 "MountingHole" H 9300 2105 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 9200 2150 50  0001 C CNN
+F 3 "~" H 9200 2150 50  0001 C CNN
+	1    9200 2150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H4
 U 1 1 602EA8E5
-P 9700 2350
-F 0 "H4" H 9800 2396 50  0000 L CNN
-F 1 "MountingHole" H 9800 2305 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 9700 2350 50  0001 C CNN
-F 3 "~" H 9700 2350 50  0001 C CNN
-	1    9700 2350
+P 9200 2350
+F 0 "H4" H 9300 2396 50  0000 L CNN
+F 1 "MountingHole" H 9300 2305 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 9200 2350 50  0001 C CNN
+F 3 "~" H 9200 2350 50  0001 C CNN
+	1    9200 2350
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H5
 U 1 1 602EEB15
-P 9700 2550
-F 0 "H5" H 9800 2596 50  0000 L CNN
-F 1 "MountingHole" H 9800 2505 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 9700 2550 50  0001 C CNN
-F 3 "~" H 9700 2550 50  0001 C CNN
-	1    9700 2550
+P 9200 2550
+F 0 "H5" H 9300 2596 50  0000 L CNN
+F 1 "MountingHole" H 9300 2505 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 9200 2550 50  0001 C CNN
+F 3 "~" H 9200 2550 50  0001 C CNN
+	1    9200 2550
 	1    0    0    -1  
 $EndComp
 Text Label 3850 7400 2    50   ~ 0
@@ -1170,56 +1170,56 @@ NoConn ~ 2500 2600
 $Comp
 L Mechanical:MountingHole H6
 U 1 1 603C44C9
-P 10550 1750
-F 0 "H6" H 10650 1796 50  0000 L CNN
-F 1 "MountingHole" H 10650 1705 50  0000 L CNN
-F 2 "ProjectLocal:H_M2_Spacer_Hole" H 10550 1750 50  0001 C CNN
-F 3 "~" H 10550 1750 50  0001 C CNN
-	1    10550 1750
+P 9950 1750
+F 0 "H6" H 10050 1796 50  0000 L CNN
+F 1 "MountingHole" H 10050 1705 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 9950 1750 50  0001 C CNN
+F 3 "~" H 9950 1750 50  0001 C CNN
+	1    9950 1750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H7
 U 1 1 603C4D5A
-P 10550 1950
-F 0 "H7" H 10650 1996 50  0000 L CNN
-F 1 "MountingHole" H 10650 1905 50  0000 L CNN
-F 2 "ProjectLocal:H_M2_Spacer_Hole" H 10550 1950 50  0001 C CNN
-F 3 "~" H 10550 1950 50  0001 C CNN
-	1    10550 1950
+P 9950 1950
+F 0 "H7" H 10050 1996 50  0000 L CNN
+F 1 "MountingHole" H 10050 1905 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 9950 1950 50  0001 C CNN
+F 3 "~" H 9950 1950 50  0001 C CNN
+	1    9950 1950
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H8
 U 1 1 603C5079
-P 10550 2150
-F 0 "H8" H 10650 2196 50  0000 L CNN
-F 1 "MountingHole" H 10650 2105 50  0000 L CNN
-F 2 "ProjectLocal:H_M2_Spacer_Hole" H 10550 2150 50  0001 C CNN
-F 3 "~" H 10550 2150 50  0001 C CNN
-	1    10550 2150
+P 9950 2150
+F 0 "H8" H 10050 2196 50  0000 L CNN
+F 1 "MountingHole" H 10050 2105 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 9950 2150 50  0001 C CNN
+F 3 "~" H 9950 2150 50  0001 C CNN
+	1    9950 2150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H9
 U 1 1 603C53A9
-P 10550 2350
-F 0 "H9" H 10650 2396 50  0000 L CNN
-F 1 "MountingHole" H 10650 2305 50  0000 L CNN
-F 2 "ProjectLocal:H_M2_Spacer_Hole" H 10550 2350 50  0001 C CNN
-F 3 "~" H 10550 2350 50  0001 C CNN
-	1    10550 2350
+P 9950 2350
+F 0 "H9" H 10050 2396 50  0000 L CNN
+F 1 "MountingHole" H 10050 2305 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 9950 2350 50  0001 C CNN
+F 3 "~" H 9950 2350 50  0001 C CNN
+	1    9950 2350
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H10
 U 1 1 603C55A7
-P 10550 2550
-F 0 "H10" H 10650 2596 50  0000 L CNN
-F 1 "MountingHole" H 10650 2505 50  0000 L CNN
-F 2 "ProjectLocal:H_M2_Spacer_Hole" H 10550 2550 50  0001 C CNN
-F 3 "~" H 10550 2550 50  0001 C CNN
-	1    10550 2550
+P 9950 2550
+F 0 "H10" H 10050 2596 50  0000 L CNN
+F 1 "MountingHole" H 10050 2505 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 9950 2550 50  0001 C CNN
+F 3 "~" H 9950 2550 50  0001 C CNN
+	1    9950 2550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1486,7 +1486,7 @@ Wire Notes Line
 Wire Notes Line
 	9000 1250 9000 2650
 Text Notes 9050 1600 0    50   ~ 0
-Mechanical:\nH1-H5 for silkscreen hints for bumpons\n(and aid PCB layout),\nH6-H8 for holes for M2 spacers.
+Mechanical:\nH1-H5 for silkscreen hints for bumpons\n(and aid PCB layout),\nH6-H10 for holes for M2 spacers; H11-H15 M2 screws.
 Text Notes 550  3550 0    50   ~ 0
 Rotary encoder + switch.
 $Comp
@@ -1707,4 +1707,59 @@ Text Label 900  2700 2    50   ~ 0
 OLED_SDA
 Text Label 900  2600 2    50   ~ 0
 OLED_SCL
+$Comp
+L Mechanical:MountingHole H11
+U 1 1 6099ECA3
+P 10700 1750
+F 0 "H11" H 10800 1796 50  0000 L CNN
+F 1 "MountingHole" H 10800 1705 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 10700 1750 50  0001 C CNN
+F 3 "~" H 10700 1750 50  0001 C CNN
+	1    10700 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H12
+U 1 1 609A6D3B
+P 10700 1950
+F 0 "H12" H 10800 1996 50  0000 L CNN
+F 1 "MountingHole" H 10800 1905 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 10700 1950 50  0001 C CNN
+F 3 "~" H 10700 1950 50  0001 C CNN
+	1    10700 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H13
+U 1 1 609A70F3
+P 10700 2150
+F 0 "H13" H 10800 2196 50  0000 L CNN
+F 1 "MountingHole" H 10800 2105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 10700 2150 50  0001 C CNN
+F 3 "~" H 10700 2150 50  0001 C CNN
+	1    10700 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H14
+U 1 1 609A749A
+P 10700 2350
+F 0 "H14" H 10800 2396 50  0000 L CNN
+F 1 "MountingHole" H 10800 2305 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 10700 2350 50  0001 C CNN
+F 3 "~" H 10700 2350 50  0001 C CNN
+	1    10700 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H15
+U 1 1 609A77A8
+P 10700 2550
+F 0 "H15" H 10800 2596 50  0000 L CNN
+F 1 "MountingHole" H 10800 2505 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 10700 2550 50  0001 C CNN
+F 3 "~" H 10700 2550 50  0001 C CNN
+	1    10700 2550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
