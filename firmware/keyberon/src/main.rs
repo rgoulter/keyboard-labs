@@ -23,6 +23,11 @@ use usb_device::class::UsbClass as _;
 use usb_device::device::UsbDeviceState;
 use usb_device::prelude::*;
 
+#[cfg(keyboard_revision = "2020.1")]
+mod rev2020_1;
+#[cfg(keyboard_revision = "2021.1")]
+mod rev2021_1;
+
 mod direct_pin_matrix;
 use direct_pin_matrix::{
     direct_pin_matrix_for_peripherals, event_transform, DirectPins5x4, PressedKeys5x4,
@@ -251,6 +256,9 @@ const APP: () = {
         let gpioa = c.device.GPIOA.split();
         let gpiob = c.device.GPIOB.split();
 
+        #[cfg(keyboard_revision = "2021.1")]
+        let gpioc = c.device.GPIOC.split();
+
         let usb = USB {
             usb_global: c.device.OTG_FS_GLOBAL,
             usb_device: c.device.OTG_FS_DEVICE,
@@ -275,6 +283,7 @@ const APP: () = {
         let mut timer = timer::Timer::tim3(c.device.TIM3, 1.khz(), clocks);
         timer.listen(timer::Event::TimeOut);
 
+        #[cfg(keyboard_revision = "2020.1")]
         let direct_pins = direct_pin_matrix_for_peripherals(
             gpioa.pa2.into_pull_up_input(),
             gpioa.pa3.into_pull_up_input(),
@@ -294,6 +303,27 @@ const APP: () = {
             gpiob.pb9.into_pull_up_input(),
             gpiob.pb10.into_pull_up_input(),
             gpiob.pb15.into_pull_up_input(),
+        );
+        #[cfg(keyboard_revision = "2021.1")]
+        let direct_pins = direct_pin_matrix_for_peripherals(
+            gpioa.pa2.into_pull_up_input(),
+            gpioa.pa3.into_pull_up_input(),
+            gpioa.pa4.into_pull_up_input(),
+            gpioa.pa5.into_pull_up_input(),
+            gpioa.pa6.into_pull_up_input(),
+            gpioa.pa7.into_pull_up_input(),
+            gpioa.pa8.into_pull_up_input(),
+            gpioa.pa9.into_pull_up_input(),
+            gpioa.pa10.into_pull_up_input(),
+            gpioa.pa15.into_pull_up_input(),
+            gpiob.pb0.into_pull_up_input(),
+            gpiob.pb1.into_pull_up_input(),
+            gpiob.pb3.into_pull_up_input(),
+            gpiob.pb4.into_pull_up_input(),
+            gpiob.pb5.into_pull_up_input(),
+            gpiob.pb10.into_pull_up_input(),
+            gpiob.pb15.into_pull_up_input(),
+            gpioc.pc15.into_pull_up_input(),
         );
 
         let pins = (
