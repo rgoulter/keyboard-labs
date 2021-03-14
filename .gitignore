@@ -7,4 +7,6 @@
 fp-info-cache
 *-cache.lib
 
+cad/**/generated
+
 pcb/gerber
