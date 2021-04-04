@@ -58,3 +58,12 @@ Source files under `firmware`.
 
 The keyboard firmware is written in Rust using the keyberon
 firmware.
+
+## Scripts
+
+### Kicad PCB to OpenSCAD
+
+Script to generate OpenSCAD files from `.kicad_pcb` files.
+See: [scripts/README.MD](https://github.com/rgoulter/keyboard-labs/tree/master/scripts#transform-kicad_pcb-to-scad)
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad_plate1.png"  width=600 />
