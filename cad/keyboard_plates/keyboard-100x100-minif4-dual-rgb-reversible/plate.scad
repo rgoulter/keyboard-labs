@@ -45,6 +45,34 @@ difference() {
     translate([0, -100]) {
         cover_screws();
     }
+
+    // Round corners
+    translate([0, -100 + 23.2]) {
+        corner_rounder(r = 2.5);
+    }
+    translate([55.71, -100.1]) {
+        corner_rounder(r = 2.5);
+    }
+    translate([J3_at[0], -J3_at[1]] + [-1.55, 2.3]) {
+        rotate([0, 0, 0]) {
+            corner_rounder(r = 1);
+        }
+    }
+    translate([J3_at[0], -J3_at[1]] + [-1.55, -2.3 -2.54*3]) {
+        rotate([0, 0, 270]) {
+            corner_rounder(r = 1);
+        }
+    }
+    translate([J1_at[0], -J1_at[1]] + [2.5, 4]) {
+        rotate([0, 0, 90]) {
+            corner_rounder(r = 2.5);
+        }
+    }
+    translate([J1_at[0], -J1_at[1]] + [2.5, -4]) {
+        rotate([0, 0, 180]) {
+            corner_rounder(r = 2.5);
+        }
+    }
 }
 
 // Acrylic bottom plate
