@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Reversible Split Keyboard Half"
-Date "2021-03-07"
-Rev "2021.2"
+Date "2021-04-12"
+Rev "2021.4"
 Comp "Richard Goulter"
 Comment1 "SK6812mini-e used for per-key RGBs. SK6812 for underglow."
 Comment2 "TRRS Jacks connected to UART or I2C."
@@ -16,581 +16,313 @@ $EndDescr
 $Comp
 L LED:WS2812B D_21
 U 1 1 5FE09A18
-P 6200 4150
-F 0 "D_21" H 6544 4196 50  0000 R BNN
-F 1 "WS2812B" H 6544 4105 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6250 3850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6300 3775 50  0001 L TNN
-	1    6200 4150
+P 5600 3900
+F 0 "D_21" H 5944 3946 50  0000 R BNN
+F 1 "WS2812B" H 5944 3855 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5650 3600 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5700 3525 50  0001 L TNN
+	1    5600 3900
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_22
 U 1 1 5FE0A54D
-P 6800 4150
-F 0 "D_22" H 7144 4196 50  0000 R BNN
-F 1 "WS2812B" H 7144 4105 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6850 3850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 3775 50  0001 L TNN
-	1    6800 4150
+P 6200 3900
+F 0 "D_22" H 6544 3946 50  0000 R BNN
+F 1 "WS2812B" H 6544 3855 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6250 3600 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6300 3525 50  0001 L TNN
+	1    6200 3900
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_23
 U 1 1 5FE0AEAE
-P 7400 4150
-F 0 "D_23" H 7744 4196 50  0000 R BNN
-F 1 "WS2812B" H 7744 4105 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 3850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 3775 50  0001 L TNN
-	1    7400 4150
+P 6800 3900
+F 0 "D_23" H 7144 3946 50  0000 R BNN
+F 1 "WS2812B" H 7144 3855 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6850 3600 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 3525 50  0001 L TNN
+	1    6800 3900
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_24
 U 1 1 5FE0B5ED
-P 8000 4150
-F 0 "D_24" H 8344 4196 50  0000 R BNN
-F 1 "WS2812B" H 8344 4105 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 3850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 3775 50  0001 L TNN
-	1    8000 4150
+P 7400 3900
+F 0 "D_24" H 7744 3946 50  0000 R BNN
+F 1 "WS2812B" H 7744 3855 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 3600 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 3525 50  0001 L TNN
+	1    7400 3900
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_31
 U 1 1 5FE12EFC
-P 6200 5000
-F 0 "D_31" H 6544 5046 50  0000 R BNN
-F 1 "WS2812B" H 6544 4955 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6250 4700 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6300 4625 50  0001 L TNN
-	1    6200 5000
+P 5600 4600
+F 0 "D_31" H 5944 4646 50  0000 R BNN
+F 1 "WS2812B" H 5944 4555 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5650 4300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5700 4225 50  0001 L TNN
+	1    5600 4600
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_32
 U 1 1 5FE13A31
-P 6800 5000
-F 0 "D_32" H 7144 5046 50  0000 R BNN
-F 1 "WS2812B" H 7144 4955 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6850 4700 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 4625 50  0001 L TNN
-	1    6800 5000
+P 6200 4600
+F 0 "D_32" H 6544 4646 50  0000 R BNN
+F 1 "WS2812B" H 6544 4555 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6250 4300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6300 4225 50  0001 L TNN
+	1    6200 4600
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_33
 U 1 1 5FE1469E
-P 7400 5000
-F 0 "D_33" H 7744 5046 50  0000 R BNN
-F 1 "WS2812B" H 7744 4955 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 4700 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 4625 50  0001 L TNN
-	1    7400 5000
+P 6800 4600
+F 0 "D_33" H 7144 4646 50  0000 R BNN
+F 1 "WS2812B" H 7144 4555 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6850 4300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 4225 50  0001 L TNN
+	1    6800 4600
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_34
 U 1 1 5FE15110
-P 8000 5000
-F 0 "D_34" H 8344 5046 50  0000 R BNN
-F 1 "WS2812B" H 8344 4955 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 4700 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 4625 50  0001 L TNN
-	1    8000 5000
+P 7400 4600
+F 0 "D_34" H 7744 4646 50  0000 R BNN
+F 1 "WS2812B" H 7744 4555 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 4300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 4225 50  0001 L TNN
+	1    7400 4600
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D_35
 U 1 1 5FE15BD0
-P 8600 5000
-F 0 "D_35" H 8944 5046 50  0000 R BNN
-F 1 "WS2812B" H 8944 4955 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8650 4700 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8700 4625 50  0001 L TNN
-	1    8600 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L LED:WS2812B D_42
-U 1 1 5FE1838E
-P 8000 5850
-F 0 "D_42" H 8344 5896 50  0000 R BNN
-F 1 "WS2812B" H 8344 5805 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 5475 50  0001 L TNN
-	1    8000 5850
-	1    0    0    -1  
-$EndComp
-$Comp
-L LED:WS2812B D_41
-U 1 1 5FE18995
-P 7400 5850
-F 0 "D_41" H 7744 5896 50  0000 R BNN
-F 1 "WS2812B" H 7744 5805 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 5475 50  0001 L TNN
-	1    7400 5850
+P 8000 4600
+F 0 "D_35" H 8344 4646 50  0000 R BNN
+F 1 "WS2812B" H 8344 4555 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 4300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 4225 50  0001 L TNN
+	1    8000 4600
 	1    0    0    -1  
 $EndComp
 Text Label 900  7200 2    50   ~ 0
 SCL_TX
 Text Label 900  7300 2    50   ~ 0
 SDA_RX
-$Comp
-L LED:WS2812B D_13
-U 1 1 5FE0782B
-P 7400 3300
-F 0 "D_13" H 7744 3346 50  0000 R BNN
-F 1 "WS2812B" H 7744 3255 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 3000 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 2925 50  0001 L TNN
-	1    7400 3300
-	1    0    0    -1  
-$EndComp
-$Comp
-L LED:WS2812B D_12
-U 1 1 5FDFCDFD
-P 6800 3300
-F 0 "D_12" H 7144 3346 50  0000 R BNN
-F 1 "WS2812B" H 7144 3255 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6850 3000 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 2925 50  0001 L TNN
-	1    6800 3300
-	1    0    0    -1  
-$EndComp
-Text Label 8900 3300 3    50   ~ 0
+Text Label 8300 3200 3    50   ~ 0
 DOUT_1
-Text Label 5900 4150 1    50   ~ 0
+Text Label 5300 3900 1    50   ~ 0
 DOUT_1
-Text Label 8900 4150 3    50   ~ 0
+Text Label 8300 3900 3    50   ~ 0
 DOUT_2
-Text Label 5900 5000 1    50   ~ 0
+Text Label 5300 4600 1    50   ~ 0
 DOUT_2
-Text Label 8900 5000 3    50   ~ 0
+Text Label 8300 4600 3    50   ~ 0
 DOUT_3
-Text Label 7100 5850 1    50   ~ 0
-DOUT_3
-$Comp
-L Device:C_Small C_13
-U 1 1 60413182
-P 7500 3700
-F 0 "C_13" V 7363 3700 50  0000 C BNN
-F 1 "100nF" V 7362 3700 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 7500 3700 50  0001 C CNN
-F 3 "~" H 7500 3700 50  0001 C CNN
-	1    7500 3700
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C_Small C_14
-U 1 1 60413695
-P 8100 3700
-F 0 "C_14" V 7963 3700 50  0000 C BNN
-F 1 "100nF" V 7962 3700 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8100 3700 50  0001 C CNN
-F 3 "~" H 8100 3700 50  0001 C CNN
-	1    8100 3700
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C_Small C_15
-U 1 1 60413B35
-P 8700 3700
-F 0 "C_15" V 8563 3700 50  0000 C BNN
-F 1 "100nF" V 8562 3700 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8700 3700 50  0001 C CNN
-F 3 "~" H 8700 3700 50  0001 C CNN
-	1    8700 3700
-	0    1    1    0   
-$EndComp
-$Comp
-L LED:WS2812B D_43
-U 1 1 5FE16705
-P 8600 5850
-F 0 "D_43" H 8944 5896 50  0000 R BNN
-F 1 "WS2812B" H 8944 5805 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8650 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8700 5475 50  0001 L TNN
-	1    8600 5850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 3600 6200 3700
-Wire Wire Line
-	6800 3600 6800 3700
-Wire Wire Line
-	7400 3600 7400 3700
-Wire Wire Line
-	8000 3600 8000 3700
-Wire Wire Line
-	8600 3600 8600 3700
 $Comp
 L Device:C_Small C_21
 U 1 1 604CF796
-P 6300 4550
-F 0 "C_21" V 6163 4550 50  0000 C BNN
-F 1 "100nF" V 6162 4550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 6300 4550 50  0001 C CNN
-F 3 "~" H 6300 4550 50  0001 C CNN
-	1    6300 4550
+P 10100 4150
+F 0 "C_21" V 9963 4150 50  0000 C BNN
+F 1 "100nF" V 9962 4150 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10100 4150 50  0001 C CNN
+F 3 "~" H 10100 4150 50  0001 C CNN
+	1    10100 4150
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6400 3800 7000 3800
+	8000 3600 7400 3600
 Wire Wire Line
-	6400 3700 6400 3800
+	7400 3600 6800 3600
+Connection ~ 7400 3600
 Wire Wire Line
-	7000 3700 7000 3800
-Connection ~ 7000 3800
+	6800 3600 6200 3600
+Connection ~ 6800 3600
 Wire Wire Line
-	7000 3800 7600 3800
-Wire Wire Line
-	7600 3700 7600 3800
-Connection ~ 7600 3800
-Wire Wire Line
-	7600 3800 8200 3800
-Wire Wire Line
-	8200 3700 8200 3800
-Connection ~ 8200 3800
-Wire Wire Line
-	8200 3800 8800 3800
-Wire Wire Line
-	8800 3700 8800 3800
-Connection ~ 8800 3800
-Wire Wire Line
-	8800 3800 8950 3800
-Wire Wire Line
-	6800 3000 6200 3000
-Connection ~ 6200 3000
-Wire Wire Line
-	7400 3000 6800 3000
-Connection ~ 7400 3000
-Wire Wire Line
-	7400 3000 8000 3000
-Connection ~ 6800 3000
-Wire Wire Line
-	8600 3000 8000 3000
-Connection ~ 8000 3000
-Wire Wire Line
-	8600 3850 8000 3850
-Wire Wire Line
-	8000 3850 7400 3850
-Connection ~ 8000 3850
-Wire Wire Line
-	7400 3850 6800 3850
-Connection ~ 7400 3850
-Wire Wire Line
-	6800 3850 6200 3850
-Connection ~ 6800 3850
-Wire Wire Line
-	8950 3800 8950 4650
+	6200 3600 5600 3600
+Connection ~ 6200 3600
 $Comp
 L LED:WS2812B D_25
 U 1 1 5FE0C1BE
-P 8600 4150
-F 0 "D_25" H 8944 4196 50  0000 R BNN
-F 1 "WS2812B" H 8944 4105 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8650 3850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8700 3775 50  0001 L TNN
-	1    8600 4150
+P 8000 3900
+F 0 "D_25" H 8344 3946 50  0000 R BNN
+F 1 "WS2812B" H 8344 3855 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 3600 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 3525 50  0001 L TNN
+	1    8000 3900
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C_Small C_22
 U 1 1 60572158
-P 6900 4550
-F 0 "C_22" V 6763 4550 50  0000 C BNN
-F 1 "100nF" V 6762 4550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 6900 4550 50  0001 C CNN
-F 3 "~" H 6900 4550 50  0001 C CNN
-	1    6900 4550
+P 10100 4450
+F 0 "C_22" V 9963 4450 50  0000 C BNN
+F 1 "100nF" V 9962 4450 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10100 4450 50  0001 C CNN
+F 3 "~" H 10100 4450 50  0001 C CNN
+	1    10100 4450
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_23
 U 1 1 6057250D
-P 7500 4550
-F 0 "C_23" V 7363 4550 50  0000 C BNN
-F 1 "100nF" V 7362 4550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 7500 4550 50  0001 C CNN
-F 3 "~" H 7500 4550 50  0001 C CNN
-	1    7500 4550
+P 10100 4750
+F 0 "C_23" V 9963 4750 50  0000 C BNN
+F 1 "100nF" V 9962 4750 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10100 4750 50  0001 C CNN
+F 3 "~" H 10100 4750 50  0001 C CNN
+	1    10100 4750
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_24
 U 1 1 605729BF
-P 8100 4550
-F 0 "C_24" V 7963 4550 50  0000 C BNN
-F 1 "100nF" V 7962 4550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8100 4550 50  0001 C CNN
-F 3 "~" H 8100 4550 50  0001 C CNN
-	1    8100 4550
+P 10100 5050
+F 0 "C_24" V 9963 5050 50  0000 C BNN
+F 1 "100nF" V 9962 5050 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10100 5050 50  0001 C CNN
+F 3 "~" H 10100 5050 50  0001 C CNN
+	1    10100 5050
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_25
 U 1 1 60572EE4
-P 8700 4550
-F 0 "C_25" V 8563 4550 50  0000 C BNN
-F 1 "100nF" V 8562 4550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8700 4550 50  0001 C CNN
-F 3 "~" H 8700 4550 50  0001 C CNN
-	1    8700 4550
+P 10100 5350
+F 0 "C_25" V 9963 5350 50  0000 C BNN
+F 1 "100nF" V 9962 5350 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10100 5350 50  0001 C CNN
+F 3 "~" H 10100 5350 50  0001 C CNN
+	1    10100 5350
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	6200 4450 6200 4550
-Wire Wire Line
-	6400 4550 6400 4650
-Wire Wire Line
-	6400 4650 7000 4650
-Wire Wire Line
-	6800 4450 6800 4550
-Wire Wire Line
-	7000 4550 7000 4650
-Connection ~ 7000 4650
-Wire Wire Line
-	7000 4650 7600 4650
-Wire Wire Line
-	7400 4450 7400 4550
-Wire Wire Line
-	7600 4550 7600 4650
-Connection ~ 7600 4650
-Wire Wire Line
-	7600 4650 8200 4650
-Wire Wire Line
-	8000 4450 8000 4550
-Wire Wire Line
-	8200 4550 8200 4650
-Connection ~ 8200 4650
-Wire Wire Line
-	8200 4650 8800 4650
-Wire Wire Line
-	8600 4450 8600 4550
-Wire Wire Line
-	8800 4550 8800 4650
-Connection ~ 8800 4650
-Wire Wire Line
-	8800 4650 8950 4650
 $Comp
 L Device:C_Small C_41
 U 1 1 605C286C
-P 7500 6250
-F 0 "C_41" V 7363 6250 50  0000 C BNN
-F 1 "100nF" V 7362 6250 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 7500 6250 50  0001 C CNN
-F 3 "~" H 7500 6250 50  0001 C CNN
-	1    7500 6250
+P 10750 4150
+F 0 "C_41" V 10613 4150 50  0000 C BNN
+F 1 "100nF" V 10612 4150 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10750 4150 50  0001 C CNN
+F 3 "~" H 10750 4150 50  0001 C CNN
+	1    10750 4150
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_32
 U 1 1 605C3368
-P 6900 5400
-F 0 "C_32" V 6763 5400 50  0000 C BNN
-F 1 "100nF" V 6762 5400 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 6900 5400 50  0001 C CNN
-F 3 "~" H 6900 5400 50  0001 C CNN
-	1    6900 5400
+P 10450 4450
+F 0 "C_32" V 10313 4450 50  0000 C BNN
+F 1 "100nF" V 10312 4450 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10450 4450 50  0001 C CNN
+F 3 "~" H 10450 4450 50  0001 C CNN
+	1    10450 4450
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_33
 U 1 1 605C388D
-P 7500 5400
-F 0 "C_33" V 7363 5400 50  0000 C BNN
-F 1 "100nF" V 7362 5400 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 7500 5400 50  0001 C CNN
-F 3 "~" H 7500 5400 50  0001 C CNN
-	1    7500 5400
+P 10450 4750
+F 0 "C_33" V 10313 4750 50  0000 C BNN
+F 1 "100nF" V 10312 4750 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10450 4750 50  0001 C CNN
+F 3 "~" H 10450 4750 50  0001 C CNN
+	1    10450 4750
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_34
 U 1 1 605C3C2B
-P 8100 5400
-F 0 "C_34" V 7963 5400 50  0000 C BNN
-F 1 "100nF" V 7962 5400 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8100 5400 50  0001 C CNN
-F 3 "~" H 8100 5400 50  0001 C CNN
-	1    8100 5400
+P 10450 5050
+F 0 "C_34" V 10313 5050 50  0000 C BNN
+F 1 "100nF" V 10312 5050 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10450 5050 50  0001 C CNN
+F 3 "~" H 10450 5050 50  0001 C CNN
+	1    10450 5050
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_35
 U 1 1 605C4025
-P 8700 5400
-F 0 "C_35" V 8563 5400 50  0000 C BNN
-F 1 "100nF" V 8562 5400 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8700 5400 50  0001 C CNN
-F 3 "~" H 8700 5400 50  0001 C CNN
-	1    8700 5400
+P 10450 5350
+F 0 "C_35" V 10313 5350 50  0000 C BNN
+F 1 "100nF" V 10312 5350 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10450 5350 50  0001 C CNN
+F 3 "~" H 10450 5350 50  0001 C CNN
+	1    10450 5350
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_42
 U 1 1 605CBDEC
-P 8100 6250
-F 0 "C_42" V 7963 6250 50  0000 C BNN
-F 1 "100nF" V 7962 6250 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8100 6250 50  0001 C CNN
-F 3 "~" H 8100 6250 50  0001 C CNN
-	1    8100 6250
+P 10750 4450
+F 0 "C_42" V 10613 4450 50  0000 C BNN
+F 1 "100nF" V 10612 4450 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10750 4450 50  0001 C CNN
+F 3 "~" H 10750 4450 50  0001 C CNN
+	1    10750 4450
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_43
 U 1 1 605CC18A
-P 8700 6250
-F 0 "C_43" V 8563 6250 50  0000 C BNN
-F 1 "100nF" V 8562 6250 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8700 6250 50  0001 C CNN
-F 3 "~" H 8700 6250 50  0001 C CNN
-	1    8700 6250
+P 10750 4750
+F 0 "C_43" V 10613 4750 50  0000 C BNN
+F 1 "100nF" V 10612 4750 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10750 4750 50  0001 C CNN
+F 3 "~" H 10750 4750 50  0001 C CNN
+	1    10750 4750
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8600 5550 8000 5550
-Wire Wire Line
-	8000 5550 7400 5550
-Connection ~ 8000 5550
-Connection ~ 7400 5550
 $Comp
 L Device:C_Small C_31
 U 1 1 60618AAF
-P 6300 5400
-F 0 "C_31" V 6163 5400 50  0000 C BNN
-F 1 "100nF" V 6162 5400 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 6300 5400 50  0001 C CNN
-F 3 "~" H 6300 5400 50  0001 C CNN
-	1    6300 5400
+P 10450 4150
+F 0 "C_31" V 10313 4150 50  0000 C BNN
+F 1 "100nF" V 10312 4150 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10450 4150 50  0001 C CNN
+F 3 "~" H 10450 4150 50  0001 C CNN
+	1    10450 4150
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	6200 5300 6200 5400
-Wire Wire Line
-	6800 5300 6800 5400
-Wire Wire Line
-	7400 5300 7400 5400
-Wire Wire Line
-	8000 5300 8000 5400
-Wire Wire Line
-	8600 5300 8600 5400
-Wire Wire Line
-	6400 5400 6400 5500
-Wire Wire Line
-	6400 5500 7000 5500
-Wire Wire Line
-	8950 5500 8950 6350
-Wire Wire Line
-	7000 5400 7000 5500
-Connection ~ 7000 5500
-Wire Wire Line
-	7000 5500 7600 5500
-Wire Wire Line
-	7600 5400 7600 5500
-Connection ~ 7600 5500
-Wire Wire Line
-	7600 5500 8200 5500
-Wire Wire Line
-	8200 5400 8200 5500
-Connection ~ 8200 5500
-Wire Wire Line
-	8200 5500 8800 5500
-Wire Wire Line
-	8800 5400 8800 5500
-Connection ~ 8800 5500
-Wire Wire Line
-	8800 5500 8950 5500
-Wire Wire Line
-	7400 6150 7400 6250
-Wire Wire Line
-	7600 6250 7600 6350
-Wire Wire Line
-	7600 6350 8200 6350
-Wire Wire Line
-	8000 6150 8000 6250
-Wire Wire Line
-	8200 6250 8200 6350
-Connection ~ 8200 6350
-Wire Wire Line
-	8200 6350 8800 6350
-Wire Wire Line
-	8800 6250 8800 6350
-Connection ~ 8800 6350
-Wire Wire Line
-	8800 6350 8950 6350
-Text Label 5600 3000 1    50   ~ 0
+Text Label 5000 2900 1    50   ~ 0
 RGB_DIN_5V
 Wire Wire Line
-	5800 3000 6200 3000
+	5200 3600 5600 3600
+Connection ~ 5600 3600
 Wire Wire Line
-	5800 3000 5800 3850
+	8000 4300 7400 4300
 Wire Wire Line
-	5800 3850 6200 3850
-Connection ~ 6200 3850
+	6800 4300 7400 4300
+Connection ~ 7400 4300
 Wire Wire Line
-	5800 3850 5800 4700
-Connection ~ 5800 3850
+	6800 4300 6200 4300
+Connection ~ 6800 4300
 Wire Wire Line
-	5800 5550 7400 5550
+	6200 4300 5600 4300
+Connection ~ 6200 4300
 Wire Wire Line
-	8600 6150 8600 6250
-$Comp
-L LED:WS2812B D_15
-U 1 1 5FE0912C
-P 8600 3300
-F 0 "D_15" H 8944 3346 50  0000 R BNN
-F 1 "WS2812B" H 8944 3255 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8650 3000 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8700 2925 50  0001 L TNN
-	1    8600 3300
-	1    0    0    -1  
-$EndComp
-$Comp
-L LED:WS2812B D_14
-U 1 1 5FE08387
-P 8000 3300
-F 0 "D_14" H 8344 3346 50  0000 R BNN
-F 1 "WS2812B" H 8344 3255 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 3000 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 2925 50  0001 L TNN
-	1    8000 3300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8600 4700 8000 4700
-Wire Wire Line
-	7400 4700 8000 4700
-Connection ~ 8000 4700
-Wire Wire Line
-	7400 4700 6800 4700
-Connection ~ 7400 4700
-Wire Wire Line
-	6800 4700 6200 4700
-Connection ~ 6800 4700
-Wire Wire Line
-	6200 4700 5800 4700
-Connection ~ 6200 4700
-Wire Wire Line
-	5800 4700 5800 5550
-Connection ~ 5800 4700
+	5600 4300 5200 4300
+Connection ~ 5600 4300
 $Comp
 L Device:R R4
 U 1 1 60D9AF80
-P 5600 3150
-F 0 "R4" H 5530 3196 50  0000 R CNN
-F 1 "300 - 500R" H 5530 3105 50  0000 R CNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 5530 3150 50  0001 C CNN
-F 3 "~" H 5600 3150 50  0001 C CNN
-	1    5600 3150
+P 5000 3050
+F 0 "R4" H 4930 3096 50  0000 R CNN
+F 1 "300 - 500R" H 4930 3005 50  0000 R CNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 4930 3050 50  0001 C CNN
+F 3 "~" H 5000 3050 50  0001 C CNN
+	1    5000 3050
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5600 3300 5900 3300
+	5000 3200 5300 3200
 $Comp
 L Jumper:SolderJumper_3_Open JP1
 U 1 1 60FF4E5E
@@ -617,11 +349,10 @@ Text Label 4200 7300 0    50   ~ 0
 SDA_RX_r
 Text Label 4200 7700 0    50   ~ 0
 SCL_TX_r
-Text Label 5800 2900 0    50   ~ 0
+Text Label 5200 2800 0    50   ~ 0
 5V
-Text Label 8950 6450 2    50   ~ 0
+Text Label 8350 5800 2    50   ~ 0
 GND
-Connection ~ 8950 6350
 Wire Wire Line
 	900  7300 1150 7300
 Wire Wire Line
@@ -636,39 +367,6 @@ Wire Wire Line
 Connection ~ 1300 7200
 Wire Wire Line
 	1300 7200 1450 7200
-$Comp
-L Device:C_Small C_12
-U 1 1 60412CB4
-P 6900 3700
-F 0 "C_12" V 6763 3700 50  0000 C BNN
-F 1 "100nF" V 6762 3700 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 6900 3700 50  0001 C CNN
-F 3 "~" H 6900 3700 50  0001 C CNN
-	1    6900 3700
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C_Small C_11
-U 1 1 603D2DAA
-P 6300 3700
-F 0 "C_11" V 6163 3700 50  0000 C BNN
-F 1 "100nF" V 6162 3700 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 6300 3700 50  0001 C CNN
-F 3 "~" H 6300 3700 50  0001 C CNN
-	1    6300 3700
-	0    1    1    0   
-$EndComp
-$Comp
-L LED:WS2812B D_11
-U 1 1 5FD534E8
-P 6200 3300
-F 0 "D_11" H 6544 3346 50  0000 R BNN
-F 1 "WS2812B" H 6544 3255 50  0001 L TNN
-F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6250 3000 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6300 2925 50  0001 L TNN
-	1    6200 3300
-	1    0    0    -1  
-$EndComp
 $Comp
 L keebio:TRRS J1
 U 1 1 5FDF9ACF
@@ -736,10 +434,7 @@ SDA_RX
 Text Label 900  2400 2    50   ~ 0
 SCL_TX
 Wire Wire Line
-	5800 2900 5800 3000
-Connection ~ 5800 3000
-Wire Wire Line
-	8950 6350 8950 6450
+	5200 2800 5200 2900
 Text Label 3000 7400 0    50   ~ 0
 GND
 Text Label 3000 7100 0    50   ~ 0
@@ -748,10 +443,6 @@ Text Label 1450 7100 2    50   ~ 0
 5V
 Text Label 1450 7400 2    50   ~ 0
 GND
-Wire Wire Line
-	8950 5500 8950 4650
-Connection ~ 8950 5500
-Connection ~ 8950 4650
 Text Label 2500 1300 0    50   ~ 0
 3V3
 Text Label 2500 1200 0    50   ~ 0
@@ -1225,137 +916,110 @@ $EndComp
 $Comp
 L LED:SK6812 D_BL_1
 U 1 1 603FF78B
-P 10100 3850
-F 0 "D_BL_1" V 10054 4194 50  0000 L CNN
-F 1 "SK6812" V 10145 4194 50  0000 L CNN
-F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 3550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 3475 50  0001 L TNN
-	1    10100 3850
+P 8900 3750
+F 0 "D_BL_1" V 8854 4094 50  0000 L CNN
+F 1 "SK6812" V 8945 4094 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 8950 3450 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 9000 3375 50  0001 L TNN
+	1    8900 3750
 	0    1    1    0   
 $EndComp
 $Comp
 L LED:SK6812 D_BL_2
 U 1 1 60401C03
-P 10100 4450
-F 0 "D_BL_2" V 10054 4794 50  0000 L CNN
-F 1 "SK6812" V 10145 4794 50  0000 L CNN
-F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 4150 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 4075 50  0001 L TNN
-	1    10100 4450
+P 8900 4350
+F 0 "D_BL_2" V 8854 4694 50  0000 L CNN
+F 1 "SK6812" V 8945 4694 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 8950 4050 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 9000 3975 50  0001 L TNN
+	1    8900 4350
 	0    1    1    0   
 $EndComp
 $Comp
 L LED:SK6812 D_BL_3
 U 1 1 60409922
-P 10100 5050
-F 0 "D_BL_3" V 10054 5394 50  0000 L CNN
-F 1 "SK6812" V 10145 5394 50  0000 L CNN
-F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 4750 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 4675 50  0001 L TNN
-	1    10100 5050
+P 8900 4950
+F 0 "D_BL_3" V 8854 5294 50  0000 L CNN
+F 1 "SK6812" V 8945 5294 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 8950 4650 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 9000 4575 50  0001 L TNN
+	1    8900 4950
 	0    1    1    0   
 $EndComp
 $Comp
 L LED:SK6812 D_BL_4
 U 1 1 6040B9B5
-P 10100 5650
-F 0 "D_BL_4" V 10054 5994 50  0000 L CNN
-F 1 "SK6812" V 10145 5994 50  0000 L CNN
-F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 10150 5350 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 10200 5275 50  0001 L TNN
-	1    10100 5650
+P 8900 5550
+F 0 "D_BL_4" V 8854 5894 50  0000 L CNN
+F 1 "SK6812" V 8945 5894 50  0000 L CNN
+F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 8950 5250 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 9000 5175 50  0001 L TNN
+	1    8900 5550
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C_BL_1
 U 1 1 6040C40C
-P 9650 3950
-F 0 "C_BL_1" V 9513 3950 50  0000 C BNN
-F 1 "100nF" V 9512 3950 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 3950 50  0001 C CNN
-F 3 "~" H 9650 3950 50  0001 C CNN
-	1    9650 3950
-	-1   0    0    1   
+P 11050 4150
+F 0 "C_BL_1" V 10913 4150 50  0000 C BNN
+F 1 "100nF" V 10912 4150 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 11050 4150 50  0001 C CNN
+F 3 "~" H 11050 4150 50  0001 C CNN
+	1    11050 4150
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:C_Small C_BL_2
 U 1 1 6040D1BF
-P 9650 4550
-F 0 "C_BL_2" V 9513 4550 50  0000 C BNN
-F 1 "100nF" V 9512 4550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 4550 50  0001 C CNN
-F 3 "~" H 9650 4550 50  0001 C CNN
-	1    9650 4550
-	-1   0    0    1   
+P 11050 4450
+F 0 "C_BL_2" V 10913 4450 50  0000 C BNN
+F 1 "100nF" V 10912 4450 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 11050 4450 50  0001 C CNN
+F 3 "~" H 11050 4450 50  0001 C CNN
+	1    11050 4450
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:C_Small C_BL_3
 U 1 1 6040D6FB
-P 9650 5150
-F 0 "C_BL_3" V 9513 5150 50  0000 C BNN
-F 1 "100nF" V 9512 5150 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9650 5150 50  0001 C CNN
-F 3 "~" H 9650 5150 50  0001 C CNN
-	1    9650 5150
-	-1   0    0    1   
+P 11050 4750
+F 0 "C_BL_3" V 10913 4750 50  0000 C BNN
+F 1 "100nF" V 10912 4750 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 11050 4750 50  0001 C CNN
+F 3 "~" H 11050 4750 50  0001 C CNN
+	1    11050 4750
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:C_Small C_BL_4
 U 1 1 6040D957
-P 9700 5750
-F 0 "C_BL_4" V 9563 5750 50  0000 C BNN
-F 1 "100nF" V 9562 5750 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9700 5750 50  0001 C CNN
-F 3 "~" H 9700 5750 50  0001 C CNN
-	1    9700 5750
-	-1   0    0    1   
+P 11050 5050
+F 0 "C_BL_4" V 10913 5050 50  0000 C BNN
+F 1 "100nF" V 10912 5050 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 11050 5050 50  0001 C CNN
+F 3 "~" H 11050 5050 50  0001 C CNN
+	1    11050 5050
+	0    -1   -1   0   
 $EndComp
-Text Label 9550 6000 0    50   ~ 0
+Text Label 8500 5750 0    50   ~ 0
 GND
-Text Label 8900 5850 3    50   ~ 0
+Text Label 8900 3450 0    50   ~ 0
 DOUT_4
-Text Label 10100 3550 0    50   ~ 0
-DOUT_4
-Text Label 10400 3650 0    50   ~ 0
+Text Label 9200 3550 0    50   ~ 0
 5V
 Wire Wire Line
-	9800 3850 9650 3850
+	8600 5550 8500 5550
 Wire Wire Line
-	9800 4450 9650 4450
+	9200 3550 9200 3750
 Wire Wire Line
-	9800 5050 9650 5050
+	9200 3750 9200 4350
+Connection ~ 9200 3750
 Wire Wire Line
-	9800 5650 9700 5650
+	9200 4350 9200 4950
+Connection ~ 9200 4350
 Wire Wire Line
-	9650 4050 9550 4050
-Wire Wire Line
-	9550 4050 9550 4650
-Wire Wire Line
-	9550 4650 9650 4650
-Wire Wire Line
-	9550 4650 9550 5250
-Wire Wire Line
-	9550 5250 9650 5250
-Connection ~ 9550 4650
-Wire Wire Line
-	9550 5250 9550 5850
-Wire Wire Line
-	9550 5850 9700 5850
-Connection ~ 9550 5250
-Wire Wire Line
-	9550 5850 9550 6000
-Connection ~ 9550 5850
-Wire Wire Line
-	10400 3650 10400 3850
-Wire Wire Line
-	10400 3850 10400 4450
-Connection ~ 10400 3850
-Wire Wire Line
-	10400 4450 10400 5050
-Connection ~ 10400 4450
-Wire Wire Line
-	10400 5050 10400 5650
-Connection ~ 10400 5050
+	9200 4950 9200 5550
+Connection ~ 9200 4950
 Text Label 3650 2000 2    50   ~ 0
 5V
 Text Label 2500 1100 0    50   ~ 0
@@ -1398,12 +1062,10 @@ Text Label 5400 7650 2    50   ~ 0
 GND
 Text Label 5400 7450 2    50   ~ 0
 5V
-Text Label 10100 5950 0    50   ~ 0
+Text Label 8900 5850 0    50   ~ 0
 DOUT_BL
 Text Label 5400 7550 2    50   ~ 0
 DOUT_BL
-Text Notes 4950 6600 0    50   ~ 0
-01x04 test point connectors for interfacing\nwith the WS2812-compatible RGBs.\n\nThis facilitates testing.\nIt allows the RGB LEDs to be driven\nwithout the U1 dev board being soldered in.\nIt also provides a way to use U1 to drive\nother WS2812-compatible RGB strips.
 Text Label 3950 1800 2    50   ~ 0
 RGB_DIN_3V3
 Text Label 4350 2200 3    50   ~ 0
@@ -1495,7 +1157,7 @@ U 1 1 604C2BC3
 P 1150 4150
 F 0 "SW_RE1" H 1150 4517 50  0000 C CNN
 F 1 "Rotary_Encoder_Switch" H 1150 4426 50  0000 C CNN
-F 2 "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm" H 1000 4310 50  0001 C CNN
+F 2 "ProjectLocal:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_Reversible" H 1000 4310 50  0001 C CNN
 F 3 "~" H 1150 4410 50  0001 C CNN
 	1    1150 4150
 	1    0    0    -1  
@@ -1762,4 +1424,418 @@ F 3 "~" H 10700 2550 50  0001 C CNN
 	1    10700 2550
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5200 2900 5600 2900
+Connection ~ 7400 2900
+Connection ~ 6200 2900
+Connection ~ 6800 2900
+Connection ~ 5600 2900
+Wire Wire Line
+	8000 2900 7400 2900
+Wire Wire Line
+	6800 2900 7400 2900
+Wire Wire Line
+	6800 2900 6200 2900
+Wire Wire Line
+	6200 2900 5600 2900
+$Comp
+L LED:WS2812B D_11
+U 1 1 5FD534E8
+P 5600 3200
+F 0 "D_11" H 5944 3246 50  0000 R BNN
+F 1 "WS2812B" H 5944 3155 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5650 2900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5700 2825 50  0001 L TNN
+	1    5600 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C_11
+U 1 1 603D2DAA
+P 9750 4150
+F 0 "C_11" V 9613 4150 50  0000 C BNN
+F 1 "100nF" V 9612 4150 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9750 4150 50  0001 C CNN
+F 3 "~" H 9750 4150 50  0001 C CNN
+	1    9750 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C_12
+U 1 1 60412CB4
+P 9750 4450
+F 0 "C_12" V 9613 4450 50  0000 C BNN
+F 1 "100nF" V 9612 4450 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9750 4450 50  0001 C CNN
+F 3 "~" H 9750 4450 50  0001 C CNN
+	1    9750 4450
+	0    1    1    0   
+$EndComp
+$Comp
+L LED:WS2812B D_14
+U 1 1 5FE08387
+P 7400 3200
+F 0 "D_14" H 7744 3246 50  0000 R BNN
+F 1 "WS2812B" H 7744 3155 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 2900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 2825 50  0001 L TNN
+	1    7400 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED:WS2812B D_15
+U 1 1 5FE0912C
+P 8000 3200
+F 0 "D_15" H 8344 3246 50  0000 R BNN
+F 1 "WS2812B" H 8344 3155 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 2900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 2825 50  0001 L TNN
+	1    8000 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C_15
+U 1 1 60413B35
+P 9750 5350
+F 0 "C_15" V 9613 5350 50  0000 C BNN
+F 1 "100nF" V 9612 5350 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9750 5350 50  0001 C CNN
+F 3 "~" H 9750 5350 50  0001 C CNN
+	1    9750 5350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C_14
+U 1 1 60413695
+P 9750 5050
+F 0 "C_14" V 9613 5050 50  0000 C BNN
+F 1 "100nF" V 9612 5050 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9750 5050 50  0001 C CNN
+F 3 "~" H 9750 5050 50  0001 C CNN
+	1    9750 5050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C_13
+U 1 1 60413182
+P 9750 4750
+F 0 "C_13" V 9613 4750 50  0000 C BNN
+F 1 "100nF" V 9612 4750 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9750 4750 50  0001 C CNN
+F 3 "~" H 9750 4750 50  0001 C CNN
+	1    9750 4750
+	0    1    1    0   
+$EndComp
+$Comp
+L LED:WS2812B D_12
+U 1 1 5FDFCDFD
+P 6200 3200
+F 0 "D_12" H 6544 3246 50  0000 R BNN
+F 1 "WS2812B" H 6544 3155 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6250 2900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6300 2825 50  0001 L TNN
+	1    6200 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED:WS2812B D_13
+U 1 1 5FE0782B
+P 6800 3200
+F 0 "D_13" H 7144 3246 50  0000 R BNN
+F 1 "WS2812B" H 7144 3155 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6850 2900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 2825 50  0001 L TNN
+	1    6800 3200
+	1    0    0    -1  
+$EndComp
+Text Notes 4950 6600 0    50   ~ 0
+01x04 test point connectors for interfacing\nwith the WS2812-compatible RGBs.\n\nThis facilitates testing.\nIt allows the RGB LEDs to be driven\nwithout the U1 dev board being soldered in.\nIt also provides a way to use U1 to drive\nother WS2812-compatible RGB strips.
+Text Label 8300 5300 3    50   ~ 0
+DOUT_4
+$Comp
+L LED:WS2812B D_43
+U 1 1 5FE16705
+P 8000 5300
+F 0 "D_43" H 8344 5346 50  0000 R BNN
+F 1 "WS2812B" H 8344 5255 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 8050 5000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 4925 50  0001 L TNN
+	1    8000 5300
+	1    0    0    -1  
+$EndComp
+Text Label 6500 5300 1    50   ~ 0
+DOUT_3
+$Comp
+L LED:WS2812B D_41
+U 1 1 5FE18995
+P 6800 5300
+F 0 "D_41" H 7144 5346 50  0000 R BNN
+F 1 "WS2812B" H 7144 5255 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6850 5000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 4925 50  0001 L TNN
+	1    6800 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED:WS2812B D_42
+U 1 1 5FE1838E
+P 7400 5300
+F 0 "D_42" H 7744 5346 50  0000 R BNN
+F 1 "WS2812B" H 7744 5255 50  0001 L TNN
+F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 7450 5000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 4925 50  0001 L TNN
+	1    7400 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 3600 5200 2900
+Connection ~ 5200 2900
+Wire Wire Line
+	5200 3600 5200 4300
+Connection ~ 5200 3600
+Wire Wire Line
+	8000 5000 7400 5000
+Wire Wire Line
+	7400 5000 6800 5000
+Connection ~ 7400 5000
+Wire Wire Line
+	6800 5000 5200 5000
+Wire Wire Line
+	5200 5000 5200 4300
+Connection ~ 6800 5000
+Connection ~ 5200 4300
+Wire Wire Line
+	5600 3500 6200 3500
+Wire Wire Line
+	6200 3500 6800 3500
+Connection ~ 6200 3500
+Wire Wire Line
+	6800 3500 7400 3500
+Connection ~ 6800 3500
+Wire Wire Line
+	7400 3500 8000 3500
+Connection ~ 7400 3500
+Wire Wire Line
+	8000 3500 8400 3500
+Wire Wire Line
+	8400 3500 8400 4200
+Wire Wire Line
+	8400 5800 8350 5800
+Connection ~ 8000 3500
+Wire Wire Line
+	5600 4200 6200 4200
+Wire Wire Line
+	6200 4200 6800 4200
+Connection ~ 6200 4200
+Wire Wire Line
+	6800 4200 7400 4200
+Connection ~ 6800 4200
+Wire Wire Line
+	7400 4200 8000 4200
+Connection ~ 7400 4200
+Wire Wire Line
+	8000 4200 8400 4200
+Connection ~ 8000 4200
+Connection ~ 8400 4200
+Wire Wire Line
+	8400 4200 8400 4900
+Wire Wire Line
+	5600 4900 6200 4900
+Wire Wire Line
+	6800 4900 6200 4900
+Connection ~ 6200 4900
+Wire Wire Line
+	6800 4900 7400 4900
+Connection ~ 6800 4900
+Wire Wire Line
+	7400 4900 8000 4900
+Connection ~ 7400 4900
+Wire Wire Line
+	8400 4900 8000 4900
+Connection ~ 8400 4900
+Wire Wire Line
+	8400 4900 8400 5600
+Connection ~ 8000 4900
+Wire Wire Line
+	6800 5600 7400 5600
+Wire Wire Line
+	7400 5600 8000 5600
+Connection ~ 7400 5600
+Wire Wire Line
+	8000 5600 8400 5600
+Connection ~ 8000 5600
+Connection ~ 8400 5600
+Wire Wire Line
+	8400 5600 8400 5800
+Wire Wire Line
+	8600 3750 8600 4350
+Wire Wire Line
+	8600 4350 8600 4950
+Connection ~ 8600 4350
+Wire Wire Line
+	8600 4950 8600 5550
+Connection ~ 8600 4950
+Connection ~ 8600 5550
+Wire Wire Line
+	8500 5550 8500 5750
+Text Label 9650 3800 0    50   ~ 0
+5V
+Text Label 11150 5600 2    50   ~ 0
+GND
+Wire Wire Line
+	9650 3800 9650 3900
+Wire Wire Line
+	9650 4450 9650 4150
+Connection ~ 9650 4150
+Wire Wire Line
+	9650 4750 9650 4450
+Connection ~ 9650 4450
+Wire Wire Line
+	9650 5050 9650 4750
+Connection ~ 9650 4750
+Wire Wire Line
+	9650 5350 9650 5050
+Connection ~ 9650 5050
+Wire Wire Line
+	10000 5350 10000 5050
+Wire Wire Line
+	10000 5050 10000 4750
+Connection ~ 10000 5050
+Wire Wire Line
+	10000 4750 10000 4450
+Connection ~ 10000 4750
+Wire Wire Line
+	10000 4450 10000 4150
+Connection ~ 10000 4450
+Wire Wire Line
+	10000 4150 10000 3900
+Wire Wire Line
+	10000 3900 9650 3900
+Connection ~ 10000 4150
+Connection ~ 9650 3900
+Wire Wire Line
+	9650 3900 9650 4150
+Wire Wire Line
+	10350 5350 10350 5050
+Wire Wire Line
+	10350 5050 10350 4750
+Connection ~ 10350 5050
+Wire Wire Line
+	10350 4750 10350 4450
+Connection ~ 10350 4750
+Wire Wire Line
+	10350 4450 10350 4150
+Connection ~ 10350 4450
+Wire Wire Line
+	10350 4150 10350 3900
+Wire Wire Line
+	10350 3900 10000 3900
+Connection ~ 10350 4150
+Connection ~ 10000 3900
+Wire Wire Line
+	10650 4750 10650 4450
+Wire Wire Line
+	10650 4450 10650 4150
+Connection ~ 10650 4450
+Wire Wire Line
+	10650 4150 10650 3900
+Wire Wire Line
+	10650 3900 10350 3900
+Connection ~ 10650 4150
+Connection ~ 10350 3900
+Wire Wire Line
+	10950 5050 10950 4750
+Wire Wire Line
+	10950 4750 10950 4450
+Connection ~ 10950 4750
+Wire Wire Line
+	10950 4450 10950 4150
+Connection ~ 10950 4450
+Wire Wire Line
+	10950 4150 10950 3900
+Wire Wire Line
+	10950 3900 10650 3900
+Connection ~ 10950 4150
+Connection ~ 10650 3900
+Wire Wire Line
+	9850 4150 9850 4450
+Wire Wire Line
+	9850 4450 9850 4750
+Connection ~ 9850 4450
+Wire Wire Line
+	9850 4750 9850 5050
+Connection ~ 9850 4750
+Wire Wire Line
+	9850 5050 9850 5350
+Connection ~ 9850 5050
+Wire Wire Line
+	9850 5350 9850 5450
+Wire Wire Line
+	9850 5450 10200 5450
+Wire Wire Line
+	11150 5450 11150 5600
+Connection ~ 9850 5350
+Wire Wire Line
+	10200 4150 10200 4450
+Wire Wire Line
+	10200 4450 10200 4750
+Connection ~ 10200 4450
+Wire Wire Line
+	10200 4750 10200 5050
+Connection ~ 10200 4750
+Wire Wire Line
+	10200 5050 10200 5350
+Connection ~ 10200 5050
+Wire Wire Line
+	10200 5350 10200 5450
+Connection ~ 10200 5350
+Connection ~ 10200 5450
+Wire Wire Line
+	10200 5450 10550 5450
+Wire Wire Line
+	10550 4150 10550 4450
+Wire Wire Line
+	10550 4450 10550 4750
+Connection ~ 10550 4450
+Wire Wire Line
+	10550 4750 10550 5050
+Connection ~ 10550 4750
+Wire Wire Line
+	10550 5050 10550 5350
+Connection ~ 10550 5050
+Wire Wire Line
+	10850 4150 10850 4450
+Wire Wire Line
+	10850 4450 10850 4750
+Connection ~ 10850 4450
+Wire Wire Line
+	10850 4750 10850 5450
+Connection ~ 10850 4750
+Connection ~ 10850 5450
+Wire Wire Line
+	10850 5450 11150 5450
+Wire Wire Line
+	11150 4150 11150 4450
+Wire Wire Line
+	11150 4450 11150 4750
+Connection ~ 11150 4450
+Wire Wire Line
+	11150 4750 11150 5050
+Connection ~ 11150 4750
+Wire Wire Line
+	11150 5450 11150 5050
+Connection ~ 11150 5450
+Connection ~ 11150 5050
+Wire Wire Line
+	10550 5350 10550 5450
+Connection ~ 10550 5350
+Connection ~ 10550 5450
+Wire Wire Line
+	10550 5450 10850 5450
+Wire Notes Line
+	11200 3200 9600 3200
+Wire Notes Line
+	9600 3200 9600 6500
+Text Notes 9650 3450 0    50   ~ 0
+Decoupling capacitors\nfor the RGB LEDs
 $EndSCHEMATC
