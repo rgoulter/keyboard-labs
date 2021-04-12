@@ -202,6 +202,15 @@ module module_footprints(
     }
 }
 
+module corner_rounder(r = 5) {
+    difference() {
+        square(r, center = false);
+        translate([r, r]) {
+            circle(r = r);
+        }
+    }
+}
+
 module plate(
     edge_cuts_data,
     modules_data,
@@ -215,26 +224,17 @@ module plate(
     // Invert the y-axis, since Kicad has y+ pointing "down",
     // but OpenSCAD has y+ pointing "up".
     scale([1, -1]) {
-        // "offset'd-outline-minus-offset'd-modules"
-        // results in rounded corners around the outer
-        // edges of the plate.
-        //
-        // 0.5 is used because anything larger
-        // results in various edges breaking.
-        offset(0.5)
         difference() {
             board_outline(edge_cuts_data);
-            offset(0.5) {
-                module_footprints(
-                    modules_data = modules_data,
-                    include_footprints = include_footprints,
-                    exclude_footprints = exclude_footprints,
-                    exclude_reference_prefixes = exclude_reference_prefixes,
-                    exclude_references = exclude_references,
-                    force_include_references = force_include_references,
-                    allow_unhandled_footprints = allow_unhandled_footprints
-                );
-            }
+            module_footprints(
+                modules_data = modules_data,
+                include_footprints = include_footprints,
+                exclude_footprints = exclude_footprints,
+                exclude_reference_prefixes = exclude_reference_prefixes,
+                exclude_references = exclude_references,
+                force_include_references = force_include_references,
+                allow_unhandled_footprints = allow_unhandled_footprints
+            );
         }
     }
 }
