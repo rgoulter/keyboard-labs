@@ -468,7 +468,7 @@ class TestRenderFootprintModulesScad(unittest.TestCase):
                 allow_unimplemented_footprints = true
             ) {
                 module_footprint = module_data[0];
-            
+
                 if (module_footprint == "ProjectLocal:SW_MX_PG1350_reversible") {
                     Footprint_ProjectLocal_SW_MX_PG1350_reversible();
                 } else if (module_footprint == "ProjectLocal:WeAct_MiniF4") {
@@ -575,7 +575,7 @@ class TestRenderScadFromPcb(unittest.TestCase):
                 allow_unimplemented_footprints = true
             ) {
                 module_footprint = module_data[0];
-            
+
                 if (module_footprint == "ProjectLocal:SW_MX_PG1350_reversible") {
                     Footprint_ProjectLocal_SW_MX_PG1350_reversible();
                 } else if (module_footprint == "ProjectLocal:WeAct_MiniF4") {
