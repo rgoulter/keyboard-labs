@@ -38,6 +38,10 @@ Design goals:
 - Column-staggered arrangement of key switches.
 - Per-key RGB LEDs.
 
+###### Build Guides
+
+- [rev2021.4 Budget Build Guide](docs/buildguide_rev2021.4_budget.md)
+
 ###### Typing Demonstration Videos
 
 typings.gg:
