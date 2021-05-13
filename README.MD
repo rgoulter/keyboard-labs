@@ -42,11 +42,11 @@ Design goals:
 
 typings.gg:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/g7Msizi1cJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![](https://img.youtube.com/vi/g7Msizi1cJ4/0.jpg)](https://www.youtube.com/watch?v=g7Msizi1cJ4)
 
 typing.io:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Bn727EBErZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![](https://img.youtube.com/vi/Bn727EBErZ0/0.jpg)](https://www.youtube.com/watch?v=Bn727EBErZ0)
 
 ## CAD Designs
 
