@@ -38,6 +38,16 @@ Design goals:
 - Column-staggered arrangement of key switches.
 - Per-key RGB LEDs.
 
+###### Typing Demonstration Videos
+
+typings.gg:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g7Msizi1cJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+typing.io:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Bn727EBErZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## CAD Designs
 
 CAD design files found under `cad/`:
