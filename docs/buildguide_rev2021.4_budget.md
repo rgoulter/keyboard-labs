@@ -140,7 +140,7 @@ For each half:
 
     <img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/buildlog-rev2021.4-minimal/2-resistors-soldered-bottom.JPG" />
 
-3. *For the Right-Hand Side PCB only*:, on the top-side of the PCB, use solder to bridge JP1 and JP2
+3. *For the Right-Hand Side PCB only*: On the top-side of the PCB, use solder to bridge JP1 and JP2
     to either 1 or 3.
 
     Currently, the QMK firmware only supports JP1 and JP2 jumped to 1,
