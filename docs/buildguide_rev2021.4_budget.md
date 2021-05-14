@@ -166,7 +166,7 @@ For each half:
 
     <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/3-trrs-jack-soldered.JPG" />
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/3-trrs-jack-bottom.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/3-trrs-jack-soldered-bottom.JPG" />
 
 5. Solder in the female headers and/or socket.
 
