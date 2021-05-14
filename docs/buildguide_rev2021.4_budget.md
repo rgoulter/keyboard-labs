@@ -144,7 +144,7 @@ For each half:
     to either 1 or 3.
 
     Currently, the QMK firmware only supports JP1 and JP2 jumped to 1,
-    the Keyberon firmware only supports JP1 and JP2 jumped to 2.
+    the Keyberon firmware only supports JP1 and JP2 jumped to 3.
 
     i.e. for QMK, it should look like:
 
