@@ -26,7 +26,7 @@ module cover_screws() {
 $fn = 36;
 
 // (Metal) top plate
-difference() {
+!difference() {
     plate(
         edge_cuts_data = edge_cuts_data,
         modules_data = modules_data,
@@ -63,13 +63,23 @@ difference() {
             corner_rounder(r = 1);
         }
     }
-    translate([J1_at[0], -J1_at[1]] + [2.5, 4]) {
+    translate([J1_at[0], -J1_at[1]] + [2.5, 6.3]) {
         rotate([0, 0, 90]) {
             corner_rounder(r = 2.5);
         }
     }
     translate([J1_at[0], -J1_at[1]] + [2.5, -4]) {
         rotate([0, 0, 180]) {
+            corner_rounder(r = 2.5);
+        }
+    }
+    translate([SW_RE1_at[0], -SW_RE1_at[1]] + [-4, -1.8]) {
+        rotate([0, 0, 90]) {
+            corner_rounder(r = 2.5);
+        }
+    }
+    translate([SW_RE1_at[0], -SW_RE1_at[1]] + [8.8, -1.8]) {
+        rotate([0, 0, 0]) {
             corner_rounder(r = 2.5);
         }
     }
