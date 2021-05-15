@@ -187,8 +187,8 @@ module module_footprints(
         );
 
         if (use_module) {
-            scale([is_front_side ? 1 : -1, 1, 1]) {
-                translate([x, y]) {
+            translate([x, y]) {
+                scale([is_front_side ? 1 : -1, 1, 1]) {
                     rotate(openscad_rotation) {
                         module_for_footprint(
                             module_data = module_data,
