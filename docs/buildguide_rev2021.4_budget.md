@@ -3,6 +3,8 @@
 This document is a guide for soldering a minimal build of the MiniF4
 36-key split keyboard.
 
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/result.JPG" />
+
 This build can be completed with a minimum of parts,
 and a minimal soldering set, and no prior soldering
 experience. Since it does not involve diodes, there are fewer
@@ -16,7 +18,9 @@ As this is a minimal budget-oriented build, the keyboard is
 just the PCB and some switches. No plate/case. The resulting
 build doesn't feel as nice as if it were built with a plate or a case.
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/result.JPG" />
+A companion video showing the soldering can be found here:
+
+[![](https://img.youtube.com/vi/zhKnluxdRtA/0.jpg)](https://www.youtube.com/watch?v=zhKnluxdRtA)
 
 # Required Materials
 
