@@ -30,7 +30,7 @@ module Footprint_Jumper_SolderJumper_3_P1_3mm_Open_Pad1_0x1_5mm_NumberLabels() {
 module Footprint_Keebio_Parts_TRRS_PJ_320A() {
     offset(1) {
         translate([-3.1, -3.1]) {
-            square([6.2, 14.15]);
+            square([6.2, 15.15]);
         }
     }
 }
@@ -97,17 +97,19 @@ module Footprint_ProjectLocal_WeAct_MiniF4_ZigZag() {
 
 // Footprint used by: SW_RE1
 module Footprint_Rotary_Encoder_RotaryEncoder_Alps_EC11E_Switch_Vertical_H20mm() {
-    px = 1.4;
-    py = -3.4;
-    cx = 6.1;
-    cy = 5.9;
+    S2_rel_to_A = [14.5, 0];
+    S1_rel_to_A = [14.5, 5];
+    extra = 2;
+    translate(S2_rel_to_A) {
+        circle(d = 2.5);
+    }
+    translate(S1_rel_to_A) {
+        circle(d = 2.5);
+    }
     *circle(d = 1);
-    translate([px, py]) {
-        *circle(d = 2);
-        translate([cx, cy]) {
-            *circle(d = 5);
-            square([13, 13], center = true);
-        }
+    translate([-1.14, -4.15] + [-extra, 0]) {
+        *circle(d = 1);
+        square([15.7 + extra, 13.1], center = false);
     }
 }
 
