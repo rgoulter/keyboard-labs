@@ -1,5 +1,10 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP BluePill_or_MiniF4
+D STM32 Blue Pill ; KLC compliant
+K module black pill STM32
+$ENDCMP
+#
 $CMP MiniF4
 D STM32 Blue Pill ; KLC compliant
 K module black pill STM32
@@ -10,9 +15,10 @@ D STM32 Blue Pill ; KLC compliant
 K module black pill STM32
 $ENDCMP
 #
-$CMP MiniF4_or_BluePill
-D STM32 Blue Pill ; KLC compliant
-K module black pill STM32
+$CMP SolderJumper_3_Bridged23
+D 3-pole Solder Jumper, pins 2+3 closed/bridged
+K Solder Jumper SPDT
+F ~
 $ENDCMP
 #
 #End Doc Library
