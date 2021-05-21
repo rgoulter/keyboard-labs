@@ -22,6 +22,32 @@ A companion video showing the soldering can be found here:
 
 [![](https://img.youtube.com/vi/zhKnluxdRtA/0.jpg)](https://www.youtube.com/watch?v=zhKnluxdRtA)
 
+# Budget-Focussed Alternatives
+
+Other budget-oriented ways to build a keyboard:
+
+### Other Small PCBs
+
+The steps in this build guide will more/less apply to
+other keyboard PCB designs. Other keyboard PCBs will be similarly
+cheap to fabricate/assemble if the PCB is also smaller than 100x100mm.
+The most common development board used in such keyboards is the Pro Micro,
+which isn't as powerful as the WeAct Studio MiniF4 "black pill".
+There are development boards which are compatible with the Pro Micro while
+being more powerful, but these are more expensive. (Otherwise everyone would
+just use those in their builds).
+
+### Hand-Wired Keyboard
+
+It's likely to be cheaper to build a hand-wired keyboard.
+This would involve getting a case by lasercutting plates,
+and hand-wiring the switches to the microcontroller development board.
+The advantage to building a hand-wired keyboard is you've
+got more flexibility in terms of keyboard shape/size.
+The advantage to the build in this guide is that
+since the keyboard circuit is on the PCB, no fiddling with wires
+is required, and the result still looks nice with relatively little effort.
+
 # Required Materials
 
 <img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/buildlog-rev2021.4-minimal/bom-soldering-switches.JPG" />
