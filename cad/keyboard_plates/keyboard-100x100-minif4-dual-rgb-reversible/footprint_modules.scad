@@ -37,7 +37,7 @@ module Footprint_Keebio_Parts_TRRS_PJ_320A() {
 
 // Footprint used by: H11, H12, H13, H14, H15
 module Footprint_MountingHole_MountingHole_2_2mm_M2_ISO7380_Pad() {
-    square(1, center = true);
+    circle(d = 3);
 }
 
 // Footprint used by: H1, H2, H3, H4, H5
@@ -92,6 +92,25 @@ U1_length = 57;
 module Footprint_ProjectLocal_WeAct_MiniF4_ZigZag() {
     translate(U1_offset) { // -12.5, -2
         square([U1_width, U1_length], center = false);
+    }
+}
+
+// DIP40_Reversible_ZigZag
+module Footprint_ProjectLocal_DIP40_Reversible_ZigZag() {
+    translate(U1_offset) { // -12.5, -2
+        square([U1_width, U1_length], center = false);
+    }
+}
+
+// ProjectLocal:Mini_DC_Motor
+module Footprint_ProjectLocal_Mini_DC_Motor() {
+    circle(r = 6);
+}
+
+// ProjectLocal:SW_Push_SPST_3x6mm
+module Footprint_ProjectLocal_SW_Push_SPST_3x6mm() {
+    translate([0.7 + 3, 0]) {
+        square([6,3], center = true);
     }
 }
 
@@ -159,8 +178,16 @@ module module_for_footprint(
         Footprint_ProjectLocal_SW_MX_PG1350_reversible();
     } else if (module_footprint == "ProjectLocal:WeAct_MiniF4_ZigZag") {
         Footprint_ProjectLocal_WeAct_MiniF4_ZigZag();
+    } else if (module_footprint == "ProjectLocal:DIP40_Reversible_ZigZag") {
+        Footprint_ProjectLocal_DIP40_Reversible_ZigZag();
     } else if (module_footprint == "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm") {
         Footprint_Rotary_Encoder_RotaryEncoder_Alps_EC11E_Switch_Vertical_H20mm();
+    } else if (module_footprint == "ProjectLocal:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_Reversible") {
+        Footprint_Rotary_Encoder_RotaryEncoder_Alps_EC11E_Switch_Vertical_H20mm();
+    } else if (module_footprint == "ProjectLocal:Mini_DC_Motor") {
+        Footprint_ProjectLocal_Mini_DC_Motor();
+    } else if (module_footprint == "ProjectLocal:SW_Push_SPST_3x6mm") {
+        Footprint_ProjectLocal_SW_Push_SPST_3x6mm();
     } else {
         assert(allow_unhandled_footprints, "fall-through; unhandled footprint: '" + module_footprint + "'");
     }
