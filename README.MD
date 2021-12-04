@@ -7,9 +7,15 @@ designs and keyboard firmware.
 
 Kicad source files are in `pcb`.
 
-Plotted gerber files can be found in [releases](https://github.com/rgoulter/keyboard-labs/releases/).
+Plotted gerber files can be found under the GitHub repository's
+[releases](https://github.com/rgoulter/keyboard-labs/releases/).
 
-#### 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
+| Designation | Summary/Keywords                                                                 | Image                                                                                                                                                 |
+|-------------|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| X-1         | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard_100x100_minif4-36key_compare-rev2020.1-rev2021.1mx-flat.JPG) |
+| X-2         | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_minif4-smd-choc_wide.png)     |
+
+#### X-1: 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard_100x100_minif4-36key_rev2021.1mx-pair_tented-displayed.JPG"  width=600 />
 
@@ -33,10 +39,11 @@ Design goals:
   so that it's cheaper to fabricate at various
   PCB fabricators.
 - Reversible PCB (use the same PCB for left/right halves).
-- Using the WeAct Studio MiniF4 "black pill" dev board.
+- Using the WeAct Studio MiniF4 "black pill" dev board,
+  a cheap STM32F4 dev board that runs ARM.
 - Low profile (PCB + choc switches + bumpons).
 - Column-staggered arrangement of key switches.
-- Per-key RGB LEDs.
+- Fancy features: e.g. per-key RGB LEDs, rotary encoders, OLED screen, DC vibration motors.
 
 ###### Build Guides
 
@@ -58,6 +65,31 @@ typing.io:
 
 [![](https://img.youtube.com/vi/Bn727EBErZ0/0.jpg)](https://www.youtube.com/watch?v=Bn727EBErZ0)
 
+#### X-2: 5x12 Ortholinear, ARM-powered Adaptation of peej's Lumberjack PCB
+
+peej's [lumberjack-keyboard](https://github.com/peej/lumberjack-keyboard) is a cool and creative
+design, which continues the style of "show the components" used by keyboards like
+the [plaid](https://github.com/hsgw/plaid).
+
+One downside to it is that DIP microcontrollers are pretty weak.
+Developer boards are a spiritual-successor to DIP microcontrollers,
+so I wanted to adapt the striking Lumberjack design to a more
+powerful developer board.
+
+Design goals:
+
+- Using STM32 dev board. (ARM-powered!).
+- Adapt the Lumberjack design.
+  - In a "show the components" style.
+  - Fits in tray-mount GH60 case.
+  - (Relatively) easy to solder.
+
+Render Previews:
+
+![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_minif4-smd-choc_wide.png)
+
+![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_bluepill-th-mx_wide.png)
+
 ## CAD Designs
 
 CAD design files found under `cad/`:
@@ -76,14 +108,20 @@ The design accepts various parameters (e.g. width, height, angle, screw diameter
 
 Source files under `firmware`.
 
-The keyboard firmware is written in Rust using the keyberon
+There is keyboard firmware written in Rust using the [keyberon](https://github.com/TeXitoi/keyberon)
 firmware.
 
 ## Scripts
 
 ### Kicad PCB to OpenSCAD
 
+My attempt at generating top/bottom plate CAD files *as code*.
+
+The script generates an OpenSCAD file with the `.kicad_pcb` data
+(Kicad module positions, etc.), which can be used by other OpenSCAD
+code.
+
 Script to generate OpenSCAD files from `.kicad_pcb` files.
 See: [scripts/README.MD](https://github.com/rgoulter/keyboard-labs/tree/master/scripts#transform-kicad_pcb-to-scad)
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad_plate1.png"  width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad_plate1.png" width=600 />
