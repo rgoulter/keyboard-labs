@@ -1,262 +1,262 @@
 EESchema Schematic File Version 4
 EELAYER 30 0
 EELAYER END
-$Descr A3 16535 11693
+$Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "Reversible Split Keyboard Half"
-Date "2021-05-21"
-Rev "2021.5"
-Comp "Richard Goulter"
-Comment1 "SK6812mini-e used for per-key RGBs. SK6812 for underglow."
-Comment2 "TRRS Jacks connected to UART or I2C."
-Comment3 "Switch \"matrix\" is a collection of switches, each directly connected to the controller."
-Comment4 "Split keyboard half for the WeAct Studio MiniF4 dev board."
+Title "X-2, ARM-Devboard variant of peej's Lumberjack"
+Date "2021-12-04"
+Rev "2021.1"
+Comp "Richard Goulter (github.com/rgoulter)"
+Comment1 "Feature: 4x WS2812B RGB LEDs."
+Comment2 "Feature: an External USB-C connector."
+Comment3 "Uses pads common to both the Bluepill devboard and the WeAct MiniF4."
+Comment4 "Keyboard PCB; 12x5 matrix."
 $EndDescr
 $Comp
 L Device:C_Small C2
 U 1 1 604CF796
-P 10500 10550
-F 0 "C2" V 10363 10550 50  0000 C BNN
-F 1 "100nF" V 10362 10550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10500 10550 50  0001 C CNN
-F 3 "~" H 10500 10550 50  0001 C CNN
-	1    10500 10550
+P 9200 5850
+F 0 "C2" V 9063 5850 50  0000 C BNN
+F 1 "100nF" V 9062 5850 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9200 5850 50  0001 C CNN
+F 3 "~" H 9200 5850 50  0001 C CNN
+	1    9200 5850
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C4
 U 1 1 605C286C
-P 11150 10550
-F 0 "C4" V 11013 10550 50  0000 C BNN
-F 1 "100nF" V 11012 10550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 11150 10550 50  0001 C CNN
-F 3 "~" H 11150 10550 50  0001 C CNN
-	1    11150 10550
+P 9850 5850
+F 0 "C4" V 9713 5850 50  0000 C BNN
+F 1 "100nF" V 9712 5850 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9850 5850 50  0001 C CNN
+F 3 "~" H 9850 5850 50  0001 C CNN
+	1    9850 5850
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C_Small C3
 U 1 1 60618AAF
-P 10850 10550
-F 0 "C3" V 10713 10550 50  0000 C BNN
-F 1 "100nF" V 10712 10550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10850 10550 50  0001 C CNN
-F 3 "~" H 10850 10550 50  0001 C CNN
-	1    10850 10550
+P 9550 5850
+F 0 "C3" V 9413 5850 50  0000 C BNN
+F 1 "100nF" V 9412 5850 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9550 5850 50  0001 C CNN
+F 3 "~" H 9550 5850 50  0001 C CNN
+	1    9550 5850
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R4
 U 1 1 60D9AF80
-P 5300 10450
-F 0 "R4" H 5230 10496 50  0000 R CNN
-F 1 "300 - 500R" V 5200 10450 50  0000 R CNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 5230 10450 50  0001 C CNN
-F 3 "~" H 5300 10450 50  0001 C CNN
-	1    5300 10450
+P 5600 5700
+F 0 "R4" H 5530 5746 50  0000 R CNN
+F 1 "300 - 500R" V 5500 5700 50  0000 R CNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 5530 5700 50  0001 C CNN
+F 3 "~" H 5600 5700 50  0001 C CNN
+	1    5600 5700
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5300 10600 5600 10600
-Text Label 5500 10200 0    50   ~ 0
+	5600 5850 5900 5850
+Text Label 5800 5450 0    50   ~ 0
 5V
 NoConn ~ 2600 2750
 NoConn ~ 2600 2850
 NoConn ~ 2600 3050
 Wire Wire Line
-	5500 10200 5500 10300
+	5800 5450 5800 5550
 Text Label 2600 1250 0    50   ~ 0
 GND
 Text Notes 3250 600  0    50   ~ 0
 Grid of switches for the PCB.
-Text Notes 5850 10150 0    50   ~ 0
+Text Notes 6150 5400 0    50   ~ 0
 Grid of WS2812-compatible RGB LEDs,\narranged in the same order as the key switches.\n\nEach DOUT connects to the DIN of the next LED.
 Text Notes 1200 800  0    50   ~ 0
 Development Board,\nSTM32F103C8T6 "Blue Pill" or\nWeAct Studio MiniF4 "Black Pill"
 $Comp
 L Mechanical:MountingHole H1
 U 1 1 602E59E6
-P 13550 3050
-F 0 "H1" H 13650 3096 50  0000 L CNN
-F 1 "MountingHole" H 13650 3005 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3050 50  0001 C CNN
-F 3 "~" H 13550 3050 50  0001 C CNN
-	1    13550 3050
+P 950 7050
+F 0 "H1" H 1050 7096 50  0000 L CNN
+F 1 "MountingHole" H 1050 7005 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 950 7050 50  0001 C CNN
+F 3 "~" H 950 7050 50  0001 C CNN
+	1    950  7050
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H2
 U 1 1 602EA31E
-P 13550 3250
-F 0 "H2" H 13650 3296 50  0000 L CNN
-F 1 "MountingHole" H 13650 3205 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3250 50  0001 C CNN
-F 3 "~" H 13550 3250 50  0001 C CNN
-	1    13550 3250
+P 950 7250
+F 0 "H2" H 1050 7296 50  0000 L CNN
+F 1 "MountingHole" H 1050 7205 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 950 7250 50  0001 C CNN
+F 3 "~" H 950 7250 50  0001 C CNN
+	1    950  7250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H3
 U 1 1 602EA63D
-P 13550 3450
-F 0 "H3" H 13650 3496 50  0000 L CNN
-F 1 "MountingHole" H 13650 3405 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3450 50  0001 C CNN
-F 3 "~" H 13550 3450 50  0001 C CNN
-	1    13550 3450
+P 950 7450
+F 0 "H3" H 1050 7496 50  0000 L CNN
+F 1 "MountingHole" H 1050 7405 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 950 7450 50  0001 C CNN
+F 3 "~" H 950 7450 50  0001 C CNN
+	1    950  7450
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H4
 U 1 1 602EA8E5
-P 14300 3050
-F 0 "H4" H 14400 3096 50  0000 L CNN
-F 1 "MountingHole" H 14400 3005 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 14300 3050 50  0001 C CNN
-F 3 "~" H 14300 3050 50  0001 C CNN
-	1    14300 3050
+P 1700 7050
+F 0 "H4" H 1800 7096 50  0000 L CNN
+F 1 "MountingHole" H 1800 7005 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 1700 7050 50  0001 C CNN
+F 3 "~" H 1700 7050 50  0001 C CNN
+	1    1700 7050
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H5
 U 1 1 602EEB15
-P 14300 3250
-F 0 "H5" H 14400 3296 50  0000 L CNN
-F 1 "MountingHole" H 14400 3205 50  0000 L CNN
-F 2 "ProjectLocal:Bumpon_3M_F0502" H 14300 3250 50  0001 C CNN
-F 3 "~" H 14300 3250 50  0001 C CNN
-	1    14300 3250
+P 1700 7250
+F 0 "H5" H 1800 7296 50  0000 L CNN
+F 1 "MountingHole" H 1800 7205 50  0000 L CNN
+F 2 "ProjectLocal:Bumpon_3M_F0502" H 1700 7250 50  0001 C CNN
+F 3 "~" H 1700 7250 50  0001 C CNN
+	1    1700 7250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H6
 U 1 1 603C44C9
-P 14300 3450
-F 0 "H6" H 14400 3496 50  0000 L CNN
-F 1 "MountingHole" H 14400 3405 50  0000 L CNN
-F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3450 50  0001 C CNN
-F 3 "~" H 14300 3450 50  0001 C CNN
-	1    14300 3450
+P 1700 7450
+F 0 "H6" H 1800 7496 50  0000 L CNN
+F 1 "MountingHole" H 1800 7405 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 1700 7450 50  0001 C CNN
+F 3 "~" H 1700 7450 50  0001 C CNN
+	1    1700 7450
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H7
 U 1 1 603C4D5A
-P 14300 3650
-F 0 "H7" H 14400 3696 50  0000 L CNN
-F 1 "MountingHole" H 14400 3605 50  0000 L CNN
-F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3650 50  0001 C CNN
-F 3 "~" H 14300 3650 50  0001 C CNN
-	1    14300 3650
+P 1700 7650
+F 0 "H7" H 1800 7696 50  0000 L CNN
+F 1 "MountingHole" H 1800 7605 50  0000 L CNN
+F 2 "ProjectLocal:H_M2_Spacer_Hole" H 1700 7650 50  0001 C CNN
+F 3 "~" H 1700 7650 50  0001 C CNN
+	1    1700 7650
 	1    0    0    -1  
 $EndComp
 Text Label 2600 1750 0    50   ~ 0
 RGB_DIN_3V3
-Text Notes 950  9700 0    50   ~ 0
+Text Notes 3300 5300 0    50   ~ 0
 Convert the voltage of the RGB_DIN_3V3\nsignal to 5V so that the SK6812mini-e\nand SK6812 receive the RGB data reliably.
-Text Notes 13250 2800 0    50   ~ 0
+Text Notes 650  6800 0    50   ~ 0
 Mechanical:\nH1-H3 for mounting holes used for GH60 case.\nH4-H7 for mounting holes for acrylic cover plate.
 Wire Wire Line
-	5500 10300 5900 10300
-Connection ~ 6500 10300
-Connection ~ 7100 10300
-Connection ~ 5900 10300
+	5800 5550 6200 5550
+Connection ~ 6800 5550
+Connection ~ 7400 5550
+Connection ~ 6200 5550
 Wire Wire Line
-	7100 10300 7700 10300
+	7400 5550 8000 5550
 Wire Wire Line
-	7100 10300 6500 10300
+	7400 5550 6800 5550
 Wire Wire Line
-	6500 10300 5900 10300
+	6800 5550 6200 5550
 $Comp
 L LED:WS2812B D1
 U 1 1 5FD534E8
-P 5900 10600
-F 0 "D1" H 6244 10646 50  0000 R BNN
-F 1 "WS2812B" H 6244 10555 50  0001 L TNN
-F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 5950 10300 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6000 10225 50  0001 L TNN
-	1    5900 10600
+P 6200 5850
+F 0 "D1" H 6250 5450 50  0000 R BNN
+F 1 "WS2812B" H 6544 5805 50  0001 L TNN
+F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 6250 5550 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6300 5475 50  0001 L TNN
+	1    6200 5850
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C_Small C1
 U 1 1 603D2DAA
-P 10150 10550
-F 0 "C1" V 10013 10550 50  0000 C BNN
-F 1 "100nF" V 10012 10550 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 10150 10550 50  0001 C CNN
-F 3 "~" H 10150 10550 50  0001 C CNN
-	1    10150 10550
+P 8850 5850
+F 0 "C1" V 8713 5850 50  0000 C BNN
+F 1 "100nF" V 8712 5850 50  0000 C TNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8850 5850 50  0001 C CNN
+F 3 "~" H 8850 5850 50  0001 C CNN
+	1    8850 5850
 	0    1    1    0   
 $EndComp
 $Comp
 L LED:WS2812B D4
 U 1 1 5FE08387
-P 7700 10600
-F 0 "D4" H 8044 10646 50  0000 R BNN
-F 1 "WS2812B" H 8044 10555 50  0001 L TNN
-F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 7750 10300 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7800 10225 50  0001 L TNN
-	1    7700 10600
+P 8000 5850
+F 0 "D4" H 8050 5450 50  0000 R BNN
+F 1 "WS2812B" H 8344 5805 50  0001 L TNN
+F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 8050 5550 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8100 5475 50  0001 L TNN
+	1    8000 5850
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D2
 U 1 1 5FDFCDFD
-P 6500 10600
-F 0 "D2" H 6844 10646 50  0000 R BNN
-F 1 "WS2812B" H 6844 10555 50  0001 L TNN
-F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 6550 10300 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6600 10225 50  0001 L TNN
-	1    6500 10600
+P 6800 5850
+F 0 "D2" H 6850 5450 50  0000 R BNN
+F 1 "WS2812B" H 7144 5805 50  0001 L TNN
+F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 6850 5550 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6900 5475 50  0001 L TNN
+	1    6800 5850
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B D3
 U 1 1 5FE0782B
-P 7100 10600
-F 0 "D3" H 7444 10646 50  0000 R BNN
-F 1 "WS2812B" H 7444 10555 50  0001 L TNN
-F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 7150 10300 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7200 10225 50  0001 L TNN
-	1    7100 10600
+P 7400 5850
+F 0 "D3" H 7450 5450 50  0000 R BNN
+F 1 "WS2812B" H 7744 5805 50  0001 L TNN
+F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 7450 5550 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 5475 50  0001 L TNN
+	1    7400 5850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5900 10900 6500 10900
+	6200 6150 6800 6150
 Wire Wire Line
-	6500 10900 7100 10900
-Connection ~ 6500 10900
+	6800 6150 7400 6150
+Connection ~ 6800 6150
 Wire Wire Line
-	7100 10900 7700 10900
-Connection ~ 7100 10900
-Text Label 10050 10200 0    50   ~ 0
+	7400 6150 8000 6150
+Connection ~ 7400 6150
+Text Label 8750 5500 0    50   ~ 0
 5V
-Text Label 11250 10900 2    50   ~ 0
+Text Label 9950 6200 2    50   ~ 0
 GND
 Wire Wire Line
-	10050 10200 10050 10300
+	8750 5500 8750 5600
 Wire Wire Line
-	10400 10550 10400 10300
+	9100 5850 9100 5600
 Wire Wire Line
-	10400 10300 10050 10300
-Connection ~ 10050 10300
+	9100 5600 8750 5600
+Connection ~ 8750 5600
 Wire Wire Line
-	10050 10300 10050 10550
+	8750 5600 8750 5850
 Wire Wire Line
-	10750 10550 10750 10300
+	9450 5850 9450 5600
 Wire Wire Line
-	10750 10300 10400 10300
-Connection ~ 10400 10300
+	9450 5600 9100 5600
+Connection ~ 9100 5600
 Wire Wire Line
-	11050 10550 11050 10300
+	9750 5850 9750 5600
 Wire Wire Line
-	11050 10300 10750 10300
-Connection ~ 10750 10300
+	9750 5600 9450 5600
+Connection ~ 9450 5600
 Wire Wire Line
-	11250 10750 11250 10900
-Text Notes 10050 9850 0    50   ~ 0
+	9950 6050 9950 6200
+Text Notes 8750 5150 0    50   ~ 0
 Decoupling capacitors\nfor the RGB LEDs
 Text Label 1000 2850 2    50   ~ 0
 5V
@@ -269,51 +269,39 @@ GND_or_5V
 $Comp
 L Logic_LevelTranslator:SN74LVC1T45DBV U2
 U 1 1 603EC747
-P 1800 10350
-F 0 "U2" H 2150 10600 50  0000 L CNN
-F 1 "SN74LVC1T45DBV" H 2150 10500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6_Handsoldering" H 1800 9900 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 900 9700 50  0001 C CNN
-	1    1800 10350
+P 4150 5950
+F 0 "U2" H 4500 6200 50  0000 L CNN
+F 1 "SN74LVC1T45DBV" H 4500 6100 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6_Handsoldering" H 4150 5500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 3250 5300 50  0001 C CNN
+	1    4150 5950
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R3
 U 1 1 603F5BAE
-P 1250 10550
-F 0 "R3" H 1320 10550 50  0000 L CNN
-F 1 "2.2k - 10k" H 1320 10505 50  0000 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 1180 10550 50  0001 C CNN
-F 3 "~" H 1250 10550 50  0001 C CNN
-	1    1250 10550
+P 3600 6150
+F 0 "R3" H 3670 6150 50  0000 L CNN
+F 1 "2.2k - 10k" H 3670 6105 50  0000 L TNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 3530 6150 50  0001 C CNN
+F 3 "~" H 3600 6150 50  0001 C CNN
+	1    3600 6150
 	0    1    1    0   
 $EndComp
-Text Label 2200 10350 0    50   ~ 0
+Text Label 4550 5950 0    50   ~ 0
 RGB_DIN_5V
-Text Label 1900 9950 1    50   ~ 0
+Text Label 4250 5550 1    50   ~ 0
 5V
-Text Label 1700 9950 1    50   ~ 0
+Text Label 4050 5550 1    50   ~ 0
 3V3
-Text Label 1800 10750 3    50   ~ 0
+Text Label 4150 6350 3    50   ~ 0
 GND
-Text Label 1400 10350 1    50   ~ 0
+Text Label 3750 5950 1    50   ~ 0
 RGB_DIN_3V3
-Text Label 1100 10550 2    50   ~ 0
+Text Label 3450 6150 2    50   ~ 0
 5V
-Text Label 5300 10300 1    50   ~ 0
+Text Label 5600 5550 1    50   ~ 0
 RGB_DIN_5V
-Wire Notes Line
-	4300 11200 4300 8300
-Wire Notes Line
-	16050 2350 13200 2350
-Wire Notes Line
-	3200 500  3200 8300
-Wire Notes Line
-	500  8300 16050 8300
-Wire Notes Line
-	11750 4300 11750 11200
-Wire Notes Line
-	500  4300 16050 4300
 Text Label 4100 900  1    50   ~ 0
 COL1
 Text Label 3550 1600 2    50   ~ 0
@@ -2016,152 +2004,150 @@ Text Label 2600 1350 0    50   ~ 0
 $Comp
 L Device:D D5
 U 1 1 61C10A70
-P 5750 4950
-F 0 "D5" H 5750 4733 50  0000 C CNN
-F 1 "D" H 5750 4824 50  0000 C CNN
-F 2 "Keebio-Parts:Diode-dual" H 5750 4950 50  0001 C CNN
-F 3 "~" H 5750 4950 50  0001 C CNN
-	1    5750 4950
+P 2500 3800
+F 0 "D5" H 2500 3583 50  0000 C CNN
+F 1 "D" H 2500 3674 50  0000 C CNN
+F 2 "Keebio-Parts:Diode-dual" H 2500 3800 50  0001 C CNN
+F 3 "~" H 2500 3800 50  0001 C CNN
+	1    2500 3800
 	-1   0    0    1   
 $EndComp
 $Comp
 L Device:R R1
 U 1 1 61C1271C
-P 5300 6500
-F 0 "R1" H 5370 6546 50  0000 L CNN
-F 1 "R" H 5370 6455 50  0000 L CNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 5230 6500 50  0001 C CNN
-F 3 "~" H 5300 6500 50  0001 C CNN
-	1    5300 6500
+P 2150 4400
+F 0 "R1" H 2220 4446 50  0000 L CNN
+F 1 "5.1K" H 2220 4355 50  0000 L CNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 2080 4400 50  0001 C CNN
+F 3 "~" H 2150 4400 50  0001 C CNN
+	1    2150 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R2
 U 1 1 61C1375C
-P 5700 6500
-F 0 "R2" H 5770 6546 50  0000 L CNN
-F 1 "R" H 5770 6455 50  0000 L CNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 5630 6500 50  0001 C CNN
-F 3 "~" H 5700 6500 50  0001 C CNN
-	1    5700 6500
+P 2550 4400
+F 0 "R2" H 2620 4446 50  0000 L CNN
+F 1 "5.1K" H 2620 4355 50  0000 L CNN
+F 2 "ProjectLocal:Resistor-Hybrid" V 2480 4400 50  0001 C CNN
+F 3 "~" H 2550 4400 50  0001 C CNN
+	1    2550 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0101
 U 1 1 61C2ACC7
-P 3900 6450
-F 0 "#PWR0101" H 3900 6200 50  0001 C CNN
-F 1 "GND" H 3905 6277 50  0000 C CNN
-F 2 "" H 3900 6450 50  0001 C CNN
-F 3 "" H 3900 6450 50  0001 C CNN
-	1    3900 6450
+P 1050 5300
+F 0 "#PWR0101" H 1050 5050 50  0001 C CNN
+F 1 "GND" H 1055 5127 50  0000 C CNN
+F 2 "" H 1050 5300 50  0001 C CNN
+F 3 "" H 1050 5300 50  0001 C CNN
+	1    1050 5300
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VBUS #PWR0102
 U 1 1 61C2C819
-P 4500 4950
-F 0 "#PWR0102" H 4500 4800 50  0001 C CNN
-F 1 "VBUS" V 4500 5150 50  0000 C CNN
-F 2 "" H 4500 4950 50  0001 C CNN
-F 3 "" H 4500 4950 50  0001 C CNN
-	1    4500 4950
+P 1650 3800
+F 0 "#PWR0102" H 1650 3650 50  0001 C CNN
+F 1 "VBUS" V 1650 4000 50  0000 C CNN
+F 2 "" H 1650 3800 50  0001 C CNN
+F 3 "" H 1650 3800 50  0001 C CNN
+	1    1650 3800
 	0    1    1    0   
 $EndComp
 $Comp
 L Connector:USB_C_Receptacle_USB2.0 J1
 U 1 1 61BFB907
-P 3900 5550
-F 0 "J1" H 4007 6417 50  0000 C CNN
-F 1 "USB_C_Receptacle_USB2.0" H 4007 6326 50  0000 C CNN
-F 2 "Connector_USB:USB_C_Receptacle_XKB_U262-16XN-4BVC11" H 4050 5550 50  0001 C CNN
-F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 4050 5550 50  0001 C CNN
-	1    3900 5550
+P 1050 4400
+F 0 "J1" H 1157 5267 50  0000 C CNN
+F 1 "USB_C_Receptacle_USB2.0" H 1157 5176 50  0000 C CNN
+F 2 "Connector_USB:USB_C_Receptacle_XKB_U262-16XN-4BVC11" H 1200 4400 50  0001 C CNN
+F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 1200 4400 50  0001 C CNN
+	1    1050 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VBUS #PWR0103
 U 1 1 61C38D45
-P 5600 4950
-F 0 "#PWR0103" H 5600 4800 50  0001 C CNN
-F 1 "VBUS" V 5615 5077 50  0000 L CNN
-F 2 "" H 5600 4950 50  0001 C CNN
-F 3 "" H 5600 4950 50  0001 C CNN
-	1    5600 4950
+P 2350 3800
+F 0 "#PWR0103" H 2350 3650 50  0001 C CNN
+F 1 "VBUS" V 2365 3927 50  0000 L CNN
+F 2 "" H 2350 3800 50  0001 C CNN
+F 3 "" H 2350 3800 50  0001 C CNN
+	1    2350 3800
 	0    -1   -1   0   
 $EndComp
-Text Label 5900 4950 0    50   ~ 0
+Text Label 2650 3800 0    50   ~ 0
 5V
-Text Label 4500 5150 0    50   ~ 0
+Text Label 1650 4000 0    50   ~ 0
 CC1
-Text Label 5300 6350 0    50   ~ 0
+Text Label 2150 4250 0    50   ~ 0
 CC1
-Text Label 5700 6350 0    50   ~ 0
+Text Label 2550 4250 0    50   ~ 0
 CC2
-Text Label 4500 5250 0    50   ~ 0
+Text Label 1650 4100 0    50   ~ 0
 CC2
-Text Label 4500 5650 0    50   ~ 0
+Text Label 1650 4500 0    50   ~ 0
 USB_DP
-Text Label 4500 5750 0    50   ~ 0
+Text Label 1650 4600 0    50   ~ 0
 USB_DP
-Text Label 4500 5450 0    50   ~ 0
+Text Label 1650 4300 0    50   ~ 0
 USB_DN
-Text Label 4500 5550 0    50   ~ 0
+Text Label 1650 4400 0    50   ~ 0
 USB_DN
-NoConn ~ 4500 6050
-NoConn ~ 4500 6150
+NoConn ~ 1650 4900
+NoConn ~ 1650 5000
 $Comp
 L power:GND #PWR0104
 U 1 1 61C606CD
-P 5300 6650
-F 0 "#PWR0104" H 5300 6400 50  0001 C CNN
-F 1 "GND" H 5305 6477 50  0000 C CNN
-F 2 "" H 5300 6650 50  0001 C CNN
-F 3 "" H 5300 6650 50  0001 C CNN
-	1    5300 6650
+P 2150 4550
+F 0 "#PWR0104" H 2150 4300 50  0001 C CNN
+F 1 "GND" H 2155 4377 50  0000 C CNN
+F 2 "" H 2150 4550 50  0001 C CNN
+F 3 "" H 2150 4550 50  0001 C CNN
+	1    2150 4550
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0105
 U 1 1 61C60B93
-P 5700 6650
-F 0 "#PWR0105" H 5700 6400 50  0001 C CNN
-F 1 "GND" H 5705 6477 50  0000 C CNN
-F 2 "" H 5700 6650 50  0001 C CNN
-F 3 "" H 5700 6650 50  0001 C CNN
-	1    5700 6650
+P 2550 4550
+F 0 "#PWR0105" H 2550 4300 50  0001 C CNN
+F 1 "GND" H 2555 4377 50  0000 C CNN
+F 2 "" H 2550 4550 50  0001 C CNN
+F 3 "" H 2550 4550 50  0001 C CNN
+	1    2550 4550
 	1    0    0    -1  
 $EndComp
 Text Label 1000 1850 2    50   ~ 0
 USB_DN
 Text Label 1000 1950 2    50   ~ 0
 USB_DP
-Text Label 8150 11000 2    50   ~ 0
+Text Label 8450 6250 2    50   ~ 0
 GND
 Wire Wire Line
-	7700 10900 8150 10900
+	8000 6150 8450 6150
 Wire Wire Line
-	8150 10900 8150 11000
-Connection ~ 7700 10900
+	8450 6150 8450 6250
+Connection ~ 8000 6150
 Wire Wire Line
-	10250 10550 10250 10750
+	8950 5850 8950 6050
 Wire Wire Line
-	10250 10750 10600 10750
+	8950 6050 9300 6050
 Wire Wire Line
-	10600 10550 10600 10750
-Connection ~ 10600 10750
+	9300 5850 9300 6050
+Connection ~ 9300 6050
 Wire Wire Line
-	10600 10750 10950 10750
+	9300 6050 9650 6050
 Wire Wire Line
-	10950 10550 10950 10750
-Connection ~ 10950 10750
+	9650 5850 9650 6050
+Connection ~ 9650 6050
 Wire Wire Line
-	10950 10750 11250 10750
+	9650 6050 9950 6050
 Wire Wire Line
-	11250 10550 11250 10750
-Connection ~ 11250 10750
-Wire Notes Line
-	13200 4300 13200 500 
+	9950 5850 9950 6050
+Connection ~ 9950 6050
 $Comp
 L ProjectLocal:BluePill_or_MiniF4_DIP40 U1
 U 1 1 61AF765F
@@ -2207,4 +2193,18 @@ Text Label 1000 2550 2    50   ~ 0
 ROW4
 Text Label 1000 2650 2    50   ~ 0
 ROW5
+Wire Notes Line
+	3200 500  3200 7800
+Wire Notes Line
+	3200 3200 500  3200
+Wire Notes Line
+	3200 6500 500  6500
+Wire Notes Line
+	3200 4850 11200 4850
+Wire Notes Line
+	5300 4850 5300 7750
+Wire Notes Line
+	8650 4850 8650 6500
+Text Notes 3000 3350 2    50   ~ 0
+USB C Connector (adapted from WeAct MiniF4 v3.1 schematic).
 $EndSCHEMATC
