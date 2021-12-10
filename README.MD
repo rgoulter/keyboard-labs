@@ -104,6 +104,12 @@ using an extra wedge piece.
 
 The design accepts various parameters (e.g. width, height, angle, screw diameter).
 
+#### Layered Case
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad-layered_tray_mount_case.png" width=600 />
+
+An OpenSCAD module which helps for modelling the layers for a layered acrylic case.
+
 ## Firmware
 
 Source files under `firmware`.
@@ -118,10 +124,9 @@ firmware.
 My attempt at generating top/bottom plate CAD files *as code*.
 
 The script generates an OpenSCAD file with the `.kicad_pcb` data
-(Kicad module positions, etc.), which can be used by other OpenSCAD
+(Kicad module positions, board outline as an OpenSCAD module, etc.), which can be used by other OpenSCAD
 code.
 
-Script to generate OpenSCAD files from `.kicad_pcb` files.
 See: [scripts/README.MD](https://github.com/rgoulter/keyboard-labs/tree/master/scripts#transform-kicad_pcb-to-scad)
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad_plate1.png" width=600 />
