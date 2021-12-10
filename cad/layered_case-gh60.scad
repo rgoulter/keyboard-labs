@@ -52,7 +52,7 @@ module gh60_layered_case(
             end_point   = [screwsLeft, screwsTop],
             num_screws_between = 1
         );
-        
+
         screws_at(
             points = [
                 [5, 56.5],      // Hole A
@@ -73,8 +73,8 @@ if ($preview) {
 }
 
 mirror([0, 1, 0]) {
-    layers_above_origin = 4;
-    layers_below_origin = 4;
+    layers_above_origin = 1;
+    layers_below_origin = 3;
     layered_projections(
         layers_above_origin = layers_above_origin,
         layers_below_origin = layers_below_origin

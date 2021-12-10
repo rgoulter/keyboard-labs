@@ -1,3 +1,5 @@
+__layer_colors = ["Khaki", "Gold"];
+
 module __layered_case_border(
     margin = 2,
     case_border_thickness = 10,
@@ -35,12 +37,10 @@ module __layered_case_tray_mount_box(
     layers_above_origin = 4,
     layers_below_origin = 4,
 ) {
-    layer_colors = ["Khaki", "Gold"];
-
     if (layers_above_origin > 0) {
         for (top_layer_idx = [1 : layers_above_origin]) {
             translate([0, 0, (top_layer_idx - 1) * layer_thickness]) {
-                color(layer_colors[top_layer_idx % 2]) {
+                color(__layer_colors[top_layer_idx % 2]) {
                     __layered_case_border(
                         margin = margin,
                         case_border_thickness = case_border_thickness,
@@ -56,7 +56,7 @@ module __layered_case_tray_mount_box(
     if (layers_below_origin > 1) {
         for (bottom_layer_idx = [1 : (layers_below_origin - 1)]) {
             translate([0, 0, -(bottom_layer_idx * layer_thickness)]) {
-                color(layer_colors[(bottom_layer_idx - 1) % 2]) {
+                color(__layer_colors[(bottom_layer_idx - 1) % 2]) {
                     __layered_case_border(
                         margin = margin,
                         case_border_thickness = case_border_thickness,
@@ -71,7 +71,7 @@ module __layered_case_tray_mount_box(
 
     if (layers_below_origin > 0) {
         translate([0, 0, -(layers_below_origin * layer_thickness)]) {
-            color(layer_colors[(layers_below_origin - 1) % 2]) {
+            color(__layer_colors[(layers_below_origin - 1) % 2]) {
                 __layered_case_bottom_plate(
                     margin = margin,
                     case_border_thickness = case_border_thickness,
@@ -101,11 +101,26 @@ module layered_pseudo_tray_mount_case(
         ) {
             children(0);
         }
-        
+
         if ($children > 1) {
             for (i = [2:$children]) {
                 children(i - 1);
             }
+        }
+    }
+}
+
+module __slice_of(
+    offsetZ,
+    layer_thickness = 3,
+) {
+    intersection() {
+        translate([-500, -500]) {
+            cube([1000, 1000, layer_thickness]);
+        }
+
+        translate([0, 0, offsetZ]) {
+            children(0);
         }
     }
 }
@@ -116,28 +131,40 @@ module layered_projections(
     layers_above_origin = 4,
     layers_below_origin = 4,
     debug_offset_x = 350,
+    debug_delta_z = 30,
 ) {
     total_layer_count = layers_above_origin + layers_below_origin;
 
-    if ($preview) {        
-        translate([debug_offset_x, -projection_dy, 0]) {
+    if ($preview) {
+        translate([0, -projection_dy, 0]) {
             children(0);
         }
     }
 
     for (i = [1 : total_layer_count]) {
-        // XXX how to handle?
         deltaZ = (layers_above_origin * -layer_thickness) + ((i) * layer_thickness) - 0.01;
+
+        translate([debug_offset_x, -projection_dy, ((total_layer_count - i) * debug_delta_z)]) {
+            if ($preview) {
+                color(__layer_colors[i % 2]) {
+                    __slice_of(
+                        layer_thickness = layer_thickness,
+                        offsetZ = deltaZ
+                    ) {
+                        children(0);
+                    }
+                }
+            }
+        }
 
         translate([0, (i - 1) * projection_dy, 0]) {
             if ($preview) {
-                translate([debug_offset_x, 0, 0]) {
-                    intersection() {
-                        translate([-500, -500]) {
-                            cube([1000, 1000, 3]);
-                        }
-
-                        translate([0, 0, deltaZ]) {
+                color(__layer_colors[i % 2]) {
+                    translate([debug_offset_x, 0, 0]) {
+                        __slice_of(
+                            layer_thickness = layer_thickness,
+                            offsetZ = deltaZ
+                        ) {
                             children(0);
                         }
                     }
@@ -162,7 +189,7 @@ module screw_hole(
     translate([0, 0, screw_hole_bottom_z]) {
         cylinder(
             h = screw_hole_top_z - screw_hole_bottom_z,
-            d = screw_diameter + screw_hole_extra_diameter 
+            d = screw_diameter + screw_hole_extra_diameter
         );
     }
 }
