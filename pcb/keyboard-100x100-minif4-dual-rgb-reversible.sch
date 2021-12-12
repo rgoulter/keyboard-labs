@@ -1628,17 +1628,6 @@ Text Label 2600 2650 0    50   ~ 0
 SW25_or_RESET
 Text Label 2600 1450 0    50   ~ 0
 RESET_or_SW25
-$Comp
-L ProjectLocal:BluePill_or_MiniF4 U1
-U 1 1 60B9B38B
-P 1800 2050
-F 0 "U1" H 1800 3215 50  0000 C CNN
-F 1 "BluePill_or_MiniF4" H 1800 3124 50  0000 C CNN
-F 2 "ProjectLocal:DIP40_Reversible_ZigZag" H 2300 3200 50  0001 C CNN
-F 3 "" V 2450 1200 50  0001 C CNN
-	1    1800 2050
-	1    0    0    -1  
-$EndComp
 Text Label 2600 2250 0    50   ~ 0
 RE_A
 Text Label 1000 1450 2    50   ~ 0
@@ -1992,4 +1981,15 @@ F 3 "~" H 11100 1000 50  0001 C CNN
 $EndComp
 Text Notes 13250 950  0    50   ~ 0
 External reset switches.\n\nThis makes it easier to reset the development board\nif the board is mounted with its top facing towards\nthe PCB.
+$Comp
+L ProjectLocal:BluePill_or_MiniF4_DIP40 U1
+U 1 1 6222795C
+P 1800 2050
+F 0 "U1" H 1800 3215 50  0000 C CNN
+F 1 "BluePill_or_MiniF4_DIP40" H 1800 3124 50  0000 C CNN
+F 2 "ProjectLocal:DIP40_Reversible_ZigZag" H 2300 3200 50  0001 C CNN
+F 3 "" V 2450 1200 50  0001 C CNN
+	1    1800 2050
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
