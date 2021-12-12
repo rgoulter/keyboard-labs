@@ -132,7 +132,7 @@ U 1 1 604CF796
 P 8850 5300
 F 0 "C_21" V 8713 5300 50  0000 C BNN
 F 1 "100nF" V 8712 5300 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8850 5300 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 5300 50  0001 C CNN
 F 3 "~" H 8850 5300 50  0001 C CNN
 	1    8850 5300
 	0    1    1    0   
@@ -165,7 +165,7 @@ U 1 1 60572158
 P 8850 5600
 F 0 "C_22" V 8713 5600 50  0000 C BNN
 F 1 "100nF" V 8712 5600 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8850 5600 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 5600 50  0001 C CNN
 F 3 "~" H 8850 5600 50  0001 C CNN
 	1    8850 5600
 	0    1    1    0   
@@ -176,7 +176,7 @@ U 1 1 6057250D
 P 8850 5900
 F 0 "C_23" V 8713 5900 50  0000 C BNN
 F 1 "100nF" V 8712 5900 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8850 5900 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 5900 50  0001 C CNN
 F 3 "~" H 8850 5900 50  0001 C CNN
 	1    8850 5900
 	0    1    1    0   
@@ -187,7 +187,7 @@ U 1 1 605729BF
 P 8850 6200
 F 0 "C_24" V 8713 6200 50  0000 C BNN
 F 1 "100nF" V 8712 6200 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8850 6200 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 6200 50  0001 C CNN
 F 3 "~" H 8850 6200 50  0001 C CNN
 	1    8850 6200
 	0    1    1    0   
@@ -198,7 +198,7 @@ U 1 1 60572EE4
 P 8850 6500
 F 0 "C_25" V 8713 6500 50  0000 C BNN
 F 1 "100nF" V 8712 6500 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8850 6500 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 6500 50  0001 C CNN
 F 3 "~" H 8850 6500 50  0001 C CNN
 	1    8850 6500
 	0    1    1    0   
@@ -209,7 +209,7 @@ U 1 1 605C286C
 P 9500 5300
 F 0 "C_41" V 9363 5300 50  0000 C BNN
 F 1 "100nF" V 9362 5300 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9500 5300 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9500 5300 50  0001 C CNN
 F 3 "~" H 9500 5300 50  0001 C CNN
 	1    9500 5300
 	0    1    1    0   
@@ -220,7 +220,7 @@ U 1 1 605C3368
 P 9200 5600
 F 0 "C_32" V 9063 5600 50  0000 C BNN
 F 1 "100nF" V 9062 5600 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9200 5600 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 5600 50  0001 C CNN
 F 3 "~" H 9200 5600 50  0001 C CNN
 	1    9200 5600
 	0    1    1    0   
@@ -231,7 +231,7 @@ U 1 1 605C388D
 P 9200 5900
 F 0 "C_33" V 9063 5900 50  0000 C BNN
 F 1 "100nF" V 9062 5900 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9200 5900 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 5900 50  0001 C CNN
 F 3 "~" H 9200 5900 50  0001 C CNN
 	1    9200 5900
 	0    1    1    0   
@@ -242,7 +242,7 @@ U 1 1 605C3C2B
 P 9200 6200
 F 0 "C_34" V 9063 6200 50  0000 C BNN
 F 1 "100nF" V 9062 6200 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9200 6200 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 6200 50  0001 C CNN
 F 3 "~" H 9200 6200 50  0001 C CNN
 	1    9200 6200
 	0    1    1    0   
@@ -253,7 +253,7 @@ U 1 1 605C4025
 P 9200 6500
 F 0 "C_35" V 9063 6500 50  0000 C BNN
 F 1 "100nF" V 9062 6500 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9200 6500 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 6500 50  0001 C CNN
 F 3 "~" H 9200 6500 50  0001 C CNN
 	1    9200 6500
 	0    1    1    0   
@@ -264,7 +264,7 @@ U 1 1 605CBDEC
 P 9500 5600
 F 0 "C_42" V 9363 5600 50  0000 C BNN
 F 1 "100nF" V 9362 5600 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9500 5600 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9500 5600 50  0001 C CNN
 F 3 "~" H 9500 5600 50  0001 C CNN
 	1    9500 5600
 	0    1    1    0   
@@ -275,7 +275,7 @@ U 1 1 605CC18A
 P 9500 5900
 F 0 "C_43" V 9363 5900 50  0000 C BNN
 F 1 "100nF" V 9362 5900 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9500 5900 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9500 5900 50  0001 C CNN
 F 3 "~" H 9500 5900 50  0001 C CNN
 	1    9500 5900
 	0    1    1    0   
@@ -286,7 +286,7 @@ U 1 1 60618AAF
 P 9200 5300
 F 0 "C_31" V 9063 5300 50  0000 C BNN
 F 1 "100nF" V 9062 5300 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9200 5300 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 5300 50  0001 C CNN
 F 3 "~" H 9200 5300 50  0001 C CNN
 	1    9200 5300
 	0    1    1    0   
@@ -314,7 +314,7 @@ U 1 1 60D9AF80
 P 3500 5000
 F 0 "R4" H 3430 5046 50  0000 R CNN
 F 1 "300 - 500R" V 3400 5000 50  0000 R CNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 3430 5000 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 3430 5000 50  0001 C CNN
 F 3 "~" H 3500 5000 50  0001 C CNN
 	1    3500 5000
 	1    0    0    -1  
@@ -916,7 +916,7 @@ U 1 1 6040C40C
 P 9800 5300
 F 0 "C_BL_1" V 9663 5300 50  0000 C BNN
 F 1 "100nF" V 9662 5300 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9800 5300 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 5300 50  0001 C CNN
 F 3 "~" H 9800 5300 50  0001 C CNN
 	1    9800 5300
 	0    -1   -1   0   
@@ -927,7 +927,7 @@ U 1 1 6040D1BF
 P 9800 5600
 F 0 "C_BL_2" V 9663 5600 50  0000 C BNN
 F 1 "100nF" V 9662 5600 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9800 5600 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 5600 50  0001 C CNN
 F 3 "~" H 9800 5600 50  0001 C CNN
 	1    9800 5600
 	0    -1   -1   0   
@@ -938,7 +938,7 @@ U 1 1 6040D6FB
 P 9800 5900
 F 0 "C_BL_3" V 9663 5900 50  0000 C BNN
 F 1 "100nF" V 9662 5900 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9800 5900 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 5900 50  0001 C CNN
 F 3 "~" H 9800 5900 50  0001 C CNN
 	1    9800 5900
 	0    -1   -1   0   
@@ -949,7 +949,7 @@ U 1 1 6040D957
 P 9800 6200
 F 0 "C_BL_4" V 9663 6200 50  0000 C BNN
 F 1 "100nF" V 9662 6200 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 9800 6200 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 6200 50  0001 C CNN
 F 3 "~" H 9800 6200 50  0001 C CNN
 	1    9800 6200
 	0    -1   -1   0   
@@ -1122,7 +1122,7 @@ U 1 1 603D2DAA
 P 8500 5300
 F 0 "C_11" V 8363 5300 50  0000 C BNN
 F 1 "100nF" V 8362 5300 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8500 5300 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 5300 50  0001 C CNN
 F 3 "~" H 8500 5300 50  0001 C CNN
 	1    8500 5300
 	0    1    1    0   
@@ -1133,7 +1133,7 @@ U 1 1 60412CB4
 P 8500 5600
 F 0 "C_12" V 8363 5600 50  0000 C BNN
 F 1 "100nF" V 8362 5600 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8500 5600 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 5600 50  0001 C CNN
 F 3 "~" H 8500 5600 50  0001 C CNN
 	1    8500 5600
 	0    1    1    0   
@@ -1166,7 +1166,7 @@ U 1 1 60413B35
 P 8500 6500
 F 0 "C_15" V 8363 6500 50  0000 C BNN
 F 1 "100nF" V 8362 6500 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8500 6500 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 6500 50  0001 C CNN
 F 3 "~" H 8500 6500 50  0001 C CNN
 	1    8500 6500
 	0    1    1    0   
@@ -1177,7 +1177,7 @@ U 1 1 60413695
 P 8500 6200
 F 0 "C_14" V 8363 6200 50  0000 C BNN
 F 1 "100nF" V 8362 6200 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8500 6200 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 6200 50  0001 C CNN
 F 3 "~" H 8500 6200 50  0001 C CNN
 	1    8500 6200
 	0    1    1    0   
@@ -1188,7 +1188,7 @@ U 1 1 60413182
 P 8500 5900
 F 0 "C_13" V 8363 5900 50  0000 C BNN
 F 1 "100nF" V 8362 5900 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 8500 5900 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 5900 50  0001 C CNN
 F 3 "~" H 8500 5900 50  0001 C CNN
 	1    8500 5900
 	0    1    1    0   
@@ -1532,7 +1532,7 @@ U 1 1 603F5BAE
 P 850 5500
 F 0 "R3" H 920 5500 50  0000 L CNN
 F 1 "2.2k - 10k" H 920 5455 50  0000 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 780 5500 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 780 5500 50  0001 C CNN
 F 3 "~" H 850 5500 50  0001 C CNN
 	1    850  5500
 	0    1    1    0   
@@ -1587,7 +1587,7 @@ U 1 1 60A83BEB
 P 2200 8900
 F 0 "C1" V 2063 8900 50  0000 C BNN
 F 1 "100nF" V 2062 8900 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 2200 8900 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 2200 8900 50  0001 C CNN
 F 3 "~" H 2200 8900 50  0001 C CNN
 	1    2200 8900
 	0    1    1    0   
@@ -1598,7 +1598,7 @@ U 1 1 60A86C12
 P 2200 9200
 F 0 "C2" V 2063 9200 50  0000 C BNN
 F 1 "100nF" V 2062 9200 50  0000 C TNN
-F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual" H 2200 9200 50  0001 C CNN
+F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 2200 9200 50  0001 C CNN
 F 3 "~" H 2200 9200 50  0001 C CNN
 	1    2200 9200
 	0    1    1    0   
@@ -1666,7 +1666,7 @@ U 1 1 60B4BAE0
 P 11650 8500
 F 0 "R8" V 11550 8450 50  0000 L CNN
 F 1 "500R" H 11720 8455 50  0001 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 11580 8500 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11580 8500 50  0001 C CNN
 F 3 "~" H 11650 8500 50  0001 C CNN
 	1    11650 8500
 	0    1    1    0   
@@ -1677,7 +1677,7 @@ U 1 1 60B47E99
 P 11350 9450
 F 0 "R7" V 11450 9400 50  0000 L CNN
 F 1 "500R" H 11420 9405 50  0001 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 11280 9450 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11280 9450 50  0001 C CNN
 F 3 "~" H 11350 9450 50  0001 C CNN
 	1    11350 9450
 	0    -1   -1   0   
@@ -1714,7 +1714,7 @@ U 1 1 6061DE45
 P 4800 10400
 F 0 "R6" V 5000 10350 50  0000 L CNN
 F 1 "2.2k - 10k" V 4900 10200 50  0000 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 4730 10400 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 4730 10400 50  0001 C CNN
 F 3 "~" H 4800 10400 50  0001 C CNN
 	1    4800 10400
 	0    -1   -1   0   
@@ -1725,7 +1725,7 @@ U 1 1 605F4492
 P 4800 10050
 F 0 "R5" V 5000 10000 50  0000 L CNN
 F 1 "2.2k - 10k" V 4900 9850 50  0000 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 4730 10050 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 4730 10050 50  0001 C CNN
 F 3 "~" H 4800 10050 50  0001 C CNN
 	1    4800 10050
 	0    -1   -1   0   
@@ -1955,7 +1955,7 @@ U 1 1 5FDD4F32
 P 11750 1000
 F 0 "R2" H 11820 1000 50  0000 L CNN
 F 1 "2.2k - 10k" H 11820 955 50  0000 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 11680 1000 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11680 1000 50  0001 C CNN
 F 3 "~" H 11750 1000 50  0001 C CNN
 	1    11750 1000
 	1    0    0    -1  
@@ -1974,7 +1974,7 @@ U 1 1 5FDD65E1
 P 11100 1000
 F 0 "R1" H 11170 1000 50  0000 L CNN
 F 1 "2.2k - 10k" H 11170 955 50  0000 L TNN
-F 2 "ProjectLocal:Resistor-Hybrid" V 11030 1000 50  0001 C CNN
+F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11030 1000 50  0001 C CNN
 F 3 "~" H 11100 1000 50  0001 C CNN
 	1    11100 1000
 	1    0    0    -1  
