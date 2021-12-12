@@ -1,9 +1,5 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP BluePill_or_MiniF4
-D DEPRECATED. Prefer BluePill_or_MiniF4_DIP40.
-$ENDCMP
-#
 $CMP BluePill_or_MiniF4_DIP40
 D Symbol for DIP40, with labels for Bluepill/MiniF4.
 K module black pill STM32 dip40 bluepill blackpill
