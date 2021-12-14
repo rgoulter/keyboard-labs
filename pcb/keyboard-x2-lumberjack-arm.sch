@@ -2295,10 +2295,11 @@ L ProjectLocal:BluePill_or_MiniF4_DIP40 U1
 U 1 1 61AF765F
 P 1800 2050
 F 0 "U1" H 1800 3215 50  0000 C CNN
-F 1 "DIP-40 round-pin socket or 40-pin SIP round-pin female header (cut down to 20)" H 1800 3124 50  0000 C CNN
+F 1 "MiniF4 STM32F4x1 \"Blackpill\", or Bluepill" H 1800 3124 50  0000 C CNN
 F 2 "Package_DIP:DIP-40_W15.24mm_Socket" H 2300 3200 50  0001 C CNN
 F 3 "" V 2450 1200 50  0001 C CNN
-F 4 "DIP-40 Socket" H 1800 2050 50  0001 C CNN "Description"
+F 4 "DIP-40 STM32 Development Board" H 1800 2050 50  0001 C CNN "Description"
+F 5 "Ideally, use a DIP-40 socket with round pins, or cut down a SIP header with round pins" H 1800 2050 50  0001 C CNN "Comment"
 	1    1800 2050
 	1    0    0    -1  
 $EndComp
