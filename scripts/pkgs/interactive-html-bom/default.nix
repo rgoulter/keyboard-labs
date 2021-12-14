@@ -1,17 +1,28 @@
-{ fetchFromGitHub
+{ stdenv
+, fetchFromGitHub
 , python3
 , writeScriptBin
 }:
 
 let
-  pname = "InteractiveHtmlBom";
-  version = "2.4.1";
-  interactive-html-bom = fetchFromGitHub {
-    owner = "openscopeproject";
-    repo = pname;
-    rev = "v${version}";
-    sha256 = "09c2q9735jsy5q1ny6rkr757vvg6nr36ix9hslb78yh9r5jlg6rb";
-  };
+  interactive-html-bom = stdenv.mkDerivation rec {
+      pname = "interactive-html-bom";
+      version = "2.4.1";
+
+      src = fetchFromGitHub {
+        owner = "openscopeproject";
+        repo = pname;
+        rev = "v${version}";
+        sha256 = "09c2q9735jsy5q1ny6rkr757vvg6nr36ix9hslb78yh9r5jlg6rb";
+      };
+
+      installPhase = ''
+        mkdir -p $out/
+        cp -r . $out
+      '';
+
+      patches = [./remove-footprint-from-default-group-field.patch];
+    };
   python-with-my-packages = python3.withPackages (p: with p; [
     kicad
     wxPython_4_1

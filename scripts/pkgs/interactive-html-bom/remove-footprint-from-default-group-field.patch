@@ -1,0 +1,13 @@
+diff --git a/InteractiveHtmlBom/core/config.py b/InteractiveHtmlBom/core/config.py
+index 706a2ae..fb1aab4 100644
+--- a/InteractiveHtmlBom/core/config.py
++++ b/InteractiveHtmlBom/core/config.py
+@@ -40,7 +40,7 @@ class Config:
+         'highlight_pin1', 'redraw_on_drag', 'board_rotation', 'checkboxes',
+         'bom_view', 'layer_view'
+     ]
+-    default_show_group_fields = ["Value", "Footprint"]
++    default_show_group_fields = ["Value"]
+ 
+     # Defaults
+ 
