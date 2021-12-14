@@ -33,6 +33,11 @@ _Keyboard rev2020.1_
 
 _Comparison between rev2020.1 low-profile and rev2021.1 MX with lasercut sandwich case_
 
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=300 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=300 />
+
+_Renders of rev2021.5 PCB_
+
 Design goals:
 
 - PCB smaller than 100x100 mm2,
@@ -48,6 +53,10 @@ Design goals:
 ###### Build Guides
 
 - [rev2021.4 Budget Build Guide](docs/buildguide_rev2021.4_budget.md)
+
+- [rev2021.5 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-x1-minif4_36-rev2021.5.html)
+
+- [rev2021.5 Interactive BOM, No Frills](https://rgoulter.com/keyboard-labs/ibom-x1-minif4_36-rev2021.5-basic.html)
 
 ###### Keyboard Layout
 
@@ -86,9 +95,22 @@ Design goals:
 
 Render Previews:
 
-![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_minif4-smd-choc_wide.png)
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_minif4-smd-choc_wide.png" width=600 />
 
-![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_bluepill-th-mx_wide.png)
+_Using WeAct Studio MiniF4 "Blackpill", with SMD components and Kailh Choc v1 switches_
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_bluepill-th-mx_wide.png" width=600 />
+
+_Using Bluepill, with through-hole components and MX-compatible switches_
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=600 />
+
+_Renders of rev2021.5 PCB_
+
+###### Build Guides
+
+- [rev2021.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-x2-lumberjack-arm-revrev2021.1.html)
 
 ## CAD Designs
 
