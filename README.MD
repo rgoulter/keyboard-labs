@@ -33,8 +33,7 @@ _Keyboard rev2020.1_
 
 _Comparison between rev2020.1 low-profile and rev2021.1 MX with lasercut sandwich case_
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=300 />
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=300 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=280 /> <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare-reverse.png" width=280 />
 
 _Renders of rev2021.5 PCB_
 
