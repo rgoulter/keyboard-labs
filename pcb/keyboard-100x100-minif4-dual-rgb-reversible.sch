@@ -18,9 +18,13 @@ L LED:WS2812B D_21
 U 1 1 5FE09A18
 P 4100 5850
 F 0 "D_21" H 4444 5896 50  0000 R BNN
-F 1 "WS2812B" H 4444 5805 50  0001 L TNN
+F 1 "SK6812mini-e" H 4444 5805 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 4150 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4200 5475 50  0001 L TNN
+F 3 "" H 4200 5475 50  0001 L TNN
+F 4 "" H 4100 5850 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 4100 5850 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 4100 5850 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 4100 5850 50  0001 C CNN "Description"
 	1    4100 5850
 	1    0    0    -1  
 $EndComp
@@ -29,9 +33,13 @@ L LED:WS2812B D_22
 U 1 1 5FE0A54D
 P 4700 5850
 F 0 "D_22" H 5044 5896 50  0000 R BNN
-F 1 "WS2812B" H 5044 5805 50  0001 L TNN
+F 1 "SK6812mini-e" H 5044 5805 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 4750 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4800 5475 50  0001 L TNN
+F 3 "" H 4800 5475 50  0001 L TNN
+F 4 "" H 4700 5850 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 4700 5850 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 4700 5850 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 4700 5850 50  0001 C CNN "Description"
 	1    4700 5850
 	1    0    0    -1  
 $EndComp
@@ -40,9 +48,13 @@ L LED:WS2812B D_23
 U 1 1 5FE0AEAE
 P 5300 5850
 F 0 "D_23" H 5644 5896 50  0000 R BNN
-F 1 "WS2812B" H 5644 5805 50  0001 L TNN
+F 1 "SK6812mini-e" H 5644 5805 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5350 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5400 5475 50  0001 L TNN
+F 3 "" H 5400 5475 50  0001 L TNN
+F 4 "" H 5300 5850 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5300 5850 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5300 5850 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5300 5850 50  0001 C CNN "Description"
 	1    5300 5850
 	1    0    0    -1  
 $EndComp
@@ -51,9 +63,13 @@ L LED:WS2812B D_24
 U 1 1 5FE0B5ED
 P 5900 5850
 F 0 "D_24" H 6244 5896 50  0000 R BNN
-F 1 "WS2812B" H 6244 5805 50  0001 L TNN
+F 1 "SK6812mini-e" H 6244 5805 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5950 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6000 5475 50  0001 L TNN
+F 3 "" H 6000 5475 50  0001 L TNN
+F 4 "" H 5900 5850 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5900 5850 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5900 5850 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5900 5850 50  0001 C CNN "Description"
 	1    5900 5850
 	1    0    0    -1  
 $EndComp
@@ -62,9 +78,13 @@ L LED:WS2812B D_31
 U 1 1 5FE12EFC
 P 4100 6550
 F 0 "D_31" H 4444 6596 50  0000 R BNN
-F 1 "WS2812B" H 4444 6505 50  0001 L TNN
+F 1 "SK6812mini-e" H 4444 6505 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 4150 6250 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4200 6175 50  0001 L TNN
+F 3 "" H 4200 6175 50  0001 L TNN
+F 4 "" H 4100 6550 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 4100 6550 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 4100 6550 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 4100 6550 50  0001 C CNN "Description"
 	1    4100 6550
 	1    0    0    -1  
 $EndComp
@@ -73,9 +93,13 @@ L LED:WS2812B D_32
 U 1 1 5FE13A31
 P 4700 6550
 F 0 "D_32" H 5044 6596 50  0000 R BNN
-F 1 "WS2812B" H 5044 6505 50  0001 L TNN
+F 1 "SK6812mini-e" H 5044 6505 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 4750 6250 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4800 6175 50  0001 L TNN
+F 3 "" H 4800 6175 50  0001 L TNN
+F 4 "" H 4700 6550 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 4700 6550 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 4700 6550 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 4700 6550 50  0001 C CNN "Description"
 	1    4700 6550
 	1    0    0    -1  
 $EndComp
@@ -84,9 +108,13 @@ L LED:WS2812B D_33
 U 1 1 5FE1469E
 P 5300 6550
 F 0 "D_33" H 5644 6596 50  0000 R BNN
-F 1 "WS2812B" H 5644 6505 50  0001 L TNN
+F 1 "SK6812mini-e" H 5644 6505 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5350 6250 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5400 6175 50  0001 L TNN
+F 3 "" H 5400 6175 50  0001 L TNN
+F 4 "" H 5300 6550 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5300 6550 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5300 6550 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5300 6550 50  0001 C CNN "Description"
 	1    5300 6550
 	1    0    0    -1  
 $EndComp
@@ -95,9 +123,13 @@ L LED:WS2812B D_34
 U 1 1 5FE15110
 P 5900 6550
 F 0 "D_34" H 6244 6596 50  0000 R BNN
-F 1 "WS2812B" H 6244 6505 50  0001 L TNN
+F 1 "SK6812mini-e" H 6244 6505 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5950 6250 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6000 6175 50  0001 L TNN
+F 3 "" H 6000 6175 50  0001 L TNN
+F 4 "" H 5900 6550 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5900 6550 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5900 6550 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5900 6550 50  0001 C CNN "Description"
 	1    5900 6550
 	1    0    0    -1  
 $EndComp
@@ -106,9 +138,13 @@ L LED:WS2812B D_35
 U 1 1 5FE15BD0
 P 6500 6550
 F 0 "D_35" H 6844 6596 50  0000 R BNN
-F 1 "WS2812B" H 6844 6505 50  0001 L TNN
+F 1 "SK6812mini-e" H 6844 6505 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6550 6250 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6600 6175 50  0001 L TNN
+F 3 "" H 6600 6175 50  0001 L TNN
+F 4 "" H 6500 6550 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 6500 6550 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 6500 6550 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 6500 6550 50  0001 C CNN "Description"
 	1    6500 6550
 	1    0    0    -1  
 $EndComp
@@ -134,6 +170,10 @@ F 0 "C_21" V 8713 5300 50  0000 C BNN
 F 1 "100nF" V 8712 5300 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 5300 50  0001 C CNN
 F 3 "~" H 8850 5300 50  0001 C CNN
+F 4 "" V 8850 5300 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8850 5300 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8850 5300 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8850 5300 50  0001 C CNN "Description"
 	1    8850 5300
 	0    1    1    0   
 $EndComp
@@ -153,9 +193,13 @@ L LED:WS2812B D_25
 U 1 1 5FE0C1BE
 P 6500 5850
 F 0 "D_25" H 6844 5896 50  0000 R BNN
-F 1 "WS2812B" H 6844 5805 50  0001 L TNN
+F 1 "SK6812mini-e" H 6844 5805 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6550 5550 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6600 5475 50  0001 L TNN
+F 3 "" H 6600 5475 50  0001 L TNN
+F 4 "" H 6500 5850 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 6500 5850 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 6500 5850 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 6500 5850 50  0001 C CNN "Description"
 	1    6500 5850
 	1    0    0    -1  
 $EndComp
@@ -167,6 +211,10 @@ F 0 "C_22" V 8713 5600 50  0000 C BNN
 F 1 "100nF" V 8712 5600 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 5600 50  0001 C CNN
 F 3 "~" H 8850 5600 50  0001 C CNN
+F 4 "" V 8850 5600 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8850 5600 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8850 5600 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8850 5600 50  0001 C CNN "Description"
 	1    8850 5600
 	0    1    1    0   
 $EndComp
@@ -178,6 +226,10 @@ F 0 "C_23" V 8713 5900 50  0000 C BNN
 F 1 "100nF" V 8712 5900 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 5900 50  0001 C CNN
 F 3 "~" H 8850 5900 50  0001 C CNN
+F 4 "" V 8850 5900 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8850 5900 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8850 5900 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8850 5900 50  0001 C CNN "Description"
 	1    8850 5900
 	0    1    1    0   
 $EndComp
@@ -189,6 +241,10 @@ F 0 "C_24" V 8713 6200 50  0000 C BNN
 F 1 "100nF" V 8712 6200 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 6200 50  0001 C CNN
 F 3 "~" H 8850 6200 50  0001 C CNN
+F 4 "" V 8850 6200 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8850 6200 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8850 6200 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8850 6200 50  0001 C CNN "Description"
 	1    8850 6200
 	0    1    1    0   
 $EndComp
@@ -200,6 +256,10 @@ F 0 "C_25" V 8713 6500 50  0000 C BNN
 F 1 "100nF" V 8712 6500 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8850 6500 50  0001 C CNN
 F 3 "~" H 8850 6500 50  0001 C CNN
+F 4 "" V 8850 6500 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8850 6500 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8850 6500 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8850 6500 50  0001 C CNN "Description"
 	1    8850 6500
 	0    1    1    0   
 $EndComp
@@ -211,6 +271,10 @@ F 0 "C_41" V 9363 5300 50  0000 C BNN
 F 1 "100nF" V 9362 5300 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9500 5300 50  0001 C CNN
 F 3 "~" H 9500 5300 50  0001 C CNN
+F 4 "" V 9500 5300 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9500 5300 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9500 5300 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9500 5300 50  0001 C CNN "Description"
 	1    9500 5300
 	0    1    1    0   
 $EndComp
@@ -222,6 +286,10 @@ F 0 "C_32" V 9063 5600 50  0000 C BNN
 F 1 "100nF" V 9062 5600 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 5600 50  0001 C CNN
 F 3 "~" H 9200 5600 50  0001 C CNN
+F 4 "" V 9200 5600 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9200 5600 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9200 5600 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9200 5600 50  0001 C CNN "Description"
 	1    9200 5600
 	0    1    1    0   
 $EndComp
@@ -233,6 +301,10 @@ F 0 "C_33" V 9063 5900 50  0000 C BNN
 F 1 "100nF" V 9062 5900 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 5900 50  0001 C CNN
 F 3 "~" H 9200 5900 50  0001 C CNN
+F 4 "" V 9200 5900 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9200 5900 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9200 5900 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9200 5900 50  0001 C CNN "Description"
 	1    9200 5900
 	0    1    1    0   
 $EndComp
@@ -244,6 +316,10 @@ F 0 "C_34" V 9063 6200 50  0000 C BNN
 F 1 "100nF" V 9062 6200 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 6200 50  0001 C CNN
 F 3 "~" H 9200 6200 50  0001 C CNN
+F 4 "" V 9200 6200 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9200 6200 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9200 6200 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9200 6200 50  0001 C CNN "Description"
 	1    9200 6200
 	0    1    1    0   
 $EndComp
@@ -255,6 +331,10 @@ F 0 "C_35" V 9063 6500 50  0000 C BNN
 F 1 "100nF" V 9062 6500 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 6500 50  0001 C CNN
 F 3 "~" H 9200 6500 50  0001 C CNN
+F 4 "" V 9200 6500 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9200 6500 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9200 6500 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9200 6500 50  0001 C CNN "Description"
 	1    9200 6500
 	0    1    1    0   
 $EndComp
@@ -266,6 +346,10 @@ F 0 "C_42" V 9363 5600 50  0000 C BNN
 F 1 "100nF" V 9362 5600 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9500 5600 50  0001 C CNN
 F 3 "~" H 9500 5600 50  0001 C CNN
+F 4 "" V 9500 5600 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9500 5600 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9500 5600 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9500 5600 50  0001 C CNN "Description"
 	1    9500 5600
 	0    1    1    0   
 $EndComp
@@ -277,6 +361,10 @@ F 0 "C_43" V 9363 5900 50  0000 C BNN
 F 1 "100nF" V 9362 5900 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9500 5900 50  0001 C CNN
 F 3 "~" H 9500 5900 50  0001 C CNN
+F 4 "" V 9500 5900 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9500 5900 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9500 5900 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9500 5900 50  0001 C CNN "Description"
 	1    9500 5900
 	0    1    1    0   
 $EndComp
@@ -288,6 +376,10 @@ F 0 "C_31" V 9063 5300 50  0000 C BNN
 F 1 "100nF" V 9062 5300 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9200 5300 50  0001 C CNN
 F 3 "~" H 9200 5300 50  0001 C CNN
+F 4 "" V 9200 5300 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9200 5300 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 9200 5300 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9200 5300 50  0001 C CNN "Description"
 	1    9200 5300
 	0    1    1    0   
 $EndComp
@@ -316,6 +408,10 @@ F 0 "R4" H 3430 5046 50  0000 R CNN
 F 1 "300 - 500R" V 3400 5000 50  0000 R CNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 3430 5000 50  0001 C CNN
 F 3 "~" H 3500 5000 50  0001 C CNN
+F 4 "" H 3500 5000 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 3500 5000 50  0001 C CNN "fit_field"
+F 6 "For RGB LEDs" H 3500 5000 50  0001 C CNN "Comment"
+F 7 "Resistor (1/4W through-hole, or 0805)" H 3500 5000 50  0001 C CNN "Description"
 	1    3500 5000
 	1    0    0    -1  
 $EndComp
@@ -329,6 +425,8 @@ F 0 "JP4" V 11950 2018 50  0000 L CNN
 F 1 "SolderJumper_3_Open" V 11995 2018 50  0001 L CNN
 F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 11950 1950 50  0001 C CNN
 F 3 "~" H 11950 1950 50  0001 C CNN
+F 4 "Solder depending on firmware's split transportation" H 11950 1950 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 11950 1950 50  0001 C CNN "Description"
 	1    11950 1950
 	0    1    1    0   
 $EndComp
@@ -340,6 +438,8 @@ F 0 "JP5" V 11950 2618 50  0000 L CNN
 F 1 "SolderJumper_3_Open" V 11995 2618 50  0001 L CNN
 F 2 "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" H 11950 2550 50  0001 C CNN
 F 3 "~" H 11950 2550 50  0001 C CNN
+F 4 "Solder depending on firmware's split transportation" H 11950 2550 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 11950 2550 50  0001 C CNN "Description"
 	1    11950 2550
 	0    1    1    0   
 $EndComp
@@ -370,9 +470,11 @@ L keebio:TRRS J1
 U 1 1 5FDF9ACF
 P 9700 2550
 F 0 "J1" H 9928 2853 60  0000 L CNN
-F 1 "TRRS" H 9928 2747 60  0000 L CNN
+F 1 "PJ-320A" H 9928 2747 60  0000 L CNN
 F 2 "Keebio-Parts:TRRS-PJ-320A" H 9850 2550 60  0001 C CNN
 F 3 "" H 9850 2550 60  0001 C CNN
+F 4 "" H 9700 2550 50  0001 C CNN "Comment"
+F 5 "TRRS (4-pole) Jack" H 9700 2550 50  0001 C CNN "Description"
 	1    9700 2550
 	1    0    0    -1  
 $EndComp
@@ -381,9 +483,11 @@ L keebio:TRRS J2
 U 1 1 5FDFA2E7
 P 10550 2550
 F 0 "J2" H 10467 3237 60  0000 C CNN
-F 1 "TRRS" H 10467 3131 60  0000 C CNN
+F 1 "PJ-320A" H 10467 3131 60  0000 C CNN
 F 2 "Keebio-Parts:TRRS-PJ-320A" H 10700 2550 60  0001 C CNN
 F 3 "" H 10700 2550 60  0001 C CNN
+F 4 "" H 10550 2550 50  0001 C CNN "Comment"
+F 5 "TRRS (4-pole) Jack" H 10550 2550 50  0001 C CNN "Description"
 	1    10550 2550
 	-1   0    0    -1  
 $EndComp
@@ -523,9 +627,10 @@ L Switch:SW_Push SW_31
 U 1 1 5FDE5173
 P 5550 2400
 F 0 "SW_31" H 5550 2685 50  0000 C CNN
-F 1 "SW_Push" H 5550 2594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 5550 2594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 5550 2600 50  0001 C CNN
 F 3 "~" H 5550 2600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 5550 2400 50  0001 C CNN "Description"
 	1    5550 2400
 	1    0    0    -1  
 $EndComp
@@ -534,9 +639,10 @@ L Switch:SW_Push SW_34
 U 1 1 5FDF323B
 P 7350 2400
 F 0 "SW_34" H 7350 2685 50  0000 C CNN
-F 1 "SW_Push" H 7350 2594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7350 2594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7350 2600 50  0001 C CNN
 F 3 "~" H 7350 2600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7350 2400 50  0001 C CNN "Description"
 	1    7350 2400
 	1    0    0    -1  
 $EndComp
@@ -545,9 +651,10 @@ L Switch:SW_Push SW_33
 U 1 1 5FDF2DC3
 P 6750 2400
 F 0 "SW_33" H 6750 2685 50  0000 C CNN
-F 1 "SW_Push" H 6750 2594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 6750 2594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6750 2600 50  0001 C CNN
 F 3 "~" H 6750 2600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 6750 2400 50  0001 C CNN "Description"
 	1    6750 2400
 	1    0    0    -1  
 $EndComp
@@ -556,9 +663,10 @@ L Switch:SW_Push SW_32
 U 1 1 5FDF2621
 P 6150 2400
 F 0 "SW_32" H 6150 2685 50  0000 C CNN
-F 1 "SW_Push" H 6150 2594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 6150 2594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6150 2600 50  0001 C CNN
 F 3 "~" H 6150 2600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 6150 2400 50  0001 C CNN "Description"
 	1    6150 2400
 	1    0    0    -1  
 $EndComp
@@ -567,9 +675,10 @@ L Switch:SW_Push SW_22
 U 1 1 5FDF1BC1
 P 6150 1900
 F 0 "SW_22" H 6150 2185 50  0000 C CNN
-F 1 "SW_Push" H 6150 2094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 6150 2094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6150 2100 50  0001 C CNN
 F 3 "~" H 6150 2100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 6150 1900 50  0001 C CNN "Description"
 	1    6150 1900
 	1    0    0    -1  
 $EndComp
@@ -578,9 +687,10 @@ L Switch:SW_Push SW_23
 U 1 1 5FDF1620
 P 6750 1900
 F 0 "SW_23" H 6750 2185 50  0000 C CNN
-F 1 "SW_Push" H 6750 2094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 6750 2094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6750 2100 50  0001 C CNN
 F 3 "~" H 6750 2100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 6750 1900 50  0001 C CNN "Description"
 	1    6750 1900
 	1    0    0    -1  
 $EndComp
@@ -589,9 +699,10 @@ L Switch:SW_Push SW_24
 U 1 1 5FDF0DF7
 P 7350 1900
 F 0 "SW_24" H 7350 2185 50  0000 C CNN
-F 1 "SW_Push" H 7350 2094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7350 2094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7350 2100 50  0001 C CNN
 F 3 "~" H 7350 2100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7350 1900 50  0001 C CNN "Description"
 	1    7350 1900
 	1    0    0    -1  
 $EndComp
@@ -600,9 +711,10 @@ L Switch:SW_Push SW_41
 U 1 1 5FDF0949
 P 6750 2900
 F 0 "SW_41" H 6750 3185 50  0000 C CNN
-F 1 "SW_Push" H 6750 3094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 6750 3094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6750 3100 50  0001 C CNN
 F 3 "~" H 6750 3100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 6750 2900 50  0001 C CNN "Description"
 	1    6750 2900
 	1    0    0    -1  
 $EndComp
@@ -611,9 +723,10 @@ L Switch:SW_Push SW_42
 U 1 1 5FDF0012
 P 7350 2900
 F 0 "SW_42" H 7350 3185 50  0000 C CNN
-F 1 "SW_Push" H 7350 3094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7350 3094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7350 3100 50  0001 C CNN
 F 3 "~" H 7350 3100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7350 2900 50  0001 C CNN "Description"
 	1    7350 2900
 	1    0    0    -1  
 $EndComp
@@ -622,9 +735,10 @@ L Switch:SW_Push SW_43
 U 1 1 5FDEF97E
 P 7950 2900
 F 0 "SW_43" H 7950 3185 50  0000 C CNN
-F 1 "SW_Push" H 7950 3094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7950 3094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7950 3100 50  0001 C CNN
 F 3 "~" H 7950 3100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7950 2900 50  0001 C CNN "Description"
 	1    7950 2900
 	1    0    0    -1  
 $EndComp
@@ -633,9 +747,10 @@ L Switch:SW_Push SW_35
 U 1 1 5FDEF11F
 P 7950 2400
 F 0 "SW_35" H 7950 2685 50  0000 C CNN
-F 1 "SW_Push" H 7950 2594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7950 2594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7950 2600 50  0001 C CNN
 F 3 "~" H 7950 2600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7950 2400 50  0001 C CNN "Description"
 	1    7950 2400
 	1    0    0    -1  
 $EndComp
@@ -644,9 +759,10 @@ L Switch:SW_Push SW_25
 U 1 1 5FDEE777
 P 7950 1900
 F 0 "SW_25" H 7950 2185 50  0000 C CNN
-F 1 "SW_Push" H 7950 2094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7950 2094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7950 2100 50  0001 C CNN
 F 3 "~" H 7950 2100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7950 1900 50  0001 C CNN "Description"
 	1    7950 1900
 	1    0    0    -1  
 $EndComp
@@ -655,9 +771,10 @@ L Switch:SW_Push SW_15
 U 1 1 5FDED702
 P 7950 1400
 F 0 "SW_15" H 7950 1685 50  0000 C CNN
-F 1 "SW_Push" H 7950 1594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7950 1594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7950 1600 50  0001 C CNN
 F 3 "~" H 7950 1600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7950 1400 50  0001 C CNN "Description"
 	1    7950 1400
 	1    0    0    -1  
 $EndComp
@@ -666,9 +783,10 @@ L Switch:SW_Push SW_14
 U 1 1 5FDECF29
 P 7350 1400
 F 0 "SW_14" H 7350 1685 50  0000 C CNN
-F 1 "SW_Push" H 7350 1594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 7350 1594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 7350 1600 50  0001 C CNN
 F 3 "~" H 7350 1600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 7350 1400 50  0001 C CNN "Description"
 	1    7350 1400
 	1    0    0    -1  
 $EndComp
@@ -677,9 +795,10 @@ L Switch:SW_Push SW_13
 U 1 1 5FDEC2EC
 P 6750 1400
 F 0 "SW_13" H 6750 1685 50  0000 C CNN
-F 1 "SW_Push" H 6750 1594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 6750 1594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6750 1600 50  0001 C CNN
 F 3 "~" H 6750 1600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 6750 1400 50  0001 C CNN "Description"
 	1    6750 1400
 	1    0    0    -1  
 $EndComp
@@ -688,9 +807,10 @@ L Switch:SW_Push SW_12
 U 1 1 5FDEB649
 P 6150 1400
 F 0 "SW_12" H 6150 1685 50  0000 C CNN
-F 1 "SW_Push" H 6150 1594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 6150 1594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 6150 1600 50  0001 C CNN
 F 3 "~" H 6150 1600 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 6150 1400 50  0001 C CNN "Description"
 	1    6150 1400
 	1    0    0    -1  
 $EndComp
@@ -699,9 +819,10 @@ L Switch:SW_Push SW_21
 U 1 1 5FDE48F6
 P 5550 1900
 F 0 "SW_21" H 5550 2185 50  0000 C CNN
-F 1 "SW_Push" H 5550 2094 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 5550 2094 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 5550 2100 50  0001 C CNN
 F 3 "~" H 5550 2100 50  0001 C CNN
+F 4 "Mechanical Keyboard switches" H 5550 1900 50  0001 C CNN "Description"
 	1    5550 1900
 	1    0    0    -1  
 $EndComp
@@ -710,9 +831,11 @@ L Switch:SW_Push SW_11
 U 1 1 5FD3A369
 P 5550 1400
 F 0 "SW_11" H 5550 1685 50  0000 C CNN
-F 1 "SW_Push" H 5550 1594 50  0000 C CNN
+F 1 "MX-compatible or Kailh Choc v1" H 5550 1594 50  0000 C CNN
 F 2 "ProjectLocal:SW_MX_PG1350_reversible" H 5550 1600 50  0001 C CNN
 F 3 "~" H 5550 1600 50  0001 C CNN
+F 4 "" H 5550 1400 50  0001 C CNN "fit_variant"
+F 5 "Mechanical Keyboard switches" H 5550 1400 50  0001 C CNN "Description"
 	1    5550 1400
 	1    0    0    -1  
 $EndComp
@@ -727,9 +850,11 @@ L Mechanical:MountingHole H1
 U 1 1 602E59E6
 P 13550 3050
 F 0 "H1" H 13650 3096 50  0000 L CNN
-F 1 "MountingHole" H 13650 3005 50  0000 L CNN
+F 1 "3M F0502" H 13650 3005 50  0000 L CNN
 F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3050 50  0001 C CNN
 F 3 "~" H 13550 3050 50  0001 C CNN
+F 4 "Can be larger if using bottom plate" H 13550 3050 50  0001 C CNN "Comment"
+F 5 "Bumpons" H 13550 3050 50  0001 C CNN "Description"
 	1    13550 3050
 	1    0    0    -1  
 $EndComp
@@ -738,9 +863,11 @@ L Mechanical:MountingHole H2
 U 1 1 602EA31E
 P 13550 3250
 F 0 "H2" H 13650 3296 50  0000 L CNN
-F 1 "MountingHole" H 13650 3205 50  0000 L CNN
+F 1 "3M F0502" H 13650 3205 50  0000 L CNN
 F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3250 50  0001 C CNN
 F 3 "~" H 13550 3250 50  0001 C CNN
+F 4 "Can be larger if using bottom plate" H 13550 3250 50  0001 C CNN "Comment"
+F 5 "Bumpons" H 13550 3250 50  0001 C CNN "Description"
 	1    13550 3250
 	1    0    0    -1  
 $EndComp
@@ -749,9 +876,11 @@ L Mechanical:MountingHole H3
 U 1 1 602EA63D
 P 13550 3450
 F 0 "H3" H 13650 3496 50  0000 L CNN
-F 1 "MountingHole" H 13650 3405 50  0000 L CNN
+F 1 "3M F0502" H 13650 3405 50  0000 L CNN
 F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3450 50  0001 C CNN
 F 3 "~" H 13550 3450 50  0001 C CNN
+F 4 "Can be larger if using bottom plate" H 13550 3450 50  0001 C CNN "Comment"
+F 5 "Bumpons" H 13550 3450 50  0001 C CNN "Description"
 	1    13550 3450
 	1    0    0    -1  
 $EndComp
@@ -760,9 +889,11 @@ L Mechanical:MountingHole H4
 U 1 1 602EA8E5
 P 13550 3650
 F 0 "H4" H 13650 3696 50  0000 L CNN
-F 1 "MountingHole" H 13650 3605 50  0000 L CNN
+F 1 "3M F0502" H 13650 3605 50  0000 L CNN
 F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3650 50  0001 C CNN
 F 3 "~" H 13550 3650 50  0001 C CNN
+F 4 "Can be larger if using bottom plate" H 13550 3650 50  0001 C CNN "Comment"
+F 5 "Bumpons" H 13550 3650 50  0001 C CNN "Description"
 	1    13550 3650
 	1    0    0    -1  
 $EndComp
@@ -771,9 +902,11 @@ L Mechanical:MountingHole H5
 U 1 1 602EEB15
 P 13550 3850
 F 0 "H5" H 13650 3896 50  0000 L CNN
-F 1 "MountingHole" H 13650 3805 50  0000 L CNN
+F 1 "3M F0502" H 13650 3805 50  0000 L CNN
 F 2 "ProjectLocal:Bumpon_3M_F0502" H 13550 3850 50  0001 C CNN
 F 3 "~" H 13550 3850 50  0001 C CNN
+F 4 "Can be larger if using bottom plate" H 13550 3850 50  0001 C CNN "Comment"
+F 5 "Bumpons" H 13550 3850 50  0001 C CNN "Description"
 	1    13550 3850
 	1    0    0    -1  
 $EndComp
@@ -816,9 +949,10 @@ L Mechanical:MountingHole H6
 U 1 1 603C44C9
 P 14300 3050
 F 0 "H6" H 14400 3096 50  0000 L CNN
-F 1 "MountingHole" H 14400 3005 50  0000 L CNN
+F 1 "M2 Spacer" H 14400 3005 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3050 50  0001 C CNN
 F 3 "~" H 14300 3050 50  0001 C CNN
+F 4 "Spacers" H 14300 3050 50  0001 C CNN "Description"
 	1    14300 3050
 	1    0    0    -1  
 $EndComp
@@ -827,9 +961,10 @@ L Mechanical:MountingHole H7
 U 1 1 603C4D5A
 P 14300 3250
 F 0 "H7" H 14400 3296 50  0000 L CNN
-F 1 "MountingHole" H 14400 3205 50  0000 L CNN
+F 1 "M2 Spacer" H 14400 3205 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3250 50  0001 C CNN
 F 3 "~" H 14300 3250 50  0001 C CNN
+F 4 "Spacers" H 14300 3250 50  0001 C CNN "Description"
 	1    14300 3250
 	1    0    0    -1  
 $EndComp
@@ -838,9 +973,10 @@ L Mechanical:MountingHole H8
 U 1 1 603C5079
 P 14300 3450
 F 0 "H8" H 14400 3496 50  0000 L CNN
-F 1 "MountingHole" H 14400 3405 50  0000 L CNN
+F 1 "M2 Spacer" H 14400 3405 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3450 50  0001 C CNN
 F 3 "~" H 14300 3450 50  0001 C CNN
+F 4 "Spacers" H 14300 3450 50  0001 C CNN "Description"
 	1    14300 3450
 	1    0    0    -1  
 $EndComp
@@ -849,9 +985,10 @@ L Mechanical:MountingHole H9
 U 1 1 603C53A9
 P 14300 3650
 F 0 "H9" H 14400 3696 50  0000 L CNN
-F 1 "MountingHole" H 14400 3605 50  0000 L CNN
+F 1 "M2 Spacer" H 14400 3605 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3650 50  0001 C CNN
 F 3 "~" H 14300 3650 50  0001 C CNN
+F 4 "Spacers" H 14300 3650 50  0001 C CNN "Description"
 	1    14300 3650
 	1    0    0    -1  
 $EndComp
@@ -860,9 +997,10 @@ L Mechanical:MountingHole H10
 U 1 1 603C55A7
 P 14300 3850
 F 0 "H10" H 14400 3896 50  0000 L CNN
-F 1 "MountingHole" H 14400 3805 50  0000 L CNN
+F 1 "M2 Spacer" H 14400 3805 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3850 50  0001 C CNN
 F 3 "~" H 14300 3850 50  0001 C CNN
+F 4 "Spacers" H 14300 3850 50  0001 C CNN "Description"
 	1    14300 3850
 	1    0    0    -1  
 $EndComp
@@ -874,6 +1012,10 @@ F 0 "D_BL_1" V 7354 6044 50  0000 L CNN
 F 1 "SK6812" V 7445 6044 50  0000 L CNN
 F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 7450 5400 50  0001 L TNN
 F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 7500 5325 50  0001 L TNN
+F 4 "" V 7400 5700 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 7400 5700 50  0001 C CNN "fit_field"
+F 6 "RGB LED" H 7400 5700 50  0001 C CNN "Description"
+F 7 "For underglow RGB LEDs" H 7400 5700 50  0001 C CNN "Comment"
 	1    7400 5700
 	0    1    1    0   
 $EndComp
@@ -885,6 +1027,10 @@ F 0 "D_BL_2" V 7354 6644 50  0000 L CNN
 F 1 "SK6812" V 7445 6644 50  0000 L CNN
 F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 7450 6000 50  0001 L TNN
 F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 7500 5925 50  0001 L TNN
+F 4 "" V 7400 6300 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 7400 6300 50  0001 C CNN "fit_field"
+F 6 "RGB LED" H 7400 6300 50  0001 C CNN "Description"
+F 7 "For underglow RGB LEDs" H 7400 6300 50  0001 C CNN "Comment"
 	1    7400 6300
 	0    1    1    0   
 $EndComp
@@ -896,6 +1042,10 @@ F 0 "D_BL_3" V 7354 7244 50  0000 L CNN
 F 1 "SK6812" V 7445 7244 50  0000 L CNN
 F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 7450 6600 50  0001 L TNN
 F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 7500 6525 50  0001 L TNN
+F 4 "" V 7400 6900 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 7400 6900 50  0001 C CNN "fit_field"
+F 6 "RGB LED" H 7400 6900 50  0001 C CNN "Description"
+F 7 "For underglow RGB LEDs" H 7400 6900 50  0001 C CNN "Comment"
 	1    7400 6900
 	0    1    1    0   
 $EndComp
@@ -907,6 +1057,10 @@ F 0 "D_BL_4" V 7354 7844 50  0000 L CNN
 F 1 "SK6812" V 7445 7844 50  0000 L CNN
 F 2 "ProjectLocal:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm_Reversible" H 7450 7200 50  0001 L TNN
 F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 7500 7125 50  0001 L TNN
+F 4 "" V 7400 7500 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 7400 7500 50  0001 C CNN "fit_field"
+F 6 "RGB LED" H 7400 7500 50  0001 C CNN "Description"
+F 7 "For underglow RGB LEDs" H 7400 7500 50  0001 C CNN "Comment"
 	1    7400 7500
 	0    1    1    0   
 $EndComp
@@ -918,6 +1072,10 @@ F 0 "C_BL_1" V 9663 5300 50  0000 C BNN
 F 1 "100nF" V 9662 5300 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 5300 50  0001 C CNN
 F 3 "~" H 9800 5300 50  0001 C CNN
+F 4 "" V 9800 5300 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9800 5300 50  0001 C CNN "fit_field"
+F 6 "For underglow RGB LEDs" H 9800 5300 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9800 5300 50  0001 C CNN "Description"
 	1    9800 5300
 	0    -1   -1   0   
 $EndComp
@@ -929,6 +1087,10 @@ F 0 "C_BL_2" V 9663 5600 50  0000 C BNN
 F 1 "100nF" V 9662 5600 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 5600 50  0001 C CNN
 F 3 "~" H 9800 5600 50  0001 C CNN
+F 4 "" V 9800 5600 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9800 5600 50  0001 C CNN "fit_field"
+F 6 "For underglow RGB LEDs" H 9800 5600 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9800 5600 50  0001 C CNN "Description"
 	1    9800 5600
 	0    -1   -1   0   
 $EndComp
@@ -940,6 +1102,10 @@ F 0 "C_BL_3" V 9663 5900 50  0000 C BNN
 F 1 "100nF" V 9662 5900 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 5900 50  0001 C CNN
 F 3 "~" H 9800 5900 50  0001 C CNN
+F 4 "" V 9800 5900 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9800 5900 50  0001 C CNN "fit_field"
+F 6 "For underglow RGB LEDs" H 9800 5900 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9800 5900 50  0001 C CNN "Description"
 	1    9800 5900
 	0    -1   -1   0   
 $EndComp
@@ -951,6 +1117,10 @@ F 0 "C_BL_4" V 9663 6200 50  0000 C BNN
 F 1 "100nF" V 9662 6200 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 9800 6200 50  0001 C CNN
 F 3 "~" H 9800 6200 50  0001 C CNN
+F 4 "" V 9800 6200 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 9800 6200 50  0001 C CNN "fit_field"
+F 6 "For underglow RGB LEDs" H 9800 6200 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 9800 6200 50  0001 C CNN "Description"
 	1    9800 6200
 	0    -1   -1   0   
 $EndComp
@@ -983,6 +1153,7 @@ F 0 "TP2" H 11028 5876 50  0000 L CNN
 F 1 "Conn_01x04_Female" H 11028 5785 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 11000 5900 50  0001 C CNN
 F 3 "~" H 11000 5900 50  0001 C CNN
+F 4 "Testing Point" H 11000 5900 50  0001 C CNN "Description"
 	1    11000 5900
 	1    0    0    -1  
 $EndComp
@@ -994,6 +1165,7 @@ F 0 "TP1" H 11028 5276 50  0000 L CNN
 F 1 "Conn_01x04_Female" H 11028 5185 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 11000 5300 50  0001 C CNN
 F 3 "~" H 11000 5300 50  0001 C CNN
+F 4 "Testing Point" H 11000 5300 50  0001 C CNN "Description"
 	1    11000 5300
 	1    0    0    -1  
 $EndComp
@@ -1051,6 +1223,9 @@ F 0 "SW_RE1" H 1150 9417 50  0000 C CNN
 F 1 "Rotary_Encoder_Switch" H 1150 9326 50  0000 C CNN
 F 2 "ProjectLocal:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_Reversible" H 1000 9210 50  0001 C CNN
 F 3 "~" H 1150 9310 50  0001 C CNN
+F 4 "-basic" H 1150 9050 50  0001 C CNN "fit_field"
+F 5 "For Rotary Encoder" H 1150 9050 50  0001 C CNN "Comment"
+F 6 "Rotary Encoder" H 1150 9050 50  0001 C CNN "Description"
 	1    1150 9050
 	1    0    0    -1  
 $EndComp
@@ -1063,9 +1238,11 @@ L Mechanical:MountingHole H11
 U 1 1 6099ECA3
 P 15050 3050
 F 0 "H11" H 15150 3096 50  0000 L CNN
-F 1 "MountingHole" H 15150 3005 50  0000 L CNN
+F 1 "M2 Spacer" H 15150 3005 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 15050 3050 50  0001 C CNN
 F 3 "~" H 15050 3050 50  0001 C CNN
+F 4 "For cover plate" H 15050 3050 50  0001 C CNN "Comment"
+F 5 "Spacers" H 15050 3050 50  0001 C CNN "Description"
 	1    15050 3050
 	1    0    0    -1  
 $EndComp
@@ -1074,9 +1251,11 @@ L Mechanical:MountingHole H12
 U 1 1 609A6D3B
 P 15050 3250
 F 0 "H12" H 15150 3296 50  0000 L CNN
-F 1 "MountingHole" H 15150 3205 50  0000 L CNN
+F 1 "M2 Spacer" H 15150 3205 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 15050 3250 50  0001 C CNN
 F 3 "~" H 15050 3250 50  0001 C CNN
+F 4 "For cover plate" H 15050 3250 50  0001 C CNN "Comment"
+F 5 "Spacers" H 15050 3250 50  0001 C CNN "Description"
 	1    15050 3250
 	1    0    0    -1  
 $EndComp
@@ -1085,9 +1264,11 @@ L Mechanical:MountingHole H13
 U 1 1 609A70F3
 P 15050 3450
 F 0 "H13" H 15150 3496 50  0000 L CNN
-F 1 "MountingHole" H 15150 3405 50  0000 L CNN
+F 1 "M2 Spacer" H 15150 3405 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 15050 3450 50  0001 C CNN
 F 3 "~" H 15050 3450 50  0001 C CNN
+F 4 "For cover plate" H 15050 3450 50  0001 C CNN "Comment"
+F 5 "Spacers" H 15050 3450 50  0001 C CNN "Description"
 	1    15050 3450
 	1    0    0    -1  
 $EndComp
@@ -1110,9 +1291,13 @@ L LED:WS2812B D_11
 U 1 1 5FD534E8
 P 4100 5150
 F 0 "D_11" H 4444 5196 50  0000 R BNN
-F 1 "WS2812B" H 4444 5105 50  0001 L TNN
+F 1 "SK6812mini-e" H 4444 5105 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 4150 4850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4200 4775 50  0001 L TNN
+F 3 "" H 4200 4775 50  0001 L TNN
+F 4 "" H 4100 5150 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 4100 5150 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 4100 5150 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 4100 5150 50  0001 C CNN "Description"
 	1    4100 5150
 	1    0    0    -1  
 $EndComp
@@ -1124,6 +1309,10 @@ F 0 "C_11" V 8363 5300 50  0000 C BNN
 F 1 "100nF" V 8362 5300 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 5300 50  0001 C CNN
 F 3 "~" H 8500 5300 50  0001 C CNN
+F 4 "" V 8500 5300 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8500 5300 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8500 5300 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8500 5300 50  0001 C CNN "Description"
 	1    8500 5300
 	0    1    1    0   
 $EndComp
@@ -1135,6 +1324,10 @@ F 0 "C_12" V 8363 5600 50  0000 C BNN
 F 1 "100nF" V 8362 5600 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 5600 50  0001 C CNN
 F 3 "~" H 8500 5600 50  0001 C CNN
+F 4 "" V 8500 5600 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8500 5600 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8500 5600 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8500 5600 50  0001 C CNN "Description"
 	1    8500 5600
 	0    1    1    0   
 $EndComp
@@ -1143,9 +1336,13 @@ L LED:WS2812B D_14
 U 1 1 5FE08387
 P 5900 5150
 F 0 "D_14" H 6244 5196 50  0000 R BNN
-F 1 "WS2812B" H 6244 5105 50  0001 L TNN
+F 1 "SK6812mini-e" H 6244 5105 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5950 4850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6000 4775 50  0001 L TNN
+F 3 "" H 6000 4775 50  0001 L TNN
+F 4 "" H 5900 5150 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5900 5150 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5900 5150 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5900 5150 50  0001 C CNN "Description"
 	1    5900 5150
 	1    0    0    -1  
 $EndComp
@@ -1154,9 +1351,13 @@ L LED:WS2812B D_15
 U 1 1 5FE0912C
 P 6500 5150
 F 0 "D_15" H 6844 5196 50  0000 R BNN
-F 1 "WS2812B" H 6844 5105 50  0001 L TNN
+F 1 "SK6812mini-e" H 6844 5105 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6550 4850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6600 4775 50  0001 L TNN
+F 3 "" H 6600 4775 50  0001 L TNN
+F 4 "" H 6500 5150 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 6500 5150 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 6500 5150 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 6500 5150 50  0001 C CNN "Description"
 	1    6500 5150
 	1    0    0    -1  
 $EndComp
@@ -1168,6 +1369,10 @@ F 0 "C_15" V 8363 6500 50  0000 C BNN
 F 1 "100nF" V 8362 6500 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 6500 50  0001 C CNN
 F 3 "~" H 8500 6500 50  0001 C CNN
+F 4 "" V 8500 6500 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8500 6500 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8500 6500 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8500 6500 50  0001 C CNN "Description"
 	1    8500 6500
 	0    1    1    0   
 $EndComp
@@ -1179,6 +1384,10 @@ F 0 "C_14" V 8363 6200 50  0000 C BNN
 F 1 "100nF" V 8362 6200 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 6200 50  0001 C CNN
 F 3 "~" H 8500 6200 50  0001 C CNN
+F 4 "" V 8500 6200 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8500 6200 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8500 6200 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8500 6200 50  0001 C CNN "Description"
 	1    8500 6200
 	0    1    1    0   
 $EndComp
@@ -1190,6 +1399,10 @@ F 0 "C_13" V 8363 5900 50  0000 C BNN
 F 1 "100nF" V 8362 5900 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 8500 5900 50  0001 C CNN
 F 3 "~" H 8500 5900 50  0001 C CNN
+F 4 "" V 8500 5900 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 8500 5900 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 8500 5900 50  0001 C CNN "Comment"
+F 7 "Capacitor (Through-hole or 0805)" H 8500 5900 50  0001 C CNN "Description"
 	1    8500 5900
 	0    1    1    0   
 $EndComp
@@ -1198,9 +1411,13 @@ L LED:WS2812B D_12
 U 1 1 5FDFCDFD
 P 4700 5150
 F 0 "D_12" H 5044 5196 50  0000 R BNN
-F 1 "WS2812B" H 5044 5105 50  0001 L TNN
+F 1 "SK6812mini-e" H 5044 5105 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 4750 4850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4800 4775 50  0001 L TNN
+F 3 "" H 4800 4775 50  0001 L TNN
+F 4 "" H 4700 5150 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 4700 5150 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 4700 5150 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 4700 5150 50  0001 C CNN "Description"
 	1    4700 5150
 	1    0    0    -1  
 $EndComp
@@ -1209,9 +1426,13 @@ L LED:WS2812B D_13
 U 1 1 5FE0782B
 P 5300 5150
 F 0 "D_13" H 5644 5196 50  0000 R BNN
-F 1 "WS2812B" H 5644 5105 50  0001 L TNN
+F 1 "SK6812mini-e" H 5644 5105 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5350 4850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5400 4775 50  0001 L TNN
+F 3 "" H 5400 4775 50  0001 L TNN
+F 4 "" H 5300 5150 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5300 5150 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5300 5150 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5300 5150 50  0001 C CNN "Description"
 	1    5300 5150
 	1    0    0    -1  
 $EndComp
@@ -1222,9 +1443,13 @@ L LED:WS2812B D_43
 U 1 1 5FE16705
 P 6500 7250
 F 0 "D_43" H 6844 7296 50  0000 R BNN
-F 1 "WS2812B" H 6844 7205 50  0001 L TNN
+F 1 "SK6812mini-e" H 6844 7205 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 6550 6950 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6600 6875 50  0001 L TNN
+F 3 "" H 6600 6875 50  0001 L TNN
+F 4 "" H 6500 7250 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 6500 7250 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 6500 7250 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 6500 7250 50  0001 C CNN "Description"
 	1    6500 7250
 	1    0    0    -1  
 $EndComp
@@ -1235,9 +1460,13 @@ L LED:WS2812B D_41
 U 1 1 5FE18995
 P 5300 7250
 F 0 "D_41" H 5644 7296 50  0000 R BNN
-F 1 "WS2812B" H 5644 7205 50  0001 L TNN
+F 1 "SK6812mini-e" H 5644 7205 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5350 6950 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5400 6875 50  0001 L TNN
+F 3 "" H 5400 6875 50  0001 L TNN
+F 4 "" H 5300 7250 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5300 7250 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5300 7250 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5300 7250 50  0001 C CNN "Description"
 	1    5300 7250
 	1    0    0    -1  
 $EndComp
@@ -1246,9 +1475,13 @@ L LED:WS2812B D_42
 U 1 1 5FE1838E
 P 5900 7250
 F 0 "D_42" H 6244 7296 50  0000 R BNN
-F 1 "WS2812B" H 6244 7205 50  0001 L TNN
+F 1 "SK6812mini-e" H 6244 7205 50  0001 L TNN
 F 2 "ProjectLocal:SK6812-MINI-E_Reversible" H 5950 6950 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 6000 6875 50  0001 L TNN
+F 3 "" H 6000 6875 50  0001 L TNN
+F 4 "" H 5900 7250 50  0001 C CNN "fit_variant"
+F 5 "-basic" H 5900 7250 50  0001 C CNN "fit_field"
+F 6 "For Per-key RGB LEDs" H 5900 7250 50  0001 C CNN "Comment"
+F 7 "RGB LED" H 5900 7250 50  0001 C CNN "Description"
 	1    5900 7250
 	1    0    0    -1  
 $EndComp
@@ -1523,6 +1756,9 @@ F 0 "U2" H 1750 5550 50  0000 L CNN
 F 1 "SN74LVC1T45DBV" H 1750 5450 50  0000 L CNN
 F 2 "ProjectLocal:SOT-23-6_Handsoldering_Reversible" H 1400 4850 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 500 4650 50  0001 C CNN
+F 4 "-basic" H 1400 5300 50  0001 C CNN "fit_field"
+F 5 "For RGB LEDs" H 1400 5300 50  0001 C CNN "Comment"
+F 6 "SOT-23-6 Logic Level Shifter" H 1400 5300 50  0001 C CNN "Description"
 	1    1400 5300
 	1    0    0    -1  
 $EndComp
@@ -1534,6 +1770,9 @@ F 0 "R3" H 920 5500 50  0000 L CNN
 F 1 "2.2k - 10k" H 920 5455 50  0000 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 780 5500 50  0001 C CNN
 F 3 "~" H 850 5500 50  0001 C CNN
+F 4 "-basic" H 850 5500 50  0001 C CNN "fit_field"
+F 5 "R3, for RGB LEDs. R5, R6 for OLED screen" H 850 5500 50  0001 C CNN "Comment"
+F 6 "Resistor (1/4W through-hole, or 0805)" H 850 5500 50  0001 C CNN "Description"
 	1    850  5500
 	0    1    1    0   
 $EndComp
@@ -1556,9 +1795,10 @@ L Switch:SW_Push SW_RESET1
 U 1 1 60AD9170
 P 13950 1350
 F 0 "SW_RESET1" H 13950 1635 50  0000 C CNN
-F 1 "SW_Push" H 13950 1544 50  0000 C CNN
+F 1 "3x6mm" H 13950 1544 50  0000 C CNN
 F 2 "ProjectLocal:SW_Push_SPST_3x6mm_Reversible" H 13950 1550 50  0001 C CNN
 F 3 "~" H 13950 1550 50  0001 C CNN
+F 4 "Tactile Switch" H 13950 1350 50  0001 C CNN "Description"
 	1    13950 1350
 	1    0    0    -1  
 $EndComp
@@ -1567,9 +1807,10 @@ L Switch:SW_Push SW_BOOT0
 U 1 1 60ADC79E
 P 14850 1350
 F 0 "SW_BOOT0" H 14850 1635 50  0000 C CNN
-F 1 "SW_Push" H 14850 1544 50  0000 C CNN
+F 1 "3x6mm" H 14850 1544 50  0000 C CNN
 F 2 "ProjectLocal:SW_Push_SPST_3x6mm_Reversible" H 14850 1550 50  0001 C CNN
 F 3 "~" H 14850 1550 50  0001 C CNN
+F 4 "Tactile Switch" H 14850 1350 50  0001 C CNN "Description"
 	1    14850 1350
 	1    0    0    -1  
 $EndComp
@@ -1589,6 +1830,9 @@ F 0 "C1" V 2063 8900 50  0000 C BNN
 F 1 "100nF" V 2062 8900 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 2200 8900 50  0001 C CNN
 F 3 "~" H 2200 8900 50  0001 C CNN
+F 4 "-basic" V 2200 8900 50  0001 C CNN "fit_field"
+F 5 "For Rotary Encoder" H 2200 8900 50  0001 C CNN "Comment"
+F 6 "Capacitor (Through-hole or 0805)" H 2200 8900 50  0001 C CNN "Description"
 	1    2200 8900
 	0    1    1    0   
 $EndComp
@@ -1600,6 +1844,9 @@ F 0 "C2" V 2063 9200 50  0000 C BNN
 F 1 "100nF" V 2062 9200 50  0000 C TNN
 F 2 "ProjectLocal:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder_Dual_Reversible" H 2200 9200 50  0001 C CNN
 F 3 "~" H 2200 9200 50  0001 C CNN
+F 4 "-basic" V 2200 9200 50  0001 C CNN "fit_field"
+F 5 "For Rotary Encoder" H 2200 9200 50  0001 C CNN "Comment"
+F 6 "Capacitor (Through-hole or 0805)" H 2200 9200 50  0001 C CNN "Description"
 	1    2200 9200
 	0    1    1    0   
 $EndComp
@@ -1615,6 +1862,8 @@ F 0 "JP3" H 4200 4213 50  0000 C CNN
 F 1 "SolderJumper_2_Bridged" H 4200 4214 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_RoundedPad1.0x1.5mm" H 4200 4100 50  0001 C CNN
 F 3 "~" H 4200 4100 50  0001 C CNN
+F 4 "Jumped 12 by default. Cut trace for Bluepill" H 4200 4100 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 4200 4100 50  0001 C CNN "Description"
 	1    4200 4100
 	1    0    0    -1  
 $EndComp
@@ -1643,9 +1892,12 @@ L Device:Q_NPN_BCE Q1
 U 1 1 60B4654A
 P 11700 9450
 F 0 "Q1" H 11891 9496 50  0000 L CNN
-F 1 "Q_NPN_BCE" H 11891 9405 50  0001 L CNN
+F 1 "MMSS8050-H-TP" H 11891 9405 50  0001 L CNN
 F 2 "ProjectLocal:SOT-23_Handsoldering_Reversible" H 11900 9550 50  0001 C CNN
 F 3 "~" H 11700 9450 50  0001 C CNN
+F 4 "-basic" H 11700 9450 50  0001 C CNN "fit_field"
+F 5 "For vibration motor" H 11700 9450 50  0001 C CNN "Comment"
+F 6 "NPN BJT transistor" H 11700 9450 50  0001 C CNN "Description"
 	1    11700 9450
 	1    0    0    -1  
 $EndComp
@@ -1654,9 +1906,12 @@ L Motor:Motor_DC M1
 U 1 1 60B49FEF
 P 11800 8700
 F 0 "M1" H 11958 8696 50  0000 L CNN
-F 1 "Motor_DC" H 11958 8605 50  0000 L CNN
+F 1 "1030 or 0834" H 11958 8605 50  0000 L CNN
 F 2 "ProjectLocal:Mini_DC_Motor" H 11800 8610 50  0001 C CNN
 F 3 "~" H 11800 8610 50  0001 C CNN
+F 4 "-basic" H 11800 8700 50  0001 C CNN "fit_field"
+F 5 "For vibration motor" H 11800 8700 50  0001 C CNN "Comment"
+F 6 "Small DC vibration motor" H 11800 8700 50  0001 C CNN "Description"
 	1    11800 8700
 	1    0    0    -1  
 $EndComp
@@ -1668,6 +1923,9 @@ F 0 "R8" V 11550 8450 50  0000 L CNN
 F 1 "500R" H 11720 8455 50  0001 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11580 8500 50  0001 C CNN
 F 3 "~" H 11650 8500 50  0001 C CNN
+F 4 "-basic" V 11650 8500 50  0001 C CNN "fit_field"
+F 5 "For vibration motor" H 11650 8500 50  0001 C CNN "Comment"
+F 6 "Resistor (1/4W through-hole, or 0805)" H 11650 8500 50  0001 C CNN "Description"
 	1    11650 8500
 	0    1    1    0   
 $EndComp
@@ -1679,6 +1937,9 @@ F 0 "R7" V 11450 9400 50  0000 L CNN
 F 1 "500R" H 11420 9405 50  0001 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11280 9450 50  0001 C CNN
 F 3 "~" H 11350 9450 50  0001 C CNN
+F 4 "-basic" V 11350 9450 50  0001 C CNN "fit_field"
+F 5 "For vibration motor" H 11350 9450 50  0001 C CNN "Comment"
+F 6 "Resistor (1/4W through-hole, or 0805)" H 11350 9450 50  0001 C CNN "Description"
 	1    11350 9450
 	0    -1   -1   0   
 $EndComp
@@ -1716,6 +1977,9 @@ F 0 "R6" V 5000 10350 50  0000 L CNN
 F 1 "2.2k - 10k" V 4900 10200 50  0000 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 4730 10400 50  0001 C CNN
 F 3 "~" H 4800 10400 50  0001 C CNN
+F 4 "-basic" V 4800 10400 50  0001 C CNN "fit_field"
+F 5 "R3, for RGB LEDs. R5, R6 for OLED screen" H 4800 10400 50  0001 C CNN "Comment"
+F 6 "Resistor (1/4W through-hole, or 0805)" H 4800 10400 50  0001 C CNN "Description"
 	1    4800 10400
 	0    -1   -1   0   
 $EndComp
@@ -1727,6 +1991,9 @@ F 0 "R5" V 5000 10000 50  0000 L CNN
 F 1 "2.2k - 10k" V 4900 9850 50  0000 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 4730 10050 50  0001 C CNN
 F 3 "~" H 4800 10050 50  0001 C CNN
+F 4 "-basic" V 4800 10050 50  0001 C CNN "fit_field"
+F 5 "R3, for RGB LEDs. R5, R6 for OLED screen" H 4800 10050 50  0001 C CNN "Comment"
+F 6 "Resistor (1/4W through-hole, or 0805)" H 4800 10050 50  0001 C CNN "Description"
 	1    4800 10050
 	0    -1   -1   0   
 $EndComp
@@ -1802,6 +2069,8 @@ F 0 "JP13" H 7750 10463 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 7750 10464 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 7750 10350 50  0001 C CNN
 F 3 "~" H 7750 10350 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 7750 10350 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 7750 10350 50  0001 C CNN "Description"
 	1    7750 10350
 	1    0    0    -1  
 $EndComp
@@ -1813,6 +2082,8 @@ F 0 "JP12" H 7750 10213 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 7750 10214 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 7750 10100 50  0001 C CNN
 F 3 "~" H 7750 10100 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 7750 10100 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 7750 10100 50  0001 C CNN "Description"
 	1    7750 10100
 	1    0    0    -1  
 $EndComp
@@ -1824,6 +2095,8 @@ F 0 "JP11" H 7750 9963 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 7750 9964 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 7750 9850 50  0001 C CNN
 F 3 "~" H 7750 9850 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 7750 9850 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 7750 9850 50  0001 C CNN "Description"
 	1    7750 9850
 	1    0    0    -1  
 $EndComp
@@ -1835,6 +2108,8 @@ F 0 "JP10" H 7750 9713 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 7750 9714 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 7750 9600 50  0001 C CNN
 F 3 "~" H 7750 9600 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 7750 9600 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 7750 9600 50  0001 C CNN "Description"
 	1    7750 9600
 	1    0    0    -1  
 $EndComp
@@ -1846,6 +2121,8 @@ F 0 "JP9" H 6400 10463 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 6400 10464 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6400 10350 50  0001 C CNN
 F 3 "~" H 6400 10350 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 6400 10350 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 6400 10350 50  0001 C CNN "Description"
 	1    6400 10350
 	1    0    0    -1  
 $EndComp
@@ -1857,6 +2134,8 @@ F 0 "JP8" H 6400 10213 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 6400 10214 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6400 10100 50  0001 C CNN
 F 3 "~" H 6400 10100 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 6400 10100 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 6400 10100 50  0001 C CNN "Description"
 	1    6400 10100
 	1    0    0    -1  
 $EndComp
@@ -1868,6 +2147,8 @@ F 0 "JP7" H 6400 9963 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 6400 9964 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6400 9850 50  0001 C CNN
 F 3 "~" H 6400 9850 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 6400 9850 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 6400 9850 50  0001 C CNN "Description"
 	1    6400 9850
 	1    0    0    -1  
 $EndComp
@@ -1881,6 +2162,8 @@ F 0 "JP6" H 6400 9713 50  0000 C CNN
 F 1 "SolderJumper_2_Open" H 6400 9714 50  0001 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6400 9600 50  0001 C CNN
 F 3 "~" H 6400 9600 50  0001 C CNN
+F 4 "Jump appropriate side for OLED screen" H 6400 9600 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 6400 9600 50  0001 C CNN "Description"
 	1    6400 9600
 	1    0    0    -1  
 $EndComp
@@ -1889,9 +2172,12 @@ L Connector:Conn_01x04_Female J3
 U 1 1 60521A32
 P 8400 8850
 F 0 "J3" V 8600 8850 50  0000 R CNN
-F 1 "Conn_01x04_Female" V 8500 9300 50  0001 R CNN
+F 1 "01x04 Female Header" V 8500 9300 50  0001 R CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 8400 8850 50  0001 C CNN
 F 3 "~" H 8400 8850 50  0001 C CNN
+F 4 "-basic" V 8400 8850 50  0001 C CNN "fit_field"
+F 5 "For OLED screen" H 8400 8850 50  0001 C CNN "Comment"
+F 6 "Female Header" H 8400 8850 50  0001 C CNN "Description"
 	1    8400 8850
 	0    -1   -1   0   
 $EndComp
@@ -1919,6 +2205,8 @@ F 0 "JP2" V 4104 3418 50  0000 L CNN
 F 1 "SolderJumper_3_Bridged12" V 4195 3418 50  0001 L CNN
 F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged2Bar12_RoundedPad1.0x1.5mm_NumberLabels" H 4150 3350 50  0001 C CNN
 F 3 "~" H 4150 3350 50  0001 C CNN
+F 4 "Jumped 12 by default. Cut trace & solder 23 for Bluepill" H 4150 3350 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 4150 3350 50  0001 C CNN "Description"
 	1    4150 3350
 	0    1    1    0   
 $EndComp
@@ -1930,6 +2218,8 @@ F 0 "JP1" V 4104 2618 50  0000 L CNN
 F 1 "SolderJumper_3_Bridged12" V 4195 2618 50  0001 L CNN
 F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged2Bar12_RoundedPad1.0x1.5mm_NumberLabels" H 4150 2550 50  0001 C CNN
 F 3 "~" H 4150 2550 50  0001 C CNN
+F 4 "Jumped 12 by default. Cut trace & solder 23 for Bluepill" H 4150 2550 50  0001 C CNN "Comment"
+F 5 "Solder Jumper" H 4150 2550 50  0001 C CNN "Description"
 	1    4150 2550
 	0    1    1    0   
 $EndComp
@@ -1957,6 +2247,8 @@ F 0 "R2" H 11820 1000 50  0000 L CNN
 F 1 "2.2k - 10k" H 11820 955 50  0000 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11680 1000 50  0001 C CNN
 F 3 "~" H 11750 1000 50  0001 C CNN
+F 4 "R3, for RGB LEDs. R5, R6 for OLED screen" H 11750 1000 50  0001 C CNN "Comment"
+F 5 "Resistor (1/4W through-hole, or 0805)" H 11750 1000 50  0001 C CNN "Description"
 	1    11750 1000
 	1    0    0    -1  
 $EndComp
@@ -1976,6 +2268,8 @@ F 0 "R1" H 11170 1000 50  0000 L CNN
 F 1 "2.2k - 10k" H 11170 955 50  0000 L TNN
 F 2 "ProjectLocal:Resistor-Hybrid_Reversible" V 11030 1000 50  0001 C CNN
 F 3 "~" H 11100 1000 50  0001 C CNN
+F 4 "R3, for RGB LEDs. R5, R6 for OLED screen" H 11100 1000 50  0001 C CNN "Comment"
+F 5 "Resistor (1/4W through-hole, or 0805)" H 11100 1000 50  0001 C CNN "Description"
 	1    11100 1000
 	1    0    0    -1  
 $EndComp
@@ -1986,9 +2280,11 @@ L ProjectLocal:BluePill_or_MiniF4_DIP40 U1
 U 1 1 6222795C
 P 1800 2050
 F 0 "U1" H 1800 3215 50  0000 C CNN
-F 1 "BluePill_or_MiniF4_DIP40" H 1800 3124 50  0000 C CNN
+F 1 "DIP-40 round-pin socket or 40-pin SIP round-pin female header (cut down to 20)" H 1800 3124 50  0000 C CNN
 F 2 "ProjectLocal:DIP40_Reversible_ZigZag" H 2300 3200 50  0001 C CNN
 F 3 "" V 2450 1200 50  0001 C CNN
+F 4 "" H 1800 2050 50  0001 C CNN "fit_variant"
+F 5 "DIP-40 Socket" H 1800 2050 50  0001 C CNN "Description"
 	1    1800 2050
 	1    0    0    -1  
 $EndComp
