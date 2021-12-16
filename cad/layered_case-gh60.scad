@@ -12,16 +12,12 @@ screw_diameter_mm = 2;
 case_margin_mm = 2;
 case_border_thickness_mm = 10;
 
-pcb_dimension = [285, 94.6];
+gh60_pcb_dimensions = [285, 94.6];
 module gh60_pcb_approx() {
-    square(pcb_dimension);
+    square(gh60_pcb_dimensions);
 }
 
-if ($preview) {
-    $fn = 16;
-} else {
-    $fn = 60;
-}
+$fn = 16;
 
 mirror([0, 1, 0]) {
     layered_projections(
@@ -33,9 +29,7 @@ mirror([0, 1, 0]) {
             case_border_thickness = case_border_thickness_mm,
             layer_thickness = layer_thickness_mm,
             layers_above_origin = number_of_layers_above_pcb,
-            layers_below_origin = number_of_layers_below_pcb,
-            case_margin = case_margin_mm,
-            case_border_thickness = case_border_thickness_mm
+            layers_below_origin = number_of_layers_below_pcb
         ) {
             gh60_pcb_approx();
             
@@ -47,33 +41,12 @@ mirror([0, 1, 0]) {
             }
 
             // Case Screw Holes
-            screwsLeft = -1 - (case_border_thickness_mm / 2);
-            screwsTop = -1 - (case_border_thickness_mm / 2);
-            screwsRight = gh60_pcb_dimension[0] + 1 + (case_border_thickness_mm / 2);
-            screwsBottom = gh60_pcb_dimension[1] + 1 + (case_border_thickness_mm / 2);
-            screw_holes_along_segment(
-                start_point = [screwsLeft,  screwsTop],
-                end_point   = [screwsRight, screwsTop],
-                num_screws_between = 3,
-                screw_diameter = screw_diameter_mm
-            );
-            screw_holes_along_segment(
-                start_point = [screwsRight,  screwsBottom],
-                end_point   = [screwsLeft, screwsBottom],
-                num_screws_between = 3,
-                screw_diameter = screw_diameter_mm
-            );
-            screw_holes_along_segment(
-                start_point = [screwsRight, screwsTop],
-                end_point   = [screwsRight, screwsBottom],
-                num_screws_between = 1,
-                screw_diameter = screw_diameter_mm
-            );
-            screw_holes_along_segment(
-                start_point = [screwsLeft, screwsBottom],
-                end_point   = [screwsLeft, screwsTop],
-                num_screws_between = 1,
-                screw_diameter = screw_diameter_mm
+            case_screw_holes(
+                case_border_thickness_mm = case_border_thickness_mm,
+                pcb_dimensions = gh60_pcb_dimensions,
+                num_screws_along_long_edge = 3,
+                num_screws_along_short_edge = 1,
+                screw_diameter_mm = screw_diameter_mm
             );
 
             // GH60 PCB M2 mounting holes

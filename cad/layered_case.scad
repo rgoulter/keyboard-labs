@@ -185,13 +185,20 @@ module screw_hole(
   screw_hole_extra_diameter = 0.2,
   screw_hole_top_z = 100,
   screw_hole_bottom_z = -100,
+  use_3D = true,
 ) {
-    translate([0, 0, screw_hole_bottom_z]) {
-        cylinder(
-            h = screw_hole_top_z - screw_hole_bottom_z,
-            d = screw_diameter + screw_hole_extra_diameter
-        );
+    if (use_3D) {
+        translate([0, 0, screw_hole_bottom_z]) {
+            cylinder(
+                h = screw_hole_top_z - screw_hole_bottom_z,
+                d = screw_diameter + screw_hole_extra_diameter
+            );
+        }
     }
+
+    circle(
+        d = screw_diameter + screw_hole_extra_diameter
+    );
 }
 
 module screws_at(
@@ -223,6 +230,7 @@ module screw_holes_along_segment(
     screw_hole_extra_diameter = 0.2,
     screw_hole_top_z = 100,
     screw_hole_bottom_z = -100,
+    use_3D = true,
 ) {
     delta = (end_point - start_point) / (num_screws_between + 1);
 
@@ -232,7 +240,8 @@ module screw_holes_along_segment(
                 screw_diameter = screw_diameter,
                 screw_hole_extra_diameter = screw_hole_extra_diameter,
                 screw_hole_top_z = screw_hole_top_z,
-                screw_hole_bottom_z = screw_hole_bottom_z
+                screw_hole_bottom_z = screw_hole_bottom_z,
+                use_3D = use_3D
             );
         }
     }
@@ -243,7 +252,8 @@ module screw_holes_along_segment(
                 screw_diameter = screw_diameter,
                 screw_hole_extra_diameter = screw_hole_extra_diameter,
                 screw_hole_top_z = screw_hole_top_z,
-                screw_hole_bottom_z = screw_hole_bottom_z
+                screw_hole_bottom_z = screw_hole_bottom_z,
+                use_3D = use_3D
             );
         }
     }
@@ -254,8 +264,99 @@ module screw_holes_along_segment(
                 screw_diameter = screw_diameter,
                 screw_hole_extra_diameter = screw_hole_extra_diameter,
                 screw_hole_top_z = screw_hole_top_z,
-                screw_hole_bottom_z = screw_hole_bottom_z
+                screw_hole_bottom_z = screw_hole_bottom_z,
+                use_3D = use_3D
             );
         }
     }
+}
+
+module case_screw_holes(
+    case_border_thickness_mm,
+    pcb_dimensions,
+    screw_diameter_mm = 2,
+    num_screws_along_long_edge = 3,
+    num_screws_along_short_edge = 1,
+    screw_hole_top_z = 100,
+    screw_hole_bottom_z = -100,
+    screw_hole_extra_diameter = 0.2,
+    use_3D = true,
+) {
+    // WIP: surely needs margin here??
+    screwsLeft = -1 - (case_border_thickness_mm / 2);
+    screwsTop = -1 - (case_border_thickness_mm / 2);
+    screwsRight = pcb_dimensions[0] + 1 + (case_border_thickness_mm / 2);
+    screwsBottom = pcb_dimensions[1] + 1 + (case_border_thickness_mm / 2);
+
+    // Corner screws
+    r = 1 + case_border_thickness_mm / 2;
+    translate([r * cos(3 * 360 / 8), r * -sin(3 * 360 / 8)]) {
+        screw_hole(
+            screw_diameter = screw_diameter_mm,
+            screw_hole_extra_diameter = screw_hole_extra_diameter,
+            screw_hole_top_z = screw_hole_top_z,
+            screw_hole_bottom_z = screw_hole_bottom_z,
+            use_3D = use_3D
+        );
+    }
+    translate([pcb_dimensions[0], 0] + [r * cos(1 * 360 / 8), r * -sin(1 * 360 / 8)]) {
+        screw_hole(
+            screw_diameter = screw_diameter_mm,
+            screw_hole_extra_diameter = screw_hole_extra_diameter,
+            screw_hole_top_z = screw_hole_top_z,
+            screw_hole_bottom_z = screw_hole_bottom_z,
+            use_3D = use_3D
+        );
+    }
+    translate([0, pcb_dimensions[1]] + [r * cos(5 * 360 / 8), r * -sin(5 * 360 / 8)]) {
+        screw_hole(
+            screw_diameter = screw_diameter_mm,
+            screw_hole_extra_diameter = screw_hole_extra_diameter,
+            screw_hole_top_z = screw_hole_top_z,
+            screw_hole_bottom_z = screw_hole_bottom_z,
+            use_3D = use_3D
+        );
+    }
+    translate([pcb_dimensions[0], pcb_dimensions[1]] + [r * cos(7 * 360 / 8), r * -sin(7 * 360 / 8)]) {
+        screw_hole(
+            screw_diameter = screw_diameter_mm,
+            screw_hole_extra_diameter = screw_hole_extra_diameter,
+            screw_hole_top_z = screw_hole_top_z,
+            screw_hole_bottom_z = screw_hole_bottom_z,
+            use_3D = use_3D
+        );
+    }
+
+    screw_holes_along_segment(
+        start_point = [screwsLeft,  screwsTop],
+        end_point   = [screwsRight, screwsTop],
+        inclusive_begin = false,
+        num_screws_between = num_screws_along_long_edge,
+        screw_diameter = screw_diameter_mm,
+        use_3D = use_3D
+    );
+    screw_holes_along_segment(
+        start_point = [screwsRight,  screwsBottom],
+        end_point   = [screwsLeft, screwsBottom],
+        inclusive_begin = false,
+        num_screws_between = num_screws_along_long_edge,
+        screw_diameter = screw_diameter_mm,
+        use_3D = use_3D
+    );
+    screw_holes_along_segment(
+        start_point = [screwsRight, screwsTop],
+        end_point   = [screwsRight, screwsBottom],
+        inclusive_begin = false,
+        num_screws_between = num_screws_along_short_edge,
+        screw_diameter = screw_diameter_mm,
+        use_3D = use_3D
+    );
+    screw_holes_along_segment(
+        start_point = [screwsLeft, screwsBottom],
+        end_point   = [screwsLeft, screwsTop],
+        inclusive_begin = false,
+        num_screws_between = num_screws_along_short_edge,
+        screw_diameter = screw_diameter_mm,
+        use_3D = use_3D
+    );
 }
