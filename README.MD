@@ -150,4 +150,6 @@ code.
 
 See: [scripts/README.MD](https://github.com/rgoulter/keyboard-labs/tree/master/scripts#transform-kicad_pcb-to-scad)
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad_plate1.png" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad_plates-variety.png" width=600 />
+
+_Example output of OpenSCAD code, which makes use of the Kicad PCB data to construct a variety of keyboard plates._
