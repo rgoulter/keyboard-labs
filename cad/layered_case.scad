@@ -132,10 +132,11 @@ module layered_projections(
     layers_below_origin = 4,
     debug_offset_x = 350,
     debug_delta_z = 30,
+    show_3D = true,
 ) {
     total_layer_count = layers_above_origin + layers_below_origin;
 
-    if ($preview) {
+    if ($preview && show_3D) {
         translate([0, -projection_dy, 0]) {
             children(0);
         }
@@ -145,7 +146,7 @@ module layered_projections(
         deltaZ = (layers_above_origin * -layer_thickness) + ((i) * layer_thickness) - 0.01;
 
         translate([debug_offset_x, -projection_dy, ((total_layer_count - i) * debug_delta_z)]) {
-            if ($preview) {
+            if ($preview && show_3D) {
                 color(__layer_colors[i % 2]) {
                     __slice_of(
                         layer_thickness = layer_thickness,
@@ -158,7 +159,7 @@ module layered_projections(
         }
 
         translate([0, (i - 1) * projection_dy, 0]) {
-            if ($preview) {
+            if ($preview && show_3D) {
                 color(__layer_colors[i % 2]) {
                     translate([debug_offset_x, 0, 0]) {
                         __slice_of(
