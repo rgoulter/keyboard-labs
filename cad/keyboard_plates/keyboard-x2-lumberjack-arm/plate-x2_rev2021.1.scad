@@ -1,3 +1,8 @@
+// This file contains designs such as keyboard switch plates,
+//  bottom plates, MCU covers etc.,
+// which make use of the generated/pcb_data.scad (as generated from scripts/), 
+// and the customised footprint_modules.scad.
+
 include <generated/pcb_data.scad>;
 include <footprint_modules.scad>;
 include <../../kicad_pcb_geometry.scad>;
@@ -110,4 +115,4 @@ module gh60_underpcb_support_plate() {
 }
 
 $fn = 60;
-gh60_underpcb_support_plate();
+*gh60_underpcb_support_plate();

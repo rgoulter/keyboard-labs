@@ -8,7 +8,6 @@ cutout_width = 14;
 num_columns = 6;
 num_rows = 5;
 
-$fn = 30;
 module simple_switch_plate(
   outer_margin,
   num_columns,
@@ -40,7 +39,7 @@ module simple_switch_plate(
 }
 
 // X-2 switches
-simple_switch_plate(
+*simple_switch_plate(
     outer_margin = outer_margin,
     switch_distance = switch_distance,
     cutout_width = cutout_width,
