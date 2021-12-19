@@ -5,6 +5,7 @@
 
 // BUG: 2021-12-19: Unsuitable for use with the layered case SCAD:
 //                    - The HOLE A, HOLE F don't align(!!) with the PCB, plate holes.
+//                    - This X-2 plate's USB-C slot isn't wide enough for standard cables(!!!).
 //                    - The acrylic is quite fragile without supports in the middle.
 //                    - The X-2 PCB needs the spacers screwed in from underneath the PCB.
 //                      But, with the layered case, it's difficult to access underneath the PCB like that.
