@@ -1,5 +1,18 @@
 // Plate cover for the X-2, covering the middle MCU area.
 
+// BUG: 2021-12-20: Although the plate is fine, there are some usability issues:
+//                    - Unreasonably difficult to disassemble the keyboard:
+//                      This switch plate blocks access to screws at HOLES A, F.
+//                      Which means if the plates are used with the X-2 PCB
+//                      screwed into a GH-60 case: then to unscrew the PCB requires
+//                      removing the switch plate. Which requires removing all the switches
+//                      from the plate.
+//                    - Floating plates don't work well with hot-swappable switches,
+//                      especially not with the PCB rivets.
+//                      (It's easier to accidentally bend the legs of the switch
+//                       & not insert properly with the floating plate,
+//                       compared to if it's stood-off from the PCB / bottom of the case).
+
 pcb_left   = 50;
 pcb_top    = 50;
 pcb_bottom = 144.2;
