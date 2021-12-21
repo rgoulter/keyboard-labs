@@ -17,14 +17,25 @@ case_margin_mm = 2;
 case_border_thickness_mm = 10;
 
 gh60_pcb_dimensions = [285, 94.6];
+
+gh60_hole_positions = [
+    [5, 56.5],      // Hole A
+    [25.2, 27.9],   // Hole B
+    [128.2, 47],    // Hole C
+    [190.5, 85.2],  // Hole D
+    [260.05, 27.9], // Hole E
+    [279, 56.5],    // Hole F
+];
+
 module gh60_pcb_approx() {
     square(gh60_pcb_dimensions);
 }
 
-$fn = 16;
-
 module gh60_layered_case(
-    show_3D = false
+    show_3D = false,
+    number_of_layers_above_pcb = number_of_layers_above_pcb,
+    number_of_layers_below_pcb = number_of_layers_below_pcb,
+    hole_for_usb_connector = true,
 ){
     mirror([0, 1, 0]) {
         layered_projections(
@@ -45,8 +56,10 @@ module gh60_layered_case(
                 // Difference (volume removed from case) for:
 
                 // Window for USB connector
-                translate([18, -5, -3]) {
-                    cube([12, 20, 6], center = true);
+                if (hole_for_usb_connector) {
+                    translate([18, -5, -3]) {
+                        cube([12, 20, 6], center = true);
+                    }
                 }
 
                 // Case Screw Holes
@@ -60,14 +73,7 @@ module gh60_layered_case(
 
                 // GH60 PCB M2 mounting holes
                 screws_at(
-                    points = [
-                        [5, 56.5],      // Hole A
-                        [25.2, 27.9],   // Hole B
-                        [128.2, 47],    // Hole C
-                        [190.5, 85.2],  // Hole D
-                        [260.05, 27.9], // Hole E
-                        [279, 56.5],    // Hole F
-                    ],
+                    points = gh60_hole_positions,
                     screw_diameter = 2
                 );
             }
