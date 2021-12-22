@@ -1,0 +1,86 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Logic_LevelTranslator:SN74LVC1T45DBV U1
+U 1 1 61C35C42
+P 1500 1150
+F 0 "U1" H 1850 1450 50  0000 L CNN
+F 1 "SN74LVC1T45DBV" H 1850 1350 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 1500 700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 600 500 50  0001 C CNN
+	1    1500 1150
+	1    0    0    -1  
+$EndComp
+Text Label 1100 1150 2    50   ~ 0
+RGB_DATA_3V3
+Text Label 1900 1150 0    50   ~ 0
+RGB_DATA_5V
+$Comp
+L power:+3.3V #PWR?
+U 1 1 61C368D0
+P 1400 750
+F 0 "#PWR?" H 1400 600 50  0001 C CNN
+F 1 "+3.3V" H 1415 923 50  0000 C CNN
+F 2 "" H 1400 750 50  0001 C CNN
+F 3 "" H 1400 750 50  0001 C CNN
+	1    1400 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61C36F29
+P 1600 750
+F 0 "#PWR?" H 1600 600 50  0001 C CNN
+F 1 "+5V" H 1615 923 50  0000 C CNN
+F 2 "" H 1600 750 50  0001 C CNN
+F 3 "" H 1600 750 50  0001 C CNN
+	1    1600 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61C373B7
+P 1500 1550
+F 0 "#PWR?" H 1500 1300 50  0001 C CNN
+F 1 "GND" H 1505 1377 50  0000 C CNN
+F 2 "" H 1500 1550 50  0001 C CNN
+F 3 "" H 1500 1550 50  0001 C CNN
+	1    1500 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 61C37D79
+P 950 1350
+F 0 "R1" V 850 1350 50  0000 C CNN
+F 1 "2.2k - 10k" V 750 1350 50  0000 C CNN
+F 2 "" V 880 1350 50  0001 C CNN
+F 3 "~" H 950 1350 50  0001 C CNN
+	1    950  1350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61C387A9
+P 800 1350
+F 0 "#PWR?" H 800 1200 50  0001 C CNN
+F 1 "+5V" V 815 1478 50  0000 L CNN
+F 2 "" H 800 1350 50  0001 C CNN
+F 3 "" H 800 1350 50  0001 C CNN
+	1    800  1350
+	0    -1   -1   0   
+$EndComp
+$EndSCHEMATC
