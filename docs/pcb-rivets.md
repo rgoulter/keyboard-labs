@@ -8,7 +8,7 @@ A pair of "PCB rivets" is about 1/5 the cost of a Kailh socket
 PCB rivets also don't require a specialised PCB footprint for the switches.
 
 In my experience, M1.5 PCB rivets work for MX switches,
-and M1.2 for Choc switches.
+and M1.3 (M1.2) for Kailh Choc v1 switches.
 
 ## Example of using M1.2 "PCB Rivets" with Kailh Choc v1 switches
 
