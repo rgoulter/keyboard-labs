@@ -77,7 +77,7 @@ Grid of switches for the PCB.
 Text Notes 6150 5400 0    50   ~ 0
 Grid of WS2812-compatible RGB LEDs,\narranged in the same order as the key switches.\n\nEach DOUT connects to the DIN of the next LED.
 Text Notes 1200 800  0    50   ~ 0
-Development Board,\nSTM32F103C8T6 "Blue Pill" or\nWeAct Studio MiniF4 "Black Pill"
+Development Board,\nSTM32F103 "Blue Pill" or\nWeAct Studio MiniF4 "Black Pill"
 $Comp
 L Mechanical:MountingHole H1
 U 1 1 602E59E6
@@ -2295,7 +2295,7 @@ L ProjectLocal:BluePill_or_MiniF4_DIP40 U1
 U 1 1 61AF765F
 P 1800 2050
 F 0 "U1" H 1800 3215 50  0000 C CNN
-F 1 "MiniF4 STM32F4x1 \"Blackpill\", or Bluepill" H 1800 3124 50  0000 C CNN
+F 1 "STM32F103 Bluepill, or MiniF4 STM32F4x1 \"Blackpill\"" H 1800 3124 50  0000 C CNN
 F 2 "Package_DIP:DIP-40_W15.24mm_Socket" H 2300 3200 50  0001 C CNN
 F 3 "" V 2450 1200 50  0001 C CNN
 F 4 "DIP-40 STM32 Development Board" H 1800 2050 50  0001 C CNN "Description"
