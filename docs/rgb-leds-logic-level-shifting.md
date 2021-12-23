@@ -35,5 +35,7 @@ See also e.g. [SparkFun's tutorial on transistors](https://learn.sparkfun.com/tu
 # References
 
 [0] https://electronics.stackexchange.com/questions/245925/5v-to-3-3v-level-shifting-circuit
+
 [1] https://electronics.stackexchange.com/questions/367052/replace-bss138-with-ao3400a-in-level-shifter-circuit
+
 [2] https://learn.sparkfun.com/tutorials/transistors/all
