@@ -27,6 +27,12 @@ the following bootloaders are suggested:
 
   - [rogerclarkmelbourne/STM32duino-bootloader](https://github.com/rogerclarkmelbourne/STM32duino-bootloader)[2].
 
+    - With QMK, and the `rules.mk` set to use this bootloader, (e.g.
+      as `handwired/onekey/bluepill` has by default), the complied
+      `.bin` won't work if flashed to the board without this
+      bootloader present. (e.g. flashing the keyboard firmware's
+      `.bin` using `st-flash` is insufficient).
+
     - See [stm32duino's wiki page on Upload methods](https://github.com/stm32duino/wiki/wiki/Upload-methods)[3] for more details.
 
 # References
