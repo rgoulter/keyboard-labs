@@ -19,12 +19,12 @@ case_border_thickness_mm = 10;
 gh60_pcb_dimensions = [285, 94.6];
 
 gh60_hole_positions = [
-    [5, 56.5],      // Hole A
+    [2, 56.5],      // Hole A
     [25.2, 27.9],   // Hole B
     [128.2, 47],    // Hole C
     [190.5, 85.2],  // Hole D
     [260.05, 27.9], // Hole E
-    [279, 56.5],    // Hole F
+    [284 - 2, 56.5],    // Hole F
 ];
 
 module gh60_pcb_approx() {
