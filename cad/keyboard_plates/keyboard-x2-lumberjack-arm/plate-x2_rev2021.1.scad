@@ -3,17 +3,6 @@
 // which make use of the generated/pcb_data.scad (as generated from scripts/), 
 // and the customised footprint_modules.scad.
 
-// BUG: 2021-12-19: Unsuitable for use with the layered case SCAD:
-//                    - The HOLE A, HOLE F don't align(!!) with the PCB, plate holes.
-//                    - This X-2 plate's USB-C slot isn't wide enough for standard cables(!!!).
-//                    - The acrylic is quite fragile without supports in the middle.
-//                    - The X-2 PCB needs the spacers screwed in from underneath the PCB.
-//                      But, with the layered case, it's difficult to access underneath the PCB like that.
-//                    - Seems difficult to secure the PCB to the plate using spacers for tray mount;
-//                      can't hold the spacers underneath the PCB while screwing in the spacer.
-//                    - Floating plate is annoying to use (especially given it's difficult
-//                      to access the underside of the PCB).
-
 include <generated/pcb_data.scad>;
 include <footprint_modules.scad>;
 include <../../kicad_pcb_geometry.scad>;
@@ -95,8 +84,8 @@ module gh60_underpcb_support_plate() {
             // Cut out area for USB-C connector
             translate(J1_at) {
                 extra = 20;
-                translate([-5, -4.2 - extra]) {
-                    square([10, 8 + extra]);
+                translate([-6, -4.2 - extra]) {
+                    square([12, 8 + extra]);
                 }
             }
 
