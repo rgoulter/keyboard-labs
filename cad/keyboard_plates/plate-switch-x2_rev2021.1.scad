@@ -78,8 +78,6 @@ module x2_switch_plate(
     }
 }
 
-$fn = 30;
-
 // X-2 switches
 *x2_switch_plate(
     outer_margin = outer_margin,

@@ -64,14 +64,12 @@ module simple_cover_plate(
                 translate([holes_distance_width, holes_distance_height]) {
                     circle(d = screw_hole_size);
                 }
-                
+
                 children();
             }
         }
     }
 }
-
-$fn = 60;
 
 *simple_cover_plate(
     outer_margin = margin,

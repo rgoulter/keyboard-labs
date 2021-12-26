@@ -23,8 +23,6 @@ module cover_screws() {
     }
 }
 
-$fn = 36;
-
 // (Metal) top plate
 module top_plate() {
     difference() {
