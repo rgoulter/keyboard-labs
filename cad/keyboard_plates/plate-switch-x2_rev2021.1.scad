@@ -2,6 +2,8 @@
 //
 // Simply, a 5x6 grid of 14x14mm cutouts, with a 1.9mm margin.
 
+include <../kicad_pcb_geometry.scad>;
+
 outer_margin = 1.9;
 switch_distance = 19.05;
 cutout_width = 14;
@@ -38,8 +40,48 @@ module simple_switch_plate(
     }
 }
 
+module x2_switch_plate(
+  outer_margin,
+  num_columns,
+  num_rows,
+  switch_distance = 19.05,
+  cutout_width = 14,
+) {
+    difference() {
+        simple_switch_plate(
+            outer_margin = outer_margin,
+            switch_distance = switch_distance,
+            cutout_width = cutout_width,
+            num_columns = num_columns,
+            num_rows = num_rows
+        );
+
+        // Cut out a d=3mm hole
+        // for screwdriver access the screw underneath.
+        cy = outer_margin + (cutout_width / 2) + (switch_distance / 2) + (switch_distance);
+        translate([3.7, cy]) {
+            circle(d = 3);
+        }
+        translate([0, cy - 1.5]) {
+            square([3.7, 3]);
+        }
+        translate([0, cy + 1.5]) {
+            rotate([0, 0]) {
+                corner_rounder(r = 1);
+            }
+        }
+        translate([0, cy - 1.5]) {
+            rotate([0, 0, 270]) {
+                corner_rounder(r = 1);
+            }
+        }
+    }
+}
+
+$fn = 30;
+
 // X-2 switches
-*simple_switch_plate(
+*x2_switch_plate(
     outer_margin = outer_margin,
     switch_distance = switch_distance,
     cutout_width = cutout_width,
