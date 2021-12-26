@@ -1,0 +1,18 @@
+kibot:
+  version: 1
+
+outputs:
+  - name: 'pcb_top'
+    type: pcbdraw
+
+  - name: '3d_top'
+    comment: "Simple 3D view"
+    type: render_3d
+    run_by_default: false
+    options:
+      background1: "#CCCCE5"
+      background2: "#CCCCE5"
+      height: 2160
+      width: 5120
+      zoom: 7
+      move_y: -2
