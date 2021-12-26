@@ -1,6 +1,7 @@
 { lib
 , fetchFromGitHub
 , python3Packages
+, use-vglrun ? false
 }:
 
 let
@@ -24,6 +25,12 @@ let
       license = licenses.asl20;
       maintainers = with maintainers; [ ];
     };
+
+    # Kludge:
+    # On NixOS desktop, in order to run Kicad within Xvfb
+    # I used VirtualGL's `vglrun`.
+    patches =
+      lib.optional use-vglrun ./kiauto-pcbnew_do-cmd-vglrun-display1.patch;
   };
 in
 python3Packages.buildPythonApplication rec {
