@@ -103,8 +103,7 @@ _Using WeAct Studio MiniF4 "Blackpill", with SMD components and Kailh Choc v1 sw
 
 _Using Bluepill, with through-hole components and MX-compatible switches_
 
-<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-top.svg" width=600 />
-<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-bottom.svg" width=600 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-top.svg" width=600 /> <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-bottom.svg" width=600 />
 
 _2D Renders of the PCB, revision rev2021.5_
 
