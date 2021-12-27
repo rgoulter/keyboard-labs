@@ -33,9 +33,10 @@ _Keyboard rev2020.1_
 
 _Comparison between rev2020.1 low-profile and rev2021.1 MX with lasercut sandwich case_
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare.png" width=280 /> <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5-ortho-bare-reverse.png" width=280 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-top.svg" width=280 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-bottom.svg" width=280 />
 
-_Renders of rev2021.5 PCB_
+_2D Renders of the PCB, revision rev2021.5_
 
 Design goals:
 
@@ -102,10 +103,10 @@ _Using WeAct Studio MiniF4 "Blackpill", with SMD components and Kailh Choc v1 sw
 
 _Using Bluepill, with through-hole components and MX-compatible switches_
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-ortho-bare.png" width=600 />
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-ortho-bare-reverse.png" width=600 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-top.svg" width=600 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-bottom.svg" width=600 />
 
-_Renders of rev2021.5 PCB_
+_2D Renders of the PCB, revision rev2021.5_
 
 ###### Build Guides
 
