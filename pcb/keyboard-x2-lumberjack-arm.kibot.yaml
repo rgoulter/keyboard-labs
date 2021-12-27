@@ -42,8 +42,19 @@ outputs:
       use_gerber_net_attributes: false
       use_gerber_x2_attributes: false
 
-  - name: "pcb_top"
+  - name: "pcbdraw_top"
     type: pcbdraw
+    dir: "+docs/images/"
+
+  - name: "pcbdraw_bottom"
+    type: pcbdraw
+    dir: "+docs/images/"
+    options:
+      bottom: true
+
+  - name: "schematic_print"
+    type: pdf_sch_print
+    dir: "+docs/"
 
   - name: "3d_top"
     comment: "Simple 3D view"
