@@ -2,10 +2,50 @@ kibot:
   version: 1
 
 outputs:
-  - name: 'pcb_top'
+  - name: "gerber_zip"
+    comment: "ZIP file of gerber and drill files for PCB fabrication"
+    type: compress
+    dir: "./gerbers/%f/"
+    options:
+      files:
+        - from_output: gerbers
+          dest: /
+        - from_output: drill
+          dest: /
+
+  # Copying from project settings, which have been used with:
+  # JLCPCB, SmartPCB88
+  - name: "drill"
+    type: excellon
+    comment: "The drill files"
+    dir: "./gerbers/%f/"
+    options:
+      metric_units: false
+      pth_and_npth_single_file: false
+
+  - name: "gerbers"
+    type: gerber
+    comment: "The gerber files"
+    dir: "./gerbers/%f/"
+    layers:
+      - "F.Cu"
+      - "B.Cu"
+      - "F.Paste"
+      - "B.Paste"
+      - "F.SilkS"
+      - "B.SilkS"
+      - "F.Mask"
+      - "B.Mask"
+      - "Edge.Cuts"
+    options:
+      create_gerber_job_file: false
+      use_gerber_net_attributes: false
+      use_gerber_x2_attributes: false
+
+  - name: "pcb_top"
     type: pcbdraw
 
-  - name: '3d_top'
+  - name: "3d_top"
     comment: "Simple 3D view"
     type: render_3d
     run_by_default: false
@@ -16,3 +56,4 @@ outputs:
       width: 5120
       zoom: 7
       move_y: -2
+
