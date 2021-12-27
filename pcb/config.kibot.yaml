@@ -3,9 +3,9 @@ kibot:
 
 outputs:
   - name: "gerber_zip"
-    comment: "ZIP file of gerber and drill files for PCB fabrication"
     type: compress
-    dir: "./gerbers/%f/"
+    comment: "ZIP file of gerber and drill files for PCB fabrication"
+    dir: "+gerbers/%f/"
     options:
       files:
         - from_output: gerbers
@@ -18,7 +18,7 @@ outputs:
   - name: "drill"
     type: excellon
     comment: "The drill files"
-    dir: "./gerbers/%f/"
+    dir: "+gerbers/%f/"
     options:
       metric_units: false
       pth_and_npth_single_file: false
@@ -26,7 +26,7 @@ outputs:
   - name: "gerbers"
     type: gerber
     comment: "The gerber files"
-    dir: "./gerbers/%f/"
+    dir: "+gerbers/%f/"
     layers:
       - "F.Cu"
       - "B.Cu"
@@ -45,20 +45,29 @@ outputs:
   - name: "pcbdraw_top"
     type: pcbdraw
     dir: "+docs/images/"
+    comment: "Pretty 2D render of the top of the PCB, using pcbdraw"
+    options:
+      # Include revision (-%r) to the output
+      output: "%f-%r-%i%v.%x"
 
   - name: "pcbdraw_bottom"
     type: pcbdraw
+    comment: "Pretty 2D render of the bottom of the PCB, using pcbdraw"
     dir: "+docs/images/"
     options:
       bottom: true
+      # Include revision (-%r) to the output
+      output: "%f-%r-%i%v.%x"
 
   - name: "schematic_print"
     type: pdf_sch_print
+    comment: "PDF print of the schematic"
     dir: "+docs/"
 
   - name: "3d_top"
-    comment: "Simple 3D view"
     type: render_3d
+    comment: "Simple 3D view"
+    dir: "+docs/images/"
     run_by_default: false
     options:
       background1: "#CCCCE5"
