@@ -163,7 +163,7 @@ module microcontroller_cover_with_buttons() {
     difference() {
         offset(2) {
             offset(-2) {
-                square([U1_length + 6, U1_width], center = false);
+                square([U1_length + 4.5, U1_width], center = false);
                 square([10, U1_width + 6], center = false);
             }
         }
@@ -182,7 +182,7 @@ module microcontroller_cover() {
     difference() {
         offset(2) {
             offset(-2) {
-                square([U1_length + 6, U1_width], center = false);
+                square([U1_length + 4.5, U1_width], center = false);
                 square([10, U1_width + 6], center = false);
             }
         }
@@ -190,6 +190,8 @@ module microcontroller_cover() {
         cover_screws();
     }
 }
+
+$fn = 36;
 
 *top_plate();
 *bottom_plate_with_motor_and_buttons();
