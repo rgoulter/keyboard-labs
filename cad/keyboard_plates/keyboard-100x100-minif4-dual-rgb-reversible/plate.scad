@@ -112,6 +112,105 @@ module top_plate() {
     }
 }
 
+// (Metal) top plate
+// but allowing access to the SW_BOOT SW_RESET buttons.
+module top_plate_with_buttons() {
+    difference() {
+        plate(
+            edge_cuts_data = edge_cuts_data,
+            modules_data = modules_data,
+            include_footprints = [
+                "Keebio-Parts:TRRS-PJ-320A",
+                "ProjectLocal:SW_MX_PG1350_reversible",
+                "ProjectLocal:DIP40_Reversible_ZigZag",
+                "ProjectLocal:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_Reversible",
+                "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad",
+                "ProjectLocal:H_M2_Spacer_Hole",
+                "ProjectLocal:SW_Push_SPST_3x6mm",
+            ],
+            force_include_references = [
+                "J3"
+            ]
+        );
+
+        translate([0, -100]) {
+            cover_screws();
+        }
+
+        // Cut out space for H11
+        translate([0, -100 + 23.2]) {
+            offset(1) {
+                square([7, 5]);
+            }
+        }
+
+        // Cut out space for H12, H13
+        translate([53.2, -100]) {
+            offset(1) {
+                square([7, 22.2]);
+            }
+        }
+
+        // Round corners
+        // U1, left, top
+        translate([0, -100 + 23.2 + 5.95]) {
+            corner_rounder(r = 2.5);
+        }
+        // U1, left, top, again
+        translate([7.95, -100 + 23.2]) {
+            corner_rounder(r = 2.5);
+        }
+        // J3, left, top
+        translate([J3_at[0], -J3_at[1]] + [-1.55, 2.3]) {
+            rotate([0, 0, 0]) {
+                corner_rounder(r = 1);
+            }
+        }
+        // J3, left, bottom
+        translate([J3_at[0], -J3_at[1]] + [-1.55, -2.3 -2.54*3]) {
+            rotate([0, 0, 270]) {
+                corner_rounder(r = 1);
+            }
+        }
+        // J1, right, top
+        translate([J1_at[0], -J1_at[1]] + [2.5, 6.3]) {
+            rotate([0, 0, 90]) {
+                corner_rounder(r = 2.5);
+            }
+        }
+        // J1, right, bottom
+        translate([J1_at[0], -J1_at[1]] + [2.5, -4]) {
+            rotate([0, 0, 180]) {
+                corner_rounder(r = 2.5);
+            }
+        }
+        // SW_RE1, bottom, left
+        translate([SW_RE1_at[0], -SW_RE1_at[1]] + [-4, -1.8]) {
+            rotate([0, 0, 90]) {
+                corner_rounder(r = 2.5);
+            }
+        }
+        // SW_RE1, bottom, right
+        translate([SW_RE1_at[0], -SW_RE1_at[1]] + [8.8, -1.8]) {
+            rotate([0, 0, 0]) {
+                corner_rounder(r = 2.5);
+            }
+        }
+        // Reset Buttons
+        translate([61, -89.1]) {
+            corner_rounder(r = 2.5);
+        }
+        translate([79.9, -100.1]) {
+            corner_rounder(r = 2.5);
+        }
+        translate([60, -104]) {
+            offset(1) {
+                square([19, 14], center = false);
+            }
+        }
+    }
+}
+
 // Acrylic bottom plate
 // variant with hole for the motor, boot/reset buttons.
 module bottom_plate_with_motor_and_buttons() {
@@ -191,9 +290,8 @@ module microcontroller_cover() {
     }
 }
 
-$fn = 36;
-
 *top_plate();
+*top_plate_with_buttons();
 *bottom_plate_with_motor_and_buttons();
 *bottom_plate();
 *microcontroller_cover_with_buttons();
