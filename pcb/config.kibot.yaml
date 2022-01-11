@@ -13,6 +13,13 @@ outputs:
         - from_output: drill
           dest: /
 
+  - name: "bom"
+    type: bom
+    comment: "KiCad BOM"
+    dir: "+docs/"
+    options:
+      format: CSV  # HTML or CSV
+
   # Copying from project settings, which have been used with:
   # JLCPCB, SmartPCB88
   - name: "drill"
