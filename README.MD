@@ -153,3 +153,19 @@ See: [scripts/README.MD](https://github.com/rgoulter/keyboard-labs/tree/master/s
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/openscad_plates-variety.png" width=600 />
 
 _Example output of OpenSCAD code, which makes use of the Kicad PCB data to construct a variety of keyboard plates._
+
+## Notes
+
+- [docs/pcb-rivets.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/pcb-rivets.md):
+  notes on usage of PCB rivets for allowing hot-swapping switches on
+  PCBs with regular footprints.
+
+- [docs/socketing-devboards.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/socketing-devboards.md):
+  some comparison photos of some different ways of socketing
+  devboards.
+
+- [docs/rgb-leds-logic-level-shifting.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/rgb-leds-logic-level-shifting.md):
+  some notes on logic level shifting.
+
+- [docs/stm32-flashing-and-bootloaders.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/stm32-flashing-and-bootloaders.md):
+  some notes on bootloaders for STM32.
