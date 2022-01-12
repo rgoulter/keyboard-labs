@@ -12,26 +12,30 @@ Plotted gerber files can be found under the GitHub repository's
 
 | Designation | Summary/Keywords                                                                 | Image                                                                                                                                                 |
 |-------------|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| X-1         | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard_100x100_minif4-36key_compare-rev2020.1-rev2021.1mx-flat.JPG) |
-| X-2         | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_minif4-smd-choc_wide.png)     |
+| X-1         | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-mx-top.JPG) |
+| X-2         | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/photo-keyboard-x-1-mx-tented.JPG)     |
 
 #### X-1: 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard_100x100_minif4-36key_rev2021.1mx-pair_tented-displayed.JPG"  width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-mx-top.JPG" width=600 />
 
-_Keyboard, rev2021.1, MX variation_
+_X-1, rev2021.5, MX variation (with rotary encoder, OLED, etc.)._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard_100x100_minif4-36key_rev2021.1mx-pair_tented-reverse.JPG"  width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-choc-top.JPG" width=600 />
 
-_Keyboard rev2021.1, MX variation_
+_X-1, rev2021.5, Choc variation, low-profile (with flipped GD-32 Bluepill devboards)._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard_100x100_minif4-36key_rev2020.1-pair_flat.JPG"  width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-comparison-mx-choc.JPG" width=600 />
 
-_Keyboard rev2020.1_
+_Height comparison between low-profile build (with Choc switches) and with sandwich-case._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard_100x100_minif4-36key_compare-rev2020.1-rev2021.1mx-flat.JPG"  width=600 />
+<img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/photo-keyboard-x-1-mx-tented.JPG" width=600 />
 
-_Comparison between rev2020.1 low-profile and rev2021.1 MX with lasercut sandwich case_
+_Tented._
+
+<img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/photo-keyboard-x-1-underside.JPG" width=600 />
+
+_Showing the underside of the PCB through the acrylic bottom layer._
 
 <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-top.svg" width=280 />
 <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-bottom.svg" width=280 />
@@ -93,15 +97,15 @@ Design goals:
   - Fits in tray-mount GH60 case.
   - (Relatively) easy to solder.
 
-Render Previews:
+Pictures:
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_minif4-smd-choc_wide.png" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG" width=600 />
 
-_Using WeAct Studio MiniF4 "Blackpill", with SMD components and Kailh Choc v1 switches_
+_X-2 PCB assembled, using a Bluepill devboard, with MX switches, in a cheap GH-60 case._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/render-kicad-keyboard-x2-lumberjack-arm_bluepill-th-mx_wide.png" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-choc-top.JPG" width=600 />
 
-_Using Bluepill, with through-hole components and MX-compatible switches_
+_X-2 PCB assembled, using a WeAct Studio MiniF4 "Blackpill" devboard, with Choc switches, in a layered acrylic case._
 
 <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-top.svg" width=600 /> <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-x2-lumberjack-arm-rev2021.1-bottom.svg" width=600 />
 
