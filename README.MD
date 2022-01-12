@@ -13,7 +13,7 @@ Plotted gerber files can be found under the GitHub repository's
 | Designation | Summary/Keywords                                                                 | Image                                                                                                                                                 |
 |-------------|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | X-1         | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-mx-top.JPG) |
-| X-2         | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/photo-keyboard-x-1-mx-tented.JPG)     |
+| X-2         | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG)     |
 
 #### X-1: 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
 
