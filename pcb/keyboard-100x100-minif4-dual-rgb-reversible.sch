@@ -953,6 +953,7 @@ F 1 "M2 Spacer" H 14400 3005 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3050 50  0001 C CNN
 F 3 "~" H 14300 3050 50  0001 C CNN
 F 4 "Spacers" H 14300 3050 50  0001 C CNN "Description"
+F 5 "For spacing between switch plate and bottom plate. For MX switches: length 8mm. For Choc: length 5mm. Screws M2x5mm for MX (or M2x4mm for Choc)." H 14300 3050 50  0001 C CNN "Comment"
 	1    14300 3050
 	1    0    0    -1  
 $EndComp
@@ -965,6 +966,7 @@ F 1 "M2 Spacer" H 14400 3205 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3250 50  0001 C CNN
 F 3 "~" H 14300 3250 50  0001 C CNN
 F 4 "Spacers" H 14300 3250 50  0001 C CNN "Description"
+F 5 "For spacing between switch plate and bottom plate. For MX switches: length 8mm. For Choc: length 5mm. Screws M2x5mm for MX (or M2x4mm for Choc)." H 14300 3250 50  0001 C CNN "Comment"
 	1    14300 3250
 	1    0    0    -1  
 $EndComp
@@ -977,6 +979,7 @@ F 1 "M2 Spacer" H 14400 3405 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3450 50  0001 C CNN
 F 3 "~" H 14300 3450 50  0001 C CNN
 F 4 "Spacers" H 14300 3450 50  0001 C CNN "Description"
+F 5 "For spacing between switch plate and bottom plate. For MX switches: length 8mm. For Choc: length 5mm. Screws M2x5mm for MX (or M2x4mm for Choc)." H 14300 3450 50  0001 C CNN "Comment"
 	1    14300 3450
 	1    0    0    -1  
 $EndComp
@@ -989,6 +992,7 @@ F 1 "M2 Spacer" H 14400 3605 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3650 50  0001 C CNN
 F 3 "~" H 14300 3650 50  0001 C CNN
 F 4 "Spacers" H 14300 3650 50  0001 C CNN "Description"
+F 5 "For spacing between switch plate and bottom plate. For MX switches: length 8mm. For Choc: length 5mm. Screws M2x5mm for MX (or M2x4mm for Choc)." H 14300 3650 50  0001 C CNN "Comment"
 	1    14300 3650
 	1    0    0    -1  
 $EndComp
@@ -1001,6 +1005,7 @@ F 1 "M2 Spacer" H 14400 3805 50  0000 L CNN
 F 2 "ProjectLocal:H_M2_Spacer_Hole" H 14300 3850 50  0001 C CNN
 F 3 "~" H 14300 3850 50  0001 C CNN
 F 4 "Spacers" H 14300 3850 50  0001 C CNN "Description"
+F 5 "For spacing between switch plate and bottom plate. For MX switches: length 8mm. For Choc: length 5mm. Screws M2x5mm for MX (or M2x4mm for Choc)." H 14300 3850 50  0001 C CNN "Comment"
 	1    14300 3850
 	1    0    0    -1  
 $EndComp
@@ -1241,7 +1246,7 @@ F 0 "H11" H 15150 3096 50  0000 L CNN
 F 1 "M2 Spacer" H 15150 3005 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 15050 3050 50  0001 C CNN
 F 3 "~" H 15050 3050 50  0001 C CNN
-F 4 "For cover plate" H 15050 3050 50  0001 C CNN "Comment"
+F 4 "For cover plate. Length 15mm if using OLED screen. Screws also required." H 15050 3050 50  0001 C CNN "Comment"
 F 5 "Spacers" H 15050 3050 50  0001 C CNN "Description"
 	1    15050 3050
 	1    0    0    -1  
@@ -1254,7 +1259,7 @@ F 0 "H12" H 15150 3296 50  0000 L CNN
 F 1 "M2 Spacer" H 15150 3205 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 15050 3250 50  0001 C CNN
 F 3 "~" H 15050 3250 50  0001 C CNN
-F 4 "For cover plate" H 15050 3250 50  0001 C CNN "Comment"
+F 4 "For cover plate. Length 15mm if using OLED screen. Screws also required." H 15050 3250 50  0001 C CNN "Comment"
 F 5 "Spacers" H 15050 3250 50  0001 C CNN "Description"
 	1    15050 3250
 	1    0    0    -1  
@@ -1267,7 +1272,7 @@ F 0 "H13" H 15150 3496 50  0000 L CNN
 F 1 "M2 Spacer" H 15150 3405 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad" H 15050 3450 50  0001 C CNN
 F 3 "~" H 15050 3450 50  0001 C CNN
-F 4 "For cover plate" H 15050 3450 50  0001 C CNN "Comment"
+F 4 "For cover plate. Length 15mm if using OLED screen. Screws also required." H 15050 3450 50  0001 C CNN "Comment"
 F 5 "Spacers" H 15050 3450 50  0001 C CNN "Description"
 	1    15050 3450
 	1    0    0    -1  
