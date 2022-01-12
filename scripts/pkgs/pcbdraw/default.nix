@@ -66,7 +66,7 @@ let
 in
 buildPythonApplication rec {
   pname = "pcbdraw";
-  version = "0.7.1";
+  version = "0.9.0";
 
   propagatedBuildInputs = [
     click
@@ -86,7 +86,7 @@ buildPythonApplication rec {
     owner = "yaqwsx";
     repo = "PcbDraw";
     rev = "v${version}";
-    sha256 = "0xvx2cdahnbrhm26alj054ma1qlbfssqrad3vf58hjifn2dmhcs7";
+    sha256 = "1160cainx3548yf61dyinkdhip62974kz12llml1221b177lwjab";
   };
 
 }
