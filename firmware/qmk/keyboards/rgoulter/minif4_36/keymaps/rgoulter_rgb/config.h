@@ -1,0 +1,7 @@
+#pragma once
+
+#define IGNORE_MOD_TAP_INTERRUPT
+
+#define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
+
+#define COMBO_COUNT 2

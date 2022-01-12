@@ -15,9 +15,13 @@
  */
 
 #include "minif4_36.h"
+
+#ifdef SPLIT_KEYBOARD
 #include "split_util.h"
+#endif
 
 #if defined(RGB_MATRIX_ENABLE)
+#ifdef SPLIT_KEYBOARD
 led_config_t g_led_config = {
   {
    // Key Matrix to LED Index
@@ -69,11 +73,50 @@ led_config_t g_led_config = {
    2, 2, 2
   }
 };
+#else
+led_config_t g_led_config = {
+  {
+   // Key Matrix to LED Index
+
+   // LHS
+   { 0, 1, 2, 3, 4 },
+   { 5, 6, 7, 8, 9 },
+   { 10, 11, 12, 13, 14 },
+   { NO_LED, NO_LED, 15, 16, 17 },
+   // 18, 19, 20, 21 are underneath
+  },
+  {
+   // LED Index to Physical Position
+
+   // very rough approximation
+   // LHS:
+   { 10, 10 }, { 35, 10 }, { 70, 10 }, { 95, 10 }, { 120, 10 },
+   { 10, 60 }, { 35, 60 }, { 70, 60 }, { 95, 60 }, { 120, 60 },
+   { 10, 110 }, { 35, 110 }, { 70, 110 }, { 95, 110 }, { 120, 110 },
+   { 70, 160 }, { 95, 160 }, { 120, 160 },
+   { 100, 190 }, { 30, 190 }, { 30, 60 }, { 100, 60 },
+  },
+  {
+   // LED Index to Flag
+   4, 4, 4, 4, 4,
+   4, 4, 4, 4, 4,
+   4, 4, 4, 4, 4,
+   1, 1, 1,
+   2, 2, 2
+  }
+};
+#endif
 #endif
 
-void matrix_init_kb(void) {
+void board_init(void) {
+    // B9 is configured as I2C1_SDA in the board file; that function must be
+    // disabled before using B7 as I2C1_SDA.
+    setPinInputHigh(B9);
+}
 
+void matrix_init_kb(void) {
 #ifdef RGB_MATRIX_ENABLE
+#ifdef SPLIT_KEYBOARD
     if (!is_keyboard_left()) {
         g_led_config = (led_config_t){
           {
@@ -128,5 +171,7 @@ void matrix_init_kb(void) {
         };
     }
 #endif
+#endif
     matrix_init_user();
 }
+// */

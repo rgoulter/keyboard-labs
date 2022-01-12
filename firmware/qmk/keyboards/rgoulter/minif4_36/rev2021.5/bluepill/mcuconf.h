@@ -22,3 +22,12 @@
 #pragma once
 
 #include_next <mcuconf.h>
+
+#ifdef RGB_MATRIX_ENABLE
+#undef STM32_PWM_USE_TIM3
+#define STM32_PWM_USE_TIM3 TRUE
+#endif
+
+// #undef STM32_SPI_USE_SPI2
+// #define STM32_SPI_USE_SPI2 FALSE
+

@@ -1,4 +1,4 @@
-/* Copyright 2020
+/* Copyright 2020 Thys de Wet
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,13 +17,12 @@
 
 // #include "config_common.h"
 
-
 /* USB Device descriptor parameter */
 #define VENDOR_ID 0xFEED
-#define PRODUCT_ID 0x7812
+#define PRODUCT_ID 0x7813
 #define DEVICE_VER 0x0001
 #define MANUFACTURER Richard Goulter
-#define PRODUCT MiniF4 36-key
+#define PRODUCT X-2 Lumberjack-Arm
 
 
 #define MATRIX_IO_DELAY 5
@@ -32,45 +31,22 @@
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
 
-
 /* disable these deprecated features by default */
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 
 /* key matrix size */
-#ifdef SPLIT_KEYBOARD
-#define MATRIX_ROWS 8
-#else
-#define MATRIX_ROWS 4
-#endif
-#define MATRIX_COLS 5
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 12
+#define DIODE_DIRECTION COL2ROW
 
-// Split Transport
-#ifdef SPLIT_KEYBOARD
-#define SOFT_SERIAL_PIN B6
-#define SPLIT_TRANSPORT_MIRROR
-#endif
+// RGB Lighting
+#ifdef RGBLIGHT_ENABLE
+#define RGBLIGHT_ANIMATIONS
 
-// RGB Matrix
-#ifdef RGB_MATRIX_ENABLE
+#define DRIVER_LED_TOTAL 4
+#define RGBLED_NUM 4
+#define RGBLIGHT_LED_MAP { 3, 2, 1, 0 }
 
-#ifdef SPLIT_KEYBOARD
-// 18 + 4 on each side
-#define DRIVER_LED_TOTAL 44
-#define RGBLED_NUM 44
-#define RGB_MATRIX_SPLIT { 22,22 }
-#else
-#define DRIVER_LED_TOTAL 22
-#define RGBLED_NUM 22
-#endif
-
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200
-#define RGB_MATRIX_KEYPRESSES
-#endif
-
-// OLED
-#ifdef OLED_DRIVER_ENABLE
-/* B8, B9 instead of B6, B7 */
-#define I2C1_SCL 8
-#define I2C1_SDA 9
+#define RGBLIGHT_LIMIT_VAL 80
 #endif
