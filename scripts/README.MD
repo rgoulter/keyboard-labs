@@ -1,5 +1,20 @@
 # Scripts
 
+## Nix-Shells
+
+### shell-kibot.nix
+
+[KiBot](https://github.com/INTI-CMNB/KiBot) can be used to generate
+assets for the KiCad PCBs in this project's `pcb/` directory.
+
+With [Nix](https://nixos.org/) installed, run:
+
+```
+nix-shell shell-kibot.nix
+```
+
+This provides a shell which has `kibot` on its `PATH`.
+
 ## Transform .kicad_pcb to .scad
 
 ### Examples
