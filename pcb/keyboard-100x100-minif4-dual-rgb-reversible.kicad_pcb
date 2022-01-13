@@ -4267,7 +4267,7 @@
     (fp_text reference U1 (at -2.598 -0.559 180) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value "MiniF4 STM32F4x1 \"Blackpill\", or Bluepill" (at 20.32 24.765) (layer F.Fab) hide
+    (fp_text value "STM32F103 Bluepill, or MiniF4 STM32F4x1 \"Blackpill\"" (at 20.32 24.765) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start 0.27854 46.99254) (end 0.27854 51.33254) (layer B.CrtYd) (width 0.05))
