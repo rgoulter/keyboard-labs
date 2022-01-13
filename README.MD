@@ -113,7 +113,7 @@ _2D Renders of the PCB, revision rev2021.5_
 
 ###### Build Guides
 
-- [rev2021.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-x2-lumberjack-arm-revrev2021.1.html)
+- [rev2021.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-x2-lumberjack-arm-rev2021.1.html)
 
 ## CAD Designs
 
