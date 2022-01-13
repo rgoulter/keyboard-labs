@@ -10,6 +10,7 @@ InteractiveHtmlBom \
     --checkboxes="" \
     --name-format="ibom-x2-lumberjack-arm-rev%r" \
     --sort-order="R,C,C_,D_,D_BL_,Q,U,J,M,SW_BOOT,SW_RESET,SW_,SW_RE,H,~" \
+    --blacklist="HOLE" \
     --extra-data-file="../pcb/keyboard-x2-lumberjack-arm.net" \
     --extra-fields="Description,Comment" \
     --group-fields="Value" \
