@@ -15,6 +15,22 @@ nix-shell shell-kibot.nix
 
 This provides a shell which has `kibot` on its `PATH`.
 
+### shell-interactive-html-bom.nix
+
+Provides a standalone script of
+[InteractiveHtmlBom](https://github.com/openscopeproject/InteractiveHtmlBom),
+`InteractiveHtmlBom`.
+
+The script requires that the netlist be generated from eeschema,
+so that symbol fields (like comment, description) can be used in the ibom.
+
+Some convenience scripts e.g. `generate-x1-ibom.sh` are provided which can
+be called with:
+
+```
+nix-shell generate-x1-ibom.sh
+```
+
 ## Transform .kicad_pcb to .scad
 
 ### Examples
