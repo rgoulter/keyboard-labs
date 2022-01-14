@@ -84,10 +84,10 @@ peej's [lumberjack-keyboard](https://github.com/peej/lumberjack-keyboard) is a c
 design, which continues the style of "show the components" used by keyboards like
 the [plaid](https://github.com/hsgw/plaid).
 
-One downside to it is that DIP microcontrollers are pretty weak.
-Developer boards are a spiritual-successor to DIP microcontrollers,
+One downside to it is that DIP microcontrollers are relatively weak.
+Development boards are a spiritual-successor to DIP microcontrollers,
 so I wanted to adapt the striking Lumberjack design to a more
-powerful developer board.
+powerful development board.
 
 Design goals:
 
