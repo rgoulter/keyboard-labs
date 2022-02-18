@@ -1976,7 +1976,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 2d6718e7-f18d-444d-9792-ddf1a113460c)
   )
-  (text "Mechanical:\nH1-H4 for mounting holes used for GH60 case.\nH5-H7 for mounting holes for acrylic cover plate."
+  (text "Mechanical:\nH1-H4 for mounting holes for acrylic cover plate.\nH5-H7 for mounting holes used for GH60 case."
     (at 16.51 172.72 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 4d4b0fcd-2c79-4fc3-b5fa-7a0741601344)
