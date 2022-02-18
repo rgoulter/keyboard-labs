@@ -1,7 +1,8 @@
 (fp_lib_table
-  (lib (name Keebio-Parts)(type KiCad)(uri ${KIPRJMOD}/Keebio-Parts.pretty)(options "")(descr ""))
-  (lib (name Switch_Keyboard_Hybrid)(type KiCad)(uri ${KIPRJMOD}/Switch_Keyboard/modules/Switch_Keyboard_Hybrid.pretty)(options "")(descr ""))
-  (lib (name Switch_Keyboard_Kailh)(type KiCad)(uri ${KIPRJMOD}/Switch_Keyboard/modules/Switch_Keyboard_Kailh.pretty)(options "")(descr ""))
-  (lib (name keyswitches)(type KiCad)(uri ${KIPRJMOD}/keyswitches.pretty)(options "")(descr ""))
-  (lib (name ProjectLocal)(type KiCad)(uri ${KIPRJMOD}/ProjectLocal.pretty)(options "")(descr ""))
+  (lib (name "Keebio-Parts")(type "KiCad")(uri "${KIPRJMOD}/Keebio-Parts.pretty")(options "")(descr ""))
+  (lib (name "Switch_Keyboard_Hybrid")(type "KiCad")(uri "${KIPRJMOD}/Switch_Keyboard/modules/Switch_Keyboard_Hybrid.pretty")(options "")(descr ""))
+  (lib (name "Switch_Keyboard_Kailh")(type "KiCad")(uri "${KIPRJMOD}/Switch_Keyboard/modules/Switch_Keyboard_Kailh.pretty")(options "")(descr ""))
+  (lib (name "keyswitches")(type "KiCad")(uri "${KIPRJMOD}/keyswitches.pretty")(options "")(descr ""))
+  (lib (name "ProjectLocal")(type "KiCad")(uri "${KIPRJMOD}/ProjectLocal.pretty")(options "")(descr ""))
+  (lib (name "Lumberjack")(type "KiCad")(uri "${KIPRJMOD}/Lumberjack.pretty")(options "")(descr ""))
 )
