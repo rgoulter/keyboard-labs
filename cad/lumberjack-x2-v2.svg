@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    sodipodi:docname="lumberjack-x2-v2.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,15 +23,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="-610.23315"
-     inkscape:cy="27.577164"
+     inkscape:zoom="2"
+     inkscape:cx="1038.25"
+     inkscape:cy="167.5"
      inkscape:window-width="1878"
      inkscape:window-height="960"
      inkscape:window-x="13"
      inkscape:window-y="20"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer4"
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
@@ -94,13 +94,14 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="pcb-v2">
+     inkscape:label="pcb-v2"
+     style="display:inline">
     <path
        id="path19948-1"
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.755906;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:label="pcb"
-       d="m 0.37795299,347.40945 c 0,4.97056 4.02943721,9 8.99999981,9 H 1068.5434 c 4.9706,0 9,-4.02944 9,-9 V 218.64586 l -14.1344,1e-5 v 0 c 0,0 -0.026,1.1e-4 -0.039,0 -2.6127,-0.021 -4.7244,-2.12843 -4.7244,-4.72461 0,-2.59617 2.1117,-4.7036 4.7244,-4.7246 h 0.039 l 14.1344,-1e-5 V 9.3779528 c 0,-4.9705626 -4.0294,-8.99999987 -9,-8.99999981 H 9.3779528 v 0 C 4.4073902,0.37795298 0.37795299,4.4073902 0.37795299,9.3779528 V 209.19665 l 14.13440001,1e-5 h 0.039 c 2.6127,0.021 4.7244,2.12843 4.7244,4.7246 0,2.59618 -2.1117,4.70361 -4.7244,4.72461 -0.013,1.1e-4 -0.02601,3.5e-4 -0.039,0 l -14.13440001,-1e-5 z"
-       sodipodi:nodetypes="ssssccscscccsscsscccscscs" />
+       d="m 0.37795299,347.40945 c 0,4.97056 4.02943721,9 8.99999981,9 H 1068.5434 c 4.9706,0 9,-4.02944 9,-9 V 9.3779528 c 0,-4.9705626 -4.0294,-8.99999987 -9,-8.99999981 H 9.3779528 v 0 C 4.4073902,0.37795298 0.37795299,4.4073902 0.37795299,9.3779528 Z"
+       sodipodi:nodetypes="cssccscscc" />
   </g>
   <g
      inkscape:groupmode="layer"
