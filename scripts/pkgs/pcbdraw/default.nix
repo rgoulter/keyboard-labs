@@ -1,7 +1,15 @@
 { lib
 , fetchFromGitHub
 , python3Packages
+, python3
+, kicad
 }:
+
+let
+  kicadPythonModule = python3Packages.toPythonModule (kicad.override {
+    inherit python3;
+  }).src;
+in
 with python3Packages;
 let
   pcbnewTransition = buildPythonPackage rec {
@@ -9,7 +17,7 @@ let
     version = "0.2.0";
 
     propagatedBuildInputs = [
-      kicad
+      kicadPythonModule
       versioneer
     ];
 

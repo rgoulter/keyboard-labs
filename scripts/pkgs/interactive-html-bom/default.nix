@@ -2,9 +2,13 @@
 , fetchFromGitHub
 , python3
 , writeScriptBin
+, kicad
 }:
 
 let
+  kicadPythonModule = toPythonModule (kicad.override {
+    inherit python3;
+  }).src;
   interactive-html-bom = stdenv.mkDerivation rec {
       pname = "interactive-html-bom";
       version = "2.4.1";
@@ -24,7 +28,7 @@ let
       patches = [./remove-footprint-from-default-group-field.patch];
     };
   python-with-my-packages = python3.withPackages (p: with p; [
-    kicad
+    kicadPythonModule
     wxPython_4_1
   ]);
 in
