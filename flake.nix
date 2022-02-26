@@ -24,6 +24,18 @@
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-with-kicad5 = nixpkgs-with-kicad5.legacyPackages.${system};
     in {
+      packages = {
+        docker-images = {
+          kibot-kicad-5 = import ./scripts/docker-kibot.nix {
+            pkgs = pkgs-with-kicad5;
+            tag = "kicad-5";
+          };
+          kibot-kicad-6 = import ./scripts/docker-kibot.nix {
+            pkgs = pkgs;
+            tag = "kicad-6";
+          };
+        };
+      };
       devShells = {
         kibot-kicad5-nixos = import ./scripts/shell-kibot.nix {
           pkgs = pkgs-with-kicad5;
