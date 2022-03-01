@@ -37,6 +37,16 @@
         };
       };
       devShells = {
+        kibot-kicad5 = import ./scripts/shell-kibot.nix {
+          pkgs = pkgs-with-kicad5;
+          on-nixos = false;
+        };
+
+        kibot-kicad6 = import ./scripts/shell-kibot.nix {
+          pkgs = pkgs;
+          on-nixos = false;
+        };
+
         kibot-kicad5-nixos = import ./scripts/shell-kibot.nix {
           pkgs = pkgs-with-kicad5;
           on-nixos = true;
