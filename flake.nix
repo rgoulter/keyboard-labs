@@ -20,20 +20,20 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-with-kicad5, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system: let
+    flake-utils.lib.eachSystem [
+      flake-utils.lib.system.x86_64-linux
+    ] (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-with-kicad5 = nixpkgs-with-kicad5.legacyPackages.${system};
     in {
       packages = {
-        docker-images = {
-          kibot-kicad-5 = import ./scripts/docker-kibot.nix {
-            pkgs = pkgs-with-kicad5;
-            tag = "kicad-5";
-          };
-          kibot-kicad-6 = import ./scripts/docker-kibot.nix {
-            pkgs = pkgs;
-            tag = "kicad-6";
-          };
+        docker-kibot-kicad-5 = import ./scripts/docker-kibot.nix {
+          pkgs = pkgs-with-kicad5;
+          tag = "kicad-5";
+        };
+        docker-kibot-kicad-6 = import ./scripts/docker-kibot.nix {
+          pkgs = pkgs;
+          tag = "kicad-6";
         };
       };
       devShells = {
