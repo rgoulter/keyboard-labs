@@ -2,7 +2,6 @@
 
 set -ex
 
-export MINIF4_36_REVISION=2021.1
 cargo build --bin minif4-36-rev2021_1-lhs --release
 cargo build --bin minif4-36-rev2021_1-rhs --release
 

@@ -26,45 +26,29 @@
     in
     {
       packages = rec {
-        minif4-2021_1-lhs = (naersk.lib.${system}.override {
+        minif4-36-2021_1 = (naersk.lib.${system}.override {
           cargo = toolchain;
           rustc = toolchain;
         }).buildPackage {
           src = ./.;
-          targets = ["keyberon-f4-split-dp"];
-          MINIF4_36_REVISION="2021.1";
           CARGO_BUILD_TARGET = target;
           CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
             "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
         };
 
-        minif4-2021_1-rhs = (naersk.lib.${system}.override {
-          cargo = toolchain;
-          rustc = toolchain;
-        }).buildPackage {
-          src = ./.;
-          targets = ["keyberon-f4-split-dp"];
-          cargoBuildOptions =
-            opts: opts ++ ["--features" "split-right" "--no-default-features"];
-          MINIF4_36_REVISION="2021.1";
-          CARGO_BUILD_TARGET = target;
-          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
-            "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
-        };
-
-        minif4-2021_1-firmware = pkgs.runCommand "minif4-2021_1-lhs-fw" {} ''
+        minif4-36-2021_1-firmware = pkgs.runCommand "minif4-36-2021_1-firmware" {} ''
           mkdir -p $out/bin
           export RUSTC=${toolchain}/bin/rustc
 
           ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${minif4-2021_1-lhs}/bin/keyberon-f4-split-dp" \
+            "${minif4-36-2021_1}/bin/minif4-36-rev2021_1-lhs" \
             "--output-target" "binary" \
-            "$out/bin/keyberon-left.bin"
+            "$out/bin/minif4-36-rev2021_1-lhs.bin"
 
           ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${minif4-2021_1-rhs}/bin/keyberon-f4-split-dp" \
+            "${minif4-36-2021_1}/bin/minif4-36-rev2021_1-rhs" \
             "--output-target" "binary" \
-            "$out/bin/keyberon-right.bin"
+            "$out/bin/minif4-36-rev2021_1-rhs.bin"
         '';
       };
     });
