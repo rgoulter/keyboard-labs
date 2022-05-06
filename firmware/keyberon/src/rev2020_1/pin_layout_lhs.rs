@@ -2,7 +2,7 @@
 
 use stm32f4xx_hal::gpio::{gpioa, gpiob, Input, PullUp};
 
-pub struct DirectPins5x4LhsOrRhs(
+pub struct DirectPins5x4Lhs(
     pub  (
         gpiob::PB15<Input<PullUp>>,
         gpioa::PA8<Input<PullUp>>,
@@ -31,7 +31,7 @@ pub struct DirectPins5x4LhsOrRhs(
     ),
 );
 
-pub fn direct_pin_matrix_for_peripherals_lhs_or_rhs(
+pub fn direct_pin_matrix_for_peripherals_lhs(
     pa2: gpioa::PA2<Input<PullUp>>,
     pa3: gpioa::PA3<Input<PullUp>>,
     pa4: gpioa::PA4<Input<PullUp>>,
@@ -50,8 +50,8 @@ pub fn direct_pin_matrix_for_peripherals_lhs_or_rhs(
     pb9: gpiob::PB9<Input<PullUp>>,
     pb10: gpiob::PB10<Input<PullUp>>,
     pb15: gpiob::PB15<Input<PullUp>>,
-) -> DirectPins5x4LhsOrRhs {
-    DirectPins5x4LhsOrRhs(
+) -> DirectPins5x4Lhs {
+    DirectPins5x4Lhs(
         (pb15, pa8, pa9, pa10, pa2),
         (pb5, pa15, pb3, pb4, pb10),
         (pb9, pb1, pb0, pa7, pa6),

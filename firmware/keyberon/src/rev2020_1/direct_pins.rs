@@ -5,7 +5,6 @@ use embedded_hal::digital::v2::InputPin;
 use keyberon::layout::Event;
 use stm32f4xx_hal::gpio::{gpioa, gpiob, gpioc, Input, PullUp};
 
-#[cfg(feature = "split-left")]
 pub struct DirectPins5x4LhsOrRhs(
     pub  (
         gpiob::PB15<Input<PullUp>>,
@@ -35,7 +34,6 @@ pub struct DirectPins5x4LhsOrRhs(
     ),
 );
 
-#[cfg(feature = "split-right")]
 pub struct DirectPins5x4LhsOrRhs(
     pub  (
         gpioa::PA7<Input<PullUp>>,
@@ -65,7 +63,6 @@ pub struct DirectPins5x4LhsOrRhs(
     ),
 );
 
-#[cfg(feature = "split-left")]
 pub fn direct_pin_matrix_for_peripherals(
     pa2: gpioa::PA2<Input<PullUp>>,
     pa3: gpioa::PA3<Input<PullUp>>,
