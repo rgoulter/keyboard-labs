@@ -10,3 +10,5 @@ fp-info-cache
 cad/**/generated
 
 pcb/gerber
+
+result
