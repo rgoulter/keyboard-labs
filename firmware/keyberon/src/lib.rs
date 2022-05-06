@@ -6,3 +6,4 @@ pub mod rev2021_1;
 
 pub mod direct_pin_matrix;
 
+pub mod layouts;
