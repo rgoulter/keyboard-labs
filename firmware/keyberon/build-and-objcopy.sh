@@ -2,6 +2,10 @@
 
 set -ex
 
+export MINIF4_36_REVISION=2020.1
+cargo build --bin keyberon-f4-split-dp --release
+cargo build --bin keyberon-f4-split-dp --release --features "split-right" --no-default-features
+
 export MINIF4_36_REVISION=2021.1
 
 cargo build --bin keyberon-f4-split-dp --release
