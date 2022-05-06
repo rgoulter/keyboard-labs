@@ -35,10 +35,6 @@ cargo install cargo-binutils
 
 Compile the firmware, for each half:
 
-- For the X-1 "MiniF4-36", the environment variable
-  `MINIF4_36_REVISION` must be set to `2020.1` or
-  `2021.1`, depending on the revision of the X-1 PCB.
-
 The left half is built with:
 
 ```shell

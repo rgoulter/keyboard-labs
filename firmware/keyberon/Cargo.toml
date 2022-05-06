@@ -4,11 +4,6 @@ version = "0.1.0"
 authors = ["Richard Goulter <rchard.goulter@gmail.com>", "Guillaume Pinot <texitoi@texitoi.eu>"]
 edition = "2018"
 
-[features]
-default = ["split-left"]
-split-left = []
-split-right = []
-
 [dependencies]
 stm32f4xx-hal = { version = "0.7.0", features = ["rt", "stm32f401", "usb_fs"] }
 cortex-m = "0.6"
