@@ -23,10 +23,13 @@ use usb_device::class::UsbClass as _;
 use usb_device::device::UsbDeviceState;
 use usb_device::prelude::*;
 
-use keyberon_f4_split_dp::direct_pin_matrix_rhs::{
+use keyberon_f4_split_dp::rev2020_1::pin_layout_rhs::{
+    DirectPins5x4Rhs,
     direct_pin_matrix_for_peripherals_rhs,
     event_transform_rhs,
-    DirectPins5x4Rhs,
+};
+use keyberon_f4_split_dp::direct_pin_matrix::{
+    DirectPins,
     PressedKeys5x4,
 };
 
@@ -432,7 +435,7 @@ const APP: () = {
         for event in c
             .resources
             .debouncer
-            .events(c.resources.direct_pins.get_rhs().unwrap())
+            .events(c.resources.direct_pins.get().unwrap())
             .map(c.resources.transform)
         {
             // Send the event across the TRRS cable.
