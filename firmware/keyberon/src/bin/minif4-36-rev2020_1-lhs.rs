@@ -23,13 +23,7 @@ use usb_device::class::UsbClass as _;
 use usb_device::device::UsbDeviceState;
 use usb_device::prelude::*;
 
-#[cfg(keyboard_revision = "2020.1")]
-mod rev2020_1;
-#[cfg(keyboard_revision = "2021.1")]
-mod rev2021_1;
-
-mod direct_pin_matrix;
-use direct_pin_matrix::{
+use keyberon_f4_split_dp::direct_pin_matrix::{
     direct_pin_matrix_for_peripherals_lhs_or_rhs, event_transform_lhs_or_rhs, DirectPins5x4LhsOrRhs, PressedKeys5x4,
 };
 

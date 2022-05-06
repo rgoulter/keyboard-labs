@@ -1,5 +1,5 @@
 [package]
-name = "keyberon-f4-split-dp"
+name = "keyberon_f4_split_dp"
 version = "0.1.0"
 authors = ["Richard Goulter <rchard.goulter@gmail.com>", "Guillaume Pinot <texitoi@texitoi.eu>"]
 edition = "2018"
