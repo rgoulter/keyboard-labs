@@ -217,7 +217,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "keyberon-f4-split-dp"
+name = "keyberon_f4_split_dp"
 version = "0.1.0"
 dependencies = [
  "cortex-m",

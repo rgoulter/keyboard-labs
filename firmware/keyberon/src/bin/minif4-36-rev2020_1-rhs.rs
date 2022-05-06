@@ -23,8 +23,11 @@ use usb_device::class::UsbClass as _;
 use usb_device::device::UsbDeviceState;
 use usb_device::prelude::*;
 
-use keyberon_f4_split_dp::direct_pin_matrix::{
-    direct_pin_matrix_for_peripherals_lhs_or_rhs, event_transform_lhs_or_rhs, DirectPins5x4LhsOrRhs, PressedKeys5x4,
+use keyberon_f4_split_dp::direct_pin_matrix_rhs::{
+    direct_pin_matrix_for_peripherals_rhs,
+    event_transform_rhs,
+    DirectPins5x4Rhs,
+    PressedKeys5x4,
 };
 
 type UsbClass = keyberon::Class<'static, UsbBusType, ()>;
@@ -225,7 +228,7 @@ const APP: () = {
     struct Resources {
         usb_dev: UsbDevice,
         usb_class: UsbClass,
-        direct_pins: DirectPins5x4LhsOrRhs,
+        direct_pins: DirectPins5x4Rhs,
         debouncer: Debouncer<PressedKeys5x4>,
         layout: Layout<()>,
         timer: timer::Timer<stm32::TIM3>,
@@ -249,9 +252,6 @@ const APP: () = {
             .freeze();
         let gpioa = c.device.GPIOA.split();
         let gpiob = c.device.GPIOB.split();
-
-        #[cfg(keyboard_revision = "2021.1")]
-        let gpioc = c.device.GPIOC.split();
 
         let usb = USB {
             usb_global: c.device.OTG_FS_GLOBAL,
@@ -277,8 +277,7 @@ const APP: () = {
         let mut timer = timer::Timer::tim3(c.device.TIM3, 1.khz(), clocks);
         timer.listen(timer::Event::TimeOut);
 
-        #[cfg(keyboard_revision = "2020.1")]
-        let direct_pins = direct_pin_matrix_for_peripherals_lhs_or_rhs(
+        let direct_pins = direct_pin_matrix_for_peripherals_rhs(
             gpioa.pa2.into_pull_up_input(),
             gpioa.pa3.into_pull_up_input(),
             gpioa.pa4.into_pull_up_input(),
@@ -297,27 +296,6 @@ const APP: () = {
             gpiob.pb9.into_pull_up_input(),
             gpiob.pb10.into_pull_up_input(),
             gpiob.pb15.into_pull_up_input(),
-        );
-        #[cfg(keyboard_revision = "2021.1")]
-        let direct_pins = direct_pin_matrix_for_peripherals_lhs_or_rhs(
-            gpioa.pa2.into_pull_up_input(),
-            gpioa.pa3.into_pull_up_input(),
-            gpioa.pa4.into_pull_up_input(),
-            gpioa.pa5.into_pull_up_input(),
-            gpioa.pa6.into_pull_up_input(),
-            gpioa.pa7.into_pull_up_input(),
-            gpioa.pa8.into_pull_up_input(),
-            gpioa.pa9.into_pull_up_input(),
-            gpioa.pa10.into_pull_up_input(),
-            gpioa.pa15.into_pull_up_input(),
-            gpiob.pb0.into_pull_up_input(),
-            gpiob.pb1.into_pull_up_input(),
-            gpiob.pb3.into_pull_up_input(),
-            gpiob.pb4.into_pull_up_input(),
-            gpiob.pb5.into_pull_up_input(),
-            gpiob.pb10.into_pull_up_input(),
-            gpiob.pb15.into_pull_up_input(),
-            gpioc.pc15.into_pull_up_input(),
         );
 
         let pins = (
@@ -340,7 +318,7 @@ const APP: () = {
             layout: Layout::new(LAYERS),
             rx,
             timer,
-            transform: event_transform_lhs_or_rhs,
+            transform: event_transform_rhs,
             tx,
             usb_class,
             usb_dev,
@@ -454,7 +432,7 @@ const APP: () = {
         for event in c
             .resources
             .debouncer
-            .events(c.resources.direct_pins.get_lhs_or_rhs().unwrap())
+            .events(c.resources.direct_pins.get_rhs().unwrap())
             .map(c.resources.transform)
         {
             // Send the event across the TRRS cable.
