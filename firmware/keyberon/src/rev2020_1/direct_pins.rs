@@ -6,7 +6,7 @@ use keyberon::layout::Event;
 use stm32f4xx_hal::gpio::{gpioa, gpiob, gpioc, Input, PullUp};
 
 #[cfg(feature = "split-left")]
-pub struct DirectPins5x4(
+pub struct DirectPins5x4LhsOrRhs(
     pub  (
         gpiob::PB15<Input<PullUp>>,
         gpioa::PA8<Input<PullUp>>,
@@ -36,7 +36,7 @@ pub struct DirectPins5x4(
 );
 
 #[cfg(feature = "split-right")]
-pub struct DirectPins5x4(
+pub struct DirectPins5x4LhsOrRhs(
     pub  (
         gpioa::PA7<Input<PullUp>>,
         gpiob::PB0<Input<PullUp>>,
@@ -85,8 +85,8 @@ pub fn direct_pin_matrix_for_peripherals(
     pb9: gpiob::PB9<Input<PullUp>>,
     pb10: gpiob::PB10<Input<PullUp>>,
     pb15: gpiob::PB15<Input<PullUp>>,
-) -> DirectPins5x4 {
-    DirectPins5x4(
+) -> DirectPins5x4LhsOrRhs {
+    DirectPins5x4LhsOrRhs(
         (pb15, pa8, pa9, pa10, pa2),
         (pb5, pa15, pb3, pb4, pb10),
         (pb9, pb1, pb0, pa7, pa6),

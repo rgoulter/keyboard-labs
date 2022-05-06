@@ -5,19 +5,19 @@ use embedded_hal::digital::v2::InputPin;
 use keyberon::layout::Event;
 
 #[cfg(keyboard_revision = "2020.1")]
-use crate::rev2020_1 as pin_layout;
+use crate::rev2020_1 as pin_layout_lhs_or_rhs;
 #[cfg(keyboard_revision = "2021.1")]
-use crate::rev2021_1 as pin_layout;
+use crate::rev2021_1 as pin_layout_lhs_or_rhs;
 
-pub use pin_layout::{direct_pin_matrix_for_peripherals, DirectPins5x4};
+pub use pin_layout_lhs_or_rhs::{direct_pin_matrix_for_peripherals_lhs_or_rhs, DirectPins5x4LhsOrRhs};
 
 pub trait HeterogenousArray {
     type Len;
 }
 
-impl DirectPins5x4 {
+impl DirectPins5x4LhsOrRhs {
     #[cfg(feature = "split-left")]
-    pub fn get(&self) -> Result<PressedKeys5x4, Infallible> {
+    pub fn get_lhs_or_rhs(&self) -> Result<PressedKeys5x4, Infallible> {
         let row1 = &self.0;
         let row2 = &self.1;
         let row3 = &self.2;
@@ -54,7 +54,7 @@ impl DirectPins5x4 {
         ]))
     }
     #[cfg(feature = "split-right")]
-    pub fn get(&self) -> Result<PressedKeys5x4, Infallible> {
+    pub fn get_lhs_or_rhs(&self) -> Result<PressedKeys5x4, Infallible> {
         let row1 = &self.0;
         let row2 = &self.1;
         let row3 = &self.2;
@@ -93,12 +93,12 @@ impl DirectPins5x4 {
 }
 
 #[cfg(feature = "split-left")]
-pub fn event_transform(e: Event) -> Event {
+pub fn event_transform_lhs_or_rhs(e: Event) -> Event {
     e
 }
 
 #[cfg(feature = "split-right")]
-pub fn event_transform(e: Event) -> Event {
+pub fn event_transform_lhs_or_rhs(e: Event) -> Event {
     e.transform(|i, j| (i, j + 5))
 }
 

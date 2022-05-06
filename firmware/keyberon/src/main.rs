@@ -30,7 +30,7 @@ mod rev2021_1;
 
 mod direct_pin_matrix;
 use direct_pin_matrix::{
-    direct_pin_matrix_for_peripherals, event_transform, DirectPins5x4, PressedKeys5x4,
+    direct_pin_matrix_for_peripherals_lhs_or_rhs, event_transform_lhs_or_rhs, DirectPins5x4LhsOrRhs, PressedKeys5x4,
 };
 
 type UsbClass = keyberon::Class<'static, UsbBusType, ()>;
@@ -231,7 +231,7 @@ const APP: () = {
     struct Resources {
         usb_dev: UsbDevice,
         usb_class: UsbClass,
-        direct_pins: DirectPins5x4,
+        direct_pins: DirectPins5x4LhsOrRhs,
         debouncer: Debouncer<PressedKeys5x4>,
         layout: Layout<()>,
         timer: timer::Timer<stm32::TIM3>,
@@ -284,7 +284,7 @@ const APP: () = {
         timer.listen(timer::Event::TimeOut);
 
         #[cfg(keyboard_revision = "2020.1")]
-        let direct_pins = direct_pin_matrix_for_peripherals(
+        let direct_pins = direct_pin_matrix_for_peripherals_lhs_or_rhs(
             gpioa.pa2.into_pull_up_input(),
             gpioa.pa3.into_pull_up_input(),
             gpioa.pa4.into_pull_up_input(),
@@ -305,7 +305,7 @@ const APP: () = {
             gpiob.pb15.into_pull_up_input(),
         );
         #[cfg(keyboard_revision = "2021.1")]
-        let direct_pins = direct_pin_matrix_for_peripherals(
+        let direct_pins = direct_pin_matrix_for_peripherals_lhs_or_rhs(
             gpioa.pa2.into_pull_up_input(),
             gpioa.pa3.into_pull_up_input(),
             gpioa.pa4.into_pull_up_input(),
@@ -346,7 +346,7 @@ const APP: () = {
             layout: Layout::new(LAYERS),
             rx,
             timer,
-            transform: event_transform,
+            transform: event_transform_lhs_or_rhs,
             tx,
             usb_class,
             usb_dev,
@@ -460,7 +460,7 @@ const APP: () = {
         for event in c
             .resources
             .debouncer
-            .events(c.resources.direct_pins.get().unwrap())
+            .events(c.resources.direct_pins.get_lhs_or_rhs().unwrap())
             .map(c.resources.transform)
         {
             // Send the event across the TRRS cable.
