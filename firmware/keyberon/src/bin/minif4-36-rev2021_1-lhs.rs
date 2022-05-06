@@ -33,9 +33,9 @@ use keyberon_f4_split_dp::direct_pin_matrix::{
 };
 use keyberon_f4_split_dp::layouts::minif4_36::LAYERS;
 use keyberon_f4_split_dp::rev2021_1::pin_layout_lhs::{
-    DirectPins5x4Lhs,
-    direct_pin_matrix_for_peripherals_lhs,
-    event_transform_lhs,
+    DirectPins5x4,
+    direct_pin_matrix_for_peripherals,
+    event_transform,
 };
 
 /// USB VIP for a generic keyboard from
@@ -52,7 +52,7 @@ const APP: () = {
     struct Resources {
         usb_dev: UsbDevice,
         usb_class: UsbClass,
-        direct_pins: DirectPins5x4Lhs,
+        direct_pins: DirectPins5x4,
         debouncer: Debouncer<PressedKeys5x4>,
         layout: Layout<()>,
         timer: timer::Timer<stm32::TIM3>,
@@ -102,7 +102,7 @@ const APP: () = {
         let mut timer = timer::Timer::tim3(c.device.TIM3, 1.khz(), clocks);
         timer.listen(timer::Event::TimeOut);
 
-        let direct_pins = direct_pin_matrix_for_peripherals_lhs(
+        let direct_pins = direct_pin_matrix_for_peripherals(
             gpioa.pa2.into_pull_up_input(),
             gpioa.pa3.into_pull_up_input(),
             gpioa.pa4.into_pull_up_input(),
@@ -143,7 +143,7 @@ const APP: () = {
             layout: Layout::new(LAYERS),
             rx,
             timer,
-            transform: event_transform_lhs,
+            transform: event_transform,
             tx,
             usb_class,
             usb_dev,

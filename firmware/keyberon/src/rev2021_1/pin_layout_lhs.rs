@@ -10,7 +10,7 @@ use crate::direct_pin_matrix::{
     PressedKeys5x4,
 };
 
-pub struct DirectPins5x4Lhs(
+pub struct DirectPins5x4(
     pub  (
         gpiob::PB15<Input<PullUp>>,
         gpioa::PA8<Input<PullUp>>,
@@ -39,7 +39,7 @@ pub struct DirectPins5x4Lhs(
     ),
 );
 
-pub fn direct_pin_matrix_for_peripherals_lhs(
+pub fn direct_pin_matrix_for_peripherals(
     pa2: gpioa::PA2<Input<PullUp>>,
     pa3: gpioa::PA3<Input<PullUp>>,
     pa4: gpioa::PA4<Input<PullUp>>,
@@ -58,8 +58,8 @@ pub fn direct_pin_matrix_for_peripherals_lhs(
     pb10: gpiob::PB10<Input<PullUp>>,
     pb15: gpiob::PB15<Input<PullUp>>,
     pc15: gpioc::PC15<Input<PullUp>>,
-) -> DirectPins5x4Lhs {
-    DirectPins5x4Lhs(
+) -> DirectPins5x4 {
+    DirectPins5x4(
         (pb15, pa8, pa9, pa10, pc15),
         (pb5, pa15, pb3, pb4, pb10),
         (pa2, pb1, pb0, pa7, pa6),
@@ -67,7 +67,7 @@ pub fn direct_pin_matrix_for_peripherals_lhs(
     )
 }
 
-impl DirectPins for DirectPins5x4Lhs {
+impl DirectPins for DirectPins5x4 {
     fn get(&self) -> Result<PressedKeys5x4, Infallible> {
         let row1 = &self.0;
         let row2 = &self.1;
@@ -106,6 +106,6 @@ impl DirectPins for DirectPins5x4Lhs {
     }
 }
 
-pub fn event_transform_lhs(e: Event) -> Event {
+pub fn event_transform(e: Event) -> Event {
     e
 }
