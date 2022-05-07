@@ -23,11 +23,3 @@ lto = true
 incremental = false
 opt-level = "z"
 debug = true
-
-[[bin]]
-name = "serial"
-path = "src/serial.rs"
-
-[[bin]]
-name = "usb-serial"
-path = "src/usb_serial.rs"
