@@ -19,6 +19,7 @@
       toolchain = with fenix.packages.${system};
         combine [
           complete.llvm-tools-preview
+          complete.rust-src
           default.rustfmt
           default.cargo
           default.rustc
@@ -31,7 +32,7 @@
           pkgs.rust-analyzer
           toolchain
         ];
-        RUST_SRC_PATH="${toolchain}/bin/rust-lib/src";
+        RUST_SRC_PATH="${toolchain}/lib/rustlib/src";
       };
 
       packages = rec {
