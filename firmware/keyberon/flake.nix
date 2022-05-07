@@ -18,13 +18,22 @@
       target = "thumbv7em-none-eabihf";
       toolchain = with fenix.packages.${system};
         combine [
-          minimal.rustc
-          minimal.cargo
           complete.llvm-tools-preview
+          default.rustfmt
+          default.cargo
+          default.rustc
           targets.${target}.latest.rust-std
         ];
     in
     {
+      devShell = pkgs.mkShell {
+        nativeBuildInputs = [
+          pkgs.rust-analyzer
+          toolchain
+        ];
+        RUST_SRC_PATH="${toolchain}/bin/rust-lib/src";
+      };
+
       packages = rec {
         minif4-36-2021_1 = (naersk.lib.${system}.override {
           cargo = toolchain;
