@@ -118,64 +118,70 @@ macro_rules! a {
     };
 }
 
+// Columns = 10
+// Rows = 4
+// Layers = 8
+// Custom action type = ()
+pub type Layers = keyberon::layout::Layers<10, 4, 8, ()>;
+pub type Layout = keyberon::layout::Layout<10, 4, 8, ()>;
+
 #[rustfmt::skip]
-pub static LAYERS: keyberon::layout::Layers<()> = &[
+pub static LAYERS: Layers = keyberon::layout::layout! {
     // layer 0: dsk
-    &[
-        &[k(Quote),  k(Comma), k(Dot),   k(P),     k(Y),       k(F),     k(G),     k(C),     k(R),  k(L),],
-        &[a!(A),     g!(O),    c!(E),    s!(U),    k(I),       k(D),     s!(H),    c!(T),    g!(N), a!(S),],
-        &[k(SColon), k(Q),     k(J),     k(K),     k(X),       k(B),     k(M),     k(W),     k(V),  k(Z),],
-        &[Trans,     Trans,    TAB_MOUR, ESC_MEDR, SP_NAVR,    BKSP_NSL, ENT_NSSL, DEL_FUNL, Trans, Trans,],
-    ],
+    {
+        [{k(Quote) } ,         .         P         Y           F         G         C         R      L     ],
+        [{a!(A)    }{g!(O)   }{c!(E) }  {s!(U)}    I           D        {s!(H)}   {c!(T)}   {g!(N)}{a!(S)}],
+        [ ;          Q         J         K         X           B         M         W         V      Z     ],
+        [ t          t        {TAB_MOUR}{ESC_MEDR}{SP_NAVR}   {BKSP_NSL}{ENT_NSSL}{DEL_FUNL} t      t     ],
+    }
     // layer 1: qwerty
-    &[
-        &[k(Q),  k(W),  k(E),     k(R),     k(T),       k(Y),     k(U),     k(I),     k(O),   k(P),     ],
-        &[k(A),  k(S),  k(D),     k(F),     k(G),       k(H),     k(J),     k(K),     k(L),   k(SColon),],
-        &[k(Z),  k(X),  k(C),     k(V),     k(B),       k(N),     k(M),     k(Comma), k(Dot), k(Slash), ],
-        &[Trans, Trans, TAB_MOUR, ESC_MEDR, SP_NAVR,    BKSP_NSL, ENT_NSSL, DEL_FUNL, Trans,  Trans,   ],
-    ],
+    {
+        [Q      W         E         R         T           Y         U         I         O       P       ],
+        [A      S         D         F         G           H         J         K         L       ;       ],
+        [Z      X         C         V         B           N         M         ,         .       /       ],
+        [t      t        {TAB_MOUR}{ESC_MEDR}{SP_NAVR}   {BKSP_NSL}{ENT_NSSL}{DEL_FUNL} t       t       ],
+    }
     // 2 nav-r,
-    &[
-        &[Trans,Trans,Trans,Trans,Trans,    Trans,   Trans,     Trans,   Trans,    Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    k(Left), k(Down),   k(Up),   k(Right), Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    k(Home), k(PgDown), k(PgUp), k(End),   k(Insert),],
-        &[Trans,Trans,Trans,Trans,Trans,    Trans,   Trans,     Trans,   Trans,    Trans,],
-    ],
+    {
+        [t     t     t     t     t         t        t          t        t         t     ],
+        [t     t     t     t     t         Left     Down       Up       Right     t     ],
+        [t     t     t     t     t         Home     PgDown     PgUp     End       Insert],
+        [t     t     t     t     t         t        t          t        t         t     ],
+    }
     // 3 mouse-r,
     // TBI
-    &[
-        &[Trans,Trans,Trans,Trans,Trans,    Trans,Trans,Trans,Trans,Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    Trans,Trans,Trans,Trans,Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    Trans,Trans,Trans,Trans,Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    Trans,Trans,Trans,Trans,Trans,],
-    ],
+    {
+        [t     t     t     t     t         t     t     t     t     t     ],
+        [t     t     t     t     t         t     t     t     t     t     ],
+        [t     t     t     t     t         t     t     t     t     t     ],
+        [t     t     t     t     t         t     t     t     t     t     ],
+    }
     // 4 media-r,
-    &[
-        &[Trans,Trans,Trans,Trans,Trans,    Trans,                Trans,           Trans,         Trans,            Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    k(MediaPreviousSong), k(MediaVolDown), k(MediaVolUp), k(MediaNextSong), Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    d(BASE_DSK),          d(BASE_QWERTY),  Trans,         Trans,            Trans,],
-        &[Trans,Trans,Trans,Trans,Trans,    k(MediaPlayPause),    k(MediaMute),    k(MediaStop),  Trans,            Trans,],
-    ],
+    {
+        [t     t     t     t     t         t                     t                t              t                 t     ],
+        [t     t     t     t     t        {k(MediaPreviousSong)}{k(MediaVolDown)}{k(MediaVolUp)}{k(MediaNextSong)} t     ],
+        [t     t     t     t     t        {d(BASE_DSK)         }{d(BASE_QWERTY) } t              t                 t     ],
+        [t     t     t     t     t        {k(MediaPlayPause)   }{k(MediaMute)   }{k(MediaStop) } t                 t     ],
+    }
     // 5 numsym-l,
-    &[
-        &[k(LBracket), k(Kb7), k(Kb8), k(Kb9), k(RBracket),     Trans,Trans,Trans,Trans,Trans,],
-        &[k(Grave),    k(Kb4), k(Kb5), k(Kb6), k(Equal),        Trans,Trans,Trans,Trans,Trans,],
-        &[k(Slash),    k(Kb1), k(Kb2), k(Kb3), k(Bslash),       Trans,Trans,Trans,Trans,Trans,],
-        &[Trans,       Trans,  k(Dot), k(Kb0), k(Minus),        Trans,Trans,Trans,Trans,Trans,],
-    ],
+    {
+        [{k(LBracket)}{k(Kb7)}{k(Kb8)}{k(Kb9)}{k(RBracket)}     t     t     t     t     t     ],
+        [{k(Grave)   }{k(Kb4)}{k(Kb5)}{k(Kb6)}{k(Equal)   }     t     t     t     t     t     ],
+        [{k(Slash)   }{k(Kb1)}{k(Kb2)}{k(Kb3)}{k(Bslash)  }     t     t     t     t     t     ],
+        [ t            t       .      {k(Kb0)}{k(Minus)   }     t     t     t     t     t     ],
+    }
     // 6 shiftednumsym-l,
-    &[
-        &[sk!(LBracket), sk!(Kb7), sk!(Kb8), sk!(Kb9),    sk!(RBracket),    Trans,Trans,Trans,Trans,Trans,],
-        &[sk!(Grave),    sk!(Kb4), sk!(Kb5), sk!(Kb6),    sk!(Equal),       Trans,Trans,Trans,Trans,Trans,],
-        &[sk!(Slash),    sk!(Kb1), sk!(Kb2), sk!(Kb3),    sk!(Bslash),      Trans,Trans,Trans,Trans,Trans,],
-        &[Trans,         Trans,    sk!(Dot), sk!(Kb0),    sk!(Minus),       Trans,Trans,Trans,Trans,Trans,],
-    ],
+    {
+        [{sk!(LBracket)}{sk!(Kb7)}{sk!(Kb8)}{sk!(Kb9)}         {sk!(RBracket)}    t     t     t     t     t     ],
+        [{sk!(Grave)   }{sk!(Kb4)}{sk!(Kb5)}{sk!(Kb6)}         {sk!(Equal)   }    t     t     t     t     t     ],
+        [{sk!(Slash)   }{sk!(Kb1)}{sk!(Kb2)}{sk!(Kb3)}         {sk!(Bslash)  }    t     t     t     t     t     ],
+        [ t               t       {sk!(Dot)}{sk!(Kb0)}         {sk!(Minus)   }    t     t     t     t     t     ],
+    }
     // 7 func-l
-    &[
-        &[k(F12), k(F7), k(F8), k(F9), Trans,    Trans,Trans,Trans,Trans,Trans,],
-        &[k(F11), k(F4), k(F5), k(F6), Trans,    Trans,Trans,Trans,Trans,Trans,],
-        &[k(F10), k(F1), k(F2), k(F3), Trans,    Trans,Trans,Trans,Trans,Trans,],
-        &[Trans,  Trans, Trans, Trans, Trans,    Trans,Trans,Trans,Trans,Trans,],
-    ],
-];
-
+    {
+        [F12     F7     F8     F9     t         t     t     t     t     t     ],
+        [F11     F4     F5     F6     t         t     t     t     t     t     ],
+        [F10     F1     F2     F3     t         t     t     t     t     t     ],
+        [t       t      t      t      t         t     t     t     t     t     ],
+    }
+};

@@ -6,7 +6,7 @@ use panic_halt as _;
 
 use keyberon::debounce::Debouncer;
 use keyberon::key_code::KbHidReport;
-use keyberon::layout::{Event, Layout};
+use keyberon::layout::Event;
 use nb::block;
 use rtic::app;
 use rtic::Exclusive;
@@ -31,7 +31,7 @@ use keyberon_f4_split_dp::direct_pin_matrix::{
     DirectPins,
     PressedKeys5x4,
 };
-use keyberon_f4_split_dp::layouts::minif4_36::LAYERS;
+use keyberon_f4_split_dp::layouts::minif4_36::{LAYERS, Layout};
 use keyberon_f4_split_dp::rev2021_1::pin_layout_rhs::{
     DirectPins5x4,
     direct_pin_matrix_for_peripherals,
@@ -54,7 +54,7 @@ const APP: () = {
         usb_class: UsbClass,
         direct_pins: DirectPins5x4,
         debouncer: Debouncer<PressedKeys5x4>,
-        layout: Layout<()>,
+        layout: Layout,
         timer: timer::CountDownTimer<stm32::TIM3>,
         transform: fn(Event) -> Event,
         tx: serial::Tx<stm32f4xx_hal::stm32::USART1>,
@@ -141,7 +141,7 @@ const APP: () = {
         init::LateResources {
             debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
             direct_pins: direct_pins,
-            layout: Layout::new(LAYERS),
+            layout: Layout::new(&LAYERS),
             rx,
             timer,
             transform: event_transform,
