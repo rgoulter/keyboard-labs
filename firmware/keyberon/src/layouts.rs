@@ -1,3 +1,5 @@
+pub mod actions;
+
 #[macro_use]
 pub mod common;
 

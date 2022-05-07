@@ -4,6 +4,7 @@
 // set the panic handler
 use panic_halt as _;
 
+use keyberon::chording::Chording;
 use keyberon::debounce::Debouncer;
 use keyberon::key_code::KbHidReport;
 use keyberon::key_code::KeyCode;
@@ -18,7 +19,7 @@ use usb_device::bus::UsbBusAllocator;
 use usb_device::class::UsbClass as _;
 
 
-use keyboard_labs_keyberon::layouts::ortho_5x12::{LAYERS, Layout};
+use keyboard_labs_keyberon::layouts::ortho_5x12::{CHORDS, LAYERS, Layout};
 use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
 
 type UsbClass = keyberon::Class<'static, UsbBusType, ()>;
@@ -32,6 +33,7 @@ const APP: () = {
         matrix: DelayedMatrix<EPin<Input<PullUp>>, EPin<Output<PushPull>>, 12, 5>,
         debouncer: Debouncer<[[bool; 12]; 5]>,
         layout: Layout,
+        chording: Chording<2>,
         timer: timer::CountDownTimer<pac::TIM3>,
     }
 
@@ -103,6 +105,7 @@ const APP: () = {
             debouncer: Debouncer::new([[false; 12]; 5], [[false; 12]; 5], 25),
             matrix: matrix.unwrap(),
             layout: Layout::new(&LAYERS),
+            chording: Chording::new(&CHORDS),
         }
     }
 
@@ -116,14 +119,18 @@ const APP: () = {
         usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
     }
 
-    #[task(binds = TIM3, priority = 1, resources = [usb_class, matrix, debouncer, layout, timer])]
+    #[task(binds = TIM3, priority = 1, resources = [usb_class, matrix, debouncer, layout, chording, timer])]
     fn tick(mut c: tick::Context) {
         c.resources.timer.clear_interrupt(timer::Event::TimeOut);
 
-        for event in c
+
+        let events = c
             .resources
             .debouncer
-            .events(c.resources.matrix.get().unwrap())
+            .events(c.resources.matrix.get().unwrap());
+        let chordEvents = c.resources.chording.tick(events.collect());
+
+        for event in chordEvents
         {
             c.resources.layout.event(event);
         }

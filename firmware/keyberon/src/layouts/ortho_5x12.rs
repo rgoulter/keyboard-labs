@@ -1,5 +1,11 @@
 use keyberon::action::{d, k, l, m, Action::*, HoldTapConfig};
+use keyberon::chording::ChordDef;
 use keyberon::key_code::KeyCode::*;
+
+use crate::layouts::actions::{
+    LINUX_DESKTOP_LEFT,
+    LINUX_DESKTOP_RIGHT,
+};
 
 type Action = keyberon::action::Action<()>;
 
@@ -63,11 +69,11 @@ const LWR_ESC: Action = HoldTap {
 };
 
 // Columns = 12
-// Rows = 5
+// Rows = 5 physical + 1 virtual for chords
 // Layers = 11
 // Custom action type = ()
-pub type Layers = keyberon::layout::Layers<12, 5, 11, ()>;
-pub type Layout = keyberon::layout::Layout<12, 5, 11, ()>;
+pub type Layers = keyberon::layout::Layers<12, 6, 11, ()>;
+pub type Layout = keyberon::layout::Layout<12, 6, 11, ()>;
 
 #[rustfmt::skip]
 pub static LAYERS: Layers = keyberon::layout::layout! {
@@ -78,6 +84,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [{a!(A)    }{g!(O)   }{c!(E) }{s!(U)}   I       {NoOp}   {NoOp}  D       {s!(H)  }{c!(T)}{g!(N)}{a!(S)}],
         [ ;          Q         J       K        X       {NoOp}   {NoOp}  B        M        W      V      Z     ],
         [{l(NUMPAD)}{l(FN)}    t      {LWR_TAB}{LW2_ESC} Space    Space {RS2_BSP}{RSE_ENT} t      t      t     ],
+        [{LINUX_DESKTOP_LEFT}{LINUX_DESKTOP_RIGHT}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 1: QWERTY
@@ -87,6 +94,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [ A          S         D       F        G        Escape    '\''   H        J        K      L      ;    ],
         [ Z          X         C       V        B        LShift   {NoOp}  N        M        ,      .      /    ],
         [{l(NUMPAD)} t         t      {LWR_TAB}{LW2_ESC} Space     Space {RS2_BSP}{RSE_ENT} t      t      t    ],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 2: Gaming
@@ -96,6 +104,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [CapsLock  A         S         D       F        G        H        J          K      L      ;    '\''],
         [LShift    Z         X         C       V        B        N        M          ,      .      /    '\\'],
         [LCtrl     LGui      LAlt      Tab    {LWR_ESC} Space    BSpace  {RSE_ENT}   Left   Down   Up   Right],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 3: Lower
@@ -105,6 +114,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [{sk!(Grave)} t         t         t         t            Insert         {sk!(Slash) } Insert   {sk!(Minus)}{sk!(Equal)} '['         ']'         ],
         [{sk!(Slash)} t         t         t        {sk!(Bslash)} t               t            t         t           t          {sk!(Slash)}{sk!(Bslash)}],
         [ t           t         t         t         t            t               t            t        {l(ADJUST)}  t           t           t           ],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 4: Lower2
@@ -114,6 +124,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [F11 F4 F5 F6 ScrollLock t    t Left Down   Up   Right t],
         [F10 F1 F2 F3 Pause      t    t Home PgDown PgUp End   t],
         [t   t  t  t  t          t    t t    t      t    t     t],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 5: Raise
@@ -123,6 +134,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [t     t t  t          t      Delete    t      t Minus Equal '['   ']'   ],
         [Slash t t  t          Bslash t         t      t t     t     Slash Bslash],
         [t     t t {l(ADJUST)} t      t         t      t t     t     t     t     ],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 6: Raise2
@@ -133,6 +145,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [t t t t t t    t t t t t t],
         [t t t t t t    t t t t t t],
         [t t t t t t    t t t t t t],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 7: Childproof
@@ -142,6 +155,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [{NoOp    } {NoOp} {NoOp} {NoOp} {NoOp} {NoOp}    {NoOp} {NoOp} {NoOp} {NoOp} {NoOp} {NoOp    }],
         [{NoOp    } {NoOp} {NoOp} {NoOp} {NoOp} {NoOp}    {NoOp} {NoOp} {NoOp} {NoOp} {NoOp} {NoOp    }],
         [{l(LOWER)} {NoOp} {NoOp} {NoOp} {NoOp} {NoOp}    {NoOp} {NoOp} {NoOp} {NoOp} {NoOp} {l(RAISE)}],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 8: Numpad
@@ -151,6 +165,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [t Kp4 Kp5 Kp6 t t    t t t t t t],
         [t Kp1 Kp2 Kp3 t t    t t t t t t],
         [t Kp0 Kp0 .   t t    t t t t t t],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 9: Adjust
@@ -160,6 +175,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [t t t t t t    t t {d(BASE_QWERTY)}{d(BASE_GAMING)}{d(BASE_DSK)}{d(CHILDPROOF)}],
         [t t t t t t    t t t t t t],
         [t t t t t t    t t t t t t],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
     // Pinky-outer-column
     // [_ADJUST] = LAYOUT(
@@ -177,6 +193,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
         [t t t t t t    t t t t t t],
         [t t t t t t    t t t t t t],
         [t t t t t t    t t t t t t],
+        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
     // Same as default layer
     // [_FN] = LAYOUT(
@@ -187,4 +204,9 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
     //     _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______
     // )
 };
+
+pub const CHORDS: [ChordDef; 2] = [
+    ((5, 0), &[(3, 2), (3, 3)]), // JK -> Desktop Left
+    ((5, 1), &[(3, 8), (3, 9)]), // M, -> Desktop Right
+];
 
