@@ -19,7 +19,7 @@ use usb_device::bus::UsbBusAllocator;
 use usb_device::device::UsbDeviceState;
 use usb_device::prelude::*;
 
-use keyberon_f4_split_dp::common::{
+use keyboard_labs_keyberon::common::{
     UsbClass,
     UsbDevice,
     UsbSerial,
@@ -27,12 +27,12 @@ use keyberon_f4_split_dp::common::{
     ser,
     usb_poll,
 };
-use keyberon_f4_split_dp::direct_pin_matrix::{
+use keyboard_labs_keyberon::direct_pin_matrix::{
     DirectPins,
     PressedKeys5x4,
 };
-use keyberon_f4_split_dp::layouts::minif4_36::{LAYERS, Layout};
-use keyberon_f4_split_dp::rev2021_1::pin_layout_lhs::{
+use keyboard_labs_keyberon::layouts::minif4_36::{LAYERS, Layout};
+use keyboard_labs_keyberon::rev2021_1::pin_layout_lhs::{
     DirectPins5x4,
     direct_pin_matrix_for_peripherals,
     event_transform,

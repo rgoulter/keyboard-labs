@@ -1,5 +1,5 @@
 [package]
-name = "keyberon_f4_split_dp"
+name = "keyboard-labs-keyberon"
 version = "0.1.0"
 authors = ["Richard Goulter <rchard.goulter@gmail.com>", "Guillaume Pinot <texitoi@texitoi.eu>"]
 edition = "2018"

@@ -36,7 +36,7 @@
       };
 
       packages = rec {
-        minif4-36-2021_1 = (naersk.lib.${system}.override {
+        keyberon-firmware = (naersk.lib.${system}.override {
           cargo = toolchain;
           rustc = toolchain;
         }).buildPackage {
@@ -46,19 +46,24 @@
             "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
         };
 
-        minif4-36-2021_1-firmware = pkgs.runCommand "minif4-36-2021_1-firmware" {} ''
+        keyberon-firmware-bin = pkgs.runCommand "keyboard-labs-keyberon-firmware-bin" {} ''
           mkdir -p $out/bin
           export RUSTC=${toolchain}/bin/rustc
 
           ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${minif4-36-2021_1}/bin/minif4-36-rev2021_1-lhs" \
+            "${keyberon-firmware}/bin/minif4-36-rev2021_1-lhs" \
             "--output-target" "binary" \
             "$out/bin/minif4-36-rev2021_1-lhs.bin"
 
           ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${minif4-36-2021_1}/bin/minif4-36-rev2021_1-rhs" \
+            "${keyberon-firmware}/bin/minif4-36-rev2021_1-rhs" \
             "--output-target" "binary" \
             "$out/bin/minif4-36-rev2021_1-rhs.bin"
+
+          ${pkgs.cargo-binutils}/bin/rust-objcopy \
+            "${keyberon-firmware}/bin/x_2-rev2021_1" \
+            "--output-target" "binary" \
+            "$out/bin/x_2-rev2021_1.bin"
         '';
       };
     });
