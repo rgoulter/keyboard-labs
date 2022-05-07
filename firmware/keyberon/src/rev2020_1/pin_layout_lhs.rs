@@ -1,7 +1,6 @@
 #![allow(missing_docs)]
 
 use core::convert::Infallible;
-use embedded_hal::digital::v2::InputPin;
 use keyberon::layout::Event;
 use stm32f4xx_hal::gpio::{gpioa, gpiob, Input, PullUp};
 
@@ -75,32 +74,32 @@ impl DirectPins for DirectPins5x4 {
         let row4 = &self.3;
         Ok(PressedKeys5x4([
             [
-                row1.0.is_low()?,
-                row1.1.is_low()?,
-                row1.2.is_low()?,
-                row1.3.is_low()?,
-                row1.4.is_low()?,
+                row1.0.is_low(),
+                row1.1.is_low(),
+                row1.2.is_low(),
+                row1.3.is_low(),
+                row1.4.is_low(),
             ],
             [
-                row2.0.is_low()?,
-                row2.1.is_low()?,
-                row2.2.is_low()?,
-                row2.3.is_low()?,
-                row2.4.is_low()?,
+                row2.0.is_low(),
+                row2.1.is_low(),
+                row2.2.is_low(),
+                row2.3.is_low(),
+                row2.4.is_low(),
             ],
             [
-                row3.0.is_low()?,
-                row3.1.is_low()?,
-                row3.2.is_low()?,
-                row3.3.is_low()?,
-                row3.4.is_low()?,
+                row3.0.is_low(),
+                row3.1.is_low(),
+                row3.2.is_low(),
+                row3.3.is_low(),
+                row3.4.is_low(),
             ],
             [
                 false,
                 false,
-                row4.0.is_low()?,
-                row4.1.is_low()?,
-                row4.2.is_low()?,
+                row4.0.is_low(),
+                row4.1.is_low(),
+                row4.2.is_low(),
             ],
         ]))
     }
