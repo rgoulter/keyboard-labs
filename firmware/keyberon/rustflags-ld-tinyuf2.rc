@@ -1,0 +1,1 @@
+export CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS="-C link-arg=--library-path=ld/stm32f4xx-tinyuf2"

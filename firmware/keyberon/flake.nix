@@ -44,6 +44,9 @@
           CARGO_BUILD_TARGET = target;
           CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
             "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+          # Use memory.x for STM32F4xx for running on tinyuf2
+          CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS =
+            "-C link-arg=--library-path=ld/stm32f4xx-tinyuf2";
         };
 
         keyberon-firmware-bin = pkgs.runCommand "keyboard-labs-keyberon-firmware-bin" {} ''
