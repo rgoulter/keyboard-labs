@@ -2,3 +2,6 @@
 **/*.rs.bk
 *~
 *.bin
+*.uf2
+*.hex
+*.elf
