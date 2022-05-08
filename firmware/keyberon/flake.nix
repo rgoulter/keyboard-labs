@@ -26,17 +26,21 @@
           targets.${target}.latest.rust-std
         ];
     in
+    let
+      uf2conv = pkgs.callPackage ../../scripts/pkgs/uf2conv { };
+    in
     {
       devShell = pkgs.mkShell {
         nativeBuildInputs = [
           pkgs.rust-analyzer
           toolchain
+          uf2conv
         ];
         RUST_SRC_PATH="${toolchain}/lib/rustlib/src";
       };
 
       packages = rec {
-        keyberon-firmware = (naersk.lib.${system}.override {
+        keyberon-firmware-elf = (naersk.lib.${system}.override {
           cargo = toolchain;
           rustc = toolchain;
         }).buildPackage {
@@ -54,19 +58,44 @@
           export RUSTC=${toolchain}/bin/rustc
 
           ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${keyberon-firmware}/bin/minif4-36-rev2021_1-lhs" \
+            "${keyberon-firmware-elf}/bin/minif4-36-rev2021_1-lhs" \
             "--output-target" "binary" \
             "$out/bin/minif4-36-rev2021_1-lhs.bin"
 
           ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${keyberon-firmware}/bin/minif4-36-rev2021_1-rhs" \
+            "${keyberon-firmware-elf}/bin/minif4-36-rev2021_1-rhs" \
             "--output-target" "binary" \
             "$out/bin/minif4-36-rev2021_1-rhs.bin"
 
           ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${keyberon-firmware}/bin/x_2-rev2021_1" \
+            "${keyberon-firmware-elf}/bin/x_2-rev2021_1" \
             "--output-target" "binary" \
             "$out/bin/x_2-rev2021_1.bin"
+        '';
+
+        keyberon-firmware-uf2 = pkgs.runCommand "" {} ''
+          mkdir -p $out/bin
+
+          ${uf2conv}/bin/uf2conv \
+            --convert \
+            --family=STM32F4 \
+            --base 0x8010000 \
+            --output=$out/bin/minif4-36-rev2021_1-lhs.uf2 \
+            ${keyberon-firmware-bin}/bin/minif4-36-rev2021_1-lhs.bin
+
+          ${uf2conv}/bin/uf2conv \
+            --convert \
+            --family=STM32F4 \
+            --base 0x8010000 \
+            --output=$out/bin/minif4-36-rev2021_1-rhs.uf2 \
+            ${keyberon-firmware-bin}/bin/minif4-36-rev2021_1-rhs.bin
+
+          ${uf2conv}/bin/uf2conv \
+            --convert \
+            --family=STM32F4 \
+            --base 0x8010000 \
+            --output=$out/bin/x_2-rev2021_1.uf2 \
+            ${keyberon-firmware-bin}/bin/x_2-rev2021_1.bin
         '';
       };
     });
