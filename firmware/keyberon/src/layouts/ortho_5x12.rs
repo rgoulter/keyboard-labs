@@ -111,7 +111,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
     {
         [ t           t         t         t         t            t               t            t         t           t           t           t           ],
         [{sk!(Kb1)  }{sk!(Kb2)}{sk!(Kb3)}{sk!(Kb4)}{sk!(Kb5)   }{sk!(Grave)}    {sk!(Bslash)}{sk!(Kb6)}{sk!(Kb7)  }{sk!(Kb8)  }{sk!(Kb9)  }{sk!(Kb0)   }],
-        [{sk!(Grave)} t         t         t         t            Insert         {sk!(Slash) } Insert   {sk!(Minus)}{sk!(Equal)} '['         ']'         ],
+        [{sk!(Grave)} t         t         t         t            Insert         {sk!(Slash) } Insert   {sk!(Minus)}{sk!(Equal)} '{'         '}'         ],
         [{sk!(Slash)} t         t         t        {sk!(Bslash)} t               t            t         t           t          {sk!(Slash)}{sk!(Bslash)}],
         [ t           t         t         t         t            t               t            t        {l(ADJUST)}  t           t           t           ],
         [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
@@ -131,7 +131,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
     {
         [t     t t  t          t      t         t      t t     t     t     t     ],
         [1     2 3  4          5      Grave     BSpace 6 7     8     9     0     ],
-        [t     t t  t          t      Delete    t      t Minus Equal '['   ']'   ],
+        [Grave t t  t          t      Delete    t      t Minus Equal '['   ']'   ],
         [Slash t t  t          Bslash t         t      t t     t     Slash Bslash],
         [t     t t {l(ADJUST)} t      t         t      t t     t     t     t     ],
         [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
