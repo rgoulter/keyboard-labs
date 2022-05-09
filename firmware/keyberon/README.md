@@ -15,7 +15,7 @@ Install `rustup`:
 curl https://sh.rustup.rs -sSf | sh
 ```
 
-or using `nix`:
+#### Using `nix`
 
 ```
 nix shell nixpkgs#rustup
@@ -33,23 +33,46 @@ cargo install cargo-binutils
 
 ## Compiling
 
-Compile the firmware, for each half:
-
-The left half is built with:
+## Using `nix`
 
 ```shell
-cargo objcopy --bin keyberon-f4-split-dp --release -- -O binary keyberon-left.bin
+nix build .#keyberon-firmware-uf2
 ```
 
-The right half is built with:
+puts the `.uf2` files for all the firmware (in `src/bin`) in `result/bin/`.
+
+## Using `cargo`
+
+Compile the firmware:
 
 ```shell
-cargo objcopy --bin keyberon-f4-split-dp --release --features "split-right" --no-default-features -- -O binary keyberon-right.bin
+cargo objcopy --bin <firmware src> --release -- -O binary firmware.bin
 ```
 
-The script `build-and-objcopy.sh` will build the firmware for both halves.
+where `<firmware src>` is one of `src/bin/<firmware src>.rs`, e.g.:
+
+- `minif4-36-rev2020_1-lhs`
+- `minif4-36-rev2020_1-rhs`
+- `minif4-36-rev2021_1-lhs`
+- `minif4-36-rev2021_1-rhs`
+- `x_2-rev2021_1`
 
 ## Flashing
+
+#### Using UF2
+
+I recommend flashing [tinyuf2](https://github.com/adafruit/tinyuf2)
+onto the dev board. This makes flashing the keyberon firmware as easy
+as copying the file onto a flashdrive.
+
+The `bootloaders.nix` file in the `scripts/` directory in the repository root
+has a Nix expression for the bootloader. e.g. to build tinyuf2 for the
+WeAct Studio MiniF4 "Blackpill", with STM32F401xx MCU:
+
+```
+nix-build bootloaders.nix -A stm32f401.tinyuf2
+st-flash write result/tinyuf2-stm32f401_blackpill.bin 0x8000000
+```
 
 #### Using DFU
 
@@ -59,7 +82,7 @@ boot, and then release boot.
 Then flash it with:
 
 ```shell
-dfu-util -d 0483:df11 -a 0 --dfuse-address 0x08000000 -D keyberon-left.bin
+dfu-util -d 0483:df11 -a 0 --dfuse-address 0x08000000 -D <firmware>.bin
 ```
 
 #### Using `stlink`
