@@ -6,8 +6,7 @@ use panic_halt as _;
 
 use keyberon::chording::Chording;
 use keyberon::debounce::Debouncer;
-use keyberon::key_code::KbHidReport;
-use keyberon::key_code::KeyCode;
+use keyberon::key_code::{KbHidReport, KeyCode};
 use rtic::app;
 use stm32f4xx_hal::delay::Delay;
 use stm32f4xx_hal::gpio::{EPin, Input, Output, PullUp, PushPull};
