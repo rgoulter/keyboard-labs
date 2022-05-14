@@ -19,11 +19,12 @@ use usb_device::bus::UsbBusAllocator;
 use usb_device::class::UsbClass as _;
 
 
+use keyboard_labs_keyberon::common::{
+    UsbClass,
+    UsbDevice,
+};
 use keyboard_labs_keyberon::layouts::ortho_5x12::{CHORDS, LAYERS, Layout};
 use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-
-type UsbClass = keyberon::Class<'static, UsbBusType, ()>;
-type UsbDevice = usb_device::device::UsbDevice<'static, UsbBusType>;
 
 #[app(device = stm32f4xx_hal::pac, peripherals = true)]
 const APP: () = {

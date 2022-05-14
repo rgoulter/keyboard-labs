@@ -3,7 +3,7 @@ use stm32f4xx_hal::otg_fs::UsbBusType;
 use keyberon::layout::Event;
 use usb_device::class::UsbClass as _;
 
-pub type UsbClass = keyberon::Class<'static, UsbBusType, ()>;
+pub type UsbClass = keyberon::hid::HidClass<'static, UsbBusType, keyberon::keyboard::Keyboard<()>>;
 
 pub type UsbDevice = usb_device::device::UsbDevice<'static, UsbBusType>;
 
