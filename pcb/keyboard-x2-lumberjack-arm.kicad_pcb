@@ -7,8 +7,8 @@
   (paper "A3")
   (title_block
     (title "X-2: Lumberjack-Arm")
-    (date "2021-12-04")
-    (rev "2021.1")
+    (date "2022-07-02")
+    (rev "2022.1")
     (company "rgoulter/keyboard-labs")
     (comment 1 "Designed to fit into tray-mounted GH60 cases.")
     (comment 2 " in the \"show the components\" tradition of the Plaid Keyboard PCB.")
