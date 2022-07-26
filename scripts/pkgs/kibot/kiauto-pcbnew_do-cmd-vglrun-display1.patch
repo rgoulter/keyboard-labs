@@ -1,13 +1,13 @@
 diff --git a/src/pcbnew_do b/src/pcbnew_do
-index 2aa6e7f..d8d4b00 100755
+index d35e5d2..618b853 100755
 --- a/src/pcbnew_do
 +++ b/src/pcbnew_do
-@@ -939,7 +939,7 @@ if __name__ == '__main__':
-             do_retry = False
-             with recorded_xvfb(cfg, retry):
-                 logger.debug('Starting '+cfg.pcbnew)
--                with PopenContext([cfg.pcbnew, cfg.input_file], stderr=flog_err, close_fds=True,
-+                with PopenContext(["vglrun", "-d", ":1", cfg.pcbnew, cfg.input_file], stderr=flog_err, close_fds=True,
+@@ -1206,7 +1206,7 @@ if __name__ == '__main__':
+                            cfg.input_file]
+                 else:
+                     cmd = [cfg.pcbnew, cfg.input_file]
+-                with PopenContext(cmd, stderr=flog_err, close_fds=True,
++                with PopenContext(["vglrun", "-d", ":1"] + cmd, stderr=flog_err, close_fds=True,
                                    stdout=flog_out, start_new_session=True) as pcbnew_proc:
                      cfg.pcbnew_pid = pcbnew_proc.pid
                      cfg.popen_obj = pcbnew_proc

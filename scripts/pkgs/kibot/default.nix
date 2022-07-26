@@ -12,11 +12,11 @@ let
   }).src;
   kiauto = python3Packages.buildPythonPackage rec {
     pname = "kiauto";
-    version = "1.5.14";
+    version = "1.6.15";
 
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "1ppyyr35fa9d6jfl7scrjd3vf4mgavdwn3sd0infrq93lrcb73rw";
+      sha256 = "sha256-ogWyJLORfZRP4d0z5BZaKG3WoXuEWNJycMAqNPI19ug=";
     };
 
     propagatedBuildInputs = with python3Packages; [
@@ -38,13 +38,35 @@ let
     patches =
       lib.optional use-vglrun ./kiauto-pcbnew_do-cmd-vglrun-display1.patch;
   };
+  qrcodegen = python3Packages.buildPythonPackage rec {
+    pname = "qrcodegen";
+    version = "1.7.0";
+
+    src = fetchFromGitHub {
+      owner = "nayuki";
+      repo = "QR-Code-generator";
+      rev = "v${version}";
+      sha256 = "sha256-WH6O3YE/+NNznzl52TXZYL+6O25GmKSnaFqDDhRl4As=";
+    };
+
+    preBuild = ''
+      cd python/
+    '';
+
+    propagatedBuildInputs = with python3Packages; [
+    ];
+
+    meta = with lib; {
+      homepage = "https://www.nayuki.io/page/qr-code-generator-library";
+      description = "High quality QR Code generator library for Python";
+      license = licenses.mit;
+      maintainers = with maintainers; [ ];
+    };
+  };
 in
 python3Packages.buildPythonApplication rec {
   pname = "kibot";
-  # version = "0.11.0";
-
-  # Newer version has 3D render
-  version = "3c4c2f0e1528d04991d96beffdbb3d660668128a";
+  version = "2_1_2_0";
 
   # The macros module requires the module isn't compiled.
   # cf. https://github.com/INTI-CMNB/KiBot/issues/31
@@ -57,6 +79,7 @@ python3Packages.buildPythonApplication rec {
     kiauto
     kicadPythonModule
     pyyaml
+    qrcodegen
     requests
     XlsxWriter
   ];
@@ -71,7 +94,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "INTI-CMNB";
     repo = "KiBot";
-    rev = version;
-    sha256 = "1s7hg1bzqg9s9m5213wb672rs1l3xizhn1c8y26jgg68d8ibin7a";
+    rev = "v${version}";
+    sha256 = "sha256-nU3GUsWs+7ByghAcFyAmRTv2fHWArr50qtYHyoQAwPE=";
   };
 }
