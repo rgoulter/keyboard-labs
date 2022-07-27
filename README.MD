@@ -140,11 +140,6 @@ _X-2 HSRGB PCB assembled, using a Bluepill devboard, with MX switches, in a chea
 
 _X-2 HSRGB PCB assembled, view of the back._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-x2-lumberjack-arm-hsrgb-2022.1-top.svg" width=600 />
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-x2-lumberjack-arm-hsrgb-2022.1-bottom.svg" width=600 />
-
-_2D Renders of the PCB, revision rev2022.1_
-
 ###### Build Guides
 
 - [rev2021.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-x2-lumberjack-arm-rev2021.1.html)
