@@ -19,16 +19,22 @@ tray_handle_depth = 15;
 thickness = 3;
 
 // Margin in the box around the tray's width.
-box_drawer_inner_width_margin = 0.2;
+box_drawer_inner_width_margin = 1;
 
 // Margin in the box around the tray's height.
-box_drawer_inner_height_margin = 0.2;
+box_drawer_inner_height_margin = 1;
 
 // Margin in the tray's section's around a keycap's 'length'.
-keycap_length_margin = 0.2;
+keycap_length_margin = 0.5;
 
 // Margin in the tray's section's rows.
 keycap_row_margin = 2;
+
+slot_width_margin = 0.1;
+
+// Tolerance for if the material is thicker than thickness,
+// the slot should be slightly larger.
+slot_height_margin = 0.3;
 
 num_sections = num_keycap_rows;
 
@@ -87,14 +93,21 @@ module tray_edge_base_sides(
     }
 }
 
-module tray_edge_base_dividers(
+// Construction of the slots for the dividers in the tray.
+//
+// To be subtracted from the tray base.
+module tray_slot_base_dividers(
     edge_gender = "male",
     tray_inner_length
 ) {
-    tray_edge_base_sides(
-        edge_gender = edge_gender,
-        tray_inner_length = tray_inner_length
-    );
+    minkowski() {
+        tray_edge_base_sides(
+            edge_gender = edge_gender,
+            tray_inner_length = tray_inner_length
+        );
+
+        square([slot_width_margin, slot_height_margin], center = true);
+    }
 }
 
 module tray_edge_base_front(
@@ -121,6 +134,24 @@ module tray_edge_front_sides(
     );
 }
 
+// Construction of the slots for the dividers into the
+// tray front / back.
+//
+// To be subtracted from the tray front / back.
+module tray_slot_front_sides(
+    edge_gender = "male",
+    tray_inner_height,
+) {
+    minkowski() {
+        tray_edge_front_sides(
+            edge_gender = edge_gender,
+            tray_inner_height = tray_inner_height
+        );
+
+        square([slot_width_margin, slot_height_margin], center = true);
+    }
+}
+
 module tray_edge_front_handle(
     num_sections,
     tray_section_inner_width,
@@ -144,6 +175,23 @@ module tray_edge_front_handle(
                 }
             }
         }
+    }
+}
+
+// Construct slot for the handle into the tray front.
+//
+// To be subtracted from the tray front
+module tray_slot_front_handle(
+    num_sections,
+    tray_section_inner_width,
+) {
+    minkowski() {
+        tray_edge_front_handle(
+            num_sections = num_sections,
+            tray_section_inner_width = tray_section_inner_width
+        );
+
+        square([slot_width_margin, slot_height_margin], center = true);
     }
 }
 
@@ -198,7 +246,7 @@ module tray_base(
                     (i * tray_section_width(tray_section_inner_width)) - thickness,
                     0
                 ]) {
-                    tray_edge_base_dividers(
+                    tray_slot_base_dividers(
                         edge_gender = "female",
                         tray_inner_length = tray_inner_length
                     );
@@ -284,7 +332,7 @@ module tray_back(
                     0
                 ]) {
                     rotate([0, 0, 90]) {
-                        tray_edge_front_sides(
+                        tray_slot_front_sides(
                             edge_gender = "female",
                             tray_inner_height = tray_inner_height
                         );
@@ -316,7 +364,7 @@ module tray_front(
         }
 
         translate([thickness + (tray_inner_width / 2), tray_inner_height / 2]) {
-            tray_edge_front_handle(
+            tray_slot_front_handle(
                 num_sections = num_sections,
                 tray_section_inner_width = tray_section_inner_width
             );
@@ -570,6 +618,21 @@ module box_edge_base_side(
     }
 }
 
+// Construct slot for the side and base.
+module box_slot_base_side(
+    edge_gender = "male",
+    box_inner_length,
+) {
+    minkowski() {
+        box_edge_base_side(
+            edge_gender = edge_gender,
+            box_inner_length = box_inner_length
+        );
+
+        square([slot_width_margin, slot_height_margin], center = true);
+    }
+}
+
 module box_edge_base_back(
     edge_gender = "male",
     box_inner_width,
@@ -580,6 +643,20 @@ module box_edge_base_back(
         segment_count = 5,
         edge_gender = edge_gender
     );
+}
+
+module box_slot_base_back(
+    edge_gender = "male",
+    box_inner_width,
+) {
+    minkowski() {
+        box_edge_base_back(
+            edge_gender = edge_gender,
+            box_inner_width = box_inner_width
+        );
+
+        square([slot_width_margin, slot_height_margin], center = true);
+    }
 }
 
 module box_edge_side_back(
@@ -676,7 +753,7 @@ module box_side(
 
         for (i = [1 : (num_trays - 1)]) {
             translate([i * (thickness + tray_height), 0]) {
-                box_edge_base_side(
+                box_slot_base_side(
                     edge_gender = "female",
                     box_inner_length = box_inner_length
                 );
@@ -732,7 +809,7 @@ module box_back(
 
         for (i = [1 : (num_trays - 1)]) {
             translate([thickness, i * (thickness + tray_height)]) {
-                box_edge_base_back(
+                box_slot_base_back(
                     edge_gender = "female",
                     box_inner_width = box_inner_width
                 );
