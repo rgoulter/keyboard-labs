@@ -35,6 +35,7 @@
           pkgs = pkgs;
           tag = "kicad-6";
         };
+        kicad-6 = pkgs.kicad;
       };
       devShells = {
         kibot-kicad5 = import ./scripts/shell-kibot.nix {
