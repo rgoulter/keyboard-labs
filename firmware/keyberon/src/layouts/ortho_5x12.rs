@@ -170,11 +170,11 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
 
     // 9: Adjust
     {
-        [t t t t t t    t t t t t t],
-        [t t t t t t    t t t t t t],
-        [t t t t t t    t t {d(BASE_QWERTY)}{d(BASE_GAMING)}{d(BASE_DSK)}{d(CHILDPROOF)}],
-        [t t t t t t    t t t t t t],
-        [t t t t t t    t t t t t t],
+        [t        t t t t t    t t t t t t],
+        [t        t t t t t    t t t t t t],
+        [CapsLock t t t t t    t t {d(BASE_QWERTY)}{d(BASE_GAMING)}{d(BASE_DSK)}{d(CHILDPROOF)}],
+        [t        t t t t t    t t t t t t],
+        [t        t t t t t    t t t t t t],
         [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
     // Pinky-outer-column
