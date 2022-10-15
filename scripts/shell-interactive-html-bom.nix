@@ -1,11 +1,9 @@
-{ pkgs ? import <nixpkgs> {} }:
-
-with pkgs;
-let
+{pkgs ? import <nixpkgs> {}}:
+with pkgs; let
   interactive-html-bom = callPackage ./pkgs/interactive-html-bom {};
 in
-mkShell {
-  buildInputs = [
-    interactive-html-bom
-  ];
-}
+  mkShell {
+    buildInputs = [
+      interactive-html-bom
+    ];
+  }

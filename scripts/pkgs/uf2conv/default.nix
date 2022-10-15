@@ -1,9 +1,8 @@
-{ fetchFromGitHub
-, python3
-, writeScriptBin
-}:
-
-let
+{
+  fetchFromGitHub,
+  python3,
+  writeScriptBin,
+}: let
   uf2 = fetchFromGitHub {
     owner = "microsoft";
     repo = "uf2";
@@ -11,6 +10,6 @@ let
     sha256 = "sha256-uAPEmXZ2Hu3Bylt3/2LmwDeNkL6NAIUwJpcsq2qHgm4=";
   };
 in
-writeScriptBin "uf2conv" ''
-${python3}/bin/python ${uf2}/utils/uf2conv.py $*
-''
+  writeScriptBin "uf2conv" ''
+    ${python3}/bin/python ${uf2}/utils/uf2conv.py $*
+  ''

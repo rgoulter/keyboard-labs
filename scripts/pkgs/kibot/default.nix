@@ -1,15 +1,17 @@
-{ lib
-, fetchFromGitHub
-, python3Packages
-, use-vglrun ? false
-, python3
-, kicad
-}:
-
-let
-  kicadPythonModule = python3Packages.toPythonModule (kicad.override {
-    inherit python3;
-  }).src;
+{
+  lib,
+  fetchFromGitHub,
+  python3Packages,
+  use-vglrun ? false,
+  python3,
+  kicad,
+}: let
+  kicadPythonModule =
+    python3Packages.toPythonModule
+    (kicad.override {
+      inherit python3;
+    })
+    .src;
   kiauto = python3Packages.buildPythonPackage rec {
     pname = "kiauto";
     version = "1.6.15";
@@ -29,7 +31,7 @@ let
       homepage = "https://github.com/INTI-CMNB/KiAuto/";
       description = "A bunch of scripts to automate KiCad processes ";
       license = licenses.asl20;
-      maintainers = with maintainers; [ ];
+      maintainers = with maintainers; [];
     };
 
     # Kludge:
@@ -60,41 +62,41 @@ let
       homepage = "https://www.nayuki.io/page/qr-code-generator-library";
       description = "High quality QR Code generator library for Python";
       license = licenses.mit;
-      maintainers = with maintainers; [ ];
+      maintainers = with maintainers; [];
     };
   };
 in
-python3Packages.buildPythonApplication rec {
-  pname = "kibot";
-  version = "2_1_2_0";
+  python3Packages.buildPythonApplication rec {
+    pname = "kibot";
+    version = "2_1_2_0";
 
-  # The macros module requires the module isn't compiled.
-  # cf. https://github.com/INTI-CMNB/KiBot/issues/31
-  postFixup = ''
-    find $out -name '__pycache__' | xargs rm -rf
-  '';
+    # The macros module requires the module isn't compiled.
+    # cf. https://github.com/INTI-CMNB/KiBot/issues/31
+    postFixup = ''
+      find $out -name '__pycache__' | xargs rm -rf
+    '';
 
-  propagatedBuildInputs = with python3Packages; [
-    colorama
-    kiauto
-    kicadPythonModule
-    pyyaml
-    qrcodegen
-    requests
-    XlsxWriter
-  ];
+    propagatedBuildInputs = with python3Packages; [
+      colorama
+      kiauto
+      kicadPythonModule
+      pyyaml
+      qrcodegen
+      requests
+      XlsxWriter
+    ];
 
-  doCheck = false;
+    doCheck = false;
 
-  # src = python3Packages.fetchPypi {
-  #   inherit pname version;
-  #   sha256 = "00fg165j051d8sbmmnk3zj7b3jcz10wywa9075qg0m02r9hvhrmf";
-  # };
-  # https://github.com/INTI-CMNB/KiBot/commit/3c4c2f0e1528d04991d96beffdbb3d660668128a
-  src = fetchFromGitHub {
-    owner = "INTI-CMNB";
-    repo = "KiBot";
-    rev = "v${version}";
-    sha256 = "sha256-nU3GUsWs+7ByghAcFyAmRTv2fHWArr50qtYHyoQAwPE=";
-  };
-}
+    # src = python3Packages.fetchPypi {
+    #   inherit pname version;
+    #   sha256 = "00fg165j051d8sbmmnk3zj7b3jcz10wywa9075qg0m02r9hvhrmf";
+    # };
+    # https://github.com/INTI-CMNB/KiBot/commit/3c4c2f0e1528d04991d96beffdbb3d660668128a
+    src = fetchFromGitHub {
+      owner = "INTI-CMNB";
+      repo = "KiBot";
+      rev = "v${version}";
+      sha256 = "sha256-nU3GUsWs+7ByghAcFyAmRTv2fHWArr50qtYHyoQAwPE=";
+    };
+  }

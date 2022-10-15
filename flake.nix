@@ -14,7 +14,12 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-with-kicad5, flake-utils }:
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-with-kicad5,
+    flake-utils,
+  }:
     flake-utils.lib.eachSystem [
       flake-utils.lib.system.x86_64-linux
     ] (system: let

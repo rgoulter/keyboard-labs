@@ -12,7 +12,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, fenix, flake-utils, naersk, nixpkgs }:
+  outputs = {
+    self,
+    fenix,
+    flake-utils,
+    naersk,
+    nixpkgs,
+  }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       target = "thumbv7em-none-eabihf";
@@ -25,33 +31,31 @@
           default.rustc
           targets.${target}.latest.rust-std
         ];
-    in
-    let
-      uf2conv = pkgs.callPackage ../../scripts/pkgs/uf2conv { };
-    in
-    {
+    in let
+      uf2conv = pkgs.callPackage ../../scripts/pkgs/uf2conv {};
+    in {
       devShell = pkgs.mkShell {
         nativeBuildInputs = [
           pkgs.rust-analyzer
           toolchain
           uf2conv
         ];
-        RUST_SRC_PATH="${toolchain}/lib/rustlib/src";
+        RUST_SRC_PATH = "${toolchain}/lib/rustlib/src";
       };
 
       packages = rec {
-        keyberon-firmware-elf = (naersk.lib.${system}.override {
-          cargo = toolchain;
-          rustc = toolchain;
-        }).buildPackage {
-          src = ./.;
-          CARGO_BUILD_TARGET = target;
-          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
-            "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
-          # Use memory.x for STM32F4xx for running on tinyuf2
-          CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS =
-            "-C link-arg=--library-path=ld/stm32f4xx-tinyuf2";
-        };
+        keyberon-firmware-elf =
+          (naersk.lib.${system}.override {
+            cargo = toolchain;
+            rustc = toolchain;
+          })
+          .buildPackage {
+            src = ./.;
+            CARGO_BUILD_TARGET = target;
+            CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+            # Use memory.x for STM32F4xx for running on tinyuf2
+            CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS = "-C link-arg=--library-path=ld/stm32f4xx-tinyuf2";
+          };
 
         keyberon-firmware-bin = pkgs.runCommand "keyboard-labs-keyberon-firmware-bin" {} ''
           mkdir -p $out/bin

@@ -2,10 +2,7 @@
 #   nix-build bootloaders.nix -A stm32f103.stm32duino
 # then use the resulting firmware at path:
 #   ./result/generic_boot20_pc13.bin
-
-{ pkgs ? import <nixpkgs> {} }:
-
-{
+{pkgs ? import <nixpkgs> {}}: {
   stm32f103 = {
     stm32duino = pkgs.stdenv.mkDerivation rec {
       pname = "stm32duino";

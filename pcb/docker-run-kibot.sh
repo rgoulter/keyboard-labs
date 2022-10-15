@@ -38,7 +38,7 @@ mkdir -p "${KICAD_CONFIG}"
 
 # ensure the sym-lib-table is non-empty, so eeschema can run.
 if [ ! -f "${KICAD_CONFIG}/sym-lib-table" ]; then
-    cat > "${KICAD_CONFIG}/sym-lib-table" <<EOF
+  cat >"${KICAD_CONFIG}/sym-lib-table" <<EOF
 (sym_lib_table
 )
 EOF
@@ -53,20 +53,20 @@ TAG="${TAG:-kicad-5}"
 (
   cd "${SCRIPT_DIR}"
   docker run \
-      --rm \
-      --interactive \
-      --tty \
-      --env NO_AT_BRIDGE=1 \
-      --env DISPLAY=$DISPLAY \
-      --volume=/tmp/.X11-unix:/tmp/.X11-unix \
-      --user $USER_ID:$GROUP_ID \
-      --volume="/etc/group:/etc/group:ro" \
-      --volume="/etc/passwd:/etc/passwd:ro" \
-      --volume="/etc/shadow:/etc/shadow:ro" \
-      --volume="${KICAD_CONFIG}:${KICAD_CONFIG}:rw" \
-      --volume="${KICAD_CACHE}:${KICAD_CACHE}:rw" \
-      --volume=$(pwd):$(pwd) \
-      --workdir="$(pwd)" \
-      "${KIBOT_IMAGE}:${TAG}" \
-      /bin/bash -c "kibot $*"
+    --rm \
+    --interactive \
+    --tty \
+    --env NO_AT_BRIDGE=1 \
+    --env DISPLAY=$DISPLAY \
+    --volume=/tmp/.X11-unix:/tmp/.X11-unix \
+    --user $USER_ID:$GROUP_ID \
+    --volume="/etc/group:/etc/group:ro" \
+    --volume="/etc/passwd:/etc/passwd:ro" \
+    --volume="/etc/shadow:/etc/shadow:ro" \
+    --volume="${KICAD_CONFIG}:${KICAD_CONFIG}:rw" \
+    --volume="${KICAD_CACHE}:${KICAD_CACHE}:rw" \
+    --volume=$(pwd):$(pwd) \
+    --workdir="$(pwd)" \
+    "${KIBOT_IMAGE}:${TAG}" \
+    /bin/bash -c "kibot $*"
 )
