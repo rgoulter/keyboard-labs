@@ -45,7 +45,7 @@ EOF
 fi
 
 # path to this directory, from where the script was called.
-SCRIPT_DIR="$(dirname $0)"
+SCRIPT_DIR="$(dirname "${0}")"
 
 KIBOT_IMAGE="${IMAGE:-richardgoulter/kibot}"
 TAG="${TAG:-kicad-5}"
@@ -56,16 +56,16 @@ TAG="${TAG:-kicad-5}"
     --rm \
     --interactive \
     --tty \
-    --env NO_AT_BRIDGE=1 \
-    --env DISPLAY=$DISPLAY \
+    --env "NO_AT_BRIDGE=1" \
+    --env "DISPLAY=$DISPLAY" \
     --volume=/tmp/.X11-unix:/tmp/.X11-unix \
-    --user $USER_ID:$GROUP_ID \
+    --user "$USER_ID:$GROUP_ID" \
     --volume="/etc/group:/etc/group:ro" \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="${KICAD_CONFIG}:${KICAD_CONFIG}:rw" \
     --volume="${KICAD_CACHE}:${KICAD_CACHE}:rw" \
-    --volume=$(pwd):$(pwd) \
+    --volume="$(pwd):$(pwd)" \
     --workdir="$(pwd)" \
     "${KIBOT_IMAGE}:${TAG}" \
     /bin/bash -c "kibot $*"

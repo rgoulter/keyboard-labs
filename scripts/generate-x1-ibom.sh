@@ -1,5 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash shell-interactive-html-bom.nix
+# shellcheck shell=bash
 
 set -ex
 
