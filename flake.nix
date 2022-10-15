@@ -20,8 +20,14 @@
     ] (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-with-kicad5 = nixpkgs-with-kicad5.legacyPackages.${system};
+      bootloaders = import ./scripts/bootloaders.nix {
+        inherit pkgs;
+      };
     in {
       packages = {
+        bootloader-stm32f103-stm32duino = bootloaders.stm32f103.stm32duino;
+        bootloader-stm32f401-tinyuf2 = bootloaders.stm32f401.tinyuf2;
+        bootloader-stm32f411-tinyuf2 = bootloaders.stm32f411.tinyuf2;
         docker-kibot-kicad-5 = import ./scripts/docker-kibot.nix {
           pkgs = pkgs-with-kicad5;
           tag = "kicad-5";
