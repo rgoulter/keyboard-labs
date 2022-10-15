@@ -611,7 +611,7 @@ module box_edge_base_side(
             puzzle_piece_edge(
                 length = box_inner_length,
                 thickness = thickness,
-                segment_count = 7,
+                segment_count = 13,
                 edge_gender = edge_gender
             );
         }
