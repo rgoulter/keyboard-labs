@@ -36,7 +36,9 @@
     in {
       devShell = pkgs.mkShell {
         nativeBuildInputs = [
+          pkgs.hidrd
           pkgs.rust-analyzer
+          pkgs.usbutils
           toolchain
           uf2conv
         ];
