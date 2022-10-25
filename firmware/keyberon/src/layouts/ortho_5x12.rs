@@ -129,11 +129,11 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
 
     // 5: Raise
     {
-        [t     t t  t          t      t         t      t t     t     t     t     ],
-        [1     2 3  4          5      Grave     BSpace 6 7     8     9     0     ],
-        [Grave t t  t          t      Delete    t      t Minus Equal '['   ']'   ],
-        [Slash t t  t          Bslash t         t      t t     t     Slash Bslash],
-        [t     t t {l(ADJUST)} t      t         t      t t     t     t     t     ],
+        [t     t t  t          t      t         t      t      t     t     t     t     ],
+        [1     2 3  4          5      Grave     BSpace 6      7     8     9     0     ],
+        [Grave t t  t          t      Delete    t      Delete Minus Equal '['   ']'   ],
+        [Slash t t  t          Bslash t         t      t      t     t     Slash Bslash],
+        [t     t t {l(ADJUST)} t      t         t      t      t     t     t     t     ],
         [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
@@ -159,13 +159,14 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
     }
 
     // 8: Numpad
+    // Swap the macro on left/right.
     {
-        [t t   t   t   t t    t t t t t t],
-        [t Kp7 Kp8 Kp9 t t    t t t t t t],
-        [t Kp4 Kp5 Kp6 t t    t t t t t t],
-        [t Kp1 Kp2 Kp3 t t    t t t t t t],
-        [t Kp0 Kp0 .   t t    t t t t t t],
-        [{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
+        [t       t   t   t   t t    t t t t t t],
+        [NumLock Kp7 Kp8 Kp9 t t    t t t t t t],
+        [t       Kp4 Kp5 Kp6 t t    t t t t t t],
+        [t       Kp1 Kp2 Kp3 t t    t t t t t t],
+        [t       Kp0 Kp0 .   t t    t t t t t t],
+        [{LINUX_DESKTOP_RIGHT}{LINUX_DESKTOP_LEFT}{NoOp}{NoOp}{NoOp}{NoOp}  {NoOp}{NoOp}{NoOp}{NoOp}{NoOp}{NoOp}],
     }
 
     // 9: Adjust
