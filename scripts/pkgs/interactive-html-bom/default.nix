@@ -6,7 +6,7 @@
   kicad,
 }: let
   kicadPythonModule =
-    toPythonModule
+    python3.pkgs.toPythonModule
     (kicad.override {
       inherit python3;
     })
