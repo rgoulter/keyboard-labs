@@ -17,9 +17,9 @@
 
     src = fetchFromGitHub {
       owner = "openscopeproject";
-      repo = pname;
+      repo = "InteractiveHtmlBom";
       rev = "v${version}";
-      sha256 = "09c2q9735jsy5q1ny6rkr757vvg6nr36ix9hslb78yh9r5jlg6rb";
+      sha256 = "sha256-K5tHZckJenQW1TD1aEa25u19yskzG28DLl7LMk7CgiU=";
     };
 
     installPhase = ''
