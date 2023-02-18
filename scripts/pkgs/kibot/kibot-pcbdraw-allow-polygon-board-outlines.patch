@@ -1,0 +1,51 @@
+From 98d60d0945dfc8be7832c18e64363d042035fec9 Mon Sep 17 00:00:00 2001
+From: Richard Goulter <richard.goulter@gmail.com>
+Date: Sat, 18 Feb 2023 23:21:17 +0700
+Subject: [PATCH] patch pcbdraw
+
+---
+ kibot/PcbDraw/plot.py | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/kibot/PcbDraw/plot.py b/kibot/PcbDraw/plot.py
+index 9a0151b3..abb11fcd 100644
+--- a/kibot/PcbDraw/plot.py
++++ b/kibot/PcbDraw/plot.py
+@@ -16,6 +16,7 @@ from typing import Callable, Dict, List, Optional, Tuple, TypeVar, Union, Any
+ 
+ from . import np
+ from .unit import read_resistance
++from svgpathtools import Path, parse_path # type: ignore
+ from lxml import etree, objectify # type: ignore
+ from .pcbnew_transition import KICAD_VERSION, isV6, pcbnew # type: ignore
+ 
+@@ -135,6 +136,12 @@ def extract_arg(args: List[Any], index: int, default: Any=None) -> Any:
+         return default
+     return args[index]
+ 
++def path_element_data_is_polygon(data: str) -> bool:
++    return re.match('^M[ ,\\.0-9]+Z$', data) is not None
++
++def normalize_path_data(data: str) -> List[string]:
++    return [Path(el).d() for el in parse_path(data)]
++
+ def to_trans_matrix(transform: str) -> Matrix:
+     """
+     Given SVG transformation string returns corresponding matrix
+@@ -399,7 +406,12 @@ def get_board_polygon(svg_elements: etree.Element) -> etree.Element:
+     for group in svg_elements:
+         for svg_element in group:
+             if svg_element.tag == "path":
+-                elements.append(SvgPathItem(svg_element.attrib["d"]))
++                path_data = svg_element.attrib["d"]
++                if path_element_data_is_polygon(path_data):
++                    for path_data in normalize_path_data(path_data):
++                        elements.append(SvgPathItem(path_data))
++                else:
++                    elements.append(SvgPathItem(path_data))
+             elif svg_element.tag == "circle":
+                 # Convert circle to path
+                 att = svg_element.attrib
+-- 
+2.39.1
+

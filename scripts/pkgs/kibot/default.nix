@@ -14,11 +14,11 @@
     .src;
   kiauto = python3Packages.buildPythonPackage rec {
     pname = "kiauto";
-    version = "1.6.15";
+    version = "2.1.0";
 
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "sha256-ogWyJLORfZRP4d0z5BZaKG3WoXuEWNJycMAqNPI19ug=";
+      sha256 = "sha256-TssyS7ZOCeZEgoAYlsX4t0F2DpHLIHOzNYrhEH6VK5w=";
     };
 
     propagatedBuildInputs = with python3Packages; [
@@ -37,8 +37,8 @@
     # Kludge:
     # On NixOS desktop, in order to run Kicad within Xvfb
     # I used VirtualGL's `vglrun`.
-    patches =
-      lib.optional use-vglrun ./kiauto-pcbnew_do-cmd-vglrun-display1.patch;
+    # patches =
+    #   lib.optional use-vglrun ./kiauto-pcbnew_do-cmd-vglrun-display1.patch;
   };
   qrcodegen = python3Packages.buildPythonPackage rec {
     pname = "qrcodegen";
@@ -68,7 +68,9 @@
 in
   python3Packages.buildPythonApplication rec {
     pname = "kibot";
-    version = "2_1_2_0";
+    version = "1.5.1";
+
+    patches = [./kibot-pcbdraw-allow-polygon-board-outlines.patch];
 
     # The macros module requires the module isn't compiled.
     # cf. https://github.com/INTI-CMNB/KiBot/issues/31
@@ -80,6 +82,7 @@ in
       colorama
       kiauto
       kicadPythonModule
+      markdown2
       pyyaml
       qrcodegen
       requests
@@ -88,15 +91,8 @@ in
 
     doCheck = false;
 
-    # src = python3Packages.fetchPypi {
-    #   inherit pname version;
-    #   sha256 = "00fg165j051d8sbmmnk3zj7b3jcz10wywa9075qg0m02r9hvhrmf";
-    # };
-    # https://github.com/INTI-CMNB/KiBot/commit/3c4c2f0e1528d04991d96beffdbb3d660668128a
-    src = fetchFromGitHub {
-      owner = "INTI-CMNB";
-      repo = "KiBot";
-      rev = "v${version}";
-      sha256 = "sha256-nU3GUsWs+7ByghAcFyAmRTv2fHWArr50qtYHyoQAwPE=";
+    src = python3Packages.fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-SzwHUmXYsWBw7pMEtkeFGILKRBwTlErMqsKihtNh6ig=";
     };
   }
