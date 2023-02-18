@@ -1,0 +1,134 @@
+From 5e81b2f0d2d55ce317c7024bac0c9c6b73a9714f Mon Sep 17 00:00:00 2001
+From: Richard Goulter <richard.goulter@gmail.com>
+Date: Thu, 5 Jan 2023 09:09:44 +0700
+Subject: [PATCH] adjust get_board_polygon
+
+---
+ pcbdraw/plot.py                           | 18 +++++--
+ test/units/test_plot_get_board_polygon.py | 57 +++++++++++++++++++++++
+ 2 files changed, 72 insertions(+), 3 deletions(-)
+ create mode 100644 test/units/test_plot_get_board_polygon.py
+
+diff --git a/pcbdraw/plot.py b/pcbdraw/plot.py
+index 27b4e71..00b8679 100644
+--- a/pcbdraw/plot.py
++++ b/pcbdraw/plot.py
+@@ -28,6 +28,7 @@ except ImportError:
+     pass
+ from pcbdraw.unit import read_resistance
+ import svgpathtools # type: ignore
++from svgpathtools import Path, parse_path # type: ignore
+ from lxml import etree, objectify # type: ignore
+ from pcbnewTransition import KICAD_VERSION, isV6, pcbnew # type: ignore
+ 
+@@ -101,6 +102,7 @@ class SvgPathItem:
+             self.args = args[0:5]
+             self.type = path_elems[0]
+         else:
++            print("!!!SvgPathItem __init__:: case unsupported element; path_elems:", path_elems)
+             raise SyntaxError("Unsupported path element " + path_elems[0])
+ 
+     @staticmethod
+@@ -146,6 +148,12 @@ def extract_arg(args: List[Any], index: int, default: Any=None) -> Any:
+         return default
+     return args[index]
+ 
++def path_element_data_is_polygon(data: str) -> bool:
++    return re.match('^M[ ,\\.0-9]+Z$', data) is not None
++
++def normalize_path_data(data: str) -> List[string]:
++    return [Path(el).d() for el in parse_path(data)]
++
+ def to_trans_matrix(transform: str) -> Matrix:
+     """
+     Given SVG transformation string returns corresponding matrix
+@@ -410,7 +418,12 @@ def get_board_polygon(svg_elements: etree.Element) -> etree.Element:
+     for group in svg_elements:
+         for svg_element in group:
+             if svg_element.tag == "path":
+-                elements.append(SvgPathItem(svg_element.attrib["d"]))
++                path_data = svg_element.attrib["d"]
++                if path_element_data_is_polygon(path_data):
++                    for path_data in normalize_path_data(path_data):
++                        elements.append(SvgPathItem(path_data))
++                else:
++                    elements.append(SvgPathItem(path_data))
+             elif svg_element.tag == "circle":
+                 # Convert circle to path
+                 att = svg_element.attrib
+@@ -458,8 +471,7 @@ def get_board_polygon(svg_elements: etree.Element) -> etree.Element:
+         for x in outline:
+             path += x.format(first)
+             first = False
+-    e = etree.Element("path", d=path, style="fill-rule: evenodd;")
+-    return e
++    return etree.Element("path", d=path, style="fill-rule: evenodd;")
+ 
+ def load_style(style_file: str) -> Dict[str, Any]:
+     try:
+diff --git a/test/units/test_plot_get_board_polygon.py b/test/units/test_plot_get_board_polygon.py
+new file mode 100644
+index 0000000..a3de003
+--- /dev/null
++++ b/test/units/test_plot_get_board_polygon.py
+@@ -0,0 +1,57 @@
++from pcbdraw.plot import get_board_polygon, path_element_data_is_polygon
++from lxml import etree # type: ignore
++
++def test_path_element_data_is_polygon_move_to_line_is_not_polygon():
++    exampleD = "M25000 25000 L50025000 25000"
++    expected = False
++    assert expected == path_element_data_is_polygon(exampleD)
++
++def test_path_element_data_is_polygon_move_to_arc_is_not_polygon():
++    exampleD = "M70025000.000000 10025000.000000 A10000000.000000 10000000.000000 0.0 0 0 60025000.000000 25000.000000"
++    expected = False
++    assert expected == path_element_data_is_polygon(exampleD)
++
++def test_path_element_data_is_polygon_move_to_multiple_points_is_polygon():
++    exampleD = "M 10000000.000000,10000000.000000 0.000000,10000000.000000 0.000000,0.000000 10000000.000000,0.000000 Z"
++    expected = True
++    assert expected == path_element_data_is_polygon(exampleD)
++
++def test_get_board_polygon_with_edges():
++    example = """
++      <g>
++        <path d="M25000 25000 L50025000 25000" />
++        <path d="M50025000 25000 L50025000 45025000" />
++        <path d="M50025000 45025000 L25000 45025000" />
++        <path d="M25000 45025000 L25000 25000" />
++        <g></g>
++        <g></g>
++        <g></g>
++      </g>
++    """
++    element = etree.fromstring(example)
++    board_polygon = get_board_polygon([element])
++    actualD = board_polygon.attrib['d'].strip()
++    expectedD = 'M 50025000.0 25000.0 L 50025000.0 45025000.0 L 25000.0 45025000.0 L 25000.0 25000.0 L 50025000.0 25000.0'
++    assert actualD == expectedD
++
++# TODO clarify these examples so they're human interpretable.
++# However, the SVG document in transformed from the contents read in file.
++def test_get_board_polygon_with_arcs():
++    example = """
++      <g>
++        <path d="M25000 35025000 L25000 15025000" />
++        <path d="M70025000 35025000 L25000 35025000" />
++        <path d="M70025000 10025000 L70025000 35025000" />
++        <path d="M70025000.000000 10025000.000000 A10000000.000000 10000000.000000 0.0 0 0 60025000.000000 25000.000000" />
++        <path d="M15025000 25000 L60025000 25000" />
++        <path d="M15025000.000000 25000.000000 A15000000.000000 15000000.000000 0.0 0 0 25000.000000 15025000.000000" />
++        <g></g>
++        <g></g>
++        <g></g>
++      </g>
++    """
++    element = etree.fromstring(example)
++    board_polygon = get_board_polygon([element])
++    actualD = board_polygon.attrib['d'].strip()
++    expectedD = 'M 25000.0 15025000.0 A 15000000 15000000 0 0 1 15025000.0 25000.0 L 60025000.0 25000.0 A 10000000 10000000 0 0 1 70025000.0 10025000.0 L 70025000.0 35025000.0 L 25000.0 35025000.0 L 25000.0 15025000.0'
++    assert actualD == expectedD
+-- 
+2.39.1
+

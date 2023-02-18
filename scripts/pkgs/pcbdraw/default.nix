@@ -59,7 +59,7 @@ in
     };
     svgpathtools = buildPythonPackage rec {
       pname = "svgpathtools";
-      version = "1.4.4";
+      version = "1.4.1";
 
       propagatedBuildInputs = [
         numpy
@@ -69,13 +69,16 @@ in
 
       src = fetchPypi {
         inherit pname version;
-        sha256 = "0jsmaflk0zsv9yyksi5a25ii6mya5s91bqq41kqi71ia7716074y";
+        sha256 = "sha256-equgeSOthbZigwHpLl5y/Q0KUFdiDhQjUJs6C2CbdIU=";
       };
     };
   in
     buildPythonApplication rec {
       pname = "pcbdraw";
-      version = "0.9.0";
+      version = "1.0.1";
+
+      # fails on Windows-specific test
+      doCheck = false;
 
       propagatedBuildInputs = [
         click
@@ -83,11 +86,16 @@ in
         mistune
         numpy
         pcbnewTransition
+        pillow
         pybars3
         pyyaml
         svgpathtools
         Wand
+        wxPython_4_1
+        virtual-display
       ];
+
+      patches = [./allow-polygon-board-outlines.patch];
 
       # INTI-CMNB (GitHub owner of KiBot) also maintains a fork
       # https://github.com/INTI-CMNB/PcbDraw
@@ -95,6 +103,8 @@ in
         owner = "yaqwsx";
         repo = "PcbDraw";
         rev = "v${version}";
-        sha256 = "1160cainx3548yf61dyinkdhip62974kz12llml1221b177lwjab";
+        sha256 = "sha256-zEYnMJ6CcdYUzetw3xFtcpWRD5lZvcxcxnMIs69rbnA=";
+        # sha256 = "sha256-S0lOzwkrCBFopVSEP8lJwtwI27TRt2CcR6SMbqNiwIQ=";
+        # sha256 = lib.fakeSha256;
       };
     }
