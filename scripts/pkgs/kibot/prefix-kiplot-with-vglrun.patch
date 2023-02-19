@@ -1,0 +1,25 @@
+From 8d219f8b36cb435c2339a708e15262a4c7eae4a2 Mon Sep 17 00:00:00 2001
+From: Richard Goulter <richard.goulter@gmail.com>
+Date: Sun, 19 Feb 2023 00:06:46 +0700
+Subject: [PATCH] prefix kiplot with vglrun
+
+---
+ kibot/kiplot.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kibot/kiplot.py b/kibot/kiplot.py
+index cceff4f4..2aeb8041 100644
+--- a/kibot/kiplot.py
++++ b/kibot/kiplot.py
+@@ -146,7 +146,7 @@ def debug_output(res):
+ 
+ 
+ def _run_command(command, change_to):
+-    return run(command, check=True, stdout=PIPE, stderr=STDOUT, cwd=change_to)
++    return run(["vglrun", "-d", ":1"] + command, check=True, stdout=PIPE, stderr=STDOUT, cwd=change_to)
+ 
+ 
+ def run_command(command, change_to=None, just_raise=False, use_x11=False):
+-- 
+2.39.1
+
