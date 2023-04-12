@@ -1,4 +1,4 @@
-use keyberon::action::{d, k, l, m, Action, Action::*, HoldTapConfig};
+use keyberon::action::{d, k, l, m, Action, Action::*, HoldTapAction, HoldTapConfig};
 use keyberon::key_code::KeyCode::*;
 
 const NUM_BASE_LAYERS: usize = 2;
@@ -11,53 +11,53 @@ const NSL: usize = NUM_BASE_LAYERS + 3;
 const NSSL: usize = NUM_BASE_LAYERS + 4;
 const FUNL: usize = NUM_BASE_LAYERS + 5;
 
-const SP_NAVR: Action<()> = HoldTap {
+const SP_NAVR: Action<()> = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(NAVR),
-    tap: &k(Space),
-};
+    hold: l(NAVR),
+    tap: k(Space),
+});
 
-const TAB_MOUR: Action<()> = HoldTap {
+const TAB_MOUR: Action<()> = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(MOUR),
-    tap: &k(Tab),
-};
+    hold: l(MOUR),
+    tap: k(Tab),
+});
 
-const ESC_MEDR: Action<()> = HoldTap {
+const ESC_MEDR: Action<()> = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(MEDR),
-    tap: &k(Escape),
-};
+    hold: l(MEDR),
+    tap: k(Escape),
+});
 
-const BKSP_NSL: Action<()> = HoldTap {
+const BKSP_NSL: Action<()> = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(NSL),
-    tap: &k(BSpace),
-};
+    hold: l(NSL),
+    tap: k(BSpace),
+});
 
-const ENT_NSSL: Action<()> = HoldTap {
+const ENT_NSSL: Action<()> = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(NSSL),
-    tap: &k(Enter),
-};
+    hold: l(NSSL),
+    tap: k(Enter),
+});
 
-const DEL_FUNL: Action<()> = HoldTap {
+const DEL_FUNL: Action<()> = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(FUNL),
-    tap: &k(Delete),
-};
+    hold: l(FUNL),
+    tap: k(Delete),
+});
 
 // Columns = 10
 // Rows = 4

@@ -8,8 +8,8 @@ type Action = keyberon::action::Action<()>;
 // #define CODE16_MACOS_DESKTOP_RIGHT LCTL(KC_RIGHT)
 
 // // Linux, Gnome shell
-pub const LINUX_DESKTOP_LEFT : Action = m(&[LCtrl, LAlt, Left]);
-pub const LINUX_DESKTOP_RIGHT: Action = m(&[LCtrl, LAlt, Right]);
+pub const LINUX_DESKTOP_LEFT : Action = m(&[LCtrl, LAlt, Left].as_slice());
+pub const LINUX_DESKTOP_RIGHT: Action = m(&[LCtrl, LAlt, Right].as_slice());
 //
 // // Windows 10
 // #define CODE16_WIN_DESKTOP_LEFT  LCTL(LGUI(KC_LEFT))

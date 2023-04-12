@@ -1,4 +1,4 @@
-use keyberon::action::{d, k, l, m, Action::*, HoldTapConfig};
+use keyberon::action::{d, k, l, m, Action::*, HoldTapAction, HoldTapConfig};
 use keyberon::chording::ChordDef;
 use keyberon::key_code::KeyCode::*;
 
@@ -28,45 +28,45 @@ const FN: usize         = NUM_BASE_LAYERS + 7;
 
 // TBI:  FN,      _______, _______, LWR_TAB, LW2_ESC, KC_SPC,    KC_SPC, RS2_BSP, RSE_ENT, _______, _______, _______
 
-const LWR_TAB: Action = HoldTap {
+const LWR_TAB: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(LOWER),
-    tap:  &k(Tab),
-};
+    hold: l(LOWER),
+    tap:  k(Tab),
+});
 
-const LW2_ESC: Action = HoldTap {
+const LW2_ESC: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(LOWER2),
-    tap:  &k(Escape),
-};
+    hold: l(LOWER2),
+    tap:  k(Escape),
+});
 
-const RS2_BSP: Action = HoldTap {
+const RS2_BSP: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(RAISE2),
-    tap:  &k(BSpace),
-};
+    hold: l(RAISE2),
+    tap:  k(BSpace),
+});
 
-const RSE_ENT: Action = HoldTap {
+const RSE_ENT: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(RAISE),
-    tap:  &k(Enter),
-};
+    hold: l(RAISE),
+    tap:  k(Enter),
+});
 
-const LWR_ESC: Action = HoldTap {
+const LWR_ESC: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
-    hold: &l(LOWER),
-    tap:  &k(Escape),
-};
+    hold: l(LOWER),
+    tap:  k(Escape),
+});
 
 pub const COLS: usize = 12;
 pub const ROWS: usize = 5;
