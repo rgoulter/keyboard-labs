@@ -11,13 +11,13 @@ cortex-m-rt = { version = "0.6.15", features = ["device"] }
 panic-halt = "0.2.0"
 keyberon = { git = "https://github.com/TeXitoi/keyberon", branch = "master" }
 cortex-m-rtic = { version = "0.5", default-features = false, features = ["cortex-m-7"] }
-generic-array = "0.13"
+generic-array = "0.14"
 embedded-hal = "0.2"
 usb-device = "0.2.0"
-usbd-hid = "0.6.0"
-heapless = "0.5"
-nb = "1.0.0"
-usbd-serial = "0.1.0"
+usbd-hid = "0.6"
+heapless = "0.7"
+nb = "1.1"
+usbd-serial = "0.1"
 
 [profile.release]
 lto = true
