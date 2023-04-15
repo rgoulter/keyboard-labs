@@ -28,12 +28,12 @@ checksum = "f0ffd3d69bd89910509a5d31d1f1353f38ccffdd116dd0099bbd6627f7bd8ad8"
 
 [[package]]
 name = "as-slice"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bb4d1c23475b74e3672afa8c2be22040b8b7783ad9b461021144ed10a46bb0e6"
+checksum = "45403b49e3954a4b8428a0ac21a4b7afadccf92bfd96273f1a58cd4812496ae0"
 dependencies = [
- "generic-array 0.12.3",
- "generic-array 0.13.2",
+ "generic-array 0.12.4",
+ "generic-array 0.13.3",
  "generic-array 0.14.4",
  "stable_deref_trait",
 ]
@@ -156,23 +156,22 @@ dependencies = [
 
 [[package]]
 name = "cortex-m-rtic"
-version = "0.5.5"
+version = "0.5.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b30efcb6b7920d9016182c485687f0012487032a14c415d2fce6e9862ef8260e"
+checksum = "fb77bb72c171d0aa52a2954d8dc7e3f0800ab54b8df7d826f138abbea9eb2794"
 dependencies = [
- "cortex-m 0.6.7",
- "cortex-m-rt",
+ "cortex-m 0.7.4",
  "cortex-m-rtic-macros",
- "heapless 0.5.6",
+ "heapless 0.6.1",
  "rtic-core",
  "version_check",
 ]
 
 [[package]]
 name = "cortex-m-rtic-macros"
-version = "0.5.2"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a1a6a4c9550373038c0e21a78d44d529bd697c25bbf6b8004bddc6e63b119c7"
+checksum = "cc874eda99515b15e67f03562726a530388f454431096d30131051b52b840559"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -225,18 +224,18 @@ checksum = "a357d28ed41a50f9c765dbfe56cbc04a64e53e5fc58ba79fbc34c10ef3df831f"
 
 [[package]]
 name = "generic-array"
-version = "0.12.3"
+version = "0.12.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c68f0274ae0e023facc3c97b2e00f076be70e254bc851d972503b328db79b2ec"
+checksum = "ffdf9f34f1447443d37393cc6c2b8313aebddcd96906caf34e54c68d8e57d7bd"
 dependencies = [
  "typenum",
 ]
 
 [[package]]
 name = "generic-array"
-version = "0.13.2"
+version = "0.13.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0ed1e761351b56f54eb9dcd0cfaca9fd0daecf93918e1cfc01c8a3d26ee7adcd"
+checksum = "f797e67af32588215eaaab8327027ee8e71b9dd0b2b26996aedf20c030fce309"
 dependencies = [
  "typenum",
 ]
@@ -282,7 +281,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "74911a68a1658cfcfb61bc0ccfbd536e3b6e906f8c2f7883ee50157e3e2184f1"
 dependencies = [
  "as-slice",
- "generic-array 0.13.2",
+ "generic-array 0.13.3",
+ "hash32 0.1.1",
+ "stable_deref_trait",
+]
+
+[[package]]
+name = "heapless"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "634bd4d29cbf24424d0a4bfcbf80c6960129dc24424752a7d1d1390607023422"
+dependencies = [
+ "as-slice",
+ "generic-array 0.14.4",
  "hash32 0.1.1",
  "stable_deref_trait",
 ]
@@ -340,7 +351,7 @@ dependencies = [
  "cortex-m-rt",
  "cortex-m-rtic",
  "embedded-hal",
- "generic-array 0.13.2",
+ "generic-array 0.13.3",
  "heapless 0.5.6",
  "keyberon",
  "nb 1.0.0",

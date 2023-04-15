@@ -10,7 +10,7 @@ cortex-m = "0.7"
 cortex-m-rt = { version = "0.6.15", features = ["device"] }
 panic-halt = "0.2.0"
 keyberon = { git = "https://github.com/TeXitoi/keyberon", branch = "master" }
-cortex-m-rtic = "0.5"
+cortex-m-rtic = { version = "0.5", default-features = false, features = ["cortex-m-7"] }
 generic-array = "0.13"
 embedded-hal = "0.2"
 usb-device = "0.2.0"
