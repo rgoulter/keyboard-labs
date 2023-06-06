@@ -68,9 +68,7 @@
 in
   python3Packages.buildPythonApplication rec {
     pname = "kibot";
-    version = "1.5.1";
-
-    patches = [./kibot-pcbdraw-allow-polygon-board-outlines.patch];
+    version = "1.6.2";
 
     # The macros module requires the module isn't compiled.
     # cf. https://github.com/INTI-CMNB/KiBot/issues/31
@@ -82,6 +80,7 @@ in
       colorama
       kiauto
       kicadPythonModule
+      lark
       markdown2
       pyyaml
       qrcodegen
@@ -93,6 +92,6 @@ in
 
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "sha256-SzwHUmXYsWBw7pMEtkeFGILKRBwTlErMqsKihtNh6ig=";
+      sha256 = "sha256-kqvUjLoz4TodhuGMErRUPMGzzQLaanN39CVnU3EF54c";
     };
   }
