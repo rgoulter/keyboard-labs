@@ -59,7 +59,7 @@ Design goals:
 
 - [rev2021.4 Budget Build Guide](docs/buildguide_rev2021.4_budget.md)
 
-- [rev2021.5 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-x1-minif4_36-rev2021.5.html)
+- [rev2021.5 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5.html)
 
 - [rev2021.5 Interactive BOM, No Frills](https://rgoulter.com/keyboard-labs/ibom-x1-minif4_36-rev2021.5-basic.html)
 
@@ -142,7 +142,9 @@ _X-2 HSRGB PCB assembled, view of the back._
 
 ###### Build Guides
 
-- [rev2021.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-x2-lumberjack-arm-rev2021.1.html)
+- [rev2021.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-x2-lumberjack-arm-rev2022.1.html)
+
+- [HSRGB, rev2022.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-x2-lumberjack-arm-hsrgb-rev2022.1.html)
 
 ## CAD Designs
 
