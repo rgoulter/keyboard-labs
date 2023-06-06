@@ -14,11 +14,11 @@
     .src;
   kiauto = python3Packages.buildPythonPackage rec {
     pname = "kiauto";
-    version = "2.1.0";
+    version = "2.2.5";
 
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "sha256-TssyS7ZOCeZEgoAYlsX4t0F2DpHLIHOzNYrhEH6VK5w=";
+      sha256 = "sha256-3HhsHsG32WK6JjhdIFybfoLezeSMPpdeuSK0AKDtz9M";
     };
 
     propagatedBuildInputs = with python3Packages; [
