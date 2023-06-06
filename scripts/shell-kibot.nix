@@ -25,6 +25,9 @@ in
     # /nix/store/p0j7z9ld18mqiipqlihyy691v3ma0qmr-kicad-footprints-e53d53ac4a/share/kicad/modules
     KISYSMOD = "${kicad.libraries.footprints}/share/kicad/modules";
 
+    # Couldn't get KiAuto's interposer to work.
+    KIAUTO_INTERPOSER_DISABLE = "1";
+
     shellHook = ''
       KICAD_COMMON_CONFIG="$HOME/.config/kicad/kicad_common"
       if ! grep -q KISYS3DMOD "$KICAD_COMMON_CONFIG"; then
