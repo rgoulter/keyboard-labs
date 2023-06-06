@@ -91,7 +91,7 @@ in
         pyyaml
         svgpathtools
         Wand
-        wxPython_4_1
+        wxPython_4_2
         virtual-display
       ];
 

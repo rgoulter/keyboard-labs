@@ -32,7 +32,7 @@
   python-with-my-packages = python3.withPackages (p:
     with p; [
       kicadPythonModule
-      wxPython_4_1
+      wxPython_4_2
     ]);
 in
   writeScriptBin "InteractiveHtmlBom" ''
