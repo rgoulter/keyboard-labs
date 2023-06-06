@@ -9,6 +9,7 @@ fp-info-cache
 
 cad/**/generated
 
+pcb/bom
 pcb/gerber
 
 result
