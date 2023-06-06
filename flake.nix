@@ -44,6 +44,10 @@
         kicad-6 = pkgs.kicad;
       };
       devShells = {
+        interactive-html-bom = import ./scripts/shell-interactive-html-bom.nix {
+          pkgs = pkgs;
+        };
+
         kibot-kicad5 = import ./scripts/shell-kibot.nix {
           pkgs = pkgs-with-kicad5;
           on-nixos = false;
