@@ -66,12 +66,10 @@ outputs:
       # Include revision (-%r) to the output
       output: "%f-%r-%i%v.%x"
 
-  # 2023-02-19: Disabling, because I have problems running
-  #   (likely due to the libinterposer.so for KiAuto).
-  # - name: "schematic_print"
-  #   type: pdf_sch_print
-  #   comment: "PDF print of the schematic"
-  #   dir: "+docs/"
+  - name: "schematic_print"
+    type: pdf_sch_print
+    comment: "PDF print of the schematic"
+    dir: "+docs/"
 
   - name: "3d_top"
     type: render_3d
