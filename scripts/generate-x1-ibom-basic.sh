@@ -10,7 +10,7 @@ BOARD="keyboard-100x100-minif4-dual-rgb-reversible"
 
 InteractiveHtmlBom \
   --checkboxes="" \
-  --name-format="ibom-${BOARD}-rev%r" \
+  --name-format="ibom-x1-minif4_36-rev%r-basic" \
   --sort-order="R,C,C_,D_,D_BL_,Q,U,J,M,SW_BOOT,SW_RESET,SW_,SW_RE,H,~" \
   --extra-fields="Description,Comment" \
   --group-fields="Value,Description" \
