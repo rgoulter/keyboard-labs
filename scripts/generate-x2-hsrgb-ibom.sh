@@ -6,12 +6,13 @@ set -ex
 
 SCRIPTS_DIR="$(dirname "$0")"
 PCB_DIR="${SCRIPTS_DIR}/../pcb"
-BOARD="keyboard-100x100-minif4-dual-rgb-reversible"
+BOARD="keyboard-x2-lumberjack-arm-hsrgb"
 
 InteractiveHtmlBom \
   --checkboxes="" \
   --name-format="ibom-${BOARD}-rev%r" \
   --sort-order="R,C,C_,D_,D_BL_,Q,U,J,M,SW_BOOT,SW_RESET,SW_,SW_RE,H,~" \
+  --blacklist="HOLE" \
   --extra-fields="Description,Comment" \
   --group-fields="Value" \
   --show-fields="References,Value,Description,Comment,Quantity" \
