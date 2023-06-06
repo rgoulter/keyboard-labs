@@ -1,0 +1,29 @@
+From 77a42b5f2b1a5176112a60d2f7a052f1fce9059d Mon Sep 17 00:00:00 2001
+From: Richard Goulter <richard.goulter@gmail.com>
+Date: Tue, 6 Jun 2023 21:52:42 +0700
+Subject: [PATCH] patch schematic plotting all_pages
+
+---
+ src/eeschema_do | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/eeschema_do b/src/eeschema_do
+index 59615cd..9968db3 100755
+--- a/src/eeschema_do
++++ b/src/eeschema_do
+@@ -289,9 +289,9 @@ def eeschema_plot_schematic_n(cfg, open_keys):
+     logger.info('Move to the "plot" button')
+     wait_point(cfg)
+     # We try to select the "Plot xxx" button.
+-    command_list = ['key', 'shift+Tab', 'shift+Tab']
+-    if cfg.all_pages:
+-        command_list.append('shift+Tab')
++    command_list = ['key', 'shift+Tab']
++    if not cfg.all_pages:
++        command_list.append('shift+Tab', 'shift+Tab')
+     logger.debug(str(command_list)+'   '+str(len(command_list)))
+     xdotool(command_list)
+     logger.info('Plot')
+-- 
+2.40.1
+

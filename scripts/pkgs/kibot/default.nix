@@ -21,6 +21,8 @@
       sha256 = "sha256-3HhsHsG32WK6JjhdIFybfoLezeSMPpdeuSK0AKDtz9M";
     };
 
+    patches = [./0001-patch-schematic-plotting-all_pages.patch];
+
     propagatedBuildInputs = with python3Packages; [
       kicadPythonModule
       psutil
