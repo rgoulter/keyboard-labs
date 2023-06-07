@@ -15,7 +15,7 @@ in
   with python3Packages; let
     pcbnewTransition = buildPythonPackage rec {
       pname = "pcbnewTransition";
-      version = "0.2.0";
+      version = "0.3.4";
 
       propagatedBuildInputs = [
         kicadPythonModule
@@ -24,7 +24,7 @@ in
 
       src = fetchPypi {
         inherit pname version;
-        sha256 = "1dbw1h3pgc84garazmqxp25jgr5cnlvwjph26yi0223gmkkj0xfb";
+        sha256 = "sha256-3CJUG1kd63Lg0r9HpJRIvttHS5s2EuZRoxeXrqsJ/kQ";
       };
     };
     PyMeta3 = buildPythonPackage rec {
@@ -75,7 +75,7 @@ in
   in
     buildPythonApplication rec {
       pname = "pcbdraw";
-      version = "1.0.1";
+      version = "1.1.2";
 
       # fails on Windows-specific test
       doCheck = false;
@@ -85,6 +85,7 @@ in
         lxml
         mistune
         numpy
+        PyVirtualDisplay
         pcbnewTransition
         pillow
         pybars3
@@ -92,7 +93,6 @@ in
         svgpathtools
         Wand
         wxPython_4_2
-        virtual-display
       ];
 
       patches = [./allow-polygon-board-outlines.patch];
@@ -103,8 +103,6 @@ in
         owner = "yaqwsx";
         repo = "PcbDraw";
         rev = "v${version}";
-        sha256 = "sha256-zEYnMJ6CcdYUzetw3xFtcpWRD5lZvcxcxnMIs69rbnA=";
-        # sha256 = "sha256-S0lOzwkrCBFopVSEP8lJwtwI27TRt2CcR6SMbqNiwIQ=";
-        # sha256 = lib.fakeSha256;
+        sha256 = "sha256-khSWaZxHMAAhnM8b7N3hkDONzeB+1KyeB1JEhCPycxE";
       };
     }
