@@ -31,27 +31,10 @@
         "type": "github"
       }
     },
-    "nixpkgs-with-kicad5": {
-      "locked": {
-        "lastModified": 1640029233,
-        "narHash": "sha256-fQv3yVpaBOqnlxQyazSgITvbE9Bqf90l4+IMvjCg0iw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "89f196fe781c53cb50fef61d3063fa5e8d61b6e5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "89f196fe781c53cb50fef61d3063fa5e8d61b6e5",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-with-kicad5": "nixpkgs-with-kicad5"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
