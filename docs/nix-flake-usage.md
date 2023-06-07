@@ -19,13 +19,13 @@ shows the flake's outputs, e.g.:
 git+file:///path/to/keyboard-labs
 ├───devShells
 │   └───x86_64-linux
-│       └───kibot-kicad6: development environment 'nix-shell'
+│       └───kibot: development environment 'nix-shell'
 └───packages
     └───x86_64-linux
-        └───docker-kibot-kicad-6: package 'kibot.tar.gz'
+        └───docker-kibot-kicad: package 'kibot.tar.gz'
 ```
 
-### devShells: `kibot-kicad6`
+### devShells: `kibot`
 
 [KiBot](https://github.com/INTI-CMNB/KiBot) can be used to generate
 assets for the KiCad PCBs in this project's `pcb/` directory.
@@ -33,7 +33,7 @@ assets for the KiCad PCBs in this project's `pcb/` directory.
 With Nix installed, run:
 
 ```
-nix develop .#kibot-kicad6
+nix develop .#kibot
 ```
 
 This drops the shell into a bash shell which has `kibot` on the
@@ -48,21 +48,21 @@ if ! has nix_direnv_version || ! nix_direnv_version 1.6.0; then
     source_url "https://raw.githubusercontent.com/nix-community/nix-direnv/1.6.0/direnvrc" "sha256-FqqbUyxL8MZdXe5LkMgtNo95raZFbegFpl5k2+PrCow="
 fi
 
-use flake .#kibot-kicad6
+use flake .#kibot
 ```
 
 ### Packages
 
-### Docker images: `docker-kibot-kicad-6`
+### Docker images: `docker-kibot-kicad`
 
 e.g. running:
 
 ```
-nix build .#docker-kibot-kicad-6
+nix build .#docker-kibot-kicad
 docker load < ./result
 ```
 
-Will build the Docker image for `richardgoulter/kibot:kicad-6`.
+Will build the Docker image for `richardgoulter/kibot:kicad`.
 (`docker load` loads the `.tar.gz` so docker can use it).
 
 An example of using the Docker image is given in

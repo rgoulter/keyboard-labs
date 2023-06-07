@@ -24,23 +24,23 @@
         bootloader-stm32f103-stm32duino = bootloaders.stm32f103.stm32duino;
         bootloader-stm32f401-tinyuf2 = bootloaders.stm32f401.tinyuf2;
         bootloader-stm32f411-tinyuf2 = bootloaders.stm32f411.tinyuf2;
-        docker-kibot-kicad-6 = import ./scripts/docker-kibot.nix {
+        docker-kibot-kicad = import ./scripts/docker-kibot.nix {
           pkgs = pkgs;
-          tag = "kicad-6";
+          tag = "kicad-7";
         };
-        kicad-6 = pkgs.kicad;
+        kicad = pkgs.kicad;
       };
       devShells = {
         interactive-html-bom = import ./scripts/shell-interactive-html-bom.nix {
           pkgs = pkgs;
         };
 
-        kibot-kicad6 = import ./scripts/shell-kibot.nix {
+        kibot = import ./scripts/shell-kibot.nix {
           pkgs = pkgs;
           on-nixos = false;
         };
 
-        kibot-kicad6-nixos = import ./scripts/shell-kibot.nix {
+        kibot-nixos = import ./scripts/shell-kibot.nix {
           pkgs = pkgs;
           on-nixos = true;
         };
