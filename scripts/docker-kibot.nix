@@ -11,7 +11,6 @@ with pkgs; let
   };
   kibot = callPackage ../nix/pkgs/kibot {
     kicad = my-kicad;
-    use-vglrun = false;
   };
   pcbdraw = callPackage ../nix/pkgs/pcbdraw {kicad = my-kicad;};
 in
