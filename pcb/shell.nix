@@ -5,7 +5,7 @@
   # Kludge: on NixOS desktop, need virtualgl for the pcbnew
   # to be able to show 3D preview.
   kibot ? pkgs.callPackage ../scripts/pkgs/kibot {use-vglrun = true;},
-  pcbdraw ? pkgs.callPackage ../scripts/pkgs/pcbdraw {},
+  pcbdraw ? pkgs.callPackage ../nix/pkgs/pcbdraw {},
   recordmydesktop ? pkgs.callPackage ../nix/pkgs/recordmydesktop {},
 }:
 pkgs.mkShell {
