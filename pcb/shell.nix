@@ -4,7 +4,7 @@
   interactive-html-bom ? pkgs.callPackage ../nix/pkgs/interactive-html-bom {},
   # Kludge: on NixOS desktop, need virtualgl for the pcbnew
   # to be able to show 3D preview.
-  kibot ? pkgs.callPackage ../scripts/pkgs/kibot {use-vglrun = true;},
+  kibot ? pkgs.callPackage ../nix/pkgs/kibot {use-vglrun = true;},
   pcbdraw ? pkgs.callPackage ../nix/pkgs/pcbdraw {},
   recordmydesktop ? pkgs.callPackage ../nix/pkgs/recordmydesktop {},
 }:

@@ -11,7 +11,7 @@ with pkgs; let
     withOCC = false;
     with3d = kicad-with3d;
   };
-  kibot = callPackage ./pkgs/kibot {
+  kibot = callPackage ../nix/pkgs/kibot {
     kicad = my-kicad;
     use-vglrun = false;
   };
