@@ -31,10 +31,6 @@
         kicad = pkgs.kicad;
       };
       devShells = {
-        interactive-html-bom = import ./scripts/shell-interactive-html-bom.nix {
-          pkgs = pkgs;
-        };
-
         pcb = import ./pcb/shell.nix {
           pkgs = pkgs;
           on-nixos = false;
