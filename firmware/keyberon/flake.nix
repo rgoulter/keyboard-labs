@@ -32,7 +32,7 @@
           targets.${target}.latest.rust-std
         ];
     in let
-      uf2conv = pkgs.callPackage ../../scripts/pkgs/uf2conv {};
+      uf2conv = pkgs.callPackage ../../nix/pkgs/uf2conv {};
     in {
       devShell = pkgs.mkShell {
         nativeBuildInputs = [
