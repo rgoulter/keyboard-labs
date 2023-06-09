@@ -32,6 +32,10 @@
         kicad = pkgs.kicad;
       };
       devShells = {
+        circuitpython = import ./nix/shells/circuitpython/shell.nix {
+          inherit pkgs;
+        };
+
         pcb = import ./pcb/shell.nix {
           pkgs = pkgs;
           on-nixos = false;
