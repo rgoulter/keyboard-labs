@@ -7,8 +7,6 @@
 with pkgs; let
   my-kicad = pkgs.kicad.override {
     pname = "kicad-docker";
-    # Build without OCC so that the Docker image is smaller
-    withOCC = false;
     with3d = kicad-with3d;
   };
   kibot = callPackage ../nix/pkgs/kibot {
