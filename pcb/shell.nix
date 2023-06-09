@@ -1,7 +1,7 @@
 {
-  pkgs,
+  pkgs ? import <nixpkgs> {},
   on-nixos ? true,
-  interactive-html-bom ? pkgs.callPackage ../scripts/pkgs/interactive-html-bom {},
+  interactive-html-bom ? pkgs.callPackage ../nix/pkgs/interactive-html-bom {},
   # Kludge: on NixOS desktop, need virtualgl for the pcbnew
   # to be able to show 3D preview.
   kibot ? pkgs.callPackage ../scripts/pkgs/kibot {use-vglrun = true;},
