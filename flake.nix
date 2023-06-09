@@ -28,6 +28,7 @@
           pkgs = pkgs;
           tag = "kicad-7";
         };
+        gcc-arm-a-embedded = import ./nix/pkgs/gcc-arm-a-embedded {inherit pkgs;};
         kicad = pkgs.kicad;
       };
       devShells = {
