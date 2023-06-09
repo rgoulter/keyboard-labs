@@ -6,7 +6,7 @@
   # to be able to show 3D preview.
   kibot ? pkgs.callPackage ../scripts/pkgs/kibot {use-vglrun = true;},
   pcbdraw ? pkgs.callPackage ../scripts/pkgs/pcbdraw {},
-  recordmydesktop ? pkgs.callPackage ../scripts/pkgs/recordmydesktop {},
+  recordmydesktop ? pkgs.callPackage ../nix/pkgs/recordmydesktop {},
 }:
 pkgs.mkShell {
   # The environment variables KiBot uses for its

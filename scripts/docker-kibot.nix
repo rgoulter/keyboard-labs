@@ -16,7 +16,6 @@ with pkgs; let
     use-vglrun = false;
   };
   pcbdraw = callPackage ./pkgs/pcbdraw {kicad = my-kicad;};
-  recordmydesktop = callPackage ./pkgs/recordmydesktop {};
 in
   pkgs.dockerTools.buildLayeredImage {
     inherit tag;
