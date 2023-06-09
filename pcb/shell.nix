@@ -3,11 +3,12 @@
   on-nixos ? true,
 }:
 with pkgs; let
+  interactive-html-bom = callPackage ../scripts/pkgs/interactive-html-bom {};
   # Kludge: on NixOS desktop, need virtualgl for the pcbnew
   # to be able to show 3D preview.
-  kibot = callPackage ./pkgs/kibot {use-vglrun = true;};
-  pcbdraw = callPackage ./pkgs/pcbdraw {};
-  recordmydesktop = callPackage ./pkgs/recordmydesktop {};
+  kibot = callPackage ../scripts/pkgs/kibot {use-vglrun = true;};
+  pcbdraw = callPackage ../scripts/pkgs/pcbdraw {};
+  recordmydesktop = callPackage ../scripts/pkgs/recordmydesktop {};
 in
   mkShell {
     # The environment variables KiBot uses for its
@@ -38,6 +39,7 @@ in
 
     buildInputs = [
       fluxbox
+      interactive-html-bom
       kibot
       pcbdraw
       recordmydesktop

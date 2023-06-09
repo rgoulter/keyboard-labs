@@ -35,12 +35,12 @@
           pkgs = pkgs;
         };
 
-        kibot = import ./scripts/shell-kibot.nix {
+        pcb = import ./pcb/shell.nix {
           pkgs = pkgs;
           on-nixos = false;
         };
 
-        kibot-nixos = import ./scripts/shell-kibot.nix {
+        pcb-nixos = import ./pcb/shell.nix {
           pkgs = pkgs;
           on-nixos = true;
         };
