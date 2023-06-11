@@ -3,10 +3,9 @@
 "Nix classic" refers to the older channel-oriented commands such as
 `nix-shell`.
 
-There are some files named `shell-*.nix` in the `scripts/` directory,
-documented below:
+There are some files named `shell.nix` or `shell-*.nix` throughout the repository.
 
-### shell-kibot.nix
+### pcb/shell.nix
 
 [KiBot](https://github.com/INTI-CMNB/KiBot) can be used to generate
 assets for the KiCad PCBs in this project's `pcb/` directory.
@@ -14,19 +13,14 @@ assets for the KiCad PCBs in this project's `pcb/` directory.
 With Nix installed, run:
 
 ```
-nix-shell shell-kibot.nix
+nix-shell pcb/shell.nix
 ```
 
 This provides a shell which has `kibot` on its `PATH`.
 
-### shell-interactive-html-bom.nix
-
-Provides a standalone script of
+The shell also provides a standalone script of
 [InteractiveHtmlBom](https://github.com/openscopeproject/InteractiveHtmlBom),
 `InteractiveHtmlBom`.
-
-The script requires that the netlist be generated from eeschema,
-so that symbol fields (like comment, description) can be used in the ibom.
 
 Some convenience scripts e.g. `generate-x1-ibom.sh` are provided which can
 be called with:
@@ -34,3 +28,5 @@ be called with:
 ```
 nix-shell generate-x1-ibom.sh
 ```
+
+These `scripts/generate-*-ibom.sh` scripts can also be called from `make` in the `pcb/` directory.
