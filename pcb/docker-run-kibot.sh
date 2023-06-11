@@ -48,7 +48,7 @@ fi
 SCRIPT_DIR="$(dirname "${0}")"
 
 KIBOT_IMAGE="${IMAGE:-richardgoulter/kibot}"
-TAG="${TAG:-kicad-5}"
+TAG="${TAG:-kicad-7}"
 
 (
   cd "${SCRIPT_DIR}"
