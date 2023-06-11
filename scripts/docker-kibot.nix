@@ -31,6 +31,8 @@ in
 
     config = {
       Env = [
+        # Couldn't get KiAuto's interposer to work.
+        "KIAUTO_INTERPOSER_DISABLE=1"
         "KICAD_SYMBOL_DIR=${kicad.libraries.symbols}/share/kicad/library"
       ];
     };
