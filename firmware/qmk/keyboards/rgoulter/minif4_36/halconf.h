@@ -16,7 +16,7 @@
 
 #pragma once
 
-#ifdef OLED_DRIVER_ENABLE
+#ifdef OLED_ENABLE
 #define HAL_USE_I2C TRUE
 #endif
 

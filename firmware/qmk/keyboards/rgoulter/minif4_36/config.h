@@ -15,62 +15,26 @@
  */
 #pragma once
 
-// #include "config_common.h"
-
-
-/* USB Device descriptor parameter */
-#define VENDOR_ID 0xFEED
-#define PRODUCT_ID 0x7812
-#define DEVICE_VER 0x0001
-#define MANUFACTURER Richard Goulter
-#define PRODUCT MiniF4 36-key
-
-
-#define MATRIX_IO_DELAY 5
-#define TAP_CODE_DELAY 10
-
-/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCE 5
-
-
-/* disable these deprecated features by default */
-#define NO_ACTION_MACRO
-#define NO_ACTION_FUNCTION
-
-/* key matrix size */
-#ifdef SPLIT_KEYBOARD
-#define MATRIX_ROWS 8
-#else
-#define MATRIX_ROWS 4
-#endif
-#define MATRIX_COLS 5
-
-// Split Transport
-#ifdef SPLIT_KEYBOARD
-#define SOFT_SERIAL_PIN B6
-#define SPLIT_TRANSPORT_MIRROR
-#endif
-
 // RGB Matrix
 #ifdef RGB_MATRIX_ENABLE
 
 #ifdef SPLIT_KEYBOARD
 // 18 + 4 on each side
 #define DRIVER_LED_TOTAL 44
-#define RGBLED_NUM 44
+#define RGB_MATRIX_LED_COUNT 44
 #define RGB_MATRIX_SPLIT { 22,22 }
 #else
 #define DRIVER_LED_TOTAL 22
-#define RGBLED_NUM 22
+#define RGB_MATRIX_LED_COUNT 22
 #endif
 
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200
 #define RGB_MATRIX_KEYPRESSES
+
 #endif
 
 // OLED
-#ifdef OLED_DRIVER_ENABLE
+#ifdef OLED_ENABLE
 /* B8, B9 instead of B6, B7 */
-#define I2C1_SCL 8
-#define I2C1_SDA 9
+#define I2C1_SCL_PIN B8
+#define I2C1_SDA_PIN B9
 #endif

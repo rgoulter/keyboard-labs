@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MEDR] = LAYOUT( \
   _______, _______, _______, _______, _______,    RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,
   _______, _______, _______, _______, _______,    KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
-  _______, _______, _______, _______, _______,    QWERTY,  DVORAK,  _______, _______, _______,
+  _______, _______, _______, _______, _______,    QWERTY,  DVORAK,  _______, _______, QK_BOOT,
                     _______, _______, _______,    KC_MPLY, KC_MSTP, KC_MUTE
 ),
 

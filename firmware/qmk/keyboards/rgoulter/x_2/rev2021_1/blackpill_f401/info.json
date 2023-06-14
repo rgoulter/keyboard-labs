@@ -1,0 +1,14 @@
+{
+    "bootloader": "tinyuf2",
+    "processor": "STM32F401",
+    "features": {
+    },
+    "matrix_pins": {
+        "cols": [ "B12", "B13", "B14", "B15", "A8", "A15", "A3", "A4", "A5", "A6", "A7", "B1" ],
+        "rows": [ "A10", "B5", "B6", "B7", "B8" ]
+    },
+    "ws2812": {
+        "driver": "pwm",
+        "pin": "B0"
+    }
+}

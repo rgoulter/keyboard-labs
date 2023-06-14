@@ -1,0 +1,14 @@
+{
+    "bootloader": "stm32duino",
+    "processor": "STM32F103",
+    "features": {
+    },
+    "matrix_pins": {
+        "cols": [ "B12", "B13", "B14", "B15", "A8", "A15", "A4", "A5", "A6", "A7", "B0", "B10" ],
+        "rows": [ "A10", "B5", "B6", "B7", "B8" ]
+    },
+    "ws2812": {
+        "driver": "pwm",
+        "pin": "B1"
+    }
+}

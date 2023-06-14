@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MEDR] = LAYOUT_wrapper( \
   _______, _______, _______, _______, _______,    RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,
   _______, _______, _______, _______, _______,    ___SEG4_MED___, _______,
-  _______, _______, _______, _______, _______,    QWERTY,  DVORAK,  _______, _______, RESET,
+  _______, _______, _______, _______, _______,    QWERTY,  DVORAK,  _______, _______, QK_BOOT,
                     _______, _______, _______,    KC_MPLY, KC_MSTP, KC_MUTE
 ),
 
@@ -153,7 +153,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         return false;
 }
 
-#ifdef OLED_DRIVER_ENABLE
+#ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     oled_scroll_set_area(0, 0);
     oled_scroll_set_speed(0);

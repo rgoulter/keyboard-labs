@@ -1,4 +1,4 @@
-/* Copyright 2021 Richard Goulter
+/* Copyright 2021
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,15 +13,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#pragma once
 
-#include "minif4_36.h"
+// #include "config_common.h"
 
-#ifdef SPLIT_KEYBOARD
-#include "split_util.h"
+// Per the STM32F103x8 Datasheet,
+// Bluepill
+// PB1 has AF (default) TIM3_CH4
+#define WS2812_PWM_DRIVER PWMD3
+#define WS2812_PWM_CHANNEL 4
+// #define WS2812_PWM_PAL_MODE 2
+// Per RM0008, section 13.3.7,
+// Figure 50 shows TIM3_UP on "HW request 3".
+// Table 78 shows TIM3_UP on Channel 3.
+#define WS2812_DMA_STREAM STM32_DMA1_STREAM3
+#define WS2812_DMA_CHANNEL 3
 #endif
-
-void board_init(void) {
-    // B9 is configured as I2C1_SDA in the board file; that function must be
-    // disabled before using B7 as I2C1_SDA.
-    setPinInputHigh(B9);
-}

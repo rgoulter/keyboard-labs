@@ -1,0 +1,22 @@
+{
+    "board": "BLACKPILL_STM32_F401",
+    "bootloader": "tinyuf2",
+    "encoder": {
+        "rotary": [
+            { "pin_a": "A3", "pin_b": "B4" }
+        ]
+    },
+    "matrix_pins": {
+        "direct": [
+            ["B12",    "B15", "A9",  "A5",  "B3"],
+            ["B13",    "A8",  "A10", "A15", "B10"],
+            ["B14",    "B1",  "A6",  "A4",  "B5"],
+            [null,     "A7",  "A2",  "A0",  "C13"]
+        ]
+    },
+    "processor": "STM32F401",
+    "ws2812": {
+        "driver": "pwm",
+        "pin": "B0"
+    }
+}
