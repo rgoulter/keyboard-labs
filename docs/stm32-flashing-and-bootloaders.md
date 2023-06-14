@@ -4,6 +4,8 @@ In my experience, I have found this to be frequently unreliable and
 inconsistent/indiscernable behaviour considering computer, operating
 system, or particular board used.
 
+I see the [QMK Documentation page on the Blackpill](https://docs.qmk.fm/#/platformdev_blackpill_f4x1)[5] explains that this has to with its 25MHz crystal; and because my MiniF4-36 design uses the pin A10 without an external pull-up resistor.
+
 Not even "[hold the boot button for 2
 minutes](https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu)[4]"
 was enough to help.
@@ -46,3 +48,5 @@ the following bootloaders are suggested:
 [3] https://github.com/stm32duino/wiki/wiki/Upload-methods
 
 [4] https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu
+
+[5] https://docs.qmk.fm/#/platformdev_blackpill_f4x1
