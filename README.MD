@@ -161,8 +161,8 @@ Design goals:
 
 Pictures:
 
-<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-top.svg" width=280 />
-<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-bottom.svg" width=280 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-top.svg" width=600 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-bottom.svg" width=600 />
 
 _2D Renders of the PCB, revision rev2023.3_
 
