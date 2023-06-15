@@ -127,35 +127,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-enum combo_events {
-  DESKTOP_GO_LEFT,
-  DESKTOP_GO_RIGHT,
-  LEAD,
-};
-
-// can't be keys which have tap-hold
-const uint16_t PROGMEM dsk_lower_left_combo[] = {KC_J, KC_K, COMBO_END};
-// const uint16_t PROGMEM dsk_lower_left_combo[] = {LCTLT_E, LSFTT_U, COMBO_END};
-const uint16_t PROGMEM dsk_lower_right_combo[] = {KC_M, KC_W, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-  [DESKTOP_GO_LEFT] = COMBO_ACTION(dsk_lower_left_combo),
-  [DESKTOP_GO_RIGHT] = COMBO_ACTION(dsk_lower_right_combo),
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch(combo_index) {
-    case DESKTOP_GO_LEFT:
-      if (pressed) {
-        // macOS
-        tap_code16(LCTL(KC_LEFT));
-      }
-      break;
-    case DESKTOP_GO_RIGHT:
-      if (pressed) {
-        // macOS
-        tap_code16(LCTL(KC_RIGHT));
-      }
-      break;
-  }
-}

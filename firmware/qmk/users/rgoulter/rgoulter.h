@@ -144,3 +144,41 @@
 
 #define CODE16_WIN_UNDO C(KC_Y)
 #define CODE16_WIN_REDO C(KC_Z)
+
+enum custom_keycodes_user {
+  QUARTER = SAFE_RANGE,
+  OSLINUX,
+  OSMACOS,
+  OSWIN,
+  NEW_SAFE_RANGE,
+};
+
+enum host_os {
+  _OS_LINUX,
+  _OS_MACOS,
+  _OS_WIN,
+};
+typedef enum host_os host_os_t;
+
+extern host_os_t current_os;
+
+extern keypos_t boot_keypositions[4];
+
+#ifdef COMBO_ENABLE
+extern combo_t key_combos[COMBO_COUNT];
+
+enum combo_events {
+  DESKTOP_GO_LEFT,
+  DESKTOP_GO_RIGHT,
+  LEAD,
+};
+
+extern const uint16_t PROGMEM dsk_lower_left_combo[];
+extern const uint16_t PROGMEM dsk_lower_right_combo[];
+extern const uint16_t PROGMEM dsk_lower_lead_combo[];
+
+#define USER_KEY_COMBOS \
+  [DESKTOP_GO_LEFT] = COMBO_ACTION(dsk_lower_left_combo),   \
+  [DESKTOP_GO_RIGHT] = COMBO_ACTION(dsk_lower_right_combo), \
+  [LEAD] = COMBO_ACTION(dsk_lower_lead_combo)
+#endif

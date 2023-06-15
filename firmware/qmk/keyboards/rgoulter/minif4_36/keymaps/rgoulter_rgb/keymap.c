@@ -103,39 +103,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-#ifdef COMBO_ENABLE
-enum combo_events {
-  DESKTOP_GO_LEFT,
-  DESKTOP_GO_RIGHT,
-  LEAD,
-};
-
-// can't be keys which have tap-hold
-const uint16_t PROGMEM dsk_lower_left_combo[] = {KC_J, KC_K, COMBO_END};
-// const uint16_t PROGMEM dsk_lower_left_combo[] = {LCTLT_E, LSFTT_U, COMBO_END};
-const uint16_t PROGMEM dsk_lower_right_combo[] = {KC_M, KC_W, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-  [DESKTOP_GO_LEFT] = COMBO_ACTION(dsk_lower_left_combo),
-  [DESKTOP_GO_RIGHT] = COMBO_ACTION(dsk_lower_right_combo),
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch(combo_index) {
-    case DESKTOP_GO_LEFT:
-      if (pressed) {
-        tap_code16(CODE16_LINUX_DESKTOP_LEFT);
-      }
-      break;
-    case DESKTOP_GO_RIGHT:
-      if (pressed) {
-        tap_code16(CODE16_LINUX_DESKTOP_RIGHT);
-      }
-      break;
-  }
-}
-#endif
-
 void keyboard_post_init_user(void) {
 #ifdef RGB_MATRIX_ENABLE
   // rgb_matrix_mode_noeeprom(RGB_MATRIX_MULTISPLASH);
@@ -144,6 +111,7 @@ void keyboard_post_init_user(void) {
 #endif
 }
 
+#ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
         if (clockwise) {
             tap_code(KC_DOWN);
@@ -152,6 +120,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
         return false;
 }
+#endif
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {

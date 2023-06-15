@@ -1,3 +1,3 @@
 #pragma once
 
-#define COMBO_COUNT 2
+#define COMBO_COUNT USER_COMBO_EVENT_COUNT
