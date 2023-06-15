@@ -1,6 +1,15 @@
 kibot:
   version: 1
 
+filters:
+  - name: fix_rotation
+    comment: 'Adjust rotation for JLC'
+    type: rot_footprint
+    extend: false
+    rotations:
+      - ["^SOIC-8", 270.0]
+      - ["^USB_C_Receptacle", 180.0]
+
 outputs:
   - name: "gerber_zip"
     type: compress
@@ -83,4 +92,53 @@ outputs:
       width: 5120
       zoom: 7
       move_y: -2
+
+  - name: 'pcba_position'
+    comment: "Pick and place file, JLC style"
+    type: position
+    dir: "+pcba"
+    run_by_default: false
+    options:
+      output: '%f_cpl_jlc_%i.%x'
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: true
+      pre_transform: fix_rotation
+      only_smd: true
+      right_digits: 6
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
+
+  - name: 'pcba_bom'
+    comment: "BoM for JLC"
+    type: bom
+    dir: "+pcba"
+    run_by_default: false
+    options:
+      output: '%f_%i_jlc.%x'
+      ref_separator: ','
+      sort_style: 'ref'
+      columns:
+        - field: Value
+          name: Comment
+        - field: References
+          name: Designator
+        - Footprint
+        - field: 'LCSC'
+          name: 'LCSC'
+      csv:
+        hide_pcb_info: true
+        hide_stats_info: true
+        quote_all: true
 
