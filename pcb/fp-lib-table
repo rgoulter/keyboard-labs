@@ -2,5 +2,8 @@
   (lib (name Keebio-Parts)(type KiCad)(uri ${KIPRJMOD}/Keebio-Parts.pretty)(options "")(descr ""))
   (lib (name Switch_Keyboard_Hybrid)(type KiCad)(uri ${KIPRJMOD}/Switch_Keyboard/modules/Switch_Keyboard_Hybrid.pretty)(options "")(descr ""))
   (lib (name Switch_Keyboard_Kailh)(type KiCad)(uri ${KIPRJMOD}/Switch_Keyboard/modules/Switch_Keyboard_Kailh.pretty)(options "")(descr ""))
+  (lib (name "RP2040_minimal")(type "KiCad")(uri "${KIPRJMOD}/RP2040_minimal.pretty")(options "")(descr ""))
+  (lib (name "Mounting_Keyboard_Stabilizer")(type "KiCad")(uri "${KIPRJMOD}/Switch_Keyboard/library/footprints/Mounting_Keyboard_Stabilizer.pretty")(options "")(descr ""))
+  (lib (name "Switch_Keyboard_Cherry_MX")(type "KiCad")(uri "${KIPRJMOD}/Switch_Keyboard/library/footprints/Switch_Keyboard_Cherry_MX.pretty")(options "")(descr ""))
   (lib (name ProjectLocal)(type KiCad)(uri ${KIPRJMOD}/ProjectLocal.pretty)(options "")(descr ""))
 )

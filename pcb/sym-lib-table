@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name keebio)(type Legacy)(uri ${KIPRJMOD}/keebio-components/keebio.lib)(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi_RP2040")(type "Legacy")(uri "${KIPRJMOD}/MCU_RaspberryPi_RP2040.lib")(options "")(descr ""))
   (lib (name ProjectLocal)(type Legacy)(uri ${KIPRJMOD}/ProjectLocal.lib)(options "")(descr ""))
 )
