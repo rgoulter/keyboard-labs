@@ -10,11 +10,12 @@ Kicad source files are in `pcb`.
 Plotted gerber files can be found under the GitHub repository's
 [releases](https://github.com/rgoulter/keyboard-labs/releases/).
 
-| Designation | Summary/Keywords                                                                 | Image                                                                                                                                                 |
-|-------------|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| X-1         | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-mx-top.JPG) |
-| X-2         | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG)     |
-| X-2 HSRGB   | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", HotSwap, per-key RGB  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2-hsrgb_rev2022.1-front.JPG)     |
+| Designation  | Summary/Keywords                                                                       | Image                                                                                                                                                 |
+|--------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| X-1          | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED       | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-mx-top.JPG)                              |
+| X-2          | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG)                              |
+| X-2 HSRGB    | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", HotSwap, per-key RGB  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2-hsrgb_rev2022.1-front.JPG)   |
+| PyKey40 Lite | Planck-MIT (4x12, 1x2U), ortholinear, MX, BM40/JJ40-compatible, PCBA, no frills        |                                                                                                                                                       |
 
 #### X-1: 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
 
@@ -145,6 +146,25 @@ _X-2 HSRGB PCB assembled, view of the back._
 - [rev2021.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-x2-lumberjack-arm-rev2022.1.html)
 
 - [HSRGB, rev2022.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-x2-lumberjack-arm-hsrgb-rev2022.1.html)
+
+
+#### PyKey40 Lite: No-Frills Subset of the PyKey60 in BM40/JJ40 Form-Factor
+
+My first PCBA design.
+
+Takes jpconstantineau's [PyKey60](https://github.com/jpconstantineau/PyKey60),
+and arranges a no-frills (no RGB, no hotswap, no speaker) subset of it to be a drop in replacement for the BM40/JJ40 PCB.
+
+Design goals:
+
+- As this is my first PCBA design: a simple design that works.
+
+Pictures:
+
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-top.svg" width=280 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-bottom.svg" width=280 />
+
+_2D Renders of the PCB, revision rev2023.3_
 
 ## CAD Designs
 
