@@ -80,3 +80,12 @@ module gh60_layered_case(
         }
     }
 }
+
+$fn = 60;
+
+gh60_layered_case(
+    show_3D = false,
+    number_of_layers_above_pcb = 0,
+    number_of_layers_below_pcb = 1,
+    hole_for_usb_connector = false
+);

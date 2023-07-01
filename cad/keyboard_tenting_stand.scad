@@ -256,54 +256,32 @@ module arc_hull_with_screw_holes(
     }
 }
 
-let(
-    clearance = (use_puzzle_edge ? thickness * 3 : fold_allowance),
-    translate_lip_x = (base_width / 2) + clearance,
-    translate_side_y = (base_height / 2) + clearance,
-    edge_type = use_puzzle_edge ? "puzzle_piece" : "folded"
-) {
-    main_plate(
-        width = base_width,
-        height = base_height,
-        screw_hole_diameter = screw_hole_diameter,
-        rounded_corner_radius = rounded_corner_radius,
-        edge_type = edge_type
-    );
+// TODO this should be a module, so can use <>;
 
-    translate([translate_lip_x, 0]) {
-        plate_lip(
-            length = base_height,
-            rounded_corner_radius = rounded_corner_radius,
-            edge_type = edge_type,
-            height = lip_height
-        );
-    }
-
-    translate([0, translate_side_y]) {
-        arc_hull_with_screw_holes(
-            length = base_width,
+module keyboard_tenting_stand() {
+    let(
+        clearance = (use_puzzle_edge ? thickness * 3 : fold_allowance),
+        translate_lip_x = (base_width / 2) + clearance,
+        translate_side_y = (base_height / 2) + clearance,
+        edge_type = use_puzzle_edge ? "puzzle_piece" : "folded"
+    ) {
+        main_plate(
+            width = base_width,
+            height = base_height,
             screw_hole_diameter = screw_hole_diameter,
-            max_angle = tenting_side_angle,
-            edge_type = edge_type,
-            angle_increment = tenting_angle_increment
+            rounded_corner_radius = rounded_corner_radius,
+            edge_type = edge_type
         );
-    }
 
-    if (len(tenting_extra_pieces_angles) > 0) {
-        for (i = [1 : len(tenting_extra_pieces_angles)]) {
-            angle = tenting_extra_pieces_angles[i - 1];
-            translate([0, 150 * i]) {
-                arc_hull_with_screw_holes(
-                    length = base_width,
-                    screw_hole_diameter = screw_hole_diameter,
-                    max_angle = angle,
-                    drill_hole_count = 1
-                );
-            }
+        translate([translate_lip_x, 0]) {
+            plate_lip(
+                length = base_height,
+                rounded_corner_radius = rounded_corner_radius,
+                edge_type = edge_type,
+                height = lip_height
+            );
         }
-    }
 
-    mirror([0, 1, 0]) {
         translate([0, translate_side_y]) {
             arc_hull_with_screw_holes(
                 length = base_width,
@@ -327,21 +305,49 @@ let(
                 }
             }
         }
-    }
 
-    if (!use_puzzle_edge) {
-        // between main piece and the lip edge
-        translate([translate_lip_x - (fold_allowance / 2), 0]) {
-            square([fold_allowance, base_height - 1], center = true);
-        }
-
-        translate([0, translate_side_y - (fold_allowance / 2)]) {
-            square([base_height - 8, fold_allowance * 1.2], center = true);
-        }
         mirror([0, 1, 0]) {
+            translate([0, translate_side_y]) {
+                arc_hull_with_screw_holes(
+                    length = base_width,
+                    screw_hole_diameter = screw_hole_diameter,
+                    max_angle = tenting_side_angle,
+                    edge_type = edge_type,
+                    angle_increment = tenting_angle_increment
+                );
+            }
+
+            if (len(tenting_extra_pieces_angles) > 0) {
+                for (i = [1 : len(tenting_extra_pieces_angles)]) {
+                    angle = tenting_extra_pieces_angles[i - 1];
+                    translate([0, 150 * i]) {
+                        arc_hull_with_screw_holes(
+                            length = base_width,
+                            screw_hole_diameter = screw_hole_diameter,
+                            max_angle = angle,
+                            drill_hole_count = 1
+                        );
+                    }
+                }
+            }
+        }
+
+        if (!use_puzzle_edge) {
+            // between main piece and the lip edge
+            translate([translate_lip_x - (fold_allowance / 2), 0]) {
+                square([fold_allowance, base_height - 1], center = true);
+            }
+
             translate([0, translate_side_y - (fold_allowance / 2)]) {
                 square([base_height - 8, fold_allowance * 1.2], center = true);
+            }
+            mirror([0, 1, 0]) {
+                translate([0, translate_side_y - (fold_allowance / 2)]) {
+                    square([base_height - 8, fold_allowance * 1.2], center = true);
+                }
             }
         }
     }
 }
+
+keyboard_tenting_stand();

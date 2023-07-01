@@ -1,3 +1,6 @@
+// Describes the outline for a GH60-compatible PCB.
+// For use on the edge-cuts layer.
+
 height = 94.2;
 width = 285;
 
@@ -29,9 +32,7 @@ module hole(x, r) {
     }
 }
 
-$fn = 60;
-
-scale([1, -1, 1]) {
+module gh60_pcb_outline() {
     difference() {
         square([width, height], center = false);
 
@@ -65,4 +66,10 @@ scale([1, -1, 1]) {
             }
         }
     }
+}
+
+$fn = 60;
+
+scale([1, -1, 1]) {
+    gh60_pcb_outline();
 }

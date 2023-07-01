@@ -45,9 +45,7 @@ module square_with_rounded_corners(dim, r) {
     }
 }
 
-$fn = 60;
-
-scale([1, -1, 1]) {
+module jj40_pcb_outline() {
     union() {
         square_with_rounded_corners(dim = [pcb_width, pcb_height], r = corner_r);
 
@@ -80,4 +78,10 @@ scale([1, -1, 1]) {
             }
         }
     }
+}
+
+$fn = 60;
+
+scale([1, -1, 1]) {
+    jj40_pcb_outline();
 }

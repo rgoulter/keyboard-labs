@@ -114,5 +114,6 @@ module gh60_underpcb_support_plate() {
     }
 }
 
-*gh60_underpcb_support_plate();
+$fn = 60;
 
+gh60_underpcb_support_plate();
