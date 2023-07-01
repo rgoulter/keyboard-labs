@@ -142,3 +142,10 @@ outputs:
         hide_stats_info: true
         quote_all: true
 
+  - name: 'netlist'
+    comment: "Netlist for IBOM dependency"
+    type: netlist
+    dir: "."
+    run_by_default: false
+    options:
+      output: '%f.%x'

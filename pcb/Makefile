@@ -15,8 +15,11 @@ all: $(kibot_targets) $(ibom_targets)
 demo-usb-16pin-ibom:
 	true
 
+%.net:
+	kibot --board-file "$*.kicad_pcb" netlist
+
 .PHONY: keyboard-100x100-minif4-dual-rgb-reversible-ibom
-keyboard-100x100-minif4-dual-rgb-reversible-ibom:
+keyboard-100x100-minif4-dual-rgb-reversible-ibom: keyboard-100x100-minif4-dual-rgb-reversible.net
 	bash ../scripts/generate-x1-ibom-basic.sh
 	bash ../scripts/generate-x1-ibom.sh
 
