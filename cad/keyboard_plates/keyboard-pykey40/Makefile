@@ -6,5 +6,8 @@ dxfs := $(foreach plate,$(plates),$(plate).dxf)
 .PHONY: all
 all: $(svgs) $(dxfs)
 
-%.dxf %.svg: %.scad
+%.dxf: %.scad
+	openscad $< -o $@
+
+%.svg: %.scad
 	openscad $< -o $@
