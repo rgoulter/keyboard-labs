@@ -115,6 +115,8 @@
 #define CODE16_MACOS_DESKTOP_LEFT  LCTL(KC_LEFT)
 #define CODE16_MACOS_DESKTOP_RIGHT LCTL(KC_RIGHT)
 
+#define CODE16_MACOS_DESKTOP_LOCK LCTL(LGUI(KC_Q))
+
 #define CODE16_MACOS_CUT   LCMD(KC_X)
 #define CODE16_MACOS_COPY  LCMD(KC_C)
 #define CODE16_MACOS_PASTE LCMD(KC_V)
@@ -125,6 +127,8 @@
 // Linux, Gnome shell
 #define CODE16_LINUX_DESKTOP_LEFT  LCTL(LALT(KC_LEFT))
 #define CODE16_LINUX_DESKTOP_RIGHT LCTL(LALT(KC_RIGHT))
+
+#define CODE16_LINUX_DESKTOP_LOCK LGUI(KC_L)
 
 // n.b. these don't always work
 #define CODE16_LINUX_CUT   KC_CUT
@@ -137,6 +141,8 @@
 // Windows 10
 #define CODE16_WIN_DESKTOP_LEFT  LCTL(LGUI(KC_LEFT))
 #define CODE16_WIN_DESKTOP_RIGHT LCTL(LGUI(KC_RIGHT))
+
+#define CODE16_WIN_DESKTOP_LOCK LGUI(KC_L)
 
 #define CODE16_WIN_CUT   C(KC_X)
 #define CODE16_WIN_COPY  C(KC_C)
@@ -162,7 +168,9 @@ typedef enum host_os host_os_t;
 
 extern host_os_t current_os;
 
+#ifdef CORNER_RESET_ENABLE
 extern keypos_t boot_keypositions[4];
+#endif
 
 #ifdef COMBO_ENABLE
 extern combo_t key_combos[COMBO_COUNT];

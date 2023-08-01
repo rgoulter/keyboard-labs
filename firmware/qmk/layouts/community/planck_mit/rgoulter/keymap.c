@@ -19,6 +19,7 @@ enum layers {
   _RAISE,
   _RAISE2,
   _CHILDPROOF,
+  _CHECK,
   _NUMPAD,
   _ADJUST,
 };
@@ -26,6 +27,7 @@ enum layers {
 #define QWERTY     DF(_QWERTY)
 #define DVORAK     DF(_DVORAK)
 #define CHILDPROOF DF(_CHILDPROOF)
+#define CHECK DF(_CHECK)
 #define LOWER   MO(_LOWER)
 #define LOWER2   MO(_LOWER2)
 #define RAISE   MO(_RAISE)
@@ -119,6 +121,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LOWER,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RAISE \
 ),
 
+// CHECK
+//
+// Because mashing the keys of a mechanical keyboard can be fun,
+// especially for key-reactive RGB matrix effects.
+//
+// Pinky-outer-column
+[_CHECK] = LAYOUT_wrapper(
+    KC_1, ___SEG5_QWERTY_LHS_SIMPLE_1___,              ___SEG5_QWERTY_RHS_SIMPLE_1___, KC_X,
+    KC_2, ___SEG5_QWERTY_LHS_SIMPLE_2___,              ___SEG5_QWERTY_RHS_SIMPLE_2___, KC_Y,
+    KC_3, ___SEG5_QWERTY_LHS_SIMPLE_3___,              ___SEG5_QWERTY_RHS_SIMPLE_3___, KC_Z,
+    KC_4, KC_1, KC_2, KC_3, KC_4,            KC_5,     KC_7, KC_8, KC_9, KC_0, KC_W
+),
+
 [_NUMPAD] = LAYOUT_planck_mit( \
   _______, KC_7,    KC_8,    KC_9,   _______, _______, _______, _______, _______,    _______,    _______,    _______, \
   _______, KC_4,    KC_5,    KC_6,   _______, _______, _______, _______, _______,    _______,    _______,    _______, \
@@ -128,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ADJUST] =  LAYOUT_wrapper( \
   QK_BOOT, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, RGB_SPI, RGB_SPD, _______,
-  KC_CAPS, _______, _______, _______, _______, _______, _______, QWERTY,  XXXXXXX, DVORAK,  CHILDPROOF, XXXXXXX, \
+  KC_CAPS, _______, _______, _______, _______, _______, _______, QWERTY,  XXXXXXX, DVORAK,  CHILDPROOF, CHECK, \
   _______, _______, OSWIN,   OSMACOS, OSLINUX, _______, _______, ___SEG4_MED___, KC_MPLY, \
   _______, _______, _______, XXXXXXX, _______,     _______,      _______, XXXXXXX, _______, _______, _______ \
 )

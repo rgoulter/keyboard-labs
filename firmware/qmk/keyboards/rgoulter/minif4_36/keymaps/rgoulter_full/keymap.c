@@ -17,21 +17,27 @@
 
 #include "print.h"
 
+#ifdef HAPTIC_ENABLE
+#include "solenoid.h"
+#endif
+
 #include "rgoulter.h"
 
 // Defines names for use in layer keycodes and the keymap
 enum layers {
-  _DVORAK,
-  _QWERTY,
-  _CHILDPROOF,
-  _NAVR,
-  _MOUR,
-  _MEDR,
-  _NSL,
-  _NSSL,
-  _FUNL,
+    _DVORAK,
+    _QWERTY,
+    _CHECK,
+    _CHILDPROOF,
+    _NAVR,
+    _MOUR,
+    _MEDR,
+    _NSL,
+    _NSSL,
+    _FUNL,
 };
 
+#define CHECK     DF(_CHECK)
 #define DVORAK     DF(_DVORAK)
 #define QWERTY     DF(_QWERTY)
 #define CHILDPROOF     DF(_CHILDPROOF)
@@ -64,6 +70,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      TAB_MOUR, ESC_MEDR, SPC_NAVR,    BKSP_NSL, ENT_NSSL, DEL_FUNL
 ),
 
+[_CHECK] = LAYOUT_wrapper( \
+  ___SEG5_DVORAK_LHS_1___,                           ___SEG5_DVORAK_RHS_1___,
+  ___SEG5_DVORAK_LHS_2___,                           ___SEG5_DVORAK_RHS_2___,
+  ___SEG5_DVORAK_LHS_3___,                           ___SEG5_DVORAK_RHS_3___,
+                    KC_1, KC_2, KC_3, KC_4, KC_5, KC_6
+),
+
 // XXX: Different from Miryoku: Nav, RHS, upper: TBI the convenience cut/copy/paste and undo/redo
 [_NAVR] = LAYOUT_wrapper( \
   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
@@ -83,9 +96,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Different from Miryoku: Media layer, RHS: RGB doesn't follow Nav swap
 // Different from Miryoku: Media layer, RHS, non-nav column: no external power, no Bluetooth
 [_MEDR] = LAYOUT_wrapper( \
-  _______, _______, _______, _______, _______,    RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,
-  _______, _______, _______, _______, _______,    ___SEG4_MED___, _______,
-  _______, _______, _______, _______, _______,    QWERTY,  DVORAK,  _______, _______, QK_BOOT,
+  _______, _______, _______, HF_RST,  _______,    RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,
+  HF_BUZZ, HF_DWLU, HF_DWLD, HF_TOGG, HF_FDBK,    ___SEG4_MED___, _______,
+  _______, _______, _______, DB_TOGG, _______,    QWERTY,  DVORAK,  CHECK, _______, QK_BOOT,
                     _______, _______, _______,    KC_MPLY, KC_MSTP, KC_MUTE
 ),
 
@@ -116,19 +129,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 void keyboard_post_init_user(void) {
 #ifdef RGB_MATRIX_ENABLE
-  // rgb_matrix_mode_noeeprom(RGB_MATRIX_MULTISPLASH);
-  rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_PINWHEEL);
+    /* rgb_matrix_mode_noeeprom(RGB_MATRIX_MULTISPLASH); */
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_PINWHEEL);
+#endif
+#ifdef HAPTIC_ENABLE
+    solenoid_set_dwell(200);
 #endif
 }
 
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
-        if (clockwise) {
-            tap_code(KC_DOWN);
-        } else {
-            tap_code(KC_UP);
-        }
-        return false;
+    if (clockwise) {
+        tap_code(KC_DOWN);
+    } else {
+        tap_code(KC_UP);
+    }
+    return false;
 }
 #endif
 
@@ -148,27 +164,6 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return rotation;
 }
 
-// Use all 94 visible ASCII characters for testing.
-/*
-static void test_logo(void) {
-    uint8_t lines = oled_max_lines();
-    if (lines > 3) {
-        lines = 3;
-    }
-    uint8_t chars = oled_max_chars();
-    if (chars > 21) {
-        chars = 21;
-    }
-    for (uint8_t row = 0; row < lines; ++row) {
-        oled_set_cursor(0, row);
-        for (uint8_t col = 0; col < chars; ++col) {
-            oled_write_char(0x80 + 0x20 * row + col, false);
-        }
-    }
-}
-// */
-
-// *
 #define TEST_CHAR_COUNT ('~' - '!' + 1)
 
 static char get_test_char(uint8_t char_index) { return char_index + '!'; }
@@ -191,49 +186,9 @@ static void test_characters(void) {
     }
 }
 
-// */
 bool oled_task_user(void) {
-    // Host Keyboard Layer Status
-  // test_logo();
   test_characters();
-  /*
-    oled_clear();
-    oled_write(("Layer: "), false);
 
-    switch (get_highest_layer(layer_state)) {
-    case _DVORAK:
-            oled_write_ln(("Dvorak"), false);
-            break;
-    case _QWERTY:
-            oled_write_ln(("QWERTY"), false);
-            break;
-    case _CHILDPROOF:
-            oled_write_ln(("CHILDPROOF"), false);
-            break;
-    case _NAVR:
-            oled_write_ln(("NAVR"), false);
-            break;
-    case _MOUR:
-            oled_write_ln(("MOUR"), false);
-            break;
-    case _MEDR:
-            oled_write_ln(("MEDR"), false);
-            break;
-    case _NSL:
-            oled_write_ln(("NSL"), false);
-            break;
-    case _NSSL:
-            oled_write_ln(("NSSL"), false);
-            break;
-    case _FUNL:
-            oled_write_ln(("FUNL"), false);
-            break;
-        default:
-            // Or use the write_ln shortcut over adding '\n' to the end of your string
-            oled_write_ln(("Undefined"), false);
-    }
-
-  */
   return false;
 }
 #endif

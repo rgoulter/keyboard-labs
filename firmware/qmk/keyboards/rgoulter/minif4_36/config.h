@@ -38,3 +38,10 @@
 #define I2C1_SCL_PIN B8
 #define I2C1_SDA_PIN B9
 #endif
+
+
+#ifdef SPLIT_KEYBOARD
+#ifdef HAPTIC_ENABLE
+#define SPLIT_HAPTIC_ENABLE
+#endif
+#endif

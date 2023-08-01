@@ -1,4 +1,5 @@
 {
+    "board": "BLACKPILL_STM32_F401",
     "bootloader": "tinyuf2",
     "processor": "STM32F401",
     "features": {

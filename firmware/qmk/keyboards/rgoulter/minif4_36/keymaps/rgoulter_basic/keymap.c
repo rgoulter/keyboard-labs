@@ -17,6 +17,8 @@
 
 #include "print.h"
 
+#include "rgoulter.h"
+
 // Defines names for use in layer keycodes and the keymap
 enum layers {
   _DVORAK,
@@ -39,34 +41,6 @@ enum layers {
 #define BKSP_NSL   LT(_NSL, KC_BSPC)
 #define ENT_NSSL  LT(_NSSL, KC_ENT)
 #define DEL_FUNL  LT(_FUNL, KC_DEL)
-
-/* Home Row, outer column */
-#define LCTLESC LCTL_T(KC_ESC)
-#define RCTLENT RCTL_T(KC_ENT)
-
-/* Home Row Mods, Dvorak, LH */
-#define LALTT_A LALT_T(KC_A)
-#define LGUIT_O LGUI_T(KC_O)
-#define LCTLT_E LCTL_T(KC_E)
-#define LSFTT_U LSFT_T(KC_U)
-
-/* Home Row Mods, QWERTY, LH */
-// #define LALTT_A LALT_T(KC_A)
-#define LGUIT_S LGUI_T(KC_S)
-#define LCTLT_D LCTL_T(KC_D)
-#define LSFTT_F LSFT_T(KC_F)
-
-/* Home Row Mods, Dvorak, RH */
-#define RSFTT_H RSFT_T(KC_H)
-#define RCTLT_T RCTL_T(KC_T)
-#define RGUIT_N RGUI_T(KC_N)
-#define RALTT_S RALT_T(KC_S)
-
-/* Home Row Mods, QWERTY, RH */
-#define RSFTT_J RSFT_T(KC_J)
-#define RCTLT_K RCTL_T(KC_K)
-#define RGUIT_L RGUI_T(KC_L)
-#define RALTTSC RALT_T(KC_SCLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_DVORAK] = LAYOUT(

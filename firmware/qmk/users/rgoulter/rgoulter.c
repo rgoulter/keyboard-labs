@@ -5,6 +5,7 @@
 char quarter_count = 0;
 host_os_t current_os = _OS_LINUX;
 
+#ifdef CORNER_RESET_ENABLE
 __attribute__ ((weak))
 keypos_t boot_keypositions[4] = {
   { .col = 0, .row = 0 },
@@ -12,6 +13,7 @@ keypos_t boot_keypositions[4] = {
   { .col = MATRIX_COLS - 1, .row = 0 },
   { .col = MATRIX_COLS - 1, .row = MATRIX_ROWS - 1 },
 };
+#endif
 
 __attribute__ ((weak))
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
@@ -31,6 +33,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
+#ifdef CORNER_RESET_ENABLE
   for (int i = 0; i < 4; i += 1) {
     keypos_t boot_keypos = boot_keypositions[i];
     if (boot_keypos.col == record->event.key.col && boot_keypos.row == record->event.key.row) {
@@ -44,8 +47,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
     }
   }
+#endif
 
-  
   return process_record_keymap(keycode, record);
 }
 
@@ -112,10 +115,34 @@ __attribute__ ((weak))
 void leader_end_keymap(void) {
 }
 void leader_end_user(void) {
-  if (leader_sequence_one_key(KC_C)) {
+  if (leader_sequence_two_keys(KC_K, KC_C)) { // mnemonic: Kubernetes Ctl
     SEND_STRING("kubectl");
-  } else if (leader_sequence_one_key(KC_G)) {
+  } else if (leader_sequence_two_keys(KC_K, KC_G)) { // mnemonic: Kubernetes Get
+    SEND_STRING("kubectl get");
+  } else if (leader_sequence_three_keys(KC_K, KC_G, KC_P)) { // mnemonic: Kubernetes Get Pods
     SEND_STRING("kubectl get pods");
+  } else if (leader_sequence_two_keys(KC_N, KC_U)) { // mnemonic: Name, dvorak home row
+    SEND_STRING("rgoulter");
+  } else if (leader_sequence_two_keys(KC_N, KC_E)) { // mnemonic: Name, dvorak home row
+    SEND_STRING("richard.goulter");
+  } else if (leader_sequence_two_keys(KC_N, KC_O)) { // mnemonic: Name, dvorak home row
+    SEND_STRING("richardgoulter");
+  } else if (leader_sequence_two_keys(KC_H, KC_U)) { // mnemonic: Host, dvorak home row
+    SEND_STRING("gaming-pc");
+  } else if (leader_sequence_two_keys(KC_H, KC_E)) { // mnemonic: Host, dvorak home row
+    SEND_STRING("cloud-vm");
+  } else if (leader_sequence_one_key(KC_L)) {
+        switch(current_os) {
+          case _OS_LINUX:
+            tap_code16(CODE16_LINUX_DESKTOP_LOCK);
+            break;
+          case _OS_MACOS:
+            tap_code16(CODE16_MACOS_DESKTOP_LOCK);
+            break;
+          case _OS_WIN:
+            tap_code16(CODE16_WIN_DESKTOP_LOCK);
+            break;
+        }
   }
   leader_end_keymap();
 }

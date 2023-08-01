@@ -28,3 +28,7 @@
 #define WS2812_DMA_STREAM STM32_DMA1_STREAM2
 #define WS2812_DMA_CHANNEL 5
 #endif
+
+#ifdef HAPTIC_ENABLE
+#define SOLENOID_PIN A1
+#endif
