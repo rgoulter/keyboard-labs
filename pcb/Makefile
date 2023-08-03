@@ -5,7 +5,10 @@ ibom_targets := $(foreach board,$(boards),$(board)-ibom)
 kibot_targets := $(foreach board,$(boards),$(board)-kibot)
 
 .PHONY: all
-all: $(kibot_targets) $(ibom_targets)
+all: $(kibot_targets) iboms
+
+.PHONY: iboms
+iboms: $(ibom_targets)
 
 .PHONY: %-kibot
 %-kibot:
@@ -24,11 +27,13 @@ keyboard-100x100-minif4-dual-rgb-reversible-ibom: keyboard-100x100-minif4-dual-r
 	bash ../scripts/generate-x1-ibom.sh
 
 .PHONY: keyboard-x2-lumberjack-arm-ibom
-keyboard-x2-lumberjack-arm-ibom:
+keyboard-x2-lumberjack-arm-ibom: keyboard-x2-lumberjack-arm.net
 	bash ../scripts/generate-x2-ibom.sh
 
 .PHONY: keyboard-x2-lumberjack-arm-hsrgb-ibom
-keyboard-x2-lumberjack-arm-hsrgb-ibom:
+keyboard-x2-lumberjack-arm-hsrgb-ibom: keyboard-x2-lumberjack-arm-hsrgb.net
 	bash ../scripts/generate-x2-hsrgb-ibom.sh
 
-
+.PHONY: keyboard-pykey40-lite-ibom
+keyboard-pykey40-lite-ibom:
+	true
