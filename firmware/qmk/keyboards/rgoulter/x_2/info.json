@@ -12,7 +12,7 @@
         "extrakey": true,
         "mousekey": true,
         "nkro": true,
-        "rgblight": true,
+        "rgblight": false,
         "rgbmatrix": false
     },
     "url": "",
