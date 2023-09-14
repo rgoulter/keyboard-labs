@@ -5,6 +5,8 @@ pcb_width = 227;
 
 corner_r = 2.25;
 
+include_usb_connector = true;
+
 // Rect
 // Minus corner of R=corner_r
 // minus holes from outside
@@ -83,5 +85,9 @@ module jj40_pcb_outline() {
 $fn = 60;
 
 scale([1, -1, 1]) {
-    jj40_pcb_outline();
+    if (include_usb_connector) {
+        jj40_pcb_outline();
+    } else {
+        square_with_rounded_corners(dim = [pcb_width, pcb_height], r = corner_r);
+    }
 }
