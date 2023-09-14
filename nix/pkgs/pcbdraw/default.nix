@@ -39,6 +39,6 @@ with python3Packages;
       owner = "yaqwsx";
       repo = "PcbDraw";
       rev = "v${version}";
-      sha256 = "sha256-khSWaZxHMAAhnM8b7N3hkDONzeB+1KyeB1JEhCPycxE";
+      sha256 = "sha256-zMk5fZCDIu+XBwGcJ6NEFvyTUHA8pRtkLaZebW63t5A=";
     };
   }
