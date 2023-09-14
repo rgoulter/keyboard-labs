@@ -7,3 +7,6 @@
 [submodule "pcb/Switch_Keyboard"]
 	path = pcb/Switch_Keyboard
 	url = https://github.com/perigoso/Switch_Keyboard.git
+[submodule "pcb/KiCad-RP-Pico"]
+	path = pcb/KiCad-RP-Pico
+	url = https://github.com/ncarandini/KiCad-RP-Pico.git
