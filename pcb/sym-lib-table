@@ -3,4 +3,5 @@
   (lib (name "keebio")(type "KiCad")(uri "${KIPRJMOD}/keebio-components/keebio.kicad_sym")(options "")(descr ""))
   (lib (name "MCU_RaspberryPi_RP2040")(type "KiCad")(uri "${KIPRJMOD}/MCU_RaspberryPi_RP2040.kicad_sym")(options "")(descr ""))
   (lib (name "ProjectLocal")(type "KiCad")(uri "${KIPRJMOD}/ProjectLocal.kicad_sym")(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi_and_Boards")(type "KiCad")(uri "${KIPRJMOD}/KiCad-RP-Pico/RP-Pico Libraries/MCU_RaspberryPi_and_Boards.kicad_sym")(options "")(descr ""))
 )
