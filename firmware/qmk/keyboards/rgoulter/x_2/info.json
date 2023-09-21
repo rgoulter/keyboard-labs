@@ -160,7 +160,7 @@
             "solid_splash": false,
             "solid_multisplash": false
         },
-        "driver": "WS2812",
+        "driver": "ws2812",
         "max_brightness": 100,
         "layout": [
             {"x": 96,  "y": 48, "flags": 8},
