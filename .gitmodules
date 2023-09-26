@@ -10,3 +10,9 @@
 [submodule "pcb/KiCad-RP-Pico"]
 	path = pcb/KiCad-RP-Pico
 	url = https://github.com/ncarandini/KiCad-RP-Pico.git
+[submodule "cad/lib/dimensional-drawings"]
+	path = cad/lib/dimensional-drawings
+	url = https://github.com/pwpearson/dimensional-drawings.git
+[submodule "cad/lib/OpenSCAD_3D_Text_Generator"]
+	path = cad/lib/OpenSCAD_3D_Text_Generator
+	url = https://github.com/pwpearson/OpenSCAD_3D_Text_Generator.git
