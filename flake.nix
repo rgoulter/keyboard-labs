@@ -32,6 +32,8 @@
         qmk-pykey40-rgoulter-pinkieoutercolumn = qmk.pykey40-rgoulter-pinkieoutercolumn;
         qmk-x_2-rev2021_1-bluepill = qmk.x_2-rev2021_1-bluepill;
 
+        uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
+
         docker-kibot-kicad = import ./scripts/docker-kibot.nix {
           pkgs = pkgs;
           tag = "kicad-7";
