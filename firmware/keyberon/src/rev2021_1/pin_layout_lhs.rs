@@ -7,6 +7,7 @@ use stm32f4xx_hal::gpio::{gpioa, gpiob, gpioc, Input, PullUp};
 use crate::direct_pin_matrix::{
     DirectPins,
     PressedKeys5x4,
+    PressedKeys,
 };
 
 pub struct DirectPins5x4(
@@ -66,13 +67,13 @@ pub fn direct_pin_matrix_for_peripherals(
     )
 }
 
-impl DirectPins for DirectPins5x4 {
+impl DirectPins<5, 4> for DirectPins5x4 {
     fn get(&self) -> Result<PressedKeys5x4, Infallible> {
         let row1 = &self.0;
         let row2 = &self.1;
         let row3 = &self.2;
         let row4 = &self.3;
-        Ok(PressedKeys5x4([
+        Ok(PressedKeys([
             [
                 row1.0.is_low(),
                 row1.1.is_low(),

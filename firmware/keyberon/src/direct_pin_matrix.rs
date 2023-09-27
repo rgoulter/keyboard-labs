@@ -2,18 +2,25 @@
 
 use core::convert::Infallible;
 
-#[derive(Default, PartialEq, Eq)]
-pub struct PressedKeys5x4(pub [[bool; 5]; 4]);
+#[derive(PartialEq, Eq)]
+pub struct PressedKeys<const COLS: usize, const ROWS: usize>(pub [[bool; COLS]; ROWS]);
 
-impl<'a> IntoIterator for &'a PressedKeys5x4 {
-    type IntoIter = core::slice::Iter<'a, [bool; 5]>;
-    type Item = &'a [bool; 5];
+pub type PressedKeys5x4 = PressedKeys<5, 4>;
+
+impl<const COLS: usize, const ROWS: usize> Default for PressedKeys<COLS, ROWS> {
+    fn default() -> Self {
+        Self([[false; COLS]; ROWS])
+    }
+}
+
+impl<'a, const COLS: usize, const ROWS: usize> IntoIterator for &'a PressedKeys<COLS, ROWS> {
+    type IntoIter = core::slice::Iter<'a, [bool; COLS]>;
+    type Item = &'a [bool; COLS];
     fn into_iter(self) -> Self::IntoIter {
         self.0.iter()
     }
 }
 
-pub trait DirectPins {
-    fn get(&self) -> Result<PressedKeys5x4, Infallible>;
+pub trait DirectPins<const COLS: usize, const ROWS: usize> {
+    fn get(&self) -> Result<PressedKeys<COLS, ROWS>, Infallible>;
 }
-
