@@ -4,11 +4,14 @@
 // set the panic handler
 use panic_halt as _;
 
+use core::convert::Infallible;
+
 use keyberon::debounce::Debouncer;
 use keyberon::key_code::{KbHidReport, KeyCode};
 use rtic::app;
 use stm32f4xx_hal::delay::Delay;
-use stm32f4xx_hal::gpio::{EPin, Input, Output, PullUp, PushPull};
+use stm32f4xx_hal::gpio::{Input, PullUp};
+use stm32f4xx_hal::gpio::gpioa;
 use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
 use stm32f4xx_hal::pac::TIM5;
 use stm32f4xx_hal::prelude::*;
@@ -16,16 +19,22 @@ use stm32f4xx_hal::{pac, timer};
 use usb_device::bus::UsbBusAllocator;
 use usb_device::class::UsbClass as _;
 
-use keyberon::key_code::KeyCode::A;
-
 use keyboard_labs_keyberon::common::{
     UsbClass,
     UsbDevice,
 };
-use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
+use keyboard_labs_keyberon::direct_pin_matrix::{
+    DirectPins,
+    PressedKeys1x1,
+    PressedKeys,
+};
 
-type Layers = keyberon::layout::Layers<1, 1, 1, ()>;
-type Layout = keyberon::layout::Layout<1, 1, 1, ()>;
+const COLS: usize = 1;
+const ROWS: usize = 1;
+const NUM_LAYERS: usize = 1;
+
+type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, ()>;
+type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, ()>;
 
 pub static LAYERS: Layers = keyberon::layout::layout! {
     {
@@ -33,13 +42,30 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
     }
 };
 
+pub struct DirectPins1x1(
+    pub  (
+        gpioa::PA0<Input<PullUp>>,
+    )
+);
+
+impl DirectPins<COLS, ROWS> for DirectPins1x1 {
+    fn get(&self) -> Result<PressedKeys1x1, Infallible> {
+        let row1 = &self.0;
+        Ok(PressedKeys([
+            [
+                row1.0.is_low(),
+            ],
+        ]))
+    }
+}
+
 #[app(device = stm32f4xx_hal::pac, peripherals = true)]
 const APP: () = {
     struct Resources {
         usb_dev: UsbDevice,
         usb_class: UsbClass,
-        matrix: DelayedMatrix<EPin<Input<PullUp>>, EPin<Output<PushPull>>, 1, 1>,
-        debouncer: Debouncer<[[bool; 1]; 1]>,
+        direct_pins: DirectPins1x1,
+        debouncer: Debouncer<PressedKeys1x1>,
         layout: Layout,
         timer: timer::CountDownTimer<pac::TIM3>,
     }
@@ -77,16 +103,8 @@ const APP: () = {
         timer.listen(timer::Event::TimeOut);
 
         let delay: Delay<TIM5> = Delay::<TIM5>::tim5(c.device.TIM5, &clocks);
-        let matrix = DelayedMatrix::new(
-            [
-                gpiob.pb0.into_pull_up_input().erase(),  // col0
-            ],
-            [
-                gpioa.pa7.into_push_pull_output().erase(), // row1
-            ],
-            delay,
-            5, // select pin delay
-            5, // unselect pin delay
+        let direct_pins = DirectPins1x1(
+            (gpioa.pa0.into_pull_up_input(),),
         );
 
         init::LateResources {
@@ -94,8 +112,8 @@ const APP: () = {
             usb_class,
             timer,
             // 1x1 debouncer
-            debouncer: Debouncer::new([[false; 1]; 1], [[false; 1]; 1], 25),
-            matrix: matrix.unwrap(),
+            debouncer: Debouncer::new(PressedKeys1x1::default(), PressedKeys1x1::default(), 5),
+            direct_pins,
             layout: Layout::new(&LAYERS),
         }
     }
@@ -110,7 +128,7 @@ const APP: () = {
         usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
     }
 
-    #[task(binds = TIM3, priority = 1, resources = [usb_class, matrix, debouncer, layout, timer])]
+    #[task(binds = TIM3, priority = 1, resources = [usb_class, direct_pins, debouncer, layout, timer])]
     fn tick(mut c: tick::Context) {
         c.resources.timer.clear_interrupt(timer::Event::TimeOut);
 
@@ -118,7 +136,7 @@ const APP: () = {
         let events = c
             .resources
             .debouncer
-            .events(c.resources.matrix.get().unwrap());
+            .events(c.resources.direct_pins.get().unwrap());
 
         for event in events
         {

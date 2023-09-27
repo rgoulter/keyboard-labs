@@ -6,6 +6,7 @@ use core::convert::Infallible;
 pub struct PressedKeys<const COLS: usize, const ROWS: usize>(pub [[bool; COLS]; ROWS]);
 
 pub type PressedKeys5x4 = PressedKeys<5, 4>;
+pub type PressedKeys1x1 = PressedKeys<1, 1>;
 
 impl<const COLS: usize, const ROWS: usize> Default for PressedKeys<COLS, ROWS> {
     fn default() -> Self {
