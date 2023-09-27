@@ -56,6 +56,9 @@ plate_top_edge = top_extra + sw_1_1_pcb_margin[1];
 plate_rhs_edge = rhs_extra + sw_12_4_pcb_margin_width;
 plate_btm_edge = btm_extra + sw_12_4_pcb_margin_height;
 
+// 0: PyKey40 (47 key, 2U space), 1: Ortho 4x12, 2: Pico42
+render_plate = 0;
+
 echo("switch plate extra: left:", lhs_extra, "right:", rhs_extra);
 echo("switch plate extra: top:", top_extra, "bottom:", btm_extra);
 
@@ -67,7 +70,7 @@ assert(switch_plate_dim[1] < case_inner_dim[1], "inner height");
 assert(plate_lhs_edge == plate_rhs_edge);
 assert(plate_top_edge == plate_btm_edge);
 
-module corner(r) {
+module corner(r = corner_r) {
     difference() {
         square(r, center = false);
         translate([r, r]) {
@@ -76,11 +79,12 @@ module corner(r) {
     }
 }
 
-module switch_cutout(w = 1) {
-    translate([-sw_cutout_halfwidth, -sw_cutout_halfwidth]) {
+module switch_cutout(w = 1, width = 2 * sw_cutout_halfwidth) {
+    halfwidth = width / 2;
+    translate([-halfwidth, -halfwidth]) {
         square([
-            2 * sw_cutout_halfwidth + (w - 1) * sw_offset,
-            2 * sw_cutout_halfwidth
+            width + (w - 1) * sw_offset,
+            width
         ]);
     }
 }
@@ -114,7 +118,7 @@ module square_with_rounded_corners(dim, r) {
     }
 }
 
-module jj40_switch_plate() {
+module jj40_switch_plate(space_2u = true) {
     difference() {
         translate(switch_plate_offset) {
             square_with_rounded_corners(switch_plate_dim, r = corner_r);
@@ -135,9 +139,9 @@ module jj40_switch_plate() {
         translate(sw_1_1_offset) {
             for (row = [0:3], column = [0:11]) {
                 translate([column, row] * sw_offset) {
-                    if (row == 3 && column == 5) {
+                    if (space_2u && row == 3 && column == 5) {
                         switch_cutout(w = 2);
-                    } else if (row == 3 && column == 6) {
+                    } else if (space_2u && row == 3 && column == 6) {
                     } else {
                         switch_cutout();
                     }
@@ -147,6 +151,39 @@ module jj40_switch_plate() {
     }
 }
 
+// pico is the same as jj40,
+// but there's a cutout for the top 3 rows in the central 2 columns,
+// for the pico dev board.
+module pico42_switch_plate() {
+    difference() {
+        jj40_switch_plate(space_2u = false);
+
+        translate(sw_1_1_offset + sw_offset * [5 - 0.5, -0.5]) {
+            cutout_width = sw_offset * 2;
+            cutout_height = sw_offset * 3;
+            translate([0, -50]) {
+                square_with_rounded_corners(dim = [cutout_width, cutout_height + 50], r = 0.5);
+            }
+            translate([0, -0.65]) {
+                rotate(90) {
+                    corner();
+                }
+            }
+            translate([cutout_width, -0.65]) {
+                rotate(0) {
+                    corner();
+                }
+            }
+        }
+    }
+}
+
 scale([1, -1, 1]) {
-    jj40_switch_plate();
+    if (render_plate == 0) {
+        jj40_switch_plate(space_2u = true);
+    } else if (render_plate == 1) {
+        jj40_switch_plate(space_2u = false);
+    } else if (render_plate == 2) {
+        pico42_switch_plate();
+    }
 }
