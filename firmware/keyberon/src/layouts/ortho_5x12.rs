@@ -68,12 +68,17 @@ const LWR_ESC: Action = HoldTap {
     tap:  &k(Escape),
 };
 
+pub const COLS: usize = 12;
+pub const ROWS: usize = 5;
+pub const ROWS_AND_MACROS: usize = ROWS + 1;
+pub const NUM_LAYERS: usize = 11;
+
 // Columns = 12
 // Rows = 5 physical + 1 virtual for chords
 // Layers = 11
 // Custom action type = ()
-pub type Layers = keyberon::layout::Layers<12, 6, 11, ()>;
-pub type Layout = keyberon::layout::Layout<12, 6, 11, ()>;
+pub type Layers = keyberon::layout::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS, ()>;
+pub type Layout = keyberon::layout::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS, ()>;
 
 #[rustfmt::skip]
 pub static LAYERS: Layers = keyberon::layout::layout! {

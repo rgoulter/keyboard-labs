@@ -22,7 +22,7 @@ use keyboard_labs_keyberon::common::{
     UsbClass,
     UsbDevice,
 };
-use keyboard_labs_keyberon::layouts::ortho_5x12::{CHORDS, LAYERS, Layout};
+use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
 use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
 
 #[app(device = stm32f4xx_hal::pac, peripherals = true)]
@@ -30,8 +30,8 @@ const APP: () = {
     struct Resources {
         usb_dev: UsbDevice,
         usb_class: UsbClass,
-        matrix: DelayedMatrix<EPin<Input<PullUp>>, EPin<Output<PushPull>>, 12, 5>,
-        debouncer: Debouncer<[[bool; 12]; 5]>,
+        matrix: DelayedMatrix<EPin<Input<PullUp>>, EPin<Output<PushPull>>, COLS, ROWS>,
+        debouncer: Debouncer<[[bool; COLS]; ROWS]>,
         layout: Layout,
         chording: Chording<2>,
         timer: timer::CountDownTimer<pac::TIM3>,
@@ -102,7 +102,7 @@ const APP: () = {
             usb_class,
             timer,
             // 5x12 debouncer
-            debouncer: Debouncer::new([[false; 12]; 5], [[false; 12]; 5], 25),
+            debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
             matrix: matrix.unwrap(),
             layout: Layout::new(&LAYERS),
             chording: Chording::new(&CHORDS),
