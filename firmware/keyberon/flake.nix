@@ -77,6 +77,11 @@
             "${keyberon-firmware-elf}/bin/x_2-rev2021_1" \
             "--output-target" "binary" \
             "$out/bin/x_2-rev2021_1.bin"
+
+          ${pkgs.cargo-binutils}/bin/rust-objcopy \
+            "${keyberon-firmware-elf}/bin/stm32f4-onekey" \
+            "--output-target" "binary" \
+            "$out/bin/stm32f4-onekey.bin"
         '';
 
         keyberon-firmware-uf2 = pkgs.runCommand "" {} ''
@@ -102,6 +107,13 @@
             --base 0x8010000 \
             --output=$out/bin/x_2-rev2021_1.uf2 \
             ${keyberon-firmware-bin}/bin/x_2-rev2021_1.bin
+
+          ${uf2conv}/bin/uf2conv \
+            --convert \
+            --family=STM32F4 \
+            --base 0x8010000 \
+            --output=$out/bin/stm32f4-onekey.uf2 \
+            ${keyberon-firmware-bin}/bin/stm32f4-onekey.bin
         '';
       };
     });
