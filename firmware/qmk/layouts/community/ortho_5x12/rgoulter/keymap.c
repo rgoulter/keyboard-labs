@@ -25,26 +25,12 @@ enum layers {
 };
 
 enum custom_keycodes {
-  QUARTER = SAFE_RANGE,
-  OSLINUX,
-  OSMACOS,
-  OSWIN,
-  U_CUT,
+  U_CUT = NEW_SAFE_RANGE,
   U_COPY,
   U_PASTE,
   U_UNDO,
   U_REDO,
 };
-
-enum host_os {
-  _OS_LINUX,
-  _OS_MACOS,
-  _OS_WIN,
-};
-typedef enum host_os host_os_t;
-
-char quarter_count = 0;
-host_os_t current_os = _OS_LINUX;
 
 #define QWERTY     DF(_QWERTY)
 #define DVORAK     DF(_DVORAK)
@@ -235,19 +221,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   bool pressed = record->event.pressed;
   switch (keycode) {
-  case OSLINUX:
-    current_os = _OS_LINUX;
-    return false;
-  case OSMACOS:
-    current_os = _OS_MACOS;
-    return false;
-  case OSWIN:
-    current_os = _OS_WIN;
-    return false;
-
   case U_CUT:
     if (pressed) {
       switch(current_os) {
@@ -324,17 +300,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return false;
 
-  case QUARTER:
-    // corner
-    if (record->event.pressed) {
-      quarter_count += 1;
-    } else {
-      quarter_count -= 1;
-    }
-    if (quarter_count == 4) {
-      reset_keyboard();
-    }
-    return false;
   }
   return true;
 }
@@ -343,75 +308,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // RAW_EPSIZE is 32
 void raw_hid_receive(uint8_t *data, uint8_t length) {
     raw_hid_send(data, length);
-}
-
-enum combo_events {
-  DESKTOP_GO_LEFT,
-  DESKTOP_GO_RIGHT,
-  LEAD,
-};
-
-// Combo keys can't (couldn't?) be keys which have tap-hold functionality.
-
-// Dvorak, JK is LHS, Lower
-const uint16_t PROGMEM dsk_lower_left_combo[] = {KC_J, KC_K, COMBO_END};
-// Dvorak, MW is RHS, Lower
-const uint16_t PROGMEM dsk_lower_right_combo[] = {KC_M, KC_W, COMBO_END};
-// Dvorak, ;Q is LHS, Lower-left
-const uint16_t PROGMEM dsk_lower_lead_combo[] = {KC_SCLN, KC_Q, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-  [DESKTOP_GO_LEFT] = COMBO_ACTION(dsk_lower_left_combo),
-  [DESKTOP_GO_RIGHT] = COMBO_ACTION(dsk_lower_right_combo),
-  [LEAD] = COMBO_ACTION(dsk_lower_lead_combo),
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch(combo_index) {
-    case DESKTOP_GO_LEFT:
-      if (pressed) {
-        switch(current_os) {
-          case _OS_LINUX:
-            tap_code16(CODE16_LINUX_DESKTOP_LEFT);
-            break;
-          case _OS_MACOS:
-            tap_code16(CODE16_MACOS_DESKTOP_LEFT);
-            break;
-          case _OS_WIN:
-            tap_code16(CODE16_WIN_DESKTOP_LEFT);
-            break;
-        }
-      }
-      break;
-    case DESKTOP_GO_RIGHT:
-      if (pressed) {
-        switch(current_os) {
-          case _OS_LINUX:
-            tap_code16(CODE16_LINUX_DESKTOP_RIGHT);
-            break;
-          case _OS_MACOS:
-            tap_code16(CODE16_MACOS_DESKTOP_RIGHT);
-            break;
-          case _OS_WIN:
-            tap_code16(CODE16_WIN_DESKTOP_RIGHT);
-            break;
-        }
-      }
-      break;
-    case LEAD:
-      if (pressed) {
-        leader_start();
-      }
-      break;
-  }
-}
-
-void leader_end_user(void) {
-    if (leader_sequence_one_key(KC_C)) {
-      SEND_STRING("kubectl");
-    } else if (leader_sequence_one_key(KC_G)) {
-      SEND_STRING("kubectl get pods");
-    }
 }
 
 void keyboard_post_init_user(void) {
