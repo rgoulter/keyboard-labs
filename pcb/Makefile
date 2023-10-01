@@ -37,3 +37,7 @@ keyboard-x2-lumberjack-arm-hsrgb-ibom: keyboard-x2-lumberjack-arm-hsrgb.net
 .PHONY: keyboard-pykey40-lite-ibom
 keyboard-pykey40-lite-ibom:
 	true
+
+.PHONY: keyboard-pico42-ibom
+keyboard-pico42-ibom: keyboard-pico42.net
+	bash ../scripts/generate-pico42-ibom.sh
