@@ -14,8 +14,11 @@ EXPECT_BRANCH="rgoulter-keyboards-and-layouts"
 
 SYNC_DIRS=(
   keyboards/rgoulter/
+  layouts/community/ortho_5x12/rgoulter/
   layouts/community/planck_mit/rgoulter/
-  layouts/community/planck_mit/rgoulter/
+  layouts/community/split_3x5_3/rgoulter/
+  layouts/community/split_3x5_3/rgoulter-basic/
+  layouts/community/split_3x5_3/rgoulter-rgb_only/
   users/rgoulter/
 )
 
@@ -28,5 +31,6 @@ if [ "${ACTUAL_BRANCH}" != "${EXPECT_BRANCH}" ]; then
 fi
 
 for DIR in "${SYNC_DIRS[@]}"; do
+  mkdir -p "${DEST}/${DIR}"
   rsync --recursive --delete "${QMK_FIRMWARE}/${DIR}" "${DEST}/${DIR}"
 done
