@@ -27,7 +27,7 @@
         bootloader-stm32f401-tinyuf2 = bootloaders.tinyuf2.stm32f401;
         bootloader-stm32f411-tinyuf2 = bootloaders.tinyuf2.stm32f411;
         qmk-bm40hsrgb-rgoulter = qmk.bm40hsrgb-rgoulter;
-        qmk-minif4_36-rev2021_5-blackpill_f401-rgoulter_full = qmk.minif4_36-rev2021_5-blackpill_f401-rgoulter_full;
+        qmk-minif4_36-rev2021_5-blackpill_f401-rgoulter = qmk.minif4_36-rev2021_5-blackpill_f401-rgoulter;
         qmk-pykey40-rgoulter = qmk.pykey40-rgoulter;
         qmk-pykey40-rgoulter-pinkieoutercolumn = qmk.pykey40-rgoulter-pinkieoutercolumn;
         qmk-x_2-rev2021_1-bluepill = qmk.x_2-rev2021_1-bluepill;

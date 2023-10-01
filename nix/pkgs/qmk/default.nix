@@ -11,9 +11,9 @@ in {
     keymap = "rgoulter";
     output_extension = "hex";
   };
-  minif4_36-rev2021_5-blackpill_f401-rgoulter_full = compile {
+  minif4_36-rev2021_5-blackpill_f401-rgoulter = compile {
     keyboard = "rgoulter/minif4_36/rev2021_5/blackpill_f401";
-    keymap = "rgoulter_full";
+    keymap = "rgoulter";
   };
   pykey40-rgoulter = compile {
     keyboard = "rgoulter/pykey40";
