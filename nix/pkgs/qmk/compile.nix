@@ -11,7 +11,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "${keyboard}:${keymap}";
-  version = "0.21.1";
+  version = "0.22.10";
 
   doCheck = false;
 
@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
     owner = "qmk";
     repo = "qmk_firmware";
     rev = version;
-    sha256 = "sha256-flR3sjynN25pkGGlxY7pCjYzSP/+civbXNiQtuZi7xM";
+    sha256 = "sha256-GHkcOulb0jM2y5DkOU4izEdQvzyv9uFa93kPWfxVUvc=";
     fetchSubmodules = true;
   };
 
