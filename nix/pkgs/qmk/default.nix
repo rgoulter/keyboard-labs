@@ -15,6 +15,10 @@ in {
     keyboard = "rgoulter/minif4_36/rev2021_5/blackpill_f401";
     keymap = "rgoulter";
   };
+  pico42-rgoulter-basic = compile {
+    keyboard = "rgoulter/pico42";
+    keymap = "rgoulter-basic";
+  };
   pykey40-rgoulter = compile {
     keyboard = "rgoulter/pykey40";
     keymap = "rgoulter";
