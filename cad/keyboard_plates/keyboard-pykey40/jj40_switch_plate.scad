@@ -8,11 +8,11 @@ $fn = 60;
 // 0: PyKey40 (47 key, 2U space), 1: Ortho 4x12, 2: Pico42
 render_plate = 0;
 
-module switch_cutout(w = 1, width = 2 * SW_CUTOUT_HALFWIDTH, sw_offset = SW_OFFSET) {
+module switch_cutout(w = 1, width = 2 * SW_CUTOUT_HALFWIDTH, switch_grid_unit = SWITCH_GRID_UNIT) {
     halfwidth = width / 2;
     translate([-halfwidth, -halfwidth]) {
         square([
-            width + (w - 1) * sw_offset,
+            width + (w - 1) * switch_grid_unit,
             width
         ]);
     }
@@ -26,7 +26,7 @@ module jj40_switch_plate(
     pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
     pcb_mounting_hole_dia = 4,
     sw_1_1_offset = SW_1_1_OFFSET,
-    sw_offset = SW_OFFSET
+    switch_grid_unit = SWITCH_GRID_UNIT
 ) {
     difference() {
         translate(switch_plate_offset) {
@@ -42,7 +42,7 @@ module jj40_switch_plate(
 
         translate(sw_1_1_offset) {
             for (row = [0:3], column = [0:11]) {
-                translate([column, row] * sw_offset) {
+                translate([column, row] * switch_grid_unit) {
                     if (space_2u && row == 3 && column == 5) {
                         switch_cutout(w = 2);
                     } else if (space_2u && row == 3 && column == 6) {
@@ -65,7 +65,7 @@ module pico42_switch_plate(
     pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
     pcb_mounting_hole_dia = 4,
     sw_1_1_offset = SW_1_1_OFFSET,
-    sw_offset = SW_OFFSET
+    switch_grid_unit = SWITCH_GRID_UNIT
 ) {
     difference() {
         jj40_switch_plate(
@@ -76,21 +76,21 @@ module pico42_switch_plate(
             pcb_mounting_hole_positions = pcb_mounting_hole_positions,
             pcb_mounting_hole_dia = 4,
             sw_1_1_offset = sw_1_1_offset,
-            sw_offset = sw_offset
+            switch_grid_unit = switch_grid_unit
         );
 
-        translate(sw_1_1_offset + sw_offset * [5 - 0.5, -0.5]) {
-            cutout_width = sw_offset * 2;
-            cutout_height = sw_offset * 3;
+        translate(sw_1_1_offset + switch_grid_unit * [5 - 0.5, -0.5]) {
+            cutout_width = switch_grid_unit * 2;
+            cutout_height = switch_grid_unit * 3;
             translate([0, -50]) {
                 square_with_rounded_corners(dim = [cutout_width, cutout_height + 50], r = 0.5);
             }
-            translate([0, (sw_offset / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
+            translate([0, (switch_grid_unit / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
                 rotate(90) {
                     corner(r = corner_r);
                 }
             }
-            translate([cutout_width, (sw_offset / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
+            translate([cutout_width, (switch_grid_unit / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
                 rotate(0) {
                     corner(r = corner_r);
                 }

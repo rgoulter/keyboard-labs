@@ -22,7 +22,7 @@ SW_1_1_OFFSET = [7.5, 8.5];
 PCB_MOUNTING_HOLE_POSITIONS = [[17, 18], [208, 18], [208, 56], [17, 56], [112, 37]];
 PCB_MOUNTING_HOLE_DIA = 2.2;
 
-SW_OFFSET = 19.05;
+SWITCH_GRID_UNIT = 19.05;
 
 switch_grid_cols = 12;
 switch_grid_rows = 4;
@@ -46,7 +46,7 @@ SWITCH_PLATE_DIM = [switch_plate_width, switch_plate_height];
 
 // Middle of the grid of switches on the PCB
 // relative to pcb origin (top-left).
-pcb_switch_grid_center = SW_1_1_OFFSET + ((switch_grid_dim - [1, 1]) / 2) * SW_OFFSET;
+pcb_switch_grid_center = SW_1_1_OFFSET + ((switch_grid_dim - [1, 1]) / 2) * SWITCH_GRID_UNIT;
 
 // Middle of the switch plate
 // relative to switch plate origin (top-left).
@@ -59,8 +59,8 @@ echo("switch plate offset", SWITCH_PLATE_OFFSET);
 
 // margin between the pcb's right edge, and the right hand edge of switch cutout
 // (used for assertions)
-sw_12_4_pcb_margin_width = PCB_DIM[0] - sw_1_1_pcb_margin[0] - (12 - 1) * SW_OFFSET - 2 * SW_CUTOUT_HALFWIDTH;
-sw_12_4_pcb_margin_height = PCB_DIM[1] - sw_1_1_pcb_margin[1] - (4 - 1) * SW_OFFSET - 2 * SW_CUTOUT_HALFWIDTH;
+sw_12_4_pcb_margin_width = PCB_DIM[0] - sw_1_1_pcb_margin[0] - (12 - 1) * SWITCH_GRID_UNIT - 2 * SW_CUTOUT_HALFWIDTH;
+sw_12_4_pcb_margin_height = PCB_DIM[1] - sw_1_1_pcb_margin[1] - (4 - 1) * SWITCH_GRID_UNIT - 2 * SW_CUTOUT_HALFWIDTH;
 
 // The 'extra' dimensions of the switch plate, relative to the PCB
 // (used for assertions)
