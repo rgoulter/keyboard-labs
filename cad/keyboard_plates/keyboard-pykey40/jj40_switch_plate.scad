@@ -18,6 +18,7 @@ module switch_cutout(w = 1, width = 2 * SW_CUTOUT_HALFWIDTH, switch_grid_unit = 
     }
 }
 
+// uses PCB's origin as the origin
 module jj40_switch_plate(
     space_2u = true,
     switch_plate_dim = SWITCH_PLATE_DIM,
@@ -58,6 +59,8 @@ module jj40_switch_plate(
 // pico is the same as jj40,
 // but there's a cutout for the top 3 rows in the central 2 columns,
 // for the pico dev board.
+//
+// uses PCB's origin as the origin
 module pico42_switch_plate(
     switch_plate_dim = SWITCH_PLATE_DIM,
     pcb_switch_plate_position = PCB_SWITCH_PLATE_POSITION,

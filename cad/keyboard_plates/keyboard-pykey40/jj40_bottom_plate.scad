@@ -5,6 +5,7 @@ include <common.scad>
 
 $fn = 60;
 
+// uses PCB's origin as the origin
 module jj40_bottom_plate(
     switch_plate_dim = SWITCH_PLATE_DIM,
     pcb_switch_plate_position = PCB_SWITCH_PLATE_POSITION,
