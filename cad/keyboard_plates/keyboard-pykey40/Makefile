@@ -4,7 +4,16 @@ svgs := $(foreach plate,$(plates),$(plate).svg)
 dxfs := $(foreach plate,$(plates),$(plate).dxf)
 
 .PHONY: all
-all: $(svgs) $(dxfs)
+all: $(svgs) $(dxfs) pico42_switch_plate
+
+pico42_switch_plate.dxf: jj40_switch_plate.scad
+	openscad $< -D render_plate=2 -o $@
+
+pico42_switch_plate.svg: jj40_switch_plate.scad
+	openscad $< -D render_plate=2 -o $@
+
+.PHONY: pico42_switch_plate
+pico42_switch_plate: pico42_switch_plate.dxf pico42_switch_plate.svg
 
 %.dxf: %.scad
 	openscad $< -o $@
