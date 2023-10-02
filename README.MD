@@ -16,6 +16,7 @@ Plotted gerber files can be found under the GitHub repository's
 | [X-2](#x-2-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb)          | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG)                              |
 | [X-2 HSRGB](#x-2-hsrgb-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb-with-hotswap-and-per-key-rgb)    | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", HotSwap, per-key RGB  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2-hsrgb_rev2022.1-front.JPG)   |
 | [PyKey40 Lite](#pykey40-lite-no-frills-subset-of-the-pykey60-in-bm40jj40-form-factor) | Planck-MIT (4x12, 1x2U), ortholinear, MX, BM40/JJ40-compatible, PCBA, no frills        |                                                                                                                                                       |
+| [Pico42](#pico42-simple-hand-solderable-pcb-in-bm40jj40-form-factor) | ortholinear, MX/choc, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG) |
 
 #### X-1: 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
 
@@ -165,6 +166,53 @@ Pictures:
 <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-bottom.svg" width=600 />
 
 _2D Renders of the PCB, revision rev2023.3_
+
+#### Pico42: Simple Hand-Solderable PCB in BM40/JJ40 Form-Factor
+
+A very simple, hand-solderable PCB which uses the Raspberry Pi Pico dev board.
+
+I made this design because in my first attempt at designing a CNC case for the PyKey40,
+I put the cutout for the USB connector in the wrong place.
+Having a design which doesn't use a USB connector underneath the PCB works around this.
+
+The form factor encourages the thumbs to use 2-3 keys each (and rely on the pinky fingers less).
+
+Design goals:
+
+- Simple, hand-solderable PCB.
+
+- Uses Raspberry Pi Pico devboard. / Doesn't use USB connector underneath PCB.
+
+- Same mounting holes as JJ40/BM40/PyKey40.
+
+Pictures:
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG" width=600 />
+
+_Pico42 PCB assembled with MX switches, in a low profile aluminium case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case-front.JPG" width=600 />
+
+_Height of the Pico mounted on round-pin male headers in female headers._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-choc_sandwich.JPG" width=600 />
+
+_Pico42 PCB assembled with Kailh Choc switches, in a sandwich case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-sandwich_bottom.JPG" width=600 />
+
+_Underside of the Pico42 in a sandwich style case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/keyboard-pico42-2023.1-bottom.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/keyboard-pico42-2023.1-top.svg" width=600 />
+
+_2D Renders of the PCB, revision rev2023.1_
+
+###### Build Guides
+
+- [rev2023.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-pico42-rev2023.1.html)
+
+- [rev2023.1 Build Guide Notes](docs/buildguide-keyboard_pico42-rev2023.1.md)
 
 ## CAD Designs
 
