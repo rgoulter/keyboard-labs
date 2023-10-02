@@ -7,13 +7,13 @@ $fn = 60;
 
 module jj40_bottom_plate(
     switch_plate_dim = SWITCH_PLATE_DIM,
-    switch_plate_offset = SWITCH_PLATE_OFFSET,
+    pcb_switch_plate_position = PCB_SWITCH_PLATE_POSITION,
     corner_r = CORNER_R,
     pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
     pcb_mounting_hole_dia = PCB_MOUNTING_HOLE_DIA
 ) {
     difference() {
-        translate(switch_plate_offset) {
+        translate(pcb_switch_plate_position) {
             square_with_rounded_corners(switch_plate_dim, r = corner_r);
         }
 

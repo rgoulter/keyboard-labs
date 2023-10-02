@@ -53,9 +53,9 @@ pcb_switch_grid_center = PCB_SW_1_1_POSITION + ((switch_grid_dim - [1, 1]) / 2) 
 switch_plate_switch_grid_center = SWITCH_PLATE_DIM / 2;
 
 // Hence, the switch plate's origin relative to the PCB's origin
-SWITCH_PLATE_OFFSET = pcb_switch_grid_center - switch_plate_switch_grid_center;
+PCB_SWITCH_PLATE_POSITION = pcb_switch_grid_center - switch_plate_switch_grid_center;
 
-echo("switch plate offset", SWITCH_PLATE_OFFSET);
+echo("switch plate position (relative to pcb origin)", PCB_SWITCH_PLATE_POSITION);
 
 // margin between the pcb's right edge, and the right hand edge of switch cutout
 // (used for assertions)
@@ -64,8 +64,8 @@ pcb_sw_12_4_margin_height = PCB_DIM[1] - pcb_sw_1_1_margin[1] - (4 - 1) * SWITCH
 
 // The 'extra' dimensions of the switch plate, relative to the PCB
 // (used for assertions)
-switch_plate_pcb_margin_left = -SWITCH_PLATE_OFFSET[0];
-switch_plate_pcb_margin_top  = -SWITCH_PLATE_OFFSET[1];
+switch_plate_pcb_margin_left = -PCB_SWITCH_PLATE_POSITION[0];
+switch_plate_pcb_margin_top  = -PCB_SWITCH_PLATE_POSITION[1];
 switch_plate_pcb_margin_right  = SWITCH_PLATE_DIM[0] - PCB_DIM[0] - switch_plate_pcb_margin_left;
 switch_plate_pcb_margin_bottom = SWITCH_PLATE_DIM[1] - PCB_DIM[1] - switch_plate_pcb_margin_top;
 
