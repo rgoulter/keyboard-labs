@@ -256,8 +256,20 @@ An OpenSCAD module which helps for modelling the layers for a layered acrylic ca
 
 Source files under `firmware`.
 
-There is keyboard firmware written in Rust using the [keyberon](https://github.com/TeXitoi/keyberon)
-firmware.
+[QMK](https://qmk.fm/) is the most practical firmware I've used for small
+keyboards.  I maintain firmware for my keyboards and my layouts in a [downstream
+GitHub
+repository](https://github.com/rgoulter/qmk_firmware/tree/rgoulter-keyboards-and-layouts)
+on the branch `rgoulter-keyboards-and-layouts`. (This branch will get rebased
+onto qmk's `develop` branch from time to time). My code will get synced into the `firmware/qmk` directories.
+
+There is some code for the CircuitPy keyboard firmware
+[KMK](https://github.com/KMKfw/kmk_firmware).  (Although, at the time of
+writing, KMK doesn't handle home row modifiers well, so IMO it's less suitable for
+small keyboards as-is).
+
+There is also keyboard firmware written in Rust using the [keyberon](https://github.com/TeXitoi/keyberon)
+firmware under `firmware/keyberon`.
 
 
 
