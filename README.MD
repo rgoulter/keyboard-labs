@@ -47,16 +47,16 @@ _X-1, rev2021.5, Choc variation, low-profile (with flipped GD-32 Bluepill devboa
 
 _Height comparison between low-profile build (with Choc switches) and with sandwich-case._
 
-<img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/photo-keyboard-x-1-mx-tented.JPG" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1-mx-tented.JPG" width=600 />
 
 _Tented._
 
-<img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/photo-keyboard-x-1-underside.JPG" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1-underside.JPG" width=600 />
 
 _Showing the underside of the PCB through the acrylic bottom layer._
 
-<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-top.svg" width=280 />
-<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-bottom.svg" width=280 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-top.svg" width=280 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboard-100x100-minif4-dual-rgb-reversible-2021.5-bottom.svg" width=280 />
 
 _2D Renders of the PCB, revision rev2021.5_
 

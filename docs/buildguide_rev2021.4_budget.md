@@ -65,7 +65,7 @@ as nice despite taking more effort.
 
 # Required Materials
 
-<img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/buildlog-rev2021.4-minimal/bom-soldering-switches.JPG" />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/bom-soldering-switches.JPG" />
 
 - 2x PCBs
 - 6x 2.4k Ohm 1/4W through-hole resistors
@@ -99,7 +99,7 @@ rather than socketing.
 
 # Required Soldering Tools
 
-<img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
 
 - Soldering iron.
   - Even a very cheap one will do.
@@ -154,7 +154,7 @@ For each half:
     at R1, R2.
 
     <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/1-resistors-placed.JPG" />
-    <img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/buildlog-rev2021.4-minimal/1-resistors-placed-bottom.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/1-resistors-placed-bottom.JPG" />
 
     To work around
     [qmk/qmk_firmware#7855](https://github.com/qmk/qmk_firmware/issues/7855),
@@ -183,7 +183,7 @@ For each half:
     Take care to protect your eyes when using the flush cutters
     (e.g. by wearing safety glasses).
 
-    <img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/buildlog-rev2021.4-minimal/2-resistors-soldered-bottom.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/2-resistors-soldered-bottom.JPG" />
 
 3. *For the Right-Hand Side PCB only*: On the top-side of the PCB, use solder to bridge JP1 and JP2
     to either 1 or 3.
