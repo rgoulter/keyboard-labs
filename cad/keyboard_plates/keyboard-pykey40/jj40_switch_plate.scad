@@ -25,7 +25,7 @@ module jj40_switch_plate(
     corner_r = CORNER_R,
     pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
     pcb_mounting_hole_dia = 4,
-    sw_1_1_offset = SW_1_1_OFFSET,
+    pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
     switch_grid_unit = SWITCH_GRID_UNIT
 ) {
     difference() {
@@ -40,7 +40,7 @@ module jj40_switch_plate(
             }
         }
 
-        translate(sw_1_1_offset) {
+        translate(pcb_sw_1_1_position) {
             for (row = [0:3], column = [0:11]) {
                 translate([column, row] * switch_grid_unit) {
                     if (space_2u && row == 3 && column == 5) {
@@ -64,7 +64,7 @@ module pico42_switch_plate(
     corner_r = CORNER_R,
     pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
     pcb_mounting_hole_dia = 4,
-    sw_1_1_offset = SW_1_1_OFFSET,
+    pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
     switch_grid_unit = SWITCH_GRID_UNIT
 ) {
     difference() {
@@ -75,22 +75,22 @@ module pico42_switch_plate(
             corner_r = corner_r,
             pcb_mounting_hole_positions = pcb_mounting_hole_positions,
             pcb_mounting_hole_dia = 4,
-            sw_1_1_offset = sw_1_1_offset,
+            pcb_sw_1_1_position = pcb_sw_1_1_position,
             switch_grid_unit = switch_grid_unit
         );
 
-        translate(sw_1_1_offset + switch_grid_unit * [5 - 0.5, -0.5]) {
+        translate(pcb_sw_1_1_position + switch_grid_unit * [5 - 0.5, -0.5]) {
             cutout_width = switch_grid_unit * 2;
             cutout_height = switch_grid_unit * 3;
             translate([0, -50]) {
                 square_with_rounded_corners(dim = [cutout_width, cutout_height + 50], r = 0.5);
             }
-            translate([0, (switch_grid_unit / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
+            translate([0, (switch_grid_unit / 2) - pcb_sw_1_1_position[1] + switch_plate_offset[1]]) {
                 rotate(90) {
                     corner(r = corner_r);
                 }
             }
-            translate([cutout_width, (switch_grid_unit / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
+            translate([cutout_width, (switch_grid_unit / 2) - pcb_sw_1_1_position[1] + switch_plate_offset[1]]) {
                 rotate(0) {
                     corner(r = corner_r);
                 }

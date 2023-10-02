@@ -16,7 +16,7 @@ PCB_DIM = [pcb_width, pcb_height];
 
 // measured
 // relative to PCB origin (top-left of PCB)
-SW_1_1_OFFSET = [7.5, 8.5];
+PCB_SW_1_1_POSITION = [7.5, 8.5];
 
 // measured from BM40 PCB
 PCB_MOUNTING_HOLE_POSITIONS = [[17, 18], [208, 18], [208, 56], [17, 56], [112, 37]];
@@ -37,7 +37,7 @@ FOOT_HOLE_DIA = 4.1;
 SW_CUTOUT_HALFWIDTH = 7;
 
 // margin between the pcb's left edge, and the left hand edge of switch cutout
-sw_1_1_pcb_margin = SW_1_1_OFFSET - [SW_CUTOUT_HALFWIDTH, SW_CUTOUT_HALFWIDTH];
+sw_1_1_pcb_margin = PCB_SW_1_1_POSITION - [SW_CUTOUT_HALFWIDTH, SW_CUTOUT_HALFWIDTH];
 
 // c.f. case_inner_width; 0.5 smaller
 switch_plate_width = 230.5;
@@ -46,7 +46,7 @@ SWITCH_PLATE_DIM = [switch_plate_width, switch_plate_height];
 
 // Middle of the grid of switches on the PCB
 // relative to pcb origin (top-left).
-pcb_switch_grid_center = SW_1_1_OFFSET + ((switch_grid_dim - [1, 1]) / 2) * SWITCH_GRID_UNIT;
+pcb_switch_grid_center = PCB_SW_1_1_POSITION + ((switch_grid_dim - [1, 1]) / 2) * SWITCH_GRID_UNIT;
 
 // Middle of the switch plate
 // relative to switch plate origin (top-left).
