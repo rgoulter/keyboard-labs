@@ -2,13 +2,11 @@
 
 This document is a guide for soldering the Pico42 keyboard.
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG" />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG" width="600" />
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-choc_sandwich.JPG" />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-choc_sandwich.JPG" width="600" />
 
 # Required Materials
-
-<img src="https://github.com/rgoulter/keyboard-labs/blob/master/docs/images/buildlog-rev2021.4-minimal/bom-soldering-switches.JPG" />
 
 - 1x PCB
 - 1x Raspberry Pi "Pico" development board
