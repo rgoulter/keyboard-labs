@@ -1,51 +1,11 @@
 // definition for the PCB outline for the edge cuts layer for the PCB.
 
-pcb_height = 75;
-pcb_width = 227;
+include <jj40_constants.scad>
+use <common.scad>
 
-corner_r = 2.25;
+$fn = 60;
 
 include_usb_connector = true;
-
-// Rect
-// Minus corner of R=corner_r
-// minus holes from outside
-
-module corner(r) {
-    difference() {
-        square(r, center = false);
-        translate([r, r]) {
-            circle(r);
-        }
-    }
-}
-
-module square_with_rounded_corners(dim, r) {
-    difference() {
-        square(dim, center = false);
-
-        translate([0, 0]) {
-            rotate(0) {
-                corner(r);
-            }
-        }
-        translate([dim[0], 0]) {
-            rotate(90) {
-                corner(r);
-            }
-        }
-        translate(dim) {
-            rotate(180) {
-                corner(r);
-            }
-        }
-        translate([0, dim[1]]) {
-            rotate(270) {
-                corner(r);
-            }
-        }
-    }
-}
 
 module jj40_pcb_outline() {
     union() {
@@ -81,8 +41,6 @@ module jj40_pcb_outline() {
         }
     }
 }
-
-$fn = 60;
 
 scale([1, -1, 1]) {
     if (include_usb_connector) {
