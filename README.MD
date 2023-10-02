@@ -197,6 +197,8 @@ Design goals:
 
 - Same mounting holes as JJ40/BM40/PyKey40.
 
+- Same pinout as PyKey40 (PyKey60).
+
 Pictures:
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG" width=600 />
