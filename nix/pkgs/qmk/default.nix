@@ -15,6 +15,13 @@ in {
     keyboard = "rgoulter/minif4_36/rev2021_5/blackpill_f401";
     keymap = "rgoulter";
   };
+  pico42-manna-harbour_miryoku = compile {
+    keyboard = "rgoulter/pico42";
+    keymap = "manna-harbour_miryoku";
+    env = [
+      "FORCE_LAYOUT=split_3x5_3"
+    ];
+  };
   pico42-rgoulter-basic = compile {
     keyboard = "rgoulter/pico42";
     keymap = "rgoulter-basic";
