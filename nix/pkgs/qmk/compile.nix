@@ -6,6 +6,7 @@
 }: {
   keyboard,
   keymap,
+  env ? [],
   extra_files ? ../../../firmware/qmk,
   output_extension ? "uf2",
 }:
@@ -27,8 +28,10 @@ stdenv.mkDerivation rec {
     cp -r ${extra_files}/* .
   '';
 
-  buildPhase = ''
-    ${qmk}/bin/qmk compile --keyboard ${keyboard} --keymap ${keymap}
+  buildPhase = let
+    envArg = lib.strings.concatMapStrings (e: " --env " + e) env;
+  in ''
+    ${qmk}/bin/qmk compile --keyboard ${keyboard} --keymap ${keymap} ${envArg}
   '';
 
   installPhase = ''
