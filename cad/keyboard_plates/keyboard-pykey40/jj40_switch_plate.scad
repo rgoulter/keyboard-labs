@@ -18,7 +18,15 @@ module switch_cutout(w = 1, width = 2 * sw_cutout_halfwidth) {
     }
 }
 
-module jj40_switch_plate(space_2u = true) {
+module jj40_switch_plate(
+    space_2u = true,
+    switch_plate_dim = switch_plate_dim,
+    switch_plate_offset = switch_plate_offset,
+    corner_r = corner_r,
+    pcb_mounting_hole_positions = pcb_mounting_hole_positions,
+    pcb_mounting_hole_dia = 4,
+    sw_1_1_offset = sw_1_1_offset
+) {
     difference() {
         translate(switch_plate_offset) {
             square_with_rounded_corners(switch_plate_dim, r = corner_r);
@@ -27,7 +35,7 @@ module jj40_switch_plate(space_2u = true) {
         // D=4, so screwdriver can be used to mount PCB to case
         for (pt = pcb_mounting_hole_positions) {
             translate(pt) {
-                circle(d = 4);
+                circle(d = pcb_mounting_hole_dia);
             }
         }
 
@@ -49,9 +57,24 @@ module jj40_switch_plate(space_2u = true) {
 // pico is the same as jj40,
 // but there's a cutout for the top 3 rows in the central 2 columns,
 // for the pico dev board.
-module pico42_switch_plate() {
+module pico42_switch_plate(
+    switch_plate_dim = switch_plate_dim,
+    switch_plate_offset = switch_plate_offset,
+    corner_r = corner_r,
+    pcb_mounting_hole_positions = pcb_mounting_hole_positions,
+    pcb_mounting_hole_dia = 4,
+    sw_1_1_offset = sw_1_1_offset
+) {
     difference() {
-        jj40_switch_plate(space_2u = false);
+        jj40_switch_plate(
+            space_2u = false,
+            switch_plate_dim = switch_plate_dim,
+            switch_plate_offset = switch_plate_offset,
+            corner_r = corner_r,
+            pcb_mounting_hole_positions = pcb_mounting_hole_positions,
+            pcb_mounting_hole_dia = 4,
+            sw_1_1_offset = sw_1_1_offset
+        );
 
         translate(sw_1_1_offset + sw_offset * [5 - 0.5, -0.5]) {
             cutout_width = sw_offset * 2;

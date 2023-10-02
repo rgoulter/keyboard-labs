@@ -5,7 +5,13 @@ include <common.scad>
 
 $fn = 60;
 
-module jj40_bottom_plate() {
+module jj40_bottom_plate(
+    switch_plate_dim = switch_plate_dim,
+    switch_plate_offset = switch_plate_offset,
+    corner_r = corner_r,
+    pcb_mounting_hole_positions = pcb_mounting_hole_positions,
+    pcb_mounting_hole_dia = pcb_mounting_hole_dia
+) {
     difference() {
         translate(switch_plate_offset) {
             square_with_rounded_corners(switch_plate_dim, r = corner_r);
@@ -23,7 +29,7 @@ module jj40_bottom_plate() {
             %circle(d = foot_dia);
             circle(d = foot_hole_dia);
         }
-        translate([switch_plate_width - foot_offset_x, foot_offset_y]) {
+        translate([switch_plate_dim[0] - foot_offset_x, foot_offset_y]) {
             %circle(d = foot_dia);
             circle(d = foot_hole_dia);
         }

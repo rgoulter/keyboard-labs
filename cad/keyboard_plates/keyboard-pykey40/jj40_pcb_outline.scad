@@ -7,13 +7,17 @@ $fn = 60;
 
 include_usb_connector = true;
 
-module jj40_pcb_outline() {
+module jj40_pcb_outline(
+    pcb_dim = pcb_dim,
+    corner_r = corner_r,
+    usb_offset_mid_x = 31.5,
+) {
     union() {
-        square_with_rounded_corners(dim = [pcb_width, pcb_height], r = corner_r);
+        square_with_rounded_corners(dim = pcb_dim, r = corner_r);
 
         // USB Connector
         extraW = 2;
-        translate([31.5 - (extraW / 2), -2]) {
+        translate([usb_offset_mid_x - (extraW / 2), -2]) {
             w = 9 + extraW;
             difference() {
                 square([w, 4], center = false);
@@ -46,6 +50,6 @@ scale([1, -1, 1]) {
     if (include_usb_connector) {
         jj40_pcb_outline();
     } else {
-        square_with_rounded_corners(dim = [pcb_width, pcb_height], r = corner_r);
+        square_with_rounded_corners(dim = pcb_dim, r = corner_r);
     }
 }

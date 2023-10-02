@@ -9,12 +9,14 @@ use <common.scad>
 
 $fn = 60;
 
-module jj40_bottom_plate_pcb() {
+module jj40_bottom_plate_pcb(
+    pcb_dim = pcb_dim,
+    corner_r = corner_r,
+    pcb_mounting_hole_positions = pcb_mounting_hole_positions,
+    pcb_mounting_hole_dia = pcb_mounting_hole_dia
+) {
     difference() {
-        union() {
-            square_with_rounded_corners(dim = [pcb_width, pcb_height], r = corner_r)
-            square(, center = false);
-        }
+        square_with_rounded_corners(dim = pcb_dim, r = corner_r)
 
         for (pt = pcb_mounting_hole_positions) {
             translate(pt) {
@@ -28,7 +30,7 @@ module jj40_bottom_plate_pcb() {
             %circle(d = foot_dia);
             circle(d = foot_hole_dia);
         }
-        translate([pcb_width - foot_offset_x, foot_offset_y]) {
+        translate([pcb_dim[0] - foot_offset_x, foot_offset_y]) {
             %circle(d = foot_dia);
             circle(d = foot_hole_dia);
         }
