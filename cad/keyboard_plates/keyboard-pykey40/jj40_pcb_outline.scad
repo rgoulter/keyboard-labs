@@ -8,8 +8,8 @@ $fn = 60;
 include_usb_connector = true;
 
 module jj40_pcb_outline(
-    pcb_dim = pcb_dim,
-    corner_r = corner_r,
+    pcb_dim = PCB_DIM,
+    corner_r = CORNER_R,
     usb_offset_mid_x = 31.5,
 ) {
     union() {
@@ -50,6 +50,6 @@ scale([1, -1, 1]) {
     if (include_usb_connector) {
         jj40_pcb_outline();
     } else {
-        square_with_rounded_corners(dim = pcb_dim, r = corner_r);
+        square_with_rounded_corners(dim = PCB_DIM, r = CORNER_R);
     }
 }

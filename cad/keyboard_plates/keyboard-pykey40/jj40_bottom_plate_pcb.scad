@@ -10,10 +10,10 @@ use <common.scad>
 $fn = 60;
 
 module jj40_bottom_plate_pcb(
-    pcb_dim = pcb_dim,
-    corner_r = corner_r,
-    pcb_mounting_hole_positions = pcb_mounting_hole_positions,
-    pcb_mounting_hole_dia = pcb_mounting_hole_dia
+    pcb_dim = PCB_DIM,
+    corner_r = CORNER_R,
+    pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
+    pcb_mounting_hole_dia = PCB_MOUNTING_HOLE_DIA
 ) {
     difference() {
         square_with_rounded_corners(dim = pcb_dim, r = corner_r)
@@ -27,12 +27,12 @@ module jj40_bottom_plate_pcb(
         foot_offset_x = 32;
         foot_offset_y = 12;
         translate([0 + foot_offset_x, foot_offset_y]) {
-            %circle(d = foot_dia);
-            circle(d = foot_hole_dia);
+            %circle(d = FOOT_DIA);
+            circle(d = FOOT_HOLE_DIA);
         }
         translate([pcb_dim[0] - foot_offset_x, foot_offset_y]) {
-            %circle(d = foot_dia);
-            circle(d = foot_hole_dia);
+            %circle(d = FOOT_DIA);
+            circle(d = FOOT_HOLE_DIA);
         }
     }
 }
