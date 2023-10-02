@@ -82,12 +82,12 @@ module pico42_switch_plate(
             translate([0, -50]) {
                 square_with_rounded_corners(dim = [cutout_width, cutout_height + 50], r = 0.5);
             }
-            translate([0, -0.65]) {
+            translate([0, (sw_offset / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
                 rotate(90) {
                     corner(r = corner_r);
                 }
             }
-            translate([cutout_width, -0.65]) {
+            translate([cutout_width, (sw_offset / 2) - sw_1_1_offset[1] + switch_plate_offset[1]]) {
                 rotate(0) {
                     corner(r = corner_r);
                 }
