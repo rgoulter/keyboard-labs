@@ -37,7 +37,7 @@ FOOT_HOLE_DIA = 4.1;
 SW_CUTOUT_HALFWIDTH = 7;
 
 // margin between the pcb's left edge, and the left hand edge of switch cutout
-sw_1_1_pcb_margin = PCB_SW_1_1_POSITION - [SW_CUTOUT_HALFWIDTH, SW_CUTOUT_HALFWIDTH];
+pcb_sw_1_1_margin = PCB_SW_1_1_POSITION - [SW_CUTOUT_HALFWIDTH, SW_CUTOUT_HALFWIDTH];
 
 // c.f. case_inner_width; 0.5 smaller
 switch_plate_width = 230.5;
@@ -50,40 +50,40 @@ pcb_switch_grid_center = PCB_SW_1_1_POSITION + ((switch_grid_dim - [1, 1]) / 2) 
 
 // Middle of the switch plate
 // relative to switch plate origin (top-left).
-plate_switch_grid_center = SWITCH_PLATE_DIM / 2;
+switch_plate_switch_grid_center = SWITCH_PLATE_DIM / 2;
 
 // Hence, the switch plate's origin relative to the PCB's origin
-SWITCH_PLATE_OFFSET = pcb_switch_grid_center - plate_switch_grid_center;
+SWITCH_PLATE_OFFSET = pcb_switch_grid_center - switch_plate_switch_grid_center;
 
 echo("switch plate offset", SWITCH_PLATE_OFFSET);
 
 // margin between the pcb's right edge, and the right hand edge of switch cutout
 // (used for assertions)
-sw_12_4_pcb_margin_width = PCB_DIM[0] - sw_1_1_pcb_margin[0] - (12 - 1) * SWITCH_GRID_UNIT - 2 * SW_CUTOUT_HALFWIDTH;
-sw_12_4_pcb_margin_height = PCB_DIM[1] - sw_1_1_pcb_margin[1] - (4 - 1) * SWITCH_GRID_UNIT - 2 * SW_CUTOUT_HALFWIDTH;
+pcb_sw_12_4_margin_width  = PCB_DIM[0] - pcb_sw_1_1_margin[0] - (12 - 1) * SWITCH_GRID_UNIT - 2 * SW_CUTOUT_HALFWIDTH;
+pcb_sw_12_4_margin_height = PCB_DIM[1] - pcb_sw_1_1_margin[1] - (4 - 1) * SWITCH_GRID_UNIT - 2 * SW_CUTOUT_HALFWIDTH;
 
 // The 'extra' dimensions of the switch plate, relative to the PCB
 // (used for assertions)
-lhs_extra = -SWITCH_PLATE_OFFSET[0];
-top_extra = -SWITCH_PLATE_OFFSET[1];
-rhs_extra = SWITCH_PLATE_DIM[0] - PCB_DIM[0] - lhs_extra;
-btm_extra = SWITCH_PLATE_DIM[1] - PCB_DIM[1] - top_extra;
+switch_plate_pcb_margin_left = -SWITCH_PLATE_OFFSET[0];
+switch_plate_pcb_margin_top  = -SWITCH_PLATE_OFFSET[1];
+switch_plate_pcb_margin_right  = SWITCH_PLATE_DIM[0] - PCB_DIM[0] - switch_plate_pcb_margin_left;
+switch_plate_pcb_margin_bottom = SWITCH_PLATE_DIM[1] - PCB_DIM[1] - switch_plate_pcb_margin_top;
+
+echo("margin between pcb and switch plate edge: left:", switch_plate_pcb_margin_left, "right:", switch_plate_pcb_margin_right);
+echo("margin between pcb and switch plate edge: top:", switch_plate_pcb_margin_top, "bottom:", switch_plate_pcb_margin_bottom);
 
 // The dimensions of the switch plate's edges
 // (distance between the edge of the case, and switch cutout).
 // (used for assertions)
-plate_lhs_edge = lhs_extra + sw_1_1_pcb_margin[0];
-plate_top_edge = top_extra + sw_1_1_pcb_margin[1];
-plate_rhs_edge = rhs_extra + sw_12_4_pcb_margin_width;
-plate_btm_edge = btm_extra + sw_12_4_pcb_margin_height;
+switch_plate_lhs_edge = switch_plate_pcb_margin_left + pcb_sw_1_1_margin[0];
+switch_plate_top_edge = switch_plate_pcb_margin_top + pcb_sw_1_1_margin[1];
+switch_plate_rhs_edge = switch_plate_pcb_margin_right + pcb_sw_12_4_margin_width;
+switch_plate_btm_edge = switch_plate_pcb_margin_bottom + pcb_sw_12_4_margin_height;
 
-echo("switch plate extra: left:", lhs_extra, "right:", rhs_extra);
-echo("switch plate extra: top:", top_extra, "bottom:", btm_extra);
-
-echo("switch plate edges: left:", plate_lhs_edge, "right:", plate_rhs_edge);
-echo("switch plate edges: top:", plate_top_edge, "bottom:", plate_btm_edge);
+echo("switch plate edges: left:", switch_plate_lhs_edge, "right:", switch_plate_rhs_edge);
+echo("switch plate edges: top:", switch_plate_top_edge, "bottom:", switch_plate_btm_edge);
 
 assert(SWITCH_PLATE_DIM[0] < case_inner_dim[0], "inner width");
 assert(SWITCH_PLATE_DIM[1] < case_inner_dim[1], "inner height");
-assert(plate_lhs_edge == plate_rhs_edge);
-assert(plate_top_edge == plate_btm_edge);
+assert(switch_plate_lhs_edge == switch_plate_rhs_edge);
+assert(switch_plate_top_edge == switch_plate_btm_edge);
