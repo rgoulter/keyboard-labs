@@ -18,15 +18,21 @@ PCB_DIM = [pcb_width, pcb_height];
 // relative to PCB origin (top-left of PCB)
 PCB_SW_1_1_POSITION = [7.5, 8.5];
 
-// measured from BM40 PCB
-PCB_MOUNTING_HOLE_POSITIONS = [[17, 18], [208, 18], [208, 56], [17, 56], [112, 37]];
-PCB_MOUNTING_HOLE_DIA = 2.2;
-
 SWITCH_GRID_UNIT = 19.05;
 
 switch_grid_cols = 12;
 switch_grid_rows = 4;
 switch_grid_dim = [switch_grid_cols, switch_grid_rows];
+
+// measured from BM40 PCB
+PCB_MOUNTING_HOLE_POSITIONS = [
+  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [0.5, 0.5],
+  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [switch_grid_cols - 1 - 0.5, 0.5],
+  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [switch_grid_cols - 1 - 0.5, switch_grid_rows - 1 - 0.5],
+  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [0.5, switch_grid_rows - 1 - 0.5],
+  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [(switch_grid_cols - 1) / 2, (switch_grid_rows - 1) / 2],
+];
+PCB_MOUNTING_HOLE_DIA = 2.2;
 
 CORNER_R = 2.25;
 
