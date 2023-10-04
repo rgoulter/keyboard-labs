@@ -24,7 +24,8 @@ module jj40_switch_plate(
     switch_plate_dim = SWITCH_PLATE_DIM,
     pcb_switch_plate_position = PCB_SWITCH_PLATE_POSITION,
     corner_r = CORNER_R,
-    pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
+    pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
+    pcb_mounting_hole_offsets = PCB_MOUNTING_HOLE_OFFSETS,
     pcb_mounting_hole_dia = 4,
     pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
     switch_grid_unit = SWITCH_GRID_UNIT
@@ -35,6 +36,9 @@ module jj40_switch_plate(
         }
 
         // D=4, so screwdriver can be used to mount PCB to case
+        pcb_mounting_hole_positions = [
+            for (offset = pcb_mounting_hole_offsets) pcb_sw_1_1_position + offset
+        ];
         for (pt = pcb_mounting_hole_positions) {
             translate(pt) {
                 circle(d = pcb_mounting_hole_dia);
@@ -65,9 +69,9 @@ module pico42_switch_plate(
     switch_plate_dim = SWITCH_PLATE_DIM,
     pcb_switch_plate_position = PCB_SWITCH_PLATE_POSITION,
     corner_r = CORNER_R,
-    pcb_mounting_hole_positions = PCB_MOUNTING_HOLE_POSITIONS,
-    pcb_mounting_hole_dia = 4,
     pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
+    pcb_mounting_hole_offsets = PCB_MOUNTING_HOLE_OFFSETS,
+    pcb_mounting_hole_dia = 4,
     switch_grid_unit = SWITCH_GRID_UNIT
 ) {
     difference() {
@@ -76,9 +80,9 @@ module pico42_switch_plate(
             switch_plate_dim = switch_plate_dim,
             pcb_switch_plate_position = pcb_switch_plate_position,
             corner_r = corner_r,
-            pcb_mounting_hole_positions = pcb_mounting_hole_positions,
-            pcb_mounting_hole_dia = 4,
             pcb_sw_1_1_position = pcb_sw_1_1_position,
+            pcb_mounting_hole_offsets = pcb_mounting_hole_offsets,
+            pcb_mounting_hole_dia = pcb_mounting_hole_dia,
             switch_grid_unit = switch_grid_unit
         );
 

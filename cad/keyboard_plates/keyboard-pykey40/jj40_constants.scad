@@ -25,12 +25,16 @@ switch_grid_rows = 4;
 switch_grid_dim = [switch_grid_cols, switch_grid_rows];
 
 // measured from BM40 PCB
-PCB_MOUNTING_HOLE_POSITIONS = [
-  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [0.5, 0.5],
-  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [switch_grid_cols - 1 - 0.5, 0.5],
-  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [switch_grid_cols - 1 - 0.5, switch_grid_rows - 1 - 0.5],
-  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [0.5, switch_grid_rows - 1 - 0.5],
-  PCB_SW_1_1_POSITION + SWITCH_GRID_UNIT * [(switch_grid_cols - 1) / 2, (switch_grid_rows - 1) / 2],
+pcb_mounting_hole_grid_coords = [
+    [0.5, 0.5],
+    [switch_grid_cols - 1 - 0.5, 0.5],
+    [switch_grid_cols - 1 - 0.5, switch_grid_rows - 1 - 0.5],
+    [0.5, switch_grid_rows - 1 - 0.5],
+    [(switch_grid_cols - 1) / 2, (switch_grid_rows - 1) / 2],
+];
+// relative to SW_1_1
+PCB_MOUNTING_HOLE_OFFSETS = [
+    for (coord = pcb_mounting_hole_grid_coords) SWITCH_GRID_UNIT * coord
 ];
 PCB_MOUNTING_HOLE_DIA = 2.2;
 
