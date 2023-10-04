@@ -50,16 +50,35 @@ switch_plate_width = 230.5;
 switch_plate_height = 77.5;
 SWITCH_PLATE_DIM = [switch_plate_width, switch_plate_height];
 
-// Middle of the grid of switches on the PCB
-// relative to pcb origin (top-left).
-pcb_switch_grid_center = PCB_SW_1_1_POSITION + ((switch_grid_dim - [1, 1]) / 2) * SWITCH_GRID_UNIT;
+function switch_grid_halfdim_mm(cols, rows, switch_grid_unit = SWITCH_GRID_UNIT) =
+    ([cols, rows] - [1, 1]) / 2 * SWITCH_GRID_UNIT;
 
-// Middle of the switch plate
-// relative to switch plate origin (top-left).
-switch_plate_switch_grid_center = SWITCH_PLATE_DIM / 2;
+function calculate_pcb_switch_plate_position(
+    pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
+    switch_grid_cols = switch_grid_cols,
+    switch_grid_rows = switch_grid_rows,
+    switch_grid_unit = SWITCH_GRID_UNIT,
+    switch_plate_dim = SWITCH_PLATE_DIM
+) =
+    let (
+        // Middle of the grid of switches on the PCB
+        // relative to pcb origin (top-left).
+        pcb_switch_grid_center = pcb_sw_1_1_position + switch_grid_halfdim_mm(switch_grid_cols, switch_grid_rows),
+
+        // Middle of the switch plate
+        // relative to switch plate's (top-left).
+        switch_plate_switch_grid_center = switch_plate_dim / 2
+    )
+    pcb_switch_grid_center - switch_plate_switch_grid_center;
 
 // Hence, the switch plate's origin relative to the PCB's origin
-PCB_SWITCH_PLATE_POSITION = pcb_switch_grid_center - switch_plate_switch_grid_center;
+PCB_SWITCH_PLATE_POSITION = calculate_pcb_switch_plate_position(
+    pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
+    switch_grid_cols = switch_grid_cols,
+    switch_grid_rows = switch_grid_rows,
+    switch_grid_unit = SWITCH_GRID_UNIT,
+    switch_plate_dim = SWITCH_PLATE_DIM
+);
 
 echo("switch plate position (relative to pcb origin)", PCB_SWITCH_PLATE_POSITION);
 
