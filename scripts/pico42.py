@@ -47,6 +47,12 @@ def unlock(refs):
         f.SetLocked(False)
     pcbnew.Refresh()
 
+def unlock_all():
+    fps = footprints()
+    for f in fps:
+        f.SetLocked(False)
+    pcbnew.Refresh()
+
 # position the SWs
 #
 # SWs are spaced apart by 19.05mm in rows and columns
@@ -108,10 +114,60 @@ def position_U1():
 
     u1.SetPosition(pcbnew.VECTOR2I(int((sw_1_1_pos.x + sw_1_12_pos.x) / 2), u1_pos.y))
 
+def position_Hs():
+    # Get position footprint by ref SW_1_1
+    sw_1_1 = pcbnew.GetBoard().FindFootprintByReference("SW_1_1")
+    sw_1_1_pos = sw_1_1.GetPosition()
+
+    U = 19.05
+    C = 12
+    R = 4
+
+    # Hs aren't a consistent grid,
+    # but some are similar.
+
+    # H1 - H5, the JJ40 mount hole positions
+    pcbnew.GetBoard().FindFootprintByReference("H1").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM(0.5 * U, 0.5 * U)
+    )
+    pcbnew.GetBoard().FindFootprintByReference("H2").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM(0.5 * U, (R - 1.5) * U)
+    )
+    pcbnew.GetBoard().FindFootprintByReference("H3").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM((C - 1.5) * U, (R - 1.5) * U)
+    )
+    pcbnew.GetBoard().FindFootprintByReference("H4").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM((C - 1.5) * U, 0.5 * U)
+    )
+    pcbnew.GetBoard().FindFootprintByReference("H5").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM((C - 1) / 2 * U, (R - 1) / 2 * U)
+    )
+
+    # H6: additional mount, for sandwich cases
+    pcbnew.GetBoard().FindFootprintByReference("H6").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM(4.5 * U + 5, (R - 1) / 2 * U)
+    )
+
+    # H7 - H10: mount holes for cover plate over dev board
+    m = 3
+    pcbnew.GetBoard().FindFootprintByReference("H7").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM(4.5 * U + m, -7 + 3)
+    )
+    pcbnew.GetBoard().FindFootprintByReference("H8").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM(4.5 * U + m, 2.5 * U - 3)
+    )
+    pcbnew.GetBoard().FindFootprintByReference("H9").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM(6.5 * U - m, 2.5 * U - 3)
+    )
+    pcbnew.GetBoard().FindFootprintByReference("H10").SetPosition(
+        sw_1_1_pos + VECTOR2I_MM(6.5 * U - m, -7 + 3)
+    )
+
 def position_all():
     position_SWs()
     position_Ds()
     position_U1()
+    position_Hs()
     pcbnew.Refresh()
 
 def hide_d_labels():
@@ -145,7 +201,7 @@ def hide_u1_labels():
 
 # H1-5
 def hide_h_labels():
-    for h in ["H1", "H2", "H3", "H4", "H5"]:
+    for h in ["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H10", "H11", "H12", "H13", "H14", "H15"]:
         f = pcbnew.GetBoard().FindFootprintByReference(h)
         if f is None:
             continue
