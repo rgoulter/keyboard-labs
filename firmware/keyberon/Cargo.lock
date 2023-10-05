@@ -311,7 +311,7 @@ dependencies = [
 [[package]]
 name = "keyberon"
 version = "0.2.0"
-source = "git+https://github.com/TeXitoi/keyberon?branch=master#207f5a1ff8723bf1eed0d03f9825730963b8d7df"
+source = "git+https://github.com/TeXitoi/keyberon?branch=master#a423de29a9cf0e9e4d3bdddc6958657662c46e01"
 dependencies = [
  "arraydeque",
  "either",
@@ -324,7 +324,7 @@ dependencies = [
 [[package]]
 name = "keyberon-macros"
 version = "0.1.0"
-source = "git+https://github.com/TeXitoi/keyberon?branch=master#207f5a1ff8723bf1eed0d03f9825730963b8d7df"
+source = "git+https://github.com/TeXitoi/keyberon?branch=master#a423de29a9cf0e9e4d3bdddc6958657662c46e01"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
@@ -597,7 +597,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "da3d56009c8f32e4f208dbea17df72484154d1040a8969b75d8c73eb7b18fe8f"
 dependencies = [
  "bare-metal 0.2.5",
- "cortex-m 0.7.4",
+ "cortex-m 0.6.7",
  "cortex-m-rt",
  "vcell",
 ]
