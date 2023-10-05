@@ -14,7 +14,7 @@ use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
 use stm32f4xx_hal::prelude::*;
 use stm32f4xx_hal::serial;
 use stm32f4xx_hal::serial::config::Config;
-use stm32f4xx_hal::{stm32, timer};
+use stm32f4xx_hal::{pac, timer};
 use usb_device::bus::UsbBusAllocator;
 use usb_device::device::UsbDeviceState;
 use usb_device::prelude::*;
@@ -47,7 +47,7 @@ const VID: u16 = 0x16c0;
 const PID: u16 = 0x27db;
 
 // The rtic app for the keyboard firmware.
-#[app(device = stm32f4xx_hal::stm32, peripherals = true)]
+#[app(device = stm32f4xx_hal::pac, peripherals = true)]
 const APP: () = {
     struct Resources {
         usb_dev: UsbDevice,
@@ -55,10 +55,10 @@ const APP: () = {
         direct_pins: DirectPins5x4,
         debouncer: Debouncer<PressedKeys5x4>,
         layout: Layout,
-        timer: timer::CountDownTimer<stm32::TIM3>,
+        timer: timer::CountDownTimer<pac::TIM3>,
         transform: fn(Event) -> Event,
-        tx: serial::Tx<stm32f4xx_hal::stm32::USART1>,
-        rx: serial::Rx<stm32f4xx_hal::stm32::USART1>,
+        tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
+        rx: serial::Rx<stm32f4xx_hal::pac::USART1>,
         usb_serial: UsbSerial,
     }
 
@@ -131,7 +131,7 @@ const APP: () = {
             c.device.USART1,
             pins,
             Config::default().baudrate(9_600.bps()),
-            clocks,
+            &clocks,
         )
         .unwrap();
         serial.listen(serial::Event::Rxne);

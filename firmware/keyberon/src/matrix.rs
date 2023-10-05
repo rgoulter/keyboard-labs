@@ -3,7 +3,7 @@
 use embedded_hal::blocking::delay::DelayUs;
 use embedded_hal::digital::v2::{InputPin, OutputPin};
 
-use stm32f4xx_hal::stm32::TIM5;
+use stm32f4xx_hal::pac::TIM5;
 use stm32f4xx_hal::delay::Delay;
 
 /// Describes the hardware-level matrix of switches.
