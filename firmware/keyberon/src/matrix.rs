@@ -4,7 +4,7 @@ use embedded_hal::blocking::delay::DelayUs;
 use embedded_hal::digital::v2::{InputPin, OutputPin};
 
 use stm32f4xx_hal::pac::TIM5;
-use stm32f4xx_hal::delay::Delay;
+use stm32f4xx_hal::timer::delay::Delay;
 
 /// Describes the hardware-level matrix of switches.
 ///
@@ -17,19 +17,19 @@ use stm32f4xx_hal::delay::Delay;
 /// [stm32f0xx_hal::gpio::PA0::downgrade](https://docs.rs/stm32f0xx-hal/0.17.1/stm32f0xx_hal/gpio/gpioa/struct.PA0.html#method.downgrade))
 ///
 /// TIM5 is used to provide a delay during the matrix scanning.
-pub struct Matrix<C, R, const CS: usize, const RS: usize>
+pub struct Matrix<C, R, const CS: usize, const RS: usize, const FREQ: u32>
 where
     C: InputPin,
     R: OutputPin,
 {
     cols: [C; CS],
     rows: [R; RS],
-    delay: Delay<TIM5>,
+    delay: Delay<TIM5, FREQ>,
     select_delay_us: u16,
     unselect_delay_us: u16,
 }
 
-impl<C, R, const CS: usize, const RS: usize> Matrix<C, R, CS, RS>
+impl<C, R, const CS: usize, const RS: usize, const FREQ: u32> Matrix<C, R, CS, RS, FREQ>
 where
     C: InputPin,
     R: OutputPin,
@@ -38,7 +38,7 @@ where
     ///
     /// Assumes columns are pull-up inputs,
     /// and rows are output pins which are set high when not being scanned.
-    pub fn new<E>(cols: [C; CS], rows: [R; RS], delay: Delay<TIM5>, select_delay_us: u16, unselect_delay_us: u16) -> Result<Self, E>
+    pub fn new<E>(cols: [C; CS], rows: [R; RS], delay: Delay<TIM5, FREQ>, select_delay_us: u16, unselect_delay_us: u16) -> Result<Self, E>
     where
         C: InputPin<Error = E>,
         R: OutputPin<Error = E>,

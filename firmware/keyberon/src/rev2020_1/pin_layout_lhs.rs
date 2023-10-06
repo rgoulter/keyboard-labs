@@ -2,7 +2,7 @@
 
 use core::convert::Infallible;
 use keyberon::layout::Event;
-use stm32f4xx_hal::gpio::{gpioa, gpiob, Input, PullUp};
+use stm32f4xx_hal::gpio::{gpioa, gpiob, Input};
 
 use crate::direct_pin_matrix::{
     DirectPins,
@@ -12,52 +12,52 @@ use crate::direct_pin_matrix::{
 
 pub struct DirectPins5x4(
     pub  (
-        gpiob::PB15<Input<PullUp>>,
-        gpioa::PA8<Input<PullUp>>,
-        gpioa::PA9<Input<PullUp>>,
-        gpioa::PA10<Input<PullUp>>,
-        gpioa::PA2<Input<PullUp>>,
+        gpiob::PB15<Input>,
+        gpioa::PA8<Input>,
+        gpioa::PA9<Input>,
+        gpioa::PA10<Input>,
+        gpioa::PA2<Input>,
     ),
     pub  (
-        gpiob::PB5<Input<PullUp>>,
-        gpioa::PA15<Input<PullUp>>,
-        gpiob::PB3<Input<PullUp>>,
-        gpiob::PB4<Input<PullUp>>,
-        gpiob::PB10<Input<PullUp>>,
+        gpiob::PB5<Input>,
+        gpioa::PA15<Input>,
+        gpiob::PB3<Input>,
+        gpiob::PB4<Input>,
+        gpiob::PB10<Input>,
     ),
     pub  (
-        gpiob::PB9<Input<PullUp>>,
-        gpiob::PB1<Input<PullUp>>,
-        gpiob::PB0<Input<PullUp>>,
-        gpioa::PA7<Input<PullUp>>,
-        gpioa::PA6<Input<PullUp>>,
+        gpiob::PB9<Input>,
+        gpiob::PB1<Input>,
+        gpiob::PB0<Input>,
+        gpioa::PA7<Input>,
+        gpioa::PA6<Input>,
     ),
     pub  (
-        gpioa::PA5<Input<PullUp>>,
-        gpioa::PA4<Input<PullUp>>,
-        gpioa::PA3<Input<PullUp>>,
+        gpioa::PA5<Input>,
+        gpioa::PA4<Input>,
+        gpioa::PA3<Input>,
     ),
 );
 
 pub fn direct_pin_matrix_for_peripherals(
-    pa2: gpioa::PA2<Input<PullUp>>,
-    pa3: gpioa::PA3<Input<PullUp>>,
-    pa4: gpioa::PA4<Input<PullUp>>,
-    pa5: gpioa::PA5<Input<PullUp>>,
-    pa6: gpioa::PA6<Input<PullUp>>,
-    pa7: gpioa::PA7<Input<PullUp>>,
-    pa8: gpioa::PA8<Input<PullUp>>,
-    pa9: gpioa::PA9<Input<PullUp>>,
-    pa10: gpioa::PA10<Input<PullUp>>,
-    pa15: gpioa::PA15<Input<PullUp>>,
-    pb0: gpiob::PB0<Input<PullUp>>,
-    pb1: gpiob::PB1<Input<PullUp>>,
-    pb3: gpiob::PB3<Input<PullUp>>,
-    pb4: gpiob::PB4<Input<PullUp>>,
-    pb5: gpiob::PB5<Input<PullUp>>,
-    pb9: gpiob::PB9<Input<PullUp>>,
-    pb10: gpiob::PB10<Input<PullUp>>,
-    pb15: gpiob::PB15<Input<PullUp>>,
+    pa2: gpioa::PA2<Input>,
+    pa3: gpioa::PA3<Input>,
+    pa4: gpioa::PA4<Input>,
+    pa5: gpioa::PA5<Input>,
+    pa6: gpioa::PA6<Input>,
+    pa7: gpioa::PA7<Input>,
+    pa8: gpioa::PA8<Input>,
+    pa9: gpioa::PA9<Input>,
+    pa10: gpioa::PA10<Input>,
+    pa15: gpioa::PA15<Input>,
+    pb0: gpiob::PB0<Input>,
+    pb1: gpiob::PB1<Input>,
+    pb3: gpiob::PB3<Input>,
+    pb4: gpiob::PB4<Input>,
+    pb5: gpiob::PB5<Input>,
+    pb9: gpiob::PB9<Input>,
+    pb10: gpiob::PB10<Input>,
+    pb15: gpiob::PB15<Input>,
 ) -> DirectPins5x4 {
     DirectPins5x4(
         (pb15, pa8, pa9, pa10, pa2),

@@ -9,11 +9,9 @@ use core::convert::Infallible;
 use keyberon::debounce::Debouncer;
 use keyberon::key_code::{KbHidReport, KeyCode};
 use rtic::app;
-use stm32f4xx_hal::delay::Delay;
-use stm32f4xx_hal::gpio::{Input, PullUp};
+use stm32f4xx_hal::gpio::Input;
 use stm32f4xx_hal::gpio::gpioa;
 use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
-use stm32f4xx_hal::pac::TIM5;
 use stm32f4xx_hal::prelude::*;
 use stm32f4xx_hal::{pac, timer};
 use usb_device::bus::UsbBusAllocator;
@@ -44,7 +42,7 @@ pub static LAYERS: Layers = keyberon::layout::layout! {
 
 pub struct DirectPins1x1(
     pub  (
-        gpioa::PA0<Input<PullUp>>,
+        gpioa::PA0<Input>,
     )
 );
 
@@ -67,7 +65,7 @@ const APP: () = {
         direct_pins: DirectPins1x1,
         debouncer: Debouncer<PressedKeys1x1>,
         layout: Layout,
-        timer: timer::CountDownTimer<pac::TIM3>,
+        timer: timer::CounterUs<pac::TIM3>,
     }
 
     #[init]
@@ -78,19 +76,18 @@ const APP: () = {
         let rcc = c.device.RCC.constrain();
         let clocks = rcc
             .cfgr
-            .use_hse(25.mhz())
-            .sysclk(84.mhz())
+            .use_hse(25.MHz())
+            .sysclk(84.MHz())
             .require_pll48clk()
             .freeze();
         let gpioa = c.device.GPIOA.split();
-        let gpiob = c.device.GPIOB.split();
 
         let usb = USB {
             usb_global: c.device.OTG_FS_GLOBAL,
             usb_device: c.device.OTG_FS_DEVICE,
             usb_pwrclk: c.device.OTG_FS_PWRCLK,
-            pin_dm: gpioa.pa11.into_alternate(),
-            pin_dp: gpioa.pa12.into_alternate(),
+            pin_dm: stm32f4xx_hal::gpio::alt::otg_fs::Dm::PA11(gpioa.pa11.into_alternate()),
+            pin_dp: stm32f4xx_hal::gpio::alt::otg_fs::Dp::PA12(gpioa.pa12.into_alternate()),
             hclk: clocks.hclk(),
         };
         *USB_BUS = Some(UsbBusType::new(usb, EP_MEMORY));
@@ -99,10 +96,13 @@ const APP: () = {
         let usb_class = keyberon::new_class(usb_bus, ());
         let usb_dev = keyberon::new_device(usb_bus);
 
-        let mut timer = timer::Timer::new(c.device.TIM3, &clocks).start_count_down(1.khz());
-        timer.listen(timer::Event::TimeOut);
+        let mut timer = c.device.TIM3.counter_us(&clocks);
+        timer.start(1.millis()).unwrap();
+        timer.listen(timer::Event::Update);
+        unsafe {
+            pac::NVIC::unmask(pac::Interrupt::TIM3);
+        }
 
-        let delay: Delay<TIM5> = Delay::<TIM5>::tim5(c.device.TIM5, &clocks);
         let direct_pins = DirectPins1x1(
             (gpioa.pa0.into_pull_up_input(),),
         );
@@ -130,7 +130,7 @@ const APP: () = {
 
     #[task(binds = TIM3, priority = 1, resources = [usb_class, direct_pins, debouncer, layout, timer])]
     fn tick(mut c: tick::Context) {
-        c.resources.timer.clear_interrupt(timer::Event::TimeOut);
+        c.resources.timer.clear_interrupt(timer::Event::Update);
 
 
         let events = c
