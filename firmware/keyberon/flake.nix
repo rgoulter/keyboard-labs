@@ -41,6 +41,8 @@
           pkgs.just
           pkgs.rust-analyzer
           pkgs.usbutils
+          pkgs.probe-rs
+          pkgs.stlink
           toolchain
           uf2conv
         ];
