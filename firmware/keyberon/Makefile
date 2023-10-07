@@ -1,42 +1,31 @@
-target/thumbv7em-none-eabihf/debug/examples/%: examples/%.rs
+TARGET_DIR := target/thumbv7em-none-eabihf
+DEBUG_TARGET_DIR ?= $(TARGET_DIR)/debug
+RELEASE_TARGET_DIR ?= $(TARGET_DIR)/release
+DEST_DIR ?= .
+
+$(DEBUG_TARGET_DIR)/examples/%: examples/%.rs
 	cargo build --example="$*"
 
-target/thumbv7em-none-eabihf/release/examples/%: examples/%.rs
+$(RELEASE_TARGET_DIR)/examples/%: examples/%.rs
 	cargo build --release --example="$*"
 
-target/thumbv7em-none-eabihf/debug/%: src/bin/%.rs
+$(DEBUG_TARGET_DIR)/%: src/bin/%.rs
 	cargo build --bin="$*"
 
-target/thumbv7em-none-eabihf/release/%: src/bin/%.rs
+$(RELEASE_TARGET_DIR)/%: src/bin/%.rs
 	cargo build --release --bin="$*"
 
-example-%.debug.bin: target/thumbv7em-none-eabihf/debug/examples/%
-	rust-objcopy \
-	  target/thumbv7em-none-eabihf/debug/examples/$* \
-	  --output-target "binary" \
-	  example-$*.debug.bin
+$(DEST_DIR)/example-%.debug.bin: $(DEBUG_TARGET_DIR)/examples/%
+	rust-objcopy $(DEBUG_TARGET_DIR)/examples/$* --output-target "binary" $(DEST_DIR)/example-$*.debug.bin
 
-example-%.bin: target/thumbv7em-none-eabihf/release/examples/%
-	rust-objcopy \
-	  target/thumbv7em-none-eabihf/release/examples/$* \
-	  --output-target "binary" \
-	  example-$*.bin
+$(DEST_DIR)/example-%.bin: $(RELEASE_TARGET_DIR)/examples/%
+	rust-objcopy $(RELEASE_TARGET_DIR)/examples/$* --output-target "binary" $(DEST_DIR)/example-$*.bin
 
-%.debug.bin: target/thumbv7em-none-eabihf/debug/%
-	rust-objcopy \
-	  target/thumbv7em-none-eabihf/debug/$* \
-	  --output-target "binary" \
-	  $*.debug.bin
+$(DEST_DIR)/%.debug.bin: $(DEBUG_TARGET_DIR)/%
+	rust-objcopy $(DEBUG_TARGET_DIR)/$* --output-target "binary" $(DEST_DIR)/$*.debug.bin
 
-%.bin: target/thumbv7em-none-eabihf/release/%
-	rust-objcopy \
-	  target/thumbv7em-none-eabihf/release/$* \
-	  --output-target "binary" \
-	  $*.bin
+$(DEST_DIR)/%.bin: $(RELEASE_TARGET_DIR)/%
+	rust-objcopy $(RELEASE_TARGET_DIR)/$* --output-target "binary" $(DEST_DIR)/$*.bin
 
-%.uf2: %.bin
-	uf2conv --convert \
-	  --family=STM32F4 \
-	  --base 0x8010000 \
-	  --output="$*.uf2" \
-	  ./$*.bin
+$(DEST_DIR)/%.uf2: $(DEST_DIR)/%.bin
+	uf2conv --convert --family=STM32F4 --base 0x8010000 --output="$(DEST_DIR)/$*.uf2" $(DEST_DIR)/$*.bin
