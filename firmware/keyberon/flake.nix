@@ -38,6 +38,7 @@
         nativeBuildInputs = [
           pkgs.cargo-binutils
           pkgs.hidrd
+          pkgs.just
           pkgs.rust-analyzer
           pkgs.usbutils
           toolchain

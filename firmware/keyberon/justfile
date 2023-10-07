@@ -1,0 +1,9 @@
+uf2_drive := "/run/media/rgoulter/BlackPill"
+
+make-uf2 target:
+  make {{target}}.uf2
+
+flash-uf2 target: (make-uf2 target)
+  cp ./{{target}}.uf2 {{uf2_drive}}/
+
+make-and-flash target: (make-uf2 target) (flash-uf2 target)
