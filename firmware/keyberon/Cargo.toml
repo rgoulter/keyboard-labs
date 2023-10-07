@@ -19,6 +19,7 @@ nb = "1.1"
 usbd-serial = "0.1"
 rtt-target = "0.4"
 panic-rtt-target = { version = "0.1.2", features = ["cortex-m"] }
+usbd-human-interface-device = "0.4"
 
 [profile.release]
 lto = true
