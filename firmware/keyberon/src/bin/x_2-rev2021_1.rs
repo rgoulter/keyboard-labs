@@ -1,35 +1,34 @@
 #![no_main]
 #![no_std]
 
-// set the panic handler
-use panic_halt as _;
+#[rtic::app(device = stm32f4xx_hal::pac, peripherals = true)]
+mod app {
+    // set the panic handler
+    use panic_halt as _;
 
-use keyberon::chording::Chording;
-use keyberon::debounce::Debouncer;
-use keyberon::key_code::{KbHidReport, KeyCode};
-use rtic::app;
-use stm32f4xx_hal::timer::delay::DelayUs;
-use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
-use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
-use stm32f4xx_hal::pac::TIM5;
-use stm32f4xx_hal::prelude::*;
-use stm32f4xx_hal::{pac, timer};
-use usb_device::bus::UsbBusAllocator;
-use usb_device::class::UsbClass as _;
+    use keyberon::chording::Chording;
+    use keyberon::debounce::Debouncer;
+    use keyberon::key_code::{KbHidReport, KeyCode};
+    use stm32f4xx_hal::timer::delay::DelayUs;
+    use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
+    use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
+    use stm32f4xx_hal::prelude::*;
+    use stm32f4xx_hal::{pac, timer};
+    use usb_device::bus::UsbBusAllocator;
+    use usb_device::class::UsbClass as _;
 
+    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
+    use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
+    use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
 
-use keyboard_labs_keyberon::common::{
-    UsbClass,
-    UsbDevice,
-};
-use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
-use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-
-#[app(device = stm32f4xx_hal::pac, peripherals = true)]
-const APP: () = {
-    struct Resources {
+    #[shared]
+    struct SharedResources {
         usb_dev: UsbDevice,
         usb_class: UsbClass,
+    }
+
+    #[local]
+    struct LocalResources {
         matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, 1_000_000>,
         debouncer: Debouncer<[[bool; COLS]; ROWS]>,
         layout: Layout,
@@ -37,11 +36,11 @@ const APP: () = {
         timer: timer::CounterUs<pac::TIM3>,
     }
 
-    #[init]
-    fn init(c: init::Context) -> init::LateResources {
-        static mut EP_MEMORY: [u32; 1024] = [0; 1024];
-        static mut USB_BUS: Option<UsbBusAllocator<UsbBusType>> = None;
-
+    #[init(local = [
+        ep_memory: [u32; 1024] = [0; 1024],
+        usb_bus: Option<UsbBusAllocator<UsbBusType>> = None
+    ])]
+    fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
         let rcc = c.device.RCC.constrain();
         let clocks = rcc
             .cfgr
@@ -60,8 +59,8 @@ const APP: () = {
             pin_dp: stm32f4xx_hal::gpio::alt::otg_fs::Dp::PA12(gpioa.pa12.into_alternate()),
             hclk: clocks.hclk(),
         };
-        *USB_BUS = Some(UsbBusType::new(usb, EP_MEMORY));
-        let usb_bus = USB_BUS.as_ref().unwrap();
+        *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
+        let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
         let usb_class = keyberon::new_class(usb_bus, ());
         let usb_dev = keyberon::new_device(usb_bus);
@@ -73,7 +72,7 @@ const APP: () = {
             pac::NVIC::unmask(pac::Interrupt::TIM3);
         }
 
-        let delay: DelayUs<TIM5> = c.device.TIM5.delay_us(&clocks);
+        let delay: DelayUs<pac::TIM5> = c.device.TIM5.delay_us(&clocks);
         let matrix = DelayedMatrix::new(
             [
                 gpiob.pb12.into_pull_up_input().erase(), // col1
@@ -101,62 +100,66 @@ const APP: () = {
             5, // unselect pin delay
         );
 
-        init::LateResources {
-            usb_dev,
-            usb_class,
-            timer,
-            // 5x12 debouncer
-            debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
-            matrix: matrix.unwrap(),
-            layout: Layout::new(&LAYERS),
-            chording: Chording::new(&CHORDS),
+        (
+            SharedResources { usb_dev, usb_class },
+            LocalResources {
+                timer,
+                // 5x12 debouncer
+                debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
+                matrix: matrix.unwrap(),
+                layout: Layout::new(&LAYERS),
+                chording: Chording::new(&CHORDS),
+            },
+            init::Monotonics(),
+        )
+    }
+
+    #[task(binds = OTG_FS, priority = 2, shared = [usb_dev, usb_class])]
+    fn usb_tx(c: usb_tx::Context) {
+        // usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
+        let usb_tx::SharedResources { usb_dev, usb_class } = c.shared;
+        (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
+    }
+
+    #[task(binds = OTG_FS_WKUP, priority = 2, shared = [usb_dev, usb_class])]
+    fn usb_rx(c: usb_rx::Context) {
+        // usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
+        let usb_rx::SharedResources { usb_dev, usb_class } = c.shared;
+        (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
+    }
+
+    #[task(binds = TIM3, priority = 1, shared = [usb_class], local = [matrix, debouncer, layout, chording, timer])]
+    fn tick(c: tick::Context) {
+        c.local.timer.clear_interrupt(timer::Event::Update);
+
+        let events = c.local.debouncer.events(c.local.matrix.get().unwrap());
+        // let chordEvents = c.local.chording.tick(events.collect());
+
+        for event in events {
+            c.local.layout.event(event);
         }
-    }
-
-    #[task(binds = OTG_FS, priority = 2, resources = [usb_dev, usb_class])]
-    fn usb_tx(mut c: usb_tx::Context) {
-        usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
-    }
-
-    #[task(binds = OTG_FS_WKUP, priority = 2, resources = [usb_dev, usb_class])]
-    fn usb_rx(mut c: usb_rx::Context) {
-        usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
-    }
-
-    #[task(binds = TIM3, priority = 1, resources = [usb_class, matrix, debouncer, layout, chording, timer])]
-    fn tick(mut c: tick::Context) {
-        c.resources.timer.clear_interrupt(timer::Event::Update);
-
-        let events = c
-            .resources
-            .debouncer
-            .events(c.resources.matrix.get().unwrap());
-        let chordEvents = c.resources.chording.tick(events.collect());
-
-        for event in chordEvents
-        {
-            c.resources.layout.event(event);
-        }
-        match c.resources.layout.tick() {
+        match c.local.layout.tick() {
             keyberon::layout::CustomEvent::Release(()) => unsafe {
                 cortex_m::asm::bootload(0x1FFF0000 as _)
             },
             _ => (),
         }
-        send_report(c.resources.layout.keycodes(), &mut c.resources.usb_class);
+        // send_report(c.resources.layout.keycodes(), &mut c.resources.usb_class);
+        let layout = c.local.layout;
+        let mut usb_class = c.shared.usb_class;
+        usb_class.lock(|mut k| send_report(layout.keycodes(), &mut k));
     }
-};
 
-fn send_report(iter: impl Iterator<Item = KeyCode>, usb_class: &mut resources::usb_class<'_>) {
-    use rtic::Mutex;
-    let report: KbHidReport = iter.collect();
-    if usb_class.lock(|k| k.device_mut().set_keyboard_report(report.clone())) {
-        while let Ok(0) = usb_class.lock(|k| k.write(report.as_bytes())) {}
+    fn send_report(iter: impl Iterator<Item = KeyCode>, usb_class: &mut UsbClass) {
+        let report: KbHidReport = iter.collect();
+        if usb_class.device_mut().set_keyboard_report(report.clone()) {
+            while let Ok(0) = usb_class.write(report.as_bytes()) {}
+        }
     }
-}
 
-fn usb_poll(usb_dev: &mut UsbDevice, keyboard: &mut UsbClass) {
-    if usb_dev.poll(&mut [keyboard]) {
-        keyboard.poll();
+    fn usb_poll(usb_dev: &mut UsbDevice, keyboard: &mut UsbClass) {
+        if usb_dev.poll(&mut [keyboard]) {
+            keyboard.poll();
+        }
     }
 }
