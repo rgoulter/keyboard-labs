@@ -9,6 +9,4 @@ pub mod direct_pin_matrix;
 
 pub mod layouts;
 
-pub mod usbd_hid;
-
 pub mod common;
