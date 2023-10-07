@@ -1,4 +1,4 @@
-use keyberon::action::{d, k, l, m, Action, Action::*, HoldTapAction, HoldTapConfig};
+use keyberon::action::{d, k, l, Action, Action::*, HoldTapAction, HoldTapConfig};
 use keyberon::key_code::KeyCode::*;
 
 const NUM_BASE_LAYERS: usize = 2;

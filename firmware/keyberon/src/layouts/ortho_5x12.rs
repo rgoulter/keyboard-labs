@@ -1,4 +1,4 @@
-use keyberon::action::{d, k, l, m, Action::*, HoldTapAction, HoldTapConfig};
+use keyberon::action::{d, k, l, Action::*, HoldTapAction, HoldTapConfig};
 use keyberon::chording::ChordDef;
 use keyberon::key_code::KeyCode::*;
 
