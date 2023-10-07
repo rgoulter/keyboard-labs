@@ -17,6 +17,8 @@ usb-device = { version = "0.2.0", features = ["control-buffer-256"] }
 heapless = "0.7"
 nb = "1.1"
 usbd-serial = "0.1"
+rtt-target = "0.4"
+panic-rtt-target = { version = "0.1.2", features = ["cortex-m"] }
 
 [profile.release]
 lto = true
