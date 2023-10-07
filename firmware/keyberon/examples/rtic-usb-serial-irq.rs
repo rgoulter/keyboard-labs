@@ -1,29 +1,33 @@
 #![no_main]
 #![no_std]
 
-// set the panic handler
-use panic_halt as _;
+#[rtic::app(device = stm32f4xx_hal::pac, peripherals = true)]
+mod app {
+    // set the panic handler
+    use panic_halt as _;
 
-use rtic::app;
+    use stm32f4xx_hal::otg_fs::{UsbBusType, UsbBus, USB};
+    use stm32f4xx_hal::prelude::*;
+    use stm32f4xx_hal::pac::Interrupt;
+    use usb_device::class_prelude::UsbBusAllocator;
+    use usb_device::prelude::*;
+    use usbd_serial::SerialPort;
 
-use stm32f4xx_hal::otg_fs::{UsbBus, USB};
-use stm32f4xx_hal::prelude::*;
-use stm32f4xx_hal::pac::Interrupt;
-use usb_device::class_prelude::UsbBusAllocator;
-use usb_device::prelude::*;
-use usbd_serial::SerialPort;
+    #[shared]
+    struct SharedResources {
+    }
 
-#[app(device = stm32f4xx_hal::pac, peripherals = true)]
-const APP: () = {
-    struct Resources {
+    #[local]
+    struct LocalResources {
         serial: SerialPort<'static, UsbBus<USB>>,
         usb_dev: UsbDevice<'static, UsbBus<USB>>,
     }
 
-    #[init]
-    fn init(c: init::Context) -> init::LateResources {
-        static mut EP_MEMORY: [u32; 1024] = [0; 1024];
-        static mut USB_BUS: Option<UsbBusAllocator<stm32f4xx_hal::otg_fs::UsbBusType>> = None;
+    #[init(local = [
+        ep_memory: [u32; 1024] = [0; 1024],
+        usb_bus: Option<UsbBusAllocator<UsbBusType>> = None
+    ])]
+    fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
 
         let rcc = c.device.RCC.constrain();
         let clocks = rcc
@@ -40,8 +44,8 @@ const APP: () = {
             &clocks,
         );
 
-        *USB_BUS = Some(stm32f4xx_hal::otg_fs::UsbBusType::new(usb, EP_MEMORY));
-        let usb_bus = USB_BUS.as_ref().unwrap();
+        *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
+        let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
         let serial = SerialPort::new(usb_bus);
 
@@ -57,18 +61,22 @@ const APP: () = {
             cortex_m::peripheral::NVIC::unmask(Interrupt::OTG_FS);
         }
 
-        init::LateResources {
+        (
+            SharedResources { },
+            LocalResources {
             serial,
             usb_dev,
-        }
+            },
+            init::Monotonics(),
+        )
     }
 
-    #[task(binds = OTG_FS, priority = 2, resources = [usb_dev, serial])]
+    #[task(binds = OTG_FS, priority = 2, local = [usb_dev, serial])]
     fn usb_tx(c: usb_tx::Context) {
-        if c.resources.usb_dev.poll(&mut [c.resources.serial]) {
+        if c.local.usb_dev.poll(&mut [c.local.serial]) {
             let mut buf = [0u8; 64];
 
-            match c.resources.serial.read(&mut buf) {
+            match c.local.serial.read(&mut buf) {
                 Ok(count) if count > 0 => {
                     // Echo back in upper case
                     for c in buf[0..count].iter_mut() {
@@ -79,7 +87,7 @@ const APP: () = {
 
                     let mut write_offset = 0;
                     while write_offset < count {
-                        match c.resources.serial.write(&buf[write_offset..count]) {
+                        match c.local.serial.write(&buf[write_offset..count]) {
                             Ok(len) if len > 0 => {
                                 write_offset += len;
                             }
@@ -91,4 +99,4 @@ const APP: () = {
             }
         }
     }
-};
+}
