@@ -69,57 +69,33 @@
           mkdir -p $out/bin
           export RUSTC=${toolchain}/bin/rustc
 
-          ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${keyberon-firmware-elf}/bin/minif4-36-rev2021_1-lhs" \
-            "--output-target" "binary" \
-            "$out/bin/minif4-36-rev2021_1-lhs.bin"
-
-          ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${keyberon-firmware-elf}/bin/minif4-36-rev2021_1-rhs" \
-            "--output-target" "binary" \
-            "$out/bin/minif4-36-rev2021_1-rhs.bin"
-
-          ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${keyberon-firmware-elf}/bin/x_2-rev2021_1" \
-            "--output-target" "binary" \
-            "$out/bin/x_2-rev2021_1.bin"
-
-          ${pkgs.cargo-binutils}/bin/rust-objcopy \
-            "${keyberon-firmware-elf}/bin/stm32f4-onekey" \
-            "--output-target" "binary" \
-            "$out/bin/stm32f4-onekey.bin"
+          env PATH=$PATH:${pkgs.cargo-binutils}/bin \
+            ${pkgs.gnumake}/bin/make \
+              --file ${./Makefile} \
+              RELEASE_TARGET_DIR=${keyberon-firmware-elf}/bin \
+              DEST_DIR=$out/bin \
+              $out/bin/minif4-36-rev2021_1-lhs.bin \
+              $out/bin/minif4-36-rev2021_1-rhs.bin \
+              $out/bin/x_2-rev2021_1.bin \
+              $out/bin/stm32f4-onekey.bin
         '';
 
         keyberon-firmware-uf2 = pkgs.runCommand "" {} ''
           mkdir -p $out/bin
 
-          ${uf2conv}/bin/uf2conv \
-            --convert \
-            --family=STM32F4 \
-            --base 0x8010000 \
-            --output=$out/bin/minif4-36-rev2021_1-lhs.uf2 \
-            ${keyberon-firmware-bin}/bin/minif4-36-rev2021_1-lhs.bin
+          cp ${keyberon-firmware-bin}/bin/*.bin $out/bin
 
-          ${uf2conv}/bin/uf2conv \
-            --convert \
-            --family=STM32F4 \
-            --base 0x8010000 \
-            --output=$out/bin/minif4-36-rev2021_1-rhs.uf2 \
-            ${keyberon-firmware-bin}/bin/minif4-36-rev2021_1-rhs.bin
+          env PATH=$PATH:${uf2conv}/bin \
+            ${pkgs.gnumake}/bin/make \
+              --file ${./Makefile} \
+              RELEASE_TARGET_DIR=${keyberon-firmware-elf}/bin \
+              DEST_DIR=$out/bin \
+              $out/bin/minif4-36-rev2021_1-lhs.uf2 \
+              $out/bin/minif4-36-rev2021_1-rhs.uf2 \
+              $out/bin/x_2-rev2021_1.uf2 \
+              $out/bin/stm32f4-onekey.uf2
 
-          ${uf2conv}/bin/uf2conv \
-            --convert \
-            --family=STM32F4 \
-            --base 0x8010000 \
-            --output=$out/bin/x_2-rev2021_1.uf2 \
-            ${keyberon-firmware-bin}/bin/x_2-rev2021_1.bin
-
-          ${uf2conv}/bin/uf2conv \
-            --convert \
-            --family=STM32F4 \
-            --base 0x8010000 \
-            --output=$out/bin/stm32f4-onekey.uf2 \
-            ${keyberon-firmware-bin}/bin/stm32f4-onekey.bin
+          rm $out/bin/*.bin
         '';
       };
     });
