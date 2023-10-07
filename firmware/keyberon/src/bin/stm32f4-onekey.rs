@@ -4,29 +4,23 @@
 #[rtic::app(device = stm32f4xx_hal::pac, peripherals = true)]
 mod app {
     // set the panic handler
-    use panic_halt as _;
+    use panic_rtt_target as _;
 
     use core::convert::Infallible;
 
     use keyberon::debounce::Debouncer;
     use keyberon::key_code::{KbHidReport, KeyCode};
-    use stm32f4xx_hal::gpio::Input;
+    use rtt_target::{rprintln, rtt_init_print};
     use stm32f4xx_hal::gpio::gpioa;
+    use stm32f4xx_hal::gpio::Input;
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
     use stm32f4xx_hal::{pac, timer};
     use usb_device::bus::UsbBusAllocator;
     use usb_device::class::UsbClass as _;
 
-    use keyboard_labs_keyberon::common::{
-        UsbClass,
-        UsbDevice,
-    };
-    use keyboard_labs_keyberon::direct_pin_matrix::{
-        DirectPins,
-        PressedKeys1x1,
-        PressedKeys,
-    };
+    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
+    use keyboard_labs_keyberon::direct_pin_matrix::{DirectPins, PressedKeys, PressedKeys1x1};
 
     const COLS: usize = 1;
     const ROWS: usize = 1;
@@ -35,26 +29,19 @@ mod app {
     type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, ()>;
     type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, ()>;
 
+    use keyberon::key_code::KeyCode::A;
     pub static LAYERS: Layers = keyberon::layout::layout! {
         {
-            [A],
+            [{keyboard_labs_keyberon::layouts::common::a!(A)}],
         }
     };
 
-    pub struct DirectPins1x1(
-        pub  (
-            gpioa::PA0<Input>,
-        )
-    );
+    pub struct DirectPins1x1(pub (gpioa::PA0<Input>,));
 
     impl DirectPins<COLS, ROWS> for DirectPins1x1 {
         fn get(&self) -> Result<PressedKeys1x1, Infallible> {
             let row1 = &self.0;
-            Ok(PressedKeys([
-                [
-                    row1.0.is_low(),
-                ],
-            ]))
+            Ok(PressedKeys([[row1.0.is_low()]]))
         }
     }
 
@@ -84,6 +71,10 @@ mod app {
             .sysclk(84.MHz())
             .require_pll48clk()
             .freeze();
+
+        rtt_init_print!();
+        rprintln!("init");
+
         let gpioa = c.device.GPIOA.split();
 
         let usb = USB {
@@ -107,9 +98,7 @@ mod app {
             pac::NVIC::unmask(pac::Interrupt::TIM3);
         }
 
-        let direct_pins = DirectPins1x1(
-            (gpioa.pa0.into_pull_up_input(),),
-        );
+        let direct_pins = DirectPins1x1((gpioa.pa0.into_pull_up_input(),));
 
         (
             SharedResources { usb_dev, usb_class },
@@ -124,16 +113,15 @@ mod app {
         )
     }
 
+
     #[task(binds = OTG_FS, priority = 2, shared = [usb_dev, usb_class])]
     fn usb_tx(c: usb_tx::Context) {
-        // usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
         let usb_tx::SharedResources { usb_dev, usb_class } = c.shared;
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
     #[task(binds = OTG_FS_WKUP, priority = 2, shared = [usb_dev, usb_class])]
     fn usb_rx(c: usb_rx::Context) {
-        // usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
         let usb_rx::SharedResources { usb_dev, usb_class } = c.shared;
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
@@ -142,13 +130,10 @@ mod app {
     fn tick(c: tick::Context) {
         c.local.timer.clear_interrupt(timer::Event::Update);
 
-        let events = c
-            .local
-            .debouncer
-            .events(c.local.direct_pins.get().unwrap());
+        let pressed_keys: PressedKeys1x1 = c.local.direct_pins.get().unwrap();
+        let events = c.local.debouncer.events(pressed_keys);
 
-        for event in events
-        {
+        for event in events {
             c.local.layout.event(event);
         }
         match c.local.layout.tick() {
@@ -157,9 +142,10 @@ mod app {
             },
             _ => (),
         }
-        // send_report(c.resources.layout.keycodes(), &mut c.resources.usb_class);
+
         let layout = c.local.layout;
         let mut usb_class = c.shared.usb_class;
+
         usb_class.lock(|mut k| send_report(layout.keycodes(), &mut k));
     }
 
