@@ -2,6 +2,35 @@ TARGET_DIR := target/thumbv7em-none-eabihf
 DEBUG_TARGET_DIR ?= $(TARGET_DIR)/debug
 RELEASE_TARGET_DIR ?= $(TARGET_DIR)/release
 DEST_DIR ?= .
+BINARIES := $(notdir $(basename $(wildcard src/bin/*.rs)))
+BINARIES_BIN := $(addsuffix .bin,$(BINARIES))
+BINARIES_UF2 := $(addsuffix .uf2,$(BINARIES))
+EXAMPLES := $(notdir $(basename $(wildcard examples/*.rs)))
+EXAMPLES_BIN := $(addprefix example-, $(addsuffix .bin,$(EXAMPLES)))
+EXAMPLES_UF2 := $(addprefix example-, $(addsuffix .uf2,$(EXAMPLES)))
+TARGETS = $(BINARIES) $(EXAMPLES)
+TARGETS_BIN = $(BINARIES_BIN) $(EXAMPLES_BIN)
+TARGETS_UF2 = $(BINARIES_UF2) $(EXAMPLES_UF2)
+
+.PHONY: all
+all: targets.bin targets.uf2
+
+.PHONY: clean
+clean: clean.bin clean.uf2
+
+.PHONY: clean.bin
+clean.bin:
+	rm -f $(addprefix $(DEST_DIR)/,$(TARGETS_BIN))
+
+.PHONY: clean.uf2
+clean.uf2:
+	rm -f $(addprefix $(DEST_DIR)/,$(TARGETS_UF2))
+
+.PHONY: targets.bin
+targets.bin: $(addprefix $(DEST_DIR)/,$(TARGETS_BIN))
+
+.PHONY: targets.uf2
+targets.uf2: $(addprefix $(DEST_DIR)/,$(TARGETS_UF2))
 
 $(DEBUG_TARGET_DIR)/examples/%: examples/%.rs
 	cargo build --example="$*"
