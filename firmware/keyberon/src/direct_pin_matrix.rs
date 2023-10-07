@@ -8,6 +8,15 @@ pub struct PressedKeys<const COLS: usize, const ROWS: usize>(pub [[bool; COLS]; 
 pub type PressedKeys5x4 = PressedKeys<5, 4>;
 pub type PressedKeys1x1 = PressedKeys<1, 1>;
 
+// impl debug for pressedkeys1x1
+impl core::fmt::Debug for PressedKeys1x1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PressedKeys1x1")
+            .field(&self.0[0][0])
+            .finish()
+    }
+}
+
 impl<const COLS: usize, const ROWS: usize> Default for PressedKeys<COLS, ROWS> {
     fn default() -> Self {
         Self([[false; COLS]; ROWS])
