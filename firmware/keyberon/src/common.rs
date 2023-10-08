@@ -1,6 +1,6 @@
 use stm32f4xx_hal::otg_fs::UsbBusType;
 use keyberon::layout::Event;
-use usb_device::class::UsbClass as _;
+use usb_device::prelude::*;
 
 use frunk::HList;
 use usbd_human_interface_device::device::keyboard::NKROBootKeyboard;
@@ -17,7 +17,14 @@ pub fn usb_poll(
     keyboard: &mut UsbClass,
 ) {
     if usb_dev.poll(&mut [keyboard]) {
-        keyboard.poll();
+        let interface = keyboard.device();
+        match interface.read_report() {
+            Err(UsbError::WouldBlock) => {}
+            Err(e) => {
+                core::panic!("Failed to read keyboard report: {:?}", e)
+            }
+            Ok(_leds) => {},
+        }
     }
 }
 
