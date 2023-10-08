@@ -8,14 +8,17 @@ mod app {
 
     use keyberon::chording::Chording;
     use keyberon::debounce::Debouncer;
-    use keyberon::key_code::{KbHidReport, KeyCode};
     use stm32f4xx_hal::timer::delay::DelayUs;
     use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
     use stm32f4xx_hal::{pac, timer};
+    use usb_device::UsbError;
     use usb_device::bus::UsbBusAllocator;
-    use usb_device::class::UsbClass as _;
+
+    use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
+    use usbd_human_interface_device::page::Keyboard;
+    use usbd_human_interface_device::UsbHidError;
 
     use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
     use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
@@ -62,7 +65,12 @@ mod app {
         *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
         let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
-        let usb_class = keyberon::new_class(usb_bus, ());
+        let usb_class = UsbHidClassBuilder::new()
+            .add_device(
+                usbd_human_interface_device::device::keyboard::NKROBootKeyboardConfig::default(),
+            )
+            .build(usb_bus);
+
         let usb_dev = keyberon::new_device(usb_bus);
 
         let mut timer = c.device.TIM3.counter_us(&clocks);
@@ -133,9 +141,9 @@ mod app {
         c.local.timer.clear_interrupt(timer::Event::Update);
 
         let events = c.local.debouncer.events(c.local.matrix.get().unwrap());
-        // let chordEvents = c.local.chording.tick(events.collect());
+        let chord_events = c.local.chording.tick(events.collect());
 
-        for event in events {
+        for event in chord_events {
             c.local.layout.event(event);
         }
         match c.local.layout.tick() {
@@ -144,22 +152,32 @@ mod app {
             },
             _ => (),
         }
-        // send_report(c.resources.layout.keycodes(), &mut c.resources.usb_class);
         let layout = c.local.layout;
         let mut usb_class = c.shared.usb_class;
         usb_class.lock(|mut k| send_report(layout.keycodes(), &mut k));
     }
 
-    fn send_report(iter: impl Iterator<Item = KeyCode>, usb_class: &mut UsbClass) {
-        let report: KbHidReport = iter.collect();
-        if usb_class.device_mut().set_keyboard_report(report.clone()) {
-            while let Ok(0) = usb_class.write(report.as_bytes()) {}
+    fn send_report(iter: impl Iterator<Item = Keyboard>, usb_class: &mut UsbClass) {
+        match usb_class.device().write_report(iter) {
+            Err(UsbHidError::WouldBlock) => {}
+            Err(UsbHidError::Duplicate) => {}
+            Ok(_) => {}
+            Err(e) => {
+                core::panic!("Failed to write keyboard report: {:?}", e)
+            }
         }
     }
 
     fn usb_poll(usb_dev: &mut UsbDevice, keyboard: &mut UsbClass) {
         if usb_dev.poll(&mut [keyboard]) {
-            keyboard.poll();
+            let interface = keyboard.device();
+            match interface.read_report() {
+                Err(UsbError::WouldBlock) => {}
+                Err(e) => {
+                    core::panic!("Failed to read keyboard report: {:?}", e)
+                }
+                Ok(_leds) => {},
+            }
         }
     }
 }
