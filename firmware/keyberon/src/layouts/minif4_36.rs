@@ -1,5 +1,7 @@
-use keyberon::action::{d, k, l, Action, Action::*, HoldTapAction, HoldTapConfig};
-use keyberon::key_code::KeyCode::*;
+use keyberon::action::{Action::*, HoldTapConfig, d, k, l};
+use usbd_human_interface_device::page::{Keyboard::*, Keyboard};
+
+use crate::layouts::common::{Action, HoldTapAction};
 
 const NUM_BASE_LAYERS: usize = 2;
 const BASE_DSK: usize = 0;
@@ -11,7 +13,7 @@ const NSL: usize = NUM_BASE_LAYERS + 3;
 const NSSL: usize = NUM_BASE_LAYERS + 4;
 const FUNL: usize = NUM_BASE_LAYERS + 5;
 
-const SP_NAVR: Action<()> = HoldTap(&HoldTapAction {
+const SP_NAVR: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
@@ -19,7 +21,7 @@ const SP_NAVR: Action<()> = HoldTap(&HoldTapAction {
     tap: k(Space),
 });
 
-const TAB_MOUR: Action<()> = HoldTap(&HoldTapAction {
+const TAB_MOUR: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
@@ -27,7 +29,7 @@ const TAB_MOUR: Action<()> = HoldTap(&HoldTapAction {
     tap: k(Tab),
 });
 
-const ESC_MEDR: Action<()> = HoldTap(&HoldTapAction {
+const ESC_MEDR: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
@@ -35,94 +37,96 @@ const ESC_MEDR: Action<()> = HoldTap(&HoldTapAction {
     tap: k(Escape),
 });
 
-const BKSP_NSL: Action<()> = HoldTap(&HoldTapAction {
+const BKSP_NSL: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(NSL),
-    tap: k(BSpace),
+    tap: k(DeleteBackspace),
 });
 
-const ENT_NSSL: Action<()> = HoldTap(&HoldTapAction {
+const ENT_NSSL: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(NSSL),
-    tap: k(Enter),
+    tap: k(ReturnEnter),
 });
 
-const DEL_FUNL: Action<()> = HoldTap(&HoldTapAction {
+const DEL_FUNL: Action = HoldTap(&HoldTapAction {
     timeout: 200,
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(FUNL),
-    tap: k(Delete),
+    tap: k(DeleteForward),
 });
 
 // Columns = 10
 // Rows = 4
 // Layers = 8
 // Custom action type = ()
-pub type Layers = keyberon::layout::Layers<10, 4, 8, ()>;
-pub type Layout = keyberon::layout::Layout<10, 4, 8, ()>;
+pub type Layers = keyberon::layout::Layers<10, 4, 8, (), Keyboard>;
+pub type Layout = keyberon::layout::Layout<10, 4, 8, (), Keyboard>;
+
+const _______: Action = keyberon::action::Action::Trans;
 
 #[rustfmt::skip]
-pub static LAYERS: Layers = keyberon::layout::layout! {
-    // layer 0: dsk
-    {
-        [{k(Quote) } ,         .         P         Y           F         G         C         R      L     ],
-        [{a!(A)    }{g!(O)   }{c!(E) }  {s!(U)}    I           D        {s!(H)}   {c!(T)}   {g!(N)}{a!(S)}],
-        [ ;          Q         J         K         X           B         M         W         V      Z     ],
-        [ t          t        {TAB_MOUR}{ESC_MEDR}{SP_NAVR}   {BKSP_NSL}{ENT_NSSL}{DEL_FUNL} t      t     ],
-    }
-    // layer 1: qwerty
-    {
-        [Q      W         E         R         T           Y         U         I         O       P       ],
-        [A      S         D         F         G           H         J         K         L       ;       ],
-        [Z      X         C         V         B           N         M         ,         .       /       ],
-        [t      t        {TAB_MOUR}{ESC_MEDR}{SP_NAVR}   {BKSP_NSL}{ENT_NSSL}{DEL_FUNL} t       t       ],
-    }
+pub static LAYERS: Layers = [
+    // 0: Dvorak
+    [
+        [k(Apostrophe), k(Comma), k(Dot), k(P), k(Y), k(F), k(G), k(C), k(R), k(L)],
+        [a!(A), g!(O), c!(E), s!(U), k(I), k(D), s!(H), c!(T), g!(N), a!(S)],
+        [k(Semicolon), k(Q), k(J), k(K), k(X), k(B), k(M), k(W), k(V), k(Z)],
+        [_______, _______, TAB_MOUR, ESC_MEDR, SP_NAVR,  BKSP_NSL, ENT_NSSL, DEL_FUNL, _______, _______],
+    ],
+    // 1: QWERTY
+    [
+        [k(Q), k(W), k(E), k(R), k(T), k(Y), k(U), k(I), k(O), k(P)],
+        [k(A), k(S), k(D), k(F), k(G), k(H), k(J), k(K), k(L), k(Semicolon)],
+        [k(Z), k(X), k(C), k(V), k(B), k(N), k(M), k(Comma), k(Dot), k(ForwardSlash)],
+        [_______, _______, TAB_MOUR, ESC_MEDR, SP_NAVR,  BKSP_NSL, ENT_NSSL, DEL_FUNL, _______, _______],
+    ],
     // 2 nav-r,
-    {
-        [t     t     t     t     t         t        t          t        t         t     ],
-        [t     t     t     t     t         Left     Down       Up       Right     t     ],
-        [t     t     t     t     t         Home     PgDown     PgUp     End       Insert],
-        [t     t     t     t     t         t        t          t        t         t     ],
-    }
+    [
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+        [_______, _______, _______, _______, _______,   k(LeftArrow), k(DownArrow), k(UpArrow), k(RightArrow), _______],
+        [_______, _______, _______, _______, _______,   k(Home), k(PageDown), k(PageUp), k(End), k(Insert)],
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+    ],
     // 3 mouse-r,
     // TBI
-    {
-        [t     t     t     t     t         t     t     t     t     t     ],
-        [t     t     t     t     t         t     t     t     t     t     ],
-        [t     t     t     t     t         t     t     t     t     t     ],
-        [t     t     t     t     t         t     t     t     t     t     ],
-    }
+    [
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+    ],
     // 4 media-r,
-    {
-        [t     t     t     t     t         t                     t                t              t                 t     ],
-        [t     t     t     t     t        {k(MediaPreviousSong)}{k(MediaVolDown)}{k(MediaVolUp)}{k(MediaNextSong)} t     ],
-        [t     t     t     t     t        {d(BASE_DSK)         }{d(BASE_QWERTY) } t              t                 t     ],
-        [t     t     t     t     t        {k(MediaPlayPause)   }{k(MediaMute)   }{k(MediaStop) } t                 t     ],
-    }
+    [
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+        [_______, _______, _______, _______, _______,   d(BASE_DSK), d(BASE_QWERTY), _______, _______, _______],
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+    ],
     // 5 numsym-l,
-    {
-        [{k(LBracket)}{k(Kb7)}{k(Kb8)}{k(Kb9)}{k(RBracket)}     t     t     t     t     t     ],
-        [{k(Grave)   }{k(Kb4)}{k(Kb5)}{k(Kb6)}{k(Equal)   }     t     t     t     t     t     ],
-        [{k(Slash)   }{k(Kb1)}{k(Kb2)}{k(Kb3)}{k(Bslash)  }     t     t     t     t     t     ],
-        [ t            t       .      {k(Kb0)}{k(Minus)   }     t     t     t     t     t     ],
-    }
+    [
+        [k(LeftBrace), k(Keyboard7), k(Keyboard8), k(Keyboard9), k(RightBrace),   _______, _______, _______, _______, _______],
+        [k(Grave),    k(Keyboard4), k(Keyboard5), k(Keyboard6), k(Equal),   _______, _______, _______, _______, _______],
+        [k(ForwardSlash),    k(Keyboard1), k(Keyboard2), k(Keyboard3), k(Backslash),   _______, _______, _______, _______, _______],
+        [_______, _______, k(Dot), k(Keyboard0), k(Minus),   _______, _______, _______, _______, _______],
+    ],
     // 6 shiftednumsym-l,
-    {
-        [{sk!(LBracket)}{sk!(Kb7)}{sk!(Kb8)}{sk!(Kb9)}         {sk!(RBracket)}    t     t     t     t     t     ],
-        [{sk!(Grave)   }{sk!(Kb4)}{sk!(Kb5)}{sk!(Kb6)}         {sk!(Equal)   }    t     t     t     t     t     ],
-        [{sk!(Slash)   }{sk!(Kb1)}{sk!(Kb2)}{sk!(Kb3)}         {sk!(Bslash)  }    t     t     t     t     t     ],
-        [ t               t       {sk!(Dot)}{sk!(Kb0)}         {sk!(Minus)   }    t     t     t     t     t     ],
-    }
+    [
+        [sk!(LeftBrace), sk!(Keyboard7), sk!(Keyboard8), sk!(Keyboard9), sk!(RightBrace),   _______, _______, _______, _______, _______],
+        [sk!(Grave),    sk!(Keyboard4), sk!(Keyboard5), sk!(Keyboard6), sk!(Equal),   _______, _______, _______, _______, _______],
+        [sk!(ForwardSlash),    sk!(Keyboard1), sk!(Keyboard2), sk!(Keyboard3), sk!(Backslash),   _______, _______, _______, _______, _______],
+        [_______, _______, sk!(Dot), sk!(Keyboard0), sk!(Minus),   _______, _______, _______, _______, _______],
+    ],
     // 7 func-l
-    {
-        [F12     F7     F8     F9     t         t     t     t     t     t     ],
-        [F11     F4     F5     F6     t         t     t     t     t     t     ],
-        [F10     F1     F2     F3     t         t     t     t     t     t     ],
-        [t       t      t      t      t         t     t     t     t     t     ],
-    }
-};
+    [
+        [k(F12), k(F7), k(F8), k(F2), _______,   _______, _______, _______, _______, _______],
+        [k(F11), k(F4), k(F5), k(F6), _______,   _______, _______, _______, _______, _______],
+        [k(F10), k(F2), k(F2), k(F3), _______,   _______, _______, _______, _______, _______],
+        [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
+    ],
+];
