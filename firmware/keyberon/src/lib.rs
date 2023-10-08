@@ -3,6 +3,7 @@
 
 pub mod rev2020_1;
 pub mod rev2021_1;
+pub mod rev2021_5;
 
 pub mod matrix;
 pub mod direct_pin_matrix;
