@@ -9,32 +9,33 @@ mod app {
     use core::convert::Infallible;
 
     use keyberon::debounce::Debouncer;
-    use keyberon::key_code::{KbHidReport, KeyCode};
     use rtt_target::{rprintln, rtt_init_print};
     use stm32f4xx_hal::gpio::gpioa;
     use stm32f4xx_hal::gpio::Input;
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
     use stm32f4xx_hal::{pac, timer};
+    use usb_device::prelude::*;
     use usb_device::bus::UsbBusAllocator;
-    use usb_device::class::UsbClass as _;
+
+    use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
+    use usbd_human_interface_device::page::Keyboard;
+    use usbd_human_interface_device::UsbHidError;
 
     use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
     use keyboard_labs_keyberon::direct_pin_matrix::{DirectPins, PressedKeys, PressedKeys1x1};
+    use keyboard_labs_keyberon::layouts::common::{Action, HoldTapAction};
 
     const COLS: usize = 1;
     const ROWS: usize = 1;
     const NUM_LAYERS: usize = 1;
 
-    type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, ()>;
-    type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, ()>;
+    type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, (), Keyboard>;
+    type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, (), Keyboard>;
 
-    use keyberon::key_code::KeyCode::A;
-    pub static LAYERS: Layers = keyberon::layout::layout! {
-        {
-            [{keyboard_labs_keyberon::layouts::common::a!(A)}],
-        }
-    };
+    pub static LAYERS: Layers = [[[
+        keyboard_labs_keyberon::layouts::common::a!(A)
+    ]]];
 
     pub struct DirectPins1x1(pub (gpioa::PA0<Input>,));
 
@@ -88,7 +89,12 @@ mod app {
         *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
         let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
-        let usb_class = keyberon::new_class(usb_bus, ());
+        let usb_class = UsbHidClassBuilder::new()
+            .add_device(
+                usbd_human_interface_device::device::keyboard::NKROBootKeyboardConfig::default(),
+            )
+            .build(usb_bus);
+
         let usb_dev = keyberon::new_device(usb_bus);
 
         let mut timer = c.device.TIM3.counter_us(&clocks);
@@ -149,16 +155,27 @@ mod app {
         usb_class.lock(|mut k| send_report(layout.keycodes(), &mut k));
     }
 
-    fn send_report(iter: impl Iterator<Item = KeyCode>, usb_class: &mut UsbClass) {
-        let report: KbHidReport = iter.collect();
-        if usb_class.device_mut().set_keyboard_report(report.clone()) {
-            while let Ok(0) = usb_class.write(report.as_bytes()) {}
+    fn send_report(iter: impl Iterator<Item = Keyboard>, usb_class: &mut UsbClass) {
+        match usb_class.device().write_report(iter) {
+            Err(UsbHidError::WouldBlock) => {}
+            Err(UsbHidError::Duplicate) => {}
+            Ok(_) => {}
+            Err(e) => {
+                core::panic!("Failed to write keyboard report: {:?}", e)
+            }
         }
     }
 
     fn usb_poll(usb_dev: &mut UsbDevice, keyboard: &mut UsbClass) {
         if usb_dev.poll(&mut [keyboard]) {
-            keyboard.poll();
+            let interface = keyboard.device();
+            match interface.read_report() {
+                Err(UsbError::WouldBlock) => {}
+                Err(e) => {
+                    core::panic!("Failed to read keyboard report: {:?}", e)
+                }
+                Ok(_leds) => {},
+            }
         }
     }
 }
