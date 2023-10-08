@@ -337,6 +337,7 @@ dependencies = [
  "cortex-m-rt",
  "cortex-m-rtic",
  "embedded-hal 0.2.7",
+ "frunk",
  "generic-array",
  "heapless",
  "keyberon",
