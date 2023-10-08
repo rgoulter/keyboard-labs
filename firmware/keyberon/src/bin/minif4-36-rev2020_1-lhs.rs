@@ -1,72 +1,73 @@
 #![no_main]
 #![no_std]
 
-// set the panic handler
-use panic_halt as _;
+#[rtic::app(device = stm32f4xx_hal::pac, peripherals = true, dispatchers = [SPI1])]
+mod app {
+    // set the panic handler
+    use panic_halt as _;
 
-use keyberon::debounce::Debouncer;
-use keyberon::key_code::KbHidReport;
-use keyberon::layout::Event;
-use nb::block;
-use rtic::app;
-use rtic::Exclusive;
-use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
-use stm32f4xx_hal::prelude::*;
-use stm32f4xx_hal::serial;
-use stm32f4xx_hal::serial::config::Config;
-use stm32f4xx_hal::{pac, timer};
-use usb_device::bus::UsbBusAllocator;
-use usb_device::device::UsbDeviceState;
-use usb_device::prelude::*;
+    use keyberon::debounce::Debouncer;
+    use keyberon::layout::Event;
+    use nb::block;
+    use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
+    use stm32f4xx_hal::prelude::*;
+    use stm32f4xx_hal::serial;
+    use stm32f4xx_hal::serial::config::Config;
+    use stm32f4xx_hal::{pac, timer};
+    use usb_device::prelude::{UsbDeviceBuilder, UsbDeviceState, UsbVidPid};
+    use usb_device::bus::UsbBusAllocator;
 
-use keyboard_labs_keyberon::common::{
-    UsbClass,
-    UsbDevice,
-    UsbSerial,
-    de,
-    ser,
-    usb_poll,
-};
-use keyboard_labs_keyberon::direct_pin_matrix::{
-    DirectPins,
-    PressedKeys5x4,
-};
-use keyboard_labs_keyberon::layouts::minif4_36::{LAYERS, Layout};
-use keyboard_labs_keyberon::rev2020_1::pin_layout_lhs::{
-    DirectPins5x4,
-    direct_pin_matrix_for_peripherals,
-    event_transform,
-};
+    use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
+    use usbd_human_interface_device::UsbHidError;
 
-/// USB VIP for a generic keyboard from
-/// https://github.com/obdev/v-usb/blob/master/usbdrv/USB-IDs-for-free.txt
-const VID: u16 = 0x16c0;
+    use keyboard_labs_keyberon::common::{
+        UsbClass,
+        UsbDevice,
+        de,
+        ser,
+        usb_poll,
+    };
+    use keyboard_labs_keyberon::direct_pin_matrix::{
+        DirectPins,
+        PressedKeys5x4,
+    };
+    use keyboard_labs_keyberon::layouts::minif4_36::{LAYERS, Layout};
+    use keyboard_labs_keyberon::rev2020_1::pin_layout_lhs::{
+        DirectPins5x4,
+        direct_pin_matrix_for_peripherals,
+        event_transform,
+    };
 
-/// USB PID for a generic keyboard from
-/// https://github.com/obdev/v-usb/blob/master/usbdrv/USB-IDs-for-free.txt
-const PID: u16 = 0x27db;
+    /// USB VIP for a generic keyboard from
+    /// https://github.com/obdev/v-usb/blob/master/usbdrv/USB-IDs-for-free.txt
+    const VID: u16 = 0x16c0;
 
-// The rtic app for the keyboard firmware.
-#[app(device = stm32f4xx_hal::pac, peripherals = true)]
-const APP: () = {
-    struct Resources {
+    /// USB PID for a generic keyboard from
+    /// https://github.com/obdev/v-usb/blob/master/usbdrv/USB-IDs-for-free.txt
+    const PID: u16 = 0x27db;
+
+    #[shared]
+    struct SharedResources {
         usb_dev: UsbDevice,
         usb_class: UsbClass,
-        direct_pins: DirectPins5x4,
-        debouncer: Debouncer<PressedKeys5x4>,
-        layout: Layout,
-        timer: timer::CounterUs<pac::TIM3>,
-        transform: fn(Event) -> Event,
-        tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
-        rx: serial::Rx<stm32f4xx_hal::pac::USART1>,
-        usb_serial: UsbSerial,
     }
 
-    #[init]
-    fn init(c: init::Context) -> init::LateResources {
-        static mut EP_MEMORY: [u32; 1024] = [0; 1024];
-        static mut USB_BUS: Option<UsbBusAllocator<UsbBusType>> = None;
+    #[local]
+    struct LocalResources {
+        direct_pins: DirectPins5x4,
+        debouncer: Debouncer<PressedKeys5x4>,
+        transform: fn(Event) -> Event,
+        layout: Layout,
+        timer: timer::CounterUs<pac::TIM3>,
+        tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
+        rx: serial::Rx<stm32f4xx_hal::pac::USART1>,
+    }
 
+    #[init(local = [
+        ep_memory: [u32; 1024] = [0; 1024],
+        usb_bus: Option<UsbBusAllocator<UsbBusType>> = None
+    ])]
+    fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
         let rcc = c.device.RCC.constrain();
         let clocks = rcc
             .cfgr
@@ -85,12 +86,14 @@ const APP: () = {
             pin_dp: stm32f4xx_hal::gpio::alt::otg_fs::Dp::PA12(gpioa.pa12.into_alternate()),
             hclk: clocks.hclk(),
         };
-        *USB_BUS = Some(UsbBusType::new(usb, EP_MEMORY));
-        let usb_bus = USB_BUS.as_ref().unwrap();
+        *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
+        let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
-        let usb_class = keyberon::new_class(usb_bus, ());
-
-        let usb_serial = usbd_serial::SerialPort::new(&usb_bus);
+        let usb_class = UsbHidClassBuilder::new()
+            .add_device(
+                usbd_human_interface_device::device::keyboard::NKROBootKeyboardConfig::default(),
+            )
+            .build(usb_bus);
 
         let usb_dev = UsbDeviceBuilder::new(usb_bus, UsbVidPid(VID, PID))
             .manufacturer("Richard Goulter's Keyboard Prototypes")
@@ -103,7 +106,10 @@ const APP: () = {
         timer.start(1.millis()).unwrap();
         timer.listen(timer::Event::Update);
         unsafe {
+            pac::NVIC::unmask(pac::Interrupt::OTG_FS);
+            pac::NVIC::unmask(pac::Interrupt::OTG_FS_WKUP);
             pac::NVIC::unmask(pac::Interrupt::TIM3);
+            pac::NVIC::unmask(pac::Interrupt::USART1);
         }
 
         let direct_pins = direct_pin_matrix_for_peripherals(
@@ -141,18 +147,23 @@ const APP: () = {
         serial.listen(serial::Event::Rxne);
         let (tx, rx) = serial.split();
 
-        init::LateResources {
-            debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
-            direct_pins: direct_pins,
-            layout: Layout::new(&LAYERS),
-            rx,
-            timer,
-            transform: event_transform,
-            tx,
-            usb_class,
-            usb_dev,
-            usb_serial,
-        }
+        (
+            SharedResources {
+                usb_dev,
+                usb_class,
+            },
+            LocalResources {
+                timer,
+                // 5x12 debouncer
+                debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
+                direct_pins,
+                transform: event_transform,
+                tx,
+                rx,
+                layout: Layout::new(&LAYERS),
+            },
+            init::Monotonics(),
+        )
     }
 
     /// Handle input from the TRRS cable.
@@ -163,40 +174,32 @@ const APP: () = {
     /// This is how the split-half which isn't connected to
     /// the computer with USB can still have its key presses
     /// sent to the computer.
-    #[task(binds = USART1, priority = 5, spawn = [handle_event], resources = [rx])]
+    #[task(binds = USART1, priority = 5, local = [buf: [u8; 4] = [0; 4], rx])]
     fn rx(c: rx::Context) {
-        static mut BUF: [u8; 4] = [0; 4];
+        if let Ok(b) = c.local.rx.read() {
+            c.local.buf.rotate_left(1);
+            c.local.buf[3] = b;
 
-        if let Ok(b) = c.resources.rx.read() {
-            BUF.rotate_left(1);
-            BUF[3] = b;
-
-            if BUF[3] == b'\n' {
-                if let Ok(event) = de(&BUF[..]) {
-                    c.spawn.handle_event(Some(event)).unwrap();
+            if c.local.buf[3] == b'\n' {
+                if let Ok(event) = de(&c.local.buf[..]) {
+                    handle_event::spawn(Some(event)).unwrap();
                 }
             }
         }
     }
 
     /// Poll the USB device for the OTG_FS interrupt.
-    #[task(binds = OTG_FS, priority = 4, resources = [usb_class, usb_dev, usb_serial])]
-    fn usb_tx(mut c: usb_tx::Context) {
-        usb_poll(
-            &mut c.resources.usb_dev,
-            &mut c.resources.usb_class,
-            &mut Exclusive(c.resources.usb_serial),
-        );
+    #[task(binds = OTG_FS, priority = 4, shared = [usb_class, usb_dev])]
+    fn usb_tx(c: usb_tx::Context) {
+        let usb_tx::SharedResources { usb_dev, usb_class } = c.shared;
+        (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
     /// Poll the USB device for the OTG_FS_WKUP interrupt.
-    #[task(binds = OTG_FS_WKUP, priority = 4, resources = [usb_class, usb_dev, usb_serial])]
-    fn usb_rx(mut c: usb_rx::Context) {
-        usb_poll(
-            &mut c.resources.usb_dev,
-            &mut c.resources.usb_class,
-            &mut Exclusive(c.resources.usb_serial),
-        );
+    #[task(binds = OTG_FS_WKUP, priority = 4, shared = [usb_class, usb_dev])]
+    fn usb_rx(c: usb_rx::Context) {
+        let usb_rx::SharedResources { usb_dev, usb_class } = c.shared;
+        (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
     /// Handles keyberon Events and sends the resulting HID report
@@ -207,32 +210,33 @@ const APP: () = {
     /// a layout tick occurs and the resulting report is written.
     /// i.e. this task should be spawned with None as the event
     /// every tick.
-    #[task(priority = 3, capacity = 8, resources = [layout, usb_class, usb_dev])]
-    fn handle_event(mut c: handle_event::Context, event: Option<Event>) {
+    #[task(priority = 3, capacity = 8, shared = [usb_class, usb_dev], local = [layout])]
+    fn handle_event(c: handle_event::Context, event: Option<Event>) {
+        let handle_event::SharedResources { mut usb_class, mut usb_dev } = c.shared;
+        let handle_event::LocalResources { layout } = c.local;
         match event {
             None => {
-                c.resources.layout.tick();
+                layout.tick();
 
-                // Update the usb keyboard with the HID report from the
-                // keyberon layout.
-                let report: KbHidReport = c.resources.layout.keycodes().collect();
-                if !c
-                    .resources
-                    .usb_class
-                    .lock(|k| k.device_mut().set_keyboard_report(report.clone()))
-                {
-                    return;
-                }
                 // Check the USB connection is in a good state.
-                if c.resources.usb_dev.lock(|d| d.state()) != UsbDeviceState::Configured {
+                if usb_dev.lock(|d| d.state()) != UsbDeviceState::Configured {
                     return;
                 }
-                // Write the report to the usb keyboard class.
-                while let Ok(0) = c.resources.usb_class.lock(|k| k.write(report.as_bytes())) {}
+
+                usb_class.lock(|uc|
+                    match uc.device().write_report(layout.keycodes()) {
+                        Err(UsbHidError::WouldBlock) => {}
+                        Err(UsbHidError::Duplicate) => {}
+                        Ok(_) => {}
+                        Err(e) => {
+                            core::panic!("Failed to write keyboard report: {:?}", e)
+                        }
+                    }
+                )
             }
             Some(e) => {
                 // Update the keyberon layout state with the event.
-                c.resources.layout.event(e);
+                layout.event(e);
             }
         };
     }
@@ -240,46 +244,37 @@ const APP: () = {
     #[task(
         binds = TIM3,
         priority = 2,
-        spawn = [handle_event],
-        resources = [
+        local = [
             debouncer,
             direct_pins,
-            layout,
             timer,
-            &transform,
+            transform,
             tx,
-            usb_class,
-            usb_serial
         ]
     )]
     fn tick(c: tick::Context) {
-        c.resources.timer.clear_interrupt(timer::Event::Update);
+        c.local.timer.clear_interrupt(timer::Event::Update);
 
         // Construct the keyberon events by reading from the gpio
         // pins, debouncing the inputs, and transforming the values
         // for left/right-hand split half.
         for event in c
-            .resources
+            .local
             .debouncer
-            .events(c.resources.direct_pins.get().unwrap())
-            .map(c.resources.transform)
+            .events(c.local.direct_pins.get().unwrap())
+            .map(c.local.transform)
         {
             // Send the event across the TRRS cable.
             for &b in &ser(event) {
-                block!(c.resources.tx.write(b)).unwrap();
+                block!(c.local.tx.write(b)).unwrap();
             }
-            block!(c.resources.tx.flush()).unwrap();
+            block!(c.local.tx.flush()).unwrap();
 
             // update the keyberon layout with the event.
-            c.spawn.handle_event(Some(event)).unwrap();
+            handle_event::spawn(Some(event)).unwrap();
         }
-        // update the keyberon layout & send the HID report to the computer.
-        c.spawn.handle_event(None).unwrap();
-    }
 
-    extern "C" {
-        // An otherwise unused interrupt.
-        // Used by rtic for the handle_event software task.
-        fn TIM2();
+        // update the keyberon layout & send the HID report to the computer.
+        handle_event::spawn(None).unwrap();
     }
-};
+}

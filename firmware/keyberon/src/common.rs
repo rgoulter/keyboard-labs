@@ -1,4 +1,3 @@
-use rtic::Mutex;
 use stm32f4xx_hal::otg_fs::UsbBusType;
 use keyberon::layout::Event;
 use usb_device::class::UsbClass as _;
@@ -16,14 +15,10 @@ pub type UsbSerial = usbd_serial::SerialPort<'static, UsbBusType>;
 pub fn usb_poll(
     usb_dev: &mut UsbDevice,
     keyboard: &mut UsbClass,
-    usb_serial: &mut impl Mutex<T = UsbSerial>,
 ) {
-    usb_serial.lock(|serial| {
-        if usb_dev.poll(&mut [keyboard, serial]) {
-            keyboard.poll();
-            serial.poll();
-        }
-    })
+    if usb_dev.poll(&mut [keyboard]) {
+        keyboard.poll();
+    }
 }
 
 /// Deserialise a slice of bytes into a keyberon Event.
