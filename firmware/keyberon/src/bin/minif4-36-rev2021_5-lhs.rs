@@ -23,8 +23,8 @@ mod app {
         UsbClass,
         UsbDevice,
         LayoutMessage,
-        de,
         ser,
+        receive_byte,
         send_report,
         usb_poll,
     };
@@ -167,14 +167,9 @@ mod app {
     fn rx(c: rx::Context) {
         let rx::LocalResources { buf, rx } = c.local;
         if let Ok(b) = rx.read() {
-            buf.rotate_left(1);
-            buf[3] = b;
-
-            if buf[3] == b'\n' {
-                if let Ok(event) = de(&buf[..]) {
-                    layout::spawn(LayoutMessage::Event(event)).unwrap();
-                }
-            }
+            receive_byte(buf, b).map(|event| {
+                layout::spawn(LayoutMessage::Event(event)).unwrap();
+            });
         }
     }
 

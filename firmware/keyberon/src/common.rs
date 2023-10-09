@@ -72,3 +72,14 @@ pub fn ser(e: Event) -> [u8; 4] {
         Event::Release(i, j) => [b'R', i, j, b'\n'],
     }
 }
+
+pub fn receive_byte(buf: &mut [u8; 4], b: u8) -> Option<Event> {
+    buf.rotate_left(1);
+    buf[3] = b;
+
+    if buf[3] == b'\n' {
+        de(&buf[..]).ok()
+    } else {
+        None
+    }
+}
