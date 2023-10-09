@@ -34,40 +34,25 @@ pub use stm32f4xx_hal::timer::delay::DelayUs;
         usb_bus: Option<UsbBusAllocator<UsbBusType>> = None
     ])]
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
-        let rcc = c.device.RCC.constrain();
-        let clocks = rcc
-            .cfgr
-            .use_hse(25.MHz())
-            .sysclk(84.MHz())
-            .require_pll48clk()
-            .freeze();
-        let gpioa = c.device.GPIOA.split();
-        let gpiob = c.device.GPIOB.split();
+        let init::Context { device, .. } = c;
+        let clocks = app_init::init_clocks(device.RCC.constrain());
+        let gpioa = device.GPIOA.split();
+        let gpiob = device.GPIOB.split();
 
         let usb = USB::new(
-            (c.device.OTG_FS_GLOBAL, c.device.OTG_FS_DEVICE, c.device.OTG_FS_PWRCLK),
+            (device.OTG_FS_GLOBAL, device.OTG_FS_DEVICE, device.OTG_FS_PWRCLK),
             (gpioa.pa11, gpioa.pa12),
             &clocks,
         );
+
         *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
         let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
-        let usb_class = UsbHidClassBuilder::new()
-            .add_device(
-                usbd_human_interface_device::device::keyboard::NKROBootKeyboardConfig::default(),
-            )
-            .build(usb_bus);
+        let (usb_dev, usb_class) = app_init::init_usb_device(usb_bus);
 
-        let usb_dev = keyberon::new_device(usb_bus);
+        let timer = app_init::init_timer(&clocks, device.TIM3);
 
-        let mut timer = c.device.TIM3.counter_us(&clocks);
-        timer.start(1.millis()).unwrap();
-        timer.listen(timer::Event::Update);
-        unsafe {
-            pac::NVIC::unmask(pac::Interrupt::TIM3);
-        }
-
-        let delay: DelayUs<pac::TIM5> = c.device.TIM5.delay_us(&clocks);
+        let delay: DelayUs<pac::TIM5> = device.TIM5.delay_us(&clocks);
         let (cols, rows) = cols_and_rows_for_peripherals(
             gpioa.pa3,
             gpioa.pa4,

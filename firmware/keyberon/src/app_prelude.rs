@@ -14,4 +14,5 @@ pub use usb_device::bus::UsbBusAllocator;
 
 pub use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
+pub use crate::app_init;
 pub use crate::common::{UsbClass, UsbDevice, keyboard_events, send_report, usb_poll};
