@@ -8,7 +8,6 @@ mod app {
 
     use keyberon::chording::Chording;
     use keyberon::debounce::Debouncer;
-    use nb::block;
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
     use stm32f4xx_hal::serial;
@@ -23,8 +22,8 @@ mod app {
         UsbClass,
         UsbDevice,
         LayoutMessage,
-        ser,
         split_read_event,
+        split_write_event,
         send_report,
         usb_poll,
     };
@@ -237,10 +236,7 @@ mod app {
         for event in chord_events
         {
             // Send the event across the TRRS cable.
-            for &b in &ser(event) {
-                block!(tx.write(b)).unwrap();
-            }
-            block!(tx.flush()).unwrap();
+            split_write_event(event, tx);
 
             // update the keyberon layout with the event.
             layout::spawn(LayoutMessage::Event(event)).unwrap();

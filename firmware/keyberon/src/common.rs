@@ -1,6 +1,7 @@
+use nb::block;
 use stm32f4xx_hal::otg_fs::UsbBusType;
 use stm32f4xx_hal::prelude::*;
-use stm32f4xx_hal::serial::Rx;
+use stm32f4xx_hal::serial::{Rx, Tx};
 use keyberon::layout::Event;
 use usb_device::prelude::*;
 
@@ -88,4 +89,11 @@ pub fn receive_byte(buf: &mut [u8; 4], b: u8) -> Option<Event> {
 
 pub fn split_read_event(buf: &mut [u8; 4], rx: &mut Rx<stm32f4xx_hal::pac::USART1>) -> Option<Event> {
     rx.read().ok().and_then(|b: u8| receive_byte(buf, b))
+}
+
+pub fn split_write_event(event: Event, tx: &mut Tx<stm32f4xx_hal::pac::USART1>) {
+    for &b in &ser(event) {
+        block!(tx.write(b)).unwrap();
+    }
+    block!(tx.flush()).unwrap();
 }
