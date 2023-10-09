@@ -46,7 +46,7 @@ mod app {
 
     #[local]
     struct LocalResources {
-        direct_pins: DirectPins5x4,
+        matrix: DirectPins5x4,
         debouncer: Debouncer<PressedKeys5x4>,
         layout: Layout,
         timer: timer::CounterUs<pac::TIM3>,
@@ -99,7 +99,7 @@ mod app {
             pac::NVIC::unmask(pac::Interrupt::USART1);
         }
 
-        let direct_pins = direct_pin_matrix_for_peripherals(
+        let matrix = direct_pin_matrix_for_peripherals(
             gpioa.pa0,
             gpioa.pa2,
             gpioa.pa4,
@@ -143,7 +143,7 @@ mod app {
                 timer,
                 // 5x12 debouncer
                 debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
-                direct_pins,
+                matrix,
                 tx,
                 rx,
                 layout: Layout::new(&LAYERS),
@@ -223,7 +223,7 @@ mod app {
         priority = 2,
         local = [
             debouncer,
-            direct_pins,
+            matrix,
             timer,
             tx,
         ]
@@ -237,7 +237,7 @@ mod app {
         for event in c
             .local
             .debouncer
-            .events(c.local.direct_pins.get().unwrap())
+            .events(c.local.matrix.get().unwrap())
             .map(event_transform)
         {
             // Send the event across the TRRS cable.
