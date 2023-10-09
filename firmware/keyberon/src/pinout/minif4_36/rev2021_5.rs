@@ -112,3 +112,15 @@ pub fn event_transform_lhs(e: Event) -> Event {
 pub fn event_transform_rhs(e: Event) -> Event {
     e.transform(|i, j| (i, j + 5))
 }
+
+pub fn row5_flipped(
+    (a, b, c, d, e): Row5
+) -> Row5 {
+    (e, d, c, b, a)
+}
+
+pub fn row3_flipped(
+    (a, b, c): Row3
+) -> Row3 {
+    (c, b, a)
+}
