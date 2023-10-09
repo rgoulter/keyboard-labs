@@ -134,22 +134,24 @@ mod app {
 
     #[task(binds = TIM3, priority = 1, shared = [usb_class], local = [matrix, debouncer, layout, chording, timer])]
     fn tick(c: tick::Context) {
-        c.local.timer.clear_interrupt(timer::Event::Update);
+        let tick::SharedResources { mut usb_class } = c.shared;
+        let tick::LocalResources { timer, matrix, debouncer, chording, layout } = c.local;
 
-        let events = c.local.debouncer.events(c.local.matrix.get().unwrap());
-        let chord_events = c.local.chording.tick(events.collect());
+        timer.clear_interrupt(timer::Event::Update);
+
+        let events = debouncer.events(matrix.get().unwrap());
+        let chord_events = chording.tick(events.collect());
 
         for event in chord_events {
-            c.local.layout.event(event);
+            layout.event(event);
         }
-        match c.local.layout.tick() {
+        match layout.tick() {
             keyberon::layout::CustomEvent::Release(()) => unsafe {
                 cortex_m::asm::bootload(0x1FFF0000 as _)
             },
             _ => (),
         }
-        let layout = c.local.layout;
-        let mut usb_class = c.shared.usb_class;
+
         usb_class.lock(|mut k| send_report(layout.keycodes(), &mut k));
     }
 }
