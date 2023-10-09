@@ -123,14 +123,12 @@ mod app {
 
     #[task(binds = OTG_FS, priority = 2, shared = [usb_dev, usb_class])]
     fn usb_tx(c: usb_tx::Context) {
-        // usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
         let usb_tx::SharedResources { usb_dev, usb_class } = c.shared;
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
     #[task(binds = OTG_FS_WKUP, priority = 2, shared = [usb_dev, usb_class])]
     fn usb_rx(c: usb_rx::Context) {
-        // usb_poll(&mut c.resources.usb_dev, &mut c.resources.usb_class);
         let usb_rx::SharedResources { usb_dev, usb_class } = c.shared;
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
