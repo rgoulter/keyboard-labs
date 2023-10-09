@@ -233,24 +233,20 @@ mod app {
         ]
     )]
     fn tick(c: tick::Context) {
-        c.local.timer.clear_interrupt(timer::Event::Update);
+        let tick::LocalResources { timer, matrix, debouncer, chording, tx } = c.local;
+
+        timer.clear_interrupt(timer::Event::Update);
 
         // Construct the keyberon events
-        let transformed_events = c
-            .local
-            .debouncer
-            .events(c.local.matrix.get().unwrap())
-            .map(event_transform);
-
-        let chord_events = c.local.chording.tick(transformed_events.collect());
-
+        let transformed_events = debouncer.events(matrix.get().unwrap()).map(event_transform);
+        let chord_events = chording.tick(transformed_events.collect());
         for event in chord_events
         {
             // Send the event across the TRRS cable.
             for &b in &ser(event) {
-                block!(c.local.tx.write(b)).unwrap();
+                block!(tx.write(b)).unwrap();
             }
-            block!(c.local.tx.flush()).unwrap();
+            block!(tx.flush()).unwrap();
 
             // update the keyberon layout with the event.
             handle_event::spawn(Some(event)).unwrap();
