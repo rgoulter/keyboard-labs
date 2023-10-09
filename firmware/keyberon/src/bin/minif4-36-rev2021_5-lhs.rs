@@ -5,22 +5,21 @@
 mod app {
     use panic_halt as _;
 
-    use keyberon::chording::Chording;
-    use keyberon::debounce::Debouncer;
-    use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
-    use stm32f4xx_hal::serial;
-    use stm32f4xx_hal::serial::config::Config;
-    use stm32f4xx_hal::{pac, timer};
-    use usb_device::prelude::UsbDeviceState;
-    use usb_device::bus::UsbBusAllocator;
-    use stm32f4xx_hal::gpio::GpioExt;
-    use stm32f4xx_hal::serial::Listen;
-    use stm32f4xx_hal::time::U32Ext;
-    use stm32f4xx_hal::timer::TimerExt;
-    use stm32f4xx_hal::rcc::RccExt;
     use fugit::ExtU32;
     use fugit::RateExtU32;
-
+    use keyberon::chording::Chording;
+    use keyberon::debounce::Debouncer;
+    use stm32f4xx_hal::gpio::GpioExt;
+    use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
+    use stm32f4xx_hal::rcc::RccExt;
+    use stm32f4xx_hal::serial::Listen;
+    use stm32f4xx_hal::serial::config::Config;
+    use stm32f4xx_hal::serial;
+    use stm32f4xx_hal::time::U32Ext;
+    use stm32f4xx_hal::timer::TimerExt;
+    use stm32f4xx_hal::{pac, timer};
+    use usb_device::bus::UsbBusAllocator;
+    use usb_device::prelude::UsbDeviceState;
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
     use keyboard_labs_keyberon::common::{

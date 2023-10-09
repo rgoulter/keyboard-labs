@@ -10,17 +10,16 @@ mod app {
 
     use keyberon::debounce::Debouncer;
     use rtt_target::{rprintln, rtt_init_print};
-    use stm32f4xx_hal::gpio::gpioa;
     use stm32f4xx_hal::gpio::Input;
+    use stm32f4xx_hal::gpio::gpioa;
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
     use stm32f4xx_hal::{pac, timer};
-    use usb_device::prelude::*;
     use usb_device::bus::UsbBusAllocator;
-
-    use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
-    use usbd_human_interface_device::page::Keyboard;
+    use usb_device::prelude::*;
     use usbd_human_interface_device::UsbHidError;
+    use usbd_human_interface_device::page::Keyboard;
+    use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
     use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, Matrix};
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys1x1;
