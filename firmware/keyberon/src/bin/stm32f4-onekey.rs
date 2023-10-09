@@ -23,7 +23,7 @@ mod app {
     use usbd_human_interface_device::UsbHidError;
 
     use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
-    use keyboard_labs_keyberon::direct_pin_matrix::{DirectPins, PressedKeys, PressedKeys1x1};
+    use keyboard_labs_keyberon::direct_pin_matrix::{DirectPins, PressedKeys1x1};
 
     const COLS: usize = 1;
     const ROWS: usize = 1;
@@ -42,7 +42,7 @@ mod app {
     impl DirectPins<COLS, ROWS> for DirectPins1x1 {
         fn get(&self) -> Result<PressedKeys1x1, Infallible> {
             let row1 = &self.0;
-            Ok(PressedKeys([[row1.0.is_low()]]))
+            Ok([[row1.0.is_low()]])
         }
     }
 
