@@ -6,6 +6,7 @@ mod app {
     // set the panic handler
     use panic_halt as _;
 
+    use keyberon::chording::Chording;
     use keyberon::debounce::Debouncer;
     use keyberon::layout::Event;
     use nb::block;
@@ -31,7 +32,7 @@ mod app {
         DirectPins,
         PressedKeys5x4,
     };
-    use keyboard_labs_keyberon::layouts::minif4_36::{LAYERS, Layout};
+    use keyboard_labs_keyberon::layouts::minif4_36::{CHORDS, NUM_CHORDS, LAYERS, Layout};
     use keyboard_labs_keyberon::pinout::minif4_36::rev2021_5::rhs::{
         DirectPins5x4,
         direct_pin_matrix_for_peripherals,
@@ -49,6 +50,7 @@ mod app {
         matrix: DirectPins5x4,
         debouncer: Debouncer<PressedKeys5x4>,
         layout: Layout,
+        chording: Chording<NUM_CHORDS>,
         timer: timer::CounterUs<pac::TIM3>,
         tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
         rx: serial::Rx<stm32f4xx_hal::pac::USART1>,
@@ -147,6 +149,7 @@ mod app {
                 tx,
                 rx,
                 layout: Layout::new(&LAYERS),
+                chording: Chording::new(&CHORDS),
             },
             init::Monotonics(),
         )
@@ -224,6 +227,7 @@ mod app {
         local = [
             debouncer,
             matrix,
+            chording,
             timer,
             tx,
         ]
@@ -231,14 +235,16 @@ mod app {
     fn tick(c: tick::Context) {
         c.local.timer.clear_interrupt(timer::Event::Update);
 
-        // Construct the keyberon events by reading from the gpio
-        // pins, debouncing the inputs, and transforming the values
-        // for left/right-hand split half.
-        for event in c
+        // Construct the keyberon events
+        let transformed_events = c
             .local
             .debouncer
             .events(c.local.matrix.get().unwrap())
-            .map(event_transform)
+            .map(event_transform);
+
+        let chord_events = c.local.chording.tick(transformed_events.collect());
+
+        for event in chord_events
         {
             // Send the event across the TRRS cable.
             for &b in &ser(event) {

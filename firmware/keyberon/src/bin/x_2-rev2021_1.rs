@@ -18,7 +18,7 @@ mod app {
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
     use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, send_report, usb_poll};
-    use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
+    use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, NUM_CHORDS, LAYERS, Layout};
     use keyboard_labs_keyberon::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
 
@@ -33,7 +33,7 @@ mod app {
         matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, 1_000_000>,
         debouncer: Debouncer<[[bool; COLS]; ROWS]>,
         layout: Layout,
-        chording: Chording<2>,
+        chording: Chording<NUM_CHORDS>,
         timer: timer::CounterUs<pac::TIM3>,
     }
 
