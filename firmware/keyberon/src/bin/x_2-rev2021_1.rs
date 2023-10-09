@@ -3,7 +3,6 @@
 
 #[rtic::app(device = stm32f4xx_hal::pac, peripherals = true)]
 mod app {
-    // set the panic handler
     use panic_halt as _;
 
     use keyberon::chording::Chording;
@@ -110,7 +109,6 @@ mod app {
             SharedResources { usb_dev, usb_class },
             LocalResources {
                 timer,
-                // 5x12 debouncer
                 debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
                 matrix: matrix.unwrap(),
                 layout: Layout::new(&LAYERS),

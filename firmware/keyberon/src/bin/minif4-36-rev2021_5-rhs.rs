@@ -3,7 +3,6 @@
 
 #[rtic::app(device = stm32f4xx_hal::pac, peripherals = true, dispatchers = [SPI1])]
 mod app {
-    // set the panic handler
     use panic_halt as _;
 
     use keyberon::chording::Chording;
@@ -140,7 +139,6 @@ mod app {
             },
             LocalResources {
                 timer,
-                // 5x12 debouncer
                 debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
                 matrix,
                 tx,
@@ -152,14 +150,6 @@ mod app {
         )
     }
 
-    /// Handle input from the TRRS cable.
-    ///
-    /// Spawns keyberon Events for each message that
-    /// can be deserialised from UART1.
-    ///
-    /// This is how the split-half which isn't connected to
-    /// the computer with USB can still have its key presses
-    /// sent to the computer.
     #[task(binds = USART1, priority = 5, local = [buf: [u8; 4] = [0; 4], rx])]
     fn rx(c: rx::Context) {
         let rx::LocalResources { buf, rx } = c.local;
@@ -168,28 +158,18 @@ mod app {
         }
     }
 
-    /// Poll the USB device for the OTG_FS interrupt.
     #[task(binds = OTG_FS, priority = 4, shared = [usb_class, usb_dev])]
     fn usb_tx(c: usb_tx::Context) {
         let usb_tx::SharedResources { usb_dev, usb_class } = c.shared;
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
-    /// Poll the USB device for the OTG_FS_WKUP interrupt.
     #[task(binds = OTG_FS_WKUP, priority = 4, shared = [usb_class, usb_dev])]
     fn usb_rx(c: usb_rx::Context) {
         let usb_rx::SharedResources { usb_dev, usb_class } = c.shared;
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
-    /// Handles keyberon Events and sends the resulting HID report
-    /// to the computer.
-    ///
-    /// When `event` is Some(event), the keyberon layout is
-    /// updated with this event. When `event` is None,
-    /// a layout tick occurs and the resulting report is written.
-    /// i.e. this task should be spawned with None as the event
-    /// every tick.
     #[task(priority = 3, capacity = 8, shared = [usb_class, usb_dev], local = [layout])]
     fn layout(c: layout::Context, message: LayoutMessage) {
         let layout::SharedResources { mut usb_class, mut usb_dev } = c.shared;
@@ -198,7 +178,6 @@ mod app {
             LayoutMessage::Tick => {
                 layout.tick();
 
-                // Check the USB connection is in a good state.
                 if usb_dev.lock(|d| d.state()) != UsbDeviceState::Configured {
                     return;
                 }
@@ -206,7 +185,6 @@ mod app {
                 usb_class.lock(|uc| send_report(layout.keycodes(), uc))
             }
             LayoutMessage::Event(e) => {
-                // Update the keyberon layout state with the event.
                 layout.event(e);
             }
         };
@@ -228,17 +206,12 @@ mod app {
 
         timer.clear_interrupt(timer::Event::Update);
 
-        // Construct the keyberon events
         for event in transformed_keyboard_events(matrix, debouncer, chording, event_transform)
         {
-            // Send the event across the TRRS cable.
             split_write_event(event, tx);
-
-            // update the keyberon layout with the event.
             layout::spawn(LayoutMessage::Event(event)).unwrap();
         }
 
-        // update the keyberon layout & send the HID report to the computer.
         layout::spawn(LayoutMessage::Tick).unwrap();
     }
 }
