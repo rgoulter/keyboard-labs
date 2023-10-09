@@ -4,7 +4,9 @@ use usb_device::prelude::*;
 
 use frunk::HList;
 use usbd_human_interface_device::device::keyboard::NKROBootKeyboard;
+use usbd_human_interface_device::page::Keyboard;
 use usbd_human_interface_device::usb_class::UsbHidClass;
+use usbd_human_interface_device::UsbHidError;
 
 pub type UsbClass = UsbHidClass<'static, UsbBusType, HList!(NKROBootKeyboard<'static, UsbBusType>)>;
 
@@ -24,6 +26,17 @@ pub fn usb_poll(
                 core::panic!("Failed to read keyboard report: {:?}", e)
             }
             Ok(_leds) => {},
+        }
+    }
+}
+
+pub fn send_report(iter: impl Iterator<Item = Keyboard>, usb_class: &mut UsbClass) {
+    match usb_class.device().write_report(iter) {
+        Err(UsbHidError::WouldBlock) => {}
+        Err(UsbHidError::Duplicate) => {}
+        Ok(_) => {}
+        Err(e) => {
+            core::panic!("Failed to write keyboard report: {:?}", e)
         }
     }
 }

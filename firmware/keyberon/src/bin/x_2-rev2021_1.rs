@@ -16,10 +16,8 @@ mod app {
     use usb_device::bus::UsbBusAllocator;
 
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
-    use usbd_human_interface_device::page::Keyboard;
-    use usbd_human_interface_device::UsbHidError;
 
-    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, usb_poll};
+    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, send_report, usb_poll};
     use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
 
@@ -152,16 +150,5 @@ mod app {
         let layout = c.local.layout;
         let mut usb_class = c.shared.usb_class;
         usb_class.lock(|mut k| send_report(layout.keycodes(), &mut k));
-    }
-
-    fn send_report(iter: impl Iterator<Item = Keyboard>, usb_class: &mut UsbClass) {
-        match usb_class.device().write_report(iter) {
-            Err(UsbHidError::WouldBlock) => {}
-            Err(UsbHidError::Duplicate) => {}
-            Ok(_) => {}
-            Err(e) => {
-                core::panic!("Failed to write keyboard report: {:?}", e)
-            }
-        }
     }
 }

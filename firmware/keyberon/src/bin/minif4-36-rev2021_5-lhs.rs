@@ -18,13 +18,13 @@ mod app {
     use usb_device::bus::UsbBusAllocator;
 
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
-    use usbd_human_interface_device::UsbHidError;
 
     use keyboard_labs_keyberon::common::{
         UsbClass,
         UsbDevice,
         de,
         ser,
+        send_report,
         usb_poll,
     };
     use keyboard_labs_keyberon::direct_pin_matrix::{
@@ -211,16 +211,7 @@ mod app {
                     return;
                 }
 
-                usb_class.lock(|uc|
-                    match uc.device().write_report(layout.keycodes()) {
-                        Err(UsbHidError::WouldBlock) => {}
-                        Err(UsbHidError::Duplicate) => {}
-                        Ok(_) => {}
-                        Err(e) => {
-                            core::panic!("Failed to write keyboard report: {:?}", e)
-                        }
-                    }
-                )
+                usb_class.lock(|uc| send_report(layout.keycodes(), uc))
             }
             Some(e) => {
                 // Update the keyberon layout state with the event.
