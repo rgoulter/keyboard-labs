@@ -38,14 +38,15 @@ mod app {
     ])]
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
         let init::Context { device, .. } = c;
+        let gpio::gpioa::Parts { pa0, pa2, pa4, pa5, pa6, pa8, pa9, pa10, pa11, pa12, pa15, .. } = device.GPIOA.split();
+        let gpio::gpiob::Parts { pb1, pb3, pb5, pb6, pb7, pb10, pb12, pb13, pb14, pb15, .. } = device.GPIOB.split();
+        let gpio::gpioc::Parts { pc13, .. } = device.GPIOC.split();
+
         let clocks = app_init::init_clocks(device.RCC.constrain());
-        let gpioa = device.GPIOA.split();
-        let gpiob = device.GPIOB.split();
-        let gpioc = device.GPIOC.split();
 
         let usb = USB::new(
             (device.OTG_FS_GLOBAL, device.OTG_FS_DEVICE, device.OTG_FS_PWRCLK),
-            (gpioa.pa11, gpioa.pa12),
+            (pa11, pa12),
             &clocks,
         );
 
@@ -57,27 +58,27 @@ mod app {
         let timer = app_init::init_timer(&clocks, device.TIM3);
 
         let matrix = direct_pin_matrix_for_peripherals(
-            gpioa.pa0,
-            gpioa.pa2,
-            gpioa.pa4,
-            gpioa.pa5,
-            gpioa.pa6,
-            gpioa.pa8,
-            gpioa.pa9,
-            gpioa.pa10,
-            gpioa.pa15,
-            gpiob.pb1,
-            gpiob.pb3,
-            gpiob.pb5,
-            gpiob.pb10,
-            gpiob.pb12,
-            gpiob.pb13,
-            gpiob.pb14,
-            gpiob.pb15,
-            gpioc.pc13,
+            pa0,
+            pa2,
+            pa4,
+            pa5,
+            pa6,
+            pa8,
+            pa9,
+            pa10,
+            pa15,
+            pb1,
+            pb3,
+            pb5,
+            pb10,
+            pb12,
+            pb13,
+            pb14,
+            pb15,
+            pc13,
         );
 
-        let (tx, rx) = app_init::init_serial(&clocks, gpiob.pb6, gpiob.pb7, device.USART1);
+        let (tx, rx) = app_init::init_serial(&clocks, pb6, pb7, device.USART1);
 
         (
             SharedResources {

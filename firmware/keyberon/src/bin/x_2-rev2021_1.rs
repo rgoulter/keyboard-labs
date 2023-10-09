@@ -36,12 +36,12 @@ pub use stm32f4xx_hal::timer::delay::DelayUs;
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
         let init::Context { device, .. } = c;
         let clocks = app_init::init_clocks(device.RCC.constrain());
-        let gpioa = device.GPIOA.split();
-        let gpiob = device.GPIOB.split();
+        let gpio::gpioa::Parts { pa3, pa4, pa5, pa6, pa7, pa8, pa10, pa11, pa12, pa15, .. } = device.GPIOA.split();
+        let gpio::gpiob::Parts { pb1, pb5, pb6, pb7, pb8, pb12, pb13, pb14, pb15, .. } = device.GPIOB.split();
 
         let usb = USB::new(
             (device.OTG_FS_GLOBAL, device.OTG_FS_DEVICE, device.OTG_FS_PWRCLK),
-            (gpioa.pa11, gpioa.pa12),
+            (pa11, pa12),
             &clocks,
         );
 
@@ -54,23 +54,23 @@ pub use stm32f4xx_hal::timer::delay::DelayUs;
 
         let delay: DelayUs<pac::TIM5> = device.TIM5.delay_us(&clocks);
         let (cols, rows) = cols_and_rows_for_peripherals(
-            gpioa.pa3,
-            gpioa.pa4,
-            gpioa.pa5,
-            gpioa.pa6,
-            gpioa.pa7,
-            gpioa.pa8,
-            gpioa.pa10,
-            gpioa.pa15,
-            gpiob.pb1,
-            gpiob.pb5,
-            gpiob.pb6,
-            gpiob.pb7,
-            gpiob.pb8,
-            gpiob.pb12,
-            gpiob.pb13,
-            gpiob.pb14,
-            gpiob.pb15,
+            pa3,
+            pa4,
+            pa5,
+            pa6,
+            pa7,
+            pa8,
+            pa10,
+            pa15,
+            pb1,
+            pb5,
+            pb6,
+            pb7,
+            pb8,
+            pb12,
+            pb13,
+            pb14,
+            pb15,
         );
         let matrix = DelayedMatrix::new(
             cols,
