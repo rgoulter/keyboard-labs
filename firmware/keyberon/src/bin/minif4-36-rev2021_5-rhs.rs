@@ -23,7 +23,7 @@ mod app {
         UsbClass,
         UsbDevice,
         LayoutMessage,
-        receive_byte,
+        split_read_event,
         ser,
         send_report,
         usb_poll,
@@ -166,10 +166,8 @@ mod app {
     #[task(binds = USART1, priority = 5, local = [buf: [u8; 4] = [0; 4], rx])]
     fn rx(c: rx::Context) {
         let rx::LocalResources { buf, rx } = c.local;
-        if let Ok(b) = rx.read() {
-            receive_byte(buf, b).map(|event| {
-                layout::spawn(LayoutMessage::Event(event)).unwrap();
-            });
+        if let Some(event) = split_read_event(buf, rx) {
+            layout::spawn(LayoutMessage::Event(event)).unwrap();
         }
     }
 
