@@ -11,6 +11,7 @@ cortex-m-rt = { version = "0.7", features = ["device"] }
 cortex-m-rtic = "1.0"
 keyberon = { git = "https://github.com/TeXitoi/keyberon", branch = "master" }
 embedded-hal = "0.2"
+fugit = "0.3.7"
 frunk = { version = "0.4", default-features = false }
 generic-array = "0.14"
 heapless = "0.7"
