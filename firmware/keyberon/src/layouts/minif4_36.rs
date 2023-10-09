@@ -61,12 +61,13 @@ const DEL_FUNL: Action = HoldTap(&HoldTapAction {
     tap: k(DeleteForward),
 });
 
-// Columns = 10
-// Rows = 4
-// Layers = 8
-// Custom action type = ()
-pub type Layers = keyberon::layout::Layers<10, 4, 8, CustomAction, Keyboard>;
-pub type Layout = keyberon::layout::Layout<10, 4, 8, CustomAction, Keyboard>;
+pub const COLS: usize = 2 * 5;
+pub const ROWS: usize = 4;
+pub const ROWS_AND_MACROS: usize = ROWS + 0;
+pub const NUM_LAYERS: usize = 8;
+
+pub type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
+pub type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
 
 const _______: Action = keyberon::action::Action::Trans;
 
