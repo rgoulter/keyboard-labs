@@ -6,8 +6,8 @@ use stm32f4xx_hal::gpio::{gpioa, gpiob, gpioc};
 use crate::common::Matrix;
 use crate::direct_pin_matrix::PressedKeys5x4;
 
-pub use super::event_transform_lhs as event_transform;
-use super::{Row3, Row5, erased_input_5, erased_input_3, row5_is_low, row3_is_low_lhs as row3_is_low};
+pub use crate::pinout::minif4_36::event_transform_lhs as event_transform;
+use crate::pinout::minif4_36::{Row3, Row5, erased_input_5, erased_input_3, row5_is_low, row3_is_low_lhs as row3_is_low};
 
 pub struct DirectPins5x4(
     pub  Row5,
