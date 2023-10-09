@@ -1,5 +1,6 @@
-pub type Action = keyberon::action::Action<(), usbd_human_interface_device::page::Keyboard>;
-pub type HoldTapAction = keyberon::action::HoldTapAction<(), usbd_human_interface_device::page::Keyboard>;
+pub type CustomAction = ();
+pub type Action = keyberon::action::Action<CustomAction, usbd_human_interface_device::page::Keyboard>;
+pub type HoldTapAction = keyberon::action::HoldTapAction<CustomAction, usbd_human_interface_device::page::Keyboard>;
 
 /// Macro for "shift + key".
 #[macro_export]

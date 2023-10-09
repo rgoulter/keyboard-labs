@@ -6,7 +6,7 @@ use crate::layouts::actions::{
     LINUX_DESKTOP_LEFT,
     LINUX_DESKTOP_RIGHT,
 };
-use crate::layouts::common::{Action, HoldTapAction};
+use crate::layouts::common::{Action, CustomAction, HoldTapAction};
 
 // const CUT: Action = m(&[LShift, Delete]);
 // const COPY: Action = m(&[LCtrl, Insert]);
@@ -76,8 +76,8 @@ pub const NUM_LAYERS: usize = 11;
 // Rows = 5 physical + 1 virtual for chords
 // Layers = 11
 // Custom action type = ()
-pub type Layers = keyberon::layout::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS, (), Keyboard>;
-pub type Layout = keyberon::layout::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS, (), Keyboard>;
+pub type Layers = keyberon::layout::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
+pub type Layout = keyberon::layout::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
 
 const _______: Action = keyberon::action::Action::Trans;
 

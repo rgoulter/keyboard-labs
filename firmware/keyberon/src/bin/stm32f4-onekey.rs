@@ -29,8 +29,9 @@ mod app {
     const ROWS: usize = 1;
     const NUM_LAYERS: usize = 1;
 
-    type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, (), Keyboard>;
-    type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, (), Keyboard>;
+    type CustomAction = ();
+    type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
+    type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
 
     pub static LAYERS: Layers = [[[
         keyboard_labs_keyberon::layouts::common::a!(A)

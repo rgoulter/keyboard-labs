@@ -1,7 +1,7 @@
 use keyberon::action::{Action::*, HoldTapConfig, d, k, l};
 use usbd_human_interface_device::page::{Keyboard::*, Keyboard};
 
-use crate::layouts::common::{Action, HoldTapAction};
+use crate::layouts::common::{Action, CustomAction, HoldTapAction};
 
 const NUM_BASE_LAYERS: usize = 2;
 const BASE_DSK: usize = 0;
@@ -65,8 +65,8 @@ const DEL_FUNL: Action = HoldTap(&HoldTapAction {
 // Rows = 4
 // Layers = 8
 // Custom action type = ()
-pub type Layers = keyberon::layout::Layers<10, 4, 8, (), Keyboard>;
-pub type Layout = keyberon::layout::Layout<10, 4, 8, (), Keyboard>;
+pub type Layers = keyberon::layout::Layers<10, 4, 8, CustomAction, Keyboard>;
+pub type Layout = keyberon::layout::Layout<10, 4, 8, CustomAction, Keyboard>;
 
 const _______: Action = keyberon::action::Action::Trans;
 
