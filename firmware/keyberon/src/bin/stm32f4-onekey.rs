@@ -24,7 +24,6 @@ mod app {
 
     use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
     use keyboard_labs_keyberon::direct_pin_matrix::{DirectPins, PressedKeys, PressedKeys1x1};
-    use keyboard_labs_keyberon::layouts::common::{Action, HoldTapAction};
 
     const COLS: usize = 1;
     const ROWS: usize = 1;

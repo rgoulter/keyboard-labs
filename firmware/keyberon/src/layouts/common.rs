@@ -1,7 +1,3 @@
-// macro_rules! doesn't like using these types directly
-// beause of the comma in the type specifier.
-// So, use these types instead.
-
 pub type Action = keyberon::action::Action<(), usbd_human_interface_device::page::Keyboard>;
 pub type HoldTapAction = keyberon::action::HoldTapAction<(), usbd_human_interface_device::page::Keyboard>;
 
@@ -9,7 +5,7 @@ pub type HoldTapAction = keyberon::action::HoldTapAction<(), usbd_human_interfac
 #[macro_export]
 macro_rules! sk {
     ($k:ident) => {
-        Action::MultipleKeyCodes(&[usbd_human_interface_device::page::Keyboard::LeftShift, usbd_human_interface_device::page::Keyboard::$k].as_slice())
+        keyberon::action::Action::MultipleKeyCodes(&[usbd_human_interface_device::page::Keyboard::LeftShift, usbd_human_interface_device::page::Keyboard::$k].as_slice())
     };
 }
 
@@ -17,12 +13,12 @@ macro_rules! sk {
 #[macro_export]
 macro_rules! s {
     ($k:ident) => {
-        Action::HoldTap(&HoldTapAction {
+        keyberon::action::Action::HoldTap(&HoldTapAction {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftShift),
-            tap: Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
+            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftShift),
+            tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
 }
@@ -35,8 +31,8 @@ macro_rules! c {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftControl),
-            tap: Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
+            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftControl),
+            tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
 }
@@ -45,12 +41,12 @@ macro_rules! c {
 #[macro_export]
 macro_rules! g {
     ($k:ident) => {
-        Action::HoldTap(&keyberon::action::HoldTapAction {
+        keyberon::action::Action::HoldTap(&keyberon::action::HoldTapAction {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftGUI),
-            tap: Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
+            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftGUI),
+            tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
 }
@@ -59,12 +55,12 @@ macro_rules! g {
 #[macro_export]
 macro_rules! a {
     ($k:ident) => {
-        Action::HoldTap(&HoldTapAction {
+        keyberon::action::Action::HoldTap(&keyberon::action::HoldTapAction {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftAlt),
-            tap: Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
+            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftAlt),
+            tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
 }
