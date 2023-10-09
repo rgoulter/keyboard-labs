@@ -73,14 +73,11 @@ mod app {
         let gpiob = c.device.GPIOB.split();
         let gpioc = c.device.GPIOC.split();
 
-        let usb = USB {
-            usb_global: c.device.OTG_FS_GLOBAL,
-            usb_device: c.device.OTG_FS_DEVICE,
-            usb_pwrclk: c.device.OTG_FS_PWRCLK,
-            pin_dm: stm32f4xx_hal::gpio::alt::otg_fs::Dm::PA11(gpioa.pa11.into_alternate()),
-            pin_dp: stm32f4xx_hal::gpio::alt::otg_fs::Dp::PA12(gpioa.pa12.into_alternate()),
-            hclk: clocks.hclk(),
-        };
+        let usb = USB::new(
+            (c.device.OTG_FS_GLOBAL, c.device.OTG_FS_DEVICE, c.device.OTG_FS_PWRCLK),
+            (gpioa.pa11, gpioa.pa12),
+            &clocks,
+        );
         *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
         let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
