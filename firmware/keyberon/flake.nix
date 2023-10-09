@@ -77,8 +77,8 @@
               --file ${./Makefile} \
               RELEASE_TARGET_DIR=${keyberon-firmware-elf}/bin \
               DEST_DIR=$out/bin \
-              $out/bin/minif4-36-rev2021_1-lhs.bin \
-              $out/bin/minif4-36-rev2021_1-rhs.bin \
+              $out/bin/minif4-36-rev2021_5-lhs.bin \
+              $out/bin/minif4-36-rev2021_5-rhs.bin \
               $out/bin/x_2-rev2021_1.bin \
               $out/bin/stm32f4-onekey.bin
         '';
@@ -93,8 +93,8 @@
               --file ${./Makefile} \
               RELEASE_TARGET_DIR=${keyberon-firmware-elf}/bin \
               DEST_DIR=$out/bin \
-              $out/bin/minif4-36-rev2021_1-lhs.uf2 \
-              $out/bin/minif4-36-rev2021_1-rhs.uf2 \
+              $out/bin/minif4-36-rev2021_5-lhs.uf2 \
+              $out/bin/minif4-36-rev2021_5-rhs.uf2 \
               $out/bin/x_2-rev2021_1.uf2 \
               $out/bin/stm32f4-onekey.uf2
 
