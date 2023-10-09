@@ -8,19 +8,19 @@ edition = "2018"
 stm32f4xx-hal = { version = "0.17", features = ["rt", "stm32f401", "usb_fs"] }
 cortex-m = "0.7"
 cortex-m-rt = { version = "0.7", features = ["device"] }
-panic-halt = "0.2.0"
-keyberon = { git = "https://github.com/TeXitoi/keyberon", branch = "master" }
 cortex-m-rtic = "1.0"
-generic-array = "0.14"
+keyberon = { git = "https://github.com/TeXitoi/keyberon", branch = "master" }
 embedded-hal = "0.2"
-usb-device = { version = "0.2.0", features = ["control-buffer-256"] }
+frunk = { version = "0.4", default-features = false }
+generic-array = "0.14"
 heapless = "0.7"
 nb = "1.1"
-usbd-serial = "0.1"
-rtt-target = "0.4"
+panic-halt = "0.2.0"
 panic-rtt-target = { version = "0.1.2", features = ["cortex-m"] }
+rtt-target = "0.4"
+usb-device = { version = "0.2.0", features = ["control-buffer-256"] }
 usbd-human-interface-device = "0.4"
-frunk = { version = "0.4", default-features = false }
+usbd-serial = "0.1"
 
 [profile.release]
 lto = true
