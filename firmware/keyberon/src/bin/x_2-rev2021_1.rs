@@ -13,14 +13,13 @@ mod app {
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
     use stm32f4xx_hal::{pac, timer};
-    use usb_device::UsbError;
     use usb_device::bus::UsbBusAllocator;
 
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
     use usbd_human_interface_device::page::Keyboard;
     use usbd_human_interface_device::UsbHidError;
 
-    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
+    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, usb_poll};
     use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
 
@@ -164,19 +163,6 @@ mod app {
             Ok(_) => {}
             Err(e) => {
                 core::panic!("Failed to write keyboard report: {:?}", e)
-            }
-        }
-    }
-
-    fn usb_poll(usb_dev: &mut UsbDevice, keyboard: &mut UsbClass) {
-        if usb_dev.poll(&mut [keyboard]) {
-            let interface = keyboard.device();
-            match interface.read_report() {
-                Err(UsbError::WouldBlock) => {}
-                Err(e) => {
-                    core::panic!("Failed to read keyboard report: {:?}", e)
-                }
-                Ok(_leds) => {},
             }
         }
     }
