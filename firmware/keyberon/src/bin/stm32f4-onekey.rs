@@ -10,18 +10,18 @@ mod app {
 
     use keyberon::debounce::Debouncer;
     use rtt_target::{rprintln, rtt_init_print};
-    use stm32f4xx_hal::gpio::Input;
     use stm32f4xx_hal::gpio::gpioa;
+    use stm32f4xx_hal::gpio::Input;
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
     use stm32f4xx_hal::{pac, timer};
     use usb_device::bus::UsbBusAllocator;
     use usb_device::prelude::*;
-    use usbd_human_interface_device::UsbHidError;
     use usbd_human_interface_device::page::Keyboard;
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
+    use usbd_human_interface_device::UsbHidError;
 
-    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, Matrix};
+    use keyboard_labs_keyberon::common::{Matrix, UsbClass, UsbDevice};
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys1x1;
 
     const COLS: usize = 1;
@@ -32,9 +32,7 @@ mod app {
     type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
     type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
 
-    pub static LAYERS: Layers = [[[
-        keyboard_labs_keyberon::layouts::common::a!(A)
-    ]]];
+    pub static LAYERS: Layers = [[[keyboard_labs_keyberon::layouts::common::a!(A)]]];
 
     pub struct DirectPins1x1(pub (gpioa::PA0<Input>,));
 
@@ -78,7 +76,11 @@ mod app {
         let gpioa = c.device.GPIOA.split();
 
         let usb = USB::new(
-            (c.device.OTG_FS_GLOBAL, c.device.OTG_FS_DEVICE, c.device.OTG_FS_PWRCLK),
+            (
+                c.device.OTG_FS_GLOBAL,
+                c.device.OTG_FS_DEVICE,
+                c.device.OTG_FS_PWRCLK,
+            ),
             (gpioa.pa11, gpioa.pa12),
             &clocks,
         );
@@ -114,7 +116,6 @@ mod app {
             init::Monotonics(),
         )
     }
-
 
     #[task(binds = OTG_FS, priority = 2, shared = [usb_dev, usb_class])]
     fn usb_tx(c: usb_tx::Context) {
@@ -167,7 +168,7 @@ mod app {
                 Err(e) => {
                     core::panic!("Failed to read keyboard report: {:?}", e)
                 }
-                Ok(_leds) => {},
+                Ok(_leds) => {}
             }
         }
     }

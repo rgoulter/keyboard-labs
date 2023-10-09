@@ -1,13 +1,13 @@
 use core::convert::Infallible;
-use nb::block;
-use stm32f4xx_hal::otg_fs::UsbBusType;
-use stm32f4xx_hal::serial::{Rx, Tx};
+use embedded_hal::serial::Read;
+use embedded_hal::serial::Write;
 use keyberon::chording::Chording;
 use keyberon::debounce::Debouncer;
 use keyberon::layout::Event;
+use nb::block;
+use stm32f4xx_hal::otg_fs::UsbBusType;
+use stm32f4xx_hal::serial::{Rx, Tx};
 use usb_device::UsbError;
-use embedded_hal::serial::Read;
-use embedded_hal::serial::Write;
 
 use frunk::HList;
 use usbd_human_interface_device::device::keyboard::NKROBootKeyboard;
@@ -30,10 +30,7 @@ pub enum LayoutMessage {
     Tick,
 }
 
-pub fn usb_poll(
-    usb_dev: &mut UsbDevice,
-    keyboard: &mut UsbClass,
-) {
+pub fn usb_poll(usb_dev: &mut UsbDevice, keyboard: &mut UsbClass) {
     if usb_dev.poll(&mut [keyboard]) {
         let interface = keyboard.device();
         match interface.read_report() {
@@ -41,7 +38,7 @@ pub fn usb_poll(
             Err(e) => {
                 core::panic!("Failed to read keyboard report: {:?}", e)
             }
-            Ok(_leds) => {},
+            Ok(_leds) => {}
         }
     }
 }
@@ -91,7 +88,10 @@ pub fn receive_byte(buf: &mut [u8; 4], b: u8) -> Option<Event> {
     }
 }
 
-pub fn split_read_event(buf: &mut [u8; 4], rx: &mut Rx<stm32f4xx_hal::pac::USART1>) -> Option<Event> {
+pub fn split_read_event(
+    buf: &mut [u8; 4],
+    rx: &mut Rx<stm32f4xx_hal::pac::USART1>,
+) -> Option<Event> {
     rx.read().ok().and_then(|b: u8| receive_byte(buf, b))
 }
 
@@ -112,13 +112,7 @@ pub trait Matrix<const COLS: usize, const ROWS: usize, E = Infallible> {
     fn get(&mut self) -> Result<[[bool; COLS]; ROWS], E>;
 }
 
-pub fn keyboard_events<
-  const COLS: usize,
-  const ROWS: usize,
-  const NUM_CHORDS: usize,
-  E,
->
-(
+pub fn keyboard_events<const COLS: usize, const ROWS: usize, const NUM_CHORDS: usize, E>(
     matrix: &mut impl Matrix<COLS, ROWS, E>,
     debouncer: &mut Debouncer<[[bool; COLS]; ROWS]>,
     chording: &mut Chording<NUM_CHORDS>,
@@ -131,16 +125,15 @@ where
 }
 
 pub fn transformed_keyboard_events<
-  const COLS: usize,
-  const ROWS: usize,
-  const NUM_CHORDS: usize,
-  E,
->
-(
+    const COLS: usize,
+    const ROWS: usize,
+    const NUM_CHORDS: usize,
+    E,
+>(
     matrix: &mut impl Matrix<COLS, ROWS, E>,
     debouncer: &mut Debouncer<[[bool; COLS]; ROWS]>,
     chording: &mut Chording<NUM_CHORDS>,
-    event_transform: fn (Event) -> Event,
+    event_transform: fn(Event) -> Event,
 ) -> heapless::Vec<Event, 8>
 where
     E: core::fmt::Debug,

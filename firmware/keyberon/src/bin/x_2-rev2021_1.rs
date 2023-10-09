@@ -8,11 +8,13 @@ mod app {
     use keyboard_labs_keyberon::app_prelude::*;
 
     use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
-pub use stm32f4xx_hal::timer::delay::DelayUs;
+    pub use stm32f4xx_hal::timer::delay::DelayUs;
 
-    use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, NUM_CHORDS, LAYERS, Layout};
-    use keyboard_labs_keyberon::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
+    use keyboard_labs_keyberon::layouts::ortho_5x12::{
+        Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
+    };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
+    use keyboard_labs_keyberon::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
 
     #[shared]
     struct SharedResources {
@@ -36,11 +38,38 @@ pub use stm32f4xx_hal::timer::delay::DelayUs;
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
         let init::Context { device, .. } = c;
         let clocks = app_init::init_clocks(device.RCC.constrain());
-        let gpio::gpioa::Parts { pa3, pa4, pa5, pa6, pa7, pa8, pa10, pa11, pa12, pa15, .. } = device.GPIOA.split();
-        let gpio::gpiob::Parts { pb1, pb5, pb6, pb7, pb8, pb12, pb13, pb14, pb15, .. } = device.GPIOB.split();
+        let gpio::gpioa::Parts {
+            pa3,
+            pa4,
+            pa5,
+            pa6,
+            pa7,
+            pa8,
+            pa10,
+            pa11,
+            pa12,
+            pa15,
+            ..
+        } = device.GPIOA.split();
+        let gpio::gpiob::Parts {
+            pb1,
+            pb5,
+            pb6,
+            pb7,
+            pb8,
+            pb12,
+            pb13,
+            pb14,
+            pb15,
+            ..
+        } = device.GPIOB.split();
 
         let usb = USB::new(
-            (device.OTG_FS_GLOBAL, device.OTG_FS_DEVICE, device.OTG_FS_PWRCLK),
+            (
+                device.OTG_FS_GLOBAL,
+                device.OTG_FS_DEVICE,
+                device.OTG_FS_PWRCLK,
+            ),
             (pa11, pa12),
             &clocks,
         );
@@ -54,29 +83,11 @@ pub use stm32f4xx_hal::timer::delay::DelayUs;
 
         let delay: DelayUs<pac::TIM5> = device.TIM5.delay_us(&clocks);
         let (cols, rows) = cols_and_rows_for_peripherals(
-            pa3,
-            pa4,
-            pa5,
-            pa6,
-            pa7,
-            pa8,
-            pa10,
-            pa15,
-            pb1,
-            pb5,
-            pb6,
-            pb7,
-            pb8,
-            pb12,
-            pb13,
-            pb14,
+            pa3, pa4, pa5, pa6, pa7, pa8, pa10, pa15, pb1, pb5, pb6, pb7, pb8, pb12, pb13, pb14,
             pb15,
         );
         let matrix = DelayedMatrix::new(
-            cols,
-            rows,
-            delay,
-            5, // select pin delay
+            cols, rows, delay, 5, // select pin delay
             5, // unselect pin delay
         );
 
@@ -108,7 +119,13 @@ pub use stm32f4xx_hal::timer::delay::DelayUs;
     #[task(binds = TIM3, priority = 1, shared = [usb_class], local = [matrix, debouncer, layout, chording, timer])]
     fn tick(c: tick::Context) {
         let tick::SharedResources { mut usb_class } = c.shared;
-        let tick::LocalResources { timer, matrix, debouncer, chording, layout } = c.local;
+        let tick::LocalResources {
+            timer,
+            matrix,
+            debouncer,
+            chording,
+            layout,
+        } = c.local;
 
         timer.clear_interrupt(timer::Event::Update);
 

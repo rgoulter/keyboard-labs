@@ -1,6 +1,6 @@
-use keyberon::action::{Action::*, HoldTapConfig, d, k, l};
+use keyberon::action::{d, k, l, Action::*, HoldTapConfig};
 use keyberon::chording::ChordDef;
-use usbd_human_interface_device::page::{Keyboard::*, Keyboard};
+use usbd_human_interface_device::page::{Keyboard, Keyboard::*};
 
 use crate::layouts::common::{Action, CustomAction, HoldTapAction};
 

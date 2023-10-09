@@ -7,16 +7,16 @@ use crate::common::Matrix;
 use crate::direct_pin_matrix::PressedKeys5x4;
 
 pub use crate::pinout::minif4_36::event_transform_lhs as event_transform;
-use crate::pinout::minif4_36::{Row3, Row5, erased_input_5, erased_input_3, row5_is_low, row3_is_low_lhs as row3_is_low};
+use crate::pinout::minif4_36::{
+    erased_input_3, erased_input_5, row3_is_low_lhs as row3_is_low, row5_is_low, Row3, Row5,
+};
 
-pub struct DirectPins5x4(
-    pub  Row5,
-    pub  Row5,
-    pub  Row5,
-    pub  Row3,
-);
+pub struct DirectPins5x4(pub Row5, pub Row5, pub Row5, pub Row3);
 
-pub fn direct_pin_matrix_for_peripherals<A15M: stm32f4xx_hal::gpio::PinMode, B3M: stm32f4xx_hal::gpio::PinMode>(
+pub fn direct_pin_matrix_for_peripherals<
+    A15M: stm32f4xx_hal::gpio::PinMode,
+    B3M: stm32f4xx_hal::gpio::PinMode,
+>(
     pa0: gpioa::PA0,
     pa2: gpioa::PA2,
     pa4: gpioa::PA4,

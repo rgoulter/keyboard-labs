@@ -1,11 +1,8 @@
-use keyberon::action::{Action::*, HoldTapConfig, d, k, l};
+use keyberon::action::{d, k, l, Action::*, HoldTapConfig};
 use keyberon::chording::ChordDef;
-use usbd_human_interface_device::page::{Keyboard::*, Keyboard};
+use usbd_human_interface_device::page::{Keyboard, Keyboard::*};
 
-use crate::layouts::actions::{
-    LINUX_DESKTOP_LEFT,
-    LINUX_DESKTOP_RIGHT,
-};
+use crate::layouts::actions::{LINUX_DESKTOP_LEFT, LINUX_DESKTOP_RIGHT};
 use crate::layouts::common::{Action, CustomAction, HoldTapAction};
 
 // const CUT: Action = m(&[LShift, Delete]);
@@ -13,17 +10,17 @@ use crate::layouts::common::{Action, CustomAction, HoldTapAction};
 // const PASTE: Action = m(&[LShift, Insert]);
 
 const NUM_BASE_LAYERS: usize = 3;
-const BASE_DSK: usize    = 0;
+const BASE_DSK: usize = 0;
 const BASE_QWERTY: usize = 1;
 const BASE_GAMING: usize = 2;
-const LOWER: usize      = NUM_BASE_LAYERS + 0;
-const LOWER2: usize     = NUM_BASE_LAYERS + 1;
-const RAISE: usize      = NUM_BASE_LAYERS + 2;
-const RAISE2: usize     = NUM_BASE_LAYERS + 3;
+const LOWER: usize = NUM_BASE_LAYERS + 0;
+const LOWER2: usize = NUM_BASE_LAYERS + 1;
+const RAISE: usize = NUM_BASE_LAYERS + 2;
+const RAISE2: usize = NUM_BASE_LAYERS + 3;
 const CHILDPROOF: usize = NUM_BASE_LAYERS + 4;
-const NUMPAD: usize     = NUM_BASE_LAYERS + 5;
-const ADJUST: usize     = NUM_BASE_LAYERS + 6;
-const FN: usize         = NUM_BASE_LAYERS + 7;
+const NUMPAD: usize = NUM_BASE_LAYERS + 5;
+const ADJUST: usize = NUM_BASE_LAYERS + 6;
+const FN: usize = NUM_BASE_LAYERS + 7;
 
 // TBI:  FN,      _______, _______, LWR_TAB, LW2_ESC, KC_SPC,    KC_SPC, RS2_BSP, RSE_ENT, _______, _______, _______
 
@@ -32,7 +29,7 @@ const LWR_TAB: Action = HoldTap(&HoldTapAction {
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(LOWER),
-    tap:  k(Tab),
+    tap: k(Tab),
 });
 
 const LW2_ESC: Action = HoldTap(&HoldTapAction {
@@ -40,7 +37,7 @@ const LW2_ESC: Action = HoldTap(&HoldTapAction {
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(LOWER2),
-    tap:  k(Escape),
+    tap: k(Escape),
 });
 
 const RS2_BSP: Action = HoldTap(&HoldTapAction {
@@ -48,7 +45,7 @@ const RS2_BSP: Action = HoldTap(&HoldTapAction {
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(RAISE2),
-    tap:  k(DeleteBackspace),
+    tap: k(DeleteBackspace),
 });
 
 const RSE_ENT: Action = HoldTap(&HoldTapAction {
@@ -56,7 +53,7 @@ const RSE_ENT: Action = HoldTap(&HoldTapAction {
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(RAISE),
-    tap:  k(ReturnEnter),
+    tap: k(ReturnEnter),
 });
 
 const LWR_ESC: Action = HoldTap(&HoldTapAction {
@@ -64,7 +61,7 @@ const LWR_ESC: Action = HoldTap(&HoldTapAction {
     config: HoldTapConfig::Default,
     tap_hold_interval: 0,
     hold: l(LOWER),
-    tap:  k(Escape),
+    tap: k(Escape),
 });
 
 pub const COLS: usize = 12;
@@ -76,8 +73,10 @@ pub const NUM_LAYERS: usize = 11;
 // Rows = 5 physical + 1 virtual for chords
 // Layers = 11
 // Custom action type = ()
-pub type Layers = keyberon::layout::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
-pub type Layout = keyberon::layout::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
+pub type Layers =
+    keyberon::layout::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
+pub type Layout =
+    keyberon::layout::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
 
 const _______: Action = keyberon::action::Action::Trans;
 
@@ -239,4 +238,3 @@ pub const CHORDS: [ChordDef; NUM_CHORDS] = [
     ((5, 0), &[(3, 2), (3, 3)]), // JK -> Desktop Left
     ((5, 1), &[(3, 8), (3, 9)]), // M, -> Desktop Right
 ];
-

@@ -6,16 +6,15 @@ mod app {
     // set the panic handler
     use panic_halt as _;
 
-    use stm32f4xx_hal::otg_fs::{UsbBusType, UsbBus, USB};
-    use stm32f4xx_hal::prelude::*;
+    use stm32f4xx_hal::otg_fs::{UsbBus, UsbBusType, USB};
     use stm32f4xx_hal::pac::Interrupt;
+    use stm32f4xx_hal::prelude::*;
     use usb_device::class_prelude::UsbBusAllocator;
     use usb_device::prelude::*;
     use usbd_serial::SerialPort;
 
     #[shared]
-    struct SharedResources {
-    }
+    struct SharedResources {}
 
     #[local]
     struct LocalResources {
@@ -28,7 +27,6 @@ mod app {
         usb_bus: Option<UsbBusAllocator<UsbBusType>> = None
     ])]
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
-
         let rcc = c.device.RCC.constrain();
         let clocks = rcc
             .cfgr
@@ -39,7 +37,11 @@ mod app {
         let gpioa = c.device.GPIOA.split();
 
         let usb = USB::new(
-            (c.device.OTG_FS_GLOBAL, c.device.OTG_FS_DEVICE, c.device.OTG_FS_PWRCLK),
+            (
+                c.device.OTG_FS_GLOBAL,
+                c.device.OTG_FS_DEVICE,
+                c.device.OTG_FS_PWRCLK,
+            ),
             (gpioa.pa11, gpioa.pa12),
             &clocks,
         );
@@ -49,24 +51,20 @@ mod app {
 
         let serial = SerialPort::new(usb_bus);
 
-        let usb_dev =
-            UsbDeviceBuilder::new(usb_bus, UsbVidPid(0x16c0, 0x27dd))
-                .manufacturer("Fake company")
-                .product("Serial port")
-                .serial_number("TEST")
-                .device_class(usbd_serial::USB_CLASS_CDC)
-                .build();
+        let usb_dev = UsbDeviceBuilder::new(usb_bus, UsbVidPid(0x16c0, 0x27dd))
+            .manufacturer("Fake company")
+            .product("Serial port")
+            .serial_number("TEST")
+            .device_class(usbd_serial::USB_CLASS_CDC)
+            .build();
 
         unsafe {
             cortex_m::peripheral::NVIC::unmask(Interrupt::OTG_FS);
         }
 
         (
-            SharedResources { },
-            LocalResources {
-            serial,
-            usb_dev,
-            },
+            SharedResources {},
+            LocalResources { serial, usb_dev },
             init::Monotonics(),
         )
     }

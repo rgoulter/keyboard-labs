@@ -8,11 +8,9 @@ mod app {
     use keyboard_labs_keyberon::split_app_prelude::*;
 
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
-    use keyboard_labs_keyberon::layouts::minif4_36::{CHORDS, NUM_CHORDS, LAYERS, Layout};
+    use keyboard_labs_keyberon::layouts::minif4_36::{Layout, CHORDS, LAYERS, NUM_CHORDS};
     use keyboard_labs_keyberon::pinout::minif4_36::rev2021_5::lhs::{
-        DirectPins5x4,
-        direct_pin_matrix_for_peripherals,
-        event_transform,
+        direct_pin_matrix_for_peripherals, event_transform, DirectPins5x4,
     };
 
     #[shared]
@@ -38,14 +36,43 @@ mod app {
     ])]
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
         let init::Context { device, .. } = c;
-        let gpio::gpioa::Parts { pa0, pa2, pa4, pa5, pa6, pa8, pa9, pa10, pa11, pa12, pa15, .. } = device.GPIOA.split();
-        let gpio::gpiob::Parts { pb1, pb3, pb5, pb6, pb7, pb10, pb12, pb13, pb14, pb15, .. } = device.GPIOB.split();
+        let gpio::gpioa::Parts {
+            pa0,
+            pa2,
+            pa4,
+            pa5,
+            pa6,
+            pa8,
+            pa9,
+            pa10,
+            pa11,
+            pa12,
+            pa15,
+            ..
+        } = device.GPIOA.split();
+        let gpio::gpiob::Parts {
+            pb1,
+            pb3,
+            pb5,
+            pb6,
+            pb7,
+            pb10,
+            pb12,
+            pb13,
+            pb14,
+            pb15,
+            ..
+        } = device.GPIOB.split();
         let gpio::gpioc::Parts { pc13, .. } = device.GPIOC.split();
 
         let clocks = app_init::init_clocks(device.RCC.constrain());
 
         let usb = USB::new(
-            (device.OTG_FS_GLOBAL, device.OTG_FS_DEVICE, device.OTG_FS_PWRCLK),
+            (
+                device.OTG_FS_GLOBAL,
+                device.OTG_FS_DEVICE,
+                device.OTG_FS_PWRCLK,
+            ),
             (pa11, pa12),
             &clocks,
         );
@@ -58,33 +85,14 @@ mod app {
         let timer = app_init::init_timer(&clocks, device.TIM3);
 
         let matrix = direct_pin_matrix_for_peripherals(
-            pa0,
-            pa2,
-            pa4,
-            pa5,
-            pa6,
-            pa8,
-            pa9,
-            pa10,
-            pa15,
-            pb1,
-            pb3,
-            pb5,
-            pb10,
-            pb12,
-            pb13,
-            pb14,
-            pb15,
-            pc13,
+            pa0, pa2, pa4, pa5, pa6, pa8, pa9, pa10, pa15, pb1, pb3, pb5, pb10, pb12, pb13, pb14,
+            pb15, pc13,
         );
 
         let (tx, rx) = app_init::init_serial(&clocks, pb6, pb7, device.USART1);
 
         (
-            SharedResources {
-                usb_dev,
-                usb_class,
-            },
+            SharedResources { usb_dev, usb_class },
             LocalResources {
                 timer,
                 matrix,
@@ -120,7 +128,10 @@ mod app {
 
     #[task(priority = 3, capacity = 8, shared = [usb_class, usb_dev], local = [layout])]
     fn layout(c: layout::Context, message: LayoutMessage) {
-        let layout::SharedResources { mut usb_class, mut usb_dev } = c.shared;
+        let layout::SharedResources {
+            mut usb_class,
+            mut usb_dev,
+        } = c.shared;
         let layout::LocalResources { layout } = c.local;
         match message {
             LayoutMessage::Tick => {
@@ -150,12 +161,17 @@ mod app {
         ]
     )]
     fn tick(c: tick::Context) {
-        let tick::LocalResources { timer, matrix, debouncer, chording, tx } = c.local;
+        let tick::LocalResources {
+            timer,
+            matrix,
+            debouncer,
+            chording,
+            tx,
+        } = c.local;
 
         timer.clear_interrupt(timer::Event::Update);
 
-        for event in transformed_keyboard_events(matrix, debouncer, chording, event_transform)
-        {
+        for event in transformed_keyboard_events(matrix, debouncer, chording, event_transform) {
             split_write_event(event, tx);
             layout::spawn(LayoutMessage::Event(event)).unwrap();
         }

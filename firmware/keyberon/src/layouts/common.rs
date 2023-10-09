@@ -1,12 +1,20 @@
 pub type CustomAction = ();
-pub type Action = keyberon::action::Action<CustomAction, usbd_human_interface_device::page::Keyboard>;
-pub type HoldTapAction = keyberon::action::HoldTapAction<CustomAction, usbd_human_interface_device::page::Keyboard>;
+pub type Action =
+    keyberon::action::Action<CustomAction, usbd_human_interface_device::page::Keyboard>;
+pub type HoldTapAction =
+    keyberon::action::HoldTapAction<CustomAction, usbd_human_interface_device::page::Keyboard>;
 
 /// Macro for "shift + key".
 #[macro_export]
 macro_rules! sk {
     ($k:ident) => {
-        keyberon::action::Action::MultipleKeyCodes(&[usbd_human_interface_device::page::Keyboard::LeftShift, usbd_human_interface_device::page::Keyboard::$k].as_slice())
+        keyberon::action::Action::MultipleKeyCodes(
+            &[
+                usbd_human_interface_device::page::Keyboard::LeftShift,
+                usbd_human_interface_device::page::Keyboard::$k,
+            ]
+            .as_slice(),
+        )
     };
 }
 
@@ -18,7 +26,9 @@ macro_rules! s {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftShift),
+            hold: keyberon::action::Action::KeyCode(
+                usbd_human_interface_device::page::Keyboard::LeftShift,
+            ),
             tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
@@ -32,7 +42,9 @@ macro_rules! c {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftControl),
+            hold: keyberon::action::Action::KeyCode(
+                usbd_human_interface_device::page::Keyboard::LeftControl,
+            ),
             tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
@@ -46,7 +58,9 @@ macro_rules! g {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftGUI),
+            hold: keyberon::action::Action::KeyCode(
+                usbd_human_interface_device::page::Keyboard::LeftGUI,
+            ),
             tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
@@ -60,14 +74,16 @@ macro_rules! a {
             timeout: 200,
             tap_hold_interval: 0,
             config: keyberon::action::HoldTapConfig::Default,
-            hold: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::LeftAlt),
+            hold: keyberon::action::Action::KeyCode(
+                usbd_human_interface_device::page::Keyboard::LeftAlt,
+            ),
             tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::$k),
         })
     };
 }
 
-pub use sk;
-pub use s;
+pub use a;
 pub use c;
 pub use g;
-pub use a;
+pub use s;
+pub use sk;

@@ -40,12 +40,24 @@ where
     ///
     /// Assumes columns are pull-up inputs,
     /// and rows are output pins which are set high when not being scanned.
-    pub fn new<E>(cols: [C; CS], rows: [R; RS], delay: Delay<TIM5, FREQ>, select_delay_us: u16, unselect_delay_us: u16) -> Result<Self, E>
+    pub fn new<E>(
+        cols: [C; CS],
+        rows: [R; RS],
+        delay: Delay<TIM5, FREQ>,
+        select_delay_us: u16,
+        unselect_delay_us: u16,
+    ) -> Result<Self, E>
     where
         C: InputPin<Error = E>,
         R: OutputPin<Error = E>,
     {
-        let mut res = Self { cols, rows, delay, select_delay_us, unselect_delay_us };
+        let mut res = Self {
+            cols,
+            rows,
+            delay,
+            select_delay_us,
+            unselect_delay_us,
+        };
         res.clear()?;
         Ok(res)
     }
@@ -61,7 +73,8 @@ where
     }
 }
 
-impl<C, R, const CS: usize, const RS: usize, const FREQ: u32, E> common::Matrix<CS, RS, E> for Matrix<C, R, CS, RS, FREQ>
+impl<C, R, const CS: usize, const RS: usize, const FREQ: u32, E> common::Matrix<CS, RS, E>
+    for Matrix<C, R, CS, RS, FREQ>
 where
     C: InputPin<Error = E>,
     R: OutputPin<Error = E>,
@@ -73,8 +86,7 @@ where
     ///
     /// Delays for a bit after setting each pin, and after clearing
     /// each pin.
-    fn get(&mut self) -> Result<[[bool; CS]; RS], E>
-    {
+    fn get(&mut self) -> Result<[[bool; CS]; RS], E> {
         let mut keys = [[false; CS]; RS];
 
         for (ri, row) in (&mut self.rows).iter_mut().enumerate() {

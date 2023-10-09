@@ -18,8 +18,7 @@ pub fn cols_and_rows_for_peripherals<PMA15: stm32f4xx_hal::gpio::PinMode>(
     pb13: gpiob::PB13,
     pb14: gpiob::PB14,
     pb15: gpiob::PB15,
-) -> ([EPin<Input>; 12], [EPin<Output>; 5])
-{
+) -> ([EPin<Input>; 12], [EPin<Output>; 5]) {
     (
         [
             pb12.into_pull_up_input().erase(), // col1

@@ -46,7 +46,7 @@
           toolchain
           uf2conv
         ];
-        RUSTC="${toolchain}/bin/rustc";
+        RUSTC = "${toolchain}/bin/rustc";
         RUST_SRC_PATH = "${toolchain}/lib/rustlib/src";
         CARGO_BUILD_TARGET = target;
         CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";

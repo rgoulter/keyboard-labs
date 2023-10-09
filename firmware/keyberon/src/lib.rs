@@ -8,8 +8,8 @@ pub mod app_init;
 
 pub mod pinout;
 
-pub mod matrix;
 pub mod direct_pin_matrix;
+pub mod matrix;
 
 pub mod layouts;
 
