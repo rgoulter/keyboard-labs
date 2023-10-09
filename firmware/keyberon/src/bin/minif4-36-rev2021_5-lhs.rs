@@ -22,15 +22,13 @@ mod app {
         UsbClass,
         UsbDevice,
         LayoutMessage,
+        transformed_keyboard_events,
         split_read_event,
         split_write_event,
         send_report,
         usb_poll,
     };
-    use keyboard_labs_keyberon::direct_pin_matrix::{
-        DirectPins,
-        PressedKeys5x4,
-    };
+    use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
     use keyboard_labs_keyberon::layouts::minif4_36::{CHORDS, NUM_CHORDS, LAYERS, Layout};
     use keyboard_labs_keyberon::pinout::minif4_36::rev2021_5::lhs::{
         DirectPins5x4,
@@ -231,9 +229,7 @@ mod app {
         timer.clear_interrupt(timer::Event::Update);
 
         // Construct the keyberon events
-        let transformed_events = debouncer.events(matrix.get().unwrap()).map(event_transform);
-        let chord_events = chording.tick(transformed_events.collect());
-        for event in chord_events
+        for event in transformed_keyboard_events(matrix, debouncer, chording, event_transform)
         {
             // Send the event across the TRRS cable.
             split_write_event(event, tx);

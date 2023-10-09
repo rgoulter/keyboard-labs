@@ -4,10 +4,8 @@ use core::convert::Infallible;
 use keyberon::layout::Event;
 use stm32f4xx_hal::gpio::{gpioa, gpiob, gpioc, Input};
 
-use crate::direct_pin_matrix::{
-    DirectPins,
-    PressedKeys5x4,
-};
+use crate::common::Matrix;
+use crate::direct_pin_matrix::PressedKeys5x4;
 
 pub struct DirectPins5x4(
     pub  (
@@ -66,8 +64,8 @@ pub fn direct_pin_matrix_for_peripherals<A15M: stm32f4xx_hal::gpio::PinMode, B3M
     )
 }
 
-impl DirectPins<5, 4> for DirectPins5x4 {
-    fn get(&self) -> Result<PressedKeys5x4, Infallible> {
+impl Matrix<5, 4> for DirectPins5x4 {
+    fn get(&mut self) -> Result<PressedKeys5x4, Infallible> {
         let row1 = &self.0;
         let row2 = &self.1;
         let row3 = &self.2;

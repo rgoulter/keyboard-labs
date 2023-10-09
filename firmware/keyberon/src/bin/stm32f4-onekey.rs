@@ -22,8 +22,8 @@ mod app {
     use usbd_human_interface_device::page::Keyboard;
     use usbd_human_interface_device::UsbHidError;
 
-    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice};
-    use keyboard_labs_keyberon::direct_pin_matrix::{DirectPins, PressedKeys1x1};
+    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, Matrix};
+    use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys1x1;
 
     const COLS: usize = 1;
     const ROWS: usize = 1;
@@ -39,8 +39,8 @@ mod app {
 
     pub struct DirectPins1x1(pub (gpioa::PA0<Input>,));
 
-    impl DirectPins<COLS, ROWS> for DirectPins1x1 {
-        fn get(&self) -> Result<PressedKeys1x1, Infallible> {
+    impl Matrix<COLS, ROWS> for DirectPins1x1 {
+        fn get(&mut self) -> Result<PressedKeys1x1, Infallible> {
             let row1 = &self.0;
             Ok([[row1.0.is_low()]])
         }

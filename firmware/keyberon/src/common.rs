@@ -1,7 +1,10 @@
+use core::convert::Infallible;
 use nb::block;
 use stm32f4xx_hal::otg_fs::UsbBusType;
 use stm32f4xx_hal::prelude::*;
 use stm32f4xx_hal::serial::{Rx, Tx};
+use keyberon::chording::Chording;
+use keyberon::debounce::Debouncer;
 use keyberon::layout::Event;
 use usb_device::prelude::*;
 
@@ -96,4 +99,51 @@ pub fn split_write_event(event: Event, tx: &mut Tx<stm32f4xx_hal::pac::USART1>) 
         block!(tx.write(b)).unwrap();
     }
     block!(tx.flush()).unwrap();
+}
+
+pub fn event_transform_identity(e: Event) -> Event {
+    e
+}
+
+// R for 'matrix get result type',
+// E for 'error of matrix get result type'.
+pub trait Matrix<const COLS: usize, const ROWS: usize, E = Infallible> {
+    fn get(&mut self) -> Result<[[bool; COLS]; ROWS], E>;
+}
+
+pub fn keyboard_events<
+  const COLS: usize,
+  const ROWS: usize,
+  const NUM_CHORDS: usize,
+  E,
+>
+(
+    matrix: &mut impl Matrix<COLS, ROWS, E>,
+    debouncer: &mut Debouncer<[[bool; COLS]; ROWS]>,
+    chording: &mut Chording<NUM_CHORDS>,
+) -> heapless::Vec<Event, 8>
+where
+    E: core::fmt::Debug,
+{
+    let debounced_events = debouncer.events(matrix.get().unwrap());
+    chording.tick(debounced_events.collect())
+}
+
+pub fn transformed_keyboard_events<
+  const COLS: usize,
+  const ROWS: usize,
+  const NUM_CHORDS: usize,
+  E,
+>
+(
+    matrix: &mut impl Matrix<COLS, ROWS, E>,
+    debouncer: &mut Debouncer<[[bool; COLS]; ROWS]>,
+    chording: &mut Chording<NUM_CHORDS>,
+    event_transform: fn (Event) -> Event,
+) -> heapless::Vec<Event, 8>
+where
+    E: core::fmt::Debug,
+{
+    let transformed_events = debouncer.events(matrix.get().unwrap()).map(event_transform);
+    chording.tick(transformed_events.collect())
 }

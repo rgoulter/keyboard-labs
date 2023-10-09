@@ -6,6 +6,8 @@ use embedded_hal::digital::v2::{InputPin, OutputPin};
 use stm32f4xx_hal::pac::TIM5;
 use stm32f4xx_hal::timer::delay::Delay;
 
+use crate::common;
+
 /// Describes the hardware-level matrix of switches.
 ///
 /// Generic parameters are in order: The type of column pins,
@@ -57,6 +59,13 @@ where
         }
         Ok(())
     }
+}
+
+impl<C, R, const CS: usize, const RS: usize, const FREQ: u32, E> common::Matrix<CS, RS, E> for Matrix<C, R, CS, RS, FREQ>
+where
+    C: InputPin<Error = E>,
+    R: OutputPin<Error = E>,
+{
     /// Scans the matrix and checks which keys are pressed.
     ///
     /// Every row pin in order is pulled low, and then each column
@@ -64,10 +73,7 @@ where
     ///
     /// Delays for a bit after setting each pin, and after clearing
     /// each pin.
-    pub fn get<E>(&mut self) -> Result<[[bool; CS]; RS], E>
-    where
-        C: InputPin<Error = E>,
-        R: OutputPin<Error = E>,
+    fn get(&mut self) -> Result<[[bool; CS]; RS], E>
     {
         let mut keys = [[false; CS]; RS];
 

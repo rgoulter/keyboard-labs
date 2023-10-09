@@ -17,7 +17,7 @@ mod app {
 
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
-    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, send_report, usb_poll};
+    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, keyboard_events, send_report, usb_poll};
     use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, NUM_CHORDS, LAYERS, Layout};
     use keyboard_labs_keyberon::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
@@ -139,10 +139,7 @@ mod app {
 
         timer.clear_interrupt(timer::Event::Update);
 
-        let events = debouncer.events(matrix.get().unwrap());
-        let chord_events = chording.tick(events.collect());
-
-        for event in chord_events {
+        for event in keyboard_events(matrix, debouncer, chording) {
             layout.event(event);
         }
         match layout.tick() {
