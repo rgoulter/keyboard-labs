@@ -48,7 +48,6 @@ mod app {
     struct LocalResources {
         direct_pins: DirectPins5x4,
         debouncer: Debouncer<PressedKeys5x4>,
-        transform: fn(Event) -> Event,
         layout: Layout,
         timer: timer::CounterUs<pac::TIM3>,
         tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
@@ -145,7 +144,6 @@ mod app {
                 // 5x12 debouncer
                 debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
                 direct_pins,
-                transform: event_transform,
                 tx,
                 rx,
                 layout: Layout::new(&LAYERS),
@@ -227,7 +225,6 @@ mod app {
             debouncer,
             direct_pins,
             timer,
-            transform,
             tx,
         ]
     )]
@@ -241,7 +238,7 @@ mod app {
             .local
             .debouncer
             .events(c.local.direct_pins.get().unwrap())
-            .map(c.local.transform)
+            .map(event_transform)
         {
             // Send the event across the TRRS cable.
             for &b in &ser(event) {
