@@ -19,6 +19,7 @@ mod app {
 
     use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, send_report, usb_poll};
     use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, LAYERS, Layout};
+    use keyboard_labs_keyberon::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
 
     #[shared]
@@ -78,28 +79,28 @@ mod app {
         }
 
         let delay: DelayUs<pac::TIM5> = c.device.TIM5.delay_us(&clocks);
+        let (cols, rows) = cols_and_rows_for_peripherals(
+            gpioa.pa3,
+            gpioa.pa4,
+            gpioa.pa5,
+            gpioa.pa6,
+            gpioa.pa7,
+            gpioa.pa8,
+            gpioa.pa10,
+            gpioa.pa15,
+            gpiob.pb1,
+            gpiob.pb5,
+            gpiob.pb6,
+            gpiob.pb7,
+            gpiob.pb8,
+            gpiob.pb12,
+            gpiob.pb13,
+            gpiob.pb14,
+            gpiob.pb15,
+        );
         let matrix = DelayedMatrix::new(
-            [
-                gpiob.pb12.into_pull_up_input().erase(), // col1
-                gpiob.pb13.into_pull_up_input().erase(), // col2
-                gpiob.pb14.into_pull_up_input().erase(), // col3
-                gpiob.pb15.into_pull_up_input().erase(), // col4
-                gpioa.pa8.into_pull_up_input().erase(),  // col5
-                gpioa.pa15.into_pull_up_input().erase(), // col6
-                gpioa.pa3.into_pull_up_input().erase(),  // col7
-                gpioa.pa4.into_pull_up_input().erase(),  // col8
-                gpioa.pa5.into_pull_up_input().erase(),  // col9
-                gpioa.pa6.into_pull_up_input().erase(),  // col10
-                gpioa.pa7.into_pull_up_input().erase(),  // col11
-                gpiob.pb1.into_pull_up_input().erase(),  // col12
-            ],
-            [
-                gpioa.pa10.into_push_pull_output().erase(), // row1
-                gpiob.pb5.into_push_pull_output().erase(),  // row2
-                gpiob.pb6.into_push_pull_output().erase(),  // row3
-                gpiob.pb7.into_push_pull_output().erase(),  // row4
-                gpiob.pb8.into_push_pull_output().erase(),  // row5
-            ],
+            cols,
+            rows,
             delay,
             5, // select pin delay
             5, // unselect pin delay
