@@ -39,31 +39,31 @@ pub struct DirectPins5x4(
     ),
 );
 
-pub fn direct_pin_matrix_for_peripherals(
-    pa0: gpioa::PA0<Input>,
-    pa2: gpioa::PA2<Input>,
-    pa4: gpioa::PA4<Input>,
-    pa5: gpioa::PA5<Input>,
-    pa6: gpioa::PA6<Input>,
-    pa8: gpioa::PA8<Input>,
-    pa9: gpioa::PA9<Input>,
-    pa10: gpioa::PA10<Input>,
-    pa15: gpioa::PA15<Input>,
-    pb1: gpiob::PB1<Input>,
-    pb3: gpiob::PB3<Input>,
-    pb5: gpiob::PB5<Input>,
-    pb10: gpiob::PB10<Input>,
-    pb12: gpiob::PB12<Input>,
-    pb13: gpiob::PB13<Input>,
-    pb14: gpiob::PB14<Input>,
-    pb15: gpiob::PB15<Input>,
-    pc13: gpioc::PC13<Input>,
+pub fn direct_pin_matrix_for_peripherals<A15M: stm32f4xx_hal::gpio::PinMode, B3M: stm32f4xx_hal::gpio::PinMode>(
+    pa0: gpioa::PA0,
+    pa2: gpioa::PA2,
+    pa4: gpioa::PA4,
+    pa5: gpioa::PA5,
+    pa6: gpioa::PA6,
+    pa8: gpioa::PA8,
+    pa9: gpioa::PA9,
+    pa10: gpioa::PA10,
+    pa15: gpioa::PA15<A15M>,
+    pb1: gpiob::PB1,
+    pb3: gpiob::PB3<B3M>,
+    pb5: gpiob::PB5,
+    pb10: gpiob::PB10,
+    pb12: gpiob::PB12,
+    pb13: gpiob::PB13,
+    pb14: gpiob::PB14,
+    pb15: gpiob::PB15,
+    pc13: gpioc::PC13,
 ) -> DirectPins5x4 {
     DirectPins5x4(
-        (pb12, pb15, pa9, pa5, pb3),
-        (pb13, pa8, pa10, pa15, pb10),
-        (pb14, pb1, pa6, pa4, pb5),
-        (pa2, pa0, pc13)
+        (pb12.into_pull_up_input(), pb15.into_pull_up_input(), pa9.into_pull_up_input(), pa5.into_pull_up_input(), pb3.into_pull_up_input()),
+        (pb13.into_pull_up_input(), pa8.into_pull_up_input(), pa10.into_pull_up_input(), pa15.into_pull_up_input(), pb10.into_pull_up_input()),
+        (pb14.into_pull_up_input(), pb1.into_pull_up_input(), pa6.into_pull_up_input(), pa4.into_pull_up_input(), pb5.into_pull_up_input()),
+        (pa2.into_pull_up_input(), pa0.into_pull_up_input(), pc13.into_pull_up_input())
     )
 }
 
