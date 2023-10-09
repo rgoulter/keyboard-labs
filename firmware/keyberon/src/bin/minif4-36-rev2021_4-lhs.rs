@@ -5,7 +5,7 @@
 mod app {
     use panic_halt as _;
 
-    use keyboard_labs_keyberon::split_app_prelude::*;
+    use keyboard_labs_keyberon::split::app_prelude::*;
 
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
     use keyboard_labs_keyberon::layouts::minif4_36::{Layout, CHORDS, LAYERS, NUM_CHORDS};
@@ -89,7 +89,7 @@ mod app {
             pb15,
         );
 
-        let (tx, rx) = app_init::init_serial(&clocks, pb6, pb7, device.USART1);
+        let (tx, rx) = split_app_init::init_serial(&clocks, pb6, pb7, device.USART1);
 
         (
             SharedResources { usb_dev, usb_class },
