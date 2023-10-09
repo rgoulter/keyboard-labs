@@ -5,20 +5,11 @@
 mod app {
     use panic_halt as _;
 
-    use fugit::ExtU32;
-    use fugit::RateExtU32;
-    use keyberon::chording::Chording;
-    use keyberon::debounce::Debouncer;
-    use stm32f4xx_hal::gpio::{EPin, GpioExt, Input, Output, PushPull};
-    use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
-    use stm32f4xx_hal::rcc::RccExt;
-    use stm32f4xx_hal::timer::TimerExt;
-    use stm32f4xx_hal::timer::delay::DelayUs;
-    use stm32f4xx_hal::{pac, timer};
-    use usb_device::bus::UsbBusAllocator;
-    use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
+    use keyboard_labs_keyberon::app_prelude::*;
 
-    use keyboard_labs_keyberon::common::{UsbClass, UsbDevice, keyboard_events, send_report, usb_poll};
+    use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
+pub use stm32f4xx_hal::timer::delay::DelayUs;
+
     use keyboard_labs_keyberon::layouts::ortho_5x12::{COLS, ROWS, CHORDS, NUM_CHORDS, LAYERS, Layout};
     use keyboard_labs_keyberon::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;

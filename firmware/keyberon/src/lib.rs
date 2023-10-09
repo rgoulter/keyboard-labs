@@ -1,6 +1,9 @@
 #![no_main]
 #![no_std]
 
+pub mod app_prelude;
+pub mod split_app_prelude;
+
 pub mod pinout;
 
 pub mod matrix;
