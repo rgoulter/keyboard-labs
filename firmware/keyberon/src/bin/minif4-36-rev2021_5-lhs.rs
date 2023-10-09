@@ -8,7 +8,6 @@ mod app {
 
     use keyberon::chording::Chording;
     use keyberon::debounce::Debouncer;
-    use keyberon::layout::Event;
     use nb::block;
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
     use stm32f4xx_hal::prelude::*;
@@ -23,6 +22,7 @@ mod app {
     use keyboard_labs_keyberon::common::{
         UsbClass,
         UsbDevice,
+        LayoutMessage,
         de,
         ser,
         send_report,
@@ -172,7 +172,7 @@ mod app {
 
             if buf[3] == b'\n' {
                 if let Ok(event) = de(&buf[..]) {
-                    handle_event::spawn(Some(event)).unwrap();
+                    layout::spawn(LayoutMessage::Event(event)).unwrap();
                 }
             }
         }
@@ -201,11 +201,11 @@ mod app {
     /// i.e. this task should be spawned with None as the event
     /// every tick.
     #[task(priority = 3, capacity = 8, shared = [usb_class, usb_dev], local = [layout])]
-    fn handle_event(c: handle_event::Context, event: Option<Event>) {
-        let handle_event::SharedResources { mut usb_class, mut usb_dev } = c.shared;
-        let handle_event::LocalResources { layout } = c.local;
-        match event {
-            None => {
+    fn layout(c: layout::Context, message: LayoutMessage) {
+        let layout::SharedResources { mut usb_class, mut usb_dev } = c.shared;
+        let layout::LocalResources { layout } = c.local;
+        match message {
+            LayoutMessage::Tick => {
                 layout.tick();
 
                 // Check the USB connection is in a good state.
@@ -215,7 +215,7 @@ mod app {
 
                 usb_class.lock(|uc| send_report(layout.keycodes(), uc))
             }
-            Some(e) => {
+            LayoutMessage::Event(e) => {
                 // Update the keyberon layout state with the event.
                 layout.event(e);
             }
@@ -250,10 +250,10 @@ mod app {
             block!(tx.flush()).unwrap();
 
             // update the keyberon layout with the event.
-            handle_event::spawn(Some(event)).unwrap();
+            layout::spawn(LayoutMessage::Event(event)).unwrap();
         }
 
         // update the keyberon layout & send the HID report to the computer.
-        handle_event::spawn(None).unwrap();
+        layout::spawn(LayoutMessage::Tick).unwrap();
     }
 }

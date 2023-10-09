@@ -14,6 +14,15 @@ pub type UsbDevice = usb_device::device::UsbDevice<'static, UsbBusType>;
 
 pub type UsbSerial = usbd_serial::SerialPort<'static, UsbBusType>;
 
+// Messages for the RTIC task which manages the Keyberon layout.
+#[derive(Debug)]
+pub enum LayoutMessage {
+    // Update the layout with this event.
+    Event(Event),
+    // Tick the layout (and write report to the USB class).
+    Tick,
+}
+
 pub fn usb_poll(
     usb_dev: &mut UsbDevice,
     keyboard: &mut UsbClass,
