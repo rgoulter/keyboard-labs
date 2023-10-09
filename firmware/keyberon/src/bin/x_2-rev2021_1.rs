@@ -31,11 +31,11 @@ mod app {
 
     #[local]
     struct LocalResources {
+        timer: timer::CounterUs<pac::TIM3>,
         matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, 1_000_000>,
         debouncer: Debouncer<[[bool; COLS]; ROWS]>,
-        layout: Layout,
         chording: Chording<NUM_CHORDS>,
-        timer: timer::CounterUs<pac::TIM3>,
+        layout: Layout,
     }
 
     #[init(local = [
@@ -111,10 +111,10 @@ mod app {
             SharedResources { usb_dev, usb_class },
             LocalResources {
                 timer,
-                debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
                 matrix: matrix.unwrap(),
-                layout: Layout::new(&LAYERS),
+                debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
                 chording: Chording::new(&CHORDS),
+                layout: Layout::new(&LAYERS),
             },
             init::Monotonics(),
         )

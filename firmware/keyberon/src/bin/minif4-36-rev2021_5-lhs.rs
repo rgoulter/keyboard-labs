@@ -48,11 +48,11 @@ mod app {
 
     #[local]
     struct LocalResources {
+        timer: timer::CounterUs<pac::TIM3>,
         matrix: DirectPins5x4,
         debouncer: Debouncer<PressedKeys5x4>,
-        layout: Layout,
         chording: Chording<NUM_CHORDS>,
-        timer: timer::CounterUs<pac::TIM3>,
+        layout: Layout,
         tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
         rx: serial::Rx<stm32f4xx_hal::pac::USART1>,
     }
@@ -144,12 +144,12 @@ mod app {
             },
             LocalResources {
                 timer,
-                debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
                 matrix,
+                debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
+                chording: Chording::new(&CHORDS),
+                layout: Layout::new(&LAYERS),
                 tx,
                 rx,
-                layout: Layout::new(&LAYERS),
-                chording: Chording::new(&CHORDS),
             },
             init::Monotonics(),
         )
