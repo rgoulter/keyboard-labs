@@ -1,12 +1,13 @@
 use core::convert::Infallible;
 use nb::block;
 use stm32f4xx_hal::otg_fs::UsbBusType;
-use stm32f4xx_hal::prelude::*;
 use stm32f4xx_hal::serial::{Rx, Tx};
 use keyberon::chording::Chording;
 use keyberon::debounce::Debouncer;
 use keyberon::layout::Event;
-use usb_device::prelude::*;
+use usb_device::UsbError;
+use embedded_hal::serial::Read;
+use embedded_hal::serial::Write;
 
 use frunk::HList;
 use usbd_human_interface_device::device::keyboard::NKROBootKeyboard;

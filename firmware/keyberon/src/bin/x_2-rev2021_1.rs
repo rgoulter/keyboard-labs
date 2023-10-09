@@ -8,11 +8,14 @@ mod app {
     use keyberon::chording::Chording;
     use keyberon::debounce::Debouncer;
     use stm32f4xx_hal::timer::delay::DelayUs;
-    use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
+    use stm32f4xx_hal::timer::TimerExt;
+    use stm32f4xx_hal::gpio::{EPin, GpioExt, Input, Output, PushPull};
     use stm32f4xx_hal::otg_fs::{UsbBusType, USB};
-    use stm32f4xx_hal::prelude::*;
+    use stm32f4xx_hal::rcc::RccExt;
     use stm32f4xx_hal::{pac, timer};
     use usb_device::bus::UsbBusAllocator;
+    use fugit::ExtU32;
+    use fugit::RateExtU32;
 
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
