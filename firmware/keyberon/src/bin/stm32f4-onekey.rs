@@ -139,9 +139,6 @@ mod app {
             c.local.layout.event(event);
         }
         match c.local.layout.tick() {
-            keyberon::layout::CustomEvent::Release(()) => unsafe {
-                cortex_m::asm::bootload(0x1FFF0000 as _)
-            },
             _ => (),
         }
 

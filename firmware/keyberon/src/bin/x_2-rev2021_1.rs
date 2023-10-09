@@ -116,9 +116,6 @@ pub use stm32f4xx_hal::timer::delay::DelayUs;
             layout.event(event);
         }
         match layout.tick() {
-            keyberon::layout::CustomEvent::Release(()) => unsafe {
-                cortex_m::asm::bootload(0x1FFF0000 as _)
-            },
             _ => (),
         }
 
