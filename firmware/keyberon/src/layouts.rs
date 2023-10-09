@@ -1,7 +1,9 @@
 pub mod actions;
 
-#[macro_use]
 pub mod common;
+
+#[macro_use]
+pub mod macros;
 
 pub mod minif4_36;
 
