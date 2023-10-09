@@ -1,7 +1,7 @@
 #![no_main]
 #![no_std]
 
-pub mod rev2021_5;
+pub mod pinout;
 
 pub mod matrix;
 pub mod direct_pin_matrix;

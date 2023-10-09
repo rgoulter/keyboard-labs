@@ -32,7 +32,7 @@ mod app {
         PressedKeys5x4,
     };
     use keyboard_labs_keyberon::layouts::minif4_36::{LAYERS, Layout};
-    use keyboard_labs_keyberon::rev2021_5::pin_layout_rhs::{
+    use keyboard_labs_keyberon::pinout::minif4_36::rev2021_5::rhs::{
         DirectPins5x4,
         direct_pin_matrix_for_peripherals,
         event_transform,
