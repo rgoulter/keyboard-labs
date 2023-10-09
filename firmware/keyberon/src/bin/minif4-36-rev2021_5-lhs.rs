@@ -165,12 +165,13 @@ mod app {
     /// sent to the computer.
     #[task(binds = USART1, priority = 5, local = [buf: [u8; 4] = [0; 4], rx])]
     fn rx(c: rx::Context) {
-        if let Ok(b) = c.local.rx.read() {
-            c.local.buf.rotate_left(1);
-            c.local.buf[3] = b;
+        let rx::LocalResources { buf, rx } = c.local;
+        if let Ok(b) = rx.read() {
+            buf.rotate_left(1);
+            buf[3] = b;
 
-            if c.local.buf[3] == b'\n' {
-                if let Ok(event) = de(&c.local.buf[..]) {
+            if buf[3] == b'\n' {
+                if let Ok(event) = de(&buf[..]) {
                     handle_event::spawn(Some(event)).unwrap();
                 }
             }
