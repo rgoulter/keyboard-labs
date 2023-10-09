@@ -1,4 +1,5 @@
 use keyberon::action::{Action::*, HoldTapConfig, d, k, l};
+use keyberon::chording::ChordDef;
 use usbd_human_interface_device::page::{Keyboard::*, Keyboard};
 
 use crate::layouts::common::{Action, CustomAction, HoldTapAction};
@@ -131,3 +132,6 @@ pub static LAYERS: Layers = [
         [_______, _______, _______, _______, _______,   _______, _______, _______, _______, _______],
     ],
 ];
+
+pub const NUM_CHORDS: usize = 0;
+pub const CHORDS: [ChordDef; NUM_CHORDS] = [];

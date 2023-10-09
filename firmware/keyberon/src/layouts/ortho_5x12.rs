@@ -234,7 +234,8 @@ pub static LAYERS: Layers = [
     // )
 ];
 
-pub const CHORDS: [ChordDef; 2] = [
+pub const NUM_CHORDS: usize = 2;
+pub const CHORDS: [ChordDef; NUM_CHORDS] = [
     ((5, 0), &[(3, 2), (3, 3)]), // JK -> Desktop Left
     ((5, 1), &[(3, 8), (3, 9)]), // M, -> Desktop Right
 ];
