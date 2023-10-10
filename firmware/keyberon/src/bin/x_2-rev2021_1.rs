@@ -10,7 +10,7 @@ mod app {
     use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
     pub use stm32f4xx_hal::timer::delay::DelayUs;
 
-    use keyboard_labs_keyberon::layouts::ortho_5x12::{
+    use keyboard_labs_keyberon::layouts::ortho_5x12::rgoulter::{
         Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
