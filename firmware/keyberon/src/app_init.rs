@@ -4,6 +4,7 @@ use stm32f4xx_hal::otg_fs::UsbBusType;
 use stm32f4xx_hal::timer::TimerExt;
 use stm32f4xx_hal::{pac, timer};
 use usb_device::bus::UsbBusAllocator;
+use usb_device::device::{UsbDeviceBuilder, UsbVidPid};
 use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
 use crate::common::{UsbClass, UsbDevice};
@@ -15,14 +16,24 @@ pub fn init_clocks(rcc: stm32f4xx_hal::rcc::Rcc) -> stm32f4xx_hal::rcc::Clocks {
         .freeze()
 }
 
-pub fn init_usb_device(usb_bus: &'static UsbBusAllocator<UsbBusType>) -> (UsbDevice, UsbClass) {
+pub fn init_usb_device(
+    usb_bus: &'static UsbBusAllocator<UsbBusType>,
+    vid: u16,
+    pid: u16,
+    mfr: &'static str,
+    product: &'static str,
+) -> (UsbDevice, UsbClass) {
     let usb_class = UsbHidClassBuilder::new()
         .add_device(
             usbd_human_interface_device::device::keyboard::NKROBootKeyboardConfig::default(),
         )
         .build(usb_bus);
 
-    let usb_dev = keyberon::new_device(usb_bus);
+    let usb_dev = UsbDeviceBuilder::new(usb_bus, UsbVidPid(vid, pid))
+        .manufacturer(mfr)
+        .product(product)
+        .serial_number(env!("CARGO_PKG_VERSION"))
+        .build();
 
     (usb_dev, usb_class)
 }

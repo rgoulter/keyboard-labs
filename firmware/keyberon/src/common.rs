@@ -17,6 +17,9 @@ pub type UsbDevice = usb_device::device::UsbDevice<'static, UsbBusType>;
 
 pub type UsbSerial = usbd_serial::SerialPort<'static, UsbBusType>;
 
+pub const VID: u16 = 0xcafe;
+pub const MANUFACTURER: &'static str = "Richard Goulter's Keyboard Labs";
+
 pub fn usb_poll(usb_dev: &mut UsbDevice, keyboard: &mut UsbClass) {
     if usb_dev.poll(&mut [keyboard]) {
         let interface = keyboard.device();

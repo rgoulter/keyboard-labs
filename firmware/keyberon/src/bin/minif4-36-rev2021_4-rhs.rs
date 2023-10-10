@@ -82,7 +82,7 @@ mod app {
         *c.local.usb_bus = Some(UsbBusType::new(usb, c.local.ep_memory));
         let usb_bus = c.local.usb_bus.as_ref().unwrap();
 
-        let (usb_dev, usb_class) = app_init::init_usb_device(usb_bus);
+        let (usb_dev, usb_class) = app_init::init_usb_device(usb_bus, VID, 0x0001, MANUFACTURER, "MiniF4-36");
 
         let timer = app_init::init_timer(&clocks, device.TIM3);
 
