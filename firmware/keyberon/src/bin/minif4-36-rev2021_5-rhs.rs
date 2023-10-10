@@ -8,7 +8,9 @@ mod app {
     use keyboard_labs_keyberon::split::app_prelude::*;
 
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
-    use keyboard_labs_keyberon::layouts::minif4_36::{Layout, CHORDS, LAYERS, NUM_CHORDS};
+    use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::{
+        Layout, CHORDS, LAYERS, NUM_CHORDS,
+    };
     use keyboard_labs_keyberon::pinout::minif4_36::rev2021_5::rhs::{
         direct_pin_matrix_for_peripherals, event_transform, DirectPins5x4,
     };
