@@ -3,9 +3,6 @@
 use embedded_hal::blocking::delay::DelayUs;
 use embedded_hal::digital::v2::{InputPin, OutputPin};
 
-use stm32f4xx_hal::pac::TIM5;
-use stm32f4xx_hal::timer::delay::Delay;
-
 use crate::common;
 
 /// Describes the hardware-level matrix of switches.
@@ -19,22 +16,24 @@ use crate::common;
 /// [stm32f0xx_hal::gpio::PA0::downgrade](https://docs.rs/stm32f0xx-hal/0.17.1/stm32f0xx_hal/gpio/gpioa/struct.PA0.html#method.downgrade))
 ///
 /// TIM5 is used to provide a delay during the matrix scanning.
-pub struct Matrix<C, R, const CS: usize, const RS: usize, const FREQ: u32>
+pub struct Matrix<C, R, const CS: usize, const RS: usize, D>
 where
     C: InputPin,
     R: OutputPin,
+    D: DelayUs<u32>,
 {
     cols: [C; CS],
     rows: [R; RS],
-    delay: Delay<TIM5, FREQ>,
-    select_delay_us: u16,
-    unselect_delay_us: u16,
+    delay: D,
+    select_delay_us: u32,
+    unselect_delay_us: u32,
 }
 
-impl<C, R, const CS: usize, const RS: usize, const FREQ: u32> Matrix<C, R, CS, RS, FREQ>
+impl<C, R, const CS: usize, const RS: usize, D> Matrix<C, R, CS, RS, D>
 where
     C: InputPin,
     R: OutputPin,
+    D: DelayUs<u32>,
 {
     /// Creates a new Matrix.
     ///
@@ -43,9 +42,9 @@ where
     pub fn new<E>(
         cols: [C; CS],
         rows: [R; RS],
-        delay: Delay<TIM5, FREQ>,
-        select_delay_us: u16,
-        unselect_delay_us: u16,
+        delay: D,
+        select_delay_us: u32,
+        unselect_delay_us: u32,
     ) -> Result<Self, E>
     where
         C: InputPin<Error = E>,
@@ -73,11 +72,12 @@ where
     }
 }
 
-impl<C, R, const CS: usize, const RS: usize, const FREQ: u32, E> common::Matrix<CS, RS, E>
-    for Matrix<C, R, CS, RS, FREQ>
+impl<C, R, const CS: usize, const RS: usize, D, E> common::Matrix<CS, RS, E>
+    for Matrix<C, R, CS, RS, D>
 where
     C: InputPin<Error = E>,
     R: OutputPin<Error = E>,
+    D: DelayUs<u32>,
 {
     /// Scans the matrix and checks which keys are pressed.
     ///

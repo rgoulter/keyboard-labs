@@ -25,7 +25,7 @@ mod app {
     #[local]
     struct LocalResources {
         timer: timer::CounterUs<pac::TIM3>,
-        matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, 1_000_000>,
+        matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, DelayUs<pac::TIM5>>,
         debouncer: Debouncer<[[bool; COLS]; ROWS]>,
         chording: Chording<NUM_CHORDS>,
         layout: Layout,
