@@ -64,9 +64,9 @@ dependencies = [
 
 [[package]]
 name = "byteorder"
-version = "1.4.3"
+version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "14c189c53d098945499cdfa7ecc63567cf3886b3332b312a5b4585d8d3a6a610"
+checksum = "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
 
 [[package]]
 name = "cortex-m"
@@ -333,6 +333,19 @@ dependencies = [
 name = "keyboard-labs-keyberon"
 version = "0.1.0"
 dependencies = [
+ "embedded-hal 0.2.7",
+ "frunk",
+ "fugit",
+ "heapless",
+ "keyberon",
+ "usb-device",
+ "usbd-human-interface-device",
+]
+
+[[package]]
+name = "keyboard-labs-keyberon-stm32f4"
+version = "0.1.0"
+dependencies = [
  "cortex-m",
  "cortex-m-rt",
  "cortex-m-rtic",
@@ -342,6 +355,7 @@ dependencies = [
  "generic-array",
  "heapless",
  "keyberon",
+ "keyboard-labs-keyberon",
  "nb 1.1.0",
  "panic-halt",
  "panic-rtt-target",
@@ -552,7 +566,7 @@ version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bfa0f585226d2e68097d4f95d113b15b83a82e819ab25717ec0590d9584ef366"
 dependencies = [
- "semver 1.0.19",
+ "semver 1.0.20",
 ]
 
 [[package]]
@@ -572,9 +586,9 @@ dependencies = [
 
 [[package]]
 name = "semver"
-version = "1.0.19"
+version = "1.0.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ad977052201c6de01a8ef2aa3378c4bd23217a056337d1d6da40468d267a4fb0"
+checksum = "836fa6a3e1e547f9a2c4040802ec865b5d85f4014efe00555d7090a3dcaa1090"
 
 [[package]]
 name = "semver-parser"

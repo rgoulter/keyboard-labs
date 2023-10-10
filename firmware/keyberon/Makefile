@@ -2,10 +2,10 @@ TARGET_DIR := target/thumbv7em-none-eabihf
 DEBUG_TARGET_DIR ?= $(TARGET_DIR)/debug
 RELEASE_TARGET_DIR ?= $(TARGET_DIR)/release
 DEST_DIR ?= .
-BINARIES := $(notdir $(basename $(wildcard src/bin/*.rs)))
+BINARIES := $(notdir $(basename $(wildcard stm32f4/src/bin/*.rs)))
 BINARIES_BIN := $(addsuffix .bin,$(BINARIES))
 BINARIES_UF2 := $(addsuffix .uf2,$(BINARIES))
-EXAMPLES := $(notdir $(basename $(wildcard examples/*.rs)))
+EXAMPLES := $(notdir $(basename $(wildcard stm32f4/examples/*.rs)))
 EXAMPLES_BIN := $(addprefix example-, $(addsuffix .bin,$(EXAMPLES)))
 EXAMPLES_UF2 := $(addprefix example-, $(addsuffix .uf2,$(EXAMPLES)))
 TARGETS = $(BINARIES) $(EXAMPLES)
@@ -32,16 +32,16 @@ targets.bin: $(addprefix $(DEST_DIR)/,$(TARGETS_BIN))
 .PHONY: targets.uf2
 targets.uf2: $(addprefix $(DEST_DIR)/,$(TARGETS_UF2))
 
-$(DEBUG_TARGET_DIR)/examples/%: examples/%.rs
+$(DEBUG_TARGET_DIR)/examples/%: stm32f4/examples/%.rs
 	cargo build --example="$*"
 
-$(RELEASE_TARGET_DIR)/examples/%: examples/%.rs
+$(RELEASE_TARGET_DIR)/examples/%: stm32f4/examples/%.rs
 	cargo build --release --example="$*"
 
-$(DEBUG_TARGET_DIR)/%: src/bin/%.rs
+$(DEBUG_TARGET_DIR)/%: stm32f4/src/bin/%.rs
 	cargo build --bin="$*"
 
-$(RELEASE_TARGET_DIR)/%: src/bin/%.rs
+$(RELEASE_TARGET_DIR)/%: stm32f4/src/bin/%.rs
 	cargo build --release --bin="$*"
 
 $(DEST_DIR)/example-%.debug.bin: $(DEBUG_TARGET_DIR)/examples/%

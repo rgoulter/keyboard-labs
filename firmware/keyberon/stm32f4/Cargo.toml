@@ -1,0 +1,26 @@
+[package]
+name = "keyboard-labs-keyberon-stm32f4"
+version = "0.1.0"
+authors = ["Richard Goulter <richard.goulter@gmail.com>", "Guillaume Pinot <texitoi@texitoi.eu>"]
+edition = "2018"
+
+[dependencies]
+stm32f4xx-hal = { version = "0.17", features = ["rt", "stm32f401", "usb_fs"] }
+keyboard-labs-keyberon = { path = ".." }
+
+cortex-m = { workspace = true }
+cortex-m-rt = { workspace = true }
+cortex-m-rtic = { workspace = true }
+keyberon = { workspace = true }
+embedded-hal = { workspace = true }
+fugit = { workspace = true }
+frunk = { workspace = true }
+generic-array = { workspace = true }
+heapless = { workspace = true }
+nb = { workspace = true }
+panic-halt = { workspace = true }
+panic-rtt-target = { workspace = true }
+rtt-target = { workspace = true }
+usb-device = { workspace = true }
+usbd-human-interface-device = { workspace = true }
+usbd-serial = { workspace = true }

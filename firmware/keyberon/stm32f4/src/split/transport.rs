@@ -73,7 +73,7 @@ pub fn transformed_keyboard_events<
     const NUM_CHORDS: usize,
     E,
 >(
-    matrix: &mut impl crate::common::Matrix<COLS, ROWS, E>,
+    matrix: &mut impl keyboard_labs_keyberon::common::Matrix<COLS, ROWS, E>,
     debouncer: &mut Debouncer<[[bool; COLS]; ROWS]>,
     chording: &mut Chording<NUM_CHORDS>,
     event_transform: fn(Event) -> Event,

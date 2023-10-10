@@ -21,8 +21,10 @@ mod app {
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
     use usbd_human_interface_device::UsbHidError;
 
-    use keyboard_labs_keyberon::common::{Matrix, UsbClass, UsbDevice};
+    use keyboard_labs_keyberon::common::Matrix;
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys1x1;
+
+    use keyboard_labs_keyberon_stm32f4::common::{UsbClass, UsbDevice};
 
     const COLS: usize = 1;
     const ROWS: usize = 1;

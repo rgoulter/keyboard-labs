@@ -4,12 +4,14 @@ use core::convert::Infallible;
 use stm32f4xx_hal::gpio::{gpioa, gpiob};
 
 use crate::common::Matrix;
-use crate::direct_pin_matrix::PressedKeys5x4;
+use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
 
-pub use crate::pinout::minif4_36::event_transform_rhs as event_transform;
-use crate::pinout::minif4_36::{
-    row3_flipped, row3_is_low_rhs as row3_is_low, row5_flipped, row5_is_low, Row3, Row5,
+pub use keyboard_labs_keyberon::input::event_transform_rhs as event_transform;
+use keyboard_labs_keyberon::input::{
+    row3_flipped, row3_is_low_lhs as row3_is_low, row5_flipped, row5_is_low,
 };
+
+use crate::pinout::minif4_36::{Row3, Row5};
 
 pub struct DirectPins5x4(pub Row5, pub Row5, pub Row5, pub Row3);
 

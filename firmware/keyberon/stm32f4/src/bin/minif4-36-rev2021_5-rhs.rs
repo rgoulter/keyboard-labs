@@ -5,15 +5,14 @@
 mod app {
     use panic_halt as _;
 
-    use keyboard_labs_keyberon::split::app_prelude::*;
-
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
     use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::{
         Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
-    use keyboard_labs_keyberon::pinout::minif4_36::rev2021_4::lhs::{
+    use keyboard_labs_keyberon_stm32f4::pinout::minif4_36::rev2021_5::rhs::{
         direct_pin_matrix_for_peripherals, event_transform, DirectPins5x4,
     };
+    use keyboard_labs_keyberon_stm32f4::split::app_prelude::*;
 
     #[shared]
     struct SharedResources {
@@ -39,13 +38,11 @@ mod app {
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
         let init::Context { device, .. } = c;
         let gpio::gpioa::Parts {
-            pa1,
+            pa0,
             pa2,
-            pa3,
             pa4,
             pa5,
             pa6,
-            pa7,
             pa8,
             pa9,
             pa10,
@@ -55,17 +52,19 @@ mod app {
             ..
         } = device.GPIOA.split();
         let gpio::gpiob::Parts {
-            pb0,
             pb1,
             pb3,
-            pb4,
             pb5,
             pb6,
             pb7,
             pb10,
+            pb12,
+            pb13,
+            pb14,
             pb15,
             ..
         } = device.GPIOB.split();
+        let gpio::gpioc::Parts { pc13, .. } = device.GPIOC.split();
 
         let clocks = app_init::init_clocks(device.RCC.constrain());
 
@@ -88,8 +87,8 @@ mod app {
         let timer = app_init::init_timer(&clocks, device.TIM3);
 
         let matrix = direct_pin_matrix_for_peripherals(
-            pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa15, pb0, pb1, pb3, pb4, pb5, pb10,
-            pb15,
+            pa0, pa2, pa4, pa5, pa6, pa8, pa9, pa10, pa15, pb1, pb3, pb5, pb10, pb12, pb13, pb14,
+            pb15, pc13,
         );
 
         let (tx, rx) = split_app_init::init_serial(&clocks, pb6, pb7, device.USART1);

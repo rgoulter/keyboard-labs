@@ -1,11 +1,8 @@
-[package]
-name = "keyboard-labs-keyberon"
-version = "0.1.0"
-authors = ["Richard Goulter <rchard.goulter@gmail.com>", "Guillaume Pinot <texitoi@texitoi.eu>"]
-edition = "2018"
+[workspace]
+members = ["stm32f4"]
+default-members = ["stm32f4"]
 
-[dependencies]
-stm32f4xx-hal = { version = "0.17", features = ["rt", "stm32f401", "usb_fs"] }
+[workspace.dependencies]
 cortex-m = "0.7"
 cortex-m-rt = { version = "0.7", features = ["device"] }
 cortex-m-rtic = "1.0"
@@ -22,6 +19,21 @@ rtt-target = "0.4"
 usb-device = { version = "0.2.0", features = ["control-buffer-256"] }
 usbd-human-interface-device = "0.4"
 usbd-serial = "0.1"
+
+[package]
+name = "keyboard-labs-keyberon"
+version = "0.1.0"
+authors = ["Richard Goulter <richard.goulter@gmail.com>", "Guillaume Pinot <texitoi@texitoi.eu>"]
+edition = "2018"
+
+[dependencies]
+keyberon = { workspace = true }
+embedded-hal = { workspace = true }
+fugit = { workspace = true }
+frunk = { workspace = true }
+heapless = { workspace = true }
+usb-device = { workspace = true }
+usbd-human-interface-device = { workspace = true }
 
 [profile.release]
 lto = true

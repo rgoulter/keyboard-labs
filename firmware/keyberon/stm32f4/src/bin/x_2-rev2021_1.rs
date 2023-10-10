@@ -5,7 +5,7 @@
 mod app {
     use panic_halt as _;
 
-    use keyboard_labs_keyberon::app_prelude::*;
+    use keyboard_labs_keyberon_stm32f4::app_prelude::*;
 
     use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
     pub use stm32f4xx_hal::timer::delay::DelayUs;
@@ -14,7 +14,7 @@ mod app {
         Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-    use keyboard_labs_keyberon::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
+    use keyboard_labs_keyberon_stm32f4::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
 
     #[shared]
     struct SharedResources {
