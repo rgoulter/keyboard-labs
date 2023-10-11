@@ -1,6 +1,5 @@
 [workspace]
 members = ["stm32f4"]
-default-members = ["stm32f4"]
 
 [workspace.dependencies]
 cortex-m = "0.7"
