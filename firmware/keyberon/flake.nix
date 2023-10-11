@@ -21,7 +21,6 @@
   }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
-      target = "thumbv7em-none-eabihf";
       toolchain = with fenix.packages.${system};
         combine [
           complete.llvm-tools-preview
@@ -29,7 +28,7 @@
           default.rustfmt
           default.cargo
           default.rustc
-          targets.${target}.latest.rust-std
+          targets."thumbv7em-none-eabihf".latest.rust-std
         ];
     in let
       uf2conv = pkgs.callPackage ../../nix/pkgs/uf2conv {};
@@ -49,24 +48,35 @@
         ];
         RUSTC = "${toolchain}/bin/rustc";
         RUST_SRC_PATH = "${toolchain}/lib/rustlib/src";
-        CARGO_BUILD_TARGET = target;
-        CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
-        # Use memory.x for STM32F4xx for running on tinyuf2
-        CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS = "-C link-arg=--library-path=ld/stm32f4xx-tinyuf2";
       };
 
-      packages = rec {
-        keyberon-firmware-elf =
+      packages = let
+        stm32f4-bins = [
+          "minif4-36-rev2021_4-lhs"
+          "minif4-36-rev2021_4-rhs"
+          "minif4-36-rev2021_5-lhs"
+          "minif4-36-rev2021_5-rhs"
+          "x_2-rev2021_1"
+          "stm32f4-onekey"
+        ];
+        in rec {
+        keyberon-firmware-stm32f4-elf =
+          let
+            target = "thumbv7em-none-eabihf";
+          in
           (naersk.lib.${system}.override {
             cargo = toolchain;
             rustc = toolchain;
           })
           .buildPackage {
             src = ./.;
+            overrideMain = x: {
+              preConfigure = ''
+                cargo_build_options="$cargo_build_options --package=keyboard-labs-keyberon-stm32f4"
+              '';
+            };
             CARGO_BUILD_TARGET = target;
             CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
-            # Use memory.x for STM32F4xx for running on tinyuf2
-            CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS = "-C link-arg=--library-path=ld/stm32f4xx-tinyuf2";
           };
 
         keyberon-firmware-bin = pkgs.runCommand "keyboard-labs-keyberon-firmware-bin" {} ''
@@ -76,12 +86,9 @@
           env PATH=$PATH:${pkgs.cargo-binutils}/bin \
             ${pkgs.gnumake}/bin/make \
               --file ${./Makefile} \
-              RELEASE_TARGET_DIR=${keyberon-firmware-elf}/bin \
+              STM32F4_RELEASE_TARGET_DIR=${keyberon-firmware-stm32f4-elf}/bin \
               DEST_DIR=$out/bin \
-              $out/bin/minif4-36-rev2021_5-lhs.bin \
-              $out/bin/minif4-36-rev2021_5-rhs.bin \
-              $out/bin/x_2-rev2021_1.bin \
-              $out/bin/stm32f4-onekey.bin
+              ${nixpkgs.lib.concatStringsSep " " (map (x: "$out/bin/${x}.bin") stm32f4-bins)}
         '';
 
         keyberon-firmware-uf2 = pkgs.runCommand "" {} ''
@@ -92,12 +99,9 @@
           env PATH=$PATH:${uf2conv}/bin \
             ${pkgs.gnumake}/bin/make \
               --file ${./Makefile} \
-              RELEASE_TARGET_DIR=${keyberon-firmware-elf}/bin \
+              STM32F4_RELEASE_TARGET_DIR=${keyberon-firmware-stm32f4-elf}/bin \
               DEST_DIR=$out/bin \
-              $out/bin/minif4-36-rev2021_5-lhs.uf2 \
-              $out/bin/minif4-36-rev2021_5-rhs.uf2 \
-              $out/bin/x_2-rev2021_1.uf2 \
-              $out/bin/stm32f4-onekey.uf2
+              ${nixpkgs.lib.concatStringsSep " " (map (x: "$out/bin/${x}.uf2") stm32f4-bins)}
 
           rm $out/bin/*.bin
         '';
