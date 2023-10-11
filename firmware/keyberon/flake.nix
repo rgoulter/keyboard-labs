@@ -37,6 +37,7 @@
       devShell = pkgs.mkShell {
         nativeBuildInputs = [
           pkgs.cargo-binutils
+          pkgs.elf2uf2-rs
           pkgs.hidrd
           pkgs.just
           pkgs.rust-analyzer
