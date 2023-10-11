@@ -6,18 +6,10 @@
     dispatchers = [TIMER_IRQ_1]
 )]
 mod app {
-    use rp2040_monotonic::{
-        fugit::Duration,
-        Rp2040Monotonic,
-    };
+    use rp2040_monotonic::{fugit::Duration, Rp2040Monotonic};
     use rp_pico::hal::{
-        clocks, gpio,
-        gpio::bank0::Gpio25,
-        gpio::FunctionSio,
-        gpio::SioOutput,
-        gpio::PullDown,
-        sio::Sio,
-        watchdog::Watchdog,
+        clocks, gpio, gpio::bank0::Gpio25, gpio::FunctionSio, gpio::PullDown, gpio::SioOutput,
+        sio::Sio, watchdog::Watchdog,
     };
     use rp_pico::XOSC_CRYSTAL_FREQ;
 
@@ -74,11 +66,7 @@ mod app {
         heartbeat::spawn().unwrap();
 
         // Return resources and timer
-        (
-            Shared {},
-            Local { led,  },
-            init::Monotonics(mono),
-        )
+        (Shared {}, Local { led }, init::Monotonics(mono))
     }
 
     #[task(local = [led])]
