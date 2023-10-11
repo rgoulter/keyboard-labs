@@ -5,3 +5,19 @@ runner = "gdb -q -x openocd.gdb"
 rustflags = [
   "-C", "link-arg=--library-path=ld/stm32f4xx-tinyuf2"
 ]
+
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+
+runner = "elf2uf2-rs -d"
+
+rustflags = [
+  "-C", "link-arg=-Tlink.x",
+  "-C", "link-arg=--library-path=ld/rp2040",
+
+  # Code-size optimizations.
+  #   trap unreachable can save a lot of space, but requires nightly compiler.
+  #   uncomment the next line if you wish to enable it
+  # "-Z", "trap-unreachable=no",
+  "-C", "inline-threshold=5",
+  "-C", "no-vectorize-loops",
+]
