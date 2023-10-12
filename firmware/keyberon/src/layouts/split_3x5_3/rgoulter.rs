@@ -52,6 +52,40 @@ pub mod matrix4x10 {
         chord_coordinates_along_rows::<COLS, ROWS, NUM_CHORDS>(CHORD_COORDINATES);
 }
 
+pub mod matrix4x12 {
+    use super::*;
+    use crate::layouts::pico42::compile_split3x5_3_layer_parts_12x4_swapped_thumbs;
+
+    pub use super::NUM_CHORDS;
+
+    // Position on the keyboard matrix
+    pub const CHORD_COORDINATES: [&'static [(u8, u8)]; NUM_CHORDS] = [
+        &[(2, 2), (2, 3)],                                   // JK
+        &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)], // M,
+    ];
+
+    pub const COLS: usize = 12;
+    pub const ROWS: usize = 4;
+    pub const NUM_CHORD_ROWS: usize = 1 + NUM_CHORDS / COLS;
+    pub const ROWS_AND_CHORDS: usize = ROWS + NUM_CHORD_ROWS;
+    pub const NUM_LAYERS: usize = Layers::count();
+
+    pub type Keymap =
+        keyberon::layout::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+    pub type Layout =
+        keyberon::layout::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+
+    pub static LAYERS: Keymap = compile_split3x5_3_layer_parts_12x4_swapped_thumbs::<
+        NUM_LAYERS,
+        NUM_CHORDS,
+        NUM_CHORD_ROWS,
+        ROWS_AND_CHORDS,
+    >(Layers::keymap_parts());
+
+    pub const CHORDS: [ChordDef; NUM_CHORDS] =
+        chord_coordinates_along_rows::<COLS, ROWS, NUM_CHORDS>(CHORD_COORDINATES);
+}
+
 enum Layers {
     BaseDsk,
     BaseQwerty,
