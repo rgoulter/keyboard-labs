@@ -6,7 +6,7 @@ mod app {
     use panic_halt as _;
 
     use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
-    use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::{
+    use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::matrix4x10::{
         Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon_stm32f4::pinout::minif4_36::rev2021_4::lhs::{

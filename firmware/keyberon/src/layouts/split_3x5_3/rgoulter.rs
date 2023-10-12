@@ -3,12 +3,12 @@ use keyberon::chording::ChordDef;
 use usbd_human_interface_device::page::{Keyboard, Keyboard::*};
 
 use crate::layouts::common;
-use crate::layouts::common::{
-    chord_coordinates_along_rows, th_lk, Action,
-    CustomAction, HoldTapAction, Row10, Row10::*, Row6, Row6::*, SEG3_NOOP,
+pub use crate::layouts::common::{
+    chord_coordinates_along_rows, th_lk, Action, CustomAction, HoldTapAction, Row10,
+    Row10::TwoSeg5, Row6, SEG3_NOOP,
 };
 
-use super::{compile_layer_parts_10x4, Split3x5_3};
+use super::Split3x5_3;
 
 const SP_NAVR: Action = HoldTap(&(Layers::NavR.th(Space)));
 const TAB_MOUR: Action = HoldTap(&(Layers::MouseR.th(Tab)));
@@ -19,27 +19,38 @@ const ENT_NSSL: Action = HoldTap(&(Layers::ShiftedNumSymL.th(ReturnEnter)));
 const DEL_FUNL: Action = HoldTap(&(Layers::FuncL.th(DeleteForward)));
 
 pub const NUM_CHORDS: usize = Layers::num_chords();
-// Position on the keyboard matrix
-pub const CHORD_COORDINATES: [&'static [(u8, u8)]; NUM_CHORDS] = [
-    &[(2, 2), (2, 3)],                                   // JK
-    &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)], // M,
-];
 
-pub const COLS: usize = 2 * 5;
-pub const ROWS: usize = 4;
-pub const NUM_CHORD_ROWS: usize = 1 + NUM_CHORDS / COLS;
-pub const ROWS_AND_CHORDS: usize = ROWS + NUM_CHORD_ROWS;
-pub const NUM_LAYERS: usize = Layers::count();
+pub mod matrix4x10 {
+    use super::*;
+    use crate::layouts::split_3x5_3::compile_layer_parts_10x4;
 
-pub type Keymap =
-    keyberon::layout::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
-pub type Layout =
-    keyberon::layout::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+    pub use super::NUM_CHORDS;
 
-pub static LAYERS: Keymap = compile_layer_parts_10x4::<NUM_LAYERS, NUM_CHORDS, NUM_CHORD_ROWS, ROWS_AND_CHORDS>(Layers::keymap_parts());
+    // Position on the keyboard matrix
+    pub const CHORD_COORDINATES: [&'static [(u8, u8)]; NUM_CHORDS] = [
+        &[(2, 2), (2, 3)],                                   // JK
+        &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)], // M,
+    ];
 
-pub const CHORDS: [ChordDef; NUM_CHORDS] =
-    chord_coordinates_along_rows::<COLS, ROWS, NUM_CHORDS>(CHORD_COORDINATES);
+    pub const COLS: usize = 2 * 5;
+    pub const ROWS: usize = 4;
+    pub const NUM_CHORD_ROWS: usize = 1 + NUM_CHORDS / COLS;
+    pub const ROWS_AND_CHORDS: usize = ROWS + NUM_CHORD_ROWS;
+    pub const NUM_LAYERS: usize = Layers::count();
+
+    pub type Keymap =
+        keyberon::layout::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+    pub type Layout =
+        keyberon::layout::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+
+    pub static LAYERS: Keymap =
+        compile_layer_parts_10x4::<NUM_LAYERS, NUM_CHORDS, NUM_CHORD_ROWS, ROWS_AND_CHORDS>(
+            Layers::keymap_parts(),
+        );
+
+    pub const CHORDS: [ChordDef; NUM_CHORDS] =
+        chord_coordinates_along_rows::<COLS, ROWS, NUM_CHORDS>(CHORD_COORDINATES);
+}
 
 enum Layers {
     BaseDsk,
@@ -93,13 +104,13 @@ impl Layers {
                 TwoSeg5(common::SEG5_DVORAK_LHS1, common::SEG5_DVORAK_RHS1),
                 TwoSeg5(common::SEG5_DVORAK_LHS2, common::SEG5_DVORAK_RHS2),
                 TwoSeg5(common::SEG5_DVORAK_LHS3, common::SEG5_DVORAK_RHS3),
-                Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, BKSP_NSL, ENT_NSSL, DEL_FUNL]),
+                Row6::Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, BKSP_NSL, ENT_NSSL, DEL_FUNL]),
             ),
             Self::BaseQwerty => Split3x5_3::from_rows(
                 TwoSeg5(common::SEG5_QWERTY_LHS1, common::SEG5_QWERTY_RHS1),
                 TwoSeg5(common::SEG5_QWERTY_LHS2, common::SEG5_QWERTY_RHS2),
                 TwoSeg5(common::SEG5_QWERTY_LHS3, common::SEG5_QWERTY_RHS3),
-                Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, BKSP_NSL, ENT_NSSL, DEL_FUNL]),
+                Row6::Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, BKSP_NSL, ENT_NSSL, DEL_FUNL]),
             ),
             Self::NavR => Split3x5_3::from_rows(
                 Row10::RHS(common::SEG5_NAV1),
