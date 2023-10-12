@@ -15,6 +15,7 @@ pub use crate::layouts::macros::{a, c, g, s, sk};
 pub type Seg3 = [Action; 3];
 pub type Seg4 = [Action; 4];
 pub type Seg5 = [Action; 5];
+pub type Seg6 = [Action; 6];
 
 pub const SEG3_TRANS: Seg3 = [Trans; 3];
 pub const SEG3_NOOP: Seg3 = [NoOp; 3];
@@ -55,6 +56,30 @@ impl Row10 {
             }
             Row10::LHS(seg5) => Row10::TwoSeg5(seg5, SEG5_NOOP).into_array_10(),
             Row10::RHS(seg5) => Row10::TwoSeg5(SEG5_NOOP, seg5).into_array_10(),
+        }
+    }
+}
+
+pub enum Row12 {
+    Row12([Action; 12]),
+    TwoSeg6(Seg6, Seg6),
+    TwoSeg5I(Action, Seg5, Seg5, Action),
+    TwoSeg5O(Seg5, Action, Action, Seg5),
+}
+
+impl Row12 {
+    pub const fn into_array_12(self) -> [Action; 12] {
+        match self {
+            Self::Row12(a) => a,
+            Self::TwoSeg6([a1, a2, a3, a4, a5, a6], [a7, a8, a9, a10, a11, a12]) => {
+                [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12]
+            }
+            Self::TwoSeg5I(a1, [a2, a3, a4, a5, a6], [a7, a8, a9, a10, a11], a12) => {
+                [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12]
+            }
+            Self::TwoSeg5O([a1, a2, a3, a4, a5], a6, a7, [a8, a9, a10, a11, a12]) => {
+                [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12]
+            }
         }
     }
 }
