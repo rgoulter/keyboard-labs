@@ -4,11 +4,11 @@ use usbd_human_interface_device::page::{Keyboard, Keyboard::*};
 
 use crate::layouts::common;
 use crate::layouts::common::{
-    chord_coordinates_along_rows, chord_rows, combine_layer_and_chords, th_lk, Action,
+    chord_coordinates_along_rows, th_lk, Action,
     CustomAction, HoldTapAction, Row10, Row10::*, Row6, Row6::*, SEG3_NOOP,
 };
 
-use super::Split3x5_3;
+use super::{compile_layer_parts_10x4, Split3x5_3};
 
 const SP_NAVR: Action = HoldTap(&(Layers::NavR.th(Space)));
 const TAB_MOUR: Action = HoldTap(&(Layers::MouseR.th(Tab)));
@@ -18,26 +18,28 @@ const BKSP_NSL: Action = HoldTap(&(Layers::NumSymL.th(DeleteBackspace)));
 const ENT_NSSL: Action = HoldTap(&(Layers::ShiftedNumSymL.th(ReturnEnter)));
 const DEL_FUNL: Action = HoldTap(&(Layers::FuncL.th(DeleteForward)));
 
-pub const COLS: usize = 2 * 5;
-pub const ROWS: usize = 4;
-pub const NUM_CHORD_ROWS: usize = 1;
-pub const ROWS_AND_MACROS: usize = ROWS + NUM_CHORD_ROWS;
-pub const NUM_LAYERS: usize = 8;
-
-pub type Keymap =
-    keyberon::layout::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
-pub type Layout =
-    keyberon::layout::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
-
-pub static LAYERS: Keymap = Layers::keymap();
-
-pub const NUM_CHORDS: usize = 2;
+pub const NUM_CHORDS: usize = Layers::num_chords();
 // Position on the keyboard matrix
 pub const CHORD_COORDINATES: [&'static [(u8, u8)]; NUM_CHORDS] = [
     &[(2, 2), (2, 3)],                                   // JK
     &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)], // M,
 ];
-pub const CHORDS: [ChordDef; NUM_CHORDS] = chord_coordinates_along_rows::<COLS, ROWS, NUM_CHORDS>(CHORD_COORDINATES);
+
+pub const COLS: usize = 2 * 5;
+pub const ROWS: usize = 4;
+pub const NUM_CHORD_ROWS: usize = 1 + NUM_CHORDS / COLS;
+pub const ROWS_AND_CHORDS: usize = ROWS + NUM_CHORD_ROWS;
+pub const NUM_LAYERS: usize = Layers::count();
+
+pub type Keymap =
+    keyberon::layout::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+pub type Layout =
+    keyberon::layout::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+
+pub static LAYERS: Keymap = compile_layer_parts_10x4::<NUM_LAYERS, NUM_CHORDS, NUM_CHORD_ROWS, ROWS_AND_CHORDS>(Layers::keymap_parts());
+
+pub const CHORDS: [ChordDef; NUM_CHORDS] =
+    chord_coordinates_along_rows::<COLS, ROWS, NUM_CHORDS>(CHORD_COORDINATES);
 
 enum Layers {
     BaseDsk,
@@ -51,6 +53,10 @@ enum Layers {
 }
 
 impl Layers {
+    const fn count() -> usize {
+        8
+    }
+
     const fn layer_num(&self) -> usize {
         match self {
             Self::BaseDsk => 0,
@@ -63,16 +69,21 @@ impl Layers {
             Self::FuncL => 7,
         }
     }
+
     const fn th(&self, k: Keyboard) -> HoldTapAction {
         th_lk(self.layer_num(), k)
     }
 
-    const fn chord_rows(&self) -> [[Action; COLS]; 1] {
+    const fn num_chords() -> usize {
+        2
+    }
+
+    const fn chords(&self) -> [Action; Self::num_chords()] {
         match self {
-            _ => chord_rows([
+            _ => [
                 crate::layouts::actions::LINUX_DESKTOP_LEFT,
                 crate::layouts::actions::LINUX_DESKTOP_RIGHT,
-            ]),
+            ],
         }
     }
 
@@ -129,8 +140,8 @@ impl Layers {
         }
     }
 
-    const fn keymap() -> Keymap {
-        let mut keymap = [[[NoOp; COLS]; ROWS_AND_MACROS]; NUM_LAYERS];
+    const fn keymap_parts() -> [(Split3x5_3, [Action; Self::num_chords()]); Self::count()] {
+        let mut res = [(Split3x5_3::noop(), [NoOp; Self::num_chords()]); Self::count()];
         let mut idx = 0;
         let layers = [
             Self::BaseDsk,
@@ -144,11 +155,9 @@ impl Layers {
         ];
         while idx < layers.len() {
             let layer = &layers[idx];
-            let chord_rows = layer.chord_rows();
-            keymap[layer.layer_num()] =
-                combine_layer_and_chords(layer.layer_keymap().into_keymap_layer_10x4(), chord_rows);
+            res[layer.layer_num()] = (layer.layer_keymap(), layer.chords());
             idx += 1;
         }
-        keymap
+        res
     }
 }
