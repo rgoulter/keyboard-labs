@@ -4,7 +4,8 @@ use usbd_human_interface_device::page::{Keyboard, Keyboard::*};
 
 use crate::layouts::common;
 use crate::layouts::common::{
-    th_lk, Action, CustomAction, HoldTapAction, Row10, Row10::*, Row6, Row6::*, SEG3_NOOP,
+    chord_coordinates_along_rows, chord_rows, combine_layer_and_chords, th_lk, Action,
+    CustomAction, HoldTapAction, Row10, Row10::*, Row6, Row6::*, SEG3_NOOP,
 };
 
 use super::Split3x5_3;
@@ -31,13 +32,12 @@ pub type Layout =
 pub static LAYERS: Keymap = Layers::keymap();
 
 pub const NUM_CHORDS: usize = 2;
-pub const CHORDS: [ChordDef; NUM_CHORDS] = [
-    ((ROWS as u8, 0), &[(2, 2), (2, 3)]), // JK -> Desktop Left
-    (
-        (ROWS as u8, 1),
-        &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)],
-    ), // M, -> Desktop Right
+// Position on the keyboard matrix
+pub const CHORD_COORDINATES: [&'static [(u8, u8)]; NUM_CHORDS] = [
+    &[(2, 2), (2, 3)],                                   // JK
+    &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)], // M,
 ];
+pub const CHORDS: [ChordDef; NUM_CHORDS] = chord_coordinates_along_rows::<COLS, ROWS, NUM_CHORDS>(CHORD_COORDINATES);
 
 enum Layers {
     BaseDsk,
@@ -48,11 +48,6 @@ enum Layers {
     NumSymL,
     ShiftedNumSymL,
     FuncL,
-}
-
-/// Construct a row using the given actions
-const fn chords([c1, c2]: [Action; NUM_CHORDS]) -> [Action; COLS] {
-    [c1, c2, NoOp, NoOp, NoOp, NoOp, NoOp, NoOp, NoOp, NoOp]
 }
 
 impl Layers {
@@ -72,9 +67,9 @@ impl Layers {
         th_lk(self.layer_num(), k)
     }
 
-    const fn chords(&self) -> [Action; COLS] {
+    const fn chord_rows(&self) -> [[Action; COLS]; 1] {
         match self {
-            _ => chords([
+            _ => chord_rows([
                 crate::layouts::actions::LINUX_DESKTOP_LEFT,
                 crate::layouts::actions::LINUX_DESKTOP_RIGHT,
             ]),
@@ -149,8 +144,9 @@ impl Layers {
         ];
         while idx < layers.len() {
             let layer = &layers[idx];
-            let chords = layer.chords();
-            keymap[layer.layer_num()] = layer.layer_keymap().into_keymap_layer_10x4(chords);
+            let chord_rows = layer.chord_rows();
+            keymap[layer.layer_num()] =
+                combine_layer_and_chords(layer.layer_keymap().into_keymap_layer_10x4(), chord_rows);
             idx += 1;
         }
         keymap

@@ -3,6 +3,7 @@ use keyberon::action::{
     Action::{NoOp, Trans},
     HoldTapConfig,
 };
+use keyberon::chording::ChordDef;
 use usbd_human_interface_device::page::{Keyboard, Keyboard::*};
 
 pub type CustomAction = ();
@@ -152,3 +153,70 @@ pub const SEG5_FUN1: Seg5 = [k(F12), k(F7), k(F8), k(F9), NoOp];
 pub const SEG5_FUN2: Seg5 = [k(F11), k(F4), k(F5), k(F6), NoOp];
 pub const SEG5_FUN3: Seg5 = [k(F10), k(F1), k(F2), k(F3), NoOp];
 pub const SEG3_FUN4: Seg3 = [NoOp, NoOp, NoOp];
+
+// construct the ChordDefs array,
+// by constructing virtual rows which will get
+// appended to the keymap layer.
+//
+// C: num columns
+// R: num rows
+// N: num chords
+pub const fn chord_coordinates_along_rows<const C: usize, const R: usize, const N: usize>(
+    coords: [&'static [(u8, u8)]; N],
+) -> [ChordDef; N] {
+    let mut res: [ChordDef; N] = [((255, 255), &[(255, 255)]); N];
+    let mut idx = 0;
+    while idx < N {
+        let row_idx = (idx / C) as u8;
+        let col_idx = (idx % C) as u8;
+        res[idx] = ((R as u8 + row_idx, col_idx), coords[idx]);
+        idx += 1;
+    }
+    res
+}
+
+// pub const CHORDS: [ChordDef; NUM_CHORDS] = [
+//     ((ROWS as u8, 0), CHORD_COORDINATES[0]),
+//     ((ROWS as u8, 1), CHORD_COORDINATES[1]),
+// ];
+
+// Construct the chord rows to append to the layer.
+//
+// C: number of columns.
+// CR: number of chord rows.
+// N: number of chords.
+pub const fn chord_rows<const C: usize, const CR: usize, const N: usize>(
+    chords: [Action; N],
+) -> [[Action; C]; CR] {
+    let mut res = [[NoOp; C]; CR];
+    let mut chord_idx = 0;
+    while chord_idx < N {
+        let cr = chord_idx / C;
+        let i = chord_idx % C;
+        res[cr][i] = chords[chord_idx];
+        chord_idx += 1;
+    }
+    res
+}
+
+pub const fn combine_layer_and_chords<
+    const C: usize,
+    const LR: usize,
+    const CR: usize,
+    const R: usize,
+>(
+    layer: [[Action; C]; LR],
+    chord_rows: [[Action; C]; CR],
+) -> [[Action; C]; R] {
+    let mut res = [[NoOp; C]; R];
+    let mut idx = 0;
+    while idx < LR {
+        res[idx] = layer[idx];
+        idx += 1;
+    }
+    while idx < LR + CR {
+        res[idx] = chord_rows[idx - LR];
+        idx += 1;
+    }
+    res
+}

@@ -16,7 +16,7 @@ impl Split3x5_3 {
     }
 
     #[rustfmt::skip]
-    pub const fn into_keymap_layer_10x4(self, chord_row: [A; 10]) -> [[A; 10]; 4 + 1] {
+    pub const fn into_keymap_layer_10x4(self) -> [[A; 10]; 4] {
         let Split3x5_3(
             [k11, k12, k13, k14, k15,     k16, k17, k18, k19, k110],
             [k21, k22, k23, k24, k25,     k26, k27, k28, k29, k210],
@@ -28,7 +28,6 @@ impl Split3x5_3 {
             [k21,  k22,  k23, k24, k25,     k26, k27, k28, k29, k210],
             [k31,  k32,  k33, k34, k35,     k36, k37, k38, k39, k310],
             [NoOp, NoOp, k41, k42, k43,     k44, k45, k46, NoOp, NoOp],
-            chord_row,
         ]
     }
 }
