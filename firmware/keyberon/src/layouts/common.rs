@@ -21,13 +21,6 @@ pub const SEG3_NOOP: Seg3 = [NoOp; 3];
 pub const SEG5_TRANS: Seg5 = [Trans; 5];
 pub const SEG5_NOOP: Seg5 = [NoOp; 5];
 
-pub enum Row10 {
-    Row10([Action; 10]),
-    TwoSeg5(Seg5, Seg5),
-    LHS(Seg5),
-    RHS(Seg5),
-}
-
 pub enum Row6 {
     Row6([Action; 6]),
     TwoSeg3(Seg3, Seg3),
@@ -44,6 +37,13 @@ impl Row6 {
             Row6::RHS(seg3) => Row6::TwoSeg3(SEG3_NOOP, seg3).into_array_6(),
         }
     }
+}
+
+pub enum Row10 {
+    Row10([Action; 10]),
+    TwoSeg5(Seg5, Seg5),
+    LHS(Seg5),
+    RHS(Seg5),
 }
 
 impl Row10 {
