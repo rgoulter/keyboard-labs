@@ -7,18 +7,11 @@
 mod app {
     use panic_rtt_target as _;
 
-    use core::convert::Infallible;
-
-    use keyberon::debounce::Debouncer;
     use rtt_target::{rprintln, rtt_init_print};
 
-    use embedded_hal::digital::v2::InputPin;
-    use rp2040_monotonic::{fugit::Duration, ExtU64, Rp2040Monotonic};
     use rp_pico::hal;
-    use rp_pico::hal::{clocks, gpio, pac, sio::Sio, usb::UsbBus, watchdog::Watchdog};
+    use rp_pico::hal::{clocks, pac, usb::UsbBus, watchdog::Watchdog};
     use rp_pico::XOSC_CRYSTAL_FREQ;
-
-    use embedded_hal::digital::v2::{OutputPin, ToggleableOutputPin};
 
     use usb_device::bus::UsbBusAllocator;
     use usb_device::prelude::*;
