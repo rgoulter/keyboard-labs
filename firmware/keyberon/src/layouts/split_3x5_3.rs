@@ -4,7 +4,7 @@ use crate::layouts::common::{chord_rows, combine_layer_and_chords, Action as A, 
 use keyberon::action::Action::NoOp;
 
 #[derive(Copy, Clone)]
-pub struct Split3x5_3([A; 10], [A; 10], [A; 10], [A; 6]);
+pub struct Split3x5_3(pub [A; 10], pub [A; 10], pub [A; 10], pub [A; 6]);
 
 impl Split3x5_3 {
     pub const fn noop() -> Split3x5_3 {
