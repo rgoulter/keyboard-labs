@@ -53,7 +53,7 @@
 
       packages = let
         rp2040-bins = [
-          "blinky"
+          "weact-pico-onekey"
         ];
         stm32f4-bins = [
           "minif4-36-rev2021_4-lhs"
