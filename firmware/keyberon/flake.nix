@@ -61,7 +61,7 @@
           "minif4-36-rev2021_5-lhs"
           "minif4-36-rev2021_5-rhs"
           "x_2-rev2021_1"
-          "stm32f4-onekey"
+          "weact-minif4-onekey"
         ];
         in rec {
         keyberon-firmware-rp2040-elf =
