@@ -1,0 +1,11 @@
+[stm32f4.general]
+chip = "STM32F401CCUx"
+
+[stm32f4.rtt]
+enabled = true
+
+[rp2040.general]
+chip = "RP2040"
+
+[rp2040.rtt]
+enabled = true
