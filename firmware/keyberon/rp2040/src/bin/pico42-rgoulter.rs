@@ -14,9 +14,7 @@ mod app {
         Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-    use keyboard_labs_keyberon_rp2040::pinout::pykey40::{
-        cols_and_rows_for_peripherals, Input, Output,
-    };
+    use keyboard_labs_keyberon_rp2040::pinout::pykey40::cols_and_rows_for_peripherals;
 
     #[shared]
     struct Shared {
@@ -27,7 +25,7 @@ mod app {
     #[local]
     struct Local {
         alarm: timer::Alarm0,
-        matrix: DelayedMatrix<Input<DynPinId>, Output<DynPinId>, COLS, ROWS, timer::Timer>,
+        matrix: DelayedMatrix<Input, Output, COLS, ROWS, timer::Timer>,
         debouncer: Debouncer<[[bool; COLS]; ROWS]>,
         chording: Chording<NUM_CHORDS>,
         layout: Layout,

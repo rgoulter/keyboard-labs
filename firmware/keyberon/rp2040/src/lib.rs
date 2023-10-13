@@ -6,4 +6,6 @@ pub mod app_prelude;
 
 pub mod common;
 
+pub mod input;
+
 pub mod pinout;

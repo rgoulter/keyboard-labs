@@ -1,15 +1,8 @@
 use rp2040_hal as hal;
 
-use hal::{
-    gpio,
-    gpio::{bank0, DynPinId, FunctionNull, FunctionSio, PullDown, PullUp, SioInput, SioOutput},
-};
+use hal::gpio::bank0;
 
-pub type UnconfiguredPin<I> = gpio::Pin<I, FunctionNull, PullDown>;
-
-pub type Input<I> = gpio::Pin<I, FunctionSio<SioInput>, PullUp>;
-
-pub type Output<I> = gpio::Pin<I, FunctionSio<SioOutput>, PullDown>;
+use crate::input::{Input, Output, UnconfiguredPin};
 
 pub fn cols_and_rows_for_peripherals(
     gp0: UnconfiguredPin<bank0::Gpio0>,
@@ -28,7 +21,7 @@ pub fn cols_and_rows_for_peripherals(
     gp15: UnconfiguredPin<bank0::Gpio15>,
     gp16: UnconfiguredPin<bank0::Gpio16>,
     gp17: UnconfiguredPin<bank0::Gpio17>,
-) -> ([Input<DynPinId>; 12], [Output<DynPinId>; 4]) {
+) -> ([Input; 12], [Output; 4]) {
     (
         [
             gp0.into_pull_up_input().into_dyn_pin(),

@@ -20,3 +20,4 @@ pub use usbd_human_interface_device::UsbHidError;
 
 pub use crate::app_init;
 pub use crate::common::{UsbClass, UsbDevice};
+pub use crate::input::{Input, Output};
