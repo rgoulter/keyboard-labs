@@ -6,8 +6,7 @@ mod app {
     // set the panic handler
     use panic_rtt_target as _;
 
-    use core::convert::Infallible;
-
+    use frunk::HList;
     use keyberon::debounce::Debouncer;
     use rtt_target::{rprintln, rtt_init_print};
     use stm32f4xx_hal::gpio::gpioa;
@@ -17,33 +16,39 @@ mod app {
     use stm32f4xx_hal::{pac, timer};
     use usb_device::bus::UsbBusAllocator;
     use usb_device::prelude::*;
+    use usbd_human_interface_device::device::keyboard::NKROBootKeyboard;
     use usbd_human_interface_device::page::Keyboard;
+    use usbd_human_interface_device::usb_class::UsbHidClass;
     use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
     use usbd_human_interface_device::UsbHidError;
 
-    use keyboard_labs_keyberon::common::Matrix;
-    use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys1x1;
+    type UsbClass = UsbHidClass<'static, UsbBusType, HList!(NKROBootKeyboard<'static, UsbBusType>)>;
 
-    use keyboard_labs_keyberon_stm32f4::common::{UsbClass, UsbDevice};
+    type UsbDevice = usb_device::device::UsbDevice<'static, UsbBusType>;
 
     const COLS: usize = 1;
     const ROWS: usize = 1;
     const NUM_LAYERS: usize = 1;
 
+    type PressedKeys1x1 = [[bool; 1]; 1];
+
     type CustomAction = ();
     type Layers = keyberon::layout::Layers<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
     type Layout = keyberon::layout::Layout<COLS, ROWS, NUM_LAYERS, CustomAction, Keyboard>;
 
-    pub static LAYERS: Layers = [[[keyboard_labs_keyberon::layouts::common::a!(A)]]];
+    pub static LAYERS: Layers = [[[keyberon::action::Action::HoldTap(
+        &keyberon::action::HoldTapAction {
+            timeout: 200,
+            tap_hold_interval: 0,
+            config: keyberon::action::HoldTapConfig::Default,
+            hold: keyberon::action::Action::KeyCode(
+                usbd_human_interface_device::page::Keyboard::LeftAlt,
+            ),
+            tap: keyberon::action::Action::KeyCode(usbd_human_interface_device::page::Keyboard::A),
+        },
+    )]]];
 
     pub struct DirectPins1x1(pub (gpioa::PA0<Input>,));
-
-    impl Matrix<COLS, ROWS> for DirectPins1x1 {
-        fn get(&mut self) -> Result<PressedKeys1x1, Infallible> {
-            let row1 = &self.0;
-            Ok([[row1.0.is_low()]])
-        }
-    }
 
     #[shared]
     struct SharedResources {
@@ -135,7 +140,9 @@ mod app {
     fn tick(c: tick::Context) {
         c.local.timer.clear_interrupt(timer::Event::Update);
 
-        let pressed_keys: PressedKeys1x1 = c.local.direct_pins.get().unwrap();
+        let DirectPins1x1((input_pin,)) = c.local.direct_pins;
+        let pressed_keys: PressedKeys1x1 = [[input_pin.is_low()]];
+
         let events = c.local.debouncer.events(pressed_keys);
 
         for event in events {
