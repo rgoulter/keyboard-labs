@@ -3,14 +3,13 @@
 use core::convert::Infallible;
 use stm32f4xx_hal::gpio::{gpioa, gpiob};
 
-use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
+use keyboard_labs_keyberon::input::{MatrixScanner, PressedKeys5x4};
 
 pub use keyboard_labs_keyberon::input::event_transform_rhs as event_transform;
 use keyboard_labs_keyberon::input::{
     row3_flipped, row3_is_low_lhs as row3_is_low, row5_flipped, row5_is_low,
 };
 
-use crate::common::MatrixScanner;
 use crate::pinout::minif4_36::DirectPins5x4;
 
 pub struct RHS(pub DirectPins5x4);

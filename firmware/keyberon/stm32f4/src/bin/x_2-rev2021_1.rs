@@ -10,6 +10,7 @@ mod app {
     use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
     pub use stm32f4xx_hal::timer::delay::DelayUs;
 
+    use keyboard_labs_keyberon::input::PressedKeys12x5;
     use keyboard_labs_keyberon::layouts::ortho_5x12::rgoulter::{
         Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
     };
@@ -26,7 +27,7 @@ mod app {
     struct LocalResources {
         timer: timer::CounterUs<pac::TIM3>,
         matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, DelayUs<pac::TIM5>>,
-        debouncer: Debouncer<[[bool; COLS]; ROWS]>,
+        debouncer: Debouncer<PressedKeys12x5>,
         chording: Chording<NUM_CHORDS>,
         layout: Layout,
     }
@@ -97,7 +98,11 @@ mod app {
             LocalResources {
                 timer,
                 matrix: matrix.unwrap(),
-                debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
+                debouncer: Debouncer::new(
+                    PressedKeys12x5::default(),
+                    PressedKeys12x5::default(),
+                    25,
+                ),
                 chording: Chording::new(&CHORDS),
                 layout: Layout::new(&LAYERS),
             },

@@ -3,8 +3,6 @@
 use embedded_hal::blocking::delay::DelayUs;
 use embedded_hal::digital::v2::{InputPin, OutputPin};
 
-use crate::common;
-
 /// Describes the hardware-level matrix of switches.
 ///
 /// Generic parameters are in order: The type of column pins,
@@ -72,7 +70,7 @@ where
     }
 }
 
-impl<C, R, const CS: usize, const RS: usize, D, E> common::MatrixScanner<CS, RS, E>
+impl<C, R, const CS: usize, const RS: usize, D, E> crate::input::MatrixScanner<CS, RS, E>
     for Matrix<C, R, CS, RS, D>
 where
     C: InputPin<Error = E>,

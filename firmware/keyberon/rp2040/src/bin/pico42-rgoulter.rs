@@ -9,7 +9,7 @@ mod app {
 
     use keyboard_labs_keyberon_rp2040::app_prelude::*;
 
-    // use embedded_hal::blocking::delay::DelayUs;
+    use keyboard_labs_keyberon::input::PressedKeys12x4;
     use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::matrix4x12::{
         Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
     };
@@ -26,7 +26,7 @@ mod app {
     struct Local {
         alarm: timer::Alarm0,
         matrix: DelayedMatrix<Input, Output, COLS, ROWS, timer::Timer>,
-        debouncer: Debouncer<[[bool; COLS]; ROWS]>,
+        debouncer: Debouncer<PressedKeys12x4>,
         chording: Chording<NUM_CHORDS>,
         layout: Layout,
     }
@@ -102,7 +102,11 @@ mod app {
             Local {
                 alarm,
                 matrix,
-                debouncer: Debouncer::new([[false; COLS]; ROWS], [[false; COLS]; ROWS], 25),
+                debouncer: Debouncer::new(
+                    PressedKeys12x4::default(),
+                    PressedKeys12x4::default(),
+                    25,
+                ),
                 chording: Chording::new(&CHORDS),
                 layout: Layout::new(&LAYERS),
             },

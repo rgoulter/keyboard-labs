@@ -5,7 +5,7 @@
 mod app {
     use panic_halt as _;
 
-    use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
+    use keyboard_labs_keyberon::input::PressedKeys5x4;
     use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::matrix4x10::{
         Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
