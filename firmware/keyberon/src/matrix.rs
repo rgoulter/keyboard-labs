@@ -72,7 +72,7 @@ where
     }
 }
 
-impl<C, R, const CS: usize, const RS: usize, D, E> common::Matrix<CS, RS, E>
+impl<C, R, const CS: usize, const RS: usize, D, E> common::MatrixScanner<CS, RS, E>
     for Matrix<C, R, CS, RS, D>
 where
     C: InputPin<Error = E>,

@@ -56,12 +56,12 @@ pub fn send_report<B, D, Index>(
 
 // R for 'matrix get result type',
 // E for 'error of matrix get result type'.
-pub trait Matrix<const COLS: usize, const ROWS: usize, E = Infallible> {
+pub trait MatrixScanner<const COLS: usize, const ROWS: usize, E = Infallible> {
     fn get(&mut self) -> Result<[[bool; COLS]; ROWS], E>;
 }
 
 pub fn keyboard_events<const COLS: usize, const ROWS: usize, const NUM_CHORDS: usize, E>(
-    matrix: &mut impl Matrix<COLS, ROWS, E>,
+    matrix: &mut impl MatrixScanner<COLS, ROWS, E>,
     debouncer: &mut Debouncer<[[bool; COLS]; ROWS]>,
     chording: &mut Chording<NUM_CHORDS>,
 ) -> heapless::Vec<Event, 8>

@@ -3,7 +3,7 @@
 use core::convert::Infallible;
 use stm32f4xx_hal::gpio::{gpioa, gpiob, gpioc};
 
-use crate::common::Matrix;
+use crate::common::MatrixScanner;
 use keyboard_labs_keyberon::direct_pin_matrix::PressedKeys5x4;
 
 pub use keyboard_labs_keyberon::input::event_transform_rhs as event_transform;
@@ -51,7 +51,7 @@ pub fn direct_pin_matrix_for_peripherals<
     )
 }
 
-impl Matrix<5, 4> for DirectPins5x4 {
+impl MatrixScanner<5, 4> for DirectPins5x4 {
     fn get(&mut self) -> Result<PressedKeys5x4, Infallible> {
         let DirectPins5x4(row1, row2, row3, row4) = self;
         Ok([
