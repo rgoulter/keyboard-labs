@@ -200,11 +200,6 @@ pub const fn chord_coordinates_along_rows<const C: usize, const R: usize, const 
     res
 }
 
-// pub const CHORDS: [ChordDef; NUM_CHORDS] = [
-//     ((ROWS as u8, 0), CHORD_COORDINATES[0]),
-//     ((ROWS as u8, 1), CHORD_COORDINATES[1]),
-// ];
-
 // Construct the chord rows to append to the layer.
 //
 // C: number of columns.
