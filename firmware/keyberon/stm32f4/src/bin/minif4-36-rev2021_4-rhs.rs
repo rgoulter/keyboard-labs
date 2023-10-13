@@ -10,7 +10,7 @@ mod app {
         Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon_stm32f4::pinout::minif4_36::rev2021_4::rhs::{
-        direct_pin_matrix_for_peripherals, event_transform, DirectPins5x4,
+        direct_pin_matrix_for_peripherals, event_transform, RHS as DirectPins5x4,
     };
     use keyboard_labs_keyberon_stm32f4::split::app_prelude::*;
 

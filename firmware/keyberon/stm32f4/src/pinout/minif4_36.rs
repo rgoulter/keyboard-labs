@@ -13,6 +13,8 @@ pub type Row5 = (
 
 pub type Row3 = (EPin<Input>, EPin<Input>, EPin<Input>);
 
+pub struct DirectPins5x4(pub Row5, pub Row5, pub Row5, pub Row3);
+
 pub fn erased_input_5<
     const AP: char,
     const AN: u8,
