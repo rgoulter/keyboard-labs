@@ -3,6 +3,10 @@ use rp2040_hal as hal;
 use hal::gpio::bank0;
 
 use crate::input::{Input, Output, UnconfiguredPin};
+use keyboard_labs_keyberon::matrix::Matrix;
+
+pub const COLS: usize = 12;
+pub const ROWS: usize = 4;
 
 pub fn cols(
     gp0: UnconfiguredPin<bank0::Gpio0>,
@@ -17,7 +21,7 @@ pub fn cols(
     gp9: UnconfiguredPin<bank0::Gpio9>,
     gp10: UnconfiguredPin<bank0::Gpio10>,
     gp11: UnconfiguredPin<bank0::Gpio11>,
-) -> [Input; 12] {
+) -> [Input; COLS] {
     [
         gp0.into_pull_up_input().into_dyn_pin(),
         gp1.into_pull_up_input().into_dyn_pin(),
@@ -39,7 +43,7 @@ pub fn rows(
     gp15: UnconfiguredPin<bank0::Gpio15>,
     gp16: UnconfiguredPin<bank0::Gpio16>,
     gp17: UnconfiguredPin<bank0::Gpio17>,
-) -> [Output; 4] {
+) -> [Output; ROWS] {
     [
         gp14.into_push_pull_output().into_dyn_pin(),
         gp15.into_push_pull_output().into_dyn_pin(),
@@ -47,3 +51,11 @@ pub fn rows(
         gp17.into_push_pull_output().into_dyn_pin(),
     ]
 }
+
+// N: num chords
+pub type Keyboard<const N: usize> = keyboard_labs_keyberon::input::Keyboard<
+    COLS,
+    ROWS,
+    N,
+    Matrix<Input, Output, COLS, ROWS, hal::Timer>,
+>;

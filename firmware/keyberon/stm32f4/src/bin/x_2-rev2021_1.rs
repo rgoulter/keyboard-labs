@@ -7,12 +7,11 @@ mod app {
 
     use keyboard_labs_keyberon_stm32f4::app_prelude::*;
 
-    use stm32f4xx_hal::gpio::{EPin, Input, Output, PushPull};
     pub use stm32f4xx_hal::timer::delay::DelayUs;
 
     use keyboard_labs_keyberon::input::PressedKeys12x5;
     use keyboard_labs_keyberon::layouts::ortho_5x12::rgoulter::{
-        Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
+        Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
     use keyboard_labs_keyberon_stm32f4::pinout::x_2::rev2021_1;
@@ -26,9 +25,10 @@ mod app {
     #[local]
     struct LocalResources {
         timer: timer::CounterUs<pac::TIM3>,
-        matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, DelayUs<pac::TIM5>>,
-        debouncer: Debouncer<PressedKeys12x5>,
-        chording: Chording<NUM_CHORDS>,
+        // matrix: DelayedMatrix<EPin<Input>, EPin<Output<PushPull>>, COLS, ROWS, DelayUs<pac::TIM5>>,
+        // debouncer: Debouncer<PressedKeys12x5>,
+        // chording: Chording<NUM_CHORDS>,
+        keyboard: rev2021_1::Keyboard<NUM_CHORDS, pac::TIM5>,
         layout: Layout,
     }
 
@@ -88,19 +88,22 @@ mod app {
             pa3, pa4, pa5, pa6, pa7, pa8, pa15, pb1, pb12, pb13, pb14, pb15,
         );
         let rows = rev2021_1::rows(pa10, pb5, pb6, pb7, pb8);
-        let matrix = DelayedMatrix::new(cols, rows, delay, 5, 5);
+        let matrix = DelayedMatrix::new(cols, rows, delay, 5, 5).unwrap();
+        let keyboard = rev2021_1::Keyboard {
+            matrix,
+            debouncer: Debouncer::new(
+                PressedKeys12x5::default(),
+                PressedKeys12x5::default(),
+                25,
+            ),
+            chording: Chording::new(&CHORDS),
+        };
 
         (
             SharedResources { usb_dev, usb_class },
             LocalResources {
                 timer,
-                matrix: matrix.unwrap(),
-                debouncer: Debouncer::new(
-                    PressedKeys12x5::default(),
-                    PressedKeys12x5::default(),
-                    25,
-                ),
-                chording: Chording::new(&CHORDS),
+                keyboard,
                 layout: Layout::new(&LAYERS),
             },
             init::Monotonics(),
@@ -119,20 +122,18 @@ mod app {
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
-    #[task(binds = TIM3, priority = 1, shared = [usb_class], local = [matrix, debouncer, layout, chording, timer])]
+    #[task(binds = TIM3, priority = 1, shared = [usb_class], local = [timer, keyboard, layout])]
     fn tick(c: tick::Context) {
         let tick::SharedResources { mut usb_class } = c.shared;
         let tick::LocalResources {
             timer,
-            matrix,
-            debouncer,
-            chording,
+            keyboard,
             layout,
         } = c.local;
 
         timer.clear_interrupt(timer::Event::Update);
 
-        for event in keyboard_events(matrix, debouncer, chording) {
+        for event in keyboard.events() {
             layout.event(event);
         }
         match layout.tick() {

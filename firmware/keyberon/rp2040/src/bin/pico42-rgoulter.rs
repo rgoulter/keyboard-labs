@@ -11,7 +11,7 @@ mod app {
 
     use keyboard_labs_keyberon::input::PressedKeys12x4;
     use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::matrix4x12::{
-        Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
+        Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
     use keyboard_labs_keyberon_rp2040::pinout::pykey40;
@@ -25,9 +25,7 @@ mod app {
     #[local]
     struct Local {
         alarm: timer::Alarm0,
-        matrix: DelayedMatrix<Input, Output, COLS, ROWS, timer::Timer>,
-        debouncer: Debouncer<PressedKeys12x4>,
-        chording: Chording<NUM_CHORDS>,
+        keyboard: pykey40::Keyboard<NUM_CHORDS>,
         layout: Layout,
     }
 
@@ -96,18 +94,17 @@ mod app {
         );
         let rows = pykey40::rows(gpio14, gpio15, gpio16, gpio17);
         let matrix = DelayedMatrix::new(cols, rows, timer, 5, 5).unwrap();
+        let keyboard = pykey40::Keyboard {
+            matrix,
+            debouncer: Debouncer::new(PressedKeys12x4::default(), PressedKeys12x4::default(), 25),
+            chording: Chording::new(&CHORDS),
+        };
 
         (
             Shared { usb_dev, usb_class },
             Local {
                 alarm,
-                matrix,
-                debouncer: Debouncer::new(
-                    PressedKeys12x4::default(),
-                    PressedKeys12x4::default(),
-                    25,
-                ),
-                chording: Chording::new(&CHORDS),
+                keyboard,
                 layout: Layout::new(&LAYERS),
             },
             init::Monotonics(),
@@ -120,21 +117,19 @@ mod app {
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
-    #[task(binds = TIMER_IRQ_0, priority = 1, shared = [usb_class], local = [matrix, debouncer, chording, layout, alarm])]
+    #[task(binds = TIMER_IRQ_0, priority = 1, shared = [usb_class], local = [keyboard, layout, alarm])]
     fn tick(c: tick::Context) {
         let tick::SharedResources { mut usb_class } = c.shared;
         let tick::LocalResources {
             alarm,
-            matrix,
-            debouncer,
-            chording,
+            keyboard,
             layout,
         } = c.local;
 
         alarm.clear_interrupt();
         alarm.schedule(1.millis()).unwrap();
 
-        for event in keyboard_events(matrix, debouncer, chording) {
+        for event in keyboard.events() {
             layout.event(event);
         }
         match layout.tick() {
