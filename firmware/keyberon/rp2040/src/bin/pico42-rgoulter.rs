@@ -14,7 +14,7 @@ mod app {
         Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-    use keyboard_labs_keyberon_rp2040::pinout::pykey40::cols_and_rows_for_peripherals;
+    use keyboard_labs_keyberon_rp2040::pinout::pykey40;
 
     #[shared]
     struct Shared {
@@ -91,10 +91,10 @@ mod app {
             gpio17,
             ..
         } = gpio0;
-        let (cols, rows) = cols_and_rows_for_peripherals(
+        let cols = pykey40::cols(
             gpio0, gpio1, gpio2, gpio3, gpio4, gpio5, gpio6, gpio7, gpio8, gpio9, gpio10, gpio11,
-            gpio14, gpio15, gpio16, gpio17,
         );
+        let rows = pykey40::rows(gpio14, gpio15, gpio16, gpio17);
         let matrix = DelayedMatrix::new(cols, rows, timer, 5, 5).unwrap();
 
         (

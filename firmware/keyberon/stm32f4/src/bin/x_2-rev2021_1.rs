@@ -15,7 +15,7 @@ mod app {
         Layout, CHORDS, COLS, LAYERS, NUM_CHORDS, ROWS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-    use keyboard_labs_keyberon_stm32f4::pinout::x_2::rev2021_1::cols_and_rows_for_peripherals;
+    use keyboard_labs_keyberon_stm32f4::pinout::x_2::rev2021_1;
 
     #[shared]
     struct SharedResources {
@@ -84,14 +84,11 @@ mod app {
         let timer = app_init::init_timer(&clocks, device.TIM3);
 
         let delay: DelayUs<pac::TIM5> = device.TIM5.delay_us(&clocks);
-        let (cols, rows) = cols_and_rows_for_peripherals(
-            pa3, pa4, pa5, pa6, pa7, pa8, pa10, pa15, pb1, pb5, pb6, pb7, pb8, pb12, pb13, pb14,
-            pb15,
+        let cols = rev2021_1::cols(
+            pa3, pa4, pa5, pa6, pa7, pa8, pa15, pb1, pb12, pb13, pb14, pb15,
         );
-        let matrix = DelayedMatrix::new(
-            cols, rows, delay, 5, // select pin delay
-            5, // unselect pin delay
-        );
+        let rows = rev2021_1::rows(pa10, pb5, pb6, pb7, pb8);
+        let matrix = DelayedMatrix::new(cols, rows, delay, 5, 5);
 
         (
             SharedResources { usb_dev, usb_class },
