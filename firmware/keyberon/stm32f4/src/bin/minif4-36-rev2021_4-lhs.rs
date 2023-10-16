@@ -25,12 +25,13 @@ mod app {
         timer: timer::CounterUs<pac::TIM3>,
         keyboard: Keyboard<NUM_CHORDS>,
         layout: Layout,
-        tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
-        rx: serial::Rx<stm32f4xx_hal::pac::USART1>,
+        split_conn_tx: TransportWriter,
+        split_conn_rx: TransportReader,
     }
 
     #[init(local = [
         ep_memory: [u32; 1024] = [0; 1024],
+        rx_buf: [u8; 4] = [0; 4],
         usb_bus: Option<UsbBusAllocator<UsbBusType>> = None
     ])]
     fn init(c: init::Context) -> (SharedResources, LocalResources, init::Monotonics) {
@@ -96,7 +97,7 @@ mod app {
             chording: Chording::new(&CHORDS),
         };
 
-        let (tx, rx) = split_app_init::init_serial(&clocks, pb6, pb7, device.USART1);
+        let (split_conn_tx, split_conn_rx) = split_app_init::init_serial(&clocks, pb6, pb7, device.USART1, c.local.rx_buf);
 
         (
             SharedResources { usb_dev, usb_class },
@@ -104,17 +105,17 @@ mod app {
                 timer,
                 keyboard,
                 layout: Layout::new(&LAYERS),
-                tx,
-                rx,
+                split_conn_rx,
+                split_conn_tx,
             },
             init::Monotonics(),
         )
     }
 
-    #[task(binds = USART1, priority = 5, local = [buf: [u8; 4] = [0; 4], rx])]
+    #[task(binds = USART1, priority = 5, local = [split_conn_rx])]
     fn rx(c: rx::Context) {
-        let rx::LocalResources { buf, rx } = c.local;
-        if let Some(event) = split_read_event(buf, rx) {
+        let rx::LocalResources { split_conn_rx } = c.local;
+        if let Some(event) = split_conn_rx.read() {
             layout::spawn(LayoutMessage::Event(event)).unwrap();
         }
     }
@@ -160,20 +161,20 @@ mod app {
         local = [
             timer,
             keyboard,
-            tx,
+            split_conn_tx,
         ]
     )]
     fn tick(c: tick::Context) {
         let tick::LocalResources {
             timer,
             keyboard,
-            tx,
+            split_conn_tx,
         } = c.local;
 
         timer.clear_interrupt(timer::Event::Update);
 
         for event in keyboard.events() {
-            split_write_event(event, tx);
+            split_conn_tx.write(event);
             layout::spawn(LayoutMessage::Event(event)).unwrap();
         }
 
