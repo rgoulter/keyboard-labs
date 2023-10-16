@@ -9,4 +9,6 @@ pub mod matrix;
 
 pub mod layouts;
 
+pub mod split;
+
 pub mod common;

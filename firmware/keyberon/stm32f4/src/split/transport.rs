@@ -1,7 +1,5 @@
 use embedded_hal::serial::Read;
 use embedded_hal::serial::Write;
-use keyberon::chording::Chording;
-use keyberon::debounce::Debouncer;
 use keyberon::layout::Event;
 use nb::block;
 use stm32f4xx_hal::serial::{Rx, Tx};
@@ -61,26 +59,4 @@ pub fn split_write_event(event: Event, tx: &mut Tx<stm32f4xx_hal::pac::USART1>) 
         block!(tx.write(b)).unwrap();
     }
     block!(tx.flush()).unwrap();
-}
-
-pub fn event_transform_identity(e: Event) -> Event {
-    e
-}
-
-pub fn transformed_keyboard_events<
-    const COLS: usize,
-    const ROWS: usize,
-    const NUM_CHORDS: usize,
-    E,
->(
-    matrix: &mut impl keyboard_labs_keyberon::input::MatrixScanner<COLS, ROWS, E>,
-    debouncer: &mut Debouncer<[[bool; COLS]; ROWS]>,
-    chording: &mut Chording<NUM_CHORDS>,
-    event_transform: fn(Event) -> Event,
-) -> heapless::Vec<Event, 8>
-where
-    E: core::fmt::Debug,
-{
-    let transformed_events = debouncer.events(matrix.get().unwrap()).map(event_transform);
-    chording.tick(transformed_events.collect())
 }

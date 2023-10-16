@@ -10,7 +10,7 @@ mod app {
         Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon_stm32f4::pinout::minif4_36::rev2021_4::rhs::{
-        direct_pin_matrix_for_peripherals, event_transform, RHS as DirectPins5x4,
+        direct_pin_matrix_for_peripherals, event_transform, Keyboard,
     };
     use keyboard_labs_keyberon_stm32f4::split::app_prelude::*;
 
@@ -23,9 +23,7 @@ mod app {
     #[local]
     struct LocalResources {
         timer: timer::CounterUs<pac::TIM3>,
-        matrix: DirectPins5x4,
-        debouncer: Debouncer<PressedKeys5x4>,
-        chording: Chording<NUM_CHORDS>,
+        keyboard: Keyboard<NUM_CHORDS>,
         layout: Layout,
         tx: serial::Tx<stm32f4xx_hal::pac::USART1>,
         rx: serial::Rx<stm32f4xx_hal::pac::USART1>,
@@ -91,15 +89,20 @@ mod app {
             pb15,
         );
 
+        let keyboard = Keyboard {
+            matrix,
+            debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
+            event_transform,
+            chording: Chording::new(&CHORDS),
+        };
+
         let (tx, rx) = split_app_init::init_serial(&clocks, pb6, pb7, device.USART1);
 
         (
             SharedResources { usb_dev, usb_class },
             LocalResources {
                 timer,
-                matrix,
-                debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
-                chording: Chording::new(&CHORDS),
+                keyboard,
                 layout: Layout::new(&LAYERS),
                 tx,
                 rx,
@@ -155,25 +158,21 @@ mod app {
         binds = TIM3,
         priority = 2,
         local = [
-            debouncer,
-            matrix,
-            chording,
             timer,
+            keyboard,
             tx,
         ]
     )]
     fn tick(c: tick::Context) {
         let tick::LocalResources {
             timer,
-            matrix,
-            debouncer,
-            chording,
+            keyboard,
             tx,
         } = c.local;
 
         timer.clear_interrupt(timer::Event::Update);
 
-        for event in transformed_keyboard_events(matrix, debouncer, chording, event_transform) {
+        for event in keyboard.events() {
             split_write_event(event, tx);
             layout::spawn(LayoutMessage::Event(event)).unwrap();
         }

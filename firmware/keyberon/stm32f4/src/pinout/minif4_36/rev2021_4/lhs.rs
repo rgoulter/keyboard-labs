@@ -5,10 +5,13 @@ use stm32f4xx_hal::gpio::{gpioa, gpiob};
 
 use keyboard_labs_keyberon::input::{MatrixScanner, PressedKeys5x4};
 
-pub use keyboard_labs_keyberon::input::event_transform_lhs as event_transform;
 use keyboard_labs_keyberon::input::{row3_is_low_lhs as row3_is_low, row5_is_low};
+pub use keyboard_labs_keyberon::split::input::event_transform_lhs as event_transform;
 
 use crate::pinout::minif4_36::{erased_input_3, erased_input_5, DirectPins5x4};
+
+pub const COLS: usize = 5; // split side only
+pub const ROWS: usize = 4;
 
 pub struct LHS(pub DirectPins5x4);
 
@@ -55,3 +58,7 @@ impl MatrixScanner<5, 4> for LHS {
         ])
     }
 }
+
+// N: num chords
+pub type Keyboard<const N: usize> =
+    keyboard_labs_keyberon::split::input::Keyboard<COLS, ROWS, N, LHS>;

@@ -93,14 +93,6 @@ where
     ]
 }
 
-pub fn event_transform_lhs(e: Event) -> Event {
-    e
-}
-
-pub fn event_transform_rhs(e: Event) -> Event {
-    e.transform(|i, j| (i, j + 5))
-}
-
 pub fn row5_flipped<P>((a, b, c, d, e): (P, P, P, P, P)) -> (P, P, P, P, P) {
     (e, d, c, b, a)
 }

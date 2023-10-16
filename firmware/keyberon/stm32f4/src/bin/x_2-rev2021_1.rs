@@ -91,11 +91,7 @@ mod app {
         let matrix = DelayedMatrix::new(cols, rows, delay, 5, 5).unwrap();
         let keyboard = rev2021_1::Keyboard {
             matrix,
-            debouncer: Debouncer::new(
-                PressedKeys12x5::default(),
-                PressedKeys12x5::default(),
-                25,
-            ),
+            debouncer: Debouncer::new(PressedKeys12x5::default(), PressedKeys12x5::default(), 25),
             chording: Chording::new(&CHORDS),
         };
 
