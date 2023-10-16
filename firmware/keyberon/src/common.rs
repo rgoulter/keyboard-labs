@@ -17,9 +17,7 @@ pub fn usb_poll<B, D, Index>(
     keyboard: &mut UsbHidClass<'static, B, D>,
 ) where
     B: UsbBus,
-    // D: DeviceHList<'static> + Selector<T, Index>,
     D: DeviceHList<'static> + Selector<NKROBootKeyboard<'static, B>, Index>,
-    // T: NKROBootKeyboard<'static, B>,
 {
     if usb_dev.poll(&mut [keyboard]) {
         let interface = keyboard.device();
