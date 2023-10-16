@@ -8,7 +8,7 @@ use keyboard_labs_keyberon::input::{MatrixScanner, PressedKeys5x4};
 use keyboard_labs_keyberon::input::{
     row3_flipped, row3_is_low_rhs as row3_is_low, row5_flipped, row5_is_low,
 };
-pub use keyboard_labs_keyberon::split::input::event_transform_rhs as event_transform;
+use keyboard_labs_keyberon::split::input::event_transform_rhs;
 
 use crate::pinout::minif4_36::DirectPins5x4;
 
@@ -16,6 +16,9 @@ pub const COLS: usize = 5; // split side only
 pub const ROWS: usize = 4;
 
 pub struct RHS(pub DirectPins5x4);
+
+#[allow(non_upper_case_globals)]
+pub const event_transform: fn(keyberon::layout::Event) -> keyberon::layout::Event = event_transform_rhs::<COLS>;
 
 pub fn direct_pin_matrix_for_peripherals<
     A15M: stm32f4xx_hal::gpio::PinMode,
