@@ -6,7 +6,7 @@ use stm32f4xx_hal::gpio::{gpioa, gpiob};
 use keyboard_labs_keyberon::input::{MatrixScanner, PressedKeys5x4};
 
 use keyboard_labs_keyberon::input::{
-    row3_flipped, row3_is_low_lhs as row3_is_low, row5_flipped, row5_is_low,
+    row3_flipped, row3_is_low_rhs as row3_is_low, row5_flipped, row5_is_low,
 };
 pub use keyboard_labs_keyberon::split::input::event_transform_rhs as event_transform;
 
