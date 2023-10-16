@@ -1,4 +1,4 @@
-uf2_drive := "/run/media/{{`whoami`}}/BlackPill"
+uf2_drive := "/run/media/`whoami`/BlackPill"
 
 make-uf2 target:
   make {{target}}.uf2
