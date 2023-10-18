@@ -3,7 +3,7 @@ use keyberon::action::{
     HoldTapConfig,
 };
 use keyberon::chording::ChordDef;
-use usbd_human_interface_device::page::Keyboard;
+use usbd_human_interface_device::page::{Consumer, Keyboard};
 
 pub use crate::layouts::macros::{a, c, g, s, sk};
 
@@ -11,7 +11,10 @@ pub mod segments;
 
 pub use segments::*;
 
-pub type CustomAction = ();
+#[derive(Debug, Clone, Copy)]
+pub enum CustomAction {
+    ConsumerA(Consumer),
+}
 
 pub type Action = keyberon::action::Action<CustomAction, Keyboard>;
 

@@ -38,7 +38,7 @@ pub fn send_report<B, D, Index>(
     B: UsbBus,
     D: DeviceHList<'static> + Selector<NKROBootKeyboard<'static, B>, Index>,
 {
-    match usb_class.device().write_report(iter) {
+    match usb_class.device::<NKROBootKeyboard<'_, _>, _>().write_report(iter) {
         Err(UsbHidError::WouldBlock) => {}
         Err(UsbHidError::Duplicate) => {}
         Ok(_) => {}
