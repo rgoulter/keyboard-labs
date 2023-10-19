@@ -60,4 +60,4 @@ impl MatrixScanner<5, 4> for LHS {
 
 // N: num chords
 pub type Keyboard<const N: usize> =
-    keyboard_labs_keyberon::split::input::Keyboard<COLS, ROWS, N, LHS>;
+    keyboard_labs_keyberon::input::Keyboard<COLS, ROWS, N, LHS>;

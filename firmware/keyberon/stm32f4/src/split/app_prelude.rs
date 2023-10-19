@@ -9,7 +9,7 @@ pub use stm32f4xx_hal::time::U32Ext;
 pub use usb_device::prelude::UsbDeviceState;
 pub use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
-pub use keyboard_labs_keyberon::split::input::Keyboard as SplitKeyboard;
+pub use keyboard_labs_keyberon::input::Keyboard;
 pub use keyboard_labs_keyberon::split::transport::LayoutMessage;
 
 pub use crate::split::app_init as split_app_init;

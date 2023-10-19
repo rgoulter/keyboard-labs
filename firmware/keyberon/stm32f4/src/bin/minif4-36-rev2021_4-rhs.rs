@@ -93,7 +93,6 @@ mod app {
         let keyboard = Keyboard {
             matrix,
             debouncer: Debouncer::new(PressedKeys5x4::default(), PressedKeys5x4::default(), 5),
-            event_transform,
             chording: Chording::new(&CHORDS),
         };
 
@@ -116,7 +115,11 @@ mod app {
     fn rx(c: rx::Context) {
         let rx::LocalResources { split_conn_rx } = c.local;
         if let Some(event) = split_conn_rx.read() {
-            layout::spawn(LayoutMessage::Event(event)).unwrap();
+            // Received Event from other keyboard half,
+            // which are for that half's matrix.
+            // Hence, need to transform it.
+            let transformed_event = event_transform(event);
+            layout::spawn(LayoutMessage::Event(transformed_event)).unwrap();
         }
     }
 
