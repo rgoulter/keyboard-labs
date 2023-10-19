@@ -40,6 +40,7 @@ pub mod matrix4x10 {
 
     pub type Keymap = common::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
     pub type Layout = common::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
+    pub type KeyboardBackend = common::KeyboardBackend<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
 
     pub static LAYERS: Keymap =
         compile_layer_parts_10x4::<NUM_LAYERS, NUM_CHORDS, NUM_CHORD_ROWS, ROWS_AND_CHORDS>(
@@ -72,6 +73,7 @@ pub mod matrix4x12 {
         keyberon::layout::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
     pub type Layout =
         keyberon::layout::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+    pub type KeyboardBackend = common::KeyboardBackend<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
 
     pub static LAYERS: Keymap = compile_split3x5_3_layer_parts_12x4_swapped_thumbs::<
         NUM_LAYERS,

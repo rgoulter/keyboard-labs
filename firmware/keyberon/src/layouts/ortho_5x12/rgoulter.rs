@@ -62,11 +62,12 @@ const LWR_ESC: Action = HoldTap(&HoldTapAction {
 
 pub const COLS: usize = 12;
 pub const ROWS: usize = 5;
-pub const ROWS_AND_MACROS: usize = ROWS + 1;
+pub const ROWS_AND_CHORDS: usize = ROWS + 1;
 pub const NUM_LAYERS: usize = 11;
 
-pub type Layers = common::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS>;
-pub type Layout = common::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS>;
+pub type Layers = common::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
+pub type Layout = common::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
+pub type KeyboardBackend = common::KeyboardBackend<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
 
 const _______: Action = keyberon::action::Action::Trans;
 
