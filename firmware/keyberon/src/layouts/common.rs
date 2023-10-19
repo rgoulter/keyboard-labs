@@ -25,6 +25,10 @@ pub type Layers<const C: usize, const R: usize, const L: usize> =
 pub type Layout<const C: usize, const R: usize, const L: usize> =
     keyberon::layout::Layout<C, R, L, CustomAction, Keyboard>;
 
+/// Alias of crate::input::KeyboardBackend, using CustomAction, and usb-human-interface-device's Keyboard.
+pub type KeyboardBackend<const C: usize, const R: usize, const L: usize> =
+    crate::input::KeyboardBackend<CustomAction, Keyboard, Layout<C, R, L>>;
+
 pub enum Row6 {
     Row6([Action; 6]),
     TwoSeg3(Seg3, Seg3),
