@@ -7,7 +7,7 @@ mod app {
 
     use keyboard_labs_keyberon::input::PressedKeys5x4;
     use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::matrix4x10::{
-        Layout, CHORDS, LAYERS, NUM_CHORDS,
+        KeyboardBackend, Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon_stm32f4::pinout::minif4_36::rev2021_5::rhs::{
         direct_pin_matrix_for_peripherals, event_transform, Keyboard,
@@ -24,7 +24,7 @@ mod app {
     struct LocalResources {
         timer: timer::CounterUs<pac::TIM3>,
         keyboard: Keyboard<NUM_CHORDS>,
-        layout: Layout,
+        backend: KeyboardBackend,
         split_conn_tx: TransportWriter,
         split_conn_rx: TransportReader,
     }
@@ -96,6 +96,9 @@ mod app {
             chording: Chording::new(&CHORDS),
         };
 
+        let layout = Layout::new(&LAYERS);
+        let backend = KeyboardBackend::new(layout);
+
         let (split_conn_tx, split_conn_rx) =
             split_app_init::init_serial(&clocks, pb6, pb7, device.USART1, c.local.rx_buf);
 
@@ -104,7 +107,7 @@ mod app {
             LocalResources {
                 timer,
                 keyboard,
-                layout: Layout::new(&LAYERS),
+                backend,
                 split_conn_tx,
                 split_conn_rx,
             },
@@ -136,25 +139,25 @@ mod app {
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
-    #[task(priority = 3, capacity = 8, shared = [usb_class, usb_dev], local = [layout])]
+    #[task(priority = 3, capacity = 8, shared = [usb_class, usb_dev], local = [backend])]
     fn layout(c: layout::Context, message: LayoutMessage) {
         let layout::SharedResources {
             mut usb_class,
             mut usb_dev,
         } = c.shared;
-        let layout::LocalResources { layout } = c.local;
+        let layout::LocalResources { backend } = c.local;
         match message {
             LayoutMessage::Tick => {
-                layout.tick();
+                backend.tick();
 
                 if usb_dev.lock(|d| d.state()) != UsbDeviceState::Configured {
                     return;
                 }
 
-                usb_class.lock(|uc| send_report(layout.keycodes(), uc))
+                usb_class.lock(|uc| send_report(backend.hid_keyboard_keycodes(), uc))
             }
             LayoutMessage::Event(e) => {
-                layout.event(e);
+                backend.event(e);
             }
         };
     }

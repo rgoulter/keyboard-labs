@@ -11,7 +11,7 @@ mod app {
 
     use keyboard_labs_keyberon::input::PressedKeys12x5;
     use keyboard_labs_keyberon::layouts::ortho_5x12::rgoulter::{
-        Layout, CHORDS, LAYERS, NUM_CHORDS,
+        KeyboardBackend, Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
     use keyboard_labs_keyberon_stm32f4::pinout::x_2::rev2021_1;
@@ -26,7 +26,7 @@ mod app {
     struct LocalResources {
         timer: timer::CounterUs<pac::TIM3>,
         keyboard: rev2021_1::Keyboard<NUM_CHORDS, pac::TIM5>,
-        layout: Layout,
+        backend: KeyboardBackend,
     }
 
     #[init(local = [
@@ -92,12 +92,15 @@ mod app {
             chording: Chording::new(&CHORDS),
         };
 
+        let layout = Layout::new(&LAYERS);
+        let backend = KeyboardBackend::new(layout);
+
         (
             SharedResources { usb_dev, usb_class },
             LocalResources {
                 timer,
                 keyboard,
-                layout: Layout::new(&LAYERS),
+                backend,
             },
             init::Monotonics(),
         )
@@ -115,24 +118,22 @@ mod app {
         (usb_dev, usb_class).lock(|mut ud, mut uc| usb_poll(&mut ud, &mut uc));
     }
 
-    #[task(binds = TIM3, priority = 1, shared = [usb_class], local = [timer, keyboard, layout])]
+    #[task(binds = TIM3, priority = 1, shared = [usb_class], local = [timer, keyboard, backend])]
     fn tick(c: tick::Context) {
         let tick::SharedResources { mut usb_class } = c.shared;
         let tick::LocalResources {
             timer,
             keyboard,
-            layout,
+            backend,
         } = c.local;
 
         timer.clear_interrupt(timer::Event::Update);
 
         for event in keyboard.events() {
-            layout.event(event);
+            backend.event(event);
         }
-        match layout.tick() {
-            _ => (),
-        }
+        backend.tick();
 
-        usb_class.lock(|mut k| send_report(layout.keycodes(), &mut k));
+        usb_class.lock(|mut k| send_report(backend.hid_keyboard_keycodes(), &mut k));
     }
 }
