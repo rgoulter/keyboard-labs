@@ -32,7 +32,7 @@ pub fn usb_poll<B, D, Index>(
 }
 
 pub fn send_report<B, D, Index>(
-    iter: impl Iterator<Item = Keyboard>,
+    iter: impl IntoIterator<Item = Keyboard>,
     usb_class: &mut UsbHidClass<'static, B, D>,
 ) where
     B: UsbBus,
