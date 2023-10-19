@@ -12,8 +12,18 @@ pub mod segments;
 pub use segments::*;
 
 pub type CustomAction = ();
+
 pub type Action = keyberon::action::Action<CustomAction, Keyboard>;
+
 pub type HoldTapAction = keyberon::action::HoldTapAction<CustomAction, Keyboard>;
+
+/// Alias of keyberon::layout::Layers, using CustomAction, and usb-human-interface-device's Keyboard.
+pub type Layers<const C: usize, const R: usize, const L: usize> =
+    keyberon::layout::Layers<C, R, L, CustomAction, Keyboard>;
+
+/// Alias of keyberon::layout::Layout, using CustomAction, and usb-human-interface-device's Keyboard.
+pub type Layout<const C: usize, const R: usize, const L: usize> =
+    keyberon::layout::Layout<C, R, L, CustomAction, Keyboard>;
 
 pub enum Row6 {
     Row6([Action; 6]),
