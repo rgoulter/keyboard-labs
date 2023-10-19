@@ -38,10 +38,8 @@ pub mod matrix4x10 {
     pub const ROWS_AND_CHORDS: usize = ROWS + NUM_CHORD_ROWS;
     pub const NUM_LAYERS: usize = Layers::count();
 
-    pub type Keymap =
-        keyberon::layout::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
-    pub type Layout =
-        keyberon::layout::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS, CustomAction, Keyboard>;
+    pub type Keymap = common::Layers<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
+    pub type Layout = common::Layout<COLS, ROWS_AND_CHORDS, NUM_LAYERS>;
 
     pub static LAYERS: Keymap =
         compile_layer_parts_10x4::<NUM_LAYERS, NUM_CHORDS, NUM_CHORD_ROWS, ROWS_AND_CHORDS>(

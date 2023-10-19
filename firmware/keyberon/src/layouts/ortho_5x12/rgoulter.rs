@@ -1,9 +1,11 @@
 use keyberon::action::{d, k, l, Action::*, HoldTapConfig};
 use keyberon::chording::ChordDef;
-use usbd_human_interface_device::page::{Keyboard, Keyboard::*};
+use usbd_human_interface_device::page::Keyboard::*;
 
 use crate::layouts::actions::{LINUX_DESKTOP_LEFT, LINUX_DESKTOP_RIGHT};
-use crate::layouts::common::{Action, CustomAction, HoldTapAction};
+use crate::layouts::common;
+
+use common::{Action, HoldTapAction};
 
 const NUM_BASE_LAYERS: usize = 3;
 const BASE_DSK: usize = 0;
@@ -63,10 +65,8 @@ pub const ROWS: usize = 5;
 pub const ROWS_AND_MACROS: usize = ROWS + 1;
 pub const NUM_LAYERS: usize = 11;
 
-pub type Layers =
-    keyberon::layout::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
-pub type Layout =
-    keyberon::layout::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS, CustomAction, Keyboard>;
+pub type Layers = common::Layers<COLS, ROWS_AND_MACROS, NUM_LAYERS>;
+pub type Layout = common::Layout<COLS, ROWS_AND_MACROS, NUM_LAYERS>;
 
 const _______: Action = keyberon::action::Action::Trans;
 
