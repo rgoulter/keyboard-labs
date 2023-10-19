@@ -96,7 +96,8 @@ mod app {
             chording: Chording::new(&CHORDS),
         };
 
-        let (split_conn_tx, split_conn_rx) = split_app_init::init_serial(&clocks, pb6, pb7, device.USART1, c.local.rx_buf);
+        let (split_conn_tx, split_conn_rx) =
+            split_app_init::init_serial(&clocks, pb6, pb7, device.USART1, c.local.rx_buf);
 
         (
             SharedResources { usb_dev, usb_class },

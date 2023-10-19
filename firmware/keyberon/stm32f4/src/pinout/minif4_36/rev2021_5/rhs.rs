@@ -18,7 +18,8 @@ pub const ROWS: usize = 4;
 pub struct RHS(pub DirectPins5x4);
 
 #[allow(non_upper_case_globals)]
-pub const event_transform: fn(keyberon::layout::Event) -> keyberon::layout::Event = event_transform_rhs::<COLS>;
+pub const event_transform: fn(keyberon::layout::Event) -> keyberon::layout::Event =
+    event_transform_rhs::<COLS>;
 
 pub fn direct_pin_matrix_for_peripherals<
     A15M: stm32f4xx_hal::gpio::PinMode,
@@ -69,5 +70,4 @@ impl MatrixScanner<5, 4> for RHS {
 }
 
 // N: num chords
-pub type Keyboard<const N: usize> =
-    keyboard_labs_keyberon::input::Keyboard<COLS, ROWS, N, RHS>;
+pub type Keyboard<const N: usize> = keyboard_labs_keyberon::input::Keyboard<COLS, ROWS, N, RHS>;

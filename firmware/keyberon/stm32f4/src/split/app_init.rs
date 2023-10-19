@@ -24,5 +24,5 @@ pub fn init_serial(
     serial.listen(serial::Event::Rxne);
 
     let (tx, rx) = serial.split();
-    (TransportWriter {tx}, TransportReader {buf, rx})
+    (TransportWriter { tx }, TransportReader { buf, rx })
 }

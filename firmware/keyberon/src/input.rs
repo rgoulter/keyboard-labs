@@ -87,9 +87,9 @@ pub trait LayoutEngine<T, K> {
 // L: number of layers
 // T: custom action type
 // K: keycode type
-impl<
-    const C: usize, const R: usize, const L: usize, T: 'static, K: 'static + Copy
-> LayoutEngine<T, K> for keyberon::layout::Layout<C, R, L, T, K> {
+impl<const C: usize, const R: usize, const L: usize, T: 'static, K: 'static + Copy>
+    LayoutEngine<T, K> for keyberon::layout::Layout<C, R, L, T, K>
+{
     type KeycodeIterator<'a> = heapless::Vec<K, 8>;
 
     fn event(&mut self, event: keyberon::layout::Event) {
@@ -113,8 +113,7 @@ impl<
 /// through to listing HID scancodes to report using HIDs.
 ///
 /// L: The layout engine
-pub struct KeyboardBackend<T, K, L: LayoutEngine<T, K>>
-{
+pub struct KeyboardBackend<T, K, L: LayoutEngine<T, K>> {
     pub layout: L,
     // compiler complains if we don't use T, K.
     custom_action_type: PhantomData<T>,
@@ -146,7 +145,7 @@ impl<T: 'static, K, L: LayoutEngine<T, K>> KeyboardBackend<T, K, L> {
     pub fn tick(&mut self) {
         let custom_event = self.layout.tick();
         match custom_event {
-            _ => ()
+            _ => (),
         }
     }
 }

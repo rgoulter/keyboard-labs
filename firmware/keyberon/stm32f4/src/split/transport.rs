@@ -17,7 +17,10 @@ pub struct TransportWriter {
 
 impl TransportReader {
     pub fn read(&mut self) -> Option<Event> {
-        self.rx.read().ok().and_then(|b: u8| receive_byte(&mut self.buf, b))
+        self.rx
+            .read()
+            .ok()
+            .and_then(|b: u8| receive_byte(&mut self.buf, b))
     }
 }
 
