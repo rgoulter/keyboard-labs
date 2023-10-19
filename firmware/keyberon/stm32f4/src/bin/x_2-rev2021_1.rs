@@ -132,8 +132,11 @@ mod app {
         for event in keyboard.events() {
             backend.event(event);
         }
-        backend.tick();
 
-        usb_class.lock(|mut k| send_report(backend.hid_keyboard_keycodes(), &mut k));
+        let hid_reports = backend.tick();
+
+        usb_class.lock(|mut k| {
+            send_report(hid_reports.keyboard_codes(), &mut k);
+        });
     }
 }

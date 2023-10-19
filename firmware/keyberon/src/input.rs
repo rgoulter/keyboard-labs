@@ -108,19 +108,40 @@ impl<const C: usize, const R: usize, const L: usize, T: 'static, K: 'static + Co
     }
 }
 
+/// Struct with the values to report to the HIDs.
+pub struct HIDReports<K> {
+    pub keyboard_codes: heapless::Vec<K, 8>,
+}
+
+impl<K> HIDReports<K> {
+    pub fn new() -> Self {
+        Self {
+            keyboard_codes: heapless::Vec::new(),
+        }
+    }
+
+    pub fn put_keyboard_codes(&mut self, new_codes: heapless::Vec<K, 8>) {
+        self.keyboard_codes = new_codes;
+    }
+
+    pub fn keyboard_codes(self) -> heapless::Vec<K, 8> {
+        self.keyboard_codes
+    }
+}
+
 /// The keyboard "backend", manages the keyboard from the events received
 /// (presses/releases of coordinates on a keyboard layout).
 /// through to listing HID scancodes to report using HIDs.
 ///
 /// L: The layout engine
 pub struct KeyboardBackend<T, K, L: LayoutEngine<T, K>> {
-    pub layout: L,
+    layout: L,
     // compiler complains if we don't use T, K.
     custom_action_type: PhantomData<T>,
     keycode_type: PhantomData<K>,
 }
 
-impl<T: 'static, K, L: LayoutEngine<T, K>> KeyboardBackend<T, K, L> {
+impl<T: 'static, K: Clone + PartialEq, L: LayoutEngine<T, K>> KeyboardBackend<T, K, L> {
     pub fn new(layout: L) -> Self {
         Self {
             layout,
@@ -134,19 +155,20 @@ impl<T: 'static, K, L: LayoutEngine<T, K>> KeyboardBackend<T, K, L> {
         self.layout.event(event);
     }
 
-    /// Iterates on the key codes of the current state.
-    pub fn hid_keyboard_keycodes<'a>(&self) -> L::KeycodeIterator<'a> {
-        self.layout.keycodes()
-    }
-
     /// A time event.
     ///
     /// This method must be called regularly, typically every millisecond.
-    pub fn tick(&mut self) {
+    pub fn tick(&mut self) -> HIDReports<K> {
+        let keycodes = self.layout.keycodes().into_iter().collect();
+
         let custom_event = self.layout.tick();
         match custom_event {
             _ => (),
         }
+
+        let mut res = HIDReports::new();
+        res.put_keyboard_codes(keycodes);
+        res
     }
 }
 

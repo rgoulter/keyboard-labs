@@ -148,13 +148,15 @@ mod app {
         let layout::LocalResources { backend } = c.local;
         match message {
             LayoutMessage::Tick => {
-                backend.tick();
+                let hid_reports = backend.tick();
 
                 if usb_dev.lock(|d| d.state()) != UsbDeviceState::Configured {
                     return;
                 }
 
-                usb_class.lock(|uc| send_report(backend.hid_keyboard_keycodes(), uc))
+                usb_class.lock(|mut k| {
+                    send_report(hid_reports.keyboard_codes(), &mut k);
+                });
             }
             LayoutMessage::Event(e) => {
                 backend.event(e);
