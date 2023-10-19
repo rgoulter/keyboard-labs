@@ -20,7 +20,7 @@ pub fn usb_poll<B, D, Index>(
     D: DeviceHList<'static> + Selector<NKROBootKeyboard<'static, B>, Index>,
 {
     if usb_dev.poll(&mut [keyboard]) {
-        let interface = keyboard.device();
+        let interface = keyboard.device::<NKROBootKeyboard<'static, B>, _>();
         match interface.read_report() {
             Err(UsbError::WouldBlock) => {}
             Err(e) => {
