@@ -27,6 +27,7 @@ pub fn init_usb_device(
         .add_device(
             usbd_human_interface_device::device::keyboard::NKROBootKeyboardConfig::default(),
         )
+        .add_device(usbd_human_interface_device::device::consumer::ConsumerControlConfig::default())
         .build(usb_bus);
 
     let usb_dev = UsbDeviceBuilder::new(usb_bus, UsbVidPid(vid, pid))

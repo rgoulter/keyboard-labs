@@ -133,10 +133,10 @@ mod app {
             backend.event(event);
         }
 
-        let hid_reports = backend.tick();
+        backend.tick();
 
-        usb_class.lock(|mut k| {
-            send_report(hid_reports.keyboard_codes(), &mut k);
+        usb_class.lock(|k| {
+            backend.write_reports(k);
         });
     }
 }
