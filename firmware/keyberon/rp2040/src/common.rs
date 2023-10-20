@@ -1,16 +1,8 @@
 use rp2040_hal::usb::UsbBus;
 
-use frunk::HList;
-use usbd_human_interface_device::device::keyboard::NKROBootKeyboard;
-use usbd_human_interface_device::usb_class::UsbHidClass;
-use usbd_human_interface_device::device::consumer::ConsumerControl;
-
 pub use keyboard_labs_keyberon::common::*;
 
-pub type UsbClass = UsbHidClass<'static, UsbBus, HList!(
-    ConsumerControl<'static, UsbBus>,
-    NKROBootKeyboard<'static, UsbBus>,
-)>;
+pub type UsbClass = keyboard_labs_keyberon::common::UsbClass<UsbBus>;
 
 pub type UsbDevice = usb_device::device::UsbDevice<'static, UsbBus>;
 
