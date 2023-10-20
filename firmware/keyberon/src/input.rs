@@ -4,6 +4,15 @@ use embedded_hal::digital::v2::InputPin;
 use keyberon::chording::Chording;
 use keyberon::debounce::Debouncer;
 use keyberon::layout::Event;
+use usb_device::bus::UsbBus;
+use usb_device::UsbError;
+use usbd_human_interface_device::device::consumer::{ConsumerControl, MultipleConsumerReport};
+use usbd_human_interface_device::device::keyboard::NKROBootKeyboard;
+use usbd_human_interface_device::page;
+use usbd_human_interface_device::UsbHidError;
+
+use crate::common;
+use crate::layouts::common::CustomAction;
 
 pub type PressedKeys<const COLS: usize, const ROWS: usize> = [[bool; COLS]; ROWS];
 
@@ -108,24 +117,39 @@ impl<const C: usize, const R: usize, const L: usize, T: 'static, K: 'static + Co
     }
 }
 
-/// Struct with the values to report to the HIDs.
-pub struct HIDReports<K> {
-    pub keyboard_codes: heapless::Vec<K, 8>,
+pub trait HIDReporter<K, C, KE, CE> {
+    fn write_keyboard_report(&mut self, report: impl IntoIterator<Item = K>) -> Result<(), KE>;
+
+    fn write_consumer_report(&mut self, report: impl IntoIterator<Item = C>) -> Result<(), CE>;
 }
 
-impl<K> HIDReports<K> {
-    pub fn new() -> Self {
-        Self {
-            keyboard_codes: heapless::Vec::new(),
-        }
+impl<B> HIDReporter<page::Keyboard, page::Consumer, UsbHidError, UsbError> for common::UsbClass<B>
+where
+    B: UsbBus,
+{
+    fn write_keyboard_report(
+        &mut self,
+        iter: impl IntoIterator<Item = page::Keyboard>,
+    ) -> Result<(), UsbHidError> {
+        self.device::<NKROBootKeyboard<'_, _>, _>()
+            .write_report(iter)
     }
 
-    pub fn put_keyboard_codes(&mut self, new_codes: heapless::Vec<K, 8>) {
-        self.keyboard_codes = new_codes;
-    }
-
-    pub fn keyboard_codes(self) -> heapless::Vec<K, 8> {
-        self.keyboard_codes
+    fn write_consumer_report(
+        &mut self,
+        iter: impl IntoIterator<Item = page::Consumer>,
+    ) -> Result<(), UsbError> {
+        let codes: [page::Consumer; 4] = iter
+            .into_iter()
+            .chain(core::iter::repeat(page::Consumer::Unassigned))
+            .take(4)
+            .collect::<heapless::Vec<_, 4>>()
+            .into_array()
+            .unwrap();
+        let report = MultipleConsumerReport { codes };
+        self.device::<ConsumerControl<'_, _>, _>()
+            .write_report(&report)
+            .map(|_| ())
     }
 }
 
@@ -134,19 +158,24 @@ impl<K> HIDReports<K> {
 /// through to listing HID scancodes to report using HIDs.
 ///
 /// L: The layout engine
-pub struct KeyboardBackend<T, K, L: LayoutEngine<T, K>> {
+pub struct KeyboardBackend<T, K, C, L: LayoutEngine<T, K>> {
     layout: L,
-    // compiler complains if we don't use T, K.
-    custom_action_type: PhantomData<T>,
-    keycode_type: PhantomData<K>,
+    previous_consumer_codes: heapless::Vec<C, 4>,
+    keyboard_codes: heapless::Vec<K, 8>,
+    consumer_codes: heapless::Vec<C, 4>,
+    marker: PhantomData<T>,
 }
 
-impl<T: 'static, K: Clone + PartialEq, L: LayoutEngine<T, K>> KeyboardBackend<T, K, L> {
+impl<L: LayoutEngine<CustomAction, page::Keyboard>>
+    KeyboardBackend<CustomAction, page::Keyboard, page::Consumer, L>
+{
     pub fn new(layout: L) -> Self {
         Self {
             layout,
-            custom_action_type: PhantomData,
-            keycode_type: PhantomData,
+            previous_consumer_codes: heapless::Vec::new(),
+            keyboard_codes: heapless::Vec::new(),
+            consumer_codes: heapless::Vec::new(),
+            marker: PhantomData,
         }
     }
 
@@ -158,17 +187,37 @@ impl<T: 'static, K: Clone + PartialEq, L: LayoutEngine<T, K>> KeyboardBackend<T,
     /// A time event.
     ///
     /// This method must be called regularly, typically every millisecond.
-    pub fn tick(&mut self) -> HIDReports<K> {
+    pub fn tick(&mut self) {
         let keycodes = self.layout.keycodes().into_iter().collect();
+        let mut consumer_codes: heapless::Vec<page::Consumer, 4> = heapless::Vec::new();
 
         let custom_event = self.layout.tick();
         match custom_event {
-            _ => (),
+            keyberon::layout::CustomEvent::Press(custom_action) => match custom_action {
+                crate::layouts::common::CustomAction::ConsumerA(consumer_code) => {
+                    consumer_codes.push(consumer_code.clone()).unwrap();
+                }
+            },
+            _ => {}
         }
 
-        let mut res = HIDReports::new();
-        res.put_keyboard_codes(keycodes);
-        res
+        self.keyboard_codes = keycodes;
+        self.consumer_codes = consumer_codes;
+    }
+
+    pub fn write_reports<KE, CE, R>(&mut self, hid_reporter: &mut R)
+    where
+        KE: core::fmt::Debug,
+        CE: core::fmt::Debug,
+        R: HIDReporter<page::Keyboard, page::Consumer, KE, CE>,
+    {
+        let _ = hid_reporter.write_keyboard_report(self.keyboard_codes.clone());
+
+        if self.consumer_codes != self.previous_consumer_codes {
+            if let Ok(_) = hid_reporter.write_consumer_report(self.consumer_codes.clone()) {
+                self.previous_consumer_codes = self.consumer_codes.clone();
+            }
+        }
     }
 }
 

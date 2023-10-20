@@ -30,7 +30,7 @@ pub type Layout<const C: usize, const R: usize, const L: usize> =
 
 /// Alias of crate::input::KeyboardBackend, using CustomAction, and usb-human-interface-device's Keyboard.
 pub type KeyboardBackend<const C: usize, const R: usize, const L: usize> =
-    crate::input::KeyboardBackend<CustomAction, Keyboard, Layout<C, R, L>>;
+    crate::input::KeyboardBackend<CustomAction, Keyboard, Consumer, Layout<C, R, L>>;
 
 pub enum Row6 {
     Row6([Action; 6]),
