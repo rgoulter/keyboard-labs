@@ -2,12 +2,12 @@ use keyberon::action::{
     d, k,
     Action::{NoOp, Trans},
 };
-use usbd_human_interface_device::page::Keyboard::*;
 use usbd_human_interface_device::page::Consumer;
+use usbd_human_interface_device::page::Keyboard::*;
 
 use crate::layouts::macros::{a, c, g, s, sk};
 
-use super::{Action, HoldTapAction, CustomAction};
+use super::{Action, CustomAction, HoldTapAction};
 
 pub type Seg3 = [Action; 3];
 pub type Seg4 = [Action; 4];
@@ -47,10 +47,14 @@ pub const SEG5_NAV2: Seg5 = [
 ];
 pub const SEG5_NAV3: Seg5 = [k(Home), k(PageDown), k(PageUp), k(End), k(Insert)];
 
-pub const MD_PRV: Action = keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::ScanPreviousTrack));
-pub const MD_NXT: Action = keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::ScanNextTrack));
-pub const VOL_UP: Action = keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::VolumeIncrement));
-pub const VOL_DN: Action = keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::VolumeDecrement));
+pub const MD_PRV: Action =
+    keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::ScanPreviousTrack));
+pub const MD_NXT: Action =
+    keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::ScanNextTrack));
+pub const VOL_UP: Action =
+    keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::VolumeIncrement));
+pub const VOL_DN: Action =
+    keyberon::action::Action::Custom(CustomAction::ConsumerA(Consumer::VolumeDecrement));
 
 pub const SEG5_MEDIA1: Seg5 = SEG5_NOOP;
 pub const SEG5_MEDIA2: Seg5 = [MD_PRV, VOL_DN, VOL_UP, MD_NXT, NoOp];
