@@ -23,6 +23,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       toolchain = with fenix.packages.${system};
         combine [
+          complete.clippy
           complete.llvm-tools-preview
           complete.rust-src
           default.rustfmt
