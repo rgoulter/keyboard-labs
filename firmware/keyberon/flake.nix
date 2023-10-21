@@ -64,11 +64,10 @@
           "x_2-rev2021_1"
           "weact-minif4-onekey"
         ];
-        in rec {
-        keyberon-firmware-rp2040-elf =
-          let
-            target = "thumbv6m-none-eabi";
-          in
+      in rec {
+        keyberon-firmware-rp2040-elf = let
+          target = "thumbv6m-none-eabi";
+        in
           (naersk.lib.${system}.override {
             cargo = toolchain;
             rustc = toolchain;
@@ -84,10 +83,9 @@
             CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
           };
 
-        keyberon-firmware-stm32f4-elf =
-          let
-            target = "thumbv7em-none-eabihf";
-          in
+        keyberon-firmware-stm32f4-elf = let
+          target = "thumbv7em-none-eabihf";
+        in
           (naersk.lib.${system}.override {
             cargo = toolchain;
             rustc = toolchain;
