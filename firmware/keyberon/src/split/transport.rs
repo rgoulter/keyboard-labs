@@ -13,6 +13,7 @@ pub enum LayoutMessage {
 ///
 /// The serialisation format must be compatible with
 /// the serialisation format in `ser`.
+#[allow(clippy::result_unit_err)]
 pub fn de(bytes: &[u8]) -> Result<Event, ()> {
     match *bytes {
         [b'P', i, j, b'\n'] => Ok(Event::Press(i, j)),

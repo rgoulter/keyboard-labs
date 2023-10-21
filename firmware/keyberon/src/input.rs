@@ -192,10 +192,12 @@ impl<L: LayoutEngine<CustomAction, page::Keyboard>>
         let mut consumer_codes: heapless::Vec<page::Consumer, 4> = heapless::Vec::new();
 
         let custom_event = self.layout.tick();
+        #[allow(clippy::single_match)]
         match custom_event {
+            #[allow(clippy::single_match)]
             keyberon::layout::CustomEvent::Press(custom_action) => match custom_action {
                 crate::layouts::common::CustomAction::ConsumerA(consumer_code) => {
-                    consumer_codes.push(consumer_code.clone()).unwrap();
+                    consumer_codes.push(*consumer_code).unwrap();
                 }
             },
             _ => {}
@@ -213,10 +215,12 @@ impl<L: LayoutEngine<CustomAction, page::Keyboard>>
     {
         let _ = hid_reporter.write_keyboard_report(self.keyboard_codes.clone());
 
-        if self.consumer_codes != self.previous_consumer_codes {
-            if let Ok(_) = hid_reporter.write_consumer_report(self.consumer_codes.clone()) {
-                self.previous_consumer_codes = self.consumer_codes.clone();
-            }
+        if self.consumer_codes != self.previous_consumer_codes
+            && hid_reporter
+                .write_consumer_report(self.consumer_codes.clone())
+                .is_ok()
+        {
+            self.previous_consumer_codes = self.consumer_codes.clone();
         }
     }
 }

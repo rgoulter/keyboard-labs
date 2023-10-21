@@ -94,11 +94,11 @@ impl Row12 {
     }
 }
 
-pub const fn th_lk<'a>(layer: usize, key: Keyboard) -> HoldTapAction {
+pub const fn th_lk(layer: usize, key: Keyboard) -> HoldTapAction {
     HoldTapAction {
         timeout: 200,
         config: HoldTapConfig::Default,
-        tap_hold_interval: 0,
+        tap_hold_interval: 200,
         hold: Action::Layer(layer),
         tap: Action::KeyCode(key),
     }

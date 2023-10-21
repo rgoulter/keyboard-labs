@@ -27,7 +27,7 @@ pub mod matrix4x10 {
     pub use super::NUM_CHORDS;
 
     // Position on the keyboard matrix
-    pub const CHORD_COORDINATES: [&'static [(u8, u8)]; NUM_CHORDS] = [
+    pub const CHORD_COORDINATES: [&[(u8, u8)]; NUM_CHORDS] = [
         &[(2, 2), (2, 3)],                                   // JK
         &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)], // M,
     ];
@@ -58,7 +58,7 @@ pub mod matrix4x12 {
     pub use super::NUM_CHORDS;
 
     // Position on the keyboard matrix
-    pub const CHORD_COORDINATES: [&'static [(u8, u8)]; NUM_CHORDS] = [
+    pub const CHORD_COORDINATES: [&[(u8, u8)]; NUM_CHORDS] = [
         &[(2, 2), (2, 3)],                                   // JK
         &[(2, COLS as u8 - 1 - 3), (2, COLS as u8 - 1 - 2)], // M,
     ];
@@ -124,12 +124,10 @@ impl Layers {
     }
 
     const fn chords(&self) -> [Action; Self::num_chords()] {
-        match self {
-            _ => [
-                crate::layouts::actions::LINUX_DESKTOP_LEFT,
-                crate::layouts::actions::LINUX_DESKTOP_RIGHT,
-            ],
-        }
+        [
+            crate::layouts::actions::LINUX_DESKTOP_LEFT,
+            crate::layouts::actions::LINUX_DESKTOP_RIGHT,
+        ]
     }
 
     const fn layer_keymap(&self) -> Split3x5_3 {

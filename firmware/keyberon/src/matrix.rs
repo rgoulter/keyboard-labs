@@ -87,12 +87,12 @@ where
     fn get(&mut self) -> Result<[[bool; CS]; RS], E> {
         let mut keys = [[false; CS]; RS];
 
-        for (ri, row) in (&mut self.rows).iter_mut().enumerate() {
+        for (ri, row) in self.rows.iter_mut().enumerate() {
             row.set_low()?;
             // Delay after setting the pin low.
             // Using a timer for this is probably overkill.
             self.delay.delay_us(self.select_delay_us);
-            for (ci, col) in (&self.cols).iter().enumerate() {
+            for (ci, col) in self.cols.iter().enumerate() {
                 if col.is_low()? {
                     keys[ri][ci] = true;
                 }
