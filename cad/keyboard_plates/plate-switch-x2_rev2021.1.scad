@@ -11,11 +11,11 @@ num_columns = 6;
 num_rows = 5;
 
 module simple_switch_plate(
-  outer_margin,
-  num_columns,
-  num_rows,
-  switch_distance = 19.05,
-  cutout_width = 14,
+  outer_margin = outer_margin,
+  num_columns = num_columns,
+  num_rows = num_rows,
+  switch_distance = switch_distance,
+  cutout_width = cutout_width,
 ) {
     translate([outer_margin, outer_margin]) {
         difference() {
@@ -41,9 +41,9 @@ module simple_switch_plate(
 }
 
 module x2_switch_plate(
-  outer_margin,
-  num_columns,
-  num_rows,
+  outer_margin = outer_margin,
+  num_columns = num_columns,
+  num_rows = num_rows,
   switch_distance = 19.05,
   cutout_width = 14,
 ) {
@@ -79,7 +79,7 @@ module x2_switch_plate(
 }
 
 // X-2 switches
-*x2_switch_plate(
+x2_switch_plate(
     outer_margin = outer_margin,
     switch_distance = switch_distance,
     cutout_width = cutout_width,
