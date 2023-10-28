@@ -1,10 +1,12 @@
 {
   lib,
   qmk,
+  rsync,
   stdenv,
   fetchFromGitHub,
 }: let
   compile = import ./compile.nix {inherit lib qmk stdenv fetchFromGitHub;};
+  compile-vial = import ./vial.nix {inherit lib rsync qmk stdenv fetchFromGitHub;};
 in {
   bm40hsrgb-rgoulter = compile {
     keyboard = "kprepublic/bm40hsrgb";
@@ -26,6 +28,10 @@ in {
     keyboard = "rgoulter/pico42";
     keymap = "rgoulter-basic";
   };
+  pico42-vial = compile-vial {
+    keyboard = "rgoulter/pico42";
+    keymap = "vial";
+  };
   pykey40-rgoulter = compile {
     keyboard = "rgoulter/pykey40";
     keymap = "rgoulter";
@@ -33,6 +39,10 @@ in {
   pykey40-rgoulter-pinkieoutercolumn = compile {
     keyboard = "rgoulter/pykey40";
     keymap = "rgoulter-pinkieoutercolumn";
+  };
+  pykey40-vial = compile-vial {
+    keyboard = "rgoulter/pykey40";
+    keymap = "vial";
   };
   x_2-rev2021_1-bluepill = compile {
     keyboard = "rgoulter/x_2/rev2021_1/bluepill";
