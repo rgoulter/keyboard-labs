@@ -136,13 +136,13 @@ impl Layers {
                 TwoSeg5(common::SEG5_DVORAK_LHS1, common::SEG5_DVORAK_RHS1),
                 TwoSeg5(common::SEG5_DVORAK_LHS2, common::SEG5_DVORAK_RHS2),
                 TwoSeg5(common::SEG5_DVORAK_LHS3, common::SEG5_DVORAK_RHS3),
-                Row6::Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, BKSP_NSL, ENT_NSSL, DEL_FUNL]),
+                Row6::Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, ENT_NSSL, BKSP_NSL, DEL_FUNL]),
             ),
             Self::BaseQwerty => Split3x5_3::from_rows(
                 TwoSeg5(common::SEG5_QWERTY_LHS1, common::SEG5_QWERTY_RHS1),
                 TwoSeg5(common::SEG5_QWERTY_LHS2, common::SEG5_QWERTY_RHS2),
                 TwoSeg5(common::SEG5_QWERTY_LHS3, common::SEG5_QWERTY_RHS3),
-                Row6::Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, BKSP_NSL, ENT_NSSL, DEL_FUNL]),
+                Row6::Row6([TAB_MOUR, ESC_MEDR, SP_NAVR, ENT_NSSL, BKSP_NSL, DEL_FUNL]),
             ),
             Self::NavR => Split3x5_3::from_rows(
                 Row10::RHS(common::SEG5_NAV1),
