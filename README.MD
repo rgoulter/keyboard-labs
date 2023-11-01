@@ -250,6 +250,15 @@ The design accepts various parameters (e.g. width, height, angle, screw diameter
 
 An OpenSCAD module which helps for modelling the layers for a layered acrylic case.
 
+## Simple 3D Parameterised Case for CNC/3DP
+
+A set of OpenScad files for a parameterised simple keyboard case design.
+
+I've used outputs from these for CNC milling, as well as for 3D printing.
+
+The case has several parameters, so it should be suitable for a variety of rectangular-shaped PCB keyboards.
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/cad/docs/images/openscad-keyboard_case.png" width=600 />
 
 
 # Firmware
@@ -306,3 +315,6 @@ _Example output of OpenSCAD code, which makes use of the Kicad PCB data to const
 
 - [docs/stm32-flashing-and-bootloaders.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/stm32-flashing-and-bootloaders.md):
   some notes on bootloaders for STM32.
+
+- [cad/docs/freecad-techdraw-threads.md](https://github.com/rgoulter/keyboard-labs/blob/master/cad/docs/freecad-techdraw-threads.md):
+  notes on how to use FreeCad to create a technical drawing to indicate location of threads to be tapped, or where inserts are to be placed.
