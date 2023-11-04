@@ -10,7 +10,7 @@ use keyboard_labs_keyberon::input::{
 };
 use keyboard_labs_keyberon::split::input::event_transform_rhs;
 
-use crate::pinout::minif4_36::DirectPins5x4;
+use crate::keyboards::minif4_36::DirectPins5x4;
 
 pub const COLS: usize = 5; // split side only
 pub const ROWS: usize = 4;

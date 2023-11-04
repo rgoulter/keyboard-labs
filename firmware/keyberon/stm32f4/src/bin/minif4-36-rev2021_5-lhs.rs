@@ -9,7 +9,7 @@ mod app {
     use keyboard_labs_keyberon::layouts::split_3x5_3::rgoulter::matrix4x10::{
         KeyboardBackend, Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
-    use keyboard_labs_keyberon_stm32f4::pinout::minif4_36::rev2021_5::lhs::{
+    use keyboard_labs_keyberon_stm32f4::keyboards::minif4_36::rev2021_5::lhs::{
         direct_pin_matrix_for_peripherals, event_transform, Keyboard,
     };
     use keyboard_labs_keyberon_stm32f4::split::app_prelude::*;

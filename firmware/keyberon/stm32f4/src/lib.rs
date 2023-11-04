@@ -5,7 +5,7 @@ pub mod app_init;
 
 pub mod app_prelude;
 
-pub mod pinout;
+pub mod keyboards;
 
 pub mod split;
 

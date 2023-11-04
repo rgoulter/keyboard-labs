@@ -14,7 +14,7 @@ mod app {
         KeyboardBackend, Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-    use keyboard_labs_keyberon_stm32f4::pinout::x_2::rev2021_1;
+    use keyboard_labs_keyberon_stm32f4::keyboards::x_2::rev2021_1;
 
     #[shared]
     struct SharedResources {

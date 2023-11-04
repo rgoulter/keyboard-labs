@@ -14,7 +14,7 @@ mod app {
         KeyboardBackend, Layout, CHORDS, LAYERS, NUM_CHORDS,
     };
     use keyboard_labs_keyberon::matrix::Matrix as DelayedMatrix;
-    use keyboard_labs_keyberon_rp2040::pinout::pykey40;
+    use keyboard_labs_keyberon_rp2040::keyboards::pykey40;
 
     #[shared]
     struct Shared {
