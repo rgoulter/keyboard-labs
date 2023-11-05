@@ -1,7 +1,10 @@
 #![allow(missing_docs)]
 
 use core::convert::Infallible;
-use stm32f4xx_hal::gpio::{gpioa, gpiob};
+
+use stm32f4xx_hal as hal;
+
+use hal::gpio::{gpioa, gpiob, PinMode};
 
 use keyboard_labs_keyberon::input::{MatrixScanner, PressedKeys5x4};
 
@@ -21,11 +24,7 @@ pub struct RHS(pub DirectPins5x4);
 pub const event_transform: fn(keyberon::layout::Event) -> keyberon::layout::Event =
     event_transform_rhs::<COLS>;
 
-pub fn direct_pin_matrix_for_peripherals<
-    B4M: stm32f4xx_hal::gpio::PinMode,
-    A15M: stm32f4xx_hal::gpio::PinMode,
-    B3M: stm32f4xx_hal::gpio::PinMode,
->(
+pub fn direct_pin_matrix_for_peripherals<B4M: PinMode, A15M: PinMode, B3M: PinMode>(
     pa1: gpioa::PA1,
     pa2: gpioa::PA2,
     pa3: gpioa::PA3,

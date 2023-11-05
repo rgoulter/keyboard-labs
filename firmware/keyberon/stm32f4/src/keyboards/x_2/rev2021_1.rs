@@ -1,13 +1,13 @@
 use stm32f4xx_hal as hal;
 
 // use embedded_hal::blocking::delay::DelayUs;
-use hal::gpio::{gpioa, gpiob, EPin, Input, Output};
+use hal::gpio::{gpioa, gpiob, EPin, Input, Output, PinMode};
 use keyboard_labs_keyberon::matrix::Matrix;
 
 pub const COLS: usize = 12;
 pub const ROWS: usize = 5;
 
-pub fn cols<PMA15: stm32f4xx_hal::gpio::PinMode>(
+pub fn cols<PMA15: PinMode>(
     pa3: gpioa::PA3,
     pa4: gpioa::PA4,
     pa5: gpioa::PA5,

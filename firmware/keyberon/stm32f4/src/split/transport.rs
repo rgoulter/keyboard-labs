@@ -1,18 +1,22 @@
 use embedded_hal::serial::Read;
 use embedded_hal::serial::Write;
+use hal::{
+    pac::USART1,
+    serial::{Rx, Tx},
+};
 use keyberon::layout::Event;
 use nb::block;
-use stm32f4xx_hal::serial::{Rx, Tx};
+use stm32f4xx_hal as hal;
 
 use keyboard_labs_keyberon::split::transport::{receive_byte, ser};
 
 pub struct TransportReader {
     pub buf: &'static mut [u8; 4],
-    pub rx: Rx<stm32f4xx_hal::pac::USART1>,
+    pub rx: Rx<USART1>,
 }
 
 pub struct TransportWriter {
-    pub tx: Tx<stm32f4xx_hal::pac::USART1>,
+    pub tx: Tx<USART1>,
 }
 
 impl TransportReader {
@@ -33,14 +37,11 @@ impl TransportWriter {
     }
 }
 
-pub fn split_read_event(
-    buf: &mut [u8; 4],
-    rx: &mut Rx<stm32f4xx_hal::pac::USART1>,
-) -> Option<Event> {
+pub fn split_read_event(buf: &mut [u8; 4], rx: &mut Rx<USART1>) -> Option<Event> {
     rx.read().ok().and_then(|b: u8| receive_byte(buf, b))
 }
 
-pub fn split_write_event(event: Event, tx: &mut Tx<stm32f4xx_hal::pac::USART1>) {
+pub fn split_write_event(event: Event, tx: &mut Tx<USART1>) {
     for &b in &ser(event) {
         block!(tx.write(b)).unwrap();
     }

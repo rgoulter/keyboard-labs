@@ -1,14 +1,18 @@
-use fugit::ExtU32;
-use fugit::RateExtU32;
-use stm32f4xx_hal::otg_fs::UsbBusType;
-use stm32f4xx_hal::timer::TimerExt;
-use stm32f4xx_hal::{pac, timer};
+use fugit::{ExtU32, RateExtU32};
+use hal::{
+    otg_fs::UsbBusType,
+    pac::TIM3,
+    rcc::{Clocks, Rcc},
+    timer::{CounterUs, Event, TimerExt},
+};
+use stm32f4xx_hal as hal;
 use usb_device::bus::UsbBusAllocator;
 use usb_device::device::{UsbDeviceBuilder, UsbVidPid};
 use usbd_human_interface_device::usb_class::UsbHidClassBuilder;
 
 use crate::common::{UsbClass, UsbDevice};
-pub fn init_clocks(rcc: stm32f4xx_hal::rcc::Rcc) -> stm32f4xx_hal::rcc::Clocks {
+
+pub fn init_clocks(rcc: Rcc) -> Clocks {
     rcc.cfgr
         .use_hse(25.MHz())
         .sysclk(84.MHz())
@@ -39,12 +43,9 @@ pub fn init_usb_device(
     (usb_dev, usb_class)
 }
 
-pub fn init_timer(
-    clocks: &stm32f4xx_hal::rcc::Clocks,
-    tim3: pac::TIM3,
-) -> timer::CounterUs<pac::TIM3> {
+pub fn init_timer(clocks: &Clocks, tim3: TIM3) -> CounterUs<TIM3> {
     let mut timer = tim3.counter_us(&clocks);
     timer.start(1.millis()).unwrap();
-    timer.listen(timer::Event::Update);
+    timer.listen(Event::Update);
     timer
 }

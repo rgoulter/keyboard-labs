@@ -7,7 +7,7 @@ pub use keyberon::debounce::Debouncer;
 pub use embedded_hal::digital::v2::InputPin;
 pub use fugit::ExtU32;
 pub use rp_pico::hal;
-pub use rp_pico::hal::{
+pub use hal::{
     clocks, gpio, gpio::DynPinId, gpio::FunctionSio, gpio::PullDown, gpio::SioInput, pac, sio::Sio,
     timer, timer::Alarm, usb::UsbBus,
 };
