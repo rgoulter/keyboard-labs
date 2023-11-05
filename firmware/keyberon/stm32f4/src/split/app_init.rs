@@ -12,8 +12,7 @@ use crate::split::transport::{TransportReader, TransportWriter};
 
 pub fn init_serial(
     clocks: &Clocks,
-    pb6: gpiob::PB6,
-    pb7: gpiob::PB7,
+    (pb6, pb7): (gpiob::PB6, gpiob::PB7),
     usart1: USART1,
     buf: &'static mut [u8; 4],
 ) -> (TransportWriter, TransportReader) {
