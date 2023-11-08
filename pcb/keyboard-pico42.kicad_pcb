@@ -6076,7 +6076,7 @@
       (net 85 "unconnected-(U1-SWDIO-Pad43)") (pinfunction "SWDIO") (pintype "bidirectional+no_connect") (tstamp 620a9d45-0549-4d73-8c2a-d9c1838936b2))
     (pad "43" smd rect (at 2.54 23.9 90) (size 3.5 1.7) (drill (offset -0.9 0)) (layers "F.Cu" "F.Mask")
       (net 85 "unconnected-(U1-SWDIO-Pad43)") (pinfunction "SWDIO") (pintype "bidirectional+no_connect") (tstamp b30a61ab-fe81-4e63-940c-4c8651a7543b))
-    (model "C:/Users/ncara/OneDrive/IoT/Tools/KiCad/RP-Pico Libraries/Pico.wrl"
+    (model "${KIPRJMOD}/KiCad-RP-Pico/RP-Pico Libraries/Pico.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
