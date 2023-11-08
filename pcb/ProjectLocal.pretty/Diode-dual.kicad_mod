@@ -57,8 +57,8 @@
       c0a29a05-357f-43d1-9a34-a834ad3ed0c8
     )
   )
-  (model "${KISYS3DMOD}/Diode_SMD.3dshapes/D_SOD-123.step"
-    (offset (xyz 0 0 0))
+  (model "${KICAD6_3DMODEL_DIR}/Diode_THT.3dshapes/D_DO-35_SOD27_P7.62mm_Horizontal.wrl"
+    (offset (xyz 3.81 0 -0.4))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 180))
   )
