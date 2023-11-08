@@ -163,4 +163,14 @@
       b9ac477b-7716-4cee-8ff1-2caa5b77ba9b
     )
   )
+  (model "${KIPRJMOD}/Switch_Keyboard/library/3dmodels/3d-library.3dshapes/SW_Hotswap_Kailh_MX.wrl"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 180))
+  )
+  (model "${KIPRJMOD}/Switch_Keyboard/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 180))
+  )
 )
