@@ -116,7 +116,7 @@
       dce2f36f-f23a-4483-941c-b78fd6ce6449
     )
   )
-  (model "${KIPRJMOD}/Switch_Keyboard/packages3d/Switch_Keyboard_Kailh.3dshapes/SW_Kailh_Choc_V1.wrl"
+  (model "${KIPRJMOD}/Switch_Keyboard/library/3dmodels/3d-library.3dshapes/SW_Kailh_Choc_V1.stp"
     (offset (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 180))
