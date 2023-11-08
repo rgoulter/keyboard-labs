@@ -6,9 +6,12 @@ filters:
     comment: 'Adjust rotation for JLC'
     type: rot_footprint
     extend: false
+    invert_bottom: true
     rotations:
-      - ["^SOIC-8", 270.0]
+      - ["^SOIC-8", 90.0]
       - ["^USB_C_Receptacle", 180.0]
+      - ["^SOT-23-6", 0.0]
+      - ["^LED_WS2812B_PLCC4_5.0x5.0mm", 90.0]
 
 outputs:
   - name: "gerber_zip"
