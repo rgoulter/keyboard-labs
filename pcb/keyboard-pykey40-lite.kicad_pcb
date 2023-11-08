@@ -4250,7 +4250,7 @@
       (net 92 "unconnected-(J1-SHIELD-PadS1)") (pinfunction "SHIELD") (pintype "passive+no_connect") (tstamp cae7d4be-e19f-470b-91e2-af76bac21d50))
     (pad "S1" thru_hole oval (at 4.32 3.13) (size 1 2.1) (drill oval 0.6 1.7) (layers "*.Cu" "*.Mask")
       (net 92 "unconnected-(J1-SHIELD-PadS1)") (pinfunction "SHIELD") (pintype "passive+no_connect") (tstamp 5d71d5d3-2055-419f-9fca-6187e914a0b3))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_USB.3dshapes/USB_C_Receptacle_HRO_TYPE-C-31-M-12.wrl"
+    (model "${KICAD7_3DMODEL_DIR}/Connector_USB.3dshapes/USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
