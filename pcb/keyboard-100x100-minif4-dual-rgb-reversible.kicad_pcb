@@ -5341,7 +5341,7 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 90))
     )
-    (model "${KISYS3DMOD}/Package_DIP.3dshapes/DIP-40_W15.24mm_Socket.step"
+    (model "${KICAD7_3DMODEL_DIR}/Package_DIP.3dshapes/DIP-40_W15.24mm_Socket.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
