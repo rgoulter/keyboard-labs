@@ -2,9 +2,11 @@
 // without extra margin for HotSwap sockets.
 
 include <jj40_constants.scad>
-use <common.scad>
+use <pcb_outline.scad>
 
 $fn = 60;
+
+include_usb_connector = false;
 
 pcb_switch_margin = 0.5;
 pico42_dim = [
@@ -13,13 +15,17 @@ pico42_dim = [
 ];
 
 module pico42_pcb_outline(
-    pcb_dim = pico42_dim,
-    corner_r = 1,
+    include_usb_connector = include_usb_connector
 ) {
-    square_with_rounded_corners(dim = pcb_dim, r = corner_r);
+    pcb_outline(
+        pcb_dim = pico42_dim,
+        corner_r = 1,
+        usb_offset_mid_x = 7.5 + (1.5 * 19.05),
+        include_usb_connector = include_usb_connector
+    );
 }
 
 scale([1, -1, 1]) {
     echo(pcb_dim = pico42_dim);
-    pico42_pcb_outline();
+    pico42_pcb_outline(include_usb_connector = include_usb_connector);
 }
