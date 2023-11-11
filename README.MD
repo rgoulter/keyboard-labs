@@ -217,10 +217,10 @@ _Pico42 PCB assembled with Kailh Choc switches, in a sandwich case._
 
 _Underside of the Pico42 in a sandwich style case._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/keyboard-pico42-2023.1-bottom.svg" width=600 />
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/keyboard-pico42-2023.1-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/keyboard-pico42-2023.2-bottom.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/keyboard-pico42-2023.2-top.svg" width=600 />
 
-_2D Renders of the PCB, revision rev2023.1_
+_2D Renders of the PCB, revision rev2023.2_
 
 ### Build Guides
 
