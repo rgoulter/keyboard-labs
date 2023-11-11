@@ -9,6 +9,7 @@ filters:
     invert_bottom: true
     rotations:
       - ["^SOIC-8", 90.0]
+      - ["^TSSOP-20", 90.0]
       - ["^USB_C_Receptacle", 180.0]
       - ["^SOT-23-6", 0.0]
       - ["^LED_WS2812B_PLCC4_5.0x5.0mm", 90.0]
