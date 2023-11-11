@@ -7,7 +7,7 @@
   (title_block
     (title "CH552-44")
     (date "2023-10-31")
-    (rev "rev2023.1")
+    (rev "rev2023.1a")
     (company "Richard Goulter (rgoulter)")
     (comment 1 "44-key on 7x7 logical grid.")
     (comment 2 "Simple Through-Hole board using WeAct CH552 Core board.")
@@ -494,10 +494,10 @@
 
   (no_connect (at 60.96 76.2) (uuid 3f3ec95d-df7e-470d-aecd-8f7d493eb32b))
   (no_connect (at 60.96 78.74) (uuid 4f549e56-bb11-4552-ba5b-7a616865ff83))
+  (no_connect (at 60.96 88.9) (uuid 4fa0044c-0a34-41e6-a8dc-e27a3e7e6114))
   (no_connect (at 20.32 88.9) (uuid 626871d4-2f56-4d7a-8a9d-6fe2dbc466fa))
-  (no_connect (at 60.96 83.82) (uuid b6fea3fe-3ef6-44fc-8c94-197b0f4e195e))
+  (no_connect (at 60.96 91.44) (uuid 8de8fe1a-44ce-4b7d-aa7b-b50bd829d2fc))
   (no_connect (at 60.96 81.28) (uuid ca030633-ac6d-4faf-9baf-955444a5d731))
-  (no_connect (at 60.96 86.36) (uuid fe612c13-38db-4c2d-8ab6-926e60477582))
 
   (wire (pts (xy 157.48 119.38) (xy 157.48 135.89))
     (stroke (width 0) (type default))
@@ -862,6 +862,11 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 90dc8a85-5197-4b81-b333-ce01362591ce)
   )
+  (text "rev2023.1 had assigned COL6 to P36, COL7 to P37.\nThese are unsuitable pins for a USB keyboard,\nsince these are connected to the D+/D- pins of the USB\nconnector.\n\nrev2023.1a amends this mistake.\n(P12, P13 are connected to the external oscillator;\nwhich not required.)"
+    (at 15.24 121.92 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid f728c32a-3e0e-4cde-921d-10b2c41cb94f)
+  )
 
   (label "COL4" (at 142.24 26.67 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -883,7 +888,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 20fc221a-5404-4f9e-91e2-8c7d97f8c45d)
   )
-  (label "COL6" (at 60.96 91.44 0) (fields_autoplaced)
+  (label "COL6" (at 60.96 86.36 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 251769f5-6666-4adf-bf65-f86197cd2a03)
   )
@@ -951,7 +956,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid ccadf59c-123a-448f-846d-4de2e3bfa864)
   )
-  (label "COL7" (at 60.96 88.9 0) (fields_autoplaced)
+  (label "COL7" (at 60.96 83.82 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid cd8bc611-bc35-453f-9000-aeb0530920c7)
   )
