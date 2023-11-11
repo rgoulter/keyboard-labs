@@ -20,7 +20,7 @@ module pico42_pcb_outline(
     pcb_outline(
         pcb_dim = pico42_dim,
         corner_r = 1,
-        usb_offset_mid_x = 7.5 + (1.5 * 19.05),
+        usb_offset_mid_x = 7.5 + (1.5 * 19.05) - 0.5,
         include_usb_connector = include_usb_connector
     );
 }
