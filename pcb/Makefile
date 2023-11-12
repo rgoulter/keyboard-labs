@@ -18,7 +18,7 @@ iboms: $(ibom_targets)
 demo-usb-16pin-ibom:
 	true
 
-%.net:
+%.net: %.kicad_pcb
 	kibot --board-file "$*.kicad_pcb" netlist
 
 .PHONY: keyboard-100x100-minif4-dual-rgb-reversible-ibom
