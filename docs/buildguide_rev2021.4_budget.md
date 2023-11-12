@@ -101,37 +101,15 @@ rather than socketing.
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
 
-- Soldering iron.
-  - Even a very cheap one will do.
-- Soldering iron stand.
-- Fume Extractor/Filter.
-  - If you're soldering indoors, you'll need one of these.
-- Solder.
-  - I would strongly recommend using better-than-the-cheapest solder.
-    It's possible to complete this build with the cheapest solder, but
-    in my experience, it can cause unnecessary frustration.
-  - I used 0.3mm which is very thin for soldering through-hole
-    components.
-- Sponge or brass wool, for cleaning solder from the soldering iron.
-- Desoldering sucker.
-  - A cheap one should be able to do the job. However, I'd recommend
-    getting nicer-than-cheapest because if you're using a desoldering
-    sucker, you'll want to reduce frustration experienced.
-- Flush cutters.
-- Soldering mat; or cardboard or whatever to protect the surface from
-  damage while soldering.
+See [docs/soldering-tools.md](../docs/soldering-tools.md)
+
+It's also useful to have:
+
 - ST-Link v2 STM32 programmer.
   - The STM32F4 comes with a DFU bootloader. i.e. In theory, the
     STM32F4 board can be flashed without needing the ST-Link. In my
     experience, this can be finicky and unreliable; so I recommend
     using an ST-Link. The cheap knock-offs work.
-- Digital Mulitmeter.
-  - The most useful functionality here is the continuity check. A
-    cheap tool will do, but most cheap multimeters don't switch off
-    automatically, which results in the battery draining completely
-    after use if the multimeter isn't switched off.
-- Bevel/chisel soldering iron tip.
-  - Not strictly necessary, but it's what I used in this build.
 
 # Summary
 
