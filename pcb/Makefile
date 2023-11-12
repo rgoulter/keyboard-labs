@@ -41,3 +41,7 @@ keyboard-pykey40-lite-ibom:
 .PHONY: keyboard-pico42-ibom
 keyboard-pico42-ibom: keyboard-pico42.net
 	bash ../scripts/generate-pico42-ibom.sh
+
+.PHONY: keyboard-ch552-44-ibom
+keyboard-ch552-44-ibom: keyboard-ch552-44.net
+	bash ../scripts/generate-ch552-44-ibom.sh
