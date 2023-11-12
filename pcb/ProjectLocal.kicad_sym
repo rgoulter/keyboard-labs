@@ -211,7 +211,7 @@
     (property "ki_keywords" "module ch552 dip20 weact studio core board" (at 0 0 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "ki_description" "Symbol for DIP20 WeAct Studio CH552 Core Board" (at 0 0 0)
+    (property "ki_description" "WeAct Studio CH552 Core Board" (at 0 0 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "WeAct_CH552CoreBoard_0_1"
