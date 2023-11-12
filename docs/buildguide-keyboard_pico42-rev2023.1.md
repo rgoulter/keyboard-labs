@@ -27,7 +27,7 @@ This document is a guide for soldering the Pico42 keyboard.
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
 
-See <../docs/buildguide_rev2021.4_budget.md#required-soldering-tools>
+See [docs/buildguide_rev2021.4_budget.md#required-soldering-tools](../docs/buildguide_rev2021.4_budget.md#required-soldering-tools)
 
 # Build Guide
 
