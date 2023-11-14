@@ -259,8 +259,21 @@ I've used outputs from these for CNC milling, as well as for 3D printing.
 
 The case has several parameters, so it should be suitable for a variety of rectangular-shaped PCB keyboards.
 
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/cad/keyboard_case/cnc-pykey40-pico42.JPG" width=600 />
+
+_The CNC case, mounting a Pico42._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/cad/keyboard_case/cnc-pykey40-top.JPG" width=600 />
+
+_The CNC case, top._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/cad/keyboard_case/cnc-pykey40-bottom.JPG" width=600 />
+
+_The CNC case, bottom._
+
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/cad/docs/images/openscad-keyboard_case.png" width=600 />
 
+_Preview of the case in OpenScad._
 
 # Firmware
 
