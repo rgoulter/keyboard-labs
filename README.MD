@@ -12,11 +12,12 @@ Plotted gerber files can be found under the GitHub repository's
 
 | Designation  | Summary/Keywords                                                                       | Image                                                                                                                                                 |
 |--------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [X-1](https://github.com/rgoulter/keyboard-labs#x-1-36-key-split-reversible-pcb-with-weact-studio-mini-f4-dev-board) | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED       | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-mx-top.JPG)                              |
-| [X-2](#x-2-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb)          | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components"  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG)                              |
-| [X-2 HSRGB](#x-2-hsrgb-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb-with-hotswap-and-per-key-rgb)    | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", HotSwap, per-key RGB  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2-hsrgb_rev2022.1-front.JPG)   |
-| [PyKey40 Lite](#pykey40-lite-no-frills-subset-of-the-pykey60-in-bm40jj40-form-factor) | Planck-MIT (4x12, 1x2U), ortholinear, MX, BM40/JJ40-compatible, PCBA, no frills        |                                                                                                                                                       |
-| [Pico42](#pico42-simple-hand-solderable-pcb-in-bm40jj40-form-factor) | ortholinear, MX/choc, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG) |
+| [X-1](https://github.com/rgoulter/keyboard-labs#x-1-36-key-split-reversible-pcb-with-weact-studio-mini-f4-dev-board) | 36-key (2x3x5+3), split, column-staggered, MX/choc, sub-100x100, per-key RGB LED, ARM       | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-1_rev2021.5-mx-top.JPG)                              |
+| [X-2](#x-2-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb)          | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", ARM  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG)                              |
+| [X-2 HSRGB](#x-2-hsrgb-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb-with-hotswap-and-per-key-rgb)    | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", HotSwap, per-key RGB, ARM  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2-hsrgb_rev2022.1-front.JPG)   |
+| [PyKey40 Lite](#pykey40-lite-no-frills-subset-of-the-pykey60-in-bm40jj40-form-factor) | Planck-MIT (4x12, 1x2U), ortholinear, MX, BM40/JJ40-compatible, PCBA, no frills, ARM        |                                                                                                                                                       |
+| [Pico42](#pico42-simple-hand-solderable-pcb-in-bm40jj40-form-factor) | 42-key ortholinear, MX/choc, BM40/JJ40-compatible, no frills, ARM        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG) |
+| [CH552-44](#ch552-44-low-budget-hand-solderable-pcb-in-bm40jj40-form-factor) | 44-key ortholinear, MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG) |
 
 
 
@@ -228,6 +229,63 @@ _2D Renders of the PCB, revision rev2023.2_
 - [rev2023.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-pico42-rev2023.1.html)
 
 - [rev2023.1 Build Guide Notes](docs/buildguide-keyboard_pico42-rev2023.1.md)
+
+
+## CH552-44: Low-Budget Hand-Solderable PCB in BM40/JJ40 Form-Factor
+
+A very simple, hand-solderable 44-key PCB which uses the WeAct Studio's CH552
+devboard.
+
+The form factor encourages the thumbs to use 2-3 keys each (and rely on the
+pinky fingers less).
+
+The keyboard uses semickolon's [fak](https://github.com/semickolon/fak)
+firmware, which uses the sophisticated and modern
+[Nickel](https://nickel-lang.org/) configuration language to declare keyboard
+and keymap definitions.
+
+The CH552 is cheaper than the RP2040, although is much less powerful. e.g.
+you're probably not going to get Vial on a CH552 keyboard. In practice, fak
+seems well suited for small-keyboard enthusiasts.
+
+Design goals:
+
+- Low Budget.
+
+- Simple, hand-solderable PCB.
+
+- Uses [WeAct Studio's CH552 core board](https://www.aliexpress.com/item/1005004141926425.html).
+
+- Same mounting holes as JJ40/BM40/PyKey40.
+
+Pictures:
+
+<img
+src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG"
+width=600 />
+
+_CH552-44 in a sandwich style case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-bottom.JPG" width=600 />
+
+_Underside of the CH552-44 in a sandwich style case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/keyboard-ch552-44-2023.1a-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/keyboard-ch552-44-2023.1a-bottom.svg" width=600 />
+
+_2D Renders of the PCB, revision rev2023.1a_
+
+### Build Guides and Release Assets
+
+- [rev2023.1a Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-ch552-44-rev2023.1a.html)
+
+- [rev2023.1a Build Guide Notes](https://github.com/rgoulter/keyboard-labs/blob/master/docs/buildguide-keyboard_ch552-44-rev2023.1a.md)
+
+#### Firmware
+
+- Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+
+(NOTE: for flashing new firmware, on Windows, the CH552 bootloader *can* connect, but most of the time the bootloader will fail to connect. It's much easier to flash firmware onto the CH552 from Linux).
 
 
 
