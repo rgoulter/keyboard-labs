@@ -10,10 +10,18 @@ module switch_cutout(w = 1, width = 14, switch_grid_unit = 19.05) {
     }
 }
 
-module cutout_ortho_4x12(switch_grid_unit = 19.05) {
+module cutout_ortho_4x12(
+    switch_grid_unit = 19.05,
+    block_pinky_columns = 0,
+    block_central_rows = 0,
+) {
     for (row = [0:3], column = [0:11]) {
         translate([column, row] * switch_grid_unit) {
-            switch_cutout(switch_grid_unit = switch_grid_unit);
+            if (row == 3 && (column < block_pinky_columns || column > 11 - block_pinky_columns)) {
+            } else if ((column == 5 || column == 6) && row < block_central_rows) {
+            } else {
+                switch_cutout(switch_grid_unit = switch_grid_unit);
+            }
         }
     }
 }
