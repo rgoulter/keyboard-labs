@@ -17,15 +17,6 @@ clean:
 pico42_pcb_outline-usb.dxf: pico42_pcb_outline.scad
 	openscad $< -D include_usb_connector=true -o $@
 
-pico42_switch_plate.dxf: jj40_switch_plate.scad
-	openscad $< -D render_plate=2 -o $@
-
-pico42_switch_plate.svg: jj40_switch_plate.scad
-	openscad $< -D render_plate=2 -o $@
-
-.PHONY: pico42_switch_plate
-pico42_switch_plate: pico42_switch_plate.dxf pico42_switch_plate.svg
-
 %.dxf: %.scad
 	openscad $< -o $@
 
