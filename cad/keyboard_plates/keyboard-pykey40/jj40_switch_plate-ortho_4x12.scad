@@ -7,6 +7,9 @@ use <../switch_plate.scad>;
 
 $fn = 60;
 
+block_pinky_columns = 0;
+block_central_rows = 0;
+
 // uses PCB's origin as the origin
 module jj40_switch_plate_ortho_4x12(
     switch_plate_dim = SWITCH_PLATE_DIM,
@@ -16,7 +19,9 @@ module jj40_switch_plate_ortho_4x12(
     pcb_mounting_hole_offsets = PCB_MOUNTING_HOLE_OFFSETS,
     pcb_mounting_hole_dia = 4,
     pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
-    switch_grid_unit = SWITCH_GRID_UNIT
+    switch_grid_unit = SWITCH_GRID_UNIT,
+    block_pinky_columns = block_pinky_columns,
+    block_central_rows = block_central_rows,
 ) {
     difference() {
         translate(pcb_switch_plate_position) {
@@ -25,7 +30,11 @@ module jj40_switch_plate_ortho_4x12(
 
         translate(pcb_sw_1_1_position) {
             mounting_hole_cutouts(pcb_mounting_hole_offsets = pcb_mounting_hole_offsets);
-            cutout_ortho_4x12(switch_grid_unit = switch_grid_unit);
+            cutout_ortho_4x12(
+                switch_grid_unit = switch_grid_unit,
+                block_pinky_columns = block_pinky_columns,
+                block_central_rows = block_central_rows
+            );
         }
     }
 }
