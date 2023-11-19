@@ -33,6 +33,11 @@ module pico42_devboard_cover_plate(
   devboard_height = u1_height,
   devboard_mid_y_rel_to_h1 = u1_mid_position[1] - h1_y,
   cutout_mid_y_from_top = 13.5,
+  // relative to h1
+  buttons_offset = [
+    holes_distance_width / 2,
+    holes_distance_height - devboard_mid_y_rel_to_h1 + (devboard_height / 2) - cutout_mid_y_from_top
+  ],
   cutout_square_length = 13.5
 ) {
     screw_hole_r = screw_hole_dia / 2;
@@ -61,7 +66,7 @@ module pico42_devboard_cover_plate(
 
             // Cutout from the top of the devboard.
             if (cutout_button_hole) {
-                translate([holes_distance_width / 2, holes_distance_height - devboard_mid_y_rel_to_h1 + (devboard_height / 2) - cutout_mid_y_from_top]) {
+                translate(buttons_offset) {
                     square(cutout_square_length, center = true);
                 }
             }

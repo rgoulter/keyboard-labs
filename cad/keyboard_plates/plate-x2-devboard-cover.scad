@@ -15,8 +15,10 @@ margin = 4;
 
 screw_hole_dia = 2.2;
 
+// relative to h1
 u1_pad1_position = [184.88, 55.18365] - [h1_x, h1_y];
 
+// relative to h1
 minif4_reset_buttons_offset = u1_pad1_position + [7.5, 14.4];
 bluepill_reset_buttons_offset = u1_pad1_position + [4.5, 10];
 
@@ -59,7 +61,7 @@ module x2_devboard_cover_plate(
 
             if (cutout_button_hole) {
                 translate(buttons_offset) {
-                    square(13.5, center = true);
+                    square(cutout_square_length, center = true);
                 }
             }
         }
