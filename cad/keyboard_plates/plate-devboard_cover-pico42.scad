@@ -13,6 +13,10 @@ h4_y = 102.125;
 u1_mid_position = [162.275, 76.13];
 u1_height = 51;
 
+devboard_height = u1_height;
+devboard_mid_y_rel_to_h1 = u1_mid_position[1] - h1_y;
+cutout_mid_y_from_top = 13.5;
+
 rpi_pico_btn_y = 12; // from top of Raspberry Pi Pico devboard
 weact_rp2040_btn_y = 15; // from top of WeAct Studio RP2040 devboard
 
