@@ -302,9 +302,17 @@ module proj(
 }
 
 module simple_keyboard_case(
+    // Position of the top-left switch,
+    // relative to PCB's top-left.
+    //
+    // Used as the origin for the mounting hole offsets.
     pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
+    // Offsets for the PCB's mounting holes,
+    // relative to the PCB's SW_1_1.
     pcb_mounting_hole_offsets = PCB_MOUNTING_HOLE_OFFSETS,
     switch_plate_dim = SWITCH_PLATE_DIM,
+    // Coordinates for the PCB's top-left,
+    // relative to the switch plate's top-left.
     switch_plate_pcb_position = SWITCH_PLATE_PCB_POSITION,
     case_switch_plate_margin = CASE_SWITCH_PLATE_MARGIN,
     case_wall_thickness = CASE_WALL_THICKNESS,
