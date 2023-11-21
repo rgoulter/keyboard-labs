@@ -18,40 +18,6 @@ switch_plate_thickness = 1.5;
 
 projection_style = 0;
 
-module proj(style = 0) {
-    if (style == 1) {
-        // base
-        projection(cut = true) {
-            translate([0, 0, -0.1]) {
-                children();
-            }
-        }
-    } else if (style == 2) {
-        // pcb
-        projection(cut = true) {
-            translate([0, 0, -(0.1 + CASE_BOTTOM_DEPTH)]) {
-                children();
-            }
-        }
-    } else if (style == 3) {
-        // pcb
-        projection(cut = true) {
-            translate([0, 0, -(0.1 + CASE_BOTTOM_DEPTH + CASE_LOWER_CAVITY_DEPTH)]) {
-                children();
-            }
-        }
-    } else if (style == 4) {
-        // switch plate
-        projection(cut = true) {
-            translate([0, 0, -(0.1 + CASE_BOTTOM_DEPTH + CASE_LOWER_CAVITY_DEPTH + pcb_thickness + pcb_switch_plate_depth_margin)]) {
-                children();
-            }
-        }
-    } else {
-        children();
-    }
-}
-
 proj(style = projection_style) {
     simple_keyboard_case(
     ) {

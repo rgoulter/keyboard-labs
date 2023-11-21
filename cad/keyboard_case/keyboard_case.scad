@@ -250,6 +250,57 @@ module countersunk_foot_hole(
     }
 }
 
+// Slices of the case at certain heights,
+// as indicated by `style`.
+// (0 = modified;
+//  1 = slice of base;
+//  2 = slice of mounting holes;
+//  3 = slice of PCB;
+//  4 = slice of switch plate).
+//
+// Useful for previewing the case along with
+//  the PCB, switch plate, etc. to check for overlaps.
+//
+// project the children() at certain height.
+module proj(
+    style = 0,
+    case_bottom_height = CASE_BOTTOM_HEIGHT,
+    cavity_upper_height = CASE_LOW_PROFILE_MX_UPPER_CAVITY_HEIGHT,
+    cavity_lower_height = CASE_LOWER_CAVITY_HEIGHT,
+) {
+    if (style == 1) {
+        // base
+        projection(cut = true) {
+            translate([0, 0, -0.1]) {
+                children();
+            }
+        }
+    } else if (style == 2) {
+        // mounting holes
+        projection(cut = true) {
+            translate([0, 0, -(0.1 + case_bottom_height)]) {
+                children();
+            }
+        }
+    } else if (style == 3) {
+        // pcb
+        projection(cut = true) {
+            translate([0, 0, -(0.1 + case_bottom_height + cavity_lower_height)]) {
+                children();
+            }
+        }
+    } else if (style == 4) {
+        // switch plate
+        projection(cut = true) {
+            translate([0, 0, -(-0.1 + case_bottom_height + cavity_lower_height + cavity_upper_height)]) {
+                children();
+            }
+        }
+    } else {
+        children();
+    }
+}
+
 module simple_keyboard_case(
     pcb_sw_1_1_position = PCB_SW_1_1_POSITION,
     pcb_mounting_hole_offsets = PCB_MOUNTING_HOLE_OFFSETS,
