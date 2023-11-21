@@ -329,6 +329,18 @@ _The CNC case, top._
 
 _The CNC case, bottom._
 
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/cad/keyboard_case/3dp-pico42-choc-laptop.JPG" width=600 />
+
+_The 3D Printed Pico42 case, mounting a Pico42 with Choc switches, sitting on a laptop's keyboard._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/cad/keyboard_case/3dp-pico42-empty-top.JPG" width=600 />
+
+_The 3D Printed Pico42 case, top._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/cad/keyboard_case/3dp-pico42-choc-bottom.JPG" width=600 />
+
+_The 3D Printed Pico42 case, bottom._
+
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/cad/docs/images/openscad-keyboard_case.png" width=600 />
 
 _Preview of the case in OpenScad._
