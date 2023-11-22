@@ -1,8 +1,12 @@
 scads := \
-  jj40_bottom_plate.scad \
   jj40_pcb_outline.scad \
+  pico42_pcb_outline.scad \
+  jj40_bottom_plate.scad \
   jj40_bottom_plate_pcb.scad  \
-  jj40_switch_plate.scad
+  ch552-44_switch_plate.scad \
+  jj40_switch_plate-ortho_4x12.scad \
+  jj40_switch_plate.scad \
+  pico42_switch_plate.scad
 plates := $(basename $(scads))
 svgs := $(foreach plate,$(plates),$(plate).svg)
 dxfs := $(foreach plate,$(plates),$(plate).dxf)
