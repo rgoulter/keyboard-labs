@@ -40,6 +40,7 @@ The soldering required for this keyboard is very simple. (Simpler than soldering
 1. Solder the diodes for the switches.
 
 2. Solder the dev board (and whatever headers for the dev board).
+   (Since the CH552-44 uses P1.2 and P1.3, ensure SB1 is bridged, and SB2 is bridged).
 
 3. Using the switch plate to align the switches, solder the switches in.
 
