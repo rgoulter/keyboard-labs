@@ -8,7 +8,7 @@ svgs := $(foreach plate,$(plates),$(plate).svg)
 dxfs := $(foreach plate,$(plates),$(plate).dxf)
 
 .PHONY: all
-all: $(svgs) $(dxfs) pico42_switch_plate pico42_pcb_outline-usb.dxf
+all: $(svgs) $(dxfs) pico42_pcb_outline-usb.dxf
 
 .PHONY: clean
 clean:
