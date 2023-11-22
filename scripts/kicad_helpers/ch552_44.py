@@ -166,12 +166,7 @@ def hide_sw_labels():
 
 
 def hide_u1_labels():
-    u1 = pcbnew.GetBoard().FindFootprintByReference("U1")
-    # Get the text items in the footprint
-    # and hide them if they're on silkscreen layers
-    for t in u1.GraphicalItems():
-        if isinstance(t, pcbnew.FP_TEXT) and t.GetLayerName() in ["F.Silkscreen", "B.Silkscreen"]:
-            t.SetVisible(False)
+    kicad_common.hide_fp_texts(refs = ["U1"])
     pcbnew.Refresh()
 
 
