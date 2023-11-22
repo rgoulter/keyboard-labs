@@ -18,6 +18,7 @@ Plotted gerber files can be found under the GitHub repository's
 | [PyKey40 Lite](#pykey40-lite-no-frills-subset-of-the-pykey60-in-bm40jj40-form-factor) | Planck-MIT (4x12, 1x2U), ortholinear, MX, BM40/JJ40-compatible, PCBA, no frills, ARM        |                                                                                                                                                       |
 | [Pico42](#pico42-simple-hand-solderable-pcb-in-bm40jj40-form-factor) | 42-key ortholinear, MX/choc, BM40/JJ40-compatible, no frills, ARM        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG) |
 | [CH552-44](#ch552-44-low-budget-hand-solderable-pcb-in-bm40jj40-form-factor) | 44-key ortholinear, MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG) |
+| [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor) | 48-key ortholinear (4x12), MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-top.JPG) |
 
 
 
@@ -231,6 +232,7 @@ _2D Renders of the PCB, revision rev2023.2_
 - [rev2023.1 Build Guide Notes](docs/buildguide-keyboard_pico42-rev2023.1.md)
 
 
+
 ## CH552-44: Low-Budget Hand-Solderable PCB in BM40/JJ40 Form-Factor
 
 A very simple, hand-solderable 44-key PCB which uses the WeAct Studio's CH552
@@ -286,6 +288,63 @@ _2D Renders of the PCB, revision rev2023.1a_
 - Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
 
 (NOTE: for flashing new firmware, on Windows, the CH552 bootloader *can* connect, but most of the time the bootloader will fail to connect. It's much easier to flash firmware onto the CH552 from Linux).
+
+#### Plates and Cases
+
+A bottom plate can be used to protect the components underneath the PCB.
+
+Source files for plates to cut (or cases to 3D print) can be found under `cad/` in this repository.
+
+
+
+## CH552-48: Low-Budget PCBA in BM40/JJ40 Form-Factor
+
+A very simple 48-key PCBA which uses the CH552 MCU.
+
+The keyboard uses semickolon's [fak](https://github.com/semickolon/fak) firmware, which uses the sophisticated and modern [Nickel](https://nickel-lang.org/) configuration language to declare keyboard and keymap definitions.
+
+The CH552 is cheaper than the RP2040, although is much less powerful. e.g. you're probably not going to get Vial on a CH552 keyboard. In practice, fak seems well suited for small-keyboard enthusiasts.
+
+Design goals:
+
+- PCBA and Ortho 4x12 improvement upon the [CH552-44](https://github.com/rgoulter/keyboard-labs#ch552-44-low-budget-hand-solderable-pcb-in-bm40jj40-form-factor).
+
+- Low Budget.
+
+- Use CH552 for the fak firmware.
+
+- Same mounting holes as JJ40/BM40/PyKey40.
+
+Pictures:
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-top.JPG" width=600 />
+
+_CH552-48 in a sandwich style case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-bottom.JPG" width=600 />
+
+_Underside of the CH552-48 in a sandwich style case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-bottom-unplated.JPG" width=600 />
+
+_Underside of the CH552-48, showing the PCBA components.._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/keyboard-ch552-48-2023.1-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/keyboard-ch552-48-2023.1-bottom.svg" width=600 />
+
+_2D Renders of the PCB, revision rev2023.1_
+
+#### Firmware
+
+- Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+
+(NOTE: for flashing new firmware, on Windows, the CH552 bootloader *can* connect, but most of the time the bootloader will fail to connect. It's much easier to flash firmware onto the CH552 from Linux).
+
+#### Plates and Cases
+
+A bottom plate can be used to protect the components underneath the PCB.
+
+Source files for plates to cut (or cases to 3D print) can be found under `cad/` in this repository.
 
 
 
