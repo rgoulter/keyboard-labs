@@ -8037,6 +8037,9 @@
   (gr_text "FLASH" (at 145.542 64.643) (layer "B.SilkS") (tstamp d61a2a75-eb8d-4dfd-a0fb-51792c7d7cd8)
     (effects (font (size 1 1) (thickness 0.15)) (justify left bottom mirror))
   )
+  (gr_text "PCB outline generated with pico42_pcb_outline.scad.\n\nPositions of most components managed Kicad scripting\nconsole, with source in scripts/kicad_helpers." (at 52.0446 149.8092) (layer "Cmts.User") (tstamp bc02ead4-9094-4aea-a75c-c59e3532f179)
+    (effects (font (size 4 4) (thickness 0.15)) (justify left bottom))
+  )
   (target plus (at 57.5 57.5) (size 5) (width 0.09906) (layer "Edge.Cuts") (tstamp 1314609d-bc5f-403f-91d9-21f00fb8a987))
   (target plus (at 57.5 57.5) (size 5) (width 0.09906) (layer "Edge.Cuts") (tstamp bd12b531-35af-4091-bd0f-ef1ef66b2020))
 
