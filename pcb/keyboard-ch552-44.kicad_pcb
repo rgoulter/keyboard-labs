@@ -8121,6 +8121,9 @@
   (gr_text "github.com/rgoulter/keyboard-labs,\n${TITLE}, rev${REVISION}" (at 162.275 118.5672) (layer "B.SilkS") (tstamp 014dd531-9177-49ca-af33-06cdb3339068)
     (effects (font (size 0.8 0.8) (thickness 0.16)) (justify mirror))
   )
+  (gr_text "PCB outline generated with pico42_pcb_outline.scad.\n\nPositions of most components managed Kicad scripting\nconsole, with source in scripts/kicad_helpers." (at 51.943 150.8506) (layer "Cmts.User") (tstamp a764d5bc-4698-4555-8f3f-fa64a9603454)
+    (effects (font (size 4 4) (thickness 0.15)) (justify left bottom))
+  )
   (target plus (at 57.5 57.5) (size 5) (width 0.09906) (layer "Edge.Cuts") (tstamp 1314609d-bc5f-403f-91d9-21f00fb8a987))
   (target plus (at 57.5 57.5) (size 5) (width 0.09906) (layer "Edge.Cuts") (tstamp bd12b531-35af-4091-bd0f-ef1ef66b2020))
 

@@ -1,7 +1,7 @@
 {
   "board": {
-    "active_layer": 31,
-    "active_layer_preset": "All Copper Layers",
+    "active_layer": 41,
+    "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [],
@@ -64,7 +64,7 @@
       39,
       40
     ],
-    "visible_layers": "0001010_ffffffff",
+    "visible_layers": "0001200_ffffffff",
     "zone_display_mode": 1
   },
   "meta": {
