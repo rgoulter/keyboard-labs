@@ -250,6 +250,10 @@ The CH552 is cheaper than the RP2040, although is much less powerful. e.g.
 you're probably not going to get Vial on a CH552 keyboard. In practice, fak
 seems well suited for small-keyboard enthusiasts.
 
+Since the CH552 has relatively few GPIO pins, the matrix uses 7 rows of 7
+columns (= 14 GPIO pins), rather than a more traditional 4 rows of 12 columns
+(which would use 16 GPIO pins).
+
 Design goals:
 
 - Low Budget.
@@ -304,6 +308,10 @@ A very simple 48-key PCBA which uses the CH552 MCU.
 The keyboard uses semickolon's [fak](https://github.com/semickolon/fak) firmware, which uses the sophisticated and modern [Nickel](https://nickel-lang.org/) configuration language to declare keyboard and keymap definitions.
 
 The CH552 is cheaper than the RP2040, although is much less powerful. e.g. you're probably not going to get Vial on a CH552 keyboard. In practice, fak seems well suited for small-keyboard enthusiasts.
+
+Since the CH552 has relatively few GPIO pins, the matrix uses 7 rows of 7
+columns (= 14 GPIO pins), rather than a more traditional 4 rows of 12 columns
+(which would use 16 GPIO pins).
 
 Design goals:
 
