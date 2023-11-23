@@ -283,9 +283,9 @@ _2D Renders of the PCB, revision rev2023.2_
 
 ### Build Guides and Release Assets
 
-- [rev2023.1a Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-ch552-44-rev2023.1a.html)
+- [rev2023.2 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-ch552-44-rev2023.2.html)
 
-- [rev2023.1a Build Guide Notes](https://github.com/rgoulter/keyboard-labs/blob/master/docs/buildguide-keyboard_ch552-44-rev2023.1a.md)
+- [rev2023.2 Build Guide Notes](https://github.com/rgoulter/keyboard-labs/blob/master/docs/buildguide-keyboard_ch552-44-rev2023.2.md)
 
 #### Firmware
 
