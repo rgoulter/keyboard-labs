@@ -10055,6 +10055,9 @@
   (gr_text "R" (at 137.867 87.202) (layer "F.SilkS") (tstamp 35d39be8-dadd-43d8-8d5d-617375725971)
     (effects (font (size 1.524 1.524) (thickness 0.3048)))
   )
+  (gr_text "PCB outline generated with jj40_pcb_outline.scad." (at 53.086 134.3914) (layer "Cmts.User") (tstamp ea57d2e3-c780-4845-ace7-17676ab5f13a)
+    (effects (font (size 4 4) (thickness 0.15)) (justify left bottom))
+  )
   (target plus (at 57.5 58.5) (size 5) (width 0.09906) (layer "Edge.Cuts") (tstamp 1314609d-bc5f-403f-91d9-21f00fb8a987))
   (target plus (at 57.5 58.5) (size 5) (width 0.09906) (layer "Edge.Cuts") (tstamp bd12b531-35af-4091-bd0f-ef1ef66b2020))
 
