@@ -266,16 +266,16 @@ Pictures:
 src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG"
 width=600 />
 
-_CH552-44 in a sandwich style case._
+_CH552-44 (rev2023.1) in a sandwich style case._
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-bottom.JPG" width=600 />
 
-_Underside of the CH552-44 in a sandwich style case._
+_Underside of the CH552-44 (rev2023.1) in a sandwich style case._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/keyboard-ch552-44-2023.1a-top.svg" width=600 />
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/keyboard-ch552-44-2023.1a-bottom.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/keyboard-ch552-44-2023.2-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/keyboard-ch552-44-2023.2-bottom.svg" width=600 />
 
-_2D Renders of the PCB, revision rev2023.1a_
+_2D Renders of the PCB, revision rev2023.2_
 
 ### Build Guides and Release Assets
 
