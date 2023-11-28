@@ -10,10 +10,10 @@ To follow the steps in this guide, you need:
 
 1. First, download an ISO for the Live USB.
 
-   e.g. this ISO comes with the dependencies already installed, as well as with VSCode with Nickel syntax highlighting already set up:
+   e.g. the `keyboard-labs-offline.iso` here comes with the dependencies already installed, as well as with VSCode with Nickel syntax highlighting already set up:
    https://github.com/rgoulter/keyboard-labs/releases/tag/iso-linux-environment
 
-2. [Create a bootable USB from the ISO.](https://duckduckgo.com/?q=write+iso+to+bootable+usb&t=ffab&ia=web).
+2. [Create a bootable USB from the ISO](https://duckduckgo.com/?q=write+iso+to+bootable+usb&t=ffab&ia=web).
 
    I used [Ventoy](https://www.ventoy.net/en/doc_start.html). Ventoy installs itself as a bootable USB to a thumbdrive, and then whatever ISOs you want can be copied to it, and you can then boot to those ISOs.
 
