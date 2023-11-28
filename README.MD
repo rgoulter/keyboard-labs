@@ -291,7 +291,7 @@ _2D Renders of the PCB, revision rev2023.2_
 
 - Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
 
-(NOTE: for flashing new firmware, on Windows, the CH552 bootloader *can* connect, but most of the time the bootloader will fail to connect. It's much easier to flash firmware onto the CH552 from Linux).
+(NOTE: for flashing new firmware, on Windows, the CH552 bootloader *can* connect, but most of the time the bootloader will fail to connect. It's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
 
 #### Plates and Cases
 
@@ -346,7 +346,7 @@ _2D Renders of the PCB, revision rev2023.1_
 
 - Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
 
-(NOTE: for flashing new firmware, on Windows, the CH552 bootloader *can* connect, but most of the time the bootloader will fail to connect. It's much easier to flash firmware onto the CH552 from Linux).
+(NOTE: for flashing new firmware, on Windows, the CH552 bootloader *can* connect, but most of the time the bootloader will fail to connect. It's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
 
 #### Plates and Cases
 
@@ -452,6 +452,9 @@ _Example output of OpenSCAD code, which makes use of the Kicad PCB data to const
 
 
 # Notes
+
+- [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md):
+  guide for using the Live ISO on a bootable USB to flash Fak firmware.
 
 - [docs/pcb-rivets.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/pcb-rivets.md):
   notes on usage of PCB rivets for allowing hot-swapping switches on
