@@ -1,6 +1,8 @@
-My experience trying out the CH552 on Windows (e.g. with the [CH552-48 keyboard](https://github.com/rgoulter/keyboard-labs#ch552-48-low-budget-pcba-in-bm40jj40-form-factor)) was that the bootloader doesn't work well with Windows' USB. (Device manager shows the device fails to connect).
+My experience trying out the CH552 on Windows (e.g. with the [CH552-48 keyboard](https://github.com/rgoulter/keyboard-labs#ch552-48-low-budget-pcba-in-bm40jj40-form-factor)) was that the bootloader doesn't work well with Windows' USB driver, which the open source WCH ISP flashing tools use. (Device manager shows the device fails to connect).
 
-For users with only a Windows computer, it's going to be much easier to flash fak firmware from Linux. Setting up a Linux installation alongside Windows is not trivial. An easier option is to run Linux from a bootable USB drive, and use this to flash fak firmware.
+[The official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html) worked on Windows.
+
+For users with only a Windows computer who want to use open source software, it's going to be much easier to flash fak firmware from Linux. Setting up a Linux installation alongside Windows is not trivial. An easier option is to run Linux from a bootable USB drive, and use this to flash fak firmware.
 
 To follow the steps in this guide, you need:
 
