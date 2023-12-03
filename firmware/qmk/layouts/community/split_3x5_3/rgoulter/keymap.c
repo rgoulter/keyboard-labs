@@ -56,6 +56,21 @@ enum layers {
 #define LAYOUT_wrapper(...) LAYOUT_split_3x5_3(__VA_ARGS__)
 #define LAYOUT_split_3x5_3_wrapper(...) LAYOUT_split_3x5_3(__VA_ARGS__)
 
+#ifdef RHS_THUMB_MEDIAL
+// Medial = closer to body's middle.
+//
+// This thumb row is the same as Miryoku's
+//
+// e.g. on Pico42 (or when using 3 thumbkeys on ortho5x12),
+// I find it more comfortable to have the 'third key' for RHS be more medial,
+// so that the main two RHS thumb keys are below 'nm'.
+#  define THUMB_ROW TAB_MOUR, ESC_MEDR, SPC_NAVR,    ENT_NSSL, BKSP_NSL, DEL_FUNL
+#else
+// e.g. on X-1, the 'third key' for RHS is more lateral than the others
+#  define THUMB_ROW TAB_MOUR, ESC_MEDR, SPC_NAVR,    BKSP_NSL, ENT_NSSL, DEL_FUNL
+#endif
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Different from Miryoku: LHS thumb keys: {Tab, Esc, Spc} instead of {Esc, Spc, Tab}
 // Different from Miryoku: RHS thumb keys: {Tab, Esc, Spc} instead of {Esc, Spc, Tab}
@@ -64,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ___SEG5_DVORAK_LHS_1___,                           ___SEG5_DVORAK_RHS_1___,
   ___SEG5_DVORAK_LHS_2___,                           ___SEG5_DVORAK_RHS_2___,
   ___SEG5_DVORAK_LHS_3___,                           ___SEG5_DVORAK_RHS_3___,
-                    TAB_MOUR, ESC_MEDR, SPC_NAVR,    BKSP_NSL, ENT_NSSL, DEL_FUNL
+                    THUMB_ROW
 ),
 
 // Different from Miryoku: LHS thumb keys: {Tab, Esc, Spc} instead of {Esc, Spc, Tab}
@@ -73,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ___SEG5_QWERTY_LHS_1___,                           ___SEG5_QWERTY_RHS_1___,
   ___SEG5_QWERTY_LHS_2___,                           ___SEG5_QWERTY_RHS_2___,
   ___SEG5_QWERTY_LHS_3___,                           ___SEG5_QWERTY_RHS_3___,
-                     TAB_MOUR, ESC_MEDR, SPC_NAVR,    BKSP_NSL, ENT_NSSL, DEL_FUNL
+                    THUMB_ROW
 ),
 
 [_CHECK] = LAYOUT_wrapper( \
@@ -87,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVR] = LAYOUT_wrapper( \
   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______,    ___SEG4_NAV2___, CW_TOGG,
-  _______, _______, _______, _______, _______,    ___SEG4_NAV3___, KC_INS,
+  _______, OSWIN,   OSMACOS, OSLINUX, _______,    ___SEG4_NAV3___, KC_INS,
                     _______, _______, _______,    _______, _______, _______
 ),
 

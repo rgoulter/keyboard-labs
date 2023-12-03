@@ -13,7 +13,7 @@
         "mousekey": true,
         "nkro": true,
         "rgblight": false,
-        "rgbmatrix": false
+        "rgb_matrix": false
     },
     "url": "",
     "usb": {
@@ -109,6 +109,7 @@
             "snake": true,
             "knight": true,
             "christmas": true,
+            "rgb_test": true,
             "static_gradient": true,
             "alternating": true,
             "twinkle": true
