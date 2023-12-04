@@ -14,7 +14,7 @@ EXPECT_BRANCH="rgoulter-keyboards-and-layouts"
 
 SYNC_DIRS=(
   keyboards/rgoulter/pico42/keymaps/vial/
-  keyboards/rgoulter/pykey40/keymaps/vial/
+  keyboards/rgoulter/pykey40/lite/keymaps/vial/
 )
 
 ACTUAL_BRANCH=$(git --git-dir="${VIAL_QMK}/.git" branch --show-current)
