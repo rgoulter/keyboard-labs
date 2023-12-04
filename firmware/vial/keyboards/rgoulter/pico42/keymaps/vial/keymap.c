@@ -85,14 +85,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // TBI: Different from Miryoku: Nav, RHS, upper: TBI: the convenience cut/copy/paste and undo/redo
 [_NAVR] = LAYOUT_wrapper( \
-  _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
+  QK_BOOT, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______,    ___SEG4_NAV2___, CW_TOGG,
   _______, _______, _______, _______, _______,    ___SEG4_NAV3___, KC_INS,
                     _______, _______, _______,    _______, _______, _______
 ),
 
 [_MOUR] = LAYOUT_wrapper( \
-  _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
+  QK_BOOT, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______,    ___SEG4_MOU_MV___, _______,
   _______, _______, _______, _______, _______,    ___SEG4_MOU_WH___, _______,
                     _______, _______, _______,    ___SEG3_MOU_BTN___
@@ -101,34 +101,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Different from Miryoku: Media layer, RHS, lower: used to swap base layers / bootloader.
 // Different from Miryoku: Media layer, RHS, non-nav column: no external power, no Bluetooth
 [_MEDR] = LAYOUT_wrapper( \
-  _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
+  QK_BOOT, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______,    ___SEG4_MED___, _______,
   _______, _______, _______, _______, _______,    QWERTY,  _______, _______, _______, QK_BOOT,
                     _______, _______, _______,    KC_MPLY, KC_MSTP, KC_MUTE
 ),
 
-// Different from Miryoku: Number layer, LHS: GRV in middle & slash (rather than semicolon)
 [_NSL] = LAYOUT_wrapper( \
-  KC_LBRC, ___SEG3_789___, KC_RBRC,        _______, _______, _______, _______, _______,
-  KC_GRV,  ___SEG3_456___, KC_EQL,         _______, _______, _______, _______, _______,
-  KC_SLSH, ___SEG3_123___, KC_BSLS,        _______, _______, _______, _______, _______,
+  KC_LBRC, ___SEG3_789___, KC_RBRC,        _______, _______, _______, _______, QK_BOOT,
+  KC_SCLN, ___SEG3_456___, KC_EQL,         _______, _______, _______, _______, _______,
+  KC_GRV,  ___SEG3_123___, KC_BSLS,        _______, _______, _______, _______, _______,
                  KC_DOT, KC_0, KC_MINS,    _______, _______, _______
 ),
 
-// Different from Miryoku: Number layer, LHS: TILD in middle & slash (rather than colon)
 [_NSSL] = LAYOUT_wrapper( \
-  KC_LCBR, ___SEG3_S789___, KC_RCBR,              _______, _______, _______, _______, _______,
-  KC_TILD, ___SEG3_S456___, KC_PLUS,              _______, _______, _______, _______, _______,
-  KC_QUES, ___SEG3_S123___, KC_PIPE,              _______, _______, _______, _______, _______,
+  KC_LCBR, ___SEG3_S789___, KC_RCBR,              _______, _______, _______, _______, QK_BOOT,
+  KC_COLN, ___SEG3_S456___, KC_PLUS,              _______, _______, _______, _______, _______,
+  KC_TILD, ___SEG3_S123___, KC_PIPE,              _______, _______, _______, _______, _______,
                     KC_LPRN, KC_RPRN, KC_UNDS,    _______, _______, _______
 ),
 
 [_FUNL] = LAYOUT_wrapper( \
-  KC_F12, ___SEG3_F789___,   KC_PSCR,           _______, _______, _______, _______, _______,
+  KC_F12, ___SEG3_F789___,   KC_PSCR,           _______, _______, _______, _______, QK_BOOT,
   KC_F11, ___SEG3_F456___,   KC_SCRL,           _______, _______, _______, _______, _______,
   KC_F10, ___SEG3_F123___,   KC_PAUS,           _______, _______, _______, _______, _______,
                   _______, _______, _______,    _______, _______, _______
 ),
-
 
 };
