@@ -103,7 +103,8 @@ def position_on_grid(
         logical_coord_to_grid_coord = lambda x: x,
         col_spacing_mm = 19.05,
         row_spacing_mm = 19.05,
-        col_stagger = None
+        col_stagger = None,
+        except_refs = []
 ):
     fp_1_1_pos = position_of_reference(grid_ref(ref_prefix, (1, 1)))
 
@@ -112,7 +113,11 @@ def position_on_grid(
         adjusted_col_stagger = [x - col_stagger[0] for x in col_stagger]
 
     for logical_coord in [(r, c) for r in range(1, rows + 1) for c in range(1, cols + 1)]:
-        footprint = pcbnew.GetBoard().FindFootprintByReference(grid_ref(ref_prefix, logical_coord))
+        ref = grid_ref(ref_prefix, logical_coord)
+        if ref in except_refs:
+            continue
+
+        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
         if footprint is None:
             continue
         grid_coord = logical_coord_to_grid_coord(logical_coord)
@@ -142,7 +147,8 @@ def position_pairs_on_grid(
     fp_1_2_pos = position_of_reference(grid_ref(ref_prefix, grid_coord_to_logical_coord((1, 2))))
 
     for logical_coord in [(r, c) for r in range(1, rows + 1) for c in range(1, cols + 1)]:
-        footprint = pcbnew.GetBoard().FindFootprintByReference(grid_ref(ref_prefix, logical_coord))
+        ref = grid_ref(ref_prefix, logical_coord)
+        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
         if footprint is None:
             continue
         (gr, gc) = logical_coord_to_grid_coord(logical_coord)
@@ -177,10 +183,15 @@ def set_rotations(
     ref_prefix,
     rows,
     cols,
-    rotation_degrees
+    rotation_degrees,
+    except_refs = []
 ):
     for logical_coord in [(r, c) for r in range(1, rows + 1) for c in range(1, cols + 1)]:
-        footprint = pcbnew.GetBoard().FindFootprintByReference(grid_ref(ref_prefix, logical_coord))
+        ref = grid_ref(ref_prefix, logical_coord)
+        if ref in except_refs:
+            continue
+
+        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
         if footprint is None:
             continue
         footprint.SetOrientationDegrees(rotation_degrees)
