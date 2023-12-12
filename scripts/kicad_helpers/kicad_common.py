@@ -52,6 +52,25 @@ def position_of_reference(ref):
     else:
         raise ValueError("No footprint with reference {ref}".format(ref=ref))
 
+def position_in_array(
+        refs,
+        delta_pos_mm,
+        adjustments_mm
+):
+    if len(refs) == 0:
+        return
+
+    fp_1_1_pos = position_of_reference(refs[0])
+
+    for i, ref in enumerate(refs):
+        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
+        if footprint is None:
+            continue
+
+        delta_vec = VECTOR2I_MM(delta_pos_mm[0] * i, delta_pos_mm[1] * i)
+        adjustment_vec = VECTOR2I_MM(adjustments_mm[i][0], adjustments_mm[i][1])
+        footprint.SetPosition(fp_1_1_pos + delta_vec + adjustment_vec)
+
 
 # My PCB designs all tend to be oriented around ortholinear grids.
 # This helper function updates positions of footprints.
@@ -120,6 +139,17 @@ def position_pairs_on_grid(
                 row_spacing_mm = row_spacing_mm
             )
             footprint.SetPosition(fp_1_2_pos + offset)
+
+
+def set_array_rotations(
+    refs,
+    rotation_degrees
+):
+    for ref in refs:
+        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
+        if footprint is None:
+            continue
+        footprint.SetOrientationDegrees(rotation_degrees)
 
 
 def set_rotations(
