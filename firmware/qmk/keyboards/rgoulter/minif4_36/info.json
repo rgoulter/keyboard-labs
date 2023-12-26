@@ -5,7 +5,7 @@
     "features": {
         "bootmagic": true,
         "command": false,
-        "combo": true,
+        "combo": false,
         "debug": true,
         "console": true,
         "leader": true,
