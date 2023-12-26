@@ -16,6 +16,7 @@ SYNC_DIRS=(
   keyboards/rgoulter/
   layouts/community/ortho_5x12/rgoulter/
   layouts/community/planck_mit/rgoulter/
+  layouts/community/planck_mit/rgoulter-pinkieoutercolumn/
   layouts/community/split_3x5_3/rgoulter/
   layouts/community/split_3x5_3/rgoulter-basic/
   layouts/community/split_3x5_3/rgoulter-rgb_only/
