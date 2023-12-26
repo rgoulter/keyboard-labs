@@ -45,9 +45,9 @@
         qmk-pico42-rgoulter-basic = qmk.pico42-rgoulter-basic;
         qmk-pico42-manna-harbour_miryoku = qmk.pico42-manna-harbour_miryoku;
         qmk-pico42-vial = qmk.pico42-vial;
-        qmk-pykey40-rgoulter = qmk.pykey40-rgoulter;
-        qmk-pykey40-rgoulter-pinkieoutercolumn = qmk.pykey40-rgoulter-pinkieoutercolumn;
-        qmk-pykey40-vial = qmk.pykey40-vial;
+        qmk-pykey40-lite-rgoulter = qmk.pykey40-lite-rgoulter;
+        qmk-pykey40-lite-rgoulter-pinkieoutercolumn = qmk.pykey40-lite-rgoulter-pinkieoutercolumn;
+        qmk-pykey40-lite-vial = qmk.pykey40-lite-vial;
         qmk-x_2-rev2021_1-bluepill = qmk.x_2-rev2021_1-bluepill;
 
         uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};

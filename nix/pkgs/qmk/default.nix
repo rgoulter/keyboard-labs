@@ -32,16 +32,16 @@ in {
     keyboard = "rgoulter/pico42";
     keymap = "vial";
   };
-  pykey40-rgoulter = compile {
-    keyboard = "rgoulter/pykey40";
+  pykey40-lite-rgoulter = compile {
+    keyboard = "rgoulter/pykey40/lite";
     keymap = "rgoulter";
   };
-  pykey40-rgoulter-pinkieoutercolumn = compile {
-    keyboard = "rgoulter/pykey40";
+  pykey40-lite-rgoulter-pinkieoutercolumn = compile {
+    keyboard = "rgoulter/pykey40/lite";
     keymap = "rgoulter-pinkieoutercolumn";
   };
-  pykey40-vial = compile-vial {
-    keyboard = "rgoulter/pykey40";
+  pykey40-lite-vial = compile-vial {
+    keyboard = "rgoulter/pykey40/lite";
     keymap = "vial";
   };
   x_2-rev2021_1-bluepill = compile {
