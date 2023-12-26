@@ -49,4 +49,8 @@ in {
     keymap = "rgoulter";
     output_extension = "bin";
   };
+  x_2-rev2021_1-blackpill_f401 = compile {
+    keyboard = "rgoulter/x_2/rev2021_1/blackpill_f401";
+    keymap = "rgoulter";
+  };
 }

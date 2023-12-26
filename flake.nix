@@ -49,6 +49,7 @@
         qmk-pykey40-lite-rgoulter-pinkieoutercolumn = qmk.pykey40-lite-rgoulter-pinkieoutercolumn;
         qmk-pykey40-lite-vial = qmk.pykey40-lite-vial;
         qmk-x_2-rev2021_1-bluepill = qmk.x_2-rev2021_1-bluepill;
+        qmk-x_2-rev2021_1-blackpill_f401 = qmk.x_2-rev2021_1-blackpill_f401;
 
         uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
         wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
