@@ -52,10 +52,20 @@ def position_of_reference(ref):
     else:
         raise ValueError("No footprint with reference {ref}".format(ref=ref))
 
+def position_of_x_between_refs(ref1, ref2):
+    x1, _ = position_of_reference(ref1)
+    x2, _ = position_of_reference(ref2)
+    return int((x1 + x2) / 2)
+
+def position_of_y_between_refs(ref1, ref2):
+    _, y1 = position_of_reference(ref1)
+    _, y2 = position_of_reference(ref2)
+    return int((y1 + y2) / 2)
+
 def position_in_array(
         refs,
         delta_pos_mm,
-        adjustments_mm
+        adjustments_mm = None
 ):
     if len(refs) == 0:
         return
@@ -68,7 +78,9 @@ def position_in_array(
             continue
 
         delta_vec = VECTOR2I_MM(delta_pos_mm[0] * i, delta_pos_mm[1] * i)
-        adjustment_vec = VECTOR2I_MM(adjustments_mm[i][0], adjustments_mm[i][1])
+        adjustment_vec = VECTOR2I_MM(0, 0)
+        if adjustments_mm:
+            adjustment_vec = VECTOR2I_MM(adjustments_mm[i][0], adjustments_mm[i][1])
         footprint.SetPosition(fp_1_1_pos + delta_vec + adjustment_vec)
 
 
@@ -83,27 +95,36 @@ def position_in_array(
 # rows: number of rows in the "logical" grid (e.g. 4)
 # cols: number of columns in the "logical" grid (e.g. 12)
 # logical_coord_to_grid_coord: function to convert from logical coord to grid coord (useful for CH552-44)
+# stagger: None, or array of y offsets in mm per column
 def position_on_grid(
         ref_prefix,
         rows,
         cols,
         logical_coord_to_grid_coord = lambda x: x,
         col_spacing_mm = 19.05,
-        row_spacing_mm = 19.05
+        row_spacing_mm = 19.05,
+        col_stagger = None
 ):
     fp_1_1_pos = position_of_reference(grid_ref(ref_prefix, (1, 1)))
+
+    adjusted_col_stagger = None
+    if col_stagger:
+        adjusted_col_stagger = [x - col_stagger[0] for x in col_stagger]
 
     for logical_coord in [(r, c) for r in range(1, rows + 1) for c in range(1, cols + 1)]:
         footprint = pcbnew.GetBoard().FindFootprintByReference(grid_ref(ref_prefix, logical_coord))
         if footprint is None:
             continue
         grid_coord = logical_coord_to_grid_coord(logical_coord)
+        stagger = VECTOR2I_MM(0, 0)
+        if adjusted_col_stagger:
+            stagger = VECTOR2I_MM(0, adjusted_col_stagger[grid_coord[1] - 1])
         offset = position_offset_for_grid_coord(
             coord = grid_coord,
             col_spacing_mm = col_spacing_mm,
             row_spacing_mm = row_spacing_mm
         )
-        footprint.SetPosition(fp_1_1_pos + offset)
+        footprint.SetPosition(fp_1_1_pos + offset + stagger)
 
 
 # Same as "Position on grid",
@@ -194,6 +215,19 @@ def hide_fp_texts(
         for t in footprint.GraphicalItems():
             if isinstance(t, pcbnew.FP_TEXT) and t.GetLayerName() in layer_names:
                 t.SetVisible(False)
+
+
+def delete_fp_shapes(
+    refs,
+    layer_names = ["F.Silkscreen", "B.Silkscreen"]
+):
+    for ref in refs:
+        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
+        if footprint is None:
+            continue
+        for t in footprint.GraphicalItems():
+            if isinstance(t, pcbnew.FP_SHAPE) and t.GetLayerName() in layer_names:
+                t.DeleteStructure()
 
 
 # Hide the text items in the footprint
