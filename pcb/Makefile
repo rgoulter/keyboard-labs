@@ -45,3 +45,7 @@ keyboard-pico42-ibom: keyboard-pico42.net
 .PHONY: keyboard-ch552-44-ibom
 keyboard-ch552-44-ibom: keyboard-ch552-44.net
 	bash ../scripts/generate-ch552-44-ibom.sh
+
+.PHONY: keyboard-ch552-36-ibom
+keyboard-ch552-36-ibom: keyboard-ch552-36-lhs.net
+	bash ../scripts/generate-ch552-36-ibom.sh
