@@ -19,6 +19,7 @@ Plotted gerber files can be found under the GitHub repository's
 | [Pico42](#pico42-simple-hand-solderable-pcb-in-bm40jj40-form-factor) | 42-key ortholinear, MX/choc, BM40/JJ40-compatible, no frills, ARM        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG) |
 | [CH552-44](#ch552-44-low-budget-hand-solderable-pcb-in-bm40jj40-form-factor) | 44-key ortholinear, MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG) |
 | [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor) | 48-key ortholinear (4x12), MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-top.JPG) |
+| [CH552-36](#ch552-36-low-budget-36-key-split-keyboard-with-smt-components) | 36 key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/top-with-coiled-cable.JPG) |
 
 
 
@@ -353,6 +354,67 @@ _2D Renders of the PCB, revision rev2023.1_
 A bottom plate can be used to protect the components underneath the PCB.
 
 Source files for plates to cut (or cases to 3D print) can be found under `cad/` in this repository.
+
+
+
+## CH552-36: Low-Budget 36-key Split Keyboard with SMT Components
+
+A very simple, 36-key PCB which uses the CH552 MCU.
+
+The design takes inspiration from [TeXitoi's keyseebee](https://github.com/TeXitoi/keyseebee).
+
+The PCB is smaller than 100x100 mm2, so that it's cheaper to fabricate at
+various PCB fabricators.
+
+The keyboard uses semickolon's [fak](https://github.com/semickolon/fak)
+firmware, which uses the sophisticated and modern
+[Nickel](https://nickel-lang.org/) configuration language to declare keyboard
+and keymap definitions.
+
+Design goals:
+
+- Low Budget.
+
+- Use CH552 for the fak firmware.
+
+- "Show the components", "just a keyboard" and "only a PCB with SMD components" from the KeySeeBee.
+
+Pictures:
+
+<img
+src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/top.JPG"
+width=600 />
+
+_CH552-36._
+
+<img
+src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/mcu.JPG"
+width=600 />
+
+_CH552-36, close up of the MCU area._
+
+<img
+src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/tented.JPG"
+width=600 />
+
+_CH552-36, tented, with a coiled TRRS cable._
+
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/keyboard-ch552-36-2023.1-top.svg" width=280 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/keyboard-ch552-36-2023.1-bottom.svg" width=280 />
+
+_2D Renders of the PCB, revision rev2023.1_
+
+### Build Guides and Release Assets
+
+- [rev2023.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-ch552-36-rev2023.1.html)
+
+#### Firmware
+
+- Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+
+(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
+
 
 
 
