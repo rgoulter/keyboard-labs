@@ -399,6 +399,12 @@ width=600 />
 
 _CH552-36, tented, with a coiled TRRS cable._
 
+<img
+src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/bottom.JPG"
+width=600 />
+
+_Bottom of CH552-36._
+
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/keyboard-ch552-36-2023.1-top.svg" width=280 />
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/keyboard-ch552-36-2023.1-bottom.svg" width=280 />
