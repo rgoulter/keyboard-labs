@@ -30,13 +30,15 @@ module jj40_bottom_plate(
 
         foot_offset_x = 32;
         foot_offset_y = 12;
-        translate([0 + foot_offset_x, foot_offset_y]) {
-            %circle(d = FOOT_DIA);
-            circle(d = FOOT_HOLE_DIA);
-        }
-        translate([switch_plate_dim[0] - foot_offset_x, foot_offset_y]) {
-            %circle(d = FOOT_DIA);
-            circle(d = FOOT_HOLE_DIA);
+        translate(pcb_switch_plate_position) {
+            translate([0 + foot_offset_x, foot_offset_y]) {
+                %circle(d = FOOT_DIA);
+                circle(d = FOOT_HOLE_DIA);
+            }
+            translate([switch_plate_dim[0] - foot_offset_x, foot_offset_y]) {
+                %circle(d = FOOT_DIA);
+                circle(d = FOOT_HOLE_DIA);
+            }
         }
     }
 }
