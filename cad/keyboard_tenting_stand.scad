@@ -241,7 +241,7 @@ module arc_hull_with_screw_holes(
 
             // "puzzle piece"-like edge
             if (edge_type == "puzzle_piece") {
-                translate([0, -corner_radius]) {
+                translate([0, -corner_radius + 0.01]) {
                     rotate(180) {
                         puzzle_piece_edge(
                             length = edge_length,
