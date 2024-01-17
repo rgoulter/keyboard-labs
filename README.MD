@@ -16,6 +16,7 @@ Plotted gerber files can be found under the GitHub repository's
 | [X-2](#x-2-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb)          | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", ARM  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2_rev2021.1-mx-top.JPG)                              |
 | [X-2 HSRGB](#x-2-hsrgb-5x12-ortholinear-arm-powered-adaptation-of-peejs-lumberjack-pcb-with-hotswap-and-per-key-rgb)    | 60-key (5x12), un-split, ortholinear, MX/choc, GH60-compatible, "show the components", HotSwap, per-key RGB, ARM  | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/photo-keyboard-x-2-hsrgb_rev2022.1-front.JPG)   |
 | [PyKey40 Lite](#pykey40-lite-no-frills-subset-of-the-pykey60-in-bm40jj40-form-factor) | Planck-MIT (4x12, 1x2U), ortholinear, MX, BM40/JJ40-compatible, PCBA, no frills, ARM        |                                                                                                                                                       |
+| [PyKey40 HSRGB](#pykey40-hsrgb-4x12-ortholinear-with-hotswap-and-rgb-in-bm40jj40-form-factor) | Planck-MIT (4x12, 1x2U), ortholinear, MX, BM40/JJ40-compatible, PCBA, HotSwap, per-key RGB LED, ARM        |                                                                                                                                                       |
 | [Pico42](#pico42-simple-hand-solderable-pcb-in-bm40jj40-form-factor) | 42-key ortholinear, MX/choc, BM40/JJ40-compatible, no frills, ARM        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG) |
 | [CH552-44](#ch552-44-low-budget-hand-solderable-pcb-in-bm40jj40-form-factor) | 44-key ortholinear, MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG) |
 | [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor) | 48-key ortholinear (4x12), MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-top.JPG) |
@@ -177,6 +178,33 @@ Pictures:
 
 <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-top.svg" width=600 />
 <img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboard-pykey40-lite-2023.3-bottom.svg" width=600 />
+
+_2D Renders of the PCB, revision rev2023.3_
+
+
+
+## PyKey40 HSRGB: 4x12 Ortholinear with HotSwap and RGB in BM40/JJ40 Form-Factor
+
+A 4x12 ortholinear with hotswap sockets, and per-key RGB and underglow, using the RP2040 MCU, with mounts compatible with the JJ40/BM40.
+
+Design goals:
+
+- Fancy features: hotswap sockets, RGB.
+
+- Same mounting holes as JJ40/BM40/PyKey40.
+
+Pictures:
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pykey40-hsrgb/pykey40-hsrgb-top.JPG" width=600 />
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pykey40-hsrgb/pykey40-hsrgb-bottom.JPG" width=600 />
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pykey40-hsrgb/pykey40-hsrgb-bottom-diffused.JPG" width=600 />
+
+_PyKey40 HSRGB PCB assembled in a high-profile aluminium case._
+
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboards/pykey40-hsrgb/keyboard-pykey40-hsrgb-2023.1-top.svg" width=600 />
+<img src="https://github.com/rgoulter/keyboard-labs/raw/master/docs/images/keyboards/pykey40-hsrgb/keyboard-pykey40-hsrgb-2023.1-bottom.svg" width=600 />
 
 _2D Renders of the PCB, revision rev2023.3_
 
