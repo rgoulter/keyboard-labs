@@ -20,6 +20,7 @@ Plotted gerber files can be found under the GitHub repository's
 | [Pico42](#pico42-simple-hand-solderable-pcb-in-bm40jj40-form-factor) | 42-key ortholinear, MX/choc, BM40/JJ40-compatible, no frills, ARM        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG) |
 | [CH552-44](#ch552-44-low-budget-hand-solderable-pcb-in-bm40jj40-form-factor) | 44-key ortholinear, MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG) |
 | [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor) | 48-key ortholinear (4x12), MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-top.JPG) |
+| [CH552-48-LPR](#ch552-48-lpr-low-budget-pcba-with-low-profile-redragon-switches) | 48-key ortholinear (4x12), low profile redragon, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-sandwich-top.JPG) |
 | [CH552-36](#ch552-36-low-budget-36-key-split-keyboard-with-smt-components) | 36 key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/top-with-coiled-cable.JPG) |
 
 
@@ -383,6 +384,75 @@ _2D Renders of the PCB, revision rev2023.1_
 A bottom plate can be used to protect the components underneath the PCB.
 
 Source files for plates to cut (or cases to 3D print) can be found under `cad/` in this repository.
+
+
+
+## CH552-48-LPR: Low-Budget PCBA with Low Profile Redragon Switches
+
+Variation of the CH552-48 which uses Redragon low profile switches.
+
+Redragon low profile switches are significantly cheaper than other low profile switches,
+especially the popular Kailh Choc v1 switches.
+
+Height varies depending on keycap profile. The distance between the top of the
+PCB and the top of the keycap is around 11mm for Redragon low profile switches
+with low profile keycaps.  (In comparison, the same measurement is 10-11mm for
+Kailh Choc v1, and about 20mm for MX).
+
+Unlike MX switches (where switches from different manufacturers will have compatible pin positions),
+different "low profile" switches have different pin positions from each other.
+So, to use Redragon "low profile" switches, you need a PCB designed for Redragon low profile switches.
+
+The KiCad footprint I used for this design can be found under `pcb/` in this repository.
+
+Redragon switches support keycaps with MX stems, unlike Kailh Choc v1.
+Albeit, general MX keycap profiles (e.g. XDA) are NOT fully compatible with "low profile" switches,
+since the bottom of the keycap bottoms-out below where a switch plate sits.
+Instead, "low profile" switches with MX stems need 'slim' keycaps, such as [NuPhy's](https://www.aliexpress.us/item/3256805311515595.html) or [womier's](https://www.aliexpress.com/item/1005004613625285.html), etc.
+
+Since the Redragon low profile switches have 3-pins, it's best to assemble the keyboard using a switch plate
+(e.g. a lasercut 1.0mm metal plate). Pictures below show what a build without a plate looks like.
+
+Design goals:
+
+- A keyboard that uses Redragon low profile switches.
+
+Pictures:
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-sandwich-top.JPG" width=600 />
+
+_CH552-48-LPR in a sandwich style case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-sandwich-bottom.JPG" width=600 />
+
+_Underside of the CH552-48-LPR in a sandwich style case._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-plateless-switches.JPG" width=600 />
+
+_Switches mounted to the PCB without a plate._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-unsoldered-pins-with-plate.JPG" width=600 />
+
+_Unsoldered underside of the PCB, with switches mounted in a plate._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/keyboard-ch552-48-2023.1-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/keyboard-ch552-48-2023.1-bottom.svg" width=600 />
+
+_2D Renders of the PCB, revision rev2023.1_
+
+#### Firmware
+
+Same as for the [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor).
+
+Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+
+(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
+
+#### Plates and Cases
+
+A bottom plate can be used to protect the components underneath the PCB.
+
+Source files for plates to cut can be found under `cad/` in this repository.
 
 
 
