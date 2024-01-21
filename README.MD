@@ -419,6 +419,10 @@ Design goals:
 
 Pictures:
 
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-jj40lowpro-top.JPG" width=600 />
+
+_CH552-48-LPR in a JJ40 low profile aluminium case._
+
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-sandwich-top.JPG" width=600 />
 
 _CH552-48-LPR in a sandwich style case._
