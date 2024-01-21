@@ -435,8 +435,8 @@ _Switches mounted to the PCB without a plate._
 
 _Unsoldered underside of the PCB, with switches mounted in a plate._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/keyboard-ch552-48-2023.1-top.svg" width=600 />
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/keyboard-ch552-48-2023.1-bottom.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/keyboard-ch552-48-lpr-2023.1-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/keyboard-ch552-48-lpr-2023.1-bottom.svg" width=600 />
 
 _2D Renders of the PCB, revision rev2023.1_
 
