@@ -1,8 +1,10 @@
 scads := \
   jj40_pcb_outline.scad \
   pico42_pcb_outline.scad \
+  ch552-48-lpr_pcb_outline.scad \
   jj40_bottom_plate.scad \
   jj40_bottom_plate_pcb.scad  \
+  ch552-48-lpr_bottom_plate.scad \
   ch552-44_switch_plate.scad \
   jj40_switch_plate-ortho_4x12.scad \
   jj40_switch_plate.scad \
