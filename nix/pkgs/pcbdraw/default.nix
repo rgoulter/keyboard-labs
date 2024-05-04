@@ -11,7 +11,7 @@
 with python3Packages;
   buildPythonApplication rec {
     pname = "pcbdraw";
-    version = "1.1.2";
+    version = "1.1.3-pre";
 
     # fails on Windows-specific test
     doCheck = false;
@@ -38,7 +38,7 @@ with python3Packages;
     src = fetchFromGitHub {
       owner = "yaqwsx";
       repo = "PcbDraw";
-      rev = "v${version}";
-      sha256 = "sha256-zMk5fZCDIu+XBwGcJ6NEFvyTUHA8pRtkLaZebW63t5A=";
+      rev = "1264f28eb0cb96ab7ec44ecb09c5d50eef508ec5";
+      hash = "sha256-SrKILQ/CsNK+juV47iIHBz/4Htja4oykQXFGmJ7P/L0=";
     };
   }

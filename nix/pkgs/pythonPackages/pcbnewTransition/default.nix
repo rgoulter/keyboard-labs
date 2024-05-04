@@ -13,7 +13,7 @@ in
   with python3Packages;
     buildPythonPackage rec {
       pname = "pcbnewTransition";
-      version = "0.3.4";
+      version = "0.4.1";
 
       propagatedBuildInputs = [
         kicadPythonModule
@@ -22,6 +22,6 @@ in
 
       src = fetchPypi {
         inherit pname version;
-        sha256 = "sha256-3CJUG1kd63Lg0r9HpJRIvttHS5s2EuZRoxeXrqsJ/kQ";
+        sha256 = "sha256-+mRExuDuEYxSSlrkEjSyPK+RRJZo+YJH7WnUVfjblRQ=";
       };
     }
