@@ -13,13 +13,13 @@
     .src;
   interactive-html-bom = stdenv.mkDerivation rec {
     pname = "interactive-html-bom";
-    version = "2.6.0";
+    version = "2.9.0";
 
     src = fetchFromGitHub {
       owner = "openscopeproject";
       repo = "InteractiveHtmlBom";
       rev = "v${version}";
-      sha256 = "sha256-J/v9i1/miyYM0w2I8QOX/FAfJx52KpPeyg/sKSf5794";
+      sha256 = "sha256-jUHEI0dWMFPQlXei3+0m1ruHzpG1hcRnxptNOXzXDqQ";
     };
 
     installPhase = ''
