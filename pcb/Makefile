@@ -1,7 +1,12 @@
 kicad_pcbs := $(wildcard *.kicad_pcb)
 boards := $(basename $(kicad_pcbs))
 
-ibom_targets := $(foreach board,$(boards),$(board)-ibom)
+ibom_targets := \
+  keyboard-x2-lumberjack-arm-ibom \
+  keyboard-x2-lumberjack-arm-hsrgb-ibom \
+  keyboard-pico42-ibom \
+  keyboard-ch552-44-ibom \
+  keyboard-ch552-36-ibom
 kibot_targets := $(foreach board,$(boards),$(board)-kibot)
 
 .PHONY: all
@@ -33,10 +38,6 @@ keyboard-x2-lumberjack-arm-ibom: keyboard-x2-lumberjack-arm.net
 .PHONY: keyboard-x2-lumberjack-arm-hsrgb-ibom
 keyboard-x2-lumberjack-arm-hsrgb-ibom: keyboard-x2-lumberjack-arm-hsrgb.net
 	bash ../scripts/generate-x2-hsrgb-ibom.sh
-
-.PHONY: keyboard-pykey40-lite-ibom
-keyboard-pykey40-lite-ibom:
-	true
 
 .PHONY: keyboard-pico42-ibom
 keyboard-pico42-ibom: keyboard-pico42.net
