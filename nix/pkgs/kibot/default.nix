@@ -41,7 +41,7 @@
 in
   python3Packages.buildPythonApplication rec {
     pname = "kibot";
-    version = "1.6.2";
+    version = "1.7.0";
 
     # The macros module requires the module isn't compiled.
     # cf. https://github.com/INTI-CMNB/KiBot/issues/31
@@ -66,6 +66,6 @@ in
 
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "sha256-kqvUjLoz4TodhuGMErRUPMGzzQLaanN39CVnU3EF54c";
+      sha256 = "sha256-/eaQXggNam/Wv/us7jahVklCm5Agm4+aQvsbSzoTwEY";
     };
   }
