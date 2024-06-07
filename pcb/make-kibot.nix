@@ -19,7 +19,6 @@
   xdotool,
   xorg,
 }:
-
 stdenvNoCC.mkDerivation rec {
   pname = "${board}-kibot";
   version = board_version;
@@ -47,31 +46,37 @@ stdenvNoCC.mkDerivation rec {
     xorg.xkbcomp
   ];
 
-  buildPhase = ''
-    runHook preBuild
+  buildPhase =
+    ''
+      runHook preBuild
 
-    export KICAD_CONFIG_HOME=$(mktemp -d)
-    make ${board}-kibot
-  '' + (lib.optionalString ibom ''
-    make ${board}-ibom
-  '') + ''
-    runHook postBuild
-  '';
+      export KICAD_CONFIG_HOME=$(mktemp -d)
+      make ${board}-kibot
+    ''
+    + (lib.optionalString ibom ''
+      make ${board}-ibom
+    '')
+    + ''
+      runHook postBuild
+    '';
 
   dontFixup = true;
 
-  installPhase = ''
-    runHook preInstall
+  installPhase =
+    ''
+      runHook preInstall
 
-    mkdir -p $out/docs
-    cp -r docs/* $out/docs
+      mkdir -p $out/docs
+      cp -r docs/* $out/docs
 
-    mkdir -p $out/gerbers
-    cp -r gerbers/* $out/gerbers
-  '' + (lib.optionalString ibom ''
-    mkdir -p $out/bom
-    cp -r bom/* $out/bom
-  '') + ''
-    runHook postInstall
-  '';
+      mkdir -p $out/gerbers
+      cp -r gerbers/* $out/gerbers
+    ''
+    + (lib.optionalString ibom ''
+      mkdir -p $out/bom
+      cp -r bom/* $out/bom
+    '')
+    + ''
+      runHook postInstall
+    '';
 }

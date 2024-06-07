@@ -4,11 +4,11 @@
   kibot ? pkgs.callPackage ../nix/pkgs/kibot {},
   pcbdraw ? pkgs.callPackage ../nix/pkgs/pcbdraw {},
   recordmydesktop ? pkgs.callPackage ../nix/pkgs/recordmydesktop {},
-}:
-let
-  callPackage = pkgs.lib.callPackageWith (pkgs // {
-    inherit interactive-html-bom kibot pcbdraw recordmydesktop;
-  });
+}: let
+  callPackage = pkgs.lib.callPackageWith (pkgs
+    // {
+      inherit interactive-html-bom kibot pcbdraw recordmydesktop;
+    });
 in {
   keyboard-100x100-minif4-dual-rgb-reversible = callPackage ./make-kibot.nix {
     board = "keyboard-100x100-minif4-dual-rgb-reversible";

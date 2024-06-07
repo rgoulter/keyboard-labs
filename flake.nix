@@ -139,41 +139,43 @@
                 documentation.man.generateCaches = false;
 
                 environment = {
-                  gnome.excludePackages = [ pkgs.gnome-tour ];
-                  systemPackages = with pkgs; [
-                    eza
-                    firefox
-                    fd
-                    fish
-                    # meson c projects need a C compiler,
-                    # even though the meson.build doesn't use gcc.
-                    # (setting CC is not sufficient).
-                    gcc
-                    gnome-console
-                    gnome.nautilus
-                    helix
-                    neovim
-                    ripgrep
-                    (vscode-with-extensions.override {
-                      vscodeExtensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-                        {
-                          name = "vscode-nickel";
-                          publisher = "tweag";
-                          version = "0.3.0";
-                          sha256 = "sha256-OntQfxh51B3x92IE4y62bw8csBGukqUzmUJIr/rGioU=";
-                        }
-                      ];
-                    })
-                  ] ++ [
-                    sdcc
-                    nickel.packages."x86_64-linux".default
-                    nls
-                    meson
-                    python311
-                    ninja
-                    jq
-                    wchisp
-                  ];
+                  gnome.excludePackages = [pkgs.gnome-tour];
+                  systemPackages = with pkgs;
+                    [
+                      eza
+                      firefox
+                      fd
+                      fish
+                      # meson c projects need a C compiler,
+                      # even though the meson.build doesn't use gcc.
+                      # (setting CC is not sufficient).
+                      gcc
+                      gnome-console
+                      gnome.nautilus
+                      helix
+                      neovim
+                      ripgrep
+                      (vscode-with-extensions.override {
+                        vscodeExtensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+                          {
+                            name = "vscode-nickel";
+                            publisher = "tweag";
+                            version = "0.3.0";
+                            sha256 = "sha256-OntQfxh51B3x92IE4y62bw8csBGukqUzmUJIr/rGioU=";
+                          }
+                        ];
+                      })
+                    ]
+                    ++ [
+                      sdcc
+                      nickel.packages."x86_64-linux".default
+                      nls
+                      meson
+                      python311
+                      ninja
+                      jq
+                      wchisp
+                    ];
                 };
 
                 isoImage = {
@@ -203,9 +205,9 @@
                       name = "wch.rules";
                       destination = "/lib/udev/rules.d/50-wch.rules";
                       text = ''
-                      # Allow wchisp to be used without sudo.
-                      SUBSYSTEMS=="usb", ATTRS{idVendor}=="4348", ATTRS{idProduct}=="55e0", TAG+="uaccess"
-      '';
+                        # Allow wchisp to be used without sudo.
+                        SUBSYSTEMS=="usb", ATTRS{idVendor}=="4348", ATTRS{idProduct}=="55e0", TAG+="uaccess"
+                      '';
                     })
                   ];
 
@@ -230,7 +232,7 @@
 
                     enable = true;
 
-                    excludePackages = [ pkgs.xterm ];
+                    excludePackages = [pkgs.xterm];
 
                     videoDrivers = ["nvidia"];
 
