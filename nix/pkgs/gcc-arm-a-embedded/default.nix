@@ -3,7 +3,7 @@
   stdenv,
   fetchurl,
   ncurses5,
-  python38,
+  python311,
   libxcrypt-legacy,
   runtimeShell,
 }:
@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
     find $out -type f | while read f; do
       patchelf "$f" > /dev/null 2>&1 || continue
       patchelf --set-interpreter $(cat ${stdenv.cc}/nix-support/dynamic-linker) "$f" || true
-      patchelf --set-rpath ${lib.makeLibraryPath ["$out" stdenv.cc.cc ncurses5 python38 libxcrypt-legacy]} "$f" || true
+      patchelf --set-rpath ${lib.makeLibraryPath ["$out" stdenv.cc.cc ncurses5 python311 libxcrypt-legacy]} "$f" || true
     done
   '';
 
@@ -54,8 +54,8 @@ stdenv.mkDerivation rec {
     mv $out/bin/aarch64-none-elf-gdb $out/bin/aarch64-none-elf-gdb-unwrapped
     cat <<EOF > $out/bin/aarch64-none-elf-gdb
     #!${runtimeShell}
-    export PYTHONPATH=${python38}/lib/python3.8
-    export PYTHONHOME=${python38}/bin/python3.8
+    export PYTHONPATH=${python311}/lib/python3.11
+    export PYTHONHOME=${python311}/bin/python3.11
     exec $out/bin/aarch64-none-elf-gdb-unwrapped "\$@"
     EOF
     chmod +x $out/bin/aarch64-none-elf-gdb
