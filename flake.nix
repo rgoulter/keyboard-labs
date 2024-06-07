@@ -17,6 +17,8 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    systems.url = "github:nix-systems/x86_64-linux";
   };
 
   outputs = {
@@ -25,10 +27,10 @@
     nixpkgs,
     flake-utils,
     nixos-generators,
+    systems,
+    ...
   }:
-    flake-utils.lib.eachSystem [
-      flake-utils.lib.system.x86_64-linux
-    ] (system: let
+    flake-utils.lib.eachSystem (import systems) (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       bootloaders = import ./nix/pkgs/bootloaders {
         inherit pkgs;
