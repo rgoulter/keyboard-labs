@@ -24,7 +24,7 @@ stdenvNoCC.mkDerivation rec {
   version = board_version;
 
   KICAD_SYMBOL_DIR = "${kicad.libraries.symbols}/share/kicad/library";
-  KISYS3DMOD = "${kicad.libraries.packages3d}/share/kicad/modules/packages3d";
+  # KISYS3DMOD = "${kicad.libraries.packages3d}/share/kicad/modules/packages3d";
   KISYSMOD = "${kicad.libraries.footprints}/share/kicad/modules";
 
   KIAUTO_INTERPOSER_DISABLE = "1";
