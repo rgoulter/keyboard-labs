@@ -34,6 +34,7 @@
         inherit pkgs;
       };
       qmk = pkgs.callPackage ./nix/pkgs/qmk {};
+      pcb = pkgs.callPackage ./pcb {};
     in {
       packages = rec {
         bootloader-circuitpython-jpconstantineau_pykey60 = bootloaders.circuitpython.jpconstantineau_pykey60;
@@ -50,6 +51,18 @@
         qmk-pykey40-lite-vial = qmk.pykey40-lite-vial;
         qmk-x_2-rev2021_1-bluepill = qmk.x_2-rev2021_1-bluepill;
         qmk-x_2-rev2021_1-blackpill_f401 = qmk.x_2-rev2021_1-blackpill_f401;
+
+        pcb-keyboard-100x100-minif4-dual-rgb-reversible = pcb.keyboard-100x100-minif4-dual-rgb-reversible;
+        pcb-keyboard-ch552-36-lhs = pcb.keyboard-ch552-36-lhs;
+        pcb-keyboard-ch552-36-rhs = pcb.keyboard-ch552-36-rhs;
+        pcb-keyboard-ch552-44 = pcb.keyboard-ch552-44;
+        pcb-keyboard-ch552-48 = pcb.keyboard-ch552-48;
+        pcb-keyboard-ch552-48-lpr = pcb.keyboard-ch552-48-lpr;
+        pcb-keyboard-pico42 = pcb.keyboard-pico42;
+        pcb-keyboard-pykey40-hsrgb = pcb.keyboard-pykey40-hsrgb;
+        pcb-keyboard-pykey40-lite = pcb.keyboard-pykey40-lite;
+        pcb-keyboard-x2-lumberjack-arm-hsrgb = pcb.keyboard-x2-lumberjack-arm-hsrgb;
+        pcb-keyboard-x2-lumberjack-arm = pcb.keyboard-x2-lumberjack-arm;
 
         uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
         wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
