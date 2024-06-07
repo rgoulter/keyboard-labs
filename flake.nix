@@ -36,6 +36,25 @@
       qmk = pkgs.callPackage ./nix/pkgs/qmk {};
       pcb = pkgs.callPackage ./pcb {};
     in {
+      checks = {
+        pcb = pkgs.symlinkJoin {
+          name = "pcb";
+          paths = [
+            self.packages.${system}.pcb-keyboard-100x100-minif4-dual-rgb-reversible
+            self.packages.${system}.pcb-keyboard-ch552-36-lhs
+            self.packages.${system}.pcb-keyboard-ch552-36-rhs
+            self.packages.${system}.pcb-keyboard-ch552-44
+            self.packages.${system}.pcb-keyboard-ch552-48
+            self.packages.${system}.pcb-keyboard-ch552-48-lpr
+            self.packages.${system}.pcb-keyboard-pico42
+            self.packages.${system}.pcb-keyboard-pykey40-hsrgb
+            self.packages.${system}.pcb-keyboard-pykey40-lite
+            self.packages.${system}.pcb-keyboard-x2-lumberjack-arm-hsrgb
+            self.packages.${system}.pcb-keyboard-x2-lumberjack-arm
+          ];
+        };
+      };
+
       packages = rec {
         bootloader-circuitpython-jpconstantineau_pykey60 = bootloaders.circuitpython.jpconstantineau_pykey60;
         bootloader-stm32f103-stm32duino = bootloaders.stm32duino.stm32f103;
