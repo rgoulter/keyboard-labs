@@ -19,12 +19,10 @@ shows the flake's outputs, e.g.:
 git+file:///path/to/keyboard-labs
 ├───devShells
 │   └───x86_64-linux
-│       ├───circuitpython: development environment 'nix-shell'
 │       ├───pcb: development environment 'nix-shell'
 │       └───pcb-nixos: development environment 'nix-shell'
 └───packages
     └───x86_64-linux
-        ├───bootloader-circuitpython-jpconstantineau_pykey60: package 'circuitpython-jpconstantineau_pykey60-8.1.0'
         ├───bootloader-stm32f103-stm32duino: package 'stm32duino-df689808b6030280480c0d151ee9c552ecf6b405'
         ├───bootloader-stm32f401-tinyuf2: package 'tinyuf2-0.9.0'
         ├───bootloader-stm32f411-tinyuf2: package 'tinyuf2-0.9.0'

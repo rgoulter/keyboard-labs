@@ -75,7 +75,6 @@
           firmware = pkgs.symlinkJoin {
             name = "keyboard-labs-firmware";
             paths = [
-              self.packages.${system}.bootloader-circuitpython-jpconstantineau_pykey60
               self.packages.${system}.bootloader-stm32f103-stm32duino
               self.packages.${system}.bootloader-stm32f401-tinyuf2
               self.packages.${system}.bootloader-stm32f411-tinyuf2
@@ -111,10 +110,6 @@
         };
 
         devShells = {
-          circuitpython = import ./nix/shells/circuitpython/shell.nix {
-            inherit pkgs;
-          };
-
           pcb = import ./pcb/shell.nix {
             pkgs = pkgs;
             on-nixos = false;
@@ -133,7 +128,6 @@
           qmk = pkgs.callPackage ./nix/pkgs/qmk {};
           pcb = pkgs.callPackage ./pcb {};
         in {
-          bootloader-circuitpython-jpconstantineau_pykey60 = bootloaders.circuitpython.jpconstantineau_pykey60;
           bootloader-stm32f103-stm32duino = bootloaders.stm32duino.stm32f103;
           bootloader-stm32f401-tinyuf2 = bootloaders.tinyuf2.stm32f401;
           bootloader-stm32f411-tinyuf2 = bootloaders.tinyuf2.stm32f411;
