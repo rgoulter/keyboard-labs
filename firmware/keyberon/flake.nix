@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    systems.url = "github:nix-systems/default";
   };
 
   outputs = {
@@ -18,8 +19,9 @@
     flake-utils,
     naersk,
     nixpkgs,
+    systems,
   }:
-    flake-utils.lib.eachDefaultSystem (system: let
+    flake-utils.lib.eachSystem (import systems) (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       toolchain = with fenix.packages.${system};
         combine [
