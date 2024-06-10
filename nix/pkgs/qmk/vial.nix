@@ -34,12 +34,15 @@ stdenv.mkDerivation rec {
     for extra in ${lib.strings.concatStringsSep " " extra_files}; do
       ${rsync}/bin/rsync --recursive $extra/ .
     done
+    patchShebangs util/uf2conv.py
   '';
+
+  buildInputs = [qmk];
 
   buildPhase = let
     envArg = lib.strings.concatMapStrings (e: " --env " + e) env;
   in ''
-    ${qmk}/bin/qmk compile --keyboard ${keyboard} --keymap ${keymap} ${envArg}
+    qmk compile --keyboard ${keyboard} --keymap ${keymap} ${envArg}
   '';
 
   installPhase = ''

@@ -26,12 +26,15 @@ stdenv.mkDerivation rec {
 
   patchPhase = ''
     cp -r ${extra_files}/* .
+    patchShebangs util/uf2conv.py
   '';
+
+  buildInputs = [qmk];
 
   buildPhase = let
     envArg = lib.strings.concatMapStrings (e: " --env " + e) env;
   in ''
-    ${qmk}/bin/qmk compile --keyboard ${keyboard} --keymap ${keymap} ${envArg}
+    qmk compile --keyboard ${keyboard} --keymap ${keymap} ${envArg}
   '';
 
   installPhase = ''
