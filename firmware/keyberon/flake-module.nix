@@ -27,7 +27,7 @@
       ];
     uf2conv = pkgs.callPackage ../../nix/pkgs/uf2conv {};
   in {
-    devShells.default = pkgs.mkShell {
+    devShells.firmware-keyberon = pkgs.mkShell {
       nativeBuildInputs = [
         pkgs.cargo-binutils
         pkgs.elf2uf2-rs

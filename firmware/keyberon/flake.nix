@@ -26,5 +26,14 @@
       imports = [
         ./flake-module.nix
       ];
+      perSystem = {
+        self',
+        config,
+        pkgs,
+        system,
+        ...
+      }: {
+        devShells.default = self'.devShells.firmware-keyberon;
+      };
     };
 }
