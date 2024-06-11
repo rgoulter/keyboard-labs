@@ -1,5 +1,5 @@
-use rp2040_hal as hal;
 use hal::usb::UsbBus;
+use rp2040_hal as hal;
 
 pub use keyboard_labs_keyberon::common::*;
 
