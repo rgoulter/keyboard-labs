@@ -4,9 +4,11 @@
 # Requires:
 # - inputs.fenix
 # - inputs.naersk
-{ lib, inputs, ... }:
-
 {
+  lib,
+  inputs,
+  ...
+}: {
   perSystem = {
     pkgs,
     system,
@@ -61,16 +63,16 @@
           cargo = toolchain;
           rustc = toolchain;
         })
-          .buildPackage {
-            src = ./.;
-            overrideMain = x: {
-              preConfigure = ''
-                cargo_build_options="$cargo_build_options --package=keyboard-labs-keyberon-rp2040"
-              '';
-            };
-            CARGO_BUILD_TARGET = target;
-            CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+        .buildPackage {
+          src = ./.;
+          overrideMain = x: {
+            preConfigure = ''
+              cargo_build_options="$cargo_build_options --package=keyboard-labs-keyberon-rp2040"
+            '';
           };
+          CARGO_BUILD_TARGET = target;
+          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+        };
 
       keyberon-firmware-stm32f4-elf = let
         target = "thumbv7em-none-eabihf";
@@ -79,47 +81,47 @@
           cargo = toolchain;
           rustc = toolchain;
         })
-          .buildPackage {
-            src = ./.;
-            overrideMain = x: {
-              preConfigure = ''
-                cargo_build_options="$cargo_build_options --package=keyboard-labs-keyberon-stm32f4"
-              '';
-            };
-            CARGO_BUILD_TARGET = target;
-            CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+        .buildPackage {
+          src = ./.;
+          overrideMain = x: {
+            preConfigure = ''
+              cargo_build_options="$cargo_build_options --package=keyboard-labs-keyberon-stm32f4"
+            '';
           };
+          CARGO_BUILD_TARGET = target;
+          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+        };
 
       keyberon-firmware-bin = pkgs.runCommand "keyboard-labs-keyberon-firmware-bin" {} ''
-          mkdir -p $out/bin
-          export RUSTC=${toolchain}/bin/rustc
+        mkdir -p $out/bin
+        export RUSTC=${toolchain}/bin/rustc
 
-          env PATH=$PATH:${pkgs.cargo-binutils}/bin \
-            ${pkgs.gnumake}/bin/make \
-              --file ${./Makefile} \
-              RP2040_RELEASE_TARGET_DIR=${keyberon-firmware-rp2040-elf}/bin \
-              STM32F4_RELEASE_TARGET_DIR=${keyberon-firmware-stm32f4-elf}/bin \
-              DEST_DIR=$out/bin \
-              ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.bin") rp2040-bins)} \
-              ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.bin") stm32f4-bins)}
-        '';
+        env PATH=$PATH:${pkgs.cargo-binutils}/bin \
+          ${pkgs.gnumake}/bin/make \
+            --file ${./Makefile} \
+            RP2040_RELEASE_TARGET_DIR=${keyberon-firmware-rp2040-elf}/bin \
+            STM32F4_RELEASE_TARGET_DIR=${keyberon-firmware-stm32f4-elf}/bin \
+            DEST_DIR=$out/bin \
+            ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.bin") rp2040-bins)} \
+            ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.bin") stm32f4-bins)}
+      '';
 
       keyberon-firmware-uf2 = pkgs.runCommand "" {} ''
-          mkdir -p $out/bin
+        mkdir -p $out/bin
 
-          cp ${keyberon-firmware-bin}/bin/*.bin $out/bin
+        cp ${keyberon-firmware-bin}/bin/*.bin $out/bin
 
-          env PATH=$PATH:${uf2conv}/bin \
-            ${pkgs.gnumake}/bin/make \
-              --file ${./Makefile} \
-              RP2040_RELEASE_TARGET_DIR=${keyberon-firmware-rp2040-elf}/bin \
-              STM32F4_RELEASE_TARGET_DIR=${keyberon-firmware-stm32f4-elf}/bin \
-              DEST_DIR=$out/bin \
-              ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.uf2") rp2040-bins)} \
-              ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.uf2") stm32f4-bins)}
+        env PATH=$PATH:${uf2conv}/bin \
+          ${pkgs.gnumake}/bin/make \
+            --file ${./Makefile} \
+            RP2040_RELEASE_TARGET_DIR=${keyberon-firmware-rp2040-elf}/bin \
+            STM32F4_RELEASE_TARGET_DIR=${keyberon-firmware-stm32f4-elf}/bin \
+            DEST_DIR=$out/bin \
+            ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.uf2") rp2040-bins)} \
+            ${lib.concatStringsSep " " (map (x: "$out/bin/${x}.uf2") stm32f4-bins)}
 
-          rm $out/bin/*.bin
-        '';
+        rm $out/bin/*.bin
+      '';
     };
   };
 }
