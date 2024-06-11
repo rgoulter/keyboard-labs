@@ -9,4 +9,6 @@ fp-info-cache
 
 cad/**/generated
 
-result
+result*
+
+.devenv
