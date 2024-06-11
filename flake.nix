@@ -98,6 +98,7 @@
 
       perSystem = {
         config,
+        lib,
         pkgs,
         system,
         ...
@@ -170,43 +171,37 @@
           bootloaders = import ./nix/pkgs/bootloaders {
             inherit pkgs;
           };
-          qmk = pkgs.callPackage ./nix/pkgs/qmk {};
+          qmk =
+            lib.attrsets.mapAttrs' (name: p: lib.attrsets.nameValuePair "qmk-${name}" p)
+            (lib.attrsets.filterAttrs (_: p: lib.attrsets.isDerivation p) (pkgs.callPackage ./nix/pkgs/qmk {}));
           pcb = pkgs.callPackage ./pcb {};
-        in {
-          bootloader-stm32f103-stm32duino = bootloaders.stm32duino.stm32f103;
-          bootloader-stm32f401-tinyuf2 = bootloaders.tinyuf2.stm32f401;
-          bootloader-stm32f411-tinyuf2 = bootloaders.tinyuf2.stm32f411;
-          qmk-bm40hsrgb-rgoulter = qmk.bm40hsrgb-rgoulter;
-          qmk-minif4_36-rev2021_5-blackpill_f401-rgoulter = qmk.minif4_36-rev2021_5-blackpill_f401-rgoulter;
-          qmk-pico42-rgoulter-basic = qmk.pico42-rgoulter-basic;
-          qmk-pico42-manna-harbour_miryoku = qmk.pico42-manna-harbour_miryoku;
-          qmk-pico42-vial = qmk.pico42-vial;
-          qmk-pykey40-lite-rgoulter = qmk.pykey40-lite-rgoulter;
-          qmk-pykey40-lite-rgoulter-pinkieoutercolumn = qmk.pykey40-lite-rgoulter-pinkieoutercolumn;
-          qmk-pykey40-lite-vial = qmk.pykey40-lite-vial;
-          qmk-x_2-rev2021_1-bluepill = qmk.x_2-rev2021_1-bluepill;
-          qmk-x_2-rev2021_1-blackpill_f401 = qmk.x_2-rev2021_1-blackpill_f401;
+        in
+          {
+            bootloader-stm32f103-stm32duino = bootloaders.stm32duino.stm32f103;
+            bootloader-stm32f401-tinyuf2 = bootloaders.tinyuf2.stm32f401;
+            bootloader-stm32f411-tinyuf2 = bootloaders.tinyuf2.stm32f411;
 
-          pcb-keyboard-100x100-minif4-dual-rgb-reversible = pcb.keyboard-100x100-minif4-dual-rgb-reversible;
-          pcb-keyboard-ch552-36-lhs = pcb.keyboard-ch552-36-lhs;
-          pcb-keyboard-ch552-36-rhs = pcb.keyboard-ch552-36-rhs;
-          pcb-keyboard-ch552-44 = pcb.keyboard-ch552-44;
-          pcb-keyboard-ch552-48 = pcb.keyboard-ch552-48;
-          pcb-keyboard-ch552-48-lpr = pcb.keyboard-ch552-48-lpr;
-          pcb-keyboard-pico42 = pcb.keyboard-pico42;
-          pcb-keyboard-pykey40-hsrgb = pcb.keyboard-pykey40-hsrgb;
-          pcb-keyboard-pykey40-lite = pcb.keyboard-pykey40-lite;
-          pcb-keyboard-x2-lumberjack-arm-hsrgb = pcb.keyboard-x2-lumberjack-arm-hsrgb;
-          pcb-keyboard-x2-lumberjack-arm = pcb.keyboard-x2-lumberjack-arm;
+            pcb-keyboard-100x100-minif4-dual-rgb-reversible = pcb.keyboard-100x100-minif4-dual-rgb-reversible;
+            pcb-keyboard-ch552-36-lhs = pcb.keyboard-ch552-36-lhs;
+            pcb-keyboard-ch552-36-rhs = pcb.keyboard-ch552-36-rhs;
+            pcb-keyboard-ch552-44 = pcb.keyboard-ch552-44;
+            pcb-keyboard-ch552-48 = pcb.keyboard-ch552-48;
+            pcb-keyboard-ch552-48-lpr = pcb.keyboard-ch552-48-lpr;
+            pcb-keyboard-pico42 = pcb.keyboard-pico42;
+            pcb-keyboard-pykey40-hsrgb = pcb.keyboard-pykey40-hsrgb;
+            pcb-keyboard-pykey40-lite = pcb.keyboard-pykey40-lite;
+            pcb-keyboard-x2-lumberjack-arm-hsrgb = pcb.keyboard-x2-lumberjack-arm-hsrgb;
+            pcb-keyboard-x2-lumberjack-arm = pcb.keyboard-x2-lumberjack-arm;
 
-          uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
-          wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
+            uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
+            wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
 
-          docker-kibot-kicad = import ./scripts/docker-kibot.nix {
-            pkgs = pkgs;
-            tag = "kicad-7";
-          };
-        };
+            docker-kibot-kicad = import ./scripts/docker-kibot.nix {
+              pkgs = pkgs;
+              tag = "kicad-7";
+            };
+          }
+          // qmk;
 
         treefmt = import ./treefmt.nix;
       };
