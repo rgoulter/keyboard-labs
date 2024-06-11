@@ -4,6 +4,16 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    naersk = {
+      url = "github:nmattia/naersk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # For the offline ISO,
     # use same version of Nickel as Fak uses.
     nickel = {
@@ -34,6 +44,7 @@
       systems = import systems;
 
       imports = [
+        ./firmware/keyberon/flake-module.nix
       ];
 
       flake = {
