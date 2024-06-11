@@ -4,6 +4,16 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    devenv-root = {
+      url = "file+file:///dev/null";
+      flake = false;
+    };
+
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +48,8 @@
 
   outputs = inputs @ {
     self,
+    devenv-root,
+    devenv,
     nickel,
     nixpkgs,
     flake-parts,
@@ -50,6 +62,7 @@
       systems = import systems;
 
       imports = [
+        devenv.flakeModule
         treefmt-nix.flakeModule
         ./firmware/keyberon/flake-module.nix
       ];
@@ -125,6 +138,20 @@
               self.packages.${system}.pcb-keyboard-x2-lumberjack-arm
             ];
           };
+        };
+
+        devenv.shells.default = {pkgs, ...}: {
+          devenv.root = let
+            devenvRootFileContent = builtins.readFile devenv-root.outPath;
+          in
+            pkgs.lib.mkIf (devenvRootFileContent != "") devenvRootFileContent;
+
+          # https://github.com/cachix/devenv/issues/528
+          containers = pkgs.lib.mkForce {};
+
+          programs.treefmt.package = config.treefmt.build.wrapper;
+
+          imports = [./devenv.nix];
         };
 
         devShells = {
