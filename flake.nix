@@ -29,6 +29,11 @@
     };
 
     systems.url = "github:nix-systems/x86_64-linux";
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -38,12 +43,14 @@
     flake-parts,
     nixos-generators,
     systems,
+    treefmt-nix,
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import systems;
 
       imports = [
+        treefmt-nix.flakeModule
         ./firmware/keyberon/flake-module.nix
       ];
 
@@ -173,6 +180,8 @@
             tag = "kicad-7";
           };
         };
+
+        treefmt = import ./treefmt.nix;
       };
     };
 }
