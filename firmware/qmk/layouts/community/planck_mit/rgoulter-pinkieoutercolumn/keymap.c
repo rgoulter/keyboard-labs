@@ -3,7 +3,7 @@
 
 #include "raw_hid.h"
 
-#include "rgoulter.h"
+#include "users/rgoulter/rgoulter.h"
 
 extern keymap_config_t keymap_config;
 
@@ -12,41 +12,41 @@ extern keymap_config_t keymap_config;
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 enum layers {
-  _DVORAK,
-  _QWERTY,
-  _GAMING,
-  _LOWER,
-  _LOWER2,
-  _RAISE,
-  _RAISE2,
-  _CHILDPROOF,
-  _CHECK,
-  _ADJUST,
-  _FN,
+    _DVORAK,
+    _QWERTY,
+    _GAMING,
+    _LOWER,
+    _LOWER2,
+    _RAISE,
+    _RAISE2,
+    _CHILDPROOF,
+    _CHECK,
+    _ADJUST,
+    _FN,
 };
 
 enum custom_keycodes {
-  U_CUT = NEW_SAFE_RANGE,
-  U_COPY,
-  U_PASTE,
-  U_UNDO,
-  U_REDO,
+    U_CUT = NEW_SAFE_RANGE,
+    U_COPY,
+    U_PASTE,
+    U_UNDO,
+    U_REDO,
 };
 
-#define QWERTY     DF(_QWERTY)
-#define GAMING     DF(_GAMING)
-#define DVORAK     DF(_DVORAK)
+#define QWERTY DF(_QWERTY)
+#define GAMING DF(_GAMING)
+#define DVORAK DF(_DVORAK)
 #define CHILDPROOF DF(_CHILDPROOF)
-#define CHECK      DF(_CHECK)
+#define CHECK DF(_CHECK)
 
-#define LOWER      MO(_LOWER)
-#define LOWER2     MO(_LOWER2)
-#define RAISE      MO(_RAISE)
-#define RAISE2     MO(_RAISE2)
-#define ADJUST     MO(_ADJUST)
-#define FN         MO(_FN)
+#define LOWER MO(_LOWER)
+#define LOWER2 MO(_LOWER2)
+#define RAISE MO(_RAISE)
+#define RAISE2 MO(_RAISE2)
+#define ADJUST MO(_ADJUST)
+#define FN MO(_FN)
 
-#define LAYOUT_wrapper(...)            LAYOUT_planck_mit(__VA_ARGS__)
+#define LAYOUT_wrapper(...) LAYOUT_planck_mit(__VA_ARGS__)
 
 // XXX: Let's ... move the function keys away from LOWER layer.
 
@@ -56,13 +56,14 @@ enum custom_keycodes {
 
 #ifdef CORNER_RESET_ENABLE
 keypos_t boot_keypositions[4] = {
-  { .col = 1, .row = 0 },
-  { .col = 1, .row = MATRIX_ROWS - 2 },
-  { .col = MATRIX_COLS - 2, .row = 0 },
-  { .col = MATRIX_COLS - 2, .row = MATRIX_ROWS - 2 },
+    {.col = 1, .row = 0},
+    {.col = 1, .row = MATRIX_ROWS - 2},
+    {.col = MATRIX_COLS - 2, .row = 0},
+    {.col = MATRIX_COLS - 2, .row = MATRIX_ROWS - 2},
 };
 #endif
 
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Dvorak, with Home-Row Mods
@@ -232,94 +233,93 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 
 };
+// clang-format on
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
-  bool pressed = record->event.pressed;
-  switch (keycode) {
-  case U_CUT:
-    if (pressed) {
-      switch(current_os) {
-        case _OS_LINUX:
-          tap_code16(CODE16_LINUX_CUT);
-          break;
-        case _OS_MACOS:
-          tap_code16(CODE16_MACOS_CUT);
-          break;
-        case _OS_WIN:
-          tap_code16(CODE16_WIN_CUT);
-          break;
-      }
+    bool pressed = record->event.pressed;
+    switch (keycode) {
+        case U_CUT:
+            if (pressed) {
+                switch (current_os) {
+                    case _OS_LINUX:
+                        tap_code16(CODE16_LINUX_CUT);
+                        break;
+                    case _OS_MACOS:
+                        tap_code16(CODE16_MACOS_CUT);
+                        break;
+                    case _OS_WIN:
+                        tap_code16(CODE16_WIN_CUT);
+                        break;
+                }
+            }
+            return false;
+        case U_COPY:
+            if (pressed) {
+                switch (current_os) {
+                    case _OS_LINUX:
+                        tap_code16(CODE16_LINUX_COPY);
+                        break;
+                    case _OS_MACOS:
+                        tap_code16(CODE16_MACOS_COPY);
+                        break;
+                    case _OS_WIN:
+                        tap_code16(CODE16_WIN_COPY);
+                        break;
+                }
+            }
+            return false;
+        case U_PASTE:
+            if (pressed) {
+                switch (current_os) {
+                    case _OS_LINUX:
+                        tap_code16(CODE16_LINUX_PASTE);
+                        break;
+                    case _OS_MACOS:
+                        tap_code16(CODE16_MACOS_PASTE);
+                        break;
+                    case _OS_WIN:
+                        tap_code16(CODE16_WIN_PASTE);
+                        break;
+                }
+            }
+            return false;
+        case U_UNDO:
+            if (pressed) {
+                switch (current_os) {
+                    case _OS_LINUX:
+                        tap_code16(CODE16_LINUX_UNDO);
+                        break;
+                    case _OS_MACOS:
+                        tap_code16(CODE16_MACOS_UNDO);
+                        break;
+                    case _OS_WIN:
+                        tap_code16(CODE16_WIN_UNDO);
+                        break;
+                }
+            }
+            return false;
+        case U_REDO:
+            if (pressed) {
+                switch (current_os) {
+                    case _OS_LINUX:
+                        tap_code16(CODE16_LINUX_REDO);
+                        break;
+                    case _OS_MACOS:
+                        tap_code16(CODE16_MACOS_REDO);
+                        break;
+                    case _OS_WIN:
+                        tap_code16(CODE16_WIN_REDO);
+                        break;
+                }
+            }
+            return false;
     }
-    return false;
-  case U_COPY:
-    if (pressed) {
-      switch(current_os) {
-        case _OS_LINUX:
-          tap_code16(CODE16_LINUX_COPY);
-          break;
-        case _OS_MACOS:
-          tap_code16(CODE16_MACOS_COPY);
-          break;
-        case _OS_WIN:
-          tap_code16(CODE16_WIN_COPY);
-          break;
-      }
-    }
-    return false;
-  case U_PASTE:
-    if (pressed) {
-      switch(current_os) {
-        case _OS_LINUX:
-          tap_code16(CODE16_LINUX_PASTE);
-          break;
-        case _OS_MACOS:
-          tap_code16(CODE16_MACOS_PASTE);
-          break;
-        case _OS_WIN:
-          tap_code16(CODE16_WIN_PASTE);
-          break;
-      }
-    }
-    return false;
-  case U_UNDO:
-    if (pressed) {
-      switch(current_os) {
-        case _OS_LINUX:
-          tap_code16(CODE16_LINUX_UNDO);
-          break;
-        case _OS_MACOS:
-          tap_code16(CODE16_MACOS_UNDO);
-          break;
-        case _OS_WIN:
-          tap_code16(CODE16_WIN_UNDO);
-          break;
-      }
-    }
-    return false;
-  case U_REDO:
-    if (pressed) {
-      switch(current_os) {
-        case _OS_LINUX:
-          tap_code16(CODE16_LINUX_REDO);
-          break;
-        case _OS_MACOS:
-          tap_code16(CODE16_MACOS_REDO);
-          break;
-        case _OS_WIN:
-          tap_code16(CODE16_WIN_REDO);
-          break;
-      }
-    }
-    return false;
-
-  }
-  return true;
+    return true;
 }
-
 
 // RAW_EPSIZE is 32
 void raw_hid_receive(uint8_t *data, uint8_t length) {

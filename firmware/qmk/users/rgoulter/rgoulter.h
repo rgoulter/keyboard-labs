@@ -43,7 +43,7 @@
 #define ___SEG3_789___ KC_7, KC_8, KC_9
 
 #define ___SEG3_S123___ KC_EXLM, KC_AT, KC_HASH
-#define ___SEG3_S456___ KC_DLR,  KC_PERC, KC_CIRC
+#define ___SEG3_S456___ KC_DLR, KC_PERC, KC_CIRC
 #define ___SEG3_S789___ KC_AMPR, KC_ASTR, KC_LPRN
 
 #define ___SEG3_F123___ KC_F1, KC_F2, KC_F3
@@ -66,13 +66,13 @@
 #define ___SEG5_12345___ KC_1, KC_2, KC_3, KC_4, KC_5
 #define ___SEG5_67890___ KC_6, KC_7, KC_8, KC_9, KC_0
 
-#define ___SEG5_DVORAK_LHS_1___ KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y
+#define ___SEG5_DVORAK_LHS_1___ KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y
 #define ___SEG5_DVORAK_LHS_2___ LALTT_A, LGUIT_O, LCTLT_E, LSFTT_U, KC_I
-#define ___SEG5_DVORAK_LHS_3___ KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X
+#define ___SEG5_DVORAK_LHS_3___ KC_SCLN, KC_Q, KC_J, KC_K, KC_X
 
-#define ___SEG5_DVORAK_RHS_1___ KC_F,    KC_G,    KC_C,    KC_R,    KC_L
-#define ___SEG5_DVORAK_RHS_2___ KC_D,    RSFTT_H, RCTLT_T, RGUIT_N, RALTT_S
-#define ___SEG5_DVORAK_RHS_3___ KC_B,    KC_M,    KC_W,    KC_V,    KC_Z
+#define ___SEG5_DVORAK_RHS_1___ KC_F, KC_G, KC_C, KC_R, KC_L
+#define ___SEG5_DVORAK_RHS_2___ KC_D, RSFTT_H, RCTLT_T, RGUIT_N, RALTT_S
+#define ___SEG5_DVORAK_RHS_3___ KC_B, KC_M, KC_W, KC_V, KC_Z
 
 /*
  * QWERTY mod: Swap the `'` and `/`.
@@ -88,81 +88,78 @@
  *  so that it also needs `/` on other layers.
  */
 
-#define ___SEG5_QWERTY_LHS_1___ KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
+#define ___SEG5_QWERTY_LHS_1___ KC_Q, KC_W, KC_E, KC_R, KC_T
 #define ___SEG5_QWERTY_LHS_2___ LALTT_A, LGUIT_S, LCTLT_D, LSFTT_F, KC_G
-#define ___SEG5_QWERTY_LHS_3___ KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
+#define ___SEG5_QWERTY_LHS_3___ KC_Z, KC_X, KC_C, KC_V, KC_B
 
-#define ___SEG5_QWERTY_RHS_1___ KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define ___SEG5_QWERTY_RHS_2___ KC_H,    RSFTT_J, RCTLT_K, RGUIT_L, RALTTSC
-#define ___SEG5_QWERTY_RHS_3___ KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_QUOT
+#define ___SEG5_QWERTY_RHS_1___ KC_Y, KC_U, KC_I, KC_O, KC_P
+#define ___SEG5_QWERTY_RHS_2___ KC_H, RSFTT_J, RCTLT_K, RGUIT_L, RALTTSC
+#define ___SEG5_QWERTY_RHS_3___ KC_N, KC_M, KC_COMM, KC_DOT, KC_QUOT
 
-#define ___SEG5_QWERTY_LHS_SIMPLE_1___ KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define ___SEG5_QWERTY_LHS_SIMPLE_2___ KC_A,    KC_S,    KC_D,    KC_F,    KC_G
-#define ___SEG5_QWERTY_LHS_SIMPLE_3___ KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
+#define ___SEG5_QWERTY_LHS_SIMPLE_1___ KC_Q, KC_W, KC_E, KC_R, KC_T
+#define ___SEG5_QWERTY_LHS_SIMPLE_2___ KC_A, KC_S, KC_D, KC_F, KC_G
+#define ___SEG5_QWERTY_LHS_SIMPLE_3___ KC_Z, KC_X, KC_C, KC_V, KC_B
 
-#define ___SEG5_QWERTY_RHS_SIMPLE_1___ KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define ___SEG5_QWERTY_RHS_SIMPLE_2___ KC_H,    KC_J,    KC_K,    KC_L, RALTTSC
-#define ___SEG5_QWERTY_RHS_SIMPLE_3___ KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_QUOT
+#define ___SEG5_QWERTY_RHS_SIMPLE_1___ KC_Y, KC_U, KC_I, KC_O, KC_P
+#define ___SEG5_QWERTY_RHS_SIMPLE_2___ KC_H, KC_J, KC_K, KC_L, RALTTSC
+#define ___SEG5_QWERTY_RHS_SIMPLE_3___ KC_N, KC_M, KC_COMM, KC_DOT, KC_QUOT
 
-#define ___BASE_BOTTOM_ROW___ \
-  _______, _______, _______, LWR_TAB, LW2_ESC,    KC_SPC,      RS2_BSP,    RSE_ENT, _______, _______, _______
+#define ___BASE_BOTTOM_ROW___ _______, _______, _______, LWR_TAB, LW2_ESC, KC_SPC, RS2_BSP, RSE_ENT, _______, _______, _______
 
-#define ___BASE_BOTTOM_ROW_12___ \
-  FN,      _______, _______, LWR_TAB, LW2_ESC,    KC_SPC, KC_SPC,     RS2_BSP,    RSE_ENT, _______, _______, _______
-
+#define ___BASE_BOTTOM_ROW_12___ FN, _______, _______, LWR_TAB, LW2_ESC, KC_SPC, KC_SPC, RS2_BSP, RSE_ENT, _______, _______, _______
 
 // macOS
-#define CODE16_MACOS_DESKTOP_LEFT  LCTL(KC_LEFT)
+#define CODE16_MACOS_DESKTOP_LEFT LCTL(KC_LEFT)
 #define CODE16_MACOS_DESKTOP_RIGHT LCTL(KC_RIGHT)
 
 #define CODE16_MACOS_DESKTOP_LOCK LCTL(LGUI(KC_Q))
 
-#define CODE16_MACOS_CUT   LCMD(KC_X)
-#define CODE16_MACOS_COPY  LCMD(KC_C)
+#define CODE16_MACOS_CUT LCMD(KC_X)
+#define CODE16_MACOS_COPY LCMD(KC_C)
 #define CODE16_MACOS_PASTE LCMD(KC_V)
 
 #define CODE16_MACOS_UNDO SCMD(KC_Z)
 #define CODE16_MACOS_REDO LCMD(KC_Z)
 
 // Linux, Gnome shell
-#define CODE16_LINUX_DESKTOP_LEFT  LCTL(LALT(KC_LEFT))
-#define CODE16_LINUX_DESKTOP_RIGHT LCTL(LALT(KC_RIGHT))
+#define CODE16_LINUX_DESKTOP_LEFT LGUI(KC_PGUP)
+#define CODE16_LINUX_DESKTOP_RIGHT LGUI(KC_PGDN)
 
 #define CODE16_LINUX_DESKTOP_LOCK LGUI(KC_L)
 
 // n.b. these don't always work
-#define CODE16_LINUX_CUT   KC_CUT
-#define CODE16_LINUX_COPY  KC_COPY
+#define CODE16_LINUX_CUT KC_CUT
+#define CODE16_LINUX_COPY KC_COPY
 #define CODE16_LINUX_PASTE KC_PSTE
 
 #define CODE16_LINUX_UNDO KC_UNDO
 #define CODE16_LINUX_REDO KC_AGIN
 
 // Windows 10
-#define CODE16_WIN_DESKTOP_LEFT  LCTL(LGUI(KC_LEFT))
+#define CODE16_WIN_DESKTOP_LEFT LCTL(LGUI(KC_LEFT))
 #define CODE16_WIN_DESKTOP_RIGHT LCTL(LGUI(KC_RIGHT))
 
 #define CODE16_WIN_DESKTOP_LOCK LGUI(KC_L)
 
-#define CODE16_WIN_CUT   C(KC_X)
-#define CODE16_WIN_COPY  C(KC_C)
+#define CODE16_WIN_CUT C(KC_X)
+#define CODE16_WIN_COPY C(KC_C)
 #define CODE16_WIN_PASTE C(KC_V)
 
 #define CODE16_WIN_UNDO C(KC_Y)
 #define CODE16_WIN_REDO C(KC_Z)
 
 enum custom_keycodes_user {
-  QUARTER = SAFE_RANGE,
-  OSLINUX,
-  OSMACOS,
-  OSWIN,
-  NEW_SAFE_RANGE,
+    QUARTER = SAFE_RANGE,
+    OSLINUX,
+    OSMACOS,
+    OSWIN,
+    NEW_SAFE_RANGE,
 };
 
 enum host_os {
-  _OS_LINUX,
-  _OS_MACOS,
-  _OS_WIN,
+    _OS_LINUX,
+    _OS_MACOS,
+    _OS_WIN,
 };
 typedef enum host_os host_os_t;
 
@@ -176,17 +173,14 @@ extern keypos_t boot_keypositions[4];
 extern combo_t key_combos[COMBO_COUNT];
 
 enum combo_events {
-  DESKTOP_GO_LEFT,
-  DESKTOP_GO_RIGHT,
-  LEAD,
+    DESKTOP_GO_LEFT,
+    DESKTOP_GO_RIGHT,
+    LEAD,
 };
 
 extern const uint16_t PROGMEM dsk_lower_left_combo[];
 extern const uint16_t PROGMEM dsk_lower_right_combo[];
 extern const uint16_t PROGMEM dsk_lower_lead_combo[];
 
-#define USER_KEY_COMBOS \
-  [DESKTOP_GO_LEFT] = COMBO_ACTION(dsk_lower_left_combo),   \
-  [DESKTOP_GO_RIGHT] = COMBO_ACTION(dsk_lower_right_combo), \
-  [LEAD] = COMBO_ACTION(dsk_lower_lead_combo)
+#    define USER_KEY_COMBOS [DESKTOP_GO_LEFT] = COMBO_ACTION(dsk_lower_left_combo), [DESKTOP_GO_RIGHT] = COMBO_ACTION(dsk_lower_right_combo), [LEAD] = COMBO_ACTION(dsk_lower_lead_combo)
 #endif

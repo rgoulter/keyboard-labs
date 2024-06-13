@@ -4,7 +4,7 @@
 #include "minif4_36.h"
 
 #ifdef SPLIT_KEYBOARD
-#include "split_util.h"
+#    include "split_util.h"
 #endif
 
 void board_init(void) {
