@@ -18,10 +18,10 @@
 #include "print.h"
 
 #ifdef HAPTIC_ENABLE
-#include "solenoid.h"
+#    include "solenoid.h"
 #endif
 
-#include "rgoulter.h"
+#include "users/rgoulter/rgoulter.h"
 
 // Defines names for use in layer keycodes and the keymap
 enum layers {
@@ -39,19 +39,19 @@ enum layers {
     _GAME_DF,
 };
 
-#define CHECK     DF(_CHECK)
-#define DVORAK     DF(_DVORAK)
-#define QWERTY     DF(_QWERTY)
-#define BASE       DF(_DVORAK)
-#define GAME_AL     DF(_GAME_ALT)
-#define GAME_DF     DF(_GAME_DF)
-#define CHILDPROOF     DF(_CHILDPROOF)
-#define SPC_NAVR  LT(_NAVR, KC_SPC)
-#define TAB_MOUR  LT(_MOUR, KC_TAB)
-#define ESC_MEDR  LT(_MEDR, KC_ESC)
-#define BKSP_NSL   LT(_NSL, KC_BSPC)
-#define ENT_NSSL  LT(_NSSL, KC_ENT)
-#define DEL_FUNL  LT(_FUNL, KC_DEL)
+#define CHECK DF(_CHECK)
+#define DVORAK DF(_DVORAK)
+#define QWERTY DF(_QWERTY)
+#define BASE DF(_DVORAK)
+#define GAME_AL DF(_GAME_ALT)
+#define GAME_DF DF(_GAME_DF)
+#define CHILDPROOF DF(_CHILDPROOF)
+#define SPC_NAVR LT(_NAVR, KC_SPC)
+#define TAB_MOUR LT(_MOUR, KC_TAB)
+#define ESC_MEDR LT(_MEDR, KC_ESC)
+#define BKSP_NSL LT(_NSL, KC_BSPC)
+#define ENT_NSSL LT(_NSSL, KC_ENT)
+#define DEL_FUNL LT(_FUNL, KC_DEL)
 
 #define LAYOUT_wrapper(...) LAYOUT_split_3x5_3(__VA_ARGS__)
 #define LAYOUT_split_3x5_3_wrapper(...) LAYOUT_split_3x5_3(__VA_ARGS__)
@@ -64,91 +64,92 @@ enum layers {
 // e.g. on Pico42 (or when using 3 thumbkeys on ortho5x12),
 // I find it more comfortable to have the 'third key' for RHS be more medial,
 // so that the main two RHS thumb keys are below 'nm'.
-#  define THUMB_ROW TAB_MOUR, ESC_MEDR, SPC_NAVR,    ENT_NSSL, BKSP_NSL, DEL_FUNL
+#    define THUMB_ROW TAB_MOUR, ESC_MEDR, SPC_NAVR, ENT_NSSL, BKSP_NSL, DEL_FUNL
 #else
 // e.g. on X-1, the 'third key' for RHS is more lateral than the others
-#  define THUMB_ROW TAB_MOUR, ESC_MEDR, SPC_NAVR,    BKSP_NSL, ENT_NSSL, DEL_FUNL
+#    define THUMB_ROW TAB_MOUR, ESC_MEDR, SPC_NAVR, BKSP_NSL, ENT_NSSL, DEL_FUNL
 #endif
 
-
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Different from Miryoku: LHS thumb keys: {Tab, Esc, Spc} instead of {Esc, Spc, Tab}
 // Different from Miryoku: RHS thumb keys: {Tab, Esc, Spc} instead of {Esc, Spc, Tab}
 // Different from Miryoku: Dvorak: retain semicolon, instead of using slash.
 [_DVORAK] = LAYOUT_wrapper( \
-  ___SEG5_DVORAK_LHS_1___,                           ___SEG5_DVORAK_RHS_1___,
-  ___SEG5_DVORAK_LHS_2___,                           ___SEG5_DVORAK_RHS_2___,
-  ___SEG5_DVORAK_LHS_3___,                           ___SEG5_DVORAK_RHS_3___,
-                    THUMB_ROW
+    ___SEG5_DVORAK_LHS_1___,                           ___SEG5_DVORAK_RHS_1___,
+    ___SEG5_DVORAK_LHS_2___,                           ___SEG5_DVORAK_RHS_2___,
+    ___SEG5_DVORAK_LHS_3___,                           ___SEG5_DVORAK_RHS_3___,
+                                    THUMB_ROW
 ),
 
 // Different from Miryoku: LHS thumb keys: {Tab, Esc, Spc} instead of {Esc, Spc, Tab}
 // Different from Miryoku: RHS thumb keys: {Bksp, Ent, Del} instead of {Ent, Bspc, Del}
 [_QWERTY] = LAYOUT_wrapper( \
-  ___SEG5_QWERTY_LHS_1___,                           ___SEG5_QWERTY_RHS_1___,
-  ___SEG5_QWERTY_LHS_2___,                           ___SEG5_QWERTY_RHS_2___,
-  ___SEG5_QWERTY_LHS_3___,                           ___SEG5_QWERTY_RHS_3___,
-                    THUMB_ROW
+    ___SEG5_QWERTY_LHS_1___,                           ___SEG5_QWERTY_RHS_1___,
+    ___SEG5_QWERTY_LHS_2___,                           ___SEG5_QWERTY_RHS_2___,
+    ___SEG5_QWERTY_LHS_3___,                           ___SEG5_QWERTY_RHS_3___,
+                                    THUMB_ROW
 ),
 
 [_CHECK] = LAYOUT_wrapper( \
-  ___SEG5_DVORAK_LHS_1___,                           ___SEG5_DVORAK_RHS_1___,
-  ___SEG5_DVORAK_LHS_2___,                           ___SEG5_DVORAK_RHS_2___,
-  ___SEG5_DVORAK_LHS_3___,                           ___SEG5_DVORAK_RHS_3___,
-                    KC_1, KC_2, KC_3, KC_4, KC_5, KC_6
+    ___SEG5_DVORAK_LHS_1___,                           ___SEG5_DVORAK_RHS_1___,
+    ___SEG5_DVORAK_LHS_2___,                           ___SEG5_DVORAK_RHS_2___,
+    ___SEG5_DVORAK_LHS_3___,                           ___SEG5_DVORAK_RHS_3___,
+                         KC_1, KC_2, KC_3, KC_4, KC_5, KC_6
 ),
 
 // XXX: Different from Miryoku: Nav, RHS, upper: TBI the convenience cut/copy/paste and undo/redo
 [_NAVR] = LAYOUT_wrapper( \
-  _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______,    ___SEG4_NAV2___, CW_TOGG,
-  _______, OSWIN,   OSMACOS, OSLINUX, _______,    ___SEG4_NAV3___, KC_INS,
-                    _______, _______, _______,    _______, _______, _______
+    _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______,    ___SEG4_NAV2___, CW_TOGG,
+    _______, OSWIN,   OSMACOS, OSLINUX, _______,    ___SEG4_NAV3___, KC_INS,
+                      _______, _______, _______,    _______, _______, _______
 ),
 
 [_MOUR] = LAYOUT_wrapper( \
-  _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______,    ___SEG4_MOU_MV___, _______,
-  _______, _______, _______, _______, _______,    ___SEG4_MOU_WH___, _______,
-                    _______, _______, _______,    ___SEG3_MOU_BTN___
+    _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______,    ___SEG4_MOU_MV___, _______,
+    _______, _______, _______, _______, _______,    ___SEG4_MOU_WH___, _______,
+                      _______, _______, _______,    ___SEG3_MOU_BTN___
 ),
 
 // Different from Miryoku: Media layer, RHS, lower: used to swap base layers
 // Different from Miryoku: Media layer, RHS: RGB doesn't follow Nav swap
 // Different from Miryoku: Media layer, RHS, non-nav column: no external power, no Bluetooth
 [_MEDR] = LAYOUT_wrapper( \
-  _______, _______, _______, HF_RST,  _______,    RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,
-  HF_BUZZ, HF_DWLU, HF_DWLD, HF_TOGG, HF_FDBK,    ___SEG4_MED___, _______,
-  _______, _______, _______, DB_TOGG, _______,    QWERTY,  DVORAK,  GAME_DF, GAME_AL, QK_BOOT,
-                    _______, _______, _______,    KC_MPLY, KC_MSTP, KC_MUTE
+    _______, _______, _______, HF_RST,  _______,    RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,
+    HF_BUZZ, HF_DWLU, HF_DWLD, HF_TOGG, HF_FDBK,    ___SEG4_MED___, _______,
+    _______, _______, _______, DB_TOGG, _______,    QWERTY,  DVORAK,  GAME_DF, GAME_AL, QK_BOOT,
+                      _______, _______, _______,    KC_MPLY, KC_MSTP, KC_MUTE
 ),
 
 // Different from Miryoku: Number layer, LHS: GRV in middle & slash (rather than semicolon)
 [_NSL] = LAYOUT_wrapper( \
-  KC_LBRC, ___SEG3_789___, KC_RBRC,        _______, _______, _______, _______, _______,
-  KC_GRV,  ___SEG3_456___, KC_EQL,         _______, _______, _______, _______, _______,
-  KC_SLSH, ___SEG3_123___, KC_BSLS,        _______, _______, _______, _______, _______,
-                 KC_DOT, KC_0, KC_MINS,    _______, _______, _______
+    KC_LBRC, ___SEG3_789___, KC_RBRC,        _______, _______, _______, _______, _______,
+    KC_GRV,  ___SEG3_456___, KC_EQL,         _______, _______, _______, _______, _______,
+    KC_SLSH, ___SEG3_123___, KC_BSLS,        _______, _______, _______, _______, _______,
+                   KC_DOT, KC_0, KC_MINS,    _______, _______, _______
 ),
 
 // Different from Miryoku: Number layer, LHS: TILD in middle & slash (rather than colon)
 [_NSSL] = LAYOUT_wrapper( \
-  KC_LCBR, ___SEG3_S789___, KC_RCBR,              _______, _______, _______, _______, _______,
-  KC_TILD, ___SEG3_S456___, KC_PLUS,              _______, _______, _______, _______, _______,
-  KC_QUES, ___SEG3_S123___, KC_PIPE,              _______, _______, _______, _______, _______,
-                    KC_LPRN, KC_RPRN, KC_UNDS,    _______, _______, _______
+    KC_LCBR, ___SEG3_S789___, KC_RCBR,              _______, _______, _______, _______, _______,
+    KC_TILD, ___SEG3_S456___, KC_PLUS,              _______, _______, _______, _______, _______,
+    KC_QUES, ___SEG3_S123___, KC_PIPE,              _______, _______, _______, _______, _______,
+                      KC_LPRN, KC_RPRN, KC_UNDS,    _______, _______, _______
 ),
 
 [_FUNL] = LAYOUT_wrapper( \
-  KC_F12, ___SEG3_F789___,   KC_PSCR,           _______, _______, _______, _______, _______,
-  KC_F11, ___SEG3_F456___,   KC_SCRL,           _______, _______, _______, _______, _______,
-  KC_F10, ___SEG3_F123___,   KC_PAUS,           _______, _______, _______, _______, _______,
-                  _______, _______, _______,    _______, _______, _______
+    KC_F12, ___SEG3_F789___,   KC_PSCR,           _______, _______, _______, _______, _______,
+    KC_F11, ___SEG3_F456___,   KC_SCRL,           _______, _______, _______, _______, _______,
+    KC_F10, ___SEG3_F123___,   KC_PAUS,           _______, _______, _______, _______, _______,
+                    _______, _______, _______,    _______, _______, _______
 ),
 
 #include <game-tomb_raider.inc>
 
 };
+// clang-format on
 
 void keyboard_post_init_user(void) {
 #ifdef RGB_MATRIX_ENABLE
@@ -181,15 +182,17 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     // If the right-hand board is used as master,
     // the OLEDs are rendered "upside down".
     if (is_keyboard_master()) {
-        return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
+        return OLED_ROTATION_180; // flips the display 180 degrees if offhand
     }
 
     return rotation;
 }
 
-#define TEST_CHAR_COUNT ('~' - '!' + 1)
+#    define TEST_CHAR_COUNT ('~' - '!' + 1)
 
-static char get_test_char(uint8_t char_index) { return char_index + '!'; }
+static char get_test_char(uint8_t char_index) {
+    return char_index + '!';
+}
 
 // Fill the whole screen with distinct characters (if the display is large enough to show more than 94 characters
 // at once, the sequence is repeated the second time with inverted characters).
@@ -210,8 +213,8 @@ static void test_characters(void) {
 }
 
 bool oled_task_user(void) {
-  test_characters();
+    test_characters();
 
-  return false;
+    return false;
 }
 #endif
