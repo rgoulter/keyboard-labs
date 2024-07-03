@@ -320,7 +320,7 @@ _2D Renders of the PCB, revision rev2023.2_
 
 #### Firmware
 
-- Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+- Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
 (NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
 
@@ -375,7 +375,7 @@ _2D Renders of the PCB, revision rev2023.1_
 
 #### Firmware
 
-- Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+- Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
 (NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
 
@@ -448,7 +448,7 @@ _2D Renders of the PCB, revision rev2023.1_
 
 Same as for the [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor).
 
-Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+- Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
 (NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
 
@@ -520,7 +520,7 @@ _2D Renders of the PCB, revision rev2023.1_
 
 #### Firmware
 
-- Firmware: NCL files provided under `ncl/` at https://github.com/rgoulter/fak
+- Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
 (NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
 
