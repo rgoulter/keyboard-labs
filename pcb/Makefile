@@ -6,7 +6,8 @@ ibom_targets := \
   keyboard-x2-lumberjack-arm-hsrgb-ibom \
   keyboard-pico42-ibom \
   keyboard-ch552-44-ibom \
-  keyboard-ch552-36-ibom
+  keyboard-ch552-36-ibom \
+  keyboard-wabble-60-ibom
 kibot_targets := $(foreach board,$(boards),$(board)-kibot)
 
 .PHONY: all
@@ -50,3 +51,7 @@ keyboard-ch552-44-ibom: keyboard-ch552-44.net
 .PHONY: keyboard-ch552-36-ibom
 keyboard-ch552-36-ibom: keyboard-ch552-36-lhs.net
 	bash ../scripts/generate-ch552-36-ibom.sh
+
+.PHONY: keyboard-wabble-60-ibom
+keyboard-wabble-60-ibom: keyboard-wabble-60.net
+	bash ../scripts/generate-wabble-60-ibom.sh
