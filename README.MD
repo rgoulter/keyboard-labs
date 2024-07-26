@@ -21,7 +21,9 @@ Plotted gerber files can be found under the GitHub repository's
 | [CH552-44](#ch552-44-low-budget-hand-solderable-pcb-in-bm40jj40-form-factor) | 44-key ortholinear, MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-44/ch552_44-sandwich-top.JPG) |
 | [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor) | 48-key ortholinear (4x12), MX, BM40/JJ40-compatible, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48/ch552-48-top.JPG) |
 | [CH552-48-LPR](#ch552-48-lpr-low-budget-pcba-with-low-profile-redragon-switches) | 48-key ortholinear (4x12), low profile redragon, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-48-lpr/ch552_48-lpr-sandwich-top.JPG) |
-| [CH552-36](#ch552-36-low-budget-36-key-split-keyboard-with-smt-components) | 36 key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/top-with-coiled-cable.JPG) |
+| [CH552-36](#ch552-36-low-budget-36-key-split-keyboard-with-smt-components) | 36-key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/top-with-coiled-cable.JPG) |
+| [WABBLE-60](#wabble-60-5x12-ortholinear-ble-risc-v-powered-adaptation-of-peejs-lumberjack-pcb) | 60-key (5x12), unsplit, ortholinear, MX, GH60-compatible, "show the components", RISC-V        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/wabble-60/wabble-60.JPG) |
+
 
 
 
@@ -524,6 +526,88 @@ _2D Renders of the PCB, revision rev2023.1_
 
 (NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
 
+
+
+## WABBLE-60: 5x12 Ortholinear, BLE, RISC-V-powered Adaptation of peej's Lumberjack PCB
+
+A keyboard using the [WeAct BLE core board](https://aliexpress.com/item/1005004784988010.html).
+
+WeAct's BLE core board is significantly cheaper than the more popular
+[nice!nano](https://nicekeyboards.com/nice-nano) BLE board.
+
+The PCB design resembles peej's
+[lumberjack-keyboard](https://github.com/peej/lumberjack-keyboard), and mounts
+into GH-60 compatible cases like the Lumberjack; however, the WeAct BLE core
+board uses a much more powerful MCU than the Lumberjack's 8-bit ATMega328P.
+
+The WABBLE-60 PCB includes LiPo charging.
+
+Design goals:
+
+- Using WeAct BLE core board. (BLE! RISC-V-powered!).
+- Adapt the Lumberjack design.
+  - In a "show the components" style.
+  - Fits in tray-mount GH60 case.
+  - (Relatively) easy to solder.
+
+Pictures:
+
+<img
+src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/wabble-60/wabble-60.JPG"
+width=600 />
+
+_WABBLE-60._
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/wabble-60/keyboard-wabble-60-2024.2-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/wabble-60/keyboard-wabble-60-2024.2-bottom.svg" width=600 />
+
+_2D Renders of the PCB, revision rev2024.2_
+
+### Build Guides and Release Assets
+
+- [rev2024.2 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-wabble-60-rev2024.2.html)
+
+- [rev2024.2 Build Guide](buildguide_wabble-60_rev2024.2.md)
+
+#### Firmware
+
+There are few options for keyboard firmware for the WeAct BLE core board;
+ and what options there exist are not very mature.
+
+There is a [port of QMK to the CH582](https://github.com/O-H-M2/qmk_port_ch582),
+but as far as I'm aware, it's USB-only, and its BLE-implementation is not
+public.  
+[I wrote about my experience writing firmware with this
+port](https://rgoulter.com/blog/posts/programming/2023-12-27-experience-writing-firmware-with-the-ch582-port-of-qmk.html).  
+[I've put the code for the WABBLE-60 in my qmk_port_ch5xx
+fork](https://github.com/rgoulter/qmk_port_ch5xx).
+
+[Kirei](https://github.com/semickolon/kirei), from the same author as
+[fak](https://github.com/semickolon/fak) supports the CH58x.
+
+I recorded a video [demonstrating 110 WPM](https://www.youtube.com/watch?v=mc6wTqoDZe8)
+using a BLE connection.  
+Though, at the time of writing, Kirei's BLE implementation is not yet mature;
+ I've had trouble using the BLE keyboard on some platforms.
+
+Like fak, Kirei's keymaps are declared in [Nickel](https://nickel-lang.org/).
+Kirei's keymap language is more expressive than fak's.  
+[Here's an example of a
+non-trivial keymap written for
+Kirei](https://github.com/rgoulter/kirei/blob/2e2789838f9dd02c558ced4ca06c2f2e88c32219/src/keymap.ncl)  
+[I've put the code for the WABBLE-60 in my kirei fork](https://github.com/rgoulter/kirei).
+
+Besides these options, [ch32-rs has a work-in-progress HAL for
+CH58x](https://github.com/ch32-rs/ch58x-hal/).  Its examples include [a
+bare-bones BLE
+Peripheral](https://github.com/ch32-rs/ch58x-hal/blob/20eac4fd7d65b2eaa8b4eae40f882724a5710646/examples/ble-peripheral.rs).
+
+[WCH's EVT](https://github.com/openwch/ch583) has many examples for the CH58x
+(including USB HID Keyboard, USB+BLE, BLE HID, BLE Central+Peripheral, BLE OTA
+IAP).
+
+WeAct also have a BLE core board which uses CH592. However, the CH592 has even
+less support than the CH58x.
 
 
 
