@@ -93,9 +93,9 @@ It may also be useful to have:
 
 1. Solder a PH2.0 connector to the LiPo battery.
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/0_0_battery.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/00_0_battery.JPG" />
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/0_1_battery.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/00_1_battery.JPG" />
 
     Alternatively, the battery can be soldered directly to the WABBLE-60 PCB.
 
@@ -108,20 +108,20 @@ It may also be useful to have:
 
     To do this, gather the WeAct BLE core board, round-pin male headers, and a spare breadboard.
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/1_0_coreboard.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/01_0_coreboard.JPG" />
 
     Cut the header pins down to an appropriate number.
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/1_1_coreboard.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/01_1_coreboard.JPG" />
 
     Solder the round-pin headers to the core board:
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/1_2_coreboard.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/01_2_coreboard.JPG" />
 
     The pins can be cut, and the solder joints reflowed,
      which hopefully looks a bit neater than leaving the pins untrimmed:
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/1_3_coreboard.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/01_3_coreboard.JPG" />
 
 3. Solder the USB connector.
 
@@ -129,29 +129,29 @@ It may also be useful to have:
 
     It may be helpful to [review a video on soldering a USB-C port](https://www.youtube.com/watch?v=e6TMxctCcxU).
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/2_0_usb.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/02_0_usb.JPG" />
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/2_1_usb.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/02_1_usb.JPG" />
 
 4. Solder the LiPo charging circuitry.
 
     Solder the TP4054 to U2:
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/3_0_tp4045.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/03_0_tp4045.JPG" />
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/3_1_tp4054.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/03_1_tp4054.JPG" />
 
     Solder 2x 1N5819 to D1, D2;
     a 22k resistor to R3;
     a 10k resistor to R4;
     and the R_PROG resistor to R5:
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/3_2_tp4054.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/03_2_tp4054.JPG" />
 
     Solder the BSS138 to Q1:
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/4_0_fet.JPG" />
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/4_1_fet.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/04_0_fet.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/04_1_fet.JPG" />
 
 5. Solder the switch diodes.
 
@@ -164,9 +164,9 @@ It may also be useful to have:
     It may be too tedious to try to solder all 60 at once.
     One approach is to solder just the "inner" diodes at once, then the "outer" diodes.
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/5_0_diodes.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/05_0_diodes.JPG" />
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/5_1_diodes.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/05_1_diodes.JPG" />
 
 6. Solder the tall through-hole components.
 
@@ -185,8 +185,8 @@ It may also be useful to have:
 
     For the PH2.0 headers, orientation needs to match the silkscreen markings.
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/6_0_th.JPG" />
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/6_1_th.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/06_0_th.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/06_1_th.JPG" />
 
 7. Check the USB connector and LiPo charging.
 
@@ -202,8 +202,8 @@ It may also be useful to have:
     or that the 'CHARGE' LED is bright if the LiPo battery is not fully charged
      when a USB cable is connected.
 
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/9_batt_charge.JPG" />
-    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/9_batt_full.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/09_batt_charge.JPG" />
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-wabble-60-rev2024.2/09_batt_full.JPG" />
 
 8. Solder the switches.
 
