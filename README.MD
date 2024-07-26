@@ -567,7 +567,7 @@ _2D Renders of the PCB, revision rev2024.2_
 
 - [rev2024.2 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-wabble-60-rev2024.2.html)
 
-- [rev2024.2 Build Guide](buildguide_wabble-60_rev2024.2.md)
+- [rev2024.2 Build Guide](docs/buildguide_wabble-60_rev2024.2.md)
 
 #### Firmware
 
