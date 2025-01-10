@@ -4076,6 +4076,20 @@
 		)
 		(uuid "5a15dbc3-9e18-4482-a7cb-dffc665b7408")
 	)
+	(text "ERRATA:\nThis is an invalid diode direction.\n\nFor CH32X035:\n- Only PA0-PA15 and PC16-PC17 support pull down input.\n  (ref. CH32X035 datasheet, section 1.4.19).\n- PA7 cannot be used as an output.\n  (ref. notes to Table 2-1).\n\nHence, \"COL2ROW\" does not allow scanning\nthe keyboard matrix with this assignment\nof ROWx/COLx."
+		(exclude_from_sim no)
+		(at 96.52 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+				(color 255 0 0 1)
+			)
+			(justify left)
+		)
+		(uuid "8ee71737-3414-413b-9734-5a88add6046f")
+	)
 	(text "The keyboard has 48 keys laid out\nin a 4-row-12-column grid.\n\nIt uses fewer GPIO pins to have a 7x7 matrix (14 pins)\nthan to use a 4x12 (16 pins) matrix.\n\nThe mapping is top-to-bottom, left-to-right.\nThis retains \"column X <= Y\".\n\nTo find the key number:\n\n  switch number =\n    keyboard column * number of rows + keyboard row.\n\nTo find the logical column, 'row':\n\n  (switch number / 7, switch number % 7)"
 		(exclude_from_sim no)
 		(at 96.52 48.26 0)
@@ -4086,6 +4100,19 @@
 			(justify left bottom)
 		)
 		(uuid "90dc8a85-5197-4b81-b333-ce01362591ce")
+	)
+	(text "NOTE:\nDatasheet figure 3-9 reference circuit\nalso includes 4.7uF capacitor."
+		(exclude_from_sim no)
+		(at 14.478 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+				(color 0 194 0 1)
+			)
+			(justify left)
+		)
+		(uuid "931632c2-b1e0-4aec-958b-1f02e9d74e47")
 	)
 	(text "UART"
 		(exclude_from_sim no)
