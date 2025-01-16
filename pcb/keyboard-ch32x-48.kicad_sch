@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "CH32X-48")
-		(date "2025-01-10")
-		(rev "rev2025.2")
+		(date "2025-01-16")
+		(rev "rev2025.3")
 		(company "Richard Goulter (rgoulter)")
 		(comment 1 "48-key on 7x7 digital matrix.")
 		(comment 2 "Simple 4x12 ortholinear keyboard using CH32X MCU.")
@@ -1962,9 +1962,9 @@
 							)
 						)
 					)
+					(alternate "" input line)
 					(alternate "A3" bidirectional line)
 					(alternate "O1O0" bidirectional line)
-					(alternate "" input line)
 					(alternate "RX2" bidirectional line)
 					(alternate "T2C4" bidirectional line)
 					(alternate "T3C1_" bidirectional line)
@@ -1986,10 +1986,10 @@
 							)
 						)
 					)
+					(alternate "" input line)
 					(alternate "C1P0" power_out line)
 					(alternate "DCK" power_out line)
 					(alternate "I2C_" power_out line)
-					(alternate "" input line)
 					(alternate "RX3_" power_out line)
 					(alternate "T2C1_" power_out line)
 					(alternate "T3C1_" power_out line)
@@ -2191,9 +2191,9 @@
 							)
 						)
 					)
+					(alternate "" input line)
 					(alternate "DIO" bidirectional line)
 					(alternate "I2C_" bidirectional line)
-					(alternate "" input line)
 					(alternate "T1ET_" bidirectional line)
 					(alternate "T2C1N_" bidirectional line)
 					(alternate "T3C2_" bidirectional line)
@@ -3798,6 +3798,16 @@
 		)
 		(uuid "a3f6be72-e0d3-42a1-844b-79e62a137d92")
 	)
+	(polyline
+		(pts
+			(xy 189.23 147.32) (xy 189.23 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4e22ef9-fb3f-4b17-bf83-3e73ee4cf0b4")
+	)
 	(wire
 		(pts
 			(xy 180.34 88.9) (xy 195.58 88.9)
@@ -4212,6 +4222,17 @@
 		)
 		(uuid "20cbef4f-ea13-426a-bbcd-ef6be5da0d1c")
 	)
+	(text "External Pull-up Resistor"
+		(exclude_from_sim no)
+		(at 190.246 149.606 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "251e0bb1-c995-4c5d-accb-a88fe79de963")
+	)
 	(text "Reset Switch\nref. Figure 3-3 Typical circuit\nof CH32X datasheet."
 		(exclude_from_sim no)
 		(at 17.272 148.336 0)
@@ -4290,6 +4311,17 @@
 			(justify left bottom)
 		)
 		(uuid "c578f8ae-a382-4504-8dc3-15503748c72d")
+	)
+	(text "When testing rev2025.1, I observed\nif a SW_6_C key was pressed\n quickly followed by a physically adjacent SW_2_C key,\nthen all SW_6_C keys scanned as pressed.\n\nUsing a 10K pull up resistor on Row6\n resolved the issue."
+		(exclude_from_sim no)
+		(at 216.662 155.702 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d1d940e7-aba6-427e-88d0-b078084a6333")
 	)
 	(text "Hardware, Mounting Holes\nFor M2 screws.\nSame mounting holes as JJ40."
 		(exclude_from_sim no)
@@ -4701,6 +4733,17 @@
 		)
 		(uuid "81ec95f7-874a-43b3-af14-cb94352f67bc")
 	)
+	(label "ROW6"
+		(at 204.47 160.02 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "83834be7-0744-49d9-8eb7-fb95e927bb30")
+	)
 	(label "COL2"
 		(at 34.29 24.13 180)
 		(fields_autoplaced yes)
@@ -4788,6 +4831,17 @@
 			(justify right bottom)
 		)
 		(uuid "a501fe4b-ccd5-4857-8064-39caa5f2a32b")
+	)
+	(label "VDD"
+		(at 196.85 160.02 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a5b245ac-6383-4993-9877-9b72496b50c4")
 	)
 	(label "COL6"
 		(at 246.38 21.59 90)
@@ -8848,6 +8902,83 @@
 			(project "PyKey40-HS"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb"
 					(reference "SW_4_1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 200.66 160.02 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5e7a5021-3754-4410-bb6f-77acf7ce054c")
+		(property "Reference" "R6"
+			(at 200.66 153.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 200.66 156.21 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 200.66 161.798 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 200.66 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 200.66 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C17414"
+			(at 200.66 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8fd5aa34-e597-4805-99d0-f77dce56c968")
+		)
+		(pin "2"
+			(uuid "f70c0ef1-7250-4119-84da-aca7899a498a")
+		)
+		(instances
+			(project "keyboard-ch32x-48"
+				(path "/491af640-c615-48ab-84d8-9b166bc1ab37"
+					(reference "R6")
 					(unit 1)
 				)
 			)
