@@ -224,8 +224,9 @@ def hide_fp_texts(
         if footprint is None:
             continue
         for t in footprint.GraphicalItems():
-            if isinstance(t, pcbnew.FP_TEXT) and t.GetLayerName() in layer_names:
-                t.SetVisible(False)
+            pass
+            ## if isinstance(t, pcbnew.FP_TEXT) and t.GetLayerName() in layer_names:
+            ##     t.SetVisible(False)
 
 
 def delete_fp_shapes(
