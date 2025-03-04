@@ -574,7 +574,7 @@ _2D Renders of the PCB, revision rev2024.2_
 There are few options for keyboard firmware for the WeAct BLE core board;
  and what options there exist are not very mature.
 
-- My own (https://github.com/rgoulter/smart-keymap) project includes
+- My own [smart-keymap](https://github.com/rgoulter/smart-keymap) project includes
    firmware for the WABBLE-60.
   - The project like fak and kirei (mentioned below) uses [Nickel](https://nickel-lang.org/)
      for expressive declarative keymaps.
