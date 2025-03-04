@@ -574,37 +574,37 @@ _2D Renders of the PCB, revision rev2024.2_
 There are few options for keyboard firmware for the WeAct BLE core board;
  and what options there exist are not very mature.
 
-There is a [port of QMK to the CH582](https://github.com/O-H-M2/qmk_port_ch582),
-but as far as I'm aware, it's USB-only, and its BLE-implementation is not
-public.  
-[I wrote about my experience writing firmware with this
-port](https://rgoulter.com/blog/posts/programming/2023-12-27-experience-writing-firmware-with-the-ch582-port-of-qmk.html).  
-[I've put the code for the WABBLE-60 in my qmk_port_ch5xx
-fork](https://github.com/rgoulter/qmk_port_ch5xx).
+- There is a [port of QMK to the CH582](https://github.com/O-H-M2/qmk_port_ch582),
+  but as far as I'm aware, it's USB-only, and its BLE-implementation is not
+  public.
+  - [I wrote about my experience writing firmware with this
+    port](https://rgoulter.com/blog/posts/programming/2023-12-27-experience-writing-firmware-with-the-ch582-port-of-qmk.html).
+  - [I've put the code for the WABBLE-60 in my qmk_port_ch5xx
+    fork](https://github.com/rgoulter/qmk_port_ch5xx).
 
-[Kirei](https://github.com/semickolon/kirei), from the same author as
+- [Kirei](https://github.com/semickolon/kirei), from the same author as
 [fak](https://github.com/semickolon/fak) supports the CH58x.
 
-I recorded a video [demonstrating 110 WPM](https://www.youtube.com/watch?v=mc6wTqoDZe8)
-using a BLE connection.  
-Though, at the time of writing, Kirei's BLE implementation is not yet mature;
- I've had trouble using the BLE keyboard on some platforms.
+  - I recorded a video [demonstrating 110 WPM](https://www.youtube.com/watch?v=mc6wTqoDZe8)
+    using a BLE connection.
+  - Though, at the time of writing, Kirei's BLE implementation is not yet mature.
+     I've had trouble using the BLE keyboard on some platforms.
 
-Like fak, Kirei's keymaps are declared in [Nickel](https://nickel-lang.org/).
-Kirei's keymap language is more expressive than fak's.  
-[Here's an example of a
-non-trivial keymap written for
-Kirei](https://github.com/rgoulter/kirei/blob/2e2789838f9dd02c558ced4ca06c2f2e88c32219/src/keymap.ncl)  
-[I've put the code for the WABBLE-60 in my kirei fork](https://github.com/rgoulter/kirei).
+  - Like fak, Kirei's keymaps are declared in [Nickel](https://nickel-lang.org/).
+    Kirei's keymap language is more expressive than fak's.
+  - [Here's an example of a
+     non-trivial keymap written for
+     Kirei](https://github.com/rgoulter/kirei/blob/2e2789838f9dd02c558ced4ca06c2f2e88c32219/src/keymap.ncl)
+  - [I've put the code for the WABBLE-60 in my kirei fork](https://github.com/rgoulter/kirei).
 
-Besides these options, [ch32-rs has a work-in-progress HAL for
-CH58x](https://github.com/ch32-rs/ch58x-hal/).  Its examples include [a
-bare-bones BLE
-Peripheral](https://github.com/ch32-rs/ch58x-hal/blob/20eac4fd7d65b2eaa8b4eae40f882724a5710646/examples/ble-peripheral.rs).
+- Besides these options, [ch32-rs has a work-in-progress HAL for
+  CH58x](https://github.com/ch32-rs/ch58x-hal/).  Its examples include [a
+  bare-bones BLE
+  Peripheral](https://github.com/ch32-rs/ch58x-hal/blob/20eac4fd7d65b2eaa8b4eae40f882724a5710646/examples/ble-peripheral.rs).
 
-[WCH's EVT](https://github.com/openwch/ch583) has many examples for the CH58x
-(including USB HID Keyboard, USB+BLE, BLE HID, BLE Central+Peripheral, BLE OTA
-IAP).
+- [WCH's EVT](https://github.com/openwch/ch583) has many examples for the CH58x
+  (including USB HID Keyboard, USB+BLE, BLE HID, BLE Central+Peripheral, BLE OTA
+  IAP).
 
 WeAct also have a BLE core board which uses CH592. However, the CH592 has even
 less support than the CH58x.
