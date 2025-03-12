@@ -11,7 +11,7 @@
     src = pkgs.fetchgit {
       url = "https://github.com/adafruit/tinyuf2";
       rev = version;
-      sha256 = "sha256-RIdb2/XL7lShiyOrAgYN+0HOCmr1Q2150PNC+hYUohM=";
+      sha256 = "sha256-NjGFlMOOawL581zmbR7TT/CCHpFgKISPMF58HAFaQrI=";
     };
 
     buildInputs = with pkgs; [
@@ -42,7 +42,7 @@
     src = pkgs.fetchgit {
       url = "https://github.com/adafruit/tinyuf2";
       rev = version;
-      sha256 = "sha256-RIdb2/XL7lShiyOrAgYN+0HOCmr1Q2150PNC+hYUohM=";
+      sha256 = "sha256-NjGFlMOOawL581zmbR7TT/CCHpFgKISPMF58HAFaQrI=";
     };
 
     buildInputs = with pkgs; [
