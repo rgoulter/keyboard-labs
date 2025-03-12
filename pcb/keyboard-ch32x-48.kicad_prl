@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 41,
+    "active_layer": 31,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -74,7 +74,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "keyboard-ch552-48.kicad_prl",
+    "filename": "keyboard-ch32x-48.kicad_prl",
     "version": 3
   },
   "project": {
