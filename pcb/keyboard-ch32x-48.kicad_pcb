@@ -9,8 +9,8 @@
 	(paper "A4")
 	(title_block
 		(title "CH32X-48")
-		(date "2025-01-16")
-		(rev "2025.3")
+		(date "2025-03-12")
+		(rev "2025.4")
 		(company "Richard Goulter (rgoulter)")
 		(comment 3 "Project: https://github.com/rgoulter/keyboard-labs")
 		(comment 4 "Simple 4x12 ortholinear keyboard using CH32X033F8P6 MCU")
@@ -213,7 +213,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "9eff2bfa-de79-45ef-805b-fc4ae739321c")
@@ -572,7 +572,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c75bf05a-2fb2-46ab-b33b-ac629652c1b6")
@@ -931,7 +931,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "fca3daaf-e1c6-486b-bb7e-de1378bf051d")
@@ -1290,7 +1290,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "36bb6a8a-611b-48c1-869b-f10d3276751c")
@@ -1649,7 +1649,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "bb9ed9c0-15f2-4018-a41e-7db8d09ac496")
@@ -2008,7 +2008,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "bb80b292-ed3c-46f2-85a8-bed66a6a7daf")
@@ -2367,7 +2367,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "cb23df02-4ea5-434e-93fb-f4c4296e1641")
@@ -2726,7 +2726,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "52764dcb-e0b6-4036-9900-80eb976181fe")
@@ -3085,7 +3085,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "0d046c26-df60-4346-a095-a1a5c67bbe9b")
@@ -3444,7 +3444,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "9cddcedb-7057-4492-8851-0c0ef7809185")
@@ -3803,7 +3803,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "46f0be67-6b58-4777-b031-8dbd5ec51633")
@@ -4162,7 +4162,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "7a4c8ec0-a690-4aad-8848-74a037925a16")
@@ -4521,7 +4521,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "5c35c166-04ab-42fd-bfd4-29049bbd84ad")
@@ -4880,7 +4880,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "e94423ab-57d5-4097-a6a2-d0f4dee1097b")
@@ -5239,7 +5239,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "25854e12-f4cb-42a2-b191-b08adf1b958c")
@@ -5598,7 +5598,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "bb88539b-aea8-4831-9b88-b25835fdced0")
@@ -5957,7 +5957,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "4f15b1f7-205a-4aeb-8126-43d3158a3e55")
@@ -6316,7 +6316,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "3304ea26-9342-4bc3-bb47-a671a0786bc5")
@@ -7230,7 +7230,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "54728ede-361e-40b5-8479-2fcb9fdc5779")
@@ -7589,7 +7589,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c43ef3df-ff2d-4901-bae2-6268bea5eeb2")
@@ -7948,7 +7948,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "4e0ecac7-e0ba-4ca4-bd04-183987599317")
@@ -8307,7 +8307,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "b57f7464-70a8-4e58-9f15-5f21a674eb7e")
@@ -8666,7 +8666,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "2fd41411-65db-4c92-a59e-a13545ce34cd")
@@ -9025,7 +9025,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "e26e0aa2-59d6-4e1a-9d4e-079a2116eead")
@@ -9384,7 +9384,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "1fb126fe-e654-40ea-af5b-34b7a40490db")
@@ -9743,7 +9743,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "6bfa60a4-318e-4b3a-bebc-72e4686b6729")
@@ -10102,7 +10102,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "868d2eb7-5ead-4f7c-8c6c-8f4a8244e8fb")
@@ -10461,7 +10461,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "cf2cd8cb-270e-4f95-ab41-91067a8cecfe")
@@ -10820,7 +10820,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "e2dff930-30a0-4851-a0e4-e4968cafea69")
@@ -11179,7 +11179,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "ae1c7bbd-eda0-4ff5-b31a-46a6ae2f1452")
@@ -11538,7 +11538,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "9e2cc316-23cd-40bc-89f5-0224a7424766")
@@ -11897,7 +11897,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "62966529-44d4-4f4d-81e4-9412ffa9e22a")
@@ -12256,7 +12256,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "4a224a01-18d0-484c-9ed8-21f4eea84e18")
@@ -12615,7 +12615,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "26bdf23c-6a9a-494e-b824-5267ed9a26bb")
@@ -12974,7 +12974,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c8a11450-03ad-4440-b477-741c01ff54bb")
@@ -13333,7 +13333,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "542336ee-33f8-444d-a2ca-e7647c0fe27a")
@@ -13692,7 +13692,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "69878f22-d209-44ed-bfc4-dd7cca54fd01")
@@ -14051,7 +14051,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "81ec24dc-0b21-4772-833f-6a988a64cb5c")
@@ -14410,7 +14410,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "05de0198-164d-44ca-b5e2-3d66fbf382ea")
@@ -14769,7 +14769,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "a65b3f93-bd6e-4513-afe5-dcca7936c538")
@@ -15128,7 +15128,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "7016df34-ef8e-4642-b793-b04a22f38866")
@@ -15487,7 +15487,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "87a783cf-207b-4d3f-bb3f-edf7dca8f71e")
@@ -15846,7 +15846,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "02ddd04b-5718-4209-b0aa-2afccfd7aad0")
@@ -16205,7 +16205,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "29ddcf57-bcde-4ff7-a807-480d5f5291fa")
@@ -16564,7 +16564,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "e935d60c-846f-46a6-874f-71b072d0dd11")
@@ -16923,7 +16923,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "98e72ea6-7ec5-47ff-aea0-67cb0325fc94")
@@ -17282,7 +17282,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "b1217c60-5865-4a0b-b0c0-45cc825ae1fb")
@@ -17641,7 +17641,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c9d7c3d4-a0a0-4c1b-a7ff-39ac9c7eeaa4")
@@ -25760,239 +25760,6 @@
 			(uuid "a0af2f39-1cac-4ee2-b737-743c1315d958")
 		)
 		(model "${KICAD6_3DMODEL_DIR}/Diode_SMD.3dshapes/D_1206_3216Metric.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
-	(footprint "Resistor_SMD:R_0805_2012Metric"
-		(layer "B.Cu")
-		(uuid "82f43474-8e21-438c-9c68-b296cac8d6dc")
-		(at 127.127 61.976 180)
-		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
-		(tags "resistor")
-		(property "Reference" "R6"
-			(at 0 1.65 0)
-			(layer "B.SilkS")
-			(uuid "23a06d9d-6bb6-4bd1-899c-3d6cbe058b32")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "10K"
-			(at 0 -1.65 0)
-			(layer "B.Fab")
-			(uuid "166190ed-1d89-4a49-96e7-d95b8011c108")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e354dcca-1e07-461f-a316-d0d50df4b438")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "270453b3-4bde-4d77-968f-d8fd0548ff23")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "21b420de-5f53-417c-8d31-10156b536ee2")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC" "C17414"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2762bbcf-f383-4ae6-addb-6e6cc5938832")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "R_*")
-		(path "/5e7a5021-3754-4410-bb6f-77acf7ce054c")
-		(sheetname "Root")
-		(sheetfile "keyboard-ch32x-48.kicad_sch")
-		(attr smd)
-		(fp_line
-			(start 0.227064 0.735)
-			(end -0.227064 0.735)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "88ceaa9a-57ba-4728-b8ce-85e425ff1560")
-		)
-		(fp_line
-			(start 0.227064 -0.735)
-			(end -0.227064 -0.735)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "a61461a5-342d-4c19-bd2b-437d996fdae1")
-		)
-		(fp_line
-			(start 1.68 0.95)
-			(end -1.68 0.95)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "B.CrtYd")
-			(uuid "ebc08b8c-1610-4184-9256-f819ca9c694c")
-		)
-		(fp_line
-			(start 1.68 -0.95)
-			(end 1.68 0.95)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "B.CrtYd")
-			(uuid "bf8d34cd-2955-42a3-bfd5-4379b7b4be02")
-		)
-		(fp_line
-			(start -1.68 0.95)
-			(end -1.68 -0.95)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "B.CrtYd")
-			(uuid "bf0c1a5a-3a77-4798-b0e0-a1994391eae9")
-		)
-		(fp_line
-			(start -1.68 -0.95)
-			(end 1.68 -0.95)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "B.CrtYd")
-			(uuid "2a7a74f2-0279-49f9-9df6-534a61576c3a")
-		)
-		(fp_line
-			(start 1 0.625)
-			(end -1 0.625)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.Fab")
-			(uuid "796bf687-3c43-4309-8f88-afd04f138425")
-		)
-		(fp_line
-			(start 1 -0.625)
-			(end 1 0.625)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.Fab")
-			(uuid "ec6d3235-97e1-41e1-96d2-ddcea051a9f8")
-		)
-		(fp_line
-			(start -1 0.625)
-			(end -1 -0.625)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.Fab")
-			(uuid "712e4230-c0bf-4bdf-b1af-e6626e7ec85f")
-		)
-		(fp_line
-			(start -1 -0.625)
-			(end 1 -0.625)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.Fab")
-			(uuid "8bfbce75-0da5-43b7-925d-1145bbd896e1")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 0)
-			(layer "B.Fab")
-			(uuid "1194a8dc-ac57-4b38-9cf9-249ea15cf961")
-			(effects
-				(font
-					(size 0.5 0.5)
-					(thickness 0.08)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd roundrect
-			(at -0.9125 0 180)
-			(size 1.025 1.4)
-			(layers "B.Cu" "B.Paste" "B.Mask")
-			(roundrect_rratio 0.243902)
-			(net 72 "/VDD")
-			(pintype "passive")
-			(uuid "80f9a1ff-6b86-4a84-8111-e473e03c86a0")
-		)
-		(pad "2" smd roundrect
-			(at 0.9125 0 180)
-			(size 1.025 1.4)
-			(layers "B.Cu" "B.Paste" "B.Mask")
-			(roundrect_rratio 0.243902)
-			(net 71 "/DIO")
-			(pintype "passive")
-			(uuid "30e60fdc-1c30-4e99-a781-01e84b6ed33e")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0805_2012Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -43613,14 +43380,6 @@
 		(uuid "5ed9df5f-85d7-4877-bfb8-232a3e305aee")
 	)
 	(segment
-		(start 125.984 62.2065)
-		(end 126.2145 61.976)
-		(width 0.25)
-		(layer "B.Cu")
-		(net 71)
-		(uuid "605d6a86-169b-4dd1-a3e0-6c5f8c72329b")
-	)
-	(segment
 		(start 179.825 104.8563)
 		(end 179.825 97)
 		(width 0.25)
@@ -43659,14 +43418,6 @@
 		(layer "B.Cu")
 		(net 71)
 		(uuid "6cfaad2b-76e4-43ee-8a47-bd374beff552")
-	)
-	(segment
-		(start 125.984 63.4655)
-		(end 125.984 62.2065)
-		(width 0.25)
-		(layer "B.Cu")
-		(net 71)
-		(uuid "725090c2-8e75-4e8b-9f9e-51b176038f35")
 	)
 	(segment
 		(start 123.756 62.542)
@@ -44101,14 +43852,6 @@
 		(uuid "7068926a-ddb7-4ae8-a015-4c621fc68ead")
 	)
 	(segment
-		(start 128.0395 64.2115)
-		(end 128.143 64.315)
-		(width 0.5)
-		(layer "B.Cu")
-		(net 72)
-		(uuid "773922c8-bb98-418e-b7d0-980c692dd231")
-	)
-	(segment
 		(start 160.280588 64.75)
 		(end 160.6 64.430588)
 		(width 0.5)
@@ -44155,14 +43898,6 @@
 		(layer "B.Cu")
 		(net 72)
 		(uuid "9329c0bc-cac2-49c9-96a7-ee0bd46b9f54")
-	)
-	(segment
-		(start 128.0395 61.976)
-		(end 128.0395 64.2115)
-		(width 0.5)
-		(layer "B.Cu")
-		(net 72)
-		(uuid "965232b5-5628-45fb-b1c3-73c9c433a7f1")
 	)
 	(segment
 		(start 98.859 62.738)

@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "CH32X-48")
-		(date "2025-01-16")
-		(rev "rev2025.3")
+		(date "2025-03-12")
+		(rev "rev2025.4")
 		(company "Richard Goulter (rgoulter)")
 		(comment 1 "48-key on 7x7 digital matrix.")
 		(comment 2 "Simple 4x12 ortholinear keyboard using CH32X MCU.")
@@ -1939,6 +1939,7 @@
 							)
 						)
 					)
+					(alternate "" input line)
 					(alternate "A2" bidirectional line)
 					(alternate "O2O1" bidirectional line)
 					(alternate "T2C3" bidirectional line)
@@ -2991,11 +2992,11 @@
 		(uuid "fbcf2d31-4ee5-496c-85e9-1c4c6645a1af")
 	)
 	(no_connect
-		(at 45.72 113.03)
+		(at 45.72 125.73)
 		(uuid "a697acd9-3075-431e-b0cc-28e2381e1285")
 	)
 	(no_connect
-		(at 45.72 115.57)
+		(at 45.72 128.27)
 		(uuid "b07b4592-322e-4680-bb00-0092c693cd68")
 	)
 	(wire
@@ -3160,7 +3161,7 @@
 	)
 	(polyline
 		(pts
-			(xy 12.7 53.34) (xy 90.17 53.34)
+			(xy 12.7 66.04) (xy 90.17 66.04)
 		)
 		(stroke
 			(width 0)
@@ -3187,16 +3188,6 @@
 			(type default)
 		)
 		(uuid "22aba0ec-bdff-4dd9-9af9-84364fbd46bf")
-	)
-	(polyline
-		(pts
-			(xy 157.48 111.76) (xy 157.48 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "244c13b6-302b-4fb9-ad46-2ed5f98173eb")
 	)
 	(wire
 		(pts
@@ -3370,7 +3361,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 127) (xy 115.57 127)
+			(xy 213.36 162.56) (xy 215.9 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3540,7 +3531,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 92.71) (xy 54.61 92.71)
+			(xy 45.72 105.41) (xy 54.61 105.41)
 		)
 		(stroke
 			(width 0)
@@ -3650,7 +3641,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 90.17) (xy 64.77 90.17)
+			(xy 45.72 102.87) (xy 64.77 102.87)
 		)
 		(stroke
 			(width 0)
@@ -3750,7 +3741,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 92.71) (xy 64.77 90.17)
+			(xy 64.77 105.41) (xy 64.77 102.87)
 		)
 		(stroke
 			(width 0)
@@ -3790,7 +3781,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 138.43) (xy 115.57 138.43)
+			(xy 243.84 162.56) (xy 246.38 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3878,6 +3869,16 @@
 		)
 		(uuid "b3d95d3d-5935-4843-9e89-2e8e3ed0901c")
 	)
+	(polyline
+		(pts
+			(xy 90.17 168.91) (xy 153.67 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b51577ff-1119-4894-888f-3a7e5bcd7512")
+	)
 	(wire
 		(pts
 			(xy 215.9 64.77) (xy 215.9 81.28)
@@ -3927,16 +3928,6 @@
 			(type default)
 		)
 		(uuid "bdf32124-f537-4911-8adf-223eb3505ebc")
-	)
-	(polyline
-		(pts
-			(xy 90.17 111.76) (xy 157.48 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c21e5f27-2e0f-41a2-bace-0e05aa782158")
 	)
 	(wire
 		(pts
@@ -4020,7 +4011,7 @@
 	)
 	(polyline
 		(pts
-			(xy 12.7 71.12) (xy 90.17 71.12)
+			(xy 12.7 83.82) (xy 90.17 83.82)
 		)
 		(stroke
 			(width 0)
@@ -4178,9 +4169,9 @@
 		)
 		(uuid "facc70bc-02f5-4902-b2ae-8a8eb7513493")
 	)
-	(text_box "\n\n\n\nFor CH32X035:\n- Only PA0-PA15 and PC16-PC17 support pull down input.\n  (ref. CH32X035 datasheet, section 1.4.19).\n- PA7 cannot be used as an output.\n  (ref. notes to Table 2-1).\n\nFor \"cathode(-) faces row\",\ncurrent flows from column to row,\nmatrix scanning is done by either:\n- write col high (+), and read from pull-down rows (-),\n- write row low (-), and read from pull-up cols (+).\n\nFor \"cathode(-) faces col\",\ncurrent flows from row to column,\nmatrix scanning is done by either:\n- write row high (+), and read from pull-down cols (-),\n- write col low (-), and read from pull-up cols (+)."
+	(text_box "\n\n\n\nFor CH32X035:\n- Only PA0-PA15 and PC16-PC17 support pull down input.\n  (ref. CH32X035 datasheet, section 1.4.19).\n- PA7 cannot be used as an output.\n  (ref. notes to Table 2-1).\n\nFor \"cathode(-) faces row\",\ncurrent flows from column to row,\nmatrix scanning is done by either:\n- write col high (+), and read from pull-down rows (-),\n- write row low (-), and read from pull-up cols (+).\n\nFor \"cathode(-) faces col\",\ncurrent flows from row to column,\nmatrix scanning is done by either:\n- write row high (+), and read from pull-down cols (-),\n- write col low (-), and read from pull-up rows (+)."
 		(exclude_from_sim no)
-		(at 93.98 52.07 0)
+		(at 93.98 58.42 0)
 		(size 59.69 55.88)
 		(stroke
 			(width 0.0254)
@@ -4201,19 +4192,31 @@
 		)
 		(uuid "d24818f0-d37b-461b-b4c1-cc65c1f20322")
 	)
-	(text "Per the CH32X035 datasheet, PA7 can not be output."
+	(text "- Constraints on pin output:\n   Since PA7 is used as ROWx,\n    matrix scanning MUST use rows as inputs.\n- Constraints on pull-down input:\n   Since PC18,PC19 are used as ROWx,\n    matrix scanning MUST pull up rows.\n\nHence, the diodes in the matrix must be \"row to col\". "
 		(exclude_from_sim no)
-		(at 50.8 13.97 0)
+		(at 94.488 128.778 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left top)
+		)
+		(uuid "13a80ebb-e7b9-4a4f-9b40-5cc5e1eab0c2")
+	)
+	(text "Microcontroller"
+		(exclude_from_sim no)
+		(at 13.462 14.224 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
 		)
 		(uuid "1a3f595b-29ec-4585-8bef-a7f36cc202f7")
 	)
 	(text "USB Connector"
 		(exclude_from_sim no)
-		(at 13.97 74.422 0)
+		(at 13.97 87.122 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4221,17 +4224,6 @@
 			(justify left bottom)
 		)
 		(uuid "20cbef4f-ea13-426a-bbcd-ef6be5da0d1c")
-	)
-	(text "External Pull-up Resistor"
-		(exclude_from_sim no)
-		(at 190.246 149.606 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "251e0bb1-c995-4c5d-accb-a88fe79de963")
 	)
 	(text "Reset Switch\nref. Figure 3-3 Typical circuit\nof CH32X datasheet."
 		(exclude_from_sim no)
@@ -4244,7 +4236,7 @@
 		)
 		(uuid "59c44a69-548c-4499-b969-18be4103306e")
 	)
-	(text "WCH Link interface\n(CH32X033 only compatible with WCH-LinkE or WCH-LinkW)\nUsing DIO/DCK prevents use of ROW2/ROW6."
+	(text "WCH Link interface\n(CH32X033 only compatible with WCH-LinkE or WCH-LinkW)\nUsing DIO/DCK prevents use of ROW2/ROW6.\nSWD (SDI) enabled by default; must be disabled after reset."
 		(exclude_from_sim no)
 		(at 92.202 179.324 0)
 		(effects
@@ -4268,7 +4260,7 @@
 	)
 	(text "Decoupling capacitors"
 		(exclude_from_sim no)
-		(at 14.224 56.896 0)
+		(at 14.224 69.596 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4279,7 +4271,7 @@
 	)
 	(text "IMPORTANT:\nTake care with diode direction!"
 		(exclude_from_sim no)
-		(at 123.19 56.388 0)
+		(at 123.19 62.738 0)
 		(effects
 			(font
 				(size 1.651 1.651)
@@ -4290,9 +4282,9 @@
 		)
 		(uuid "8ee71737-3414-413b-9734-5a88add6046f")
 	)
-	(text "The keyboard has 48 keys laid out\nin a 4-row-12-column grid.\n\nIt uses fewer GPIO pins to have a 7x7 matrix (14 pins)\nthan to use a 4x12 (16 pins) matrix.\n\nThe mapping is top-to-bottom, left-to-right.\nThis retains \"column X <= Y\".\n\nTo find the key number:\n\n  switch number =\n    keyboard column * number of rows + keyboard row.\n\nTo find the logical column, 'row':\n\n  (switch number / 7, switch number % 7)"
+	(text "Switch Matrix\n\nThe keyboard has 48 keys laid out\nin a 4-row-12-column grid.\n\nIt uses fewer GPIO pins to have a 7x7 matrix (14 pins)\nthan to use a 4x12 (16 pins) matrix.\n\nThe mapping is top-to-bottom, left-to-right.\nThis retains \"column X <= Y\".\n\nTo find the key number:\n\n  switch number =\n    keyboard column * number of rows + keyboard row.\n\nTo find the logical column, 'row':\n\n  (switch number / 7, switch number % 7)"
 		(exclude_from_sim no)
-		(at 96.52 48.26 0)
+		(at 94.742 53.594 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4301,9 +4293,20 @@
 		)
 		(uuid "90dc8a85-5197-4b81-b333-ce01362591ce")
 	)
+	(text "NOTE: SWD (SDI) is enabled by default.\nThis causes issues with matrix scanning on Row6.\nRefer to Reference Manual section on AFIO remap register\n for disabling SWD."
+		(exclude_from_sim no)
+		(at 13.716 60.452 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "aa793ceb-acaf-4dcb-a535-35da7c35e97c")
+	)
 	(text "UART\nFor simple printf debugging with UART2.\n(\"ROW4\"/SW_4_x switches can't be used\n while using UART2)."
 		(exclude_from_sim no)
-		(at 92.964 159.766 0)
+		(at 91.694 157.734 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4311,17 +4314,6 @@
 			(justify left bottom)
 		)
 		(uuid "c578f8ae-a382-4504-8dc3-15503748c72d")
-	)
-	(text "When testing rev2025.1, I observed\nif a SW_6_C key was pressed\n quickly followed by a physically adjacent SW_2_C key,\nthen all SW_6_C keys scanned as pressed.\n\nUsing a 10K pull up resistor on Row6\n resolved the issue."
-		(exclude_from_sim no)
-		(at 216.662 155.702 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "d1d940e7-aba6-427e-88d0-b078084a6333")
 	)
 	(text "Hardware, Mounting Holes\nFor M2 screws.\nSame mounting holes as JJ40."
 		(exclude_from_sim no)
@@ -4336,7 +4328,7 @@
 	)
 	(text "Take care the diode direction agrees with matrix scanning\nrequirements for writing to the pin / pulling down."
 		(exclude_from_sim no)
-		(at 95.25 103.124 0)
+		(at 95.25 109.474 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4347,6 +4339,17 @@
 			(justify left)
 		)
 		(uuid "e5dcc4f3-a909-4a10-80b9-45a9ae4e9f4b")
+	)
+	(text "LEDs\n\n"
+		(exclude_from_sim no)
+		(at 190.5 152.654 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e5f03464-e007-4890-ac70-930d7d715f37")
 	)
 	(label "DCK"
 		(at 82.55 29.21 0)
@@ -4382,7 +4385,7 @@
 		(uuid "07e2532e-a3cf-4ac1-85e7-ad8af53b753d")
 	)
 	(label "DCK"
-		(at 99.06 189.23 180)
+		(at 115.57 190.5 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4393,7 +4396,7 @@
 		(uuid "0b891cf8-7c87-4868-849d-417c84e5939b")
 	)
 	(label "RESET"
-		(at 29.21 157.48 180)
+		(at 46.99 158.75 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4415,7 +4418,7 @@
 		(uuid "0e73ee2c-b724-4aba-9788-04568ad0f63e")
 	)
 	(label "GND"
-		(at 44.45 64.77 270)
+		(at 44.45 77.47 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4448,7 +4451,7 @@
 		(uuid "18b82c37-aad4-43df-8fe4-01d2cf1176a2")
 	)
 	(label "VDD"
-		(at 44.45 57.15 0)
+		(at 44.45 69.85 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4514,7 +4517,7 @@
 		(uuid "31dc951e-9a22-4525-9b67-92bd1ea449ed")
 	)
 	(label "GND"
-		(at 22.86 123.19 270)
+		(at 22.86 135.89 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4525,7 +4528,7 @@
 		(uuid "3212aa56-c107-483d-b883-2706db6bd2e2")
 	)
 	(label "GND"
-		(at 115.57 127 0)
+		(at 215.9 162.56 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4547,7 +4550,7 @@
 		(uuid "37204a02-45c3-4182-b6bd-efaecbb972e3")
 	)
 	(label "VDD"
-		(at 45.72 85.09 0)
+		(at 45.72 97.79 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4558,7 +4561,7 @@
 		(uuid "3746cc94-5dd9-4f8f-9174-cc4c0ae5dca6")
 	)
 	(label "GND"
-		(at 99.06 186.69 180)
+		(at 115.57 187.96 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4569,7 +4572,7 @@
 		(uuid "3885f191-e722-4ec6-864a-62c081a999b2")
 	)
 	(label "DP"
-		(at 45.72 105.41 0)
+		(at 45.72 118.11 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4591,7 +4594,7 @@
 		(uuid "4880d68c-0847-4558-9239-5de1f8c49ca7")
 	)
 	(label "GND"
-		(at 39.37 157.48 0)
+		(at 57.15 158.75 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4602,7 +4605,7 @@
 		(uuid "4b8892ed-4ef1-4db6-8e30-9259e24c9a03")
 	)
 	(label "DM"
-		(at 45.72 100.33 0)
+		(at 45.72 113.03 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4635,7 +4638,7 @@
 		(uuid "5f68c5e9-ca2b-4e01-9daf-b1cf07dfd4ef")
 	)
 	(label "GND"
-		(at 29.21 165.1 270)
+		(at 46.99 166.37 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4646,7 +4649,7 @@
 		(uuid "63e597bb-2814-43ac-bf8c-744f43972141")
 	)
 	(label "GND"
-		(at 64.77 100.33 270)
+		(at 64.77 113.03 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4657,7 +4660,7 @@
 		(uuid "6ccd2d38-a28c-4f73-9ae0-4ec87d5a4c25")
 	)
 	(label "GND"
-		(at 58.42 64.77 270)
+		(at 58.42 77.47 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4668,7 +4671,7 @@
 		(uuid "70231272-edc0-40d2-83b6-b55529aa5d10")
 	)
 	(label "TX"
-		(at 96.52 165.1 180)
+		(at 115.57 162.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4701,7 +4704,7 @@
 		(uuid "7dc6af0c-d850-4334-acc1-692f2e072cb2")
 	)
 	(label "DIO"
-		(at 99.06 191.77 180)
+		(at 115.57 193.04 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4733,17 +4736,6 @@
 		)
 		(uuid "81ec95f7-874a-43b3-af14-cb94352f67bc")
 	)
-	(label "ROW6"
-		(at 204.47 160.02 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "83834be7-0744-49d9-8eb7-fb95e927bb30")
-	)
 	(label "COL2"
 		(at 34.29 24.13 180)
 		(fields_autoplaced yes)
@@ -4756,7 +4748,7 @@
 		(uuid "8f3e1743-63ba-4134-a74b-71b5cd4f8b1a")
 	)
 	(label "LED"
-		(at 97.79 127 180)
+		(at 198.12 162.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4767,7 +4759,7 @@
 		(uuid "901b374c-0b65-425a-b1b8-2b3f2e21c209")
 	)
 	(label "DP"
-		(at 45.72 102.87 0)
+		(at 45.72 115.57 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4789,7 +4781,7 @@
 		(uuid "959e90ac-82dc-4357-a42f-a0eb33a32ee7")
 	)
 	(label "GND"
-		(at 54.61 100.33 270)
+		(at 54.61 113.03 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4811,7 +4803,7 @@
 		(uuid "991c1a1a-a73e-489f-b845-c2b42baef07d")
 	)
 	(label "GND"
-		(at 30.48 123.19 270)
+		(at 30.48 135.89 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4831,17 +4823,6 @@
 			(justify right bottom)
 		)
 		(uuid "a501fe4b-ccd5-4857-8064-39caa5f2a32b")
-	)
-	(label "VDD"
-		(at 196.85 160.02 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a5b245ac-6383-4993-9877-9b72496b50c4")
 	)
 	(label "COL6"
 		(at 246.38 21.59 90)
@@ -4899,7 +4880,7 @@
 		(uuid "bbc8b485-25a0-4015-8159-95aabcbb2ec3")
 	)
 	(label "VDD"
-		(at 58.42 57.15 0)
+		(at 58.42 69.85 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4921,7 +4902,7 @@
 		(uuid "befdbd6b-55b2-4cf1-9cd5-b0aba349f9af")
 	)
 	(label "RX"
-		(at 96.52 167.64 180)
+		(at 115.57 165.1 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4943,7 +4924,7 @@
 		(uuid "c35568c6-2e20-4d4a-8e44-d176b96b355f")
 	)
 	(label "VDD"
-		(at 97.79 138.43 180)
+		(at 228.6 162.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5009,7 +4990,7 @@
 		(uuid "d5081e98-7afd-4873-be28-30db24163ec2")
 	)
 	(label "DM"
-		(at 45.72 97.79 0)
+		(at 45.72 110.49 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5031,7 +5012,7 @@
 		(uuid "eef4452c-2d67-467e-ad3e-e143c229ea15")
 	)
 	(label "VDD"
-		(at 49.53 191.77 0)
+		(at 62.23 191.77 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5064,7 +5045,7 @@
 		(uuid "f1f54f2d-afed-45e0-8042-2b5d7ffaa4cd")
 	)
 	(label "VDD"
-		(at 99.06 184.15 180)
+		(at 115.57 185.42 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5086,7 +5067,7 @@
 		(uuid "f3eefbfb-23d6-41f8-abc0-26c7b9fee0b4")
 	)
 	(label "DOWNLOAD"
-		(at 31.75 191.77 180)
+		(at 44.45 191.77 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5097,7 +5078,7 @@
 		(uuid "f49134bb-c063-4df1-b19e-e3bc11ed9a15")
 	)
 	(label "GND"
-		(at 115.57 138.43 0)
+		(at 246.38 162.56 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5109,7 +5090,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_SPST")
-		(at 34.29 157.48 0)
+		(at 52.07 158.75 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5118,7 +5099,7 @@
 		(fields_autoplaced yes)
 		(uuid "00ae1504-1a81-49ed-8d9d-d638ce87b96e")
 		(property "Reference" "SW1"
-			(at 34.29 151.13 0)
+			(at 52.07 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5126,7 +5107,7 @@
 			)
 		)
 		(property "Value" "SW_SPST"
-			(at 34.29 153.67 0)
+			(at 52.07 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5134,7 +5115,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-0.5sqmm_1x02_P4.6mm_D0.9mm_OD2.1mm"
-			(at 34.29 157.48 0)
+			(at 52.07 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5143,7 +5124,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 34.29 157.48 0)
+			(at 52.07 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5152,7 +5133,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 34.29 157.48 0)
+			(at 52.07 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5277,7 +5258,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 251.46 109.3724 0)
 			(effects
 				(font
@@ -5345,7 +5326,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 101.6 127 90)
+		(at 201.93 162.56 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5354,7 +5335,7 @@
 		(fields_autoplaced yes)
 		(uuid "026ed65e-0904-47c2-a952-b64ac85246df")
 		(property "Reference" "R4"
-			(at 101.6 120.65 90)
+			(at 201.93 156.21 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5362,7 +5343,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 101.6 123.19 90)
+			(at 201.93 158.75 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5370,7 +5351,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 101.6 128.778 90)
+			(at 201.93 164.338 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5379,7 +5360,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 101.6 127 0)
+			(at 201.93 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5388,7 +5369,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 127 0)
+			(at 201.93 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5397,7 +5378,7 @@
 			)
 		)
 		(property "LCSC" "C17414"
-			(at 101.6 127 0)
+			(at 201.93 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5437,7 +5418,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 190.5 59.8424 0)
 			(effects
 				(font
@@ -5505,7 +5486,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 104.14 186.69 0)
+		(at 120.65 187.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5514,7 +5495,7 @@
 		(fields_autoplaced yes)
 		(uuid "074f91cc-585a-436d-b7ae-bbb0ef848887")
 		(property "Reference" "J3"
-			(at 106.68 186.6899 0)
+			(at 123.19 187.9599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5523,7 +5504,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 106.68 189.2299 0)
+			(at 123.19 190.4999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5532,7 +5513,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 104.14 186.69 0)
+			(at 120.65 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5541,7 +5522,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 104.14 186.69 0)
+			(at 120.65 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5550,7 +5531,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 104.14 186.69 0)
+			(at 120.65 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5681,7 +5662,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 220.98 125.8824 0)
 			(effects
 				(font
@@ -5764,7 +5745,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 205.74 109.3724 0)
 			(effects
 				(font
@@ -6102,7 +6083,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 220.98 76.3524 0)
 			(effects
 				(font
@@ -6185,7 +6166,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 190.5 26.8224 0)
 			(effects
 				(font
@@ -6268,7 +6249,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 220.98 26.8224 0)
 			(effects
 				(font
@@ -6405,7 +6386,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 54.61 96.52 0)
+		(at 54.61 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6414,7 +6395,7 @@
 		(fields_autoplaced yes)
 		(uuid "1d545dec-ef09-4976-8a2a-98f7e9565b3a")
 		(property "Reference" "R2"
-			(at 57.15 95.2499 0)
+			(at 57.15 107.9499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6423,7 +6404,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 57.15 97.7899 0)
+			(at 57.15 110.4899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6432,7 +6413,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 52.832 96.52 90)
+			(at 52.832 109.22 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6441,7 +6422,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 54.61 96.52 0)
+			(at 54.61 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6450,7 +6431,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 54.61 96.52 0)
+			(at 54.61 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6459,7 +6440,7 @@
 			)
 		)
 		(property "LCSC" "C27834"
-			(at 54.61 96.52 0)
+			(at 54.61 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6908,7 +6889,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 251.46 26.8224 0)
 			(effects
 				(font
@@ -7401,7 +7382,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 29.21 161.29 0)
+		(at 46.99 162.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7410,7 +7391,7 @@
 		(fields_autoplaced yes)
 		(uuid "3e1e889a-d802-44c5-90dc-cf6ee1624952")
 		(property "Reference" "C1"
-			(at 33.02 160.02 0)
+			(at 50.8 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7419,7 +7400,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 33.02 162.56 0)
+			(at 50.8 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7428,7 +7409,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 30.1752 165.1 0)
+			(at 47.9552 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7437,7 +7418,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 29.21 161.29 0)
+			(at 46.99 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7446,7 +7427,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 29.21 161.29 0)
+			(at 46.99 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7455,7 +7436,7 @@
 			)
 		)
 		(property "LCSC" "C49678"
-			(at 29.21 161.29 0)
+			(at 46.99 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7495,7 +7476,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 175.26 92.8624 0)
 			(effects
 				(font
@@ -7578,7 +7559,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 266.7 109.3724 0)
 			(effects
 				(font
@@ -7731,7 +7712,7 @@
 	)
 	(symbol
 		(lib_id "Connector:USB_C_Receptacle_USB2.0")
-		(at 30.48 100.33 0)
+		(at 30.48 113.03 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7740,7 +7721,7 @@
 		(fields_autoplaced yes)
 		(uuid "43bddfb4-e0d4-4dcd-b7e2-422045c4c526")
 		(property "Reference" "J1"
-			(at 30.48 77.47 0)
+			(at 30.48 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7748,7 +7729,7 @@
 			)
 		)
 		(property "Value" "USB_C_Receptacle_USB2.0"
-			(at 30.48 80.01 0)
+			(at 30.48 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7756,7 +7737,7 @@
 			)
 		)
 		(property "Footprint" "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
-			(at 34.29 100.33 0)
+			(at 34.29 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7765,7 +7746,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
-			(at 34.29 100.33 0)
+			(at 34.29 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7774,7 +7755,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 30.48 100.33 0)
+			(at 30.48 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7844,7 +7825,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_SPST")
-		(at 36.83 191.77 0)
+		(at 49.53 191.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7853,7 +7834,7 @@
 		(fields_autoplaced yes)
 		(uuid "472f82c5-fe49-4683-b873-c14973f22ecb")
 		(property "Reference" "SW2"
-			(at 36.83 185.42 0)
+			(at 49.53 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7861,7 +7842,7 @@
 			)
 		)
 		(property "Value" "SW_SPST"
-			(at 36.83 187.96 0)
+			(at 49.53 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7869,7 +7850,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-0.5sqmm_1x02_P4.6mm_D0.9mm_OD2.1mm"
-			(at 36.83 191.77 0)
+			(at 49.53 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7878,7 +7859,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 36.83 191.77 0)
+			(at 49.53 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7887,7 +7868,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 36.83 191.77 0)
+			(at 49.53 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8012,7 +7993,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 236.22 59.8424 0)
 			(effects
 				(font
@@ -8080,7 +8061,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 44.45 60.96 0)
+		(at 44.45 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8088,7 +8069,7 @@
 		(dnp no)
 		(uuid "4c68f5bf-7a1f-42f7-ab50-136262e609ed")
 		(property "Reference" "C2"
-			(at 48.26 59.69 0)
+			(at 48.26 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8097,7 +8078,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 48.26 62.23 0)
+			(at 48.26 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8106,7 +8087,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 45.4152 64.77 0)
+			(at 45.4152 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8115,7 +8096,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 44.45 60.96 0)
+			(at 44.45 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8124,7 +8105,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 44.45 60.96 0)
+			(at 44.45 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8133,7 +8114,7 @@
 			)
 		)
 		(property "LCSC" "C49678"
-			(at 44.45 60.96 0)
+			(at 44.45 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8173,7 +8154,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 175.26 43.3324 0)
 			(effects
 				(font
@@ -8256,7 +8237,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 205.74 76.3524 0)
 			(effects
 				(font
@@ -8424,7 +8405,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 236.22 109.3724 0)
 			(effects
 				(font
@@ -8507,7 +8488,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 190.5 92.8624 0)
 			(effects
 				(font
@@ -8675,7 +8656,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 236.22 26.8224 0)
 			(effects
 				(font
@@ -8758,7 +8739,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 205.74 26.8224 0)
 			(effects
 				(font
@@ -8841,7 +8822,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 266.7 76.3524 0)
 			(effects
 				(font
@@ -8902,83 +8883,6 @@
 			(project "PyKey40-HS"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb"
 					(reference "SW_4_1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 200.66 160.02 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5e7a5021-3754-4410-bb6f-77acf7ce054c")
-		(property "Reference" "R6"
-			(at 200.66 153.67 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10K"
-			(at 200.66 156.21 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 200.66 161.798 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 200.66 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 200.66 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17414"
-			(at 200.66 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8fd5aa34-e597-4805-99d0-f77dce56c968")
-		)
-		(pin "2"
-			(uuid "f70c0ef1-7250-4119-84da-aca7899a498a")
-		)
-		(instances
-			(project "keyboard-ch32x-48"
-				(path "/491af640-c615-48ab-84d8-9b166bc1ab37"
-					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -9086,7 +8990,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 190.5 76.3524 0)
 			(effects
 				(font
@@ -9509,7 +9413,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 236.22 125.8824 0)
 			(effects
 				(font
@@ -9592,7 +9496,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 251.46 76.3524 0)
 			(effects
 				(font
@@ -9760,7 +9664,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 190.5 43.3324 0)
 			(effects
 				(font
@@ -9843,7 +9747,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 205.74 92.8624 0)
 			(effects
 				(font
@@ -10166,7 +10070,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 58.42 60.96 0)
+		(at 58.42 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10175,7 +10079,7 @@
 		(fields_autoplaced yes)
 		(uuid "7bf3040a-5d66-43c3-a3ba-9f6b6dc51c5b")
 		(property "Reference" "C3"
-			(at 62.23 59.6899 0)
+			(at 62.23 72.3899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10184,7 +10088,7 @@
 			)
 		)
 		(property "Value" "4.7uF"
-			(at 62.23 62.2299 0)
+			(at 62.23 74.9299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10193,7 +10097,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 59.3852 64.77 0)
+			(at 59.3852 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10202,7 +10106,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 58.42 60.96 0)
+			(at 58.42 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10211,7 +10115,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 58.42 60.96 0)
+			(at 58.42 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10220,7 +10124,7 @@
 			)
 		)
 		(property "LCSC" "C49678"
-			(at 58.42 60.96 0)
+			(at 58.42 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10430,7 +10334,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 236.22 43.3324 0)
 			(effects
 				(font
@@ -10513,7 +10417,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 251.46 43.3324 0)
 			(effects
 				(font
@@ -10581,7 +10485,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 45.72 191.77 90)
+		(at 58.42 191.77 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10590,7 +10494,7 @@
 		(fields_autoplaced yes)
 		(uuid "8259958b-0fec-4944-b109-dd78a4e727dc")
 		(property "Reference" "R1"
-			(at 45.72 185.42 90)
+			(at 58.42 185.42 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10598,7 +10502,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 45.72 187.96 90)
+			(at 58.42 187.96 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10606,7 +10510,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 45.72 193.548 90)
+			(at 58.42 193.548 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10615,7 +10519,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 45.72 191.77 0)
+			(at 58.42 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10624,7 +10528,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 45.72 191.77 0)
+			(at 58.42 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10633,7 +10537,7 @@
 			)
 		)
 		(property "LCSC" "C17414"
-			(at 45.72 191.77 0)
+			(at 58.42 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10758,7 +10662,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 205.74 59.8424 0)
 			(effects
 				(font
@@ -11011,7 +10915,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 236.22 76.3524 0)
 			(effects
 				(font
@@ -11079,7 +10983,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 109.22 138.43 180)
+		(at 240.03 162.56 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11088,7 +10992,7 @@
 		(fields_autoplaced yes)
 		(uuid "94411731-83c1-4fcd-b085-79d7c64dd1b4")
 		(property "Reference" "D2"
-			(at 110.8075 130.81 0)
+			(at 241.6175 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11096,7 +11000,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 110.8075 133.35 0)
+			(at 241.6175 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11104,7 +11008,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 109.22 138.43 0)
+			(at 240.03 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11113,7 +11017,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 109.22 138.43 0)
+			(at 240.03 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11122,7 +11026,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 109.22 138.43 0)
+			(at 240.03 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11291,7 +11195,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 175.26 125.8824 0)
 			(effects
 				(font
@@ -11374,7 +11278,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 236.22 92.8624 0)
 			(effects
 				(font
@@ -11542,7 +11446,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 205.74 43.3324 0)
 			(effects
 				(font
@@ -11694,7 +11598,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 220.98 109.3724 0)
 			(effects
 				(font
@@ -11847,7 +11751,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 101.6 138.43 90)
+		(at 232.41 162.56 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11856,7 +11760,7 @@
 		(fields_autoplaced yes)
 		(uuid "a67b5024-b0c7-44ae-a664-6f4f08eb2e76")
 		(property "Reference" "R5"
-			(at 101.6 132.08 90)
+			(at 232.41 156.21 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11864,7 +11768,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 101.6 134.62 90)
+			(at 232.41 158.75 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11872,7 +11776,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 101.6 140.208 90)
+			(at 232.41 164.338 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11881,7 +11785,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 101.6 138.43 0)
+			(at 232.41 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11890,7 +11794,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 138.43 0)
+			(at 232.41 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11899,7 +11803,7 @@
 			)
 		)
 		(property "LCSC" "C17414"
-			(at 101.6 138.43 0)
+			(at 232.41 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11939,7 +11843,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 251.46 92.8624 0)
 			(effects
 				(font
@@ -12277,7 +12181,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 251.46 125.8824 0)
 			(effects
 				(font
@@ -12445,7 +12349,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 175.26 59.8424 0)
 			(effects
 				(font
@@ -12598,7 +12502,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 64.77 96.52 0)
+		(at 64.77 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12607,7 +12511,7 @@
 		(fields_autoplaced yes)
 		(uuid "ba19255e-129a-472d-8d93-06b7008dceb8")
 		(property "Reference" "R3"
-			(at 67.31 95.2499 0)
+			(at 67.31 107.9499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12616,7 +12520,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 67.31 97.7899 0)
+			(at 67.31 110.4899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12625,7 +12529,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 62.992 96.52 90)
+			(at 62.992 109.22 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12634,7 +12538,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 64.77 96.52 0)
+			(at 64.77 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12643,7 +12547,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 64.77 96.52 0)
+			(at 64.77 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12652,7 +12556,7 @@
 			)
 		)
 		(property "LCSC" "C27834"
-			(at 64.77 96.52 0)
+			(at 64.77 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12777,7 +12681,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 266.7 26.8224 0)
 			(effects
 				(font
@@ -12845,7 +12749,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 109.22 127 180)
+		(at 209.55 162.56 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12854,7 +12758,7 @@
 		(fields_autoplaced yes)
 		(uuid "beb9aa56-ed7a-4465-8dd9-92c6a87401c9")
 		(property "Reference" "D1"
-			(at 110.8075 119.38 0)
+			(at 211.1375 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12862,7 +12766,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 110.8075 121.92 0)
+			(at 211.1375 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12870,7 +12774,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 109.22 127 0)
+			(at 209.55 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12879,7 +12783,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 109.22 127 0)
+			(at 209.55 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12888,7 +12792,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 109.22 127 0)
+			(at 209.55 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12928,7 +12832,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 190.5 125.8824 0)
 			(effects
 				(font
@@ -13096,7 +13000,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 251.46 59.8424 0)
 			(effects
 				(font
@@ -13179,7 +13083,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 220.98 59.8424 0)
 			(effects
 				(font
@@ -13262,7 +13166,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 266.7 43.3324 0)
 			(effects
 				(font
@@ -13345,7 +13249,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 220.98 92.8624 0)
 			(effects
 				(font
@@ -13513,7 +13417,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 205.74 125.8824 0)
 			(effects
 				(font
@@ -13596,7 +13500,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 175.26 109.3724 0)
 			(effects
 				(font
@@ -13749,7 +13653,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 101.6 165.1 0)
+		(at 120.65 162.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13758,7 +13662,7 @@
 		(fields_autoplaced yes)
 		(uuid "d5801add-c465-446e-8aca-4e9b93becfcf")
 		(property "Reference" "J2"
-			(at 104.14 165.0999 0)
+			(at 123.19 162.5599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13767,7 +13671,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 104.14 167.6399 0)
+			(at 123.19 165.0999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13776,7 +13680,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 101.6 165.1 0)
+			(at 120.65 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13785,7 +13689,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 101.6 165.1 0)
+			(at 120.65 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13794,7 +13698,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 101.6 165.1 0)
+			(at 120.65 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14227,7 +14131,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 175.26 26.8224 0)
 			(effects
 				(font
@@ -14310,7 +14214,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 266.7 59.8424 0)
 			(effects
 				(font
@@ -14393,7 +14297,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 266.7 92.8624 0)
 			(effects
 				(font
@@ -14561,7 +14465,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 175.26 76.3524 0)
 			(effects
 				(font
@@ -14644,7 +14548,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 190.5 109.3724 0)
 			(effects
 				(font
@@ -14812,7 +14716,7 @@
 				)
 			)
 		)
-		(property "Value" "MX-compatible or Kailh Choc v1"
+		(property "Value" "MX-compatible"
 			(at 220.98 43.3324 0)
 			(effects
 				(font
