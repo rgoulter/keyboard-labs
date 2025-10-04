@@ -13,17 +13,15 @@
 in
   python3Packages.buildPythonPackage rec {
     pname = "kiauto";
-    version = "2.2.5";
+    version = "2.3.5";
 
     pyproject = true;
     build-system = [python3Packages.setuptools];
 
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "sha256-3HhsHsG32WK6JjhdIFybfoLezeSMPpdeuSK0AKDtz9M";
+      sha256 = "sha256-WfN4OnAi8t0RlC5couVdamRQ76YielDrAS2WDregstI=";
     };
-
-    patches = [./0001-patch-schematic-plotting-all_pages.patch];
 
     propagatedBuildInputs = with python3Packages; [
       kicadPythonModule
