@@ -63,7 +63,6 @@
 
       imports = [
         devenv.flakeModule
-        treefmt-nix.flakeModule
         ./firmware/keyberon/flake-module.nix
       ];
 
@@ -193,8 +192,6 @@
           }
           // pcb
           // qmk;
-
-        treefmt = import ./treefmt.nix;
       };
     };
 }
