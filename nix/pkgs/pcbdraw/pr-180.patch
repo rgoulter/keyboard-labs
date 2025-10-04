@@ -1,0 +1,82 @@
+From 0a993655e49613a56cdfe4a5f1b27b98d1bb26a5 Mon Sep 17 00:00:00 2001
+From: "Luke T. Shumaker" <lukeshu@lukeshu.com>
+Date: Sun, 21 Sep 2025 11:07:40 -0600
+Subject: [PATCH] Get it installing and passing with Python 3.13 and KiCad 9
+
+I haven't verified that everything works beyond that it installs and
+`make test-unit test-system` passes.
+---
+ .gitignore          | 3 +++
+ pcbdraw/plot.py     | 4 ++--
+ pcbdraw/renderer.py | 2 ++
+ setup.py            | 4 ++--
+ 4 files changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index 4b9fb4d..dcbd05e 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -93,3 +93,6 @@ ENV/
+ 
+ # PyCharm settings
+ .idea
++
++# KiCad stuff:
++*.lck
+diff --git a/pcbdraw/plot.py b/pcbdraw/plot.py
+index e7f1fc6..4be0b21 100644
+--- a/pcbdraw/plot.py
++++ b/pcbdraw/plot.py
+@@ -29,7 +29,7 @@
+ from pcbdraw.unit import read_resistance
+ import svgpathtools # type: ignore
+ from lxml import etree, objectify # type: ignore
+-from pcbnewTransition import KICAD_VERSION, isV6, isV7, isV8, pcbnew # type: ignore
++from pcbnewTransition import KICAD_VERSION, isV6, isV7, pcbnew # type: ignore
+ 
+ T = TypeVar("T")
+ Numeric = Union[int, float]
+@@ -41,7 +41,7 @@
+ 
+ etree.register_namespace("xlink", "http://www.w3.org/1999/xlink")
+ 
+-LEGACY_KICAD = not isV6() and not isV7() and not isV8()
++LEGACY_KICAD = KICAD_VERSION[0] < 6 and not isV6()
+ 
+ default_style = {
+     "copper": "#417e5a",
+diff --git a/pcbdraw/renderer.py b/pcbdraw/renderer.py
+index 7486f53..eeaaaa3 100644
+--- a/pcbdraw/renderer.py
++++ b/pcbdraw/renderer.py
+@@ -112,6 +112,8 @@ def waitForWindows(self, titlePatterns: List[str], timeout: int=60,
+             for title, id in windows.items():
+                 if any([pattern in title.lower() for pattern in titlePatterns]):
+                     return id
++                if "kicad pcb editor warning" in title.lower():
++                    self._xdotool(["key", "--window", str(id), "Return"])
+             time.sleep(1)
+         windows_list = "\n".join([f"- {t}" for t in windows.keys()])
+         raise TimeoutError(f"None of '{titlePatterns}' didn't appear within timeout. Available windows:\n{windows_list}")
+diff --git a/setup.py b/setup.py
+index f9514a0..723ba24 100644
+--- a/setup.py
++++ b/setup.py
+@@ -26,14 +26,14 @@
+     install_requires=[
+         "numpy",
+         "lxml",
+-        "mistune>=2.0.2",
++        "mistune>=2.0.2,<3",
+         "pybars3",
+         "pyyaml",
+         "svgpathtools==1.4.1",
+         "pcbnewTransition>=0.4",
+         "LnkParse3; platform_system=='Windows'",
+         "pyVirtualDisplay~=3.0; platform_system!='Windows'",
+-        "Pillow~=9.0",
++        "Pillow>=9.0",
+         "click>=7.1"
+     ],
+     setup_requires=[
+
