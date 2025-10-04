@@ -13,6 +13,9 @@ with python3Packages;
     pname = "pcbdraw";
     version = "1.1.3-pre";
 
+    pyproject = true;
+    build-system = [python3Packages.setuptools];
+
     # fails on Windows-specific test
     doCheck = false;
 

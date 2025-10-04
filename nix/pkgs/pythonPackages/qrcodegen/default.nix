@@ -7,6 +7,9 @@ python3Packages.buildPythonPackage rec {
   pname = "qrcodegen";
   version = "1.7.0";
 
+  pyproject = true;
+  build-system = [python3Packages.setuptools];
+
   src = fetchFromGitHub {
     owner = "nayuki";
     repo = "QR-Code-generator";

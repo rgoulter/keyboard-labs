@@ -15,6 +15,9 @@ in
     pname = "kiauto";
     version = "2.2.5";
 
+    pyproject = true;
+    build-system = [python3Packages.setuptools];
+
     src = python3Packages.fetchPypi {
       inherit pname version;
       sha256 = "sha256-3HhsHsG32WK6JjhdIFybfoLezeSMPpdeuSK0AKDtz9M";

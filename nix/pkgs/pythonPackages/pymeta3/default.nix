@@ -4,6 +4,9 @@ with python3Packages;
     pname = "PyMeta3";
     version = "0.5.1";
 
+    pyproject = true;
+    build-system = [python3Packages.setuptools];
+
     propagatedBuildInputs = [
       twisted
     ];

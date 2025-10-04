@@ -7,6 +7,9 @@ with python3Packages;
     pname = "pybars3";
     version = "0.9.7";
 
+    pyproject = true;
+    build-system = [python3Packages.setuptools];
+
     propagatedBuildInputs = [
       PyMeta3
     ];

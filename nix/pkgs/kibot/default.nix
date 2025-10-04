@@ -43,6 +43,9 @@ in
     pname = "kibot";
     version = "1.7.0";
 
+    pyproject = true;
+    build-system = [python3Packages.setuptools];
+
     # The macros module requires the module isn't compiled.
     # cf. https://github.com/INTI-CMNB/KiBot/issues/31
     postFixup = ''

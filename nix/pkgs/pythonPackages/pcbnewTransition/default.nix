@@ -15,6 +15,9 @@ in
       pname = "pcbnewTransition";
       version = "0.4.1";
 
+      pyproject = true;
+      build-system = [python3Packages.setuptools];
+
       propagatedBuildInputs = [
         kicadPythonModule
         versioneer

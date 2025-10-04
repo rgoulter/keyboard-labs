@@ -4,6 +4,9 @@ with python3Packages;
     pname = "svgpathtools";
     version = "1.4.1";
 
+    pyproject = true;
+    build-system = [python3Packages.setuptools];
+
     propagatedBuildInputs = [
       numpy
       scipy
