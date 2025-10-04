@@ -13,16 +13,16 @@
         kicad
         ;
     },
-  # pcbdraw ?
-  #   import ../pcbdraw {
-  #     inherit
-  #       lib
-  #       fetchFromGitHub
-  #       python3Packages
-  #       python3
-  #       kicad
-  #       ;
-  #   },
+  pcbdraw ?
+    import ../pcbdraw {
+      inherit
+        lib
+        fetchFromGitHub
+        python3Packages
+        python3
+        kicad
+        ;
+    },
   qrcodegenPythonModule ?
     import ../pythonPackages/qrcodegen {
       inherit
@@ -59,7 +59,7 @@ in
       lark
       lxml
       markdown2
-      # pcbdraw
+      pcbdraw
       pyyaml
       qrcodegenPythonModule
       requests

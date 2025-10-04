@@ -5,7 +5,7 @@
   # Kludge: on NixOS desktop, need virtualgl for the pcbnew
   # to be able to show 3D preview.
   kibot ? pkgs.callPackage ../nix/pkgs/kibot {},
-  # pcbdraw ? pkgs.callPackage ../nix/pkgs/pcbdraw {},
+  pcbdraw ? pkgs.callPackage ../nix/pkgs/pcbdraw {},
   # recordmydesktop ? pkgs.callPackage ../nix/pkgs/recordmydesktop {},
 }:
 pkgs.mkShell {
@@ -39,7 +39,7 @@ pkgs.mkShell {
     fluxbox
     interactive-html-bom
     kibot
-    # pcbdraw
+    pcbdraw
     # recordmydesktop
     turbovnc
     virtualgl
