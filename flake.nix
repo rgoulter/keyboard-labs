@@ -92,6 +92,23 @@
               self.packages.${system}.bootloader-stm32f411-tinyuf2
             ];
           };
+
+          pcb = pkgs.symlinkJoin {
+            name = "keyboard-labs-pcb";
+            paths = [
+              self.packages.${system}.pcb-keyboard-100x100-minif4-dual-rgb-reversible
+              self.packages.${system}.pcb-keyboard-ch552-36-lhs
+              self.packages.${system}.pcb-keyboard-ch552-36-rhs
+              self.packages.${system}.pcb-keyboard-ch552-44
+              self.packages.${system}.pcb-keyboard-ch552-48
+              self.packages.${system}.pcb-keyboard-ch552-48-lpr
+              self.packages.${system}.pcb-keyboard-pico42
+              self.packages.${system}.pcb-keyboard-pykey40-hsrgb
+              self.packages.${system}.pcb-keyboard-pykey40-lite
+              self.packages.${system}.pcb-keyboard-x2-lumberjack-arm-hsrgb
+              self.packages.${system}.pcb-keyboard-x2-lumberjack-arm
+            ];
+          };
         };
 
         devShells = {
