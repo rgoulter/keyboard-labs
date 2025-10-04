@@ -9,7 +9,6 @@
   interactive-html-bom,
   kibot,
   pcbdraw,
-  recordmydesktop,
   fluxbox,
   turbovnc,
   virtualgl,
@@ -36,7 +35,6 @@ stdenvNoCC.mkDerivation rec {
     interactive-html-bom
     kibot
     pcbdraw
-    recordmydesktop
     turbovnc
     virtualgl
     wmctrl
