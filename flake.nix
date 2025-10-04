@@ -73,25 +73,6 @@
           system = "x86_64-linux";
         in {
           gcc-arm-a-embedded = nixpkgs.legacyPackages.x86_64-linux.callPackage ./nix/pkgs/gcc-arm-a-embedded {};
-
-          # An ISO for a live environment, with packages
-          # for flashing fak firmware.
-          offline-iso = nixos-generators.nixosGenerate {
-            pkgs = import nixpkgs {
-              inherit system;
-              config = {allowUnfree = true;};
-              overlays = [
-                (final: prev: {
-                  nickel = nickel.packages."x86_64-linux".default;
-                  wchisp = self.packages.${system}.wchisp;
-                })
-              ];
-            };
-            format = "iso";
-            modules = [
-              self.nixosModules.offline-iso
-            ];
-          };
         };
       };
 
