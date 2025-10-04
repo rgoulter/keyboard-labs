@@ -6,7 +6,7 @@
   # to be able to show 3D preview.
   kibot ? pkgs.callPackage ../nix/pkgs/kibot {},
   pcbdraw ? pkgs.callPackage ../nix/pkgs/pcbdraw {},
-  recordmydesktop ? pkgs.callPackage ../nix/pkgs/recordmydesktop {},
+  # recordmydesktop ? pkgs.callPackage ../nix/pkgs/recordmydesktop {},
 }:
 pkgs.mkShell {
   # The environment variables KiBot uses for its
@@ -40,7 +40,7 @@ pkgs.mkShell {
     interactive-html-bom
     kibot
     pcbdraw
-    recordmydesktop
+    # recordmydesktop
     turbovnc
     virtualgl
     wmctrl
