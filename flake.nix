@@ -90,16 +90,6 @@
               self.packages.${system}.bootloader-stm32f103-stm32duino
               self.packages.${system}.bootloader-stm32f401-tinyuf2
               self.packages.${system}.bootloader-stm32f411-tinyuf2
-              self.packages.${system}.qmk-bm40hsrgb-rgoulter
-              self.packages.${system}.qmk-minif4_36-rev2021_5-blackpill_f401-rgoulter
-              self.packages.${system}.qmk-pico42-rgoulter-basic
-              self.packages.${system}.qmk-pico42-manna-harbour_miryoku
-              self.packages.${system}.qmk-pico42-vial
-              self.packages.${system}.qmk-pykey40-lite-rgoulter
-              self.packages.${system}.qmk-pykey40-lite-rgoulter-pinkieoutercolumn
-              self.packages.${system}.qmk-pykey40-lite-vial
-              self.packages.${system}.qmk-x_2-rev2021_1-bluepill
-              self.packages.${system}.qmk-x_2-rev2021_1-blackpill_f401
             ];
           };
 
