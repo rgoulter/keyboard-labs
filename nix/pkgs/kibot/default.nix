@@ -57,6 +57,7 @@ in
       kiauto
       kicadPythonModule
       lark
+      lxml
       markdown2
       # pcbdraw
       pyyaml
