@@ -35451,7 +35451,7 @@
 			(uuid "2b83750c-cdaf-42ef-a8cf-365ede4e3581")
 		)
 		(embedded_fonts no)
-		(model "/nix/store/dzpg6y7dbgml1lfdxigxqdjzrvgw3xay-kicad-packages3d-4fb0672db1/share/kicad/3dmodels/Connector_USB.3dshapes/USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal.wrl"
+		(model "${KICAD6_3DMODEL_DIR}/Connector_USB.3dshapes/USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
