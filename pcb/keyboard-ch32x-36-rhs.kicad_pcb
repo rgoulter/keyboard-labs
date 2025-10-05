@@ -12384,17 +12384,6 @@
 			(uuid "342fd5d9-1858-4fcb-8250-a102a60c67f5")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x01_P2.54mm_Vertical.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
 	)
 	(footprint "ProjectLocal:SW_Cherry_MX_PCB_1.00u_BSilkRef"
 		(layer "F.Cu")
@@ -14273,17 +14262,6 @@
 			(uuid "03a0dd32-9359-4851-83a4-e443b5d02f49")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
 	)
 	(footprint "Diode_SMD:D_SOD-123"
 		(layer "F.Cu")
@@ -15421,7 +15399,7 @@
 			(uuid "cfec16bf-40a4-4798-a36a-423b3852339e")
 		)
 		(embedded_fonts no)
-		(model "/Users/danny/syncproj/kicad-libs/footprints/Keebio-Parts.pretty/3dmodels/PJ-320A.step"
+		(model "Keebio-Parts.pretty/3dmodels/PJ-320A.step"
 			(offset
 				(xyz 0 0 0)
 			)
