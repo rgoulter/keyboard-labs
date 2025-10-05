@@ -12,6 +12,18 @@ in {
   keyboard-100x100-minif4-dual-rgb-reversible = callPackage ./make-kibot.nix {
     board = "keyboard-100x100-minif4-dual-rgb-reversible";
   };
+  keyboard-ch32x-36-lhs = callPackage ./make-kibot.nix {
+    board = "keyboard-ch32x-36-lhs";
+  };
+  keyboard-ch32x-36-rhs = callPackage ./make-kibot.nix {
+    board = "keyboard-ch32x-36-rhs";
+  };
+  keyboard-ch32x-48 = callPackage ./make-kibot.nix {
+    board = "keyboard-ch32x-48";
+  };
+  keyboard-ch32x-75 = callPackage ./make-kibot.nix {
+    board = "keyboard-ch32x-75";
+  };
   keyboard-ch552-36-lhs = callPackage ./make-kibot.nix {
     board = "keyboard-ch552-36-lhs";
   };
