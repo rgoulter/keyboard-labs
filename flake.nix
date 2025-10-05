@@ -97,6 +97,10 @@
             name = "keyboard-labs-pcb";
             paths = [
               self.packages.${system}.pcb-keyboard-100x100-minif4-dual-rgb-reversible
+              self.packages.${system}.pcb-keyboard-ch32x-36-lhs
+              self.packages.${system}.pcb-keyboard-ch32x-36-rhs
+              self.packages.${system}.pcb-keyboard-ch32x-48
+              self.packages.${system}.pcb-keyboard-ch32x-75
               self.packages.${system}.pcb-keyboard-ch552-36-lhs
               self.packages.${system}.pcb-keyboard-ch552-36-rhs
               self.packages.${system}.pcb-keyboard-ch552-44
