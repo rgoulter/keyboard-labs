@@ -1,0 +1,102 @@
+# pcb — UX wrappers for pcb/Makefile (kibot / ibom / pcba / netlist)
+# `just pcb::list` to see boards, `just pcb::kibot` with no arg invokes fzf chooser.
+
+# list available boards (from *.kicad_pcb)
+[doc("list available pcb boards")]
+list:
+    @ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | sed 's/^/  /' || echo "no .kicad_pcb found in {{source_directory()}}"
+
+# run all kibot + ibom targets (same as `make -C pcb all`)
+[doc("build all kibot + iboms (make all)")]
+all:
+    make -C "{{source_directory()}}" all
+
+[doc("build all iboms (make iboms)")]
+iboms:
+    make -C "{{source_directory()}}" iboms
+
+# internal helper: resolve board name, invoking fzf if needed
+# usage: board=$(just pcb::_board "{{board}}")
+
+# kibot: `just pcb::kibot <board>` or `just pcb::kibot` (chooser)
+[doc("run kibot for board (chooser if no arg)")]
+kibot board="":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    board="{{board}}"
+    if [ -z "$board" ]; then
+        if command -v fzf >/dev/null 2>&1; then
+            board=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | fzf --prompt="pcb kibot> " --height=40% --reverse || true)
+        else
+            echo "Available boards:" >&2
+            ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | sed 's/^/  /' >&2 || true
+            echo "Usage: just pcb::kibot <board>" >&2
+            echo "  or install fzf for interactive chooser." >&2
+            exit 1
+        fi
+    fi
+    if [ -z "$board" ]; then exit 1; fi
+    echo "→ make -C {{source_directory()}} $board-kibot" >&2
+    make -C "{{source_directory()}}" "$board-kibot"
+
+# pcba: `just pcb::pcba <board>`
+[doc("run pcba bom/position for board")]
+pcba board="":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    board="{{board}}"
+    if [ -z "$board" ]; then
+        if command -v fzf >/dev/null 2>&1; then
+            board=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | fzf --prompt="pcb pcba> " --height=40% --reverse || true)
+        else
+            echo "Usage: just pcb::pcba <board>" >&2
+            ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | sed 's/^/  /' >&2
+            exit 1
+        fi
+    fi
+    [ -z "$board" ] && exit 1
+    make -C "{{source_directory()}}" "$board-pcba"
+
+# ibom: `just pcb::ibom <board>` — chooser filters to boards with ibom targets
+[doc("run ibom for board (chooser if no arg)")]
+ibom board="":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    board="{{board}}"
+    if [ -z "$board" ]; then
+        if command -v fzf >/dev/null 2>&1; then
+            # derive ibom-capable boards from Makefile ibom_targets
+            avail=$(grep -E '^[a-z0-9._-]+-ibom' {{source_directory()}}/Makefile 2>/dev/null | sed -E 's/:.*//' | sed 's/-ibom//' | sort -u || true)
+            if [ -z "$avail" ]; then
+                avail=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort)
+            fi
+            board=$(echo "$avail" | fzf --prompt="pcb ibom> " --height=40% --reverse || true)
+        else
+            echo "Usage: just pcb::ibom <board>" >&2
+            grep -E '^[a-z0-9._-]+-ibom' {{source_directory()}}/Makefile 2>/dev/null | sed -E 's/:.*//' | sed 's/^/  /' >&2 || true
+            exit 1
+        fi
+    fi
+    [ -z "$board" ] && exit 1
+    make -C "{{source_directory()}}" "$board-ibom"
+
+# net: `just pcb::net <board>` → builds <board>.net via kibot
+[doc("build netlist for board")]
+net board="":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    board="{{board}}"
+    if [ -z "$board" ]; then
+        if command -v fzf >/dev/null 2>&1; then
+            board=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | fzf --prompt="pcb net> " --height=40% --reverse || true)
+        else
+            echo "Usage: just pcb::net <board>" >&2; exit 1
+        fi
+    fi
+    [ -z "$board" ] && exit 1
+    make -C "{{source_directory()}}" "$board.net"
+
+# interactive chooser entrypoint for this module
+[doc("interactive chooser for pcb recipes")]
+choose:
+    @just --choose --chooser "fzf --prompt='pcb> ' --height=40% --reverse" 2>/dev/null || just --choose
