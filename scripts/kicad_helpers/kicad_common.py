@@ -1,250 +1,228 @@
+"""KiCad 10 helpers — board-aware, headless + Action Plugin.
+
+Assumes KiCad 10 (IU nm, EDA_ANGLE).
+
+Usage:
+  CLI:   board = pcbnew.LoadBoard("pcb/foo.kicad_pcb"); kicad_common.position_on_grid(board, ...)
+  GUI:   board = pcbnew.GetBoard(); kicad_common.position_on_grid(board, ...)
+"""
+
 import pcbnew
+from pcbnew import EDA_ANGLE, VECTOR2I_MM
 
-from pcbnew import VECTOR2I_MM
+
+def _set_orientation_deg(fp, degrees: float):
+    fp.SetOrientation(EDA_ANGLE(degrees, pcbnew.DEGREES_T))
 
 
-def footprints():
-    return pcbnew.GetBoard().Footprints()
+def footprints(board):
+    return board.Footprints()
 
 
 def footprint_ref(fp):
     return fp.Reference().GetText()
 
 
-def lock(refs):
-    all_fps = footprints()
-    fps = [f for f in all_fps if footprint_ref(f) in refs]
-    for f in fps:
-        f.SetLocked(True)
-    pcbnew.Refresh()
+def lock(board, refs):
+    for f in board.Footprints():
+        if footprint_ref(f) in refs:
+            f.SetLocked(True)
 
 
-def unlock(refs):
-    all_fps = footprints()
-    fps = [f for f in all_fps if footprint_ref(f) in refs]
-    for f in fps:
+def unlock(board, refs):
+    for f in board.Footprints():
+        if footprint_ref(f) in refs:
+            f.SetLocked(False)
+
+
+def unlock_all(board):
+    for f in board.Footprints():
         f.SetLocked(False)
-    pcbnew.Refresh()
-
-
-def unlock_all():
-    fps = footprints()
-    for f in fps:
-        f.SetLocked(False)
-    pcbnew.Refresh()
 
 
 def grid_ref(prefix, coord):
     (r, c) = coord
-    return "{prefix}_{r}_{c}".format(prefix=prefix, r=r, c=c)
+    return f"{prefix}_{r}_{c}"
 
 
-def position_offset_for_grid_coord(coord, col_spacing_mm = 19.05, row_spacing_mm = 19.05):
+def position_offset_for_grid_coord(coord, col_spacing_mm=19.05, row_spacing_mm=19.05):
     (r, c) = coord
     return VECTOR2I_MM(col_spacing_mm * (c - 1), row_spacing_mm * (r - 1))
 
 
-# Convenience function to get the position of a footprint
-def position_of_reference(ref):
-    footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-    if footprint:
-        return footprint.GetPosition()
-    else:
-        raise ValueError("No footprint with reference {ref}".format(ref=ref))
+def position_of_reference(board, ref):
+    fp = board.FindFootprintByReference(ref)
 
-def position_of_x_between_refs(ref1, ref2):
-    x1, _ = position_of_reference(ref1)
-    x2, _ = position_of_reference(ref2)
+    if fp:
+        return fp.GetPosition()
+
+    raise ValueError(f"No footprint with reference {ref}")
+
+
+def position_of_x_between_refs(board, ref1, ref2):
+    x1, _ = position_of_reference(board, ref1)
+    x2, _ = position_of_reference(board, ref2)
     return int((x1 + x2) / 2)
 
-def position_of_y_between_refs(ref1, ref2):
-    _, y1 = position_of_reference(ref1)
-    _, y2 = position_of_reference(ref2)
+
+def position_of_y_between_refs(board, ref1, ref2):
+    _, y1 = position_of_reference(board, ref1)
+    _, y2 = position_of_reference(board, ref2)
     return int((y1 + y2) / 2)
 
-def position_in_array(
-        refs,
-        delta_pos_mm,
-        adjustments_mm = None
-):
-    if len(refs) == 0:
+
+def position_in_array(board, refs, delta_pos_mm, adjustments_mm=None):
+    if not refs:
         return
 
-    fp_1_1_pos = position_of_reference(refs[0])
+    fp0_pos = position_of_reference(board, refs[0])
 
     for i, ref in enumerate(refs):
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
 
-        delta_vec = VECTOR2I_MM(delta_pos_mm[0] * i, delta_pos_mm[1] * i)
-        adjustment_vec = VECTOR2I_MM(0, 0)
+        delta = VECTOR2I_MM(delta_pos_mm[0] * i, delta_pos_mm[1] * i)
+        adj = VECTOR2I_MM(0, 0)
+
         if adjustments_mm:
-            adjustment_vec = VECTOR2I_MM(adjustments_mm[i][0], adjustments_mm[i][1])
-        footprint.SetPosition(fp_1_1_pos + delta_vec + adjustment_vec)
+            adj = VECTOR2I_MM(adjustments_mm[i][0], adjustments_mm[i][1])
+
+        fp.SetPosition(fp0_pos + delta + adj)
 
 
-# My PCB designs all tend to be oriented around ortholinear grids.
-# This helper function updates positions of footprints.
-#
-# e.g. for positioning SW_1_1 to SW_4_12 all relative to SW_1_1.
-#
-# Assumes refs are labelled by "logical" coords.
-# (e.g. on CH552-44 where it's SW_1_1 to SW_7_7).
-#
-# rows: number of rows in the "logical" grid (e.g. 4)
-# cols: number of columns in the "logical" grid (e.g. 12)
-# logical_coord_to_grid_coord: function to convert from logical coord to grid coord (useful for CH552-44)
-# stagger: None, or array of y offsets in mm per column
 def position_on_grid(
-        ref_prefix,
-        rows,
-        cols,
-        logical_coord_to_grid_coord = lambda x: x,
-        col_spacing_mm = 19.05,
-        row_spacing_mm = 19.05,
-        col_stagger = None,
-        except_refs = []
+    board,
+    ref_prefix,
+    rows,
+    cols,
+    logical_coord_to_grid_coord=lambda x: x,
+    col_spacing_mm=19.05,
+    row_spacing_mm=19.05,
+    col_stagger=None,
+    except_refs=(),
 ):
-    fp_1_1_pos = position_of_reference(grid_ref(ref_prefix, (1, 1)))
+    fp0_pos = position_of_reference(board, grid_ref(ref_prefix, (1, 1)))
+    adjusted_stagger = None
 
-    adjusted_col_stagger = None
     if col_stagger:
-        adjusted_col_stagger = [x - col_stagger[0] for x in col_stagger]
+        adjusted_stagger = [x - col_stagger[0] for x in col_stagger]
 
     for logical_coord in [(r, c) for r in range(1, rows + 1) for c in range(1, cols + 1)]:
         ref = grid_ref(ref_prefix, logical_coord)
+
         if ref in except_refs:
             continue
 
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
+
         grid_coord = logical_coord_to_grid_coord(logical_coord)
         stagger = VECTOR2I_MM(0, 0)
-        if adjusted_col_stagger:
-            stagger = VECTOR2I_MM(0, adjusted_col_stagger[grid_coord[1] - 1])
-        offset = position_offset_for_grid_coord(
-            coord = grid_coord,
-            col_spacing_mm = col_spacing_mm,
-            row_spacing_mm = row_spacing_mm
-        )
-        footprint.SetPosition(fp_1_1_pos + offset + stagger)
+
+        if adjusted_stagger:
+            stagger = VECTOR2I_MM(0, adjusted_stagger[grid_coord[1] - 1])
+
+        offset = position_offset_for_grid_coord(grid_coord, col_spacing_mm, row_spacing_mm)
+        fp.SetPosition(fp0_pos + offset + stagger)
 
 
-# Same as "Position on grid",
-# but for pairs (like the diode pairs on PyKey40, etc.)
 def position_pairs_on_grid(
+    board,
     ref_prefix,
     rows,
     cols,
-    grid_coord_to_logical_coord = lambda x: x,
-    logical_coord_to_grid_coord = lambda x: x,
-    col_spacing_mm = 19.05,
-    row_spacing_mm = 19.05
+    grid_coord_to_logical_coord=lambda x: x,
+    logical_coord_to_grid_coord=lambda x: x,
+    col_spacing_mm=19.05,
+    row_spacing_mm=19.05,
 ):
-    fp_1_1_pos = position_of_reference(grid_ref(ref_prefix, (1, 1)))
-    fp_1_2_pos = position_of_reference(grid_ref(ref_prefix, grid_coord_to_logical_coord((1, 2))))
+    fp0_pos = position_of_reference(board, grid_ref(ref_prefix, (1, 1)))
+    fp1_pos = position_of_reference(board, grid_ref(ref_prefix, grid_coord_to_logical_coord((1, 2))))
 
     for logical_coord in [(r, c) for r in range(1, rows + 1) for c in range(1, cols + 1)]:
         ref = grid_ref(ref_prefix, logical_coord)
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
+
         (gr, gc) = logical_coord_to_grid_coord(logical_coord)
+
         if gc % 2 == 1:
-            offset = position_offset_for_grid_coord(
-                coord = (gr, gc),
-                col_spacing_mm = col_spacing_mm,
-                row_spacing_mm = row_spacing_mm
-            )
-            footprint.SetPosition(fp_1_1_pos + offset)
+            offset = position_offset_for_grid_coord((gr, gc), col_spacing_mm, row_spacing_mm)
+            fp.SetPosition(fp0_pos + offset)
         else:
-            offset = position_offset_for_grid_coord(
-                coord = (gr, gc - 1),
-                col_spacing_mm = col_spacing_mm,
-                row_spacing_mm = row_spacing_mm
-            )
-            footprint.SetPosition(fp_1_2_pos + offset)
+            offset = position_offset_for_grid_coord((gr, gc - 1), col_spacing_mm, row_spacing_mm)
+            fp.SetPosition(fp1_pos + offset)
 
 
-def set_array_rotations(
-    refs,
-    rotation_degrees
-):
+def set_array_rotations(board, refs, rotation_degrees):
     for ref in refs:
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
-        footprint.SetOrientationDegrees(rotation_degrees)
+
+        _set_orientation_deg(fp, rotation_degrees)
 
 
-def set_rotations(
-    ref_prefix,
-    rows,
-    cols,
-    rotation_degrees,
-    except_refs = []
-):
+def set_rotations(board, ref_prefix, rows, cols, rotation_degrees, except_refs=()):
     for logical_coord in [(r, c) for r in range(1, rows + 1) for c in range(1, cols + 1)]:
         ref = grid_ref(ref_prefix, logical_coord)
+
         if ref in except_refs:
             continue
 
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
-        footprint.SetOrientationDegrees(rotation_degrees)
+
+        _set_orientation_deg(fp, rotation_degrees)
 
 
-def grid_refs(
-    ref_prefix,
-    rows,
-    cols
-):
+def grid_refs(ref_prefix, rows, cols):
     return [grid_ref(ref_prefix, (r, c)) for r in range(1, rows + 1) for c in range(1, cols + 1)]
 
 
-def hide_references(
-    refs
-):
+def hide_references(board, refs):
     for ref in refs:
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
-        footprint.Reference().SetVisible(False)
+
+        fp.Reference().SetVisible(False)
 
 
-def hide_fp_texts(
-    refs,
-    layer_names = ["F.Silkscreen", "B.Silkscreen"]
-):
+def hide_fp_texts(board, refs, layer_names=("F.Silkscreen", "B.Silkscreen")):
     for ref in refs:
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
-        for t in footprint.GraphicalItems():
+
+        for t in fp.GraphicalItems():
             pass
-            ## if isinstance(t, pcbnew.FP_TEXT) and t.GetLayerName() in layer_names:
-            ##     t.SetVisible(False)
 
 
-def delete_fp_shapes(
-    refs,
-    layer_names = ["F.Silkscreen", "B.Silkscreen"]
-):
+def delete_fp_shapes(board, refs, layer_names=("F.Silkscreen", "B.Silkscreen")):
     for ref in refs:
-        footprint = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if footprint is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
-        for t in footprint.GraphicalItems():
+
+        for t in fp.GraphicalItems():
             if isinstance(t, pcbnew.FP_SHAPE) and t.GetLayerName() in layer_names:
                 t.DeleteStructure()
 
 
-# Hide the text items in the footprint
-# for the given layer_names
-def hide_footprint_silkscreen_text(f, layer_names = ["F.Silkscreen", "B.Silkscreen"]):
+def hide_footprint_silkscreen_text(f, layer_names=("F.Silkscreen", "B.Silkscreen")):
     for t in f.GraphicalItems():
         if isinstance(t, pcbnew.FP_TEXT) and t.GetLayerName() in layer_names:
             t.SetVisible(False)

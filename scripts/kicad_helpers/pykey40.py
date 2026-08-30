@@ -1,202 +1,89 @@
-# Helper script for PyKey40
-# to be used with Kicad scripting console.
-#
-# Use with:
-#    import sys
-#    sys.path.append('/home/rgoulter/github/keyboard-labs/scripts/kicad_helpers')
-#    import pykey40 as p
-
-# pcbnew.GetBoard().FindFootprintByReference("J2").SetPosition(pcbnew.VECTOR2I_MM(100, 100))
+# Helper for PyKey40
 
 import pcbnew
 from pcbnew import VECTOR2I_MM
-
-import kicad_common
-
+from . import engine
 
 ROWS = 4
 COLS = 12
-
-
-L_BLs = ["L_BL_{n}".format(n=n) for n in range(1, 4 + 1)]
-C_BLs = ["C_BL_{n}".format(n=n) for n in range(1, 4 + 1)]
-
-
+L_BLs = [f"L_BL_{n}" for n in range(1, 5)]
+C_BLs = [f"C_BL_{n}" for n in range(1, 5)]
 BL_GRID_COORDS = [(1.5, 1.5), (4.5, 1.5), (6.5, 1.5), (9.5, 1.5)]
 
+def _custom_bl(board, spec):
+    # L_BLs and C_BLs relative to SW_1_1, with c_bl offset from l_bl
+    sw1 = board.FindFootprintByReference("SW_1_1")
 
-def position_SWs():
-    kicad_common.position_on_grid(
-        ref_prefix = "SW",
-        rows = ROWS,
-        cols = COLS,
-    )
+    if sw1 is None:
+        return
 
-def position_Cs():
-    kicad_common.position_on_grid(
-        ref_prefix = "C",
-        rows = ROWS,
-        cols = COLS,
-        except_refs = ["C_1_2"],
-    )
-    kicad_common.set_rotations(
-        ref_prefix = "C",
-        rows = ROWS,
-        cols = COLS,
-        except_refs = ["C_1_2"],
-        rotation_degrees = -90
-    )
+    sw1_pos = sw1.GetPosition()
+    c_bl_1 = board.FindFootprintByReference("C_BL_1")
+    l_bl_1 = board.FindFootprintByReference("L_BL_1")
 
-def position_Hs():
-    # Get position footprint by ref SW_1_1
-    sw_1_1 = pcbnew.GetBoard().FindFootprintByReference("SW_1_1")
-    sw_1_1_pos = sw_1_1.GetPosition()
-
-    mounts = [
-        ("H1", (0.5, 0.5)),
-        ("H2", (12 - 1 - 0.5, 0.5)),
-        ("H3", (6 - 0.5, 1.5)),
-        ("H4", (0.5, 2.5)),
-        ("H5", (12 - 1 - 0.5, 2.5)),
-    ]
-
-    # set position of all SWs relative to SW_1_1
-    for (ref, (c, r)) in mounts:
-        fp = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if fp is None:
-            continue
-        fp.SetPosition(sw_1_1_pos + VECTOR2I_MM(19.05 * c, 19.05 * r))
-
-def position_Ls():
-    kicad_common.position_on_grid(
-        ref_prefix = "L",
-        rows = ROWS,
-        cols = COLS,
-    )
-
-def position_C_BLs():
-    # Get position footprint by ref SW_1_1
-    sw_1_1 = pcbnew.GetBoard().FindFootprintByReference("SW_1_1")
-    sw_1_1_pos = sw_1_1.GetPosition()
-
-    c_bl_1_1 = pcbnew.GetBoard().FindFootprintByReference("C_BL_1")
-    l_bl_1_1 = pcbnew.GetBoard().FindFootprintByReference("L_BL_1")
-    c_offset = c_bl_1_1.GetPosition() - l_bl_1_1.GetPosition()
-
-    for idx, ref in enumerate(C_BLs):
-        c_bl = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if c_bl is None:
-            continue
-        grid_coord = BL_GRID_COORDS[idx]
-        c_bl.SetPosition(sw_1_1_pos + c_offset + VECTOR2I_MM(19.05 * grid_coord[0], 19.05 * grid_coord[1]))
-        c_bl.SetOrientationDegrees(c_bl_1_1.GetOrientationDegrees())
-
-def position_L_BLs():
-    # Get position footprint by ref SW_1_1
-    sw_1_1 = pcbnew.GetBoard().FindFootprintByReference("SW_1_1")
-    sw_1_1_pos = sw_1_1.GetPosition()
+    if c_bl_1 is None or l_bl_1 is None:
+        c_offset = VECTOR2I_MM(0, 0)
+    else:
+        c_offset = c_bl_1.GetPosition() - l_bl_1.GetPosition()
 
     for idx, ref in enumerate(L_BLs):
-        l_bl = pcbnew.GetBoard().FindFootprintByReference(ref)
-        if l_bl is None:
+        fp = board.FindFootprintByReference(ref)
+
+        if fp is None:
             continue
-        grid_coord = BL_GRID_COORDS[idx]
-        l_bl.SetPosition(sw_1_1_pos + VECTOR2I_MM(19.05 * grid_coord[0], 19.05 * grid_coord[1]))
 
+        gc = BL_GRID_COORDS[idx]
+        fp.SetPosition(sw1_pos + VECTOR2I_MM(19.05*gc[0], 19.05*gc[1]))
 
-# position the Ds
-#
-# Ds are spaced apart by 19.05mm in rows and columns
-# starting from where D_1_1 and D_1_2 are placed.
-def position_Ds():
-    kicad_common.position_pairs_on_grid(
-        ref_prefix = "D",
-        rows = ROWS,
-        cols = COLS,
-        col_spacing_mm = 19.05,
-        row_spacing_mm = 19.05
-    )
+    for idx, ref in enumerate(C_BLs):
+        fp = board.FindFootprintByReference(ref)
 
+        if fp is None:
+            continue
 
-def position_all():
-    position_SWs()
-    position_Ds()
-    position_Cs()
-    position_Hs()
-    position_Ls()
-    position_C_BLs()
-    position_L_BLs()
-    pcbnew.Refresh()
+        gc = BL_GRID_COORDS[idx]
+        # orientation copies l_bl
+        l_ref = L_BLs[idx]
+        l_fp = board.FindFootprintByReference(l_ref)
+        fp.SetPosition(sw1_pos + c_offset + VECTOR2I_MM(19.05*gc[0], 19.05*gc[1]))
 
-def hide_d_labels():
-    kicad_common.hide_references(
-        refs = kicad_common.grid_refs(
-            ref_prefix = "D",
-            rows = ROWS,
-            cols = COLS,
-        ),
-    )
-    pcbnew.Refresh()
+        if l_fp:
+            fp.SetOrientation(l_fp.GetOrientation())
 
-def hide_sw_labels():
-    kicad_common.hide_fp_texts(
-        refs = kicad_common.grid_refs(
-            ref_prefix = "SW",
-            rows = ROWS,
-            cols = COLS,
-        ),
-        layer_names = ["F.Silkscreen", "B.Silkscreen"],
-    )
-    pcbnew.Refresh()
+SPEC = {
+    "anchor": "SW_1_1",
+    "grids": [
+        {"prefix": "SW", "rows": ROWS, "cols": COLS},
+        {"prefix": "C", "rows": ROWS, "cols": COLS, "except": ["C_1_2"]},
+        {"prefix": "L", "rows": ROWS, "cols": COLS},
+        {"prefix": "D", "rows": ROWS, "cols": COLS, "type": "pair"},
+    ],
+    "rotations": [
+        {"prefix": "C", "rows": ROWS, "cols": COLS, "except": ["C_1_2"], "degrees": -90},
+    ],
+    "mounts": [
+        {"ref": "H1", "c": 0.5, "r": 0.5},
+        {"ref": "H2", "c": 10.5, "r": 0.5}, # 12-1-0.5 =10.5
+        {"ref": "H3", "c": 5.5, "r": 1.5},  # 6-0.5=5.5
+        {"ref": "H4", "c": 0.5, "r": 2.5},
+        {"ref": "H5", "c": 10.5, "r": 2.5},
+    ],
+    "custom": [_custom_bl],
+    "hide": [
+        {"type": "references", "prefix": "D", "rows": ROWS, "cols": COLS},
+        {"type": "references", "prefix": "SW", "rows": ROWS, "cols": COLS},
+        {"type": "references", "refs": ["U1"]},
+        {"type": "references", "refs": [f"H{n}" for n in range(1,20)]},
+    ],
+}
 
-# H1-5
-def hide_h_labels():
-    # H1-19, because there are surely less than 20 H footprints.
-    refs = ["H" + str(n) for n in range(1, 20)]
-    kicad_common.hide_references(refs = refs)
-    pcbnew.Refresh()
-
-def hide_l_labels():
-    kicad_common.hide_references(
-        refs = kicad_common.grid_refs(
-            ref_prefix = "L",
-            rows = ROWS,
-            cols = COLS,
-        ),
-    )
-    pcbnew.Refresh()
-
-def hide_c_labels():
-    kicad_common.hide_references(
-        refs = kicad_common.grid_refs(
-            ref_prefix = "C",
-            rows = ROWS,
-            cols = COLS,
-        ),
-    )
-    pcbnew.Refresh()
-
-def hide_l_bl_labels():
-    kicad_common.hide_references(
-        refs = L_BLs,
-    )
-    pcbnew.Refresh()
-
-def hide_c_bl_labels():
-    kicad_common.hide_references(
-        refs = C_BLs,
-    )
-    pcbnew.Refresh()
-
-def hide_labels():
-    hide_d_labels()
-    hide_sw_labels()
-    hide_h_labels()
-    hide_l_labels()
-    hide_c_labels()
-    hide_l_bl_labels()
-    hide_c_bl_labels()
-
-def fixup():
-    position_all()
-    hide_labels()
+def position_SWs(board): engine.apply_spec(board, {"anchor": SPEC["anchor"], "grids": [SPEC["grids"][0]]})
+def position_Cs(board): engine.apply_spec(board, {"anchor": SPEC["anchor"], "grids": [SPEC["grids"][1]], "rotations": [SPEC["rotations"][0]]})
+def position_Hs(board): engine.apply_spec(board, {"anchor": SPEC["anchor"], "mounts": SPEC["mounts"]})
+def position_Ls(board): engine.apply_spec(board, {"anchor": SPEC["anchor"], "grids": [SPEC["grids"][2]]})
+def position_C_BLs(board): _custom_bl(board, SPEC)
+def position_L_BLs(board): _custom_bl(board, SPEC)
+def position_Ds(board): engine.apply_spec(board, {"anchor": SPEC["anchor"], "grids": [SPEC["grids"][3]]})
+def position_all(board): engine.apply_spec(board, {k: SPEC[k] for k in ("anchor","grids","rotations","mounts") if k in SPEC}); _custom_bl(board, SPEC)
+def hide_labels(board): engine.apply_spec(board, {"hide": SPEC["hide"]})
+def fixup(board): engine.apply_spec(board, SPEC)
