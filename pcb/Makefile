@@ -20,6 +20,10 @@ iboms: $(ibom_targets)
 %-kibot:
 	kibot --board-file "$*.kicad_pcb"
 
+.PHONY: %-pcba
+%-pcba:
+	kibot --board-file "$*.kicad_pcb" pcba_bom pcba_position
+
 .PHONY: demo-usb-16pin-ibom
 demo-usb-16pin-ibom:
 	true
