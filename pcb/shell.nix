@@ -37,7 +37,9 @@ pkgs.mkShell {
 
   buildInputs = with pkgs; [
     fluxbox
+    fzf
     interactive-html-bom
+    just
     kibot
     pcbdraw
     # recordmydesktop

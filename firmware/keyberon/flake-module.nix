@@ -31,6 +31,7 @@
       nativeBuildInputs = [
         pkgs.cargo-binutils
         pkgs.elf2uf2-rs
+        pkgs.fzf
         pkgs.hidrd
         pkgs.just
         pkgs.rust-analyzer
