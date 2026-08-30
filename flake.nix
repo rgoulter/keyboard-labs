@@ -146,11 +146,6 @@
 
               uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
               wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
-
-              docker-kibot-kicad = import ./scripts/docker-kibot.nix {
-                pkgs = pkgs;
-                tag = "kicad-7";
-              };
             }
             // pcb
             // qmk
