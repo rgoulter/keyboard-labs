@@ -12,3 +12,8 @@ cad/**/generated
 result*
 
 .devenv
+
+.history
+~*.lck
+
+__pycache__
