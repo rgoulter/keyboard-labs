@@ -88,8 +88,6 @@
             name = "keyboard-labs-firmware";
             paths = [
               self.packages.${system}.bootloader-stm32f103-stm32duino
-              self.packages.${system}.bootloader-stm32f401-tinyuf2
-              self.packages.${system}.bootloader-stm32f411-tinyuf2
             ];
           };
 
@@ -141,8 +139,6 @@
           in
             {
               bootloader-stm32f103-stm32duino = bootloaders.stm32duino.stm32f103;
-              bootloader-stm32f401-tinyuf2 = bootloaders.tinyuf2.stm32f401;
-              bootloader-stm32f411-tinyuf2 = bootloaders.tinyuf2.stm32f411;
 
               uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
               wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
