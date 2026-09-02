@@ -5,3 +5,6 @@ fabrication
 gerber
 pcba
 *.net
+
+# Generated:
+keyboard-ch32x-36-panel.kicad_*
