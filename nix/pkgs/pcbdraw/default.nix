@@ -24,14 +24,14 @@ with python3Packages;
       lxml
       mistune
       numpy
-      PyVirtualDisplay
+      pyvirtualdisplay
       pcbnewtransition
       pillow
       pybars3
       pyyaml
       svgpathtools
-      Wand
-      wxPython_4_2
+      wand
+      wxpython
       versioneer
     ];
 
