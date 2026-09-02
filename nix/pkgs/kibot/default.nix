@@ -63,7 +63,7 @@ in
       pyyaml
       qrcodegenPythonModule
       requests
-      XlsxWriter
+      xlsxwriter
     ];
 
     doCheck = false;
