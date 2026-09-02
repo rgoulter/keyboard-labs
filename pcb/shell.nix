@@ -49,6 +49,6 @@ pkgs.mkShell {
     x11vnc
     xclip
     xdotool
-    xorg.xkbcomp
+    xkbcomp
   ];
 }

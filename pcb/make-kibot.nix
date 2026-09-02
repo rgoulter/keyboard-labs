@@ -16,7 +16,7 @@
   x11vnc,
   xclip,
   xdotool,
-  xorg,
+  xkbcomp,
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "${board}-kibot";
@@ -41,7 +41,7 @@ stdenvNoCC.mkDerivation rec {
     x11vnc
     xclip
     xdotool
-    xorg.xkbcomp
+    xkbcomp
   ];
 
   buildPhase =
