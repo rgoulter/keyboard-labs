@@ -41,7 +41,7 @@
 in
   python3Packages.buildPythonApplication rec {
     pname = "kibot";
-    version = "1.8.4";
+    version = "1.9.1";
 
     pyproject = true;
     build-system = [python3Packages.setuptools];
@@ -70,6 +70,6 @@ in
 
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "sha256-ko649d7JPbRJj2OmZ9mVwB5TLmXyZ0sEINWUg4MRwIE=";
+      sha256 = "sha256-mBfKykgLQtzQ0iQ0fI1+Pg7BU4nT3hj6Gup3MVnrx3E=";
     };
   }
