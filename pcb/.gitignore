@@ -1,6 +1,7 @@
 *-backups/
 *-bak
 bom
+fabrication
 gerber
 pcba
 *.net
