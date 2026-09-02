@@ -18,8 +18,9 @@ outputs:
   - name: "gerber_zip"
     type: compress
     comment: "ZIP file of gerber and drill files for PCB fabrication"
-    dir: "+gerbers/%f/"
+    dir: "+fabrication/%f/"
     options:
+      output: '%f_%r_gerber.%x'
       files:
         - from_output: gerbers
           dest: /
@@ -100,7 +101,7 @@ outputs:
   - name: 'pcba_position'
     comment: "Pick and place file, JLC style"
     type: position
-    dir: "+pcba"
+    dir: "+fabrication/%f/"
     run_by_default: false
     options:
       output: '%f_cpl_jlc_%i.%x'
@@ -127,7 +128,7 @@ outputs:
   - name: 'pcba_bom'
     comment: "BoM for JLC"
     type: bom
-    dir: "+pcba"
+    dir: "+fabrication/%f/"
     run_by_default: false
     options:
       output: '%f_%i_jlc.%x'
