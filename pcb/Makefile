@@ -31,7 +31,8 @@ ibom_targets := \
   keyboard-pico42-ibom \
   keyboard-ch552-44-ibom \
   keyboard-ch552-36-ibom \
-  keyboard-wabble-60-ibom
+  keyboard-wabble-60-ibom \
+  keyboard-ch32x-60-improved-ibom
 kibot_targets := $(foreach board,$(boards),$(board)-kibot)
 pcba_targets := $(foreach board,$(pcba_boards),$(board)-pcba)
 
@@ -91,3 +92,7 @@ keyboard-wabble-60-ibom: keyboard-wabble-60.net
 .PHONY: keyboard-ch32x-36-ibom
 keyboard-ch32x-36-ibom: keyboard-ch32x-36-lhs.net
 	bash ../scripts/generate-ch32x-36-ibom.sh
+
+.PHONY: keyboard-ch32x-60-improved-ibom
+keyboard-ch32x-60-improved-ibom: keyboard-ch32x-60-improved.net
+	bash ../scripts/generate-ch32x-60-improved-ibom.sh
