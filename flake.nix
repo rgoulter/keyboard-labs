@@ -84,13 +84,6 @@
         ...
       }: {
         checks = {
-          firmware = pkgs.symlinkJoin {
-            name = "keyboard-labs-firmware";
-            paths = [
-              self.packages.${system}.bootloader-stm32f103-stm32duino
-            ];
-          };
-
           pcb = pkgs.symlinkJoin {
             name = "keyboard-labs-pcb";
             paths = [
@@ -127,9 +120,6 @@
 
         packages =
           let
-            bootloaders = import ./nix/pkgs/bootloaders {
-              inherit pkgs;
-            };
             qmk =
               lib.attrsets.mapAttrs' (name: p: lib.attrsets.nameValuePair "qmk-${name}" p)
               (lib.attrsets.filterAttrs (_: p: lib.attrsets.isDerivation p) (pkgs.callPackage ./nix/pkgs/qmk {}));
@@ -138,8 +128,6 @@
               (lib.attrsets.filterAttrs (_: p: lib.attrsets.isDerivation p) (pkgs.callPackage ./pcb {}));
           in
             {
-              bootloader-stm32f103-stm32duino = bootloaders.stm32duino.stm32f103;
-
               uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
               wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
             }
