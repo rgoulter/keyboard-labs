@@ -10,19 +10,23 @@
 #   Ensurers Kicad directories exist (on host) sufficient to run.
 #
 # USAGE EXAMPLES:
-#   Generates all the outputs defined in config.kibot.yaml:
+#   Generates all the default outputs (gerbers, docs) per config.kibot.yaml:
 #     $ ./docker-run-kibot.sh --board-file keyboard-100x100-minif4-dual-rgb-reversible.kicad_pcb
 #
-#   Generates the "pcbdraw_top" output defined in config.kibot.yaml.
+#   Generates the "pcbdraw_top" output defined in config.kibot.yaml:
 #     $ ./docker-run-kibot.sh --board-file keyboard-100x100-minif4-dual-rgb-reversible.kicad_pcb pcbdraw_top
+#
+#   Generates JLC PCBA files (BOM + CPL):
+#     $ ./docker-run-kibot.sh --board-file keyboard-ch32x-48.kicad_pcb pcba_bom pcba_position
+#     $ ./docker-run-kibot.sh --board-file keyboard-ch32x-36-lhs.kicad_pcb pcba_bom pcba_position
 #
 # ENVIRONMENT VARIABLES:
 #  - KIBOT_IMAGE
-#     default value: richardgoulter/kibot
+#     default value: ghcr.io/inti-cmnb/kicad10_auto
 #     The Docker image name used (excluding the Docker image tag).
 #  - TAG:
-#     default value: kicad-5
-#     The tag used for the Docker image.
+#     default value: latest
+#     The tag used for the Docker image (e.g. 1.9.1, latest).
 
 set -e
 [ -n "${VERBOSE:-}" ] && set -x
