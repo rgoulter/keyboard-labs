@@ -1,3 +1,10 @@
+# Kibot runner - override to use container when native kibot is not on PATH.
+# Default: native `kibot` (via `nix develop .#pcb`).
+#   make KIBOT=./run-kibot.sh <target>
+#   make KIBOT=./docker-run-kibot.sh <target>
+#   make KIBOT=./container-run-kibot.sh <target>
+KIBOT ?= kibot
+
 kicad_pcbs := $(wildcard *.kicad_pcb)
 boards := $(basename $(kicad_pcbs))
 
@@ -18,18 +25,18 @@ iboms: $(ibom_targets)
 
 .PHONY: %-kibot
 %-kibot:
-	kibot --board-file "$*.kicad_pcb"
+	$(KIBOT) --board-file "$*.kicad_pcb"
 
 .PHONY: %-pcba
 %-pcba:
-	kibot --board-file "$*.kicad_pcb" pcba_bom pcba_position
+	$(KIBOT) --board-file "$*.kicad_pcb" pcba_bom pcba_position
 
 .PHONY: demo-usb-16pin-ibom
 demo-usb-16pin-ibom:
 	true
 
 %.net: %.kicad_pcb
-	kibot --board-file "$*.kicad_pcb" netlist
+	$(KIBOT) --board-file "$*.kicad_pcb" netlist
 
 .PHONY: keyboard-100x100-minif4-dual-rgb-reversible-ibom
 keyboard-100x100-minif4-dual-rgb-reversible-ibom: keyboard-100x100-minif4-dual-rgb-reversible.net
