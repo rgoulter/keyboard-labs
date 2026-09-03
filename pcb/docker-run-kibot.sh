@@ -47,8 +47,8 @@ fi
 # path to this directory, from where the script was called.
 SCRIPT_DIR="$(dirname "${0}")"
 
-KIBOT_IMAGE="${IMAGE:-richardgoulter/kibot}"
-TAG="${TAG:-kicad-7}"
+KIBOT_IMAGE="${IMAGE:-${KIBOT_IMAGE:-ghcr.io/inti-cmnb/kicad10_auto}}"
+TAG="${TAG:-latest}"
 
 (
   cd "${SCRIPT_DIR}"
