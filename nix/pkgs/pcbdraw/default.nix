@@ -46,6 +46,6 @@ with python3Packages;
       owner = "yaqwsx";
       repo = "PcbDraw";
       rev = "1264f28eb0cb96ab7ec44ecb09c5d50eef508ec5";
-      hash = "sha256-SrKILQ/CsNK+juV47iIHBz/4Htja4oykQXFGmJ7P/L0=";
+      hash = "sha256-IA08AeT+ootxa5GjU9O9F7Pghu5RUjV7kWR8K1ttIcw=";
     };
   }
