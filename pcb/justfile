@@ -1,102 +1,63 @@
-# pcb — UX wrappers for pcb/Makefile (kibot / ibom / pcba / netlist)
-# `just pcb::list` to see boards, `just pcb::kibot` with no arg invokes fzf chooser.
+# pcb - UX wrappers for pcb/Makefile (kibot / fab / ibom)
+#
+# `just pcb` opens chooser;
+# `just pcb::fab <board>` builds fabrication outputs.
 
-# list available boards (from *.kicad_pcb)
-[doc("list available pcb boards")]
-list:
-    @ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | sed 's/^/  /' || echo "no .kicad_pcb found in {{source_directory()}}"
+# interactive chooser entrypoint for this module
+[doc("interactive chooser for pcb recipes")]
+choose:
+    @just --choose --chooser "fzf --prompt='pcb> ' --height=40% --reverse" 2>/dev/null
 
 # run all kibot + ibom targets (same as `make -C pcb all`)
 [doc("build all kibot + iboms (make all)")]
 all:
-    make -C "{{source_directory()}}" all
+    #!/usr/bin/env bash
+    set -euo pipefail
+    kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
+    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} all" >&2
+    KIBOT="$kibot_bin" make -C "{{ source_directory() }}" all
 
 [doc("build all iboms (make iboms)")]
 iboms:
-    make -C "{{source_directory()}}" iboms
+    kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
+    make -C "{{ source_directory() }}" iboms
 
-# internal helper: resolve board name, invoking fzf if needed
-# usage: board=$(just pcb::_board "{{board}}")
-
-# kibot: `just pcb::kibot <board>` or `just pcb::kibot` (chooser)
-[doc("run kibot for board (chooser if no arg)")]
+[doc("build default kibot outputs for board (gerbers/docs, no pcba)")]
 kibot board="":
     #!/usr/bin/env bash
     set -euo pipefail
-    board="{{board}}"
+    board="{{ board }}"
     if [ -z "$board" ]; then
-        if command -v fzf >/dev/null 2>&1; then
-            board=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | fzf --prompt="pcb kibot> " --height=40% --reverse || true)
-        else
-            echo "Available boards:" >&2
-            ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | sed 's/^/  /' >&2 || true
-            echo "Usage: just pcb::kibot <board>" >&2
-            echo "  or install fzf for interactive chooser." >&2
-            exit 1
-        fi
+        board=$({{ source_directory() }}/choose-board.sh --prompt "pcb kibot> ") || true
     fi
-    if [ -z "$board" ]; then exit 1; fi
-    echo "→ make -C {{source_directory()}} $board-kibot" >&2
-    make -C "{{source_directory()}}" "$board-kibot"
+    [ -z "$board" ] && exit 1
+    kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
+    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-kibot" >&2
+    KIBOT="$kibot_bin" make -C "{{ source_directory() }}" "$board-kibot"
 
-# pcba: `just pcb::pcba <board>`
-[doc("run pcba bom/position for board")]
+[doc("generate pcba outputs for board (BOM + CPL, for JLC)")]
 pcba board="":
     #!/usr/bin/env bash
     set -euo pipefail
-    board="{{board}}"
+    board="{{ board }}"
     if [ -z "$board" ]; then
-        if command -v fzf >/dev/null 2>&1; then
-            board=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | fzf --prompt="pcb pcba> " --height=40% --reverse || true)
-        else
-            echo "Usage: just pcb::pcba <board>" >&2
-            ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | sed 's/^/  /' >&2
-            exit 1
-        fi
+        board=$({{ source_directory() }}/choose-board.sh --prompt "pcb pcba> ") || true
     fi
     [ -z "$board" ] && exit 1
-    make -C "{{source_directory()}}" "$board-pcba"
+    kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
+    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-pcba" >&2
+    KIBOT="$kibot_bin" make -C "{{ source_directory() }}" "$board-pcba"
 
 # ibom: `just pcb::ibom <board>` — chooser filters to boards with ibom targets
 [doc("run ibom for board (chooser if no arg)")]
 ibom board="":
     #!/usr/bin/env bash
     set -euo pipefail
-    board="{{board}}"
+    board="{{ board }}"
     if [ -z "$board" ]; then
-        if command -v fzf >/dev/null 2>&1; then
-            # derive ibom-capable boards from Makefile ibom_targets
-            avail=$(grep -E '^[a-z0-9._-]+-ibom' {{source_directory()}}/Makefile 2>/dev/null | sed -E 's/:.*//' | sed 's/-ibom//' | sort -u || true)
-            if [ -z "$avail" ]; then
-                avail=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort)
-            fi
-            board=$(echo "$avail" | fzf --prompt="pcb ibom> " --height=40% --reverse || true)
-        else
-            echo "Usage: just pcb::ibom <board>" >&2
-            grep -E '^[a-z0-9._-]+-ibom' {{source_directory()}}/Makefile 2>/dev/null | sed -E 's/:.*//' | sed 's/^/  /' >&2 || true
-            exit 1
-        fi
+        board=$({{ source_directory() }}/choose-board.sh --prompt "pcb ibom> " --ibom-only) || true
     fi
     [ -z "$board" ] && exit 1
-    make -C "{{source_directory()}}" "$board-ibom"
-
-# net: `just pcb::net <board>` → builds <board>.net via kibot
-[doc("build netlist for board")]
-net board="":
-    #!/usr/bin/env bash
-    set -euo pipefail
-    board="{{board}}"
-    if [ -z "$board" ]; then
-        if command -v fzf >/dev/null 2>&1; then
-            board=$(ls {{source_directory()}}/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sort | fzf --prompt="pcb net> " --height=40% --reverse || true)
-        else
-            echo "Usage: just pcb::net <board>" >&2; exit 1
-        fi
-    fi
-    [ -z "$board" ] && exit 1
-    make -C "{{source_directory()}}" "$board.net"
-
-# interactive chooser entrypoint for this module
-[doc("interactive chooser for pcb recipes")]
-choose:
-    @just --choose --chooser "fzf --prompt='pcb> ' --height=40% --reverse" 2>/dev/null || just --choose
+    kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
+    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-ibom" >&2
+    make -C "{{ source_directory() }}" "$board-ibom"
