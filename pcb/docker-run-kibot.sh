@@ -24,7 +24,8 @@
 #     default value: kicad-5
 #     The tag used for the Docker image.
 
-set -ex
+set -e
+[ -n "${VERBOSE:-}" ] && set -x
 
 USER_ID=$(id -u)
 GROUP_ID=$(id -g)
