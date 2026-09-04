@@ -38,7 +38,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    systems.url = "github:nix-systems/x86_64-linux";
+    systems.url = "github:nix-systems/default";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -54,7 +54,13 @@
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = import systems;
+      # nixpkgs-unstable 26.11 dropped x86_64-darwin (use 26.05-darwin if needed).
+      # Keep Apple Silicon Darwin; pcb/KiCad stays Linux-only via perSystem guards.
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
 
       imports = [
         devenv.flakeModule
