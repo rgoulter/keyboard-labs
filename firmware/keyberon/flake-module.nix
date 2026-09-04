@@ -26,21 +26,25 @@
         targets."thumbv7em-none-eabihf".latest.rust-std
       ];
     uf2conv = pkgs.callPackage ../../nix/pkgs/uf2conv {};
+    isLinux = pkgs.stdenv.hostPlatform.isLinux;
   in {
     devShells.firmware-keyberon = pkgs.mkShell {
-      nativeBuildInputs = [
-        pkgs.cargo-binutils
-        pkgs.elf2uf2-rs
-        pkgs.fzf
-        pkgs.hidrd
-        pkgs.just
-        pkgs.rust-analyzer
-        pkgs.usbutils
-        pkgs.probe-rs-tools
-        pkgs.stlink
-        toolchain
-        uf2conv
-      ];
+      nativeBuildInputs =
+        [
+          pkgs.cargo-binutils
+          pkgs.elf2uf2-rs
+          pkgs.fzf
+          pkgs.just
+          pkgs.rust-analyzer
+          pkgs.probe-rs-tools
+          toolchain
+          uf2conv
+        ]
+        ++ lib.optionals isLinux [
+          pkgs.hidrd
+          pkgs.stlink
+          pkgs.usbutils
+        ];
       RUSTC = "${toolchain}/bin/rustc";
       RUST_SRC_PATH = "${toolchain}/lib/rustlib/src";
     };
