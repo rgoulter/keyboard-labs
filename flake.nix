@@ -48,14 +48,9 @@
 
   outputs = inputs @ {
     self,
-    devenv-root,
     devenv,
-    nickel,
-    nixpkgs,
     flake-parts,
-    nixos-generators,
     systems,
-    treefmt-nix,
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -63,77 +58,9 @@
 
       imports = [
         devenv.flakeModule
+        ./nix/flake-module.nix
+        ./pcb/flake-module.nix
         ./firmware/keyberon/flake-module.nix
       ];
-
-      flake = {
-        nixosModules = import ./nix/nixosModules;
-
-        packages.x86_64-linux = let
-          system = "x86_64-linux";
-        in {
-          gcc-arm-a-embedded = nixpkgs.legacyPackages.x86_64-linux.callPackage ./nix/pkgs/gcc-arm-a-embedded {};
-        };
-      };
-
-      perSystem = {
-        config,
-        lib,
-        pkgs,
-        system,
-        ...
-      }: {
-        checks = {
-          pcb = pkgs.symlinkJoin {
-            name = "keyboard-labs-pcb";
-            paths = [
-              self.packages.${system}.pcb-keyboard-100x100-minif4-dual-rgb-reversible
-              self.packages.${system}.pcb-keyboard-ch32x-36-lhs
-              self.packages.${system}.pcb-keyboard-ch32x-36-rhs
-              self.packages.${system}.pcb-keyboard-ch32x-48
-              self.packages.${system}.pcb-keyboard-ch32x-75
-              self.packages.${system}.pcb-keyboard-ch552-36-lhs
-              self.packages.${system}.pcb-keyboard-ch552-36-rhs
-              self.packages.${system}.pcb-keyboard-ch552-44
-              self.packages.${system}.pcb-keyboard-ch552-48
-              self.packages.${system}.pcb-keyboard-ch552-48-lpr
-              self.packages.${system}.pcb-keyboard-pico42
-              self.packages.${system}.pcb-keyboard-pykey40-hsrgb
-              self.packages.${system}.pcb-keyboard-pykey40-lite
-              self.packages.${system}.pcb-keyboard-x2-lumberjack-arm-hsrgb
-              self.packages.${system}.pcb-keyboard-x2-lumberjack-arm
-            ];
-          };
-        };
-
-        devShells = {
-          pcb = import ./pcb/shell.nix {
-            pkgs = pkgs;
-            on-nixos = false;
-          };
-
-          pcb-nixos = import ./pcb/shell.nix {
-            pkgs = pkgs;
-            on-nixos = true;
-          };
-        };
-
-        packages =
-          let
-            qmk =
-              lib.attrsets.mapAttrs' (name: p: lib.attrsets.nameValuePair "qmk-${name}" p)
-              (lib.attrsets.filterAttrs (_: p: lib.attrsets.isDerivation p) (pkgs.callPackage ./nix/pkgs/qmk {}));
-            pcb =
-              lib.attrsets.mapAttrs' (name: p: lib.attrsets.nameValuePair "pcb-${name}" p)
-              (lib.attrsets.filterAttrs (_: p: lib.attrsets.isDerivation p) (pkgs.callPackage ./pcb {}));
-          in
-            {
-              uf2conv = pkgs.callPackage ./nix/pkgs/uf2conv {};
-              wchisp = pkgs.callPackage ./nix/pkgs/wchisp {};
-            }
-            // pcb
-            // qmk
-            ;
-      };
     };
 }
