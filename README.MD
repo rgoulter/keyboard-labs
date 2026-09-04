@@ -646,10 +646,10 @@ Pictures:
 
 _CH32X-48 in a sandwich style case._
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/keyboard-ch32x-48-2025.4-top.svg" width=600 />
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/keyboard-ch32x-48-2025.4-bottom.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/keyboard-ch32x-48-2025.2-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/keyboard-ch32x-48-2025.2-bottom.svg" width=600 />
 
-_2D Renders of the PCB, revision rev2025.4_
+_2D Renders of the PCB, revision rev2025.2_
 
 #### Firmware
 
