@@ -630,7 +630,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "USB_C_Receptacle_USB2.0"
+			(property "Value" "USB Type-C Female 16P"
 				(at 19.05 19.05 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -7533,7 +7533,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "5.1K"
+		(property "Value" "5.1k"
 			(at 56.388 81.153 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7625,7 +7625,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "5.1K"
+		(property "Value" "5.1k"
 			(at 56.388 98.933 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19539,7 +19539,7 @@
 				)
 			)
 		)
-		(property "Value" "22K"
+		(property "Value" "22k"
 			(at 87.63 177.8 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20059,7 +20059,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "10k"
 			(at 99.06 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
