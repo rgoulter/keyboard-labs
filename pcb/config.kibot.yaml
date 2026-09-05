@@ -13,6 +13,23 @@ filters:
       - ["^USB_C_Receptacle", 180.0]
       - ["^SOT-23-6", 0.0]
       - ["^LED_WS2812B_PLCC4_5.0x5.0mm", 90.0]
+  - name: dnp
+    comment: 'Exclude DNP / Do Not Populate (KiCad, KiCost, KiBom)'
+    type: generic
+    exclude_kicad_dnp: true
+    exclude_not_in_bom: true
+    exclude_not_on_board: true
+    exclude_virtual: true
+    exclude_any:
+      # 'SolderWire' footprints should be excluded.
+      - column: Footprint
+        regex: SolderWire
+      # 'PinHeaders' should excluded from PCBA BOM
+      - column: Footprint
+        regex: PinHeader
+      # Exclude empty footprint from PCBA BOM.
+      - column: Footprint
+        regex: ^$
 
 outputs:
   - name: "gerber_zip"
@@ -109,7 +126,7 @@ outputs:
       units: millimeters
       separate_files_for_front_and_back: false
       pre_transform: fix_rotation
-      exclude_filter: [_mechanical]
+      exclude_filter: [_mechanical, dnp, _kibom_dnp, _kicost_dnp]
       only_smd: false
       right_digits: 6
       columns:
@@ -135,7 +152,7 @@ outputs:
       output: '%f_%i_jlc.%x'
       ref_separator: ','
       sort_style: 'ref'
-      exclude_filter: [_mechanical]
+      exclude_filter: [_mechanical, dnp, _kibom_dnp, _kicost_dnp]
       columns:
         - field: Value
           name: Comment
