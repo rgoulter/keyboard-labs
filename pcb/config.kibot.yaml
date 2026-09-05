@@ -2,17 +2,6 @@ kibot:
   version: 1
 
 filters:
-  - name: fix_rotation
-    comment: 'Adjust rotation for JLC'
-    type: rot_footprint
-    extend: false
-    invert_bottom: true
-    rotations:
-      - ["^SOIC-8", 90.0]
-      - ["^TSSOP-20", 90.0]
-      - ["^USB_C_Receptacle", 180.0]
-      - ["^SOT-23-6", 0.0]
-      - ["^LED_WS2812B_PLCC4_5.0x5.0mm", 90.0]
   - name: dnp
     comment: 'Exclude DNP / Do Not Populate (KiCad, KiCost, KiBom)'
     type: generic
@@ -125,7 +114,6 @@ outputs:
       format: CSV
       units: millimeters
       separate_files_for_front_and_back: false
-      pre_transform: fix_rotation
       exclude_filter: [_mechanical, dnp, _kibom_dnp, _kicost_dnp]
       only_smd: false
       right_digits: 6
