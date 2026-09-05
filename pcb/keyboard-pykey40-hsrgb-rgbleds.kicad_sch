@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20250114)
+	(version 20260306)
 	(generator "eeschema")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(uuid "74131eb5-96cd-4fe0-a2ba-9655f57d5c76")
 	(paper "A4")
 	(title_block
@@ -22,8 +22,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "C"
 				(at 0.254 1.778 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -33,6 +37,8 @@
 			)
 			(property "Value" "C_Small"
 				(at 0.254 -2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -42,47 +48,57 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "Unpolarized capacitor, small symbol"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_fp_filters" "C_*"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "C_Small_0_1"
@@ -115,7 +131,7 @@
 				(pin passive line
 					(at 0 2.54 270)
 					(length 2.032)
-					(name "~"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -133,7 +149,7 @@
 				(pin passive line
 					(at 0 -2.54 90)
 					(length 2.032)
-					(name "~"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -159,8 +175,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "Q"
 				(at 5.08 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -170,6 +190,8 @@
 			)
 			(property "Value" "Q_NMOS_GSD"
 				(at 5.08 -1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -179,38 +201,46 @@
 			)
 			(property "Footprint" ""
 				(at 5.08 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "N-MOSFET transistor, gate/source/drain"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "transistor NMOS N-MOS N-MOSFET"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "Q_NMOS_GSD_0_1"
@@ -400,24 +430,6 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
 					(at 2.54 -5.08 90)
 					(length 2.54)
 					(name "S"
@@ -428,6 +440,24 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -448,8 +478,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "R"
 				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -458,6 +492,8 @@
 			)
 			(property "Value" "R"
 				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -466,47 +502,57 @@
 			)
 			(property "Footprint" ""
 				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "Resistor"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "R res resistor"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_fp_filters" "R_*"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "R_0_1"
@@ -526,7 +572,7 @@
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
-					(name "~"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -544,7 +590,7 @@
 				(pin passive line
 					(at 0 -3.81 90)
 					(length 1.27)
-					(name "~"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -569,8 +615,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "D"
 				(at 5.08 5.715 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -580,6 +630,8 @@
 			)
 			(property "Value" "WS2812B"
 				(at 1.27 -5.715 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -589,49 +641,59 @@
 			)
 			(property "Footprint" "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
 				(at 1.27 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 					(justify left top)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 				(at 2.54 -9.525 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 					(justify left top)
-					(hide yes)
 				)
 			)
 			(property "Description" "RGB LED with integrated controller"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "RGB LED NeoPixel addressable"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_fp_filters" "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "WS2812B_0_0"
@@ -742,24 +804,6 @@
 				)
 			)
 			(symbol "WS2812B_1_1"
-				(pin input line
-					(at -7.62 0 0)
-					(length 2.54)
-					(name "DIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin power_in line
 					(at 0 7.62 270)
 					(length 2.54)
@@ -771,6 +815,24 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "DOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -796,17 +858,17 @@
 						)
 					)
 				)
-				(pin output line
-					(at 7.62 0 180)
+				(pin input line
+					(at -7.62 0 0)
 					(length 2.54)
-					(name "DOUT"
+					(name "DIN"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "2"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -5607,13 +5669,17 @@
 		(lib_id "LED:WS2812B")
 		(at 83.058 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "014beee7-76df-4c75-bbd4-a8f13b1b5a5f")
 		(property "Reference" "L_2_4"
 			(at 84.328 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5623,50 +5689,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 91.7956 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 84.328 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 85.598 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 83.058 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 83.058 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -5688,7 +5764,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_4")
 					(unit 1)
@@ -5700,13 +5776,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.89 83.312 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "01e5c24d-bbfe-4da7-b687-ec267fc04d86")
 		(property "Reference" "C_4_7"
 			(at 262.89 79.8322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5716,6 +5796,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.89 79.8068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5725,38 +5807,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.89 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.89 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.89 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -5772,7 +5862,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_7")
 					(unit 1)
@@ -5784,13 +5874,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.89 113.792 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "03acec9d-ef85-400f-9078-d1638c4c26cd")
 		(property "Reference" "C_4_11"
 			(at 262.89 110.3122 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5800,6 +5894,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.89 110.2868 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5809,38 +5905,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.89 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.89 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.89 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -5856,7 +5960,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_11")
 					(unit 1)
@@ -5868,13 +5972,17 @@
 		(lib_id "Device:C_Small")
 		(at 244.602 41.91 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "041bcb8e-b312-4456-9549-fd5c4235fb32")
 		(property "Reference" "C_1_8"
 			(at 244.602 38.4302 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5884,6 +5992,8 @@
 		)
 		(property "Value" "100n"
 			(at 244.602 38.4048 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5893,38 +6003,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 244.602 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 244.602 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 244.602 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 244.602 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -5940,7 +6058,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_8")
 					(unit 1)
@@ -5952,13 +6070,17 @@
 		(lib_id "LED:WS2812B")
 		(at 98.298 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "04a0cce0-5fa3-47c1-ac11-35d264c92391")
 		(property "Reference" "L_3_5"
 			(at 99.568 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5968,50 +6090,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 107.0356 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 99.568 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 100.838 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 98.298 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 98.298 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6033,7 +6165,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_5")
 					(unit 1)
@@ -6045,13 +6177,17 @@
 		(lib_id "LED:WS2812B")
 		(at 37.338 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "05269ba4-4ec2-4a0e-b996-bb6d0a0a5c4c")
 		(property "Reference" "L_2_1"
 			(at 38.608 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6061,50 +6197,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 46.0756 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 38.608 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 39.878 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 37.338 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 37.338 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6126,7 +6272,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_1")
 					(unit 1)
@@ -6138,13 +6284,17 @@
 		(lib_id "Device:C_Small")
 		(at 235.712 72.39 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "05eb440c-8ade-4a51-983a-f15b5592d941")
 		(property "Reference" "C_1_6"
 			(at 235.712 68.9102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6154,6 +6304,8 @@
 		)
 		(property "Value" "100n"
 			(at 235.712 68.8848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6163,38 +6315,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 235.712 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 235.712 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 235.712 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 235.712 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6210,7 +6370,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_6")
 					(unit 1)
@@ -6222,13 +6382,17 @@
 		(lib_id "LED:WS2812B")
 		(at 113.538 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "0ba309e9-9c4b-42b5-b211-967095a78de4")
 		(property "Reference" "L_4_6"
 			(at 114.808 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6238,50 +6402,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 122.2756 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 114.808 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 116.078 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 113.538 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 113.538 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6303,7 +6477,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_6")
 					(unit 1)
@@ -6315,13 +6489,17 @@
 		(lib_id "LED:WS2812B")
 		(at 52.578 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "10ae14a0-8eff-4468-bbab-c194f8d30e28")
 		(property "Reference" "L_1_2"
 			(at 53.848 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6331,50 +6509,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 61.3156 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 53.848 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 55.118 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 52.578 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 52.578 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6396,7 +6584,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_2")
 					(unit 1)
@@ -6408,13 +6596,17 @@
 		(lib_id "Device:C_Small")
 		(at 253.492 41.91 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "16e8c3bc-6648-43a7-b7cf-e1dac9249183")
 		(property "Reference" "C_2_2"
 			(at 253.492 38.4302 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6424,6 +6616,8 @@
 		)
 		(property "Value" "100n"
 			(at 253.492 38.4048 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6433,38 +6627,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 253.492 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 253.492 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 253.492 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 253.492 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6480,7 +6682,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_2")
 					(unit 1)
@@ -6492,13 +6694,17 @@
 		(lib_id "Device:C_Small")
 		(at 236.22 113.792 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "1d453abd-fc5a-4ffb-9536-5278d42e93f2")
 		(property "Reference" "C_3_5"
 			(at 236.22 110.3122 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6508,6 +6714,8 @@
 		)
 		(property "Value" "100n"
 			(at 236.22 110.2868 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6517,38 +6725,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 236.22 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 236.22 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 236.22 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 236.22 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6564,7 +6780,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_5")
 					(unit 1)
@@ -6576,13 +6792,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.382 34.29 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "1f3f5b21-057d-450c-a56f-0b67330b1999")
 		(property "Reference" "C_2_7"
 			(at 262.382 30.8102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6592,6 +6812,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.382 30.7848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6601,38 +6823,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.382 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.382 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.382 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.382 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6648,7 +6878,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_7")
 					(unit 1)
@@ -6660,13 +6890,17 @@
 		(lib_id "LED:WS2812B")
 		(at 144.018 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "210af6d4-d75b-41f6-8e82-f3e4ad90f761")
 		(property "Reference" "L_2_8"
 			(at 145.288 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6676,50 +6910,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 152.7556 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 145.288 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 146.558 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 144.018 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 144.018 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6741,7 +6985,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_8")
 					(unit 1)
@@ -6753,13 +6997,17 @@
 		(lib_id "Device:C_Small")
 		(at 237.744 149.352 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "217f93da-d407-4fbf-bcfa-01dd1d0052d1")
 		(property "Reference" "C_BL_3"
 			(at 237.744 145.8722 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6769,6 +7017,8 @@
 		)
 		(property "Value" "100n"
 			(at 237.744 145.8468 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6778,38 +7028,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 237.744 149.352 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 237.744 149.352 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 237.744 149.352 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 237.744 149.352 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6825,7 +7083,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_BL_3")
 					(unit 1)
@@ -6837,13 +7095,17 @@
 		(lib_id "Device:C_Small")
 		(at 235.712 34.29 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "267bde33-fed7-4a64-bd46-0c2c3fc2e1ba")
 		(property "Reference" "C_1_1"
 			(at 235.712 30.8102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6853,6 +7115,8 @@
 		)
 		(property "Value" "100n"
 			(at 235.712 30.7848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6862,38 +7126,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 235.712 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 235.712 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 235.712 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 235.712 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6909,7 +7181,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_1")
 					(unit 1)
@@ -6921,13 +7193,17 @@
 		(lib_id "Device:C_Small")
 		(at 236.22 83.312 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "29545b14-bd1c-4176-ae37-2a974f9e810c")
 		(property "Reference" "C_3_1"
 			(at 236.22 79.8322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6937,6 +7213,8 @@
 		)
 		(property "Value" "100n"
 			(at 236.22 79.8068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6946,38 +7224,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 236.22 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 236.22 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 236.22 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 236.22 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6993,7 +7279,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_1")
 					(unit 1)
@@ -7005,13 +7291,17 @@
 		(lib_id "Device:R")
 		(at 54.102 180.086 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "29ef8da3-4dcb-484f-b8e6-f6a6f5eb93c9")
 		(property "Reference" "R11"
 			(at 55.88 178.9176 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7021,6 +7311,8 @@
 		)
 		(property "Value" "10k"
 			(at 55.88 181.229 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7030,24 +7322,30 @@
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 52.324 180.086 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 54.102 180.086 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 54.102 180.086 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7056,11 +7354,13 @@
 		)
 		(property "LCSC" "C25804"
 			(at 54.102 180.086 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7070,7 +7370,7 @@
 			(uuid "0e999ec2-ce4b-4a91-b5c1-fac6b4bedeb6")
 		)
 		(instances
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "R11")
 					(unit 1)
@@ -7088,13 +7388,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.89 98.552 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "2c6f0bfb-d289-48a2-b68d-7ec170740d21")
 		(property "Reference" "C_4_9"
 			(at 262.89 95.0722 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7104,6 +7408,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.89 95.0468 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7113,38 +7419,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.89 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.89 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.89 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7160,7 +7474,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_9")
 					(unit 1)
@@ -7172,13 +7486,17 @@
 		(lib_id "Device:C_Small")
 		(at 253.492 72.39 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "2cafebd9-4c98-4d90-af56-2f16bbdc2af7")
 		(property "Reference" "C_2_6"
 			(at 253.492 68.9102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7188,6 +7506,8 @@
 		)
 		(property "Value" "100n"
 			(at 253.492 68.8848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7197,38 +7517,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 253.492 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 253.492 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 253.492 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 253.492 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7244,7 +7572,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_6")
 					(unit 1)
@@ -7256,13 +7584,17 @@
 		(lib_id "LED:WS2812B")
 		(at 113.538 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "2e10c370-44f4-4838-9f00-6251f911c73b")
 		(property "Reference" "L_1_6"
 			(at 114.808 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7272,50 +7604,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 122.2756 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 114.808 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 116.078 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 113.538 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 113.538 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7337,7 +7679,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_6")
 					(unit 1)
@@ -7349,13 +7691,17 @@
 		(lib_id "Device:C_Small")
 		(at 237.744 141.732 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "2e4cd2f2-3b18-4d5d-bb6e-efa68fe9e8f2")
 		(property "Reference" "C_BL_2"
 			(at 237.744 138.2522 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7365,6 +7711,8 @@
 		)
 		(property "Value" "100n"
 			(at 237.744 138.2268 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7374,38 +7722,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 237.744 141.732 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 237.744 141.732 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 237.744 141.732 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 237.744 141.732 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7421,7 +7777,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_BL_2")
 					(unit 1)
@@ -7433,13 +7789,17 @@
 		(lib_id "LED:WS2812B")
 		(at 204.978 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "351d68ba-f95f-4be7-84d6-7590c9acae47")
 		(property "Reference" "L_2_12"
 			(at 206.248 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7449,50 +7809,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 213.7156 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 206.248 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 207.518 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 204.978 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 204.978 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7514,7 +7884,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_12")
 					(unit 1)
@@ -7526,13 +7896,17 @@
 		(lib_id "LED:WS2812B")
 		(at 67.818 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "399417bb-0bc8-4290-b247-39f755be45f1")
 		(property "Reference" "L_2_3"
 			(at 69.088 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7542,50 +7916,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 76.5556 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 69.088 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 70.358 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 67.818 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 67.818 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7607,7 +7991,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_3")
 					(unit 1)
@@ -7619,13 +8003,17 @@
 		(lib_id "LED:WS2812B")
 		(at 204.978 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "3a1243e4-938a-4572-872d-d7f1d46d96f8")
 		(property "Reference" "L_1_12"
 			(at 206.248 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7635,50 +8023,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 213.7156 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 206.248 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 207.518 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 204.978 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 204.978 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7700,7 +8098,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_12")
 					(unit 1)
@@ -7712,13 +8110,17 @@
 		(lib_id "Device:C_Small")
 		(at 235.712 64.77 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "3d23b284-84b3-4a6e-9caf-46e09d724f24")
 		(property "Reference" "C_1_5"
 			(at 235.712 61.2902 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7728,6 +8130,8 @@
 		)
 		(property "Value" "100n"
 			(at 235.712 61.2648 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7737,38 +8141,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 235.712 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 235.712 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 235.712 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 235.712 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7784,7 +8196,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_5")
 					(unit 1)
@@ -7796,13 +8208,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.382 72.39 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "3d6dc893-8edf-44e2-bb30-d93e37874142")
 		(property "Reference" "C_2_12"
 			(at 262.382 68.9102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7812,6 +8228,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.382 68.8848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7821,38 +8239,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.382 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.382 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.382 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.382 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7868,7 +8294,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_12")
 					(unit 1)
@@ -7880,13 +8306,17 @@
 		(lib_id "LED:WS2812B")
 		(at 144.018 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "42e6dbe4-1bab-47d5-b946-f91c4b47ba92")
 		(property "Reference" "L_3_8"
 			(at 145.288 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7896,50 +8326,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 152.7556 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 145.288 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 146.558 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 144.018 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 144.018 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -7961,7 +8401,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_8")
 					(unit 1)
@@ -7973,13 +8413,17 @@
 		(lib_id "LED:WS2812B")
 		(at 52.578 119.38 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "42f72a54-9614-4c44-8440-4702e91e641e")
 		(property "Reference" "L_BL_2"
 			(at 53.848 129.54 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7989,50 +8433,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 61.3156 120.523 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
 			(at 53.848 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 55.118 128.905 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 52.578 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C2843785"
 			(at 52.578 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8054,7 +8508,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_BL_2")
 					(unit 1)
@@ -8066,13 +8520,17 @@
 		(lib_id "Device:C_Small")
 		(at 236.22 106.172 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "44a9d8bd-acea-4f13-b759-0ae4ae5a7fb8")
 		(property "Reference" "C_3_4"
 			(at 236.22 102.6922 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8082,6 +8540,8 @@
 		)
 		(property "Value" "100n"
 			(at 236.22 102.6668 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8091,38 +8551,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 236.22 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 236.22 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 236.22 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 236.22 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8138,7 +8606,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_4")
 					(unit 1)
@@ -8150,13 +8618,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.89 106.172 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "473681dd-5908-4905-ae80-8ba5a9c17a99")
 		(property "Reference" "C_4_10"
 			(at 262.89 102.6922 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8166,6 +8638,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.89 102.6668 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8175,38 +8649,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.89 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.89 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.89 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8222,7 +8704,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_10")
 					(unit 1)
@@ -8234,13 +8716,17 @@
 		(lib_id "LED:WS2812B")
 		(at 113.538 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "4aa49dad-bec8-487b-baf9-e034296cf695")
 		(property "Reference" "L_2_6"
 			(at 114.808 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8250,50 +8736,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 122.2756 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 114.808 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 116.078 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 113.538 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 113.538 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8315,7 +8811,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_6")
 					(unit 1)
@@ -8327,13 +8823,17 @@
 		(lib_id "LED:WS2812B")
 		(at 67.818 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "4e2b866c-d2e3-4e98-b4af-2a5ab728fa87")
 		(property "Reference" "L_3_3"
 			(at 69.088 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8343,50 +8843,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 76.5556 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 69.088 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 70.358 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 67.818 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 67.818 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8408,7 +8918,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_3")
 					(unit 1)
@@ -8420,13 +8930,17 @@
 		(lib_id "LED:WS2812B")
 		(at 98.298 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "4edd2acf-9912-466e-b0b9-dde64461eb48")
 		(property "Reference" "L_1_5"
 			(at 99.568 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8436,50 +8950,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 107.0356 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 99.568 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 100.838 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 98.298 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 98.298 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8501,7 +9025,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_5")
 					(unit 1)
@@ -8513,13 +9037,17 @@
 		(lib_id "Device:C_Small")
 		(at 254 113.792 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "4efa34e7-8b03-4018-b42b-b4f5476d6b8b")
 		(property "Reference" "C_4_5"
 			(at 254 110.3122 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8529,6 +9057,8 @@
 		)
 		(property "Value" "100n"
 			(at 254 110.2868 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8538,38 +9068,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 254 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 254 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 254 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 254 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8585,7 +9123,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_5")
 					(unit 1)
@@ -8597,13 +9135,17 @@
 		(lib_id "Device:C_Small")
 		(at 236.22 90.932 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "4f63561d-d952-4fa3-adde-57e5aea7cbec")
 		(property "Reference" "C_3_2"
 			(at 236.22 87.4522 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8613,6 +9155,8 @@
 		)
 		(property "Value" "100n"
 			(at 236.22 87.4268 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8622,38 +9166,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 236.22 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 236.22 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 236.22 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 236.22 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8669,7 +9221,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_2")
 					(unit 1)
@@ -8681,13 +9233,17 @@
 		(lib_id "LED:WS2812B")
 		(at 189.738 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "548c4d14-82dc-434f-bba3-d16d27d18c5e")
 		(property "Reference" "L_4_11"
 			(at 191.008 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8697,50 +9253,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 198.4756 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 191.008 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 192.278 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 189.738 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 189.738 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8762,7 +9328,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_11")
 					(unit 1)
@@ -8774,13 +9340,17 @@
 		(lib_id "Device:C_Small")
 		(at 244.602 64.77 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "5566451c-c343-4427-b2a3-1d8962c1e3fb")
 		(property "Reference" "C_1_11"
 			(at 244.602 61.2902 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8790,6 +9360,8 @@
 		)
 		(property "Value" "100n"
 			(at 244.602 61.2648 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8799,38 +9371,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 244.602 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 244.602 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 244.602 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 244.602 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8846,7 +9426,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_11")
 					(unit 1)
@@ -8858,13 +9438,17 @@
 		(lib_id "Device:C_Small")
 		(at 235.712 49.53 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "590e7db9-a4b3-4a17-af42-270fd72a8c37")
 		(property "Reference" "C_1_3"
 			(at 235.712 46.0502 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8874,6 +9458,8 @@
 		)
 		(property "Value" "100n"
 			(at 235.712 46.0248 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8883,38 +9469,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 235.712 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 235.712 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 235.712 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 235.712 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8930,7 +9524,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_3")
 					(unit 1)
@@ -8942,13 +9536,17 @@
 		(lib_id "LED:WS2812B")
 		(at 174.498 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "5d25db36-6f10-4146-96ad-b18dae8885b5")
 		(property "Reference" "L_4_10"
 			(at 175.768 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8958,50 +9556,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 183.2356 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 175.768 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 177.038 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 174.498 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 174.498 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9023,7 +9631,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_10")
 					(unit 1)
@@ -9035,13 +9643,17 @@
 		(lib_id "LED:WS2812B")
 		(at 204.978 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "5ff5f5b0-83c6-4eb7-b8f9-e83f27fa0169")
 		(property "Reference" "L_4_12"
 			(at 206.248 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9051,50 +9663,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 213.7156 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 206.248 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 207.518 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 204.978 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 204.978 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9116,7 +9738,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_12")
 					(unit 1)
@@ -9128,13 +9750,17 @@
 		(lib_id "LED:WS2812B")
 		(at 67.818 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "6678835a-bd50-4e0a-bde3-da3566b60d44")
 		(property "Reference" "L_1_3"
 			(at 69.088 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9144,50 +9770,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 76.5556 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 69.088 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 70.358 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 67.818 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 67.818 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9209,7 +9845,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_3")
 					(unit 1)
@@ -9221,13 +9857,17 @@
 		(lib_id "LED:WS2812B")
 		(at 83.058 119.38 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "66bc7215-0f04-4636-8911-6ed6edb6ea6b")
 		(property "Reference" "L_BL_4"
 			(at 84.328 129.54 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9237,50 +9877,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 91.7956 120.523 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
 			(at 84.328 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 85.598 128.905 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 83.058 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C2843785"
 			(at 83.058 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9302,7 +9952,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_BL_4")
 					(unit 1)
@@ -9314,13 +9964,17 @@
 		(lib_id "Device:C_Small")
 		(at 244.602 72.39 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "6769788d-5403-42ec-8a49-11de06cf732e")
 		(property "Reference" "C_1_12"
 			(at 244.602 68.9102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9330,6 +9984,8 @@
 		)
 		(property "Value" "100n"
 			(at 244.602 68.8848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9339,38 +9995,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 244.602 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 244.602 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 244.602 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 244.602 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9386,7 +10050,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_12")
 					(unit 1)
@@ -9398,13 +10062,17 @@
 		(lib_id "LED:WS2812B")
 		(at 144.018 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "68640b59-6fc9-447a-a0b4-4867d8896168")
 		(property "Reference" "L_4_8"
 			(at 145.288 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9414,50 +10082,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 152.7556 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 145.288 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 146.558 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 144.018 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 144.018 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9479,7 +10157,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_8")
 					(unit 1)
@@ -9491,13 +10169,17 @@
 		(lib_id "LED:WS2812B")
 		(at 67.818 119.38 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "69916946-d76c-4e9d-99ce-8c7c7e3e6cc3")
 		(property "Reference" "L_BL_3"
 			(at 69.088 129.54 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9507,50 +10189,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 76.5556 120.523 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
 			(at 69.088 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 70.358 128.905 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 67.818 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C2843785"
 			(at 67.818 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9572,7 +10264,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_BL_3")
 					(unit 1)
@@ -9584,13 +10276,17 @@
 		(lib_id "LED:WS2812B")
 		(at 37.338 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "6e602965-dd93-4e27-b1e4-2c1e2563e33f")
 		(property "Reference" "L_1_1"
 			(at 38.608 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9600,50 +10296,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 46.0756 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 38.608 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 39.878 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 37.338 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 37.338 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9665,7 +10371,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_1")
 					(unit 1)
@@ -9677,13 +10383,17 @@
 		(lib_id "Device:C_Small")
 		(at 254 98.552 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "6f336244-d203-4728-a7bf-644a1296d65b")
 		(property "Reference" "C_4_3"
 			(at 254 95.0722 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9693,6 +10403,8 @@
 		)
 		(property "Value" "100n"
 			(at 254 95.0468 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9702,38 +10414,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 254 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 254 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 254 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 254 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9749,7 +10469,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_3")
 					(unit 1)
@@ -9761,13 +10481,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.89 121.412 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "7011de38-f77e-4ef8-a8ce-eb9c5ef12235")
 		(property "Reference" "C_4_12"
 			(at 262.89 117.9322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9777,6 +10501,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.89 117.9068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9786,38 +10512,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.89 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.89 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.89 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9833,7 +10567,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_12")
 					(unit 1)
@@ -9845,13 +10579,17 @@
 		(lib_id "LED:WS2812B")
 		(at 83.058 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "74e552ba-478c-4bd3-8fdb-91799bdc4022")
 		(property "Reference" "L_1_4"
 			(at 84.328 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9861,50 +10599,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 91.7956 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 84.328 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 85.598 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 83.058 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 83.058 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9926,7 +10674,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_4")
 					(unit 1)
@@ -9938,13 +10686,17 @@
 		(lib_id "Device:C_Small")
 		(at 244.602 34.29 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "77555bcd-9498-48a9-95ab-750cd77010a7")
 		(property "Reference" "C_1_7"
 			(at 244.602 30.8102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9954,6 +10706,8 @@
 		)
 		(property "Value" "100n"
 			(at 244.602 30.7848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9963,38 +10717,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 244.602 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 244.602 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 244.602 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 244.602 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10010,7 +10772,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_7")
 					(unit 1)
@@ -10022,13 +10784,17 @@
 		(lib_id "Device:C_Small")
 		(at 245.11 113.792 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "77f08234-c155-4476-8e45-4d12930ed5c5")
 		(property "Reference" "C_3_11"
 			(at 245.11 110.3122 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10038,6 +10804,8 @@
 		)
 		(property "Value" "100n"
 			(at 245.11 110.2868 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10047,38 +10815,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 245.11 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 245.11 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 245.11 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 245.11 113.792 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10094,7 +10870,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_11")
 					(unit 1)
@@ -10106,13 +10882,17 @@
 		(lib_id "LED:WS2812B")
 		(at 159.258 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "7a9aa9d1-170e-4355-b282-780e0fb54810")
 		(property "Reference" "L_3_9"
 			(at 160.528 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10122,50 +10902,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 167.9956 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 160.528 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 161.798 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 159.258 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 159.258 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10187,7 +10977,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_9")
 					(unit 1)
@@ -10199,13 +10989,17 @@
 		(lib_id "LED:WS2812B")
 		(at 98.298 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "7b0dbdfd-8226-4f82-abde-381db9c6fe05")
 		(property "Reference" "L_2_5"
 			(at 99.568 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10215,50 +11009,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 107.0356 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 99.568 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 100.838 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 98.298 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 98.298 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10280,7 +11084,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_5")
 					(unit 1)
@@ -10292,13 +11096,17 @@
 		(lib_id "LED:WS2812B")
 		(at 189.738 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "7ced4df5-9cb4-47da-b337-14dfe04c05fb")
 		(property "Reference" "L_3_11"
 			(at 191.008 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10308,50 +11116,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 198.4756 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 191.008 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 192.278 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 189.738 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 189.738 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10373,7 +11191,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_11")
 					(unit 1)
@@ -10385,13 +11203,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.382 64.77 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "7eb163f7-4188-4837-bf06-d7238ca33f4e")
 		(property "Reference" "C_2_11"
 			(at 262.382 61.2902 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10401,6 +11223,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.382 61.2648 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10410,38 +11234,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.382 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.382 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.382 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.382 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10457,7 +11289,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_11")
 					(unit 1)
@@ -10469,13 +11301,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.382 41.91 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "7f6df74a-2e8f-447a-af26-f0ce2722ac80")
 		(property "Reference" "C_2_8"
 			(at 262.382 38.4302 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10485,6 +11321,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.382 38.4048 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10494,38 +11332,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.382 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.382 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.382 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.382 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10541,7 +11387,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_8")
 					(unit 1)
@@ -10553,13 +11399,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.89 90.932 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "82dc86c4-2b05-4758-8021-0c20b69361ea")
 		(property "Reference" "C_4_8"
 			(at 262.89 87.4522 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10569,6 +11419,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.89 87.4268 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10578,38 +11430,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.89 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.89 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.89 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10625,7 +11485,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_8")
 					(unit 1)
@@ -10637,13 +11497,17 @@
 		(lib_id "LED:WS2812B")
 		(at 98.298 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "8379efe4-f1d0-4cd5-a848-a76ed0c44035")
 		(property "Reference" "L_4_5"
 			(at 99.568 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10653,50 +11517,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 107.0356 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 99.568 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 100.838 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 98.298 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 98.298 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10718,7 +11592,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_5")
 					(unit 1)
@@ -10730,13 +11604,17 @@
 		(lib_id "LED:WS2812B")
 		(at 37.338 119.38 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "851cabc9-2d99-49fd-b442-83d863826ba3")
 		(property "Reference" "L_BL_1"
 			(at 38.608 129.54 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10746,50 +11624,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 46.0756 120.523 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
 			(at 38.608 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 39.878 128.905 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 37.338 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C2843785"
 			(at 37.338 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10811,7 +11699,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_BL_1")
 					(unit 1)
@@ -10823,13 +11711,17 @@
 		(lib_id "Device:C_Small")
 		(at 254 106.172 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "85e45b5e-3106-4ae0-81bb-e42323129126")
 		(property "Reference" "C_4_4"
 			(at 254 102.6922 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10839,6 +11731,8 @@
 		)
 		(property "Value" "100n"
 			(at 254 102.6668 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10848,38 +11742,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 254 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 254 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 254 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 254 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10895,7 +11797,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_4")
 					(unit 1)
@@ -10907,13 +11809,17 @@
 		(lib_id "Device:C_Small")
 		(at 245.11 98.552 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "897a4397-8bba-4cd7-8464-150a06d5451a")
 		(property "Reference" "C_3_9"
 			(at 245.11 95.0722 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10923,6 +11829,8 @@
 		)
 		(property "Value" "100n"
 			(at 245.11 95.0468 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10932,38 +11840,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 245.11 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 245.11 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 245.11 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 245.11 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10979,7 +11895,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_9")
 					(unit 1)
@@ -10991,13 +11907,17 @@
 		(lib_id "LED:WS2812B")
 		(at 144.018 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "8b2e81fd-f440-48bf-852f-1ff80948d783")
 		(property "Reference" "L_1_8"
 			(at 145.288 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11007,50 +11927,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 152.7556 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 145.288 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 146.558 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 144.018 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 144.018 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11072,7 +12002,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_8")
 					(unit 1)
@@ -11084,13 +12014,17 @@
 		(lib_id "LED:WS2812B")
 		(at 174.498 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "8f2dbbb7-7aab-496b-9f20-4ff93ac41378")
 		(property "Reference" "L_3_10"
 			(at 175.768 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11100,50 +12034,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 183.2356 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 175.768 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 177.038 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 174.498 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 174.498 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11165,7 +12109,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_10")
 					(unit 1)
@@ -11177,13 +12121,17 @@
 		(lib_id "Device:C_Small")
 		(at 245.11 90.932 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "911d4acd-a939-40a1-baf1-ed314a1f0f79")
 		(property "Reference" "C_3_8"
 			(at 245.11 87.4522 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11193,6 +12141,8 @@
 		)
 		(property "Value" "100n"
 			(at 245.11 87.4268 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11202,38 +12152,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 245.11 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 245.11 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 245.11 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 245.11 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11249,7 +12207,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_8")
 					(unit 1)
@@ -11261,13 +12219,17 @@
 		(lib_id "LED:WS2812B")
 		(at 159.258 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "97bb2088-0378-485f-8e37-f1c76d54572f")
 		(property "Reference" "L_1_9"
 			(at 160.528 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11277,50 +12239,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 167.9956 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 160.528 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 161.798 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 159.258 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 159.258 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11342,7 +12314,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_9")
 					(unit 1)
@@ -11354,13 +12326,17 @@
 		(lib_id "Device:C_Small")
 		(at 236.22 121.412 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "97cac472-010a-466b-9e33-ab014347c6c8")
 		(property "Reference" "C_3_6"
 			(at 236.22 117.9322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11370,6 +12346,8 @@
 		)
 		(property "Value" "100n"
 			(at 236.22 117.9068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11379,38 +12357,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 236.22 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 236.22 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 236.22 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 236.22 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11426,7 +12412,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_6")
 					(unit 1)
@@ -11438,13 +12424,17 @@
 		(lib_id "Device:C_Small")
 		(at 245.11 106.172 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "97e46f26-9fb5-48b1-b746-d4c0f9b5c2c2")
 		(property "Reference" "C_3_10"
 			(at 245.11 102.6922 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11454,6 +12444,8 @@
 		)
 		(property "Value" "100n"
 			(at 245.11 102.6668 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11463,38 +12455,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 245.11 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 245.11 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 245.11 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 245.11 106.172 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11510,7 +12510,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_10")
 					(unit 1)
@@ -11522,13 +12522,17 @@
 		(lib_id "Device:C_Small")
 		(at 253.492 34.29 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "9eef5844-694d-4746-8aa2-56db2d770585")
 		(property "Reference" "C_2_1"
 			(at 253.492 30.8102 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11538,6 +12542,8 @@
 		)
 		(property "Value" "100n"
 			(at 253.492 30.7848 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11547,38 +12553,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 253.492 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 253.492 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 253.492 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 253.492 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11594,7 +12608,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_1")
 					(unit 1)
@@ -11606,13 +12620,17 @@
 		(lib_id "Device:C_Small")
 		(at 235.712 41.91 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "9fdfa94a-2aeb-4991-b2b7-5750fa633a88")
 		(property "Reference" "C_1_2"
 			(at 235.712 38.4302 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11622,6 +12640,8 @@
 		)
 		(property "Value" "100n"
 			(at 235.712 38.4048 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11631,38 +12651,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 235.712 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 235.712 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 235.712 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 235.712 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11678,7 +12706,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_2")
 					(unit 1)
@@ -11690,13 +12718,17 @@
 		(lib_id "LED:WS2812B")
 		(at 174.498 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "a1f2def2-14da-4366-9516-28e10e367675")
 		(property "Reference" "L_1_10"
 			(at 175.768 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11706,50 +12738,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 183.2356 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 175.768 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 177.038 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 174.498 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 174.498 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11771,7 +12813,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_10")
 					(unit 1)
@@ -11783,13 +12825,17 @@
 		(lib_id "LED:WS2812B")
 		(at 159.258 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "a3d1410e-294a-4b3f-a155-6d30728a5c0d")
 		(property "Reference" "L_2_9"
 			(at 160.528 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11799,50 +12845,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 167.9956 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 160.528 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 161.798 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 159.258 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 159.258 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11864,7 +12920,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_9")
 					(unit 1)
@@ -11876,13 +12932,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.382 57.15 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "a6ab5919-874a-4591-8085-25a692d8cc59")
 		(property "Reference" "C_2_10"
 			(at 262.382 53.6702 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11892,6 +12952,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.382 53.6448 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11901,38 +12963,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.382 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.382 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.382 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.382 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11948,7 +13018,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_10")
 					(unit 1)
@@ -11960,13 +13030,17 @@
 		(lib_id "Device:C_Small")
 		(at 253.492 57.15 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "a94414b5-6a3a-4e30-a2c0-d236baa4584b")
 		(property "Reference" "C_2_4"
 			(at 253.492 53.6702 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11976,6 +13050,8 @@
 		)
 		(property "Value" "100n"
 			(at 253.492 53.6448 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11985,38 +13061,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 253.492 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 253.492 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 253.492 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 253.492 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12032,7 +13116,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_4")
 					(unit 1)
@@ -12044,13 +13128,17 @@
 		(lib_id "LED:WS2812B")
 		(at 128.778 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "b2954ffb-d7a9-48c9-a46e-13f3b969df1e")
 		(property "Reference" "L_2_7"
 			(at 130.048 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12060,50 +13148,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 137.5156 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 130.048 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 131.318 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 128.778 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 128.778 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12125,7 +13223,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_7")
 					(unit 1)
@@ -12137,13 +13235,17 @@
 		(lib_id "Device:C_Small")
 		(at 244.602 57.15 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "b579d671-4833-4477-a4a0-718fd19c3a09")
 		(property "Reference" "C_1_10"
 			(at 244.602 53.6702 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12153,6 +13255,8 @@
 		)
 		(property "Value" "100n"
 			(at 244.602 53.6448 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12162,38 +13266,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 244.602 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 244.602 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 244.602 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 244.602 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12209,7 +13321,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_10")
 					(unit 1)
@@ -12221,13 +13333,17 @@
 		(lib_id "LED:WS2812B")
 		(at 128.778 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "b5dbcb7d-52ad-450c-8205-4b5ae272894c")
 		(property "Reference" "L_4_7"
 			(at 130.048 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12237,50 +13353,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 137.5156 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 130.048 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 131.318 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 128.778 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 128.778 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12302,7 +13428,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_7")
 					(unit 1)
@@ -12314,13 +13440,17 @@
 		(lib_id "LED:WS2812B")
 		(at 128.778 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "b9fbdf04-142e-4b66-9a78-68f8e7fd6898")
 		(property "Reference" "L_1_7"
 			(at 130.048 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12330,50 +13460,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 137.5156 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 130.048 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 131.318 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 128.778 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 128.778 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12395,7 +13535,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_7")
 					(unit 1)
@@ -12407,13 +13547,17 @@
 		(lib_id "LED:WS2812B")
 		(at 37.338 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "bf8dd22c-a4b0-40a0-8cae-96e513e1a699")
 		(property "Reference" "L_3_1"
 			(at 38.608 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12423,50 +13567,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 46.0756 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 38.608 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 39.878 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 37.338 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 37.338 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12488,7 +13642,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_1")
 					(unit 1)
@@ -12500,13 +13654,17 @@
 		(lib_id "Device:R")
 		(at 36.322 180.086 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "c09136f6-9a11-4952-87a2-c9b12119cdcc")
 		(property "Reference" "R10"
 			(at 38.1 178.9176 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12516,6 +13674,8 @@
 		)
 		(property "Value" "10k"
 			(at 38.1 181.229 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12525,24 +13685,30 @@
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 34.544 180.086 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 36.322 180.086 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 36.322 180.086 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12551,11 +13717,13 @@
 		)
 		(property "LCSC" "C25804"
 			(at 36.322 180.086 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12565,7 +13733,7 @@
 			(uuid "cf2f862a-fe97-4fd2-bf98-3c88e1cdfd39")
 		)
 		(instances
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "R10")
 					(unit 1)
@@ -12583,13 +13751,17 @@
 		(lib_id "LED:WS2812B")
 		(at 128.778 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "c0aaa861-1e92-40bd-99a6-be35623eef86")
 		(property "Reference" "L_3_7"
 			(at 130.048 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12599,50 +13771,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 137.5156 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 130.048 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 131.318 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 128.778 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 128.778 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12664,7 +13846,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_7")
 					(unit 1)
@@ -12676,13 +13858,17 @@
 		(lib_id "Device:C_Small")
 		(at 236.22 98.552 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "c150d8a5-7f80-4774-b2f1-8eba8aec2cfd")
 		(property "Reference" "C_3_3"
 			(at 236.22 95.0722 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12692,6 +13878,8 @@
 		)
 		(property "Value" "100n"
 			(at 236.22 95.0468 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12701,38 +13889,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 236.22 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 236.22 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 236.22 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 236.22 98.552 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12748,7 +13944,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_3")
 					(unit 1)
@@ -12760,13 +13956,17 @@
 		(lib_id "Device:C_Small")
 		(at 254 83.312 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "c645930a-3505-479c-a9c9-8c4417f3bd6a")
 		(property "Reference" "C_4_1"
 			(at 254 79.8322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12776,6 +13976,8 @@
 		)
 		(property "Value" "100n"
 			(at 254 79.8068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12785,38 +13987,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 254 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 254 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 254 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 254 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12832,7 +14042,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_1")
 					(unit 1)
@@ -12844,13 +14054,17 @@
 		(lib_id "Device:C_Small")
 		(at 254 90.932 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "cbb9842d-f42a-4174-b8c6-271ff3cea9f7")
 		(property "Reference" "C_4_2"
 			(at 254 87.4522 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12860,6 +14074,8 @@
 		)
 		(property "Value" "100n"
 			(at 254 87.4268 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12869,38 +14085,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 254 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 254 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 254 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 254 90.932 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12916,7 +14140,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_2")
 					(unit 1)
@@ -12928,13 +14152,17 @@
 		(lib_id "Device:C_Small")
 		(at 262.382 49.53 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "cf7bb689-3fd2-4b7b-9736-cfff98c9ce87")
 		(property "Reference" "C_2_9"
 			(at 262.382 46.0502 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12944,6 +14172,8 @@
 		)
 		(property "Value" "100n"
 			(at 262.382 46.0248 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12953,38 +14183,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.382 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 262.382 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 262.382 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 262.382 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13000,7 +14238,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_9")
 					(unit 1)
@@ -13012,13 +14250,17 @@
 		(lib_id "LED:WS2812B")
 		(at 204.978 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "d299dcfc-480c-47fc-901c-5d90d7f54d55")
 		(property "Reference" "L_3_12"
 			(at 206.248 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13028,50 +14270,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 213.7156 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 206.248 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 207.518 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 204.978 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 204.978 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13093,7 +14345,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_12")
 					(unit 1)
@@ -13105,13 +14357,17 @@
 		(lib_id "LED:WS2812B")
 		(at 83.058 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "d3217a61-005a-422b-8cb3-46aaae82f868")
 		(property "Reference" "L_4_4"
 			(at 84.328 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13121,50 +14377,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 91.7956 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 84.328 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 85.598 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 83.058 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 83.058 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13186,7 +14452,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_4")
 					(unit 1)
@@ -13198,13 +14464,17 @@
 		(lib_id "LED:WS2812B")
 		(at 52.578 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "d49b76f9-077f-464d-a96d-47d6c432e87e")
 		(property "Reference" "L_2_2"
 			(at 53.848 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13214,50 +14484,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 61.3156 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 53.848 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 55.118 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 52.578 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 52.578 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13279,7 +14559,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_2")
 					(unit 1)
@@ -13291,13 +14571,17 @@
 		(lib_id "LED:WS2812B")
 		(at 189.738 38.1 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "d4eb9260-960c-45e4-b364-80938a5c389a")
 		(property "Reference" "L_1_11"
 			(at 191.008 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13307,50 +14591,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 198.4756 39.243 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 191.008 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 192.278 47.625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 189.738 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 189.738 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13372,7 +14666,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_1_11")
 					(unit 1)
@@ -13384,13 +14678,17 @@
 		(lib_id "Device:C_Small")
 		(at 237.744 156.972 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "d738c84e-034a-4a5e-bfdb-058cb192a488")
 		(property "Reference" "C_BL_4"
 			(at 237.744 153.4922 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13400,6 +14698,8 @@
 		)
 		(property "Value" "100n"
 			(at 237.744 153.4668 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13409,38 +14709,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 237.744 156.972 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 237.744 156.972 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 237.744 156.972 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 237.744 156.972 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13456,7 +14764,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_BL_4")
 					(unit 1)
@@ -13468,13 +14776,17 @@
 		(lib_id "Device:C_Small")
 		(at 253.492 49.53 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "d8acd99f-22e9-497b-9490-25d16fa06d44")
 		(property "Reference" "C_2_3"
 			(at 253.492 46.0502 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13484,6 +14796,8 @@
 		)
 		(property "Value" "100n"
 			(at 253.492 46.0248 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13493,38 +14807,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 253.492 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 253.492 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 253.492 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 253.492 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13540,7 +14862,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_3")
 					(unit 1)
@@ -13552,13 +14874,17 @@
 		(lib_id "LED:WS2812B")
 		(at 37.338 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "da9161aa-931f-4e45-af6a-e791aff38f96")
 		(property "Reference" "L_4_1"
 			(at 38.608 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13568,50 +14894,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 46.0756 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 38.608 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 39.878 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 37.338 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 37.338 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13633,7 +14969,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_1")
 					(unit 1)
@@ -13645,13 +14981,17 @@
 		(lib_id "Device:C_Small")
 		(at 253.492 64.77 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "dc277e6b-9a08-433f-8dd1-7f0cc64b9829")
 		(property "Reference" "C_2_5"
 			(at 253.492 61.2902 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13661,6 +15001,8 @@
 		)
 		(property "Value" "100n"
 			(at 253.492 61.2648 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13670,38 +15012,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 253.492 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 253.492 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 253.492 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 253.492 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13717,7 +15067,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_2_5")
 					(unit 1)
@@ -13729,13 +15079,17 @@
 		(lib_id "Device:C_Small")
 		(at 245.11 83.312 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "df5ce247-49f8-48b1-a8d3-744158db289e")
 		(property "Reference" "C_3_7"
 			(at 245.11 79.8322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13745,6 +15099,8 @@
 		)
 		(property "Value" "100n"
 			(at 245.11 79.8068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13754,38 +15110,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 245.11 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 245.11 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 245.11 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 245.11 83.312 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13801,7 +15165,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_7")
 					(unit 1)
@@ -13813,14 +15177,18 @@
 		(lib_id "Device:Q_NMOS_GSD")
 		(at 45.212 185.166 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e3f36e60-55f4-4862-aa45-837f0ba01b4d")
 		(property "Reference" "Q1"
 			(at 45.212 191.516 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13829,6 +15197,8 @@
 		)
 		(property "Value" "Q_NMOS_GSD"
 			(at 45.212 194.056 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13837,24 +15207,30 @@
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 47.752 190.246 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 45.212 185.166 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 45.212 185.166 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13863,11 +15239,13 @@
 		)
 		(property "LCSC" "C347484"
 			(at 45.212 185.166 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13880,7 +15258,7 @@
 			(uuid "19b5ef25-63a6-4430-b00c-06fc0febe463")
 		)
 		(instances
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "Q1")
 					(unit 1)
@@ -13892,13 +15270,17 @@
 		(lib_id "Device:C_Small")
 		(at 244.602 49.53 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "e7a68ac4-4cd2-442d-846b-ec06698d282e")
 		(property "Reference" "C_1_9"
 			(at 244.602 46.0502 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13908,6 +15290,8 @@
 		)
 		(property "Value" "100n"
 			(at 244.602 46.0248 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13917,38 +15301,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 244.602 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 244.602 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 244.602 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 244.602 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13964,7 +15356,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_9")
 					(unit 1)
@@ -13976,13 +15368,17 @@
 		(lib_id "Device:C_Small")
 		(at 237.744 134.112 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "e7d130ef-1212-4a95-b195-bde233871735")
 		(property "Reference" "C_BL_1"
 			(at 237.744 130.6322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13992,6 +15388,8 @@
 		)
 		(property "Value" "100n"
 			(at 237.744 130.6068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14001,38 +15399,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 237.744 134.112 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 237.744 134.112 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 237.744 134.112 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 237.744 134.112 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14048,7 +15454,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_BL_1")
 					(unit 1)
@@ -14060,13 +15466,17 @@
 		(lib_id "Device:C_Small")
 		(at 235.712 57.15 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "e88a36a8-85ef-48fe-bcd8-bfe43bbf9676")
 		(property "Reference" "C_1_4"
 			(at 235.712 53.6702 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14076,6 +15486,8 @@
 		)
 		(property "Value" "100n"
 			(at 235.712 53.6448 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14085,38 +15497,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 235.712 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 235.712 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 235.712 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 235.712 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14132,7 +15552,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_1_4")
 					(unit 1)
@@ -14144,13 +15564,17 @@
 		(lib_id "LED:WS2812B")
 		(at 67.818 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "eb87ddcd-d89d-4464-b22f-090c117bf206")
 		(property "Reference" "L_4_3"
 			(at 69.088 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14160,50 +15584,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 76.5556 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 69.088 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 70.358 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 67.818 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 67.818 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14225,7 +15659,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_3")
 					(unit 1)
@@ -14237,13 +15671,17 @@
 		(lib_id "Device:C_Small")
 		(at 254 121.412 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "edae1c9e-c293-400e-810d-0aa5bcef16bc")
 		(property "Reference" "C_4_6"
 			(at 254 117.9322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14253,6 +15691,8 @@
 		)
 		(property "Value" "100n"
 			(at 254 117.9068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14262,38 +15702,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 254 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 254 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 254 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 254 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14309,7 +15757,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_4_6")
 					(unit 1)
@@ -14321,13 +15769,17 @@
 		(lib_id "LED:WS2812B")
 		(at 189.738 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "f2be703c-52e6-475a-90f1-0b06cd3df1dd")
 		(property "Reference" "L_2_11"
 			(at 191.008 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14337,50 +15789,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 198.4756 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 191.008 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 192.278 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 189.738 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 189.738 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14402,7 +15864,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_11")
 					(unit 1)
@@ -14414,13 +15876,17 @@
 		(lib_id "LED:WS2812B")
 		(at 52.578 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "f45c0749-fedf-481d-8955-002aa713305c")
 		(property "Reference" "L_4_2"
 			(at 53.848 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14430,50 +15896,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 61.3156 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 53.848 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 55.118 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 52.578 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 52.578 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14495,7 +15971,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_2")
 					(unit 1)
@@ -14507,13 +15983,17 @@
 		(lib_id "LED:WS2812B")
 		(at 83.058 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "f5d4445a-60c9-415a-bd84-6f30038f69b6")
 		(property "Reference" "L_3_4"
 			(at 84.328 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14523,50 +16003,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 91.7956 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 84.328 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 85.598 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 83.058 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 83.058 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14588,7 +16078,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_4")
 					(unit 1)
@@ -14600,13 +16090,17 @@
 		(lib_id "Device:C_Small")
 		(at 245.11 121.412 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "f6809d94-8bbc-42ce-bea7-3d9699362916")
 		(property "Reference" "C_3_12"
 			(at 245.11 117.9322 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14616,6 +16110,8 @@
 		)
 		(property "Value" "100n"
 			(at 245.11 117.9068 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14625,38 +16121,46 @@
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 245.11 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 245.11 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" "Capacitor (Through-hole or 0805)"
 			(at 245.11 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C14663"
 			(at 245.11 121.412 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14672,7 +16176,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "C_3_12")
 					(unit 1)
@@ -14684,13 +16188,17 @@
 		(lib_id "LED:WS2812B")
 		(at 159.258 99.06 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "f84e06d3-2b82-4516-abab-33fedba12f2e")
 		(property "Reference" "L_4_9"
 			(at 160.528 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14700,50 +16208,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 167.9956 100.203 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 160.528 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 161.798 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 159.258 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 159.258 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14765,7 +16283,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_4_9")
 					(unit 1)
@@ -14777,13 +16295,17 @@
 		(lib_id "LED:WS2812B")
 		(at 174.498 58.42 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "fa1426fc-859a-44bd-9861-b12978668f74")
 		(property "Reference" "L_2_10"
 			(at 175.768 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14793,50 +16315,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 183.2356 59.563 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 175.768 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 177.038 67.945 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 174.498 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 174.498 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14858,7 +16390,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_2_10")
 					(unit 1)
@@ -14870,13 +16402,17 @@
 		(lib_id "LED:WS2812B")
 		(at 113.538 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "fd834ee6-bbec-42ca-bfeb-eb907b5a77bd")
 		(property "Reference" "L_3_6"
 			(at 114.808 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14886,50 +16422,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 122.2756 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 114.808 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 116.078 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 113.538 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 113.538 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14951,7 +16497,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_6")
 					(unit 1)
@@ -14963,13 +16509,17 @@
 		(lib_id "LED:WS2812B")
 		(at 52.578 78.74 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "fd93a64b-84cf-47d2-bf23-81dd5ea43988")
 		(property "Reference" "L_3_2"
 			(at 53.848 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14979,50 +16529,60 @@
 		)
 		(property "Value" "SK6812"
 			(at 61.3156 79.883 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "ProjectLocal:SK6812-MINI-E"
 			(at 53.848 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 			(at 55.118 88.265 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
-				(hide yes)
 			)
 		)
 		(property "Description" "RGB LED"
 			(at 52.578 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "LCSC" "C5149201"
 			(at 52.578 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -15044,7 +16604,7 @@
 					(unit 1)
 				)
 			)
-			(project "PyKey40-HS"
+			(project "keyboard-pykey40-hsrgb"
 				(path "/6e68f0cd-800e-4167-9553-71fc59da1eeb/666ae230-a9d4-414e-ac56-eabb91cdcbdd"
 					(reference "L_3_2")
 					(unit 1)
