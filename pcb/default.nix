@@ -21,6 +21,9 @@ in {
   keyboard-ch32x-48 = callPackage ./make-kibot.nix {
     board = "keyboard-ch32x-48";
   };
+  keyboard-ch32x-60-improved = callPackage ./make-kibot.nix {
+    board = "keyboard-ch32x-60-improved";
+  };
   keyboard-ch32x-75 = callPackage ./make-kibot.nix {
     board = "keyboard-ch32x-75";
   };
