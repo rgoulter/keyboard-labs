@@ -109,7 +109,6 @@ outputs:
       units: millimeters
       separate_files_for_front_and_back: true
       pre_transform: fix_rotation
-      only_smd: true
       right_digits: 6
       columns:
         - id: Ref
