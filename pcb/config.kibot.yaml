@@ -104,10 +104,10 @@ outputs:
     dir: "+fabrication/%f/"
     run_by_default: false
     options:
-      output: '%f_cpl_jlc_%i.%x'
+      output: '%f_cpl_jlc.%x'
       format: CSV
       units: millimeters
-      separate_files_for_front_and_back: true
+      separate_files_for_front_and_back: false
       pre_transform: fix_rotation
       exclude_filter: [_mechanical]
       right_digits: 6
