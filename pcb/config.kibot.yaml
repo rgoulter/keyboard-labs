@@ -110,6 +110,7 @@ outputs:
       separate_files_for_front_and_back: false
       pre_transform: fix_rotation
       exclude_filter: [_mechanical]
+      only_smd: false
       right_digits: 6
       columns:
         - id: Ref
