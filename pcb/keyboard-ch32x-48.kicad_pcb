@@ -150,7 +150,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "9eff2bfa-de79-45ef-805b-fc4ae739321c")
@@ -488,7 +488,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c75bf05a-2fb2-46ab-b33b-ac629652c1b6")
@@ -826,7 +826,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "fca3daaf-e1c6-486b-bb7e-de1378bf051d")
@@ -1164,7 +1164,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "36bb6a8a-611b-48c1-869b-f10d3276751c")
@@ -1502,7 +1502,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "bb9ed9c0-15f2-4018-a41e-7db8d09ac496")
@@ -1840,7 +1840,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "bb80b292-ed3c-46f2-85a8-bed66a6a7daf")
@@ -2178,7 +2178,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "cb23df02-4ea5-434e-93fb-f4c4296e1641")
@@ -2516,7 +2516,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "52764dcb-e0b6-4036-9900-80eb976181fe")
@@ -2854,7 +2854,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "0d046c26-df60-4346-a095-a1a5c67bbe9b")
@@ -3192,7 +3192,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "9cddcedb-7057-4492-8851-0c0ef7809185")
@@ -3530,7 +3530,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "46f0be67-6b58-4777-b031-8dbd5ec51633")
@@ -3868,7 +3868,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "7a4c8ec0-a690-4aad-8848-74a037925a16")
@@ -4206,7 +4206,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "5c35c166-04ab-42fd-bfd4-29049bbd84ad")
@@ -4544,7 +4544,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "e94423ab-57d5-4097-a6a2-d0f4dee1097b")
@@ -4882,7 +4882,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "25854e12-f4cb-42a2-b191-b08adf1b958c")
@@ -5220,7 +5220,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "bb88539b-aea8-4831-9b88-b25835fdced0")
@@ -5558,7 +5558,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "4f15b1f7-205a-4aeb-8126-43d3158a3e55")
@@ -5896,7 +5896,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "3304ea26-9342-4bc3-bb47-a671a0786bc5")
@@ -6739,7 +6739,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "54728ede-361e-40b5-8479-2fcb9fdc5779")
@@ -7077,7 +7077,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "b2ae45f6-8a30-4b06-ae7d-8c9faa621a91")
@@ -7415,7 +7415,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c260341d-b860-4737-97f0-6ad79f92e3aa")
@@ -7753,7 +7753,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "13e90565-7d3a-4673-af85-ea0833b6f32a")
@@ -8091,7 +8091,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "922c2856-e518-4772-981e-5d2e46998212")
@@ -8429,7 +8429,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "4e0ecac7-e0ba-4ca4-bd04-183987599317")
@@ -8767,7 +8767,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "b57f7464-70a8-4e58-9f15-5f21a674eb7e")
@@ -9105,7 +9105,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "8ffc7908-de9c-4939-8743-1cf28395b4e8")
@@ -9443,7 +9443,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "80b89675-46f3-4061-aa7f-e780edb21994")
@@ -9781,7 +9781,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "74db1f3a-18ea-444a-bef8-1a43a6b29ce0")
@@ -10119,7 +10119,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "2224154c-687d-44f8-8582-0d74127814f8")
@@ -10457,7 +10457,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "6bfa60a4-318e-4b3a-bebc-72e4686b6729")
@@ -10795,7 +10795,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "44f5835b-b20a-4210-a346-f34398c8937b")
@@ -11133,7 +11133,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "9e2cc316-23cd-40bc-89f5-0224a7424766")
@@ -11471,7 +11471,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "00b9592a-937e-4693-ace6-a526db4b6033")
@@ -11809,7 +11809,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c8cdb208-2153-4d61-94cc-7c5dcfb5dc90")
@@ -12147,7 +12147,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c7dc0a6e-da69-4672-b58e-e07c3a04f6f5")
@@ -12485,7 +12485,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c8a11450-03ad-4440-b477-741c01ff54bb")
@@ -12823,7 +12823,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "d7541875-37a6-4c02-8d2e-1e399f8a0f79")
@@ -13161,7 +13161,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "0b61ca17-9d61-42db-80aa-4d7e8a4fc5c9")
@@ -13499,7 +13499,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "81ec24dc-0b21-4772-833f-6a988a64cb5c")
@@ -13837,7 +13837,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "05de0198-164d-44ca-b5e2-3d66fbf382ea")
@@ -14175,7 +14175,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "dbeb8174-6fe1-4ad9-81f4-06149621d5ff")
@@ -14513,7 +14513,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "a65b3f93-bd6e-4513-afe5-dcca7936c538")
@@ -14851,7 +14851,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "13d7178a-1374-41ed-b486-1c6048bc93ca")
@@ -15189,7 +15189,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "c30ebd19-d6aa-4ab3-a92c-d6df74ba4a1c")
@@ -15527,7 +15527,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "e935d60c-846f-46a6-874f-71b072d0dd11")
@@ -15865,7 +15865,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "5bb146bf-a842-42cf-9c0b-93d7e6a33084")
@@ -16203,7 +16203,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "e1df566d-46b7-4c5b-b134-75f7117b4bfb")
@@ -16541,7 +16541,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 0 8 0)
 			(layer "F.Fab")
 			(uuid "6407e505-8c1c-460e-b9bc-80c4bc8890f5")

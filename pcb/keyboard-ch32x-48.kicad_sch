@@ -6155,7 +6155,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 154.94 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -6431,7 +6431,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 200.66 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -6522,7 +6522,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 139.7 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -7171,7 +7171,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 185.42 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -7262,7 +7262,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 261.62 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -7447,7 +7447,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 246.38 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -7538,7 +7538,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 215.9 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -7803,7 +7803,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 124.46 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -7975,7 +7975,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 261.62 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -8066,7 +8066,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 276.86 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -8157,7 +8157,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 124.46 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -8248,7 +8248,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 185.42 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -8433,7 +8433,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 124.46 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -8937,7 +8937,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 215.9 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -9528,7 +9528,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 276.86 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -9885,7 +9885,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 109.22 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -10540,7 +10540,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 246.38 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -10631,7 +10631,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 261.62 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -10722,7 +10722,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 200.66 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -11001,7 +11001,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 200.66 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -11092,7 +11092,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 139.7 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -11555,7 +11555,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 139.7 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -11646,7 +11646,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 231.14 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -11737,7 +11737,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 276.86 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -11922,7 +11922,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 276.86 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -12469,7 +12469,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 231.14 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -12641,7 +12641,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 185.42 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -12826,7 +12826,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 124.46 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -13102,7 +13102,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 154.94 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -13193,7 +13193,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 261.62 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -13378,7 +13378,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 246.38 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -13469,7 +13469,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 170.18 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -13654,7 +13654,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 200.66 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -13745,7 +13745,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 109.22 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -13929,7 +13929,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 231.14 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -14288,7 +14288,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 170.18 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -15119,7 +15119,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 215.9 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -15210,7 +15210,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 154.94 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -15463,7 +15463,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 231.14 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -15554,7 +15554,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 109.22 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -15739,7 +15739,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 185.42 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -15830,7 +15830,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 139.7 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -15921,7 +15921,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 109.22 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -16012,7 +16012,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 215.9 81.4324 0)
 			(hide yes)
 			(show_name no)
@@ -16197,7 +16197,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 170.18 114.4524 0)
 			(hide yes)
 			(show_name no)
@@ -16382,7 +16382,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 170.18 97.9424 0)
 			(hide yes)
 			(show_name no)
@@ -16473,7 +16473,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 154.94 130.9624 0)
 			(hide yes)
 			(show_name no)
@@ -16564,7 +16564,7 @@
 				)
 			)
 		)
-		(property "Value" "Redragon Low Profile switches"
+		(property "Value" "MX-compatible"
 			(at 246.38 81.4324 0)
 			(hide yes)
 			(show_name no)
