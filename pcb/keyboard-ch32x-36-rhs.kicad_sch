@@ -34,7 +34,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "USB_C_Receptacle_USB2.0"
+			(property "Value" "USB Type-C Female 16P"
 				(at 19.05 19.05 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -5198,7 +5198,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27834"
+		(property "LCSC" ""
 			(at 64.77 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -5962,7 +5962,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C1779"
+		(property "LCSC" ""
 			(at 38.1 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -6444,7 +6444,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17630"
+		(property "LCSC" ""
 			(at 53.34 176.53 0)
 			(hide yes)
 			(show_name no)
@@ -6786,7 +6786,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 54.61 124.46 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6830,7 +6830,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28233"
+		(property "LCSC" ""
 			(at 50.8 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -7652,7 +7652,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "10k"
 			(at 54.61 148.59 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7695,7 +7695,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17414"
+		(property "LCSC" ""
 			(at 54.61 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -8399,7 +8399,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 43.18 181.6099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8443,7 +8443,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28233"
+		(property "LCSC" ""
 			(at 39.37 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -8831,7 +8831,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27834"
+		(property "LCSC" ""
 			(at 74.93 77.47 0)
 			(hide yes)
 			(show_name no)
