@@ -34,7 +34,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "USB_C_Receptacle_USB2.0"
+			(property "Value" "USB Type-C Female 16P"
 				(at 19.05 19.05 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -9098,7 +9098,7 @@
 				)
 			)
 		)
-		(property "Value" "USB_C_Receptacle_USB2.0"
+		(property "Value" "USB Type-C Female 16P"
 			(at 31.9278 117.4496 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10270,7 +10270,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 178.181 128.143 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10818,7 +10818,7 @@
 				)
 			)
 		)
-		(property "Value" "22"
+		(property "Value" "22R"
 			(at 295.91 151.13 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10907,7 +10907,7 @@
 				)
 			)
 		)
-		(property "Value" "22"
+		(property "Value" "22R"
 			(at 295.91 153.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11225,7 +11225,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 256.921 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11316,7 +11316,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 267.081 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11407,7 +11407,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 275.971 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11498,7 +11498,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 284.861 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11589,7 +11589,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 293.751 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11680,7 +11680,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 303.911 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11771,7 +11771,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 312.801 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11862,7 +11862,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 234.061 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11953,7 +11953,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 222.631 124.333 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12044,7 +12044,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 226.06 138.43 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12135,7 +12135,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 282.321 138.303 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12702,7 +12702,7 @@
 				)
 			)
 		)
-		(property "Value" "22p"
+		(property "Value" "22pF"
 			(at 185.42 199.1106 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12791,7 +12791,7 @@
 				)
 			)
 		)
-		(property "Value" "22p"
+		(property "Value" "22pF"
 			(at 185.42 190.2206 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13288,7 +13288,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 85.471 197.993 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13379,7 +13379,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 53.721 196.723 0)
 			(show_name no)
 			(do_not_autoplace no)
