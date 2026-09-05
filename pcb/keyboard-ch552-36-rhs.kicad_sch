@@ -34,7 +34,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "USB_C_Receptacle_USB2.0"
+			(property "Value" "USB Type-C Female 16P"
 				(at 19.05 19.05 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4262,7 +4262,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 248.92 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -4454,7 +4454,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 248.92 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -4553,7 +4553,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 218.44 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -5022,7 +5022,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27834"
+		(property "LCSC" ""
 			(at 58.42 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -5195,7 +5195,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 233.68 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -5294,7 +5294,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 248.92 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -5349,7 +5349,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 33.02 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5392,7 +5392,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C49678"
+		(property "LCSC" ""
 			(at 29.21 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -5741,7 +5741,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 33.02 129.54 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5784,7 +5784,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C49678"
+		(property "LCSC" ""
 			(at 29.21 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -6169,7 +6169,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 203.2 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -6265,7 +6265,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17630"
+		(property "LCSC" ""
 			(at 43.18 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6552,7 +6552,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 187.96 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -6607,7 +6607,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 45.72 129.54 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6650,7 +6650,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C49678"
+		(property "LCSC" ""
 			(at 41.91 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -6743,7 +6743,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 218.44 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -6946,7 +6946,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 233.68 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -7142,7 +7142,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 218.44 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -7241,7 +7241,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 203.2 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -7392,7 +7392,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "10k"
 			(at 48.26 182.88 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7434,7 +7434,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17414"
+		(property "LCSC" ""
 			(at 48.26 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -7624,7 +7624,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 233.68 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -7723,7 +7723,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 248.92 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -8096,7 +8096,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 187.96 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -8195,7 +8195,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 233.68 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -8390,7 +8390,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27834"
+		(property "LCSC" ""
 			(at 68.58 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -8678,7 +8678,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 203.2 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -9034,7 +9034,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 218.44 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -9133,7 +9133,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C9808"
+		(property "LCSC" ""
 			(at 187.96 35.56 0)
 			(hide yes)
 			(show_name no)
