@@ -34,7 +34,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "USB_C_Receptacle_USB2.0"
+			(property "Value" "USB Type-C Female 16P"
 				(at 19.05 19.05 0)
 				(show_name no)
 				(do_not_autoplace no)
