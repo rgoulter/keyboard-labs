@@ -37,14 +37,19 @@ kibot board="":
     board="{{ board }}"
     if [ -z "$board" ]; then
       board=$(
-        {{ source_directory() }}/choose-board.sh --prompt "pcb kibot> " \
+        {{ source_directory() }}/choose-board.sh --with-all --prompt "pcb kibot> " \
           || true
       )
     fi
     [ -z "$board" ] && exit 1
     kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
-    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-kibot" >&2
-    KIBOT="$kibot_bin" make -C "{{ source_directory() }}" "$board-kibot"
+    if [ "$board" = "[all]" ] || [ "$board" = "all" ]; then
+      echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} all" >&2
+      KIBOT="$kibot_bin" make -C "{{ source_directory() }}" all
+    else
+      echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-kibot" >&2
+      KIBOT="$kibot_bin" make -C "{{ source_directory() }}" "$board-kibot"
+    fi
 
 [doc("build fabrication outputs for board (gerbers/docs, no pcba) - alias for kibot")]
 fab board="": (kibot board)
@@ -59,14 +64,19 @@ pcba board="":
     board="{{ board }}"
     if [ -z "$board" ]; then
       board=$(
-        {{ source_directory() }}/choose-board.sh --prompt "pcb pcba> " \
+        {{ source_directory() }}/choose-board.sh --with-all --prompt "pcb pcba> " \
           || true
       )
     fi
     [ -z "$board" ] && exit 1
     kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
-    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-pcba" >&2
-    KIBOT="$kibot_bin" make -C "{{ source_directory() }}" "$board-pcba"
+    if [ "$board" = "[all]" ] || [ "$board" = "all" ]; then
+      echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} pcbas" >&2
+      KIBOT="$kibot_bin" make -C "{{ source_directory() }}" pcbas
+    else
+      echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-pcba" >&2
+      KIBOT="$kibot_bin" make -C "{{ source_directory() }}" "$board-pcba"
+    fi
 
 # ibom: `just pcb::ibom <board>` — chooser filters to boards with ibom targets
 [doc("run ibom for board (chooser if no arg)")]
@@ -76,11 +86,16 @@ ibom board="":
     board="{{ board }}"
     if [ -z "$board" ]; then
       board=$(
-        {{ source_directory() }}/choose-board.sh --prompt "pcb ibom> " --ibom-only \
+        {{ source_directory() }}/choose-board.sh --with-all --prompt "pcb ibom> " --ibom-only \
           || true
       )
     fi
     [ -z "$board" ] && exit 1
-    kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
-    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-ibom" >&2
-    make -C "{{ source_directory() }}" "$board-ibom"
+    if [ "$board" = "[all]" ] || [ "$board" = "all" ]; then
+      echo "→ make -C {{ source_directory() }} iboms" >&2
+      make -C "{{ source_directory() }}" iboms
+    else
+      kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
+      echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-ibom" >&2
+      make -C "{{ source_directory() }}" "$board-ibom"
+    fi
