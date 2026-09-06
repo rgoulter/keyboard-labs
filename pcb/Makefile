@@ -8,6 +8,23 @@ KIBOT ?= kibot
 kicad_pcbs := $(wildcard *.kicad_pcb)
 boards := $(basename $(kicad_pcbs))
 
+# Boards that are hand-solderable only - no PCBA by default.
+# These are intentionally excluded from the `all` PCBA build.
+#  - minif4  : keyboard-100x100-minif4-dual-rgb-reversible
+#  - x2 lumberjack arm (both variants)
+#  - pico42, ch552-44, WABBLE-60
+handsolder_boards := \
+  keyboard-100x100-minif4-dual-rgb-reversible \
+  keyboard-x2-lumberjack-arm \
+  keyboard-x2-lumberjack-arm-hsrgb \
+  keyboard-pico42 \
+  keyboard-ch552-44 \
+  keyboard-wabble-60
+
+# PCBA-capable boards: everything else (minus demo helper).
+# New boards are PCBA-included by default; add to handsolder_boards to opt out.
+pcba_boards := $(filter-out $(handsolder_boards) demo-usb-16pin,$(boards))
+
 ibom_targets := \
   keyboard-x2-lumberjack-arm-ibom \
   keyboard-x2-lumberjack-arm-hsrgb-ibom \
@@ -16,12 +33,16 @@ ibom_targets := \
   keyboard-ch552-36-ibom \
   keyboard-wabble-60-ibom
 kibot_targets := $(foreach board,$(boards),$(board)-kibot)
+pcba_targets := $(foreach board,$(pcba_boards),$(board)-pcba)
 
 .PHONY: all
-all: $(kibot_targets) iboms
+all: $(kibot_targets) $(pcba_targets) iboms
 
 .PHONY: iboms
 iboms: $(ibom_targets)
+
+.PHONY: pcbas
+pcbas: $(pcba_targets)
 
 .PHONY: %-kibot
 %-kibot:
