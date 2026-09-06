@@ -1,13 +1,5 @@
 # cad — UX wrappers for cad/*/Makefile (openscad → stl/dxf/svg/png)
 
-# list scad sources
-[doc("list cad sources")]
-list:
-    @echo "keyboard_case (3dp-*.scad → .stl):"
-    @ls {{source_directory()}}/keyboard_case/3dp-*.scad 2>/dev/null | grep -v "3dp-constants.scad" | xargs -n1 basename | sed 's/^/  /' || echo "  (none)"
-    @echo "keyboard_plates (keyboard-pykey40/*.scad → .dxf/.svg):"
-    @ls {{source_directory()}}/keyboard_plates/keyboard-pykey40/*.scad 2>/dev/null | xargs -n1 basename | sed 's/^/  /' || echo "  (none)"
-
 # 3D-print case: `just cad::case` (all) or `just cad::case 3dp-pico42-mx-socketed`
 [doc("build cad case stls (all or single, chooser if no arg)")]
 case file="":
@@ -16,27 +8,32 @@ case file="":
     file="{{file}}"
     dir="{{source_directory()}}/keyboard_case"
     if [ -z "$file" ]; then
-        # no arg: if interactive terminal and fzf, offer chooser, else build all
-        if [ -t 0 ] && command -v fzf >/dev/null 2>&1; then
-            choice=$( (echo "[all]"; ls "$dir"/3dp-*.scad 2>/dev/null | grep -v "3dp-constants.scad" | xargs -n1 basename -s .scad) | fzf --prompt="cad case> " --height=40% --reverse || true)
-            if [ -z "$choice" ]; then exit 1; fi
-            if [ "$choice" = "[all]" ]; then
-                make -C "$dir" 3dp
-                exit 0
-            fi
-            file="$choice"
-        else
-            make -C "$dir" 3dp
-            exit 0
-        fi
+      choice=$(
+        (
+          echo "[all]"
+          ls "$dir"/3dp-*.scad 2>/dev/null \
+            | grep -v "3dp-constants.scad" \
+            | xargs -n1 basename -s .scad
+        ) \
+          | fzf --prompt="cad case> " \
+            --height=40% \
+            --reverse \
+          || true
+      )
+      [ -z "$choice" ] && exit 1
+      if [ "$choice" = "[all]" ]; then
+        make -C "$dir" 3dp
+        exit 0
+      fi
+      file="$choice"
     fi
     # allow with or without extension
     if [[ "$file" == *.stl ]]; then
-        make -C "$dir" "$file"
+      make -C "$dir" "$file"
     elif [[ "$file" == *.scad ]]; then
-        make -C "$dir" "${file%.scad}.stl"
+      make -C "$dir" "${file%.scad}.stl"
     else
-        make -C "$dir" "$file.stl"
+      make -C "$dir" "$file.stl"
     fi
 
 # plates: `just cad::plates` (all) or `just cad::plates jj40_switch_plate`
@@ -47,26 +44,31 @@ plates file="":
     file="{{file}}"
     dir="{{source_directory()}}/keyboard_plates/keyboard-pykey40"
     if [ -z "$file" ]; then
-        if [ -t 0 ] && command -v fzf >/dev/null 2>&1; then
-            choice=$( (echo "[all]"; ls "$dir"/*.scad 2>/dev/null | xargs -n1 basename -s .scad) | fzf --prompt="cad plates> " --height=40% --reverse || true)
-            [ -z "$choice" ] && exit 1
-            if [ "$choice" = "[all]" ]; then
-                make -C "$dir" all
-                exit 0
-            fi
-            file="$choice"
-        else
-            make -C "$dir" all
-            exit 0
-        fi
+      choice=$(
+        (
+          echo "[all]"
+          ls "$dir"/*.scad 2>/dev/null \
+            | xargs -n1 basename -s .scad
+        ) \
+          | fzf --prompt="cad plates> " \
+            --height=40% \
+            --reverse \
+          || true
+      )
+      [ -z "$choice" ] && exit 1
+      if [ "$choice" = "[all]" ]; then
+        make -C "$dir" all
+        exit 0
+      fi
+      file="$choice"
     fi
     # support dxf/svg or bare stem
     if [[ "$file" == *.dxf || "$file" == *.svg ]]; then
-        make -C "$dir" "$file"
+      make -C "$dir" "$file"
     elif [[ "$file" == *.scad ]]; then
-        make -C "$dir" "${file%.scad}.dxf" "${file%.scad}.svg"
+      make -C "$dir" "${file%.scad}.dxf" "${file%.scad}.svg"
     else
-        make -C "$dir" "$file.dxf" "$file.svg"
+      make -C "$dir" "$file.dxf" "$file.svg"
     fi
 
 [doc("clean cad artifacts")]
@@ -77,4 +79,5 @@ clean:
 # filter-out 3dp-constants.scad like the Makefile does
 [doc("interactive chooser for cad recipes")]
 choose:
-    @just --choose --chooser "fzf --prompt='cad> ' --height=40% --reverse" 2>/dev/null || just --choose
+    @just --choose --chooser "fzf --prompt='cad> ' --height=40% --reverse" 2>/dev/null \
+      || just --choose
