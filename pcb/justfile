@@ -1,15 +1,15 @@
 # pcb - UX wrappers for pcb/Makefile (kibot / fab / ibom)
 #
 # `just pcb` opens chooser;
-# `just pcb::fab <board>` builds fabrication outputs.
+# `just pcb::fab <board>` builds fabrication outputs (alias for kibot).
 
 # interactive chooser entrypoint for this module
 [doc("interactive chooser for pcb recipes")]
 choose:
     @just --choose --chooser "fzf --prompt='pcb> ' --height=40% --reverse" 2>/dev/null
 
-# run all kibot + ibom targets (same as `make -C pcb all`)
-[doc("build all kibot + iboms (make all)")]
+# run all kibot + pcba + ibom targets (same as `make -C pcb all`)
+[doc("build all kibot + pcba + iboms (make all)")]
 all:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -21,6 +21,14 @@ all:
 iboms:
     kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
     make -C "{{ source_directory() }}" iboms
+
+[doc("build all pcba outputs (make pcbas) - PCBA boards only")]
+pcbas:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
+    echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} pcbas" >&2
+    KIBOT="$kibot_bin" make -C "{{ source_directory() }}" pcbas
 
 [doc("build default kibot outputs for board (gerbers/docs, no pcba)")]
 kibot board="":
@@ -37,6 +45,12 @@ kibot board="":
     kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
     echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-kibot" >&2
     KIBOT="$kibot_bin" make -C "{{ source_directory() }}" "$board-kibot"
+
+[doc("build fabrication outputs for board (gerbers/docs, no pcba) - alias for kibot")]
+fab board="": (kibot board)
+
+[doc("build fabrication outputs for board (gerbers/docs, no pcba) - alias for kibot")]
+fabrication board="": (kibot board)
 
 [doc("generate pcba outputs for board (BOM + CPL, for JLC)")]
 pcba board="":
