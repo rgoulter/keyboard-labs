@@ -1,10 +1,5 @@
 # nix — wrappers for `nix build` / `nix flake check`
 
-# list available flake packages (pcb-*, qmk-*, firmware)
-[doc("list flake packages")]
-list:
-    @nix eval .#packages.x86_64-linux --apply 'pkgs: builtins.concatStringsSep "\n" (builtins.attrNames pkgs)' 2>/dev/null | tr -d '"' | tr ',' '\n' | sed 's/^/  /' || nix flake show 2>&1 | sed 's/^/  /'
-
 [doc("nix flake check (pcb + firmware)")]
 check:
     nix flake check --show-trace
@@ -15,16 +10,29 @@ pcb board="":
     set -euo pipefail
     board="{{board}}"
     if [ -z "$board" ]; then
-        if command -v fzf >/dev/null 2>&1; then
-            pkgs=$(nix eval .#packages.x86_64-linux --apply 'pkgs: builtins.concatStringsSep "\n" (builtins.attrNames pkgs)' 2>/dev/null | tr -d '"' | tr ',' '\n' | grep '^pcb-' || true)
-            if [ -z "$pkgs" ]; then pkgs=$(ls pcb/*.kicad_pcb 2>/dev/null | xargs -n1 basename -s .kicad_pcb | sed 's/^/pcb-/'); fi
-            choice=$(echo "$pkgs" | fzf --prompt="nix pcb> " --height=40% --reverse || true)
-            board="${choice#pcb-}"
-        else
-            echo "Usage: just nix::pcb <board>" >&2
-            echo "  e.g. just nix::pcb keyboard-pico42" >&2
-            exit 1
-        fi
+      pkgs=$(
+        nix eval .#packages.x86_64-linux \
+          --apply 'pkgs: builtins.concatStringsSep "\n" (builtins.attrNames pkgs)' 2>/dev/null \
+          | tr -d '"' \
+          | tr ',' '\n' \
+          | grep '^pcb-' \
+          || true
+      )
+      if [ -z "$pkgs" ]; then
+        pkgs=$(
+          ls pcb/*.kicad_pcb 2>/dev/null \
+            | xargs -n1 basename -s .kicad_pcb \
+            | sed 's/^/pcb-/'
+        )
+      fi
+      choice=$(
+        echo "$pkgs" \
+          | fzf --prompt="nix pcb> " \
+            --height=40% \
+            --reverse \
+          || true
+      )
+      board="${choice#pcb-}"
     fi
     [ -z "$board" ] && exit 1
     nix build ".#pcb-$board" --show-trace
@@ -40,13 +48,14 @@ shell target="pcb":
     set -euo pipefail
     t="{{target}}"
     if [ -z "$t" ] || [ "$t" = "pcb" ]; then
-        nix develop .#pcb --command bash -l
+      nix develop .#pcb --command bash -l
     elif [ "$t" = "firmware" ] || [ "$t" = "firmware-keyberon" ]; then
-        nix develop .#firmware-keyberon --command bash -l
+      nix develop .#firmware-keyberon --command bash -l
     else
-        echo "unknown shell: $t (try pcb|firmware)" >&2; exit 1
+      echo "unknown shell: $t (try pcb|firmware)" >&2; exit 1
     fi
 
 [doc("interactive chooser for nix recipes")]
 choose:
-    @just --choose --chooser "fzf --prompt='nix> ' --height=40% --reverse" 2>/dev/null || just --choose
+    @just --choose --chooser "fzf --prompt='nix> ' --height=40% --reverse" 2>/dev/null \
+      || just --choose
