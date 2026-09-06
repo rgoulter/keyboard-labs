@@ -1,20 +1,7 @@
 # firmware — UX wrappers for firmware/keyberon/Makefile
 # Delegates to firmware/keyberon/Makefile (keeps Make for file-deps).
-# `just firmware::list` shows bins; `just firmware::build <bin>` uses chooser.
 
 _kb_dir := source_directory() + "/keyberon"
-
-# list all firmware bins + examples (from wildcard in Makefile)
-[doc("list available firmware bins and examples")]
-list:
-    @echo "RP2040 bins (rp2040/src/bin):"
-    @ls {{_kb_dir}}/rp2040/src/bin/*.rs 2>/dev/null | xargs -n1 basename -s .rs | sed 's/^/  /' || echo "  (none)"
-    @echo "STM32F4 bins (stm32f4/src/bin):"
-    @ls {{_kb_dir}}/stm32f4/src/bin/*.rs 2>/dev/null | xargs -n1 basename -s .rs | sed 's/^/  /' || echo "  (none)"
-    @echo "Examples:"
-    @ls {{_kb_dir}}/rp2040/examples/*.rs {{_kb_dir}}/stm32f4/examples/*.rs 2>/dev/null | xargs -n1 basename -s .rs | sed 's/^/  example-/; s/^/  /' || true
-    @echo ""
-    @echo "Make targets: all, clean, targets.bin, targets.uf2"
 
 # build all (bins + examples → .bin + .uf2 in DEST_DIR)
 [doc("build all firmware (make all → .bin + .uf2)")]
@@ -41,20 +28,31 @@ build bin="":
     bin="{{bin}}"
     kb="{{_kb_dir}}"
     if [ -z "$bin" ]; then
-        if command -v fzf >/dev/null 2>&1; then
-            all=$( (ls "$kb"/rp2040/src/bin/*.rs "$kb"/stm32f4/src/bin/*.rs 2>/dev/null | xargs -n1 basename -s .rs; echo "---"; ls "$kb"/rp2040/examples/*.rs "$kb"/stm32f4/examples/*.rs 2>/dev/null | xargs -n1 basename -s .rs | sed 's/^/example-/') | sort)
-            bin=$(echo "$all" | grep -v "^---$" | fzf --prompt="firmware build> " --height=40% --reverse || true)
-        else
-            echo "Usage: just firmware::build <bin>" >&2
-            just firmware::list >&2
-            exit 1
-        fi
+      all=$(
+        (
+          ls "$kb"/rp2040/src/bin/*.rs "$kb"/stm32f4/src/bin/*.rs 2>/dev/null \
+            | xargs -n1 basename -s .rs
+          echo "---"
+          ls "$kb"/rp2040/examples/*.rs "$kb"/stm32f4/examples/*.rs 2>/dev/null \
+            | xargs -n1 basename -s .rs \
+            | sed 's/^/example-/'
+        ) \
+          | sort
+      )
+      bin=$(
+        echo "$all" \
+          | grep -v "^---$" \
+          | fzf --prompt="firmware build> " \
+            --height=40% \
+            --reverse \
+          || true
+      )
     fi
     [ -z "$bin" ] && exit 1
     if [[ "$bin" == example-* ]]; then
-        make -C "$kb" "example-${bin#example-}.bin" "example-${bin#example-}.uf2"
+      make -C "$kb" "example-${bin#example-}.bin" "example-${bin#example-}.uf2"
     else
-        make -C "$kb" "$bin.bin" "$bin.uf2"
+      make -C "$kb" "$bin.bin" "$bin.uf2"
     fi
 
 [doc("cargo build (no objcopy) — chooser selects package/bin")]
@@ -67,23 +65,34 @@ cargo bin="" release="true":
     flag=""
     if [ "$release" = "true" ]; then flag="--release"; fi
     if [ -z "$bin" ]; then
-        if command -v fzf >/dev/null 2>&1; then
-            all=$(ls "$kb"/rp2040/src/bin/*.rs "$kb"/stm32f4/src/bin/*.rs 2>/dev/null | xargs -n1 basename -s .rs | sort)
-            bin=$(echo "$all" | fzf --prompt="firmware cargo> " --height=40% --reverse || true)
-        else
-            echo "Usage: just firmware::cargo <bin> [release=true|false]" >&2; exit 1
-        fi
+      all=$(
+        ls "$kb"/rp2040/src/bin/*.rs "$kb"/stm32f4/src/bin/*.rs 2>/dev/null \
+          | xargs -n1 basename -s .rs \
+          | sort
+      )
+      bin=$(
+        echo "$all" \
+          | fzf --prompt="firmware cargo> " \
+            --height=40% \
+            --reverse \
+          || true
+      )
     fi
     [ -z "$bin" ] && exit 1
     # try rp2040 first, then stm32f4
     if [ -f "$kb/rp2040/src/bin/$bin.rs" ]; then
-        cargo build --target thumbv6m-none-eabi --package keyboard-labs-keyberon-rp2040 --bin "$bin" $flag
+      cargo build --target thumbv6m-none-eabi \
+        --package keyboard-labs-keyberon-rp2040 \
+        --bin "$bin" $flag
     elif [ -f "$kb/stm32f4/src/bin/$bin.rs" ]; then
-        cargo build --target thumbv7em-none-eabihf --package keyboard-labs-keyberon-stm32f4 --bin "$bin" $flag
+      cargo build --target thumbv7em-none-eabihf \
+        --package keyboard-labs-keyberon-stm32f4 \
+        --bin "$bin" $flag
     else
-        echo "unknown bin: $bin" >&2; exit 1
+      echo "unknown bin: $bin" >&2; exit 1
     fi
 
 [doc("interactive chooser for firmware recipes")]
 choose:
-    @just --choose --chooser "fzf --prompt='firmware> ' --height=40% --reverse" 2>/dev/null || just --choose
+    @just --choose --chooser "fzf --prompt='firmware> ' --height=40% --reverse" 2>/dev/null \
+      || just --choose
