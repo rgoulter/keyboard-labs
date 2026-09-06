@@ -28,7 +28,10 @@ kibot board="":
     set -euo pipefail
     board="{{ board }}"
     if [ -z "$board" ]; then
-        board=$({{ source_directory() }}/choose-board.sh --prompt "pcb kibot> ") || true
+      board=$(
+        {{ source_directory() }}/choose-board.sh --prompt "pcb kibot> " \
+          || true
+      )
     fi
     [ -z "$board" ] && exit 1
     kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
@@ -41,7 +44,10 @@ pcba board="":
     set -euo pipefail
     board="{{ board }}"
     if [ -z "$board" ]; then
-        board=$({{ source_directory() }}/choose-board.sh --prompt "pcb pcba> ") || true
+      board=$(
+        {{ source_directory() }}/choose-board.sh --prompt "pcb pcba> " \
+          || true
+      )
     fi
     [ -z "$board" ] && exit 1
     kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
@@ -55,7 +61,10 @@ ibom board="":
     set -euo pipefail
     board="{{ board }}"
     if [ -z "$board" ]; then
-        board=$({{ source_directory() }}/choose-board.sh --prompt "pcb ibom> " --ibom-only) || true
+      board=$(
+        {{ source_directory() }}/choose-board.sh --prompt "pcb ibom> " --ibom-only \
+          || true
+      )
     fi
     [ -z "$board" ] && exit 1
     kibot_bin="${KIBOT:-{{ source_directory() }}/run-kibot.sh}"
