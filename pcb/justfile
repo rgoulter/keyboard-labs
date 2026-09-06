@@ -8,8 +8,8 @@
 choose:
     @just --choose --chooser "fzf --prompt='pcb> ' --height=40% --reverse" 2>/dev/null
 
-# run all kibot + pcba + ibom targets (same as `make -C pcb all`)
-[doc("build all kibot + pcba + iboms (make all)")]
+# run all kibot + pcba targets (same as `make -C pcb all`)
+[doc("build all kibot + pcba (make all)")]
 all:
     #!/usr/bin/env bash
     set -euo pipefail

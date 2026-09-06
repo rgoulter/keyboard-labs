@@ -36,7 +36,7 @@ kibot_targets := $(foreach board,$(boards),$(board)-kibot)
 pcba_targets := $(foreach board,$(pcba_boards),$(board)-pcba)
 
 .PHONY: all
-all: $(kibot_targets) $(pcba_targets) iboms
+all: $(kibot_targets) $(pcba_targets)
 
 .PHONY: iboms
 iboms: $(ibom_targets)
