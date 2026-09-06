@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # choose-board.sh - pick a pcb board, via fzf if available
-# Usage: choose-board.sh [--prompt "pcb fab> "] [--ibom-only]
+# Usage: choose-board.sh [--prompt "pcb fab> "] [--ibom-only] [--with-all]
 
 set -euo pipefail
 
@@ -10,12 +10,15 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 prompt="pcb> "
 
 ibom_only=false
+with_all=false
 
 # Process command line args
 while [ $# -gt 0 ]; do
     case "$1" in
         --prompt) prompt="$2"; shift 2 ;;
         --ibom-only) ibom_only=true; shift ;;
+        --with-all) with_all=true; shift ;;
+        --all) with_all=true; shift ;;
         *) echo "unknown arg: $1" >&2; exit 1 ;;
     esac
 done
@@ -55,11 +58,20 @@ if $ibom_only; then
                 | sort
         )
     fi
-    echo "$avail" | fzf --prompt="$prompt" --height=40% --reverse || true
+    if $with_all; then
+        ( echo "[all]"; echo "$avail" ) | fzf --prompt="$prompt" --height=40% --reverse || true
+    else
+        echo "$avail" | fzf --prompt="$prompt" --height=40% --reverse || true
+    fi
 else
-    ls "$SCRIPT_DIR"/*.kicad_pcb 2>/dev/null \
-        | xargs -n1 basename -s .kicad_pcb \
-        | sort \
-        | fzf --prompt="$prompt" --height=40% --reverse \
-    || true
+    avail=$(
+        ls "$SCRIPT_DIR"/*.kicad_pcb 2>/dev/null \
+            | xargs -n1 basename -s .kicad_pcb \
+            | sort
+    )
+    if $with_all; then
+        ( echo "[all]"; echo "$avail" ) | fzf --prompt="$prompt" --height=40% --reverse || true
+    else
+        echo "$avail" | fzf --prompt="$prompt" --height=40% --reverse || true
+    fi
 fi
