@@ -61,17 +61,16 @@ TAG="${TAG:-latest}"
     --rm \
     --interactive \
     --tty \
+    --platform linux/amd64 \
     --env "NO_AT_BRIDGE=1" \
     --env "DISPLAY=$DISPLAY" \
+    --env "HOME=/tmp" \
     --volume=/tmp/.X11-unix:/tmp/.X11-unix \
     --user "$USER_ID:$GROUP_ID" \
-    --volume="/etc/group:/etc/group:ro" \
-    --volume="/etc/passwd:/etc/passwd:ro" \
-    --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="${KICAD_CONFIG}:${KICAD_CONFIG}:rw" \
     --volume="${KICAD_CACHE}:${KICAD_CACHE}:rw" \
     --volume="$(pwd):$(pwd)" \
     --workdir="$(pwd)" \
     "${KIBOT_IMAGE}:${TAG}" \
-    /bin/bash -c "kibot $*"
+    kibot "$@"
 )
