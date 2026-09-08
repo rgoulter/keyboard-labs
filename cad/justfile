@@ -81,3 +81,11 @@ clean:
 choose:
     @just --choose --chooser "fzf --prompt='cad> ' --height=40% --reverse" 2>/dev/null \
       || just --choose
+
+[doc("check build123d cnc pykey40 hole chains")]
+case-pykey40-check:
+    make -C "{{source_directory()}}/keyboard_case" case-pykey40-check
+
+[doc("export build123d cnc pykey40 stl/step")]
+case-pykey40:
+    make -C "{{source_directory()}}/keyboard_case" case-pykey40

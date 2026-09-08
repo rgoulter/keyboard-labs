@@ -1,76 +1,53 @@
 """
-CNC pykey40 MX keyboard case — build123d port of OpenSCAD simple_keyboard_case.
-
-Source of truth (keyboard-labs):
-  cad/keyboard_case/keyboard_case.scad  (simple_keyboard_case)
-  cad/keyboard_case/cnc-pykey40-mx.scad
-  cad/keyboard_case/keyboard_case-constants.scad
-  cad/keyboard_plates/keyboard-pykey40/jj40_constants.scad
-
-Coordinate semantics (preserves hole XY vs keyboard_case-threads.scad):
-  OpenSCAD wraps the solid in scale([1,-1,1]) so the PCB “top” / USB edge sits
-  at world Y≈0. Here we build with front (USB) at Y=0 and +Y toward the back,
-  matching flipped OpenSCAD after reflecting Y to positive. Hole centres share
-  the same X and |Y| numbers as threads.scad dimension chains.
-  Z=0 is the outer bottom (same as OpenSCAD cube origin).
+Ported from OpenSCAD simple_keyboard_case (CNC pykey40 MX defaults).
+Sources: keyboard_case.scad, cnc-pykey40-mx.scad, keyboard_case-constants.scad,
+ jj40_constants.scad.
+Front (USB) is at Y=0 with +Y toward the back.
+Z=0 is the outer bottom.
+Mount hole XY matches keyboard_case-threads.scad dimension chains.
 """
 
 from __future__ import annotations
 
 import math
+import sys
 from pathlib import Path
 
 from build123d import *
 
-# --- jj40 / case constants (mm) ---------------------------------------------
-PCB_DIM = (227.0, 75.0)
-PCB_SW_1_1_POSITION = (7.5, 8.5)
-SWITCH_GRID_UNIT = 19.05
-SWITCH_GRID_COLS = 12
-SWITCH_GRID_ROWS = 4
-
-PCB_MOUNTING_HOLE_GRID = (
-    (0.5, 0.5),
-    (10.5, 0.5),
-    (10.5, 2.5),
-    (0.5, 2.5),
-    (5.5, 1.5),
+from case_pykey40_constants import (
+    BUMPON_GUIDE_DIA,
+    BUMPON_GUIDE_HEIGHT,
+    CASE_BOTTOM_HEIGHT,
+    CASE_BUMPON_GUIDE_POSITIONS,
+    CASE_LOWER_CAVITY_HEIGHT,
+    CASE_LOW_PROFILE_MX_UPPER_CAVITY_HEIGHT,
+    CASE_OUTER_CORNER_R,
+    CASE_SWITCH_PLATE_MARGIN,
+    CASE_WALL_THICKNESS,
+    EDGE_CHAMFER,
+    FOOT_HOLE_COUNTERSINK_ANGLE,
+    FOOT_HOLE_COUNTERSINK_DIA,
+    FOOT_HOLE_DIA,
+    FOOT_OFFSET,
+    LOWER_CAVITY_R,
+    MOUNT_HOLE_POST_DIA,
+    MOUNT_THREAD_HOLE_TAPPING_DIA,
+    MOUNT_THREAD_HOLE_THREADED_EXTRA_HEIGHT,
+    MOUNT_THREAD_HOLE_THREADED_HEIGHT,
+    PCB_MOUNTING_HOLE_GRID,
+    PCB_SW_1_1_POSITION,
+    PCB_USB_CONNECTOR_MID_X,
+    SWITCH_GRID_COLS,
+    SWITCH_GRID_ROWS,
+    SWITCH_GRID_UNIT,
+    SWITCH_PLATE_DIM,
+    UPPER_CAVITY_R,
+    USB_CONNECTOR_CUTOUT_LENGTH,
+    USB_CONNECTOR_HEIGHT,
+    USB_CONNECTOR_HOLE_HEIGHT,
+    USB_CONNECTOR_HOLE_WIDTH,
 )
-
-SWITCH_PLATE_DIM = (230.5, 77.5)
-CASE_SWITCH_PLATE_MARGIN = 0.25
-CASE_WALL_THICKNESS = 4.0
-CASE_BOTTOM_HEIGHT = 2.0
-CASE_LOW_PROFILE_MX_UPPER_CAVITY_HEIGHT = 6.0
-CASE_LOWER_CAVITY_HEIGHT = 4.0
-
-CASE_OUTER_CORNER_R = 3.0
-UPPER_CAVITY_R = 2.0
-LOWER_CAVITY_R = 4.0
-
-MOUNT_HOLE_POST_DIA = 6.0
-MOUNT_THREAD_HOLE_TAPPING_DIA = 1.6  # M2 pilot
-MOUNT_THREAD_HOLE_THREADED_HEIGHT = 2.4
-MOUNT_THREAD_HOLE_THREADED_EXTRA_HEIGHT = 1.6
-
-PCB_USB_CONNECTOR_MID_X = PCB_SW_1_1_POSITION[0] + 1.5 * SWITCH_GRID_UNIT
-USB_CONNECTOR_HOLE_WIDTH = 12.0
-USB_CONNECTOR_HOLE_HEIGHT = 8.0
-USB_CONNECTOR_CUTOUT_LENGTH = 7.0
-USB_CONNECTOR_HEIGHT = 4.0
-
-# Feet (M4-ish countersunk) — OpenSCAD foot_offset / foot_hole_* defaults
-FOOT_OFFSET = (16.0, 12.0)
-FOOT_HOLE_DIA = 4.0
-FOOT_HOLE_COUNTERSINK_DIA = 8.0
-FOOT_HOLE_COUNTERSINK_ANGLE = 90.0  # degrees
-
-# Bumpon guide pockets on bottom (OpenSCAD CASE_BUMPON_GUIDE_POSITIONS)
-CASE_BUMPON_GUIDE_POSITIONS = [[35.0, 15.0], [10.0, -10.0]]
-BUMPON_GUIDE_DIA = 8.1
-BUMPON_GUIDE_HEIGHT = 0.5
-
-EDGE_CHAMFER = 0.5
 
 
 def _pcb_switch_plate_position() -> tuple[float, float]:
@@ -145,13 +122,7 @@ def mount_hole_positions_case() -> list[tuple[float, float]]:
 
 
 def thread_dim_chains() -> dict:
-    """
-    Dimension chain lengths matching keyboard_case-threads.scad.
-
-    X (left edge → cols): x_dim1, x_dim2, x_dim3
-    Y (back→front in threads.scad order): y_dim3, y_dim2, y_dim1
-      where y_dim1 is front-edge → front hole row.
-    """
+    """Edge-to-mount and mount-to-mount gaps matching keyboard_case-threads.scad."""
     holes_pcb = pcb_mounting_hole_positions_on_pcb()
     xs = sorted({round(h[0], 6) for h in holes_pcb})
     ys = sorted({round(h[1], 6) for h in holes_pcb})
@@ -166,12 +137,12 @@ def thread_dim_chains() -> dict:
         + SWITCH_PLATE_PCB_POSITION[1]
     )
     return {
-        "x_dim1": x_base + xs[0],
-        "x_dim2": xs[1] - xs[0],
-        "x_dim3": xs[2] - xs[1],
-        "y_dim1": y_base + ys[0],  # front edge → front row
-        "y_dim2": ys[1] - ys[0],
-        "y_dim3": ys[2] - ys[1],
+        "x_edge_to_left_mount": x_base + xs[0],
+        "x_left_to_centre_mount": xs[1] - xs[0],
+        "x_centre_to_right_mount": xs[2] - xs[1],
+        "y_edge_to_front_mount": y_base + ys[0],
+        "y_front_to_middle_mount": ys[1] - ys[0],
+        "y_middle_to_back_mount": ys[2] - ys[1],
         "mount_xs_case": [
             x_base + xs[0],
             x_base + xs[1],
@@ -183,6 +154,27 @@ def thread_dim_chains() -> dict:
             y_base + ys[2],
         ],
     }
+
+
+def check_hole_chains(*, tol: float = 0.01) -> None:
+    """Assert thread dim chains and outer size match OpenSCAD expected values."""
+    chains = thread_dim_chains()
+    expected = {
+        "x_edge_to_left_mount": 24.25,
+        "x_left_to_centre_mount": 95.25,
+        "x_centre_to_right_mount": 95.25,
+        "y_edge_to_front_mount": 23.95,
+        "y_front_to_middle_mount": 19.05,
+        "y_middle_to_back_mount": 19.05,
+    }
+    for key, want in expected.items():
+        got = chains[key]
+        assert abs(got - want) <= tol, f"{key}: got {got}, expected {want} (±{tol})"
+
+    ow, ol, oh = derived_dims()["case_outer"]
+    assert abs(ow - 239.0) <= tol, f"outer width: got {ow}, expected 239 (±{tol})"
+    assert abs(ol - 86.0) <= tol, f"outer length: got {ol}, expected 86 (±{tol})"
+    assert abs(oh - 12.0) <= tol, f"outer height: got {oh}, expected 12 (±{tol})"
 
 
 def _rounded_rect_prism(
@@ -271,18 +263,18 @@ def make_cnc_pykey40_case(
     outer = shell.part
 
     upper = _rounded_rect_prism(
-        cav_w,
-        cav_l,
-        upper_h + 0.02,
-        UPPER_CAVITY_R,
+        width=cav_w,
+        length=cav_l,
+        height=upper_h + 0.02,
+        corner_r=UPPER_CAVITY_R,
         origin_xy=(cav_x, cav_y),
         z_bottom=z_lower_top - 0.01,
     )
     lower = _rounded_rect_prism(
-        cav_w,
-        cav_l,
-        lower_h + 0.02,
-        LOWER_CAVITY_R,
+        width=cav_w,
+        length=cav_l,
+        height=lower_h + 0.02,
+        corner_r=LOWER_CAVITY_R,
         origin_xy=(cav_x, cav_y),
         z_bottom=z_bottom_top - 0.01,
     )
@@ -353,6 +345,11 @@ def make_cnc_pykey40_case(
 
 
 if __name__ == "__main__":
+    if "--check" in sys.argv:
+        check_hole_chains()
+        print("check_hole_chains: PASS")
+        sys.exit(0)
+
     full_case = make_cnc_pykey40_case()
     print("bbox", full_case.bounding_box())
     print("derived", derived_dims())
