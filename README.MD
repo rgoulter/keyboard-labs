@@ -31,8 +31,6 @@ Assembled PCBs for the [CH32X-48](#ch32x-48-low-budget-pcba-in-bm40jj40-form-fac
 
 
 
-
-
 ## X-1: 36-key, split, reversible PCB with WeAct Studio Mini F4 dev board
 
 Design goals:
