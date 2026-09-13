@@ -99,3 +99,27 @@ ibom board="":
       echo "→ KIBOT=$kibot_bin make -C {{ source_directory() }} $board-ibom" >&2
       make -C "{{ source_directory() }}" "$board-ibom"
     fi
+
+# switch-plate: `just pcb::switch-plate <board>` — writes pcb/<board>_plate.kicad_pcb
+[doc("generate a switch-plate kicad_pcb from a keyboard PCB (chooser if no arg)")]
+switch-plate board="" *args:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    repo="$(cd "{{ source_directory() }}/.." && pwd)"
+    board="{{ board }}"
+    if [ -z "$board" ]; then
+      board=$(
+        "{{ source_directory() }}/choose-board.sh" --prompt "pcb switch-plate> " \
+          || true
+      )
+    fi
+    [ -z "$board" ] && exit 1
+    board="${board%.kicad_pcb}"
+    kpy="${KICAD_PYTHON:-/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3}"
+    if [ ! -x "$kpy" ]; then
+      echo "error: KiCad Python not found at $kpy (set KICAD_PYTHON)" >&2
+      exit 1
+    fi
+    echo "→ $kpy -m scripts.kicad_helpers.make_switch_plate --board pcb/${board}.kicad_pcb {{ args }}" >&2
+    cd "$repo"
+    "$kpy" -m scripts.kicad_helpers.make_switch_plate --board "pcb/${board}.kicad_pcb" {{ args }}
