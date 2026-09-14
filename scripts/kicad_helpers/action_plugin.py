@@ -63,7 +63,10 @@ class PlaceCh32x75Plugin(_BasePlacePlugin):
 class PlaceCh59260Plugin(_BasePlacePlugin):
     helper_name = "ch592_60"
 
-for _cls in [PlacePyKey40Plugin, PlacePico42Plugin, PlaceCh55248Plugin, PlaceCh55236Plugin, PlaceCh55244Plugin, PlaceCh32x75Plugin, PlaceCh59260Plugin]:
+class PlaceCh32x60ImprovedPlugin(_BasePlacePlugin):
+    helper_name = "ch32x_60_improved"
+
+for _cls in [PlacePyKey40Plugin, PlacePico42Plugin, PlaceCh55248Plugin, PlaceCh55236Plugin, PlaceCh55244Plugin, PlaceCh32x75Plugin, PlaceCh59260Plugin, PlaceCh32x60ImprovedPlugin]:
     try:
         _cls().register()
     except Exception:
