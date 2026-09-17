@@ -10,7 +10,8 @@ Kicad source files are in `pcb`.
 Plotted gerber files can be found under the GitHub repository's
 [releases](https://github.com/rgoulter/keyboard-labs/releases/).
 
-Assembled PCBs for the [CH32X-48](#ch32x-48-low-budget-pcba-in-bm40jj40-form-factor) are available on [Elecrow](https://www.elecrow.com/ch32x-48-40-ortholinear-keyboard-pcb.html) - see the [RGoulter's Keyboard Labs store](https://www.elecrow.com/store/RGoultersKeyboardLabs) for the full catalog.
+Assembled PCBs for selected designs are available on the
+ [RGoulter's Keyboard Labs store](https://www.elecrow.com/store/RGoultersKeyboardLabs).
 
 | Designation  | Summary/Keywords                                                                       | Image                                                                                                                                                 |
 |--------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -26,7 +27,7 @@ Assembled PCBs for the [CH32X-48](#ch32x-48-low-budget-pcba-in-bm40jj40-form-fac
 | [CH552-36](#ch552-36-low-budget-36-key-split-keyboard-with-smt-components) | 36-key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch552-36/top-with-coiled-cable.JPG) |
 | [WABBLE-60](#wabble-60-5x12-ortholinear-ble-risc-v-powered-adaptation-of-peejs-lumberjack-pcb) | 60-key (5x12), unsplit, ortholinear, MX, GH60-compatible, "show the components", RISC-V        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/wabble-60/wabble-60.JPG) |
 | [CH32X-48](#ch32x-48-low-budget-pcba-in-bm40jj40-form-factor) | 48-key ortholinear (4x12), MX, BM40/JJ40-compatible, no frills, Risc-V · [🛒 Elecrow](https://www.elecrow.com/ch32x-48-40-ortholinear-keyboard-pcb.html) | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48.JPG) |
-| [CH32X-36](#ch32x-36-low-budget-36-key-split-keyboard-with-smt-components) | 36-key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills, RISC-V        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36.JPG) |
+| [CH32X-36](#ch32x-36-low-budget-36-key-split-keyboard-with-smt-components) | 36-key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills, RISC-V · [🛒 Elecrow](https://www.elecrow.com/ch32x-36-split-36-key-ergonomic-keyboard.html) | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36.JPG) |
 | [CH32X-75-LPR](#ch32x-75-lpr-low-budget-pcba-with-low-profile-redragon-switches) | 75-key ortholinear (5x15), low profile redragon, no frills, RISC-V        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-75-lpr/ch32x-75.JPG) |
 | [CH32X-60-improved](#ch32x-60-improved-ch32x-60-improved-ansi-60-keyboard) | 66-key (ANSI 60% with thumb keys), row-staggered, MX, GH60-compatible, PCBA, RISC-V · [🛒 Elecrow](https://www.elecrow.com/ch32x-60-improved-ansi-keyboard-pcb.html) | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-top.jpg) |
 
@@ -683,6 +684,9 @@ which uses the sophisticated and modern [Nickel](https://nickel-lang.org/) confi
 
 The CH32X MCU is about as cheap as the CH55x MCUs, but is significantly more powerful.
 The CH32X MCU uses Risc-V, and supports writing firmware with Rust.
+
+> [!TIP]
+> **Available on Elecrow:** [CH32X-36 Split 36-Key Ergonomic Keyboard](https://www.elecrow.com/ch32x-36-split-36-key-ergonomic-keyboard.html)
 
 Design goals:
 
