@@ -28,6 +28,7 @@ Assembled PCBs for the [CH32X-48](#ch32x-48-low-budget-pcba-in-bm40jj40-form-fac
 | [CH32X-48](#ch32x-48-low-budget-pcba-in-bm40jj40-form-factor) | 48-key ortholinear (4x12), MX, BM40/JJ40-compatible, no frills, Risc-V · [🛒 Elecrow](https://www.elecrow.com/ch32x-48-40-ortholinear-keyboard-pcb.html) | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48.JPG) |
 | [CH32X-36](#ch32x-36-low-budget-36-key-split-keyboard-with-smt-components) | 36-key (2x3x5+3), split, column-staggered, MX, sub-100x100, no frills, RISC-V        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36.JPG) |
 | [CH32X-75-LPR](#ch32x-75-lpr-low-budget-pcba-with-low-profile-redragon-switches) | 75-key ortholinear (5x15), low profile redragon, no frills, RISC-V        | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-75-lpr/ch32x-75.JPG) |
+| [CH32X-60-improved](#ch32x-60-improved-ch32x-60-improved-ansi-60-keyboard) | 66-key (ANSI 60% with thumb keys), row-staggered, MX, GH60-compatible, PCBA, RISC-V · [🛒 Elecrow](https://www.elecrow.com/ch32x-60-improved-ansi-keyboard-pcb.html) | ![](https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-top.jpg) |
 
 
 
@@ -751,7 +752,72 @@ Same as for the [CH32X-48](#ch32x-48-low-budget-pcba-in-bm40jj40-form-factor).
 
 - Firmware: See [rgoulter/smart-keymap](https://github.com/rgoulter/smart-keymap)
 
+## CH32X-60-improved: CH32X-60 Improved ANSI 60% Keyboard
 
+This keyboard-labs repository is
+ filled with ortholinear and column-staggered keyboard designs.
+I think these have more coherent designs than the standard keyboard layout.
+I wanted to try a design which stays similar to the standard layout,
+ only improving *one* aspect: replace the standard layout's
+ unnecessarily large spacebar.
+
+The CH32X-60-improved retains the familiarity of the ANSI 60% keyboard,
+ but improves the design by replacing the 6.25u spacebar with 6 keys.
+
+The CH32X-60-improved mounts into common GH60 tray-mount cases.
+
+The keyboard uses rgoulter's [smart-keymap](https://github.com/rgoulter/smart-keymap) firmware,
+ which uses the sophisticated and modern [Nickel](https://nickel-lang.org/) configuration language
+  to declare keyboard and keymap definitions.
+
+The CH32X MCU uses RISC-V and supports writing firmware with Rust.
+
+> [!TIP]
+> **Available on Elecrow:**
+>  [CH32X-60 Improved ANSI Keyboard PCB](https://www.elecrow.com/ch32x-60-improved-ansi-keyboard-pcb.html)
+
+Design goals:
+
+- An ANSI 60% board replacing the 6.25u spacebar with thumb keys,
+  reusing the GH60 tray-mount case ecosystem.
+
+- PCBA with CH32X for low-budget, Rust-capable firmware.
+
+- MX switches with PCB-mount stabilizers.
+
+Pictures:
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-top.jpg" width=600 />
+
+_CH32X-60-improved, revision rev2026.1_
+
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-top.svg" width=600 />
+<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-bottom.svg" width=600 />
+
+_2D Renders of the PCB, revision rev2026.1_
+
+#### Firmware
+
+- Firmware: See [rgoulter/smart-keymap](https://github.com/rgoulter/smart-keymap)
+  (board `ch32x-60-improved` under `ncl/boards/`).
+
+#### Plates and Cases
+
+A switch plate protects MX switches and stabilizers
+ and ensures correct spacing.
+
+Source files for plates to cut (or cases to 3D print)
+ can be found under `cad/` in this repository:
+
+- `cad/ch32x_60_improved_plate.py` — build123d (FR4 1.6 mm, GH60 outline);
+  run with `uv run --script cad/ch32x_60_improved_plate.py --out plate.svg`.
+
+- `cad/keyboard_plates/ch32x-60-improved_plate.scad` — OpenSCAD.
+
+- Positions and GH60 dimensions are shared via
+  `cad/ch32x_60_positions.scad` and `cad/gh60_dimensions.scad`
+  (also used by `scripts/kicad_helpers/ch32x_60_improved.py`
+   to place footprints in KiCad).
 
 # CAD Designs
 
