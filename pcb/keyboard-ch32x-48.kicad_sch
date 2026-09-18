@@ -3333,7 +3333,7 @@
 		)
 		(uuid "59c44a69-548c-4499-b969-18be4103306e")
 	)
-	(text "WCH Link interface\n(CH32X033 only compatible with WCH-LinkE or WCH-LinkW)\nUsing DIO/DCK prevents use of ROW2/ROW6.\nSWD (SDI) enabled by default; must be disabled after reset."
+	(text "WCH Link interface\n(CH32X033 only compatible with WCH-LinkE or WCH-LinkW)"
 		(exclude_from_sim no)
 		(at 92.202 179.324 0)
 		(effects
@@ -3380,7 +3380,7 @@
 		)
 		(uuid "a5d28d25-bde7-4924-9526-7dfcb5a12bbb")
 	)
-	(text "UART\nFor simple printf debugging with UART2.\n(\"ROW4\"/SW_4_x switches can't be used\n while using UART2)."
+	(text "UART\nFor simple printf debugging with UART2."
 		(exclude_from_sim no)
 		(at 91.694 157.734 0)
 		(effects
