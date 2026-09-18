@@ -3785,7 +3785,7 @@
 		)
 		(uuid "59c44a69-548c-4499-b969-18be4103306e")
 	)
-	(text "WCH Link interface\n(CH32X033 only compatible with WCH-LinkE or WCH-LinkW)\nUsing DIO/DCK prevents use of ROW2/ROW6."
+	(text "WCH Link interface\n(CH32X033 only compatible with WCH-LinkE or WCH-LinkW)"
 		(exclude_from_sim no)
 		(at 14.986 250.698 0)
 		(effects
