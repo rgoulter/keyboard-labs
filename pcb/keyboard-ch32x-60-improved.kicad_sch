@@ -3864,7 +3864,7 @@
 		)
 		(uuid "a551cf55-3602-4292-b09e-6559484f2eef")
 	)
-	(text "UART\nFor simple printf debugging with UART2.\n(\"ROW4\"/SW_4_x switches can't be used\n while using UART2)."
+	(text "UART\nFor simple printf debugging with UART2."
 		(exclude_from_sim no)
 		(at 14.732 230.124 0)
 		(effects
