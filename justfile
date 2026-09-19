@@ -5,6 +5,7 @@ mod pcb
 mod firmware
 mod cad
 mod nix
+mod releases
 
 # default: interactive chooser (assumes fzf; non-interactive use `make` directly)
 default:

@@ -1,0 +1,151 @@
+## {{ title or tag }}
+
+{% if hero_image is defined and hero_image %}
+{% set _hero_url = hero_image.url if hero_image is mapping else hero_image %}
+{% set _hero_cap = hero_image.caption if hero_image is mapping and hero_image.caption is defined else photo_caption(_hero_url) %}
+{% if _hero_url not in intro %}
+<figure>
+<img src="{{ _hero_url }}" width=600 alt="{{ _hero_cap }}" />
+<figcaption>{{ _hero_cap }}</figcaption>
+</figure>
+{% endif %}
+{% endif %}
+
+{{ intro | trim }}
+
+{% if design_goals is defined and design_goals %}
+### Design goals
+
+{% for g in design_goals %}
+- {{ g }}
+{% endfor %}
+{% endif %}
+{% if store_listings is defined and store_listings %}
+### Store listings
+
+{% for s in store_listings %}
+- [{{ s.name }}]({{ s.url }})
+{% endfor %}
+{% endif %}
+{% if errata is defined and errata and errata not in intro %}
+### Errata
+
+{{ errata | trim }}
+{% endif %}
+{% if changelog is defined and changelog and changelog not in intro %}
+### Changelog
+
+{{ changelog | trim }}
+{% endif %}
+{% for photo in photos|default([]) %}
+{% set _url = photo.url if photo is mapping else photo %}
+{% set _cap = photo.caption if photo is mapping and photo.caption is defined else photo_caption(_url) %}
+{% if _url != hero_image and _url not in intro %}
+<figure>
+<img src="{{ _url }}" width=600 alt="{{ _cap }}" />
+<figcaption>{{ _cap }}</figcaption>
+</figure>
+{% endif %}
+{% endfor %}
+{% if pcb_renders is defined and pcb_renders %}
+### PCB Renders
+
+{% for r in pcb_renders|default([]) %}
+{% set _r_url = r.url if r is mapping else r %}
+{% set _r_cap = r.caption if r is mapping and r.caption is defined else photo_caption(_r_url) %}
+<figure>
+<img src="{{ _r_url }}" width=600 alt="{{ _r_cap }}" />
+<figcaption>{{ _r_cap }}</figcaption>
+</figure>
+{% endfor %}
+{% endif %}
+
+### Release Assets
+
+{% if build_guide is defined and build_guide %}
+**Build guides**
+
+{% for bg in build_guide|default([]) %}
+- [Build guide](https://github.com/rgoulter/keyboard-labs/blob/master/{{ bg }})
+{% endfor %}
+{% endif %}
+{% if ibom is defined and ibom %}
+**IBOMs**
+
+{% for ib in ibom|default([]) %}
+{% set _ib_url = ib.url if ib is mapping else ib %}
+{% set _ib_label = ib.label if ib is mapping and ib.label is defined else "Interactive BOM" %}
+- [{{ _ib_label }}]({{ _ib_url }})
+{% endfor %}
+{% endif %}
+{% if plates is defined and plates %}
+**Plates**
+
+{% for p in plates|default([]) %}
+- [{{ p }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ p }})
+{% endfor %}
+{% endif %}
+{% if case_files is defined and case_files %}
+**3DP Case**
+
+{% for c in case_files|default([]) %}
+- [{{ c }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ c }}) - STL/3MF/SCAD
+{% endfor %}
+{% endif %}
+{% if gerber is defined and gerber %}
+**Gerbers**
+
+{% for g in gerber|default([]) %}
+- [{{ g }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ g }}) - Gerbers + drill (JLCPCB-ready, rev{{ rev }})
+{% endfor %}
+{% endif %}
+{% if pcba is defined and pcba %}
+**PCBA BOM/CPL**
+
+{% for entry in pcba|default([]) %}
+{% if entry.bom is defined and entry.bom %}
+- [BOM](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ entry.bom }})
+{% endif %}
+{% if entry.cpl is defined and entry.cpl %}
+- [CPL](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ entry.cpl }})
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if schematic is defined and schematic %}
+**Schematic**
+
+{% for s in schematic|default([]) %}
+{% if s is string %}- [Schematic](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ s }})
+{% elif s is mapping %}- [{{ s.label | default("Schematic") }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ s.file }})
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if firmware_bin is defined and firmware_bin %}
+**Firmware binaries**
+
+{% for b in firmware_bin|default([]) %}
+- [{{ b }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b }})
+{% endfor %}
+{% endif %}
+
+{% if firmware_repo is defined and firmware_repo %}
+### Firmware
+
+- Firmware: [{{ firmware_repo.split("/")[-2] }}/{{ firmware_repo.split("/")[-1] }}]({{ firmware_repo }}){% if firmware_fork is defined and firmware_fork %} ([{{ firmware_fork.split("/")[-2] }}/{{ firmware_fork.split("/")[-1] }}]({{ firmware_fork }})){% endif %}
+{% if firmware_board is defined and firmware_board %}
+{% if firmware_board_url is defined and firmware_board_url %}
+- Board definition: [{{ firmware_board }}]({{ firmware_board_url }})
+{% elif "/" in firmware_board %}
+- Board definition: [{{ firmware_board }}]({{ firmware_repo }}/blob/master/{{ firmware_board }})
+{% else %}
+- Board: {{ firmware_board }}
+{% endif %}
+{% endif %}
+{% if firmware_keymaps is defined and firmware_keymaps %}
+- Keymaps:{% for km in firmware_keymaps %}
+    - [{{ km.name }}]({{ km.url }}){% endfor %}
+{% endif %}
+{% if firmware_config is defined and firmware_config %}
+- Config: [{{ firmware_config.split("/")[-2] }}/{{ firmware_config.split("/")[-1] }}]({{ firmware_config }})
+{% endif %}
+{% endif %}
