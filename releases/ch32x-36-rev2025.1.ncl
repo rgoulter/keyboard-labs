@@ -53,7 +53,7 @@ It's essentially a port of the [CH552-36](https://github.com/rgoulter/keyboard-l
       firmware_config = "https://github.com/rgoulter/smart-keyboard-config",
       firmware_keymaps = [
         { name = "miryoku", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-miryoku/keymap.ncl" },
-        { name = "seniply", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-34key-seniply/keymap.ncl" },
+        { name = "seniply", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-seniply/keymap.ncl" },
         { name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-rgoulter/keymap.ncl" },
       ],
       ibom = [{ url = "https://rgoulter.com/keyboard-labs/ibom-keyboard-ch32x-36-lhs-rev2025.1.html", label = "Interactive BOM" }],
