@@ -1,0 +1,71 @@
+name: docs-gh-pages
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "docs.just"
+      - ".github/workflows/docs-gh-pages.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "docs.just"
+      - ".github/workflows/docs-gh-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: docs-gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install MkDocs Material
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python -r requirements-docs.txt
+
+      - name: Build docs
+        run: .venv/bin/mkdocs build --strict
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site
+
+      # Publish under docs/ on the existing gh-pages branch.
+      # keep_files preserves root IBOM HTML and index.html.
+      - name: Deploy to gh-pages /docs
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          destination_dir: docs
+          keep_files: true
+          commit_message: "docs: publish MkDocs site"

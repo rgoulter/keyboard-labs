@@ -49,6 +49,9 @@ are mirrored from what the board is otherwise expected to be).
 
 # References
 
-[0] https://www.40percent.club/p/socketing-pro-micro.html
-[1] https://github.com/customMK/Bonsai-C
-[2] https://nicekeyboards.com/nice-nano/
+- \[0\] [https://www.40percent.club/p/socketing-pro-micro.html](https://www.40percent.club/p/socketing-pro-micro.html)
+- \[1\] [https://github.com/customMK/Bonsai-C](https://github.com/customMK/Bonsai-C)
+- \[2\] [https://nicekeyboards.com/nice-nano/](https://nicekeyboards.com/nice-nano/)
+[0]: https://www.40percent.club/p/socketing-pro-micro.html
+[1]: https://github.com/customMK/Bonsai-C
+[2]: https://nicekeyboards.com/nice-nano/

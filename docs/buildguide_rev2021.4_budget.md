@@ -30,7 +30,7 @@ A companion video showing the soldering can be found here:
   * The resulting build doesn't feel as nice as if it were built with
     a plate or a case.
 
-# Budget-Focussed Alternatives
+## Budget-Focussed Alternatives
 
 Other budget-oriented ways to build a keyboard:
 
@@ -63,7 +63,7 @@ the disadvantage to the hand wired keyboard
 is that it requires more fiddling with wires, and the result might not look
 as nice despite taking more effort.
 
-# Required Materials
+## Required Materials
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/bom-soldering-switches.JPG" />
 
@@ -97,11 +97,11 @@ If you're confident, then you could directly solder the development
 board using the male headers provided with the development board,
 rather than socketing.
 
-# Required Soldering Tools
+## Required Soldering Tools
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
 
-See [docs/soldering-tools.md](../docs/soldering-tools.md)
+See [docs/soldering-tools.md](soldering-tools.md)
 
 It's also useful to have:
 
@@ -111,7 +111,7 @@ It's also useful to have:
     experience, this can be finicky and unreliable; so I recommend
     using an ST-Link. The cheap knock-offs work.
 
-# Summary
+## Summary
 
 - Solder the resistors at R1, R2.
 - Solder one of the resistors from PA9 (labelled SW13) to 5V or 3V3.
@@ -122,7 +122,7 @@ It's also useful to have:
   and solder the microcontroller to the male header pins.
 - Solder in the switches.
 
-# Build Guide
+## Build Guide
 
 For each half:
 

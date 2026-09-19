@@ -1,5 +1,3 @@
-# Required for Soldering
-
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
 
 - Soldering iron.
@@ -33,7 +31,7 @@
 - Soldering mat; or cardboard or whatever to protect the surface from
   damage while soldering.
 
-# Recommended Tools
+## Recommended Tools
 
 - Digital Mulitmeter.
 
@@ -55,7 +53,7 @@
     - In many cases, jumper wire can be used to 'repair' a connection between
       keyboard switches, or fix other small mistakes/damages.
 
-# Nice to Have
+## Nice to Have
 
 - Twin-Headed Soldering Iron
 

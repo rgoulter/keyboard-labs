@@ -1,12 +1,13 @@
 # Build Guide for Pico42 rev2023.1
 
-This document is a guide for soldering the Pico42 keyboard.
+This page is the **assembled** MkDocs version of the Pico42 guide.
+Shared fragments below are included from `docs/includes/` (not copy-pasted).
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-mx_lowprofile_case.JPG" width="600" />
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/pico42/pico42-choc_sandwich.JPG" width="600" />
 
-# Required Materials
+## Required Materials
 
 - 1x PCB
 - 1x Raspberry Pi "Pico" development board
@@ -23,13 +24,11 @@ This document is a guide for soldering the Pico42 keyboard.
     - 5x PM M2x5mm screws
     - 5x M2 4mm brass female-female spacers
 
-# Required Soldering Tools
+## Required Soldering Tools
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
+--8<-- "includes/soldering-tools.md"
 
-See [docs/soldering-tools.md](soldering-tools.md)
-
-# Build Guide
+## Build Guide
 
 The soldering required for this keyboard is very simple. (Simpler than soldering practice kits).
 
@@ -39,7 +38,7 @@ The soldering required for this keyboard is very simple. (Simpler than soldering
 
 3. Using the switch plate to align the switches, solder the switches in.
 
-## Notes
+### Notes
 
 - Diode direction: the cathode (negative, marked side) should be soldered
   towards the through-hole pad which is shaped like a square.
@@ -56,11 +55,6 @@ The soldering required for this keyboard is very simple. (Simpler than soldering
       to mount the PCB in the low-profile JJ40 case.
       - Socketing also allows easily removing/replacing the dev board.
 
-## Flashing the Pico
+## Flashing
 
-You can enter the bootloader on the Raspberry Pi Pico
-(which shows a drive labelled "RPI-RP2") by holding the BOOTSEL button
-when connecting the dev board to the computer.
-
-The UF2 file for the firmware (e.g. CircuitPython for KMK, or the UF2 from QMK)
-can then be copy-pasted onto this drive.
+--8<-- "includes/rp2040-flashing-and-bootloaders.md"

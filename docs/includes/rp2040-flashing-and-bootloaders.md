@@ -7,7 +7,7 @@ firmware](https://github.com/KMKfw/kmk_firmware/)[0].  Since KMK runs using
 Circuit Python, updating/changing keyboard maps written for KMK is as easy as
 editing files on a USB flash drive.
 
-# Using KMK as the Keyboard Firmware
+## Using KMK as the Keyboard Firmware
 
 For running KMK, the RP2040 needs to be running Circuit Python firmware for the
 appropriate board. e.g. [Circuit Python for JPConstantineau's PyKey60
@@ -27,7 +27,7 @@ key](https://github.com/KMKfw/kmk_firmware/blob/74677e28fac18281307d6e4436126472
 to enter the bootloader, if you want to be able to change the UF2 bootloader
 frequently. (If you plan on using KMK, you probably don't).
 
-# Using QMK as the Keyboard Firmware
+## Using QMK as the Keyboard Firmware
 
 When using QMK, you need to compile the firmware each time you want to change
 the keymap.
@@ -39,12 +39,12 @@ can use its `QK_BOOT` keycode as a way of selecting a bootloader.
 The QMK documentation [has notes on RP2040 specific
 details](https://docs.qmk.fm/#/platformdev_rp2040), too.
 
-# Entering Bootloader via Hardware
+## Entering Bootloader via Hardware
 
 e.g. the PyKey40 has `BOOT` and `RST` on the PCB. To enter the bootloader, short
 (e.g. with a pair of tweezers) the `BOOT` pads, and then short the `RST` pads.
 
-# References
+## References
 
 - \[0\] [https://github.com/KMKfw/kmk_firmware/](https://github.com/KMKfw/kmk_firmware/)
 - \[1\] [https://circuitpython.org/board/jpconstantineau_pykey60/](https://circuitpython.org/board/jpconstantineau_pykey60/)

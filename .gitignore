@@ -17,3 +17,7 @@ result*
 ~*.lck
 
 __pycache__
+
+# MkDocs Material local preview
+.venv/
+site/

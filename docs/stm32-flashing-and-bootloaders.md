@@ -39,14 +39,15 @@ the following bootloaders are suggested:
 
 # References
 
-[0] https://docs.qmk.fm/#/flashing
-
-[1] https://github.com/adafruit/tinyuf2
-
-[2] https://github.com/rogerclarkmelbourne/STM32duino-bootloader
-
-[3] https://github.com/stm32duino/wiki/wiki/Upload-methods
-
-[4] https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu
-
-[5] https://docs.qmk.fm/#/platformdev_blackpill_f4x1
+- \[0\] [https://docs.qmk.fm/#/flashing](https://docs.qmk.fm/#/flashing)
+- \[1\] [https://github.com/adafruit/tinyuf2](https://github.com/adafruit/tinyuf2)
+- \[2\] [https://github.com/rogerclarkmelbourne/STM32duino-bootloader](https://github.com/rogerclarkmelbourne/STM32duino-bootloader)
+- \[3\] [https://github.com/stm32duino/wiki/wiki/Upload-methods](https://github.com/stm32duino/wiki/wiki/Upload-methods)
+- \[4\] [https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu](https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu)
+- \[5\] [https://docs.qmk.fm/#/platformdev_blackpill_f4x1](https://docs.qmk.fm/#/platformdev_blackpill_f4x1)
+[0]: https://docs.qmk.fm/#/flashing
+[1]: https://github.com/adafruit/tinyuf2
+[2]: https://github.com/rogerclarkmelbourne/STM32duino-bootloader
+[3]: https://github.com/stm32duino/wiki/wiki/Upload-methods
+[4]: https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu
+[5]: https://docs.qmk.fm/#/platformdev_blackpill_f4x1
