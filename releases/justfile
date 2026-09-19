@@ -1,0 +1,52 @@
+# releases - Nickel-driven GitHub release bodies
+
+# export markdown for a single tag (e.g. just releases::export ch32x-60-improved-rev2026.1)
+export tag:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    uv run --script {{source_directory()}}/../scripts/releases_render.py --tag {{tag}} --format md > /tmp/{{tag}}.md
+    echo "wrote /tmp/{{tag}}.md"
+    cat /tmp/{{tag}}.md
+
+# export html preview for a single tag
+export-html tag:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out="/tmp/releases-html"
+    mkdir -p "$out"
+    uv run --script {{source_directory()}}/../scripts/releases_render.py --tag {{tag}} --format html > "$out/{{tag}}.html"
+    echo "wrote $out/{{tag}}.html"
+    ls -lh "$out/{{tag}}.html"
+
+# export all markdown + html for every tag in releases.ncl
+export-all:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format md --out /tmp/releases-md
+    uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format html --out /tmp/releases-html
+    echo "md: $(ls /tmp/releases-md | wc -l) files, html: $(ls /tmp/releases-html | wc -l) files"
+    ls /tmp/releases-md | head -n 20
+    ls /tmp/releases-html | head -n 20
+
+# verify generated markdown vs live releases (read-only, does not edit)
+verify:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    uv run --script {{source_directory()}}/../scripts/verify_releases.py
+
+# copy html previews into gh-pages worktree for local preview (does not push)
+preview-gh-pages:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out="{{source_directory()}}/../../keyboard-labs-gh-pages/releases-preview"
+    mkdir -p "$out"
+    uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format html --out "$out"
+    mkdir -p "$out/md"
+    uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format md --out "$out/md"
+    ls "$out"/*.html | grep -v index.html | xargs -I {} basename {} | sed 's/.html$//' | sort > /tmp/tags.list
+    echo "<!doctype html><html><head><meta charset='utf-8'><link rel='stylesheet' href='https://cdn.simplecss.org/simple.min.css'><title>Releases Preview</title></head><body><h1>Releases Preview (gh-pages worktree)</h1><ul>" > "$out/index.html"
+    while read -r tag; do echo "<li><a href=\"$tag.html\">$tag</a> — <a href=\"md/$tag.md\">md</a></li>" >> "$out/index.html"; done < /tmp/tags.list
+    echo "</ul><p>Generated from <code>releases.ncl</code> via <code>scripts/releases_render.py</code>. Not yet pushed to gh-pages.</p></body></html>" >> "$out/index.html"
+    echo "wrote $out/index.html with $(wc -l < /tmp/tags.list) releases"
+    ls -lh "$out/index.html"
+    cat "$out/index.html"
