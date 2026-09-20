@@ -4,12 +4,12 @@ let km =
   & (import "keymap-ncl-to-json.ncl")
 in
 let numbered = km.layers_of_keys in
-let named = km.named_layers in
+# Named rows in engine order so wash indices match named_layer_indices.
 let named_rows =
-  std.record.fields named
+  km.named_layer_names
   |> std.array.map (fun name =>
-    km.layer_as_array_of_keys (std.record.get name named)
+    km.layer_as_array_of_keys (std.record.get name km.named_layers)
   )
 in
 let layer_rows = numbered @ named_rows in
-E.bundle_of "tests/ncl/keymap-66key-extend/keymap.ncl" layer_rows
+E.bundle_of_with_index "tests/ncl/keymap-66key-extend/keymap.ncl" layer_rows km.named_layer_indices
