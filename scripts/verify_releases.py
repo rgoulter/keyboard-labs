@@ -45,7 +45,18 @@ for r in releases:
             elif isinstance(p, str):
                 files.append(p)
         return files
-    for asset in r.get("gerber",[])+schematic_files(r.get("schematic"))+pcba_files(r.get("pcba"))+r.get("plates",[]):
+    def firmware_files(bins):
+        # firmware_bin entries are plain filenames or records carrying
+        # the layout declaration ({ file, keymap, dense, stacked })
+        files=[]
+        for b in bins or []:
+            if isinstance(b, dict):
+                if b.get("file"):
+                    files.append(b["file"])
+            elif isinstance(b, str):
+                files.append(b)
+        return files
+    for asset in r.get("gerber",[])+schematic_files(r.get("schematic"))+pcba_files(r.get("pcba"))+r.get("plates",[])+firmware_files(r.get("firmware_bin")):
         url=f"https://github.com/rgoulter/keyboard-labs/releases/download/{tag}/{asset}"
         if url not in generated:
             checks.append(f"MISSING download {asset}")
