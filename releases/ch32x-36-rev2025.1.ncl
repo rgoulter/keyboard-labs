@@ -47,6 +47,12 @@ It's essentially a port of the [CH552-36](https://github.com/rgoulter/keyboard-l
         "pcb/keyboard-ch32x-36-lhs.kicad_sch",
         "pcb/keyboard-ch32x-36-rhs.kicad_sch",
       ],
+      firmware_bin = [
+        "firmware-ch32x_36_lhs-rgoulter.hex",
+        "firmware-ch32x_36_lhs-miryoku.hex",
+        "firmware-ch32x_36_rhs-rgoulter.hex",
+        "firmware-ch32x_36_rhs-miryoku.hex",
+      ],
       firmware_board = "firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-36-lhs.ncl",
       firmware_board_url = "https://github.com/rgoulter/smart-keymap/blob/master/firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-36-lhs.ncl",
       firmware_repo = "https://github.com/rgoulter/smart-keymap",

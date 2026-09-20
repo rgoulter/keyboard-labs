@@ -33,6 +33,7 @@ It's essentially a port of the [CH552-48](https://github.com/rgoulter/keyboard-l
       firmware_bin = [
         "ch32x-48-rev2025.2_default.elf",
         "ch32x-48-rev2025.2_default.hex",
+        "firmware-ch32x_48-rev2025_2-rgoulter.hex",
       ],
       source_pcb = ["pcb/keyboard-ch32x-48.kicad_pcb"],
       source_sch = ["pcb/keyboard-ch32x-48.kicad_sch"],
