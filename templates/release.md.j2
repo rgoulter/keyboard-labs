@@ -124,17 +124,13 @@
 **Firmware binaries**
 
 {% for b in firmware_bin|default([]) %}
-- [{{ b }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b }})
-{% endfor %}
-{% endif %}
-{% if keymap_diagrams is defined and keymap_diagrams %}
-**Keymap layouts**
-
-{% for d in keymap_diagrams|default([]) %}
+{% if b is string %}- [{{ b }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b }})
+{% elif b is mapping %}- [{{ b.file }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b.file }})
 <figure>
-<a href="{{ d.stacked }}"><img src="{{ d.dense }}" width=600 alt="{{ d.keymap }} layout" /></a>
-<figcaption>{{ d.keymap }} — full layers in the <a href="{{ d.stacked }}">stacked diagram</a></figcaption>
+<a href="{{ b.stacked }}"><img src="{{ b.dense }}" width=600 alt="{{ b.keymap }} layout" /></a>
+<figcaption>{{ b.keymap }} — full layers in the <a href="{{ b.stacked }}">stacked diagram</a></figcaption>
 </figure>
+{% endif %}
 {% endfor %}
 {% endif %}
 

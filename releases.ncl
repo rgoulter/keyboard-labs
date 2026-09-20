@@ -34,7 +34,7 @@ let Release = {
   pcba | Array { bom | String | optional, cpl | String | optional } | optional,
   plates | Array String | optional,
   case_files | Array String | optional,
-  firmware_bin | Array String | optional,
+  firmware_bin | Array Dyn | optional,
   source_pcb | Array String | optional,
   source_sch | Array String | optional,
   firmware_board | String | optional,
@@ -43,7 +43,6 @@ let Release = {
   firmware_fork | String | optional,
   firmware_config | String | optional,
   firmware_keymaps | Array { name | String, url | String } | optional,
-  keymap_diagrams | Array { keymap | String, dense | String, stacked | String } | optional,
   build_guide | Array String | optional,
   ibom | Array Ibom | optional,
 } in
