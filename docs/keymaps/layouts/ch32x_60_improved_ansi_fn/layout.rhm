@@ -1,0 +1,35 @@
+#lang rhombus
+//// ch32x-60-improved board: ansi_66 PointsIR + keymap-66key-ansi-fn LegendIR.
+//// Production runner for the keyboard-labs release (non-default extra; the
+//// shipped binary is the extend keymap). Runs out-of-tree via viz-path; the
+//// bundle path matches the viz-path default out/.cache/<dir>-bundle.json.
+
+import:
+  "../../src/keyboard_layout.rhm" open
+  "../../src/svg.rhm" open
+  "../../src/io.rhm" open
+
+def bundle = "out/.cache/ch32x_60_improved_ansi_fn-bundle.json"
+def pts = ansi_66()
+def layers = load_bundle_layers(bundle)
+def dense = load_bundle_dense(bundle)
+
+ensure_dir("out")
+emit_svg(
+  "out/ch32x-60-improved-ansi-fn-dense.svg",
+  recipe_dense(
+    "ch32x-60-improved ansi-fn dense",
+    pts,
+    dense
+  )
+)
+emit_svg(
+  "out/ch32x-60-improved-ansi-fn-stacked.svg",
+  recipe_stacked(
+    "ch32x-60-improved ansi-fn",
+    pts,
+    layers,
+    ~layer_names: ["Base (QWERTY)", "Fn"]
+  )
+)
+println("DONE ch32x_60_improved_ansi_fn")

@@ -1,0 +1,50 @@
+#lang rhombus
+//// ch32x-36 rgoulter on the board's real geometry: weave_kicad_3x5_3 over
+//// the LHS+RHS switch centres.
+//// Production runner for the keyboard-labs release. Runs out-of-tree via
+//// viz-path; fixtures resolve from the scratch tree, the bundle path is
+//// this dir's own default.
+
+import:
+  "../../src/keyboard_layout.rhm" open
+  "../../src/svg.rhm" open
+  "../../src/io.rhm" open
+
+def bundle = "out/.cache/ch32x_36_rgoulter-bundle.json"
+def layers = load_bundle_layers(bundle)
+def dense = load_bundle_dense(bundle)
+def names = [
+  "Base (Dvorak)",
+  "Tap (Dvorak)",
+  "Extra (QWERTY)",
+  "Xtap (QWERTY)",
+  "NUM",
+  "SYM",
+  "FUN",
+  "NAV",
+  "MOU",
+  "MED"
+]
+def lhs = load_switches("fixtures/points/ch32x-36-lhs-switches.json")
+def rhs = load_switches("fixtures/points/ch32x-36-rhs-switches.json")
+def pts = weave_kicad_3x5_3(lhs, rhs)
+
+ensure_dir("out")
+emit_svg(
+  "out/ch32x-36-rgoulter-dense.svg",
+  recipe_dense(
+    "ch32x-36 rgoulter dense",
+    pts,
+    dense
+  )
+)
+emit_svg(
+  "out/ch32x-36-rgoulter-stacked.svg",
+  recipe_stacked(
+    "ch32x-36 rgoulter",
+    pts,
+    layers,
+    ~layer_names: names
+  )
+)
+println("DONE ch32x_36_rgoulter")
