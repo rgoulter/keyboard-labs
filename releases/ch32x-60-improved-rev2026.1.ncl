@@ -2,6 +2,10 @@
       tag = "ch32x-60-improved-rev2026.1",
       title = "CH32X-60-improved: Improved 60% ANSI keyboard, rev2026.1",
       hero_image = { url = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-top.jpg", caption = "CH32X-60 Improved 2026.1 Top" },
+      pcb_renders = [
+        { url = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-top.svg", caption = "CH32X-60 Improved 2026.1 Top" },
+        { url = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-bottom.svg", caption = "CH32X-60 Improved 2026.1 Bottom" },
+      ],
       intro = m%"
     66-key (ANSI 60% with 6 thumb keys), row-staggered, MX, GH60-compatible, PCBA, RISC-V  -  improved spacebar.
 
