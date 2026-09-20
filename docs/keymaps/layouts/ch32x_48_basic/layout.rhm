@@ -1,0 +1,41 @@
+#lang rhombus
+//// ch32x-48 basic: grid(4,12) + Nickel LegendIR from keymap-48key-basic.
+//// Production runner for the keyboard-labs release (cf. upstream demo
+//// layouts/48key_basic). Runs out-of-tree via viz-path; the bundle path
+//// matches the viz-path default out/.cache/<dir>-bundle.json.
+
+import:
+  "../../src/keyboard_layout.rhm" open
+  "../../src/svg.rhm" open
+  "../../src/io.rhm" open
+
+def bundle = "out/.cache/ch32x_48_basic-bundle.json"
+def pts = grid(4, 12)
+def layers = load_bundle_layers(bundle)
+def dense = load_bundle_dense(bundle)
+def names = [
+  "Base",
+  "Raise",
+  "Lower",
+  "Adjust"
+]
+
+ensure_dir("out")
+emit_svg(
+  "out/ch32x-48-basic-dense.svg",
+  recipe_dense(
+    "ch32x-48 basic dense",
+    pts,
+    dense
+  )
+)
+emit_svg(
+  "out/ch32x-48-basic-stacked.svg",
+  recipe_stacked(
+    "ch32x-48 basic",
+    pts,
+    layers,
+    ~layer_names: names
+  )
+)
+println("DONE ch32x_48_basic")
