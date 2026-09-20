@@ -32,3 +32,5 @@ fmt-check:
 [doc("nix flake check (pcb + firmware builds)")]
 check:
     nix flake check --show-trace
+
+mod docs 'docs.just'

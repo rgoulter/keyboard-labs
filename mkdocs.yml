@@ -1,0 +1,91 @@
+site_name: Keyboard Labs
+site_description: Build guides and notes for rgoulter/keyboard-labs
+# site_url is injected in CI for gh-pages; omit locally so `mkdocs serve` is at /
+repo_url: https://github.com/rgoulter/keyboard-labs
+repo_name: rgoulter/keyboard-labs
+edit_uri: edit/master/docs/
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+# Absolute/external URLs are fine; fail the build on missing internal targets.
+validation:
+  links:
+    absolute_links: ignore
+    unrecognized_links: ignore
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 2
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.magiclink
+
+exclude_docs: |
+  nix-classic-usage.md
+  nix-flake-usage.md
+  *.sch
+  *.pro
+  *.kicad_sch
+  *.kicad_pro
+  *.kicad_prl
+  *-cache.lib
+  keymaps/**
+
+nav:
+  - Home: index.md
+  - Build guides:
+      - Pico42 rev2023.1: buildguide-keyboard_pico42-rev2023.1.md
+      - WABBLE-60 rev2024.2: buildguide_wabble-60_rev2024.2.md
+      - CH552-44 rev2023.2: buildguide-keyboard_ch552-44-rev2023.2.md
+      - CH552-44 rev2023.1a: buildguide-keyboard_ch552-44-rev2023.1a.md
+      - X-1 budget rev2021.4: buildguide_rev2021.4_budget.md
+  - Flashing:
+      - RP2040: rp2040-flashing-and-bootloaders.md
+      - STM32: stm32-flashing-and-bootloaders.md
+      - FAK live ISO: guide-liveiso-flashing-fak.md
+  - PCB Design:
+      - RGB level shifting: rgb-leds-logic-level-shifting.md
+  - Notes:
+      - Soldering tools: soldering-tools.md
+      - Socketing devboards: socketing-devboards.md
+      - PCB rivets: pcb-rivets.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/rgoulter/keyboard-labs

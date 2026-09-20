@@ -16,7 +16,7 @@ just fmt-check          # format check without writing
 just check              # nix flake check (PCB kibot on Linux; heavy)
 ```
 
-Modules: `pcb`, `firmware`, `cad`, `nix`.
+Modules: `pcb`, `firmware`, `cad`, `nix`, `releases`, `docs`.
 
 ### Recipe naming
 
@@ -57,6 +57,7 @@ This flake's source is the git tree.
 | One PCB PCBA (BOM + CPL) | `just pcb::pcba <board>` |
 | One keyberon bin (`.bin` + `.uf2`) | `just firmware::build <bin>` |
 | All keyberon firmware | `just firmware::all` |
+| Docs site (MkDocs) | `just docs::serve` / `just docs::build` |
 | One 3D-print case STL | `just cad::case <stem>` |
 | Flake check (CI-ish) | `just check` / `just nix::check` |
 | PCB / firmware dev shell | `just nix::shell pcb` or `firmware` |

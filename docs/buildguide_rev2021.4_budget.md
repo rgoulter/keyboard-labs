@@ -101,7 +101,7 @@ rather than socketing.
 
 <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
 
-See [docs/soldering-tools.md](../docs/soldering-tools.md)
+See [docs/soldering-tools.md](soldering-tools.md)
 
 It's also useful to have:
 

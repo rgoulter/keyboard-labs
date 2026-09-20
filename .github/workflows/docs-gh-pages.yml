@@ -1,0 +1,103 @@
+name: docs-gh-pages
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "docs.just"
+      - ".github/workflows/docs-gh-pages.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "docs.just"
+      - ".github/workflows/docs-gh-pages.yml"
+  workflow_dispatch:
+
+# Default to read; deploy job elevates to write.
+permissions:
+  contents: read
+
+concurrency:
+  # Separate PR vs master (and other refs) so a docs PR cannot cancel master deploy.
+  group: docs-gh-pages-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install MkDocs Material
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python -r requirements-docs.txt
+
+      - name: Set production site_url
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("mkdocs.yml")
+          text = p.read_text()
+          if "site_url:" not in text:
+              text = text.replace(
+                  "site_name:",
+                  "site_url: https://rgoulter.com/keyboard-labs/docs/\n" + "site_name:",
+                  1,
+              )
+              p.write_text(text)
+          PY
+
+      - name: Build docs
+        run: .venv/bin/mkdocs build --strict
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site
+
+      # Replace only the docs/ subtree; leave root IBOM HTML (and other root files) intact.
+      - name: Refresh docs/ on gh-pages
+        run: |
+          set -euo pipefail
+          rm -rf gh-pages/docs
+          mkdir -p gh-pages/docs
+          cp -a site/. gh-pages/docs/
+
+      - name: Deploy gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
+          keep_files: false
+          commit_message: "docs: publish MkDocs site"
