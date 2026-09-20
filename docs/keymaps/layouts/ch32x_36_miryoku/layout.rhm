@@ -32,7 +32,7 @@ ensure_dir("out")
 emit_svg(
   "out/ch32x-36-miryoku-dense.svg",
   recipe_dense(
-    "ch32x-36 miryoku dense",
+    "ch32x-36 miryoku",
     pts,
     dense
   )

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="672.1" height="273.4" viewBox="0 0 672.1 273.4">
 <rect width="100%" height="100%" fill="#f4f1ec"/>
-<text x="16" y="20" fill="#222222" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">ch32x-48 basic dense</text>
+<text x="16" y="20" fill="#222222" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">ch32x-48 basic</text>
 <g><rect x="16" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
 <g><rect x="20.3" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
 <g><text x="42.7" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Tab</text></g>
