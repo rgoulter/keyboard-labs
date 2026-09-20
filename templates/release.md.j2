@@ -126,10 +126,13 @@
 {% for b in firmware_bin|default([]) %}
 {% if b is string %}- [{{ b }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b }})
 {% elif b is mapping %}- [{{ b.file }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b.file }})
-<figure>
-<a href="{{ b.stacked }}"><img src="{{ b.dense }}" width=600 alt="{{ b.keymap }} layout" /></a>
-<figcaption>{{ b.keymap }} — full layers in the <a href="{{ b.stacked }}">stacked diagram</a></figcaption>
-</figure>
+
+  <p>
+  <a href="{{ b.stacked }}"><img src="{{ b.dense }}" width="600" alt="{{ b.keymap }} layout" /></a>
+  </p>
+
+  <p><em>{{ b.keymap }}. Full layers in the <a href="{{ b.stacked }}">stacked diagram</a>.</em></p>
+
 {% endif %}
 {% endfor %}
 {% endif %}
