@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="672.1" height="273.4" viewBox="0 0 672.1 273.4">
+<rect width="100%" height="100%" fill="#f4f1ec"/>
+<text x="16" y="20" fill="#222222" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">ch32x-48 basic dense</text>
+<g><rect x="16" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="20.3" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="42.7" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Tab</text></g>
+<g><text x="23.3" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">`</text></g>
+<g><text x="62.1" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">~</text></g>
+<g><rect x="69.3" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="73.6" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="96" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Q</text></g>
+<g><text x="76.6" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">1</text></g>
+<g><text x="115.4" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">!</text></g>
+<g><text x="76.6" y="83.6" text-anchor="start" fill="#7440b0" font-family="ui-monospace,Menlo,monospace" font-size="7.5">BOOT</text></g>
+<g><rect x="122.7" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="126.9" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="149.3" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">W</text></g>
+<g><text x="129.9" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">2</text></g>
+<g><text x="168.8" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">@</text></g>
+<g><rect x="176" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="180.3" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="202.7" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">E</text></g>
+<g><text x="183.3" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">3</text></g>
+<g><text x="222.1" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">#</text></g>
+<g><rect x="229.4" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="233.6" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="256" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">R</text></g>
+<g><text x="236.6" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">4</text></g>
+<g><text x="275.4" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">$</text></g>
+<g><rect x="282.7" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="287" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="309.4" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">T</text></g>
+<g><text x="290" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">5</text></g>
+<g><text x="328.8" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">%</text></g>
+<g><rect x="336" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="340.3" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="362.7" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Y</text></g>
+<g><text x="343.3" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">6</text></g>
+<g><text x="382.1" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">^</text></g>
+<g><rect x="389.4" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="393.6" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="416" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">U</text></g>
+<g><text x="396.6" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">7</text></g>
+<g><text x="435.5" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">&amp;</text></g>
+<g><text x="396.6" y="83.6" text-anchor="start" fill="#7440b0" font-family="ui-monospace,Menlo,monospace" font-size="7.5">PSc</text></g>
+<g><rect x="442.7" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="447" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="469.4" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">I</text></g>
+<g><text x="450" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">8</text></g>
+<g><text x="488.8" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">*</text></g>
+<g><text x="450" y="83.6" text-anchor="start" fill="#7440b0" font-family="ui-monospace,Menlo,monospace" font-size="7.5">ScLk</text></g>
+<g><rect x="496.1" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="500.3" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="522.7" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">O</text></g>
+<g><text x="503.3" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">9</text></g>
+<g><text x="542.1" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">(</text></g>
+<g><text x="503.3" y="83.6" text-anchor="start" fill="#7440b0" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Paus</text></g>
+<g><rect x="549.4" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="553.7" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="576.1" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">P</text></g>
+<g><text x="556.7" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">0</text></g>
+<g><text x="595.5" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">)</text></g>
+<g><rect x="602.7" y="44" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="607" y="48.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="629.4" y="67.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Bksp</text></g>
+<g><text x="610" y="58.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">\</text></g>
+<g><text x="648.8" y="58.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">|</text></g>
+<g><rect x="16" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="20.3" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="42.7" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Esc</text></g>
+<g><text x="23.3" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Del</text></g>
+<g><text x="62.1" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Ins</text></g>
+<g><text x="23.3" y="136.9" text-anchor="start" fill="#7440b0" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Caps</text></g>
+<g><rect x="69.3" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="73.6" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="96" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">A</text></g>
+<g><text x="76.6" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F1</text></g>
+<g><text x="115.4" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F1</text></g>
+<g><rect x="122.7" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="126.9" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="149.3" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">S</text></g>
+<g><text x="129.9" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F2</text></g>
+<g><text x="168.8" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F2</text></g>
+<g><rect x="176" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="180.3" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="202.7" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">D</text></g>
+<g><text x="183.3" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F3</text></g>
+<g><text x="222.1" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F3</text></g>
+<g><rect x="229.4" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="233.6" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="256" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">F</text></g>
+<g><text x="236.6" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F4</text></g>
+<g><text x="275.4" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F4</text></g>
+<g><rect x="282.7" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="287" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="309.4" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">G</text></g>
+<g><text x="290" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F5</text></g>
+<g><text x="328.8" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F5</text></g>
+<g><rect x="336" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="340.3" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="362.7" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">H</text></g>
+<g><text x="343.3" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F6</text></g>
+<g><text x="382.1" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F6</text></g>
+<g><rect x="389.4" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="393.6" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="416" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">J</text></g>
+<g><text x="396.6" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">-</text></g>
+<g><text x="435.5" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">_</text></g>
+<g><rect x="442.7" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="447" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="469.4" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">K</text></g>
+<g><text x="450" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">=</text></g>
+<g><text x="488.8" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">+</text></g>
+<g><rect x="496.1" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="500.3" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="522.7" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">L</text></g>
+<g><text x="503.3" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">[</text></g>
+<g><text x="542.1" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">{</text></g>
+<g><rect x="549.4" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="553.7" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="576.1" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">;</text></g>
+<g><text x="556.7" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">]</text></g>
+<g><text x="595.5" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">}</text></g>
+<g><rect x="602.7" y="97.3" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="607" y="101.6" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="629.4" y="120.8" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">'</text></g>
+<g><text x="610" y="111.6" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">/</text></g>
+<g><text x="648.8" y="111.6" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">?</text></g>
+<g><rect x="16" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="20.3" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="42.7" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Sft</text></g>
+<g><rect x="69.3" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="73.6" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="96" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Z</text></g>
+<g><text x="76.6" y="164.9" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F7</text></g>
+<g><text x="115.4" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F7</text></g>
+<g><rect x="122.7" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="126.9" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="149.3" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">X</text></g>
+<g><text x="129.9" y="164.9" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F8</text></g>
+<g><text x="168.8" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F8</text></g>
+<g><rect x="176" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="180.3" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="202.7" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">C</text></g>
+<g><text x="183.3" y="164.9" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F9</text></g>
+<g><text x="222.1" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F9</text></g>
+<g><rect x="229.4" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="233.6" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="256" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">V</text></g>
+<g><text x="236.6" y="164.9" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F10</text></g>
+<g><text x="275.4" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F10</text></g>
+<g><rect x="282.7" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="287" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="309.4" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">B</text></g>
+<g><text x="290" y="164.9" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F11</text></g>
+<g><text x="328.8" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F11</text></g>
+<g><rect x="336" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="340.3" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="362.7" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">N</text></g>
+<g><text x="343.3" y="164.9" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F12</text></g>
+<g><text x="382.1" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">F12</text></g>
+<g><rect x="389.4" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="393.6" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="416" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">M</text></g>
+<g><rect x="442.7" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="447" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="469.4" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">,</text></g>
+<g><text x="488.8" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Left</text></g>
+<g><rect x="496.1" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="500.3" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="522.7" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">.</text></g>
+<g><text x="542.1" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Down</text></g>
+<g><rect x="549.4" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="553.7" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="576.1" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">/</text></g>
+<g><text x="595.5" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Up</text></g>
+<g><rect x="602.7" y="150.7" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="607" y="154.9" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="629.4" y="174.1" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Sft</text></g>
+<g><text x="648.8" y="164.9" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Right</text></g>
+<g><rect x="16" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="20.3" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="42.7" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Ctl</text></g>
+<g><rect x="69.3" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="73.6" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="96" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">GUI</text></g>
+<g><rect x="122.7" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="126.9" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="149.3" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Alt</text></g>
+<g><rect x="176" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="180.3" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="202.7" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Tab</text></g>
+<g><rect x="229.4" y="204" width="53.3" height="53.3" rx="5" fill="#d69b9b" stroke="#b0aaa2"/></g>
+<g><rect x="233.6" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#f2d7d7" stroke="#d4cfc8"/></g>
+<g><text x="256" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="7.5">H(L2)</text></g>
+<g><text x="236.6" y="218.3" text-anchor="start" fill="#2b5cab" font-family="ui-monospace,Menlo,monospace" font-size="7.5">H(L3)</text></g>
+<g><rect x="282.7" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="287" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="309.4" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Spc</text></g>
+<g><rect x="336" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="340.3" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="362.7" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Ent</text></g>
+<g><rect x="389.4" y="204" width="53.3" height="53.3" rx="5" fill="#a3bde6" stroke="#b0aaa2"/></g>
+<g><rect x="393.6" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#d2e3f8" stroke="#d4cfc8"/></g>
+<g><text x="416" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="7.5">H(L1)</text></g>
+<g><text x="435.5" y="218.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">H(L3)</text></g>
+<g><rect x="442.7" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="447" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="469.4" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Del</text></g>
+<g><text x="488.8" y="218.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">Home</text></g>
+<g><rect x="496.1" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="500.3" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="522.7" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Alt</text></g>
+<g><text x="542.1" y="218.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">PgDn</text></g>
+<g><rect x="549.4" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="553.7" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="576.1" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">GUI</text></g>
+<g><text x="595.5" y="218.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">PgUp</text></g>
+<g><rect x="602.7" y="204" width="53.3" height="53.3" rx="5" fill="#c9c4bc" stroke="#b0aaa2"/></g>
+<g><rect x="607" y="208.3" width="44.8" height="37.3" rx="3.5" fill="#e8e4df" stroke="#d4cfc8"/></g>
+<g><text x="629.4" y="227.5" text-anchor="middle" fill="#2a2a2a" font-family="ui-monospace,Menlo,monospace" font-size="11">Ctl</text></g>
+<g><text x="648.8" y="218.3" text-anchor="end" fill="#c03028" font-family="ui-monospace,Menlo,monospace" font-size="7.5">End</text></g>
+</svg>
