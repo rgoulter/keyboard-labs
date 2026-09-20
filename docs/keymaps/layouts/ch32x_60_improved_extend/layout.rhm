@@ -18,7 +18,7 @@ ensure_dir("out")
 emit_svg(
   "out/ch32x-60-improved-extend-dense.svg",
   recipe_dense(
-    "ch32x-60-improved extend dense",
+    "ch32x-60-improved extend",
     pts,
     dense
   )
