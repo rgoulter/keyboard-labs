@@ -34,6 +34,21 @@ verify:
     set -euo pipefail
     uv run --script {{source_directory()}}/../scripts/verify_releases.py
 
+# render keymap diagrams for production layouts (see docs/keymaps/README.md)
+# (e.g. just releases::viz ch32x_60_improved_extend; empty = all)
+# needs KEYMAP_VIZ_ROOT plus racket/nickel/inkscape on PATH
+viz layout="":
+    "{{source_directory()}}/../scripts/keymaps-viz.sh" \
+      "{{source_directory()}}/../docs/keymaps/layouts" \
+      "{{source_directory()}}/../docs/images/keyboards" \
+      {{layout}}
+
+# render all production layouts (see viz)
+viz-all:
+    "{{source_directory()}}/../scripts/keymaps-viz.sh" \
+      "{{source_directory()}}/../docs/keymaps/layouts" \
+      "{{source_directory()}}/../docs/images/keyboards"
+
 # copy html previews into gh-pages worktree for local preview (does not push)
 preview-gh-pages:
     #!/usr/bin/env bash
