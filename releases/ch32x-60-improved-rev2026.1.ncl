@@ -43,4 +43,16 @@ replacing the 6.25u spacebar with 6 keys.
         { name = "66-key ansi-fn", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-66key-ansi-fn/keymap.ncl" },
         { name = "66-key extend", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-66key-extend/keymap.ncl" },
       ],
+      keymap_diagrams = [
+        {
+          keymap = "66-key extend",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-extend-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-extend-stacked.svg",
+        },
+        {
+          keymap = "66-key ansi-fn",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-ansi-fn-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-ansi-fn-stacked.svg",
+        },
+      ],
     }
