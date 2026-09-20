@@ -50,8 +50,18 @@ It's essentially a port of the [CH552-36](https://github.com/rgoulter/keyboard-l
       firmware_bin = [
         "firmware-ch32x_36_lhs-rgoulter.hex",
         "firmware-ch32x_36_lhs-miryoku.hex",
-        "firmware-ch32x_36_rhs-rgoulter.hex",
-        "firmware-ch32x_36_rhs-miryoku.hex",
+        {
+          file = "firmware-ch32x_36_rhs-rgoulter.hex",
+          keymap = "rgoulter",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-rgoulter-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-rgoulter-stacked.svg",
+        },
+        {
+          file = "firmware-ch32x_36_rhs-miryoku.hex",
+          keymap = "miryoku",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-miryoku-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-miryoku-stacked.svg",
+        },
       ],
       firmware_board = "firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-36-lhs.ncl",
       firmware_board_url = "https://github.com/rgoulter/smart-keymap/blob/master/firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-36-lhs.ncl",
@@ -61,18 +71,6 @@ It's essentially a port of the [CH552-36](https://github.com/rgoulter/keyboard-l
         { name = "miryoku", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-miryoku/keymap.ncl" },
         { name = "seniply", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-seniply/keymap.ncl" },
         { name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-rgoulter/keymap.ncl" },
-      ],
-      keymap_diagrams = [
-        {
-          keymap = "rgoulter",
-          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-rgoulter-dense.svg",
-          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-rgoulter-stacked.svg",
-        },
-        {
-          keymap = "miryoku",
-          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-miryoku-dense.svg",
-          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-miryoku-stacked.svg",
-        },
       ],
       ibom = [{ url = "https://rgoulter.com/keyboard-labs/ibom-keyboard-ch32x-36-lhs-rev2025.1.html", label = "Interactive BOM" }],
     }

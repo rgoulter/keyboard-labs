@@ -32,8 +32,18 @@ It's essentially a port of the [CH552-48](https://github.com/rgoulter/keyboard-l
       ],
       firmware_bin = [
         "ch32x-48-rev2025.2_default.elf",
-        "ch32x-48-rev2025.2_default.hex",
-        "firmware-ch32x_48-rev2025_2-rgoulter.hex",
+        {
+          file = "ch32x-48-rev2025.2_default.hex",
+          keymap = "48-key basic",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-basic-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-basic-stacked.svg",
+        },
+        {
+          file = "firmware-ch32x_48-rev2025_2-rgoulter.hex",
+          keymap = "rgoulter",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-rgoulter-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-rgoulter-stacked.svg",
+        },
       ],
       source_pcb = ["pcb/keyboard-ch32x-48.kicad_pcb"],
       source_sch = ["pcb/keyboard-ch32x-48.kicad_sch"],
@@ -44,17 +54,5 @@ It's essentially a port of the [CH552-48](https://github.com/rgoulter/keyboard-l
       firmware_keymaps = [
         { name = "48-key basic", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-48key-basic/keymap.ncl" },
         { name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-48key-rgoulter/keymap.ncl" },
-      ],
-      keymap_diagrams = [
-        {
-          keymap = "48-key basic",
-          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-basic-dense.svg",
-          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-basic-stacked.svg",
-        },
-        {
-          keymap = "rgoulter",
-          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-rgoulter-dense.svg",
-          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-rgoulter-stacked.svg",
-        },
       ],
     }

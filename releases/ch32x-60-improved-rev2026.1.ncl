@@ -34,7 +34,12 @@ replacing the 6.25u spacebar with 6 keys.
         "ch32x-60-improved_switch_plate-openscad.svg",
       ],
       firmware_bin = [
-        "firmware-ch32x_60_improved-extend.hex",
+        {
+          file = "firmware-ch32x_60_improved-extend.hex",
+          keymap = "66-key extend",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-extend-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-extend-stacked.svg",
+        },
       ],
       source_pcb = ["pcb/keyboard-ch32x-60-improved.kicad_pcb"],
       pcba = [{ bom = "keyboard-ch32x-60-improved_bom_jlc.csv", cpl = "keyboard-ch32x-60-improved_cpl_jlc.csv" }],
@@ -46,17 +51,5 @@ replacing the 6.25u spacebar with 6 keys.
       firmware_keymaps = [
         { name = "66-key ansi-fn", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-66key-ansi-fn/keymap.ncl" },
         { name = "66-key extend", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-66key-extend/keymap.ncl" },
-      ],
-      keymap_diagrams = [
-        {
-          keymap = "66-key extend",
-          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-extend-dense.svg",
-          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-extend-stacked.svg",
-        },
-        {
-          keymap = "66-key ansi-fn",
-          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-ansi-fn-dense.svg",
-          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-ansi-fn-stacked.svg",
-        },
       ],
     }
