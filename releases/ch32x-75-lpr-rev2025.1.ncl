@@ -25,6 +25,9 @@ The switches are Redragon's low profile switches. See notes under [CH552-48-LPR]
       gerber = ["keyboard-ch32x-75-gerber_zip.zip"],
       schematic = ["keyboard-ch32x-75-schematic.pdf"],
       pcba = [{ bom = "keyboard-ch32x-75_bom_jlc.csv", cpl = "keyboard-ch32x-75_cpl_jlc_bottom_pos.csv" }],
+      firmware_bin = [
+        "firmware-ch32x_75-rgoulter.hex",
+      ],
       source_pcb = ["pcb/keyboard-ch32x-75.kicad_pcb"],
       source_sch = ["pcb/keyboard-ch32x-75.kicad_sch"],
       firmware_board = "firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-75.ncl",

@@ -35,6 +35,9 @@ The WABBLE-60 PCB includes LiPo charging.
         "plate-devboard_cover-wabble-60.svg",
         "plate-switch-x2_rev2021.1.svg",
       ],
+      firmware_bin = [
+        "firmware-wabble-60-rgoulter.hex",
+      ],
       source_pcb = ["pcb/keyboard-wabble-60.kicad_pcb"],
       source_sch = ["pcb/keyboard-wabble-60.kicad_sch"],
       firmware_board = "firmware/ch58x-ble-hid-keyboard-c/ncl/boards/wabble-60.ncl",

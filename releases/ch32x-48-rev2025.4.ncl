@@ -29,6 +29,10 @@ It's essentially a port of the [CH552-48](https://github.com/rgoulter/keyboard-l
         "jj40_bottom_plate.svg",
         "jj40_switch_plate-ortho_4x12.svg",
       ],
+      firmware_bin = [
+        "firmware-ch32x_48-rgoulter.hex",
+        "firmware-ch32x_48-basic.hex",
+      ],
       source_pcb = ["pcb/keyboard-ch32x-48.kicad_pcb"],
       source_sch = ["pcb/keyboard-ch32x-48.kicad_sch"],
       firmware_board = "firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-48.ncl",
