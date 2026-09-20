@@ -127,6 +127,16 @@
 - [{{ b }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b }})
 {% endfor %}
 {% endif %}
+{% if keymap_diagrams is defined and keymap_diagrams %}
+**Keymap layouts**
+
+{% for d in keymap_diagrams|default([]) %}
+<figure>
+<a href="{{ d.stacked }}"><img src="{{ d.dense }}" width=600 alt="{{ d.keymap }} layout" /></a>
+<figcaption>{{ d.keymap }} — full layers in the <a href="{{ d.stacked }}">stacked diagram</a></figcaption>
+</figure>
+{% endfor %}
+{% endif %}
 
 {% if firmware_repo is defined and firmware_repo %}
 ### Firmware
