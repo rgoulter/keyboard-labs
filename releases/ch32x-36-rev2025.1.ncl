@@ -62,5 +62,17 @@ It's essentially a port of the [CH552-36](https://github.com/rgoulter/keyboard-l
         { name = "seniply", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-seniply/keymap.ncl" },
         { name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-rgoulter/keymap.ncl" },
       ],
+      keymap_diagrams = [
+        {
+          keymap = "rgoulter",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-rgoulter-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-rgoulter-stacked.svg",
+        },
+        {
+          keymap = "miryoku",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-miryoku-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-36/ch32x-36-miryoku-stacked.svg",
+        },
+      ],
       ibom = [{ url = "https://rgoulter.com/keyboard-labs/ibom-keyboard-ch32x-36-lhs-rev2025.1.html", label = "Interactive BOM" }],
     }

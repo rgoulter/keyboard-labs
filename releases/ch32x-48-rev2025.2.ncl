@@ -45,4 +45,16 @@ It's essentially a port of the [CH552-48](https://github.com/rgoulter/keyboard-l
         { name = "48-key basic", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-48key-basic/keymap.ncl" },
         { name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-48key-rgoulter/keymap.ncl" },
       ],
+      keymap_diagrams = [
+        {
+          keymap = "48-key basic",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-basic-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-basic-stacked.svg",
+        },
+        {
+          keymap = "rgoulter",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-rgoulter-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-48/ch32x-48-rgoulter-stacked.svg",
+        },
+      ],
     }
