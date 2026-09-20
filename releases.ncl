@@ -43,6 +43,7 @@ let Release = {
   firmware_fork | String | optional,
   firmware_config | String | optional,
   firmware_keymaps | Array { name | String, url | String } | optional,
+  keymap_diagrams | Array { keymap | String, dense | String, stacked | String } | optional,
   build_guide | Array String | optional,
   ibom | Array Ibom | optional,
 } in
