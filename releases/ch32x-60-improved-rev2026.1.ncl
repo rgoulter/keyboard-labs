@@ -35,6 +35,12 @@ replacing the 6.25u spacebar with 6 keys.
       ],
       firmware_bin = [
         {
+          file = "firmware-ch32x_60_improved-ansi-fn.hex",
+          keymap = "66-key ansi-fn",
+          dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-ansi-fn-dense.svg",
+          stacked = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-ansi-fn-stacked.svg",
+        },
+        {
           file = "firmware-ch32x_60_improved-extend.hex",
           keymap = "66-key extend",
           dense = "https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/ch32x-60-improved-extend-dense.svg",
