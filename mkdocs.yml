@@ -54,8 +54,11 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.magiclink
+  - pymdownx.snippets:
+      base_path: docs
 
 exclude_docs: |
+  includes/**
   nix-classic-usage.md
   nix-flake-usage.md
   *.sch
