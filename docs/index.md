@@ -6,7 +6,7 @@ Interactive BOMs remain at the [site root](https://rgoulter.com/keyboard-labs/).
 
 Markdown in `docs/` stays GitHub-readable. This MkDocs site publishes those same pages with Material nav and search.
 
-The Pico42, WABBLE-60, and CH552-44 rev2023.2 build guides assemble shared fragments from `docs/includes/` via pymdownx.snippets,
+The Pico42, WABBLE-60, and CH552-44 rev2023.2 and rev2023.1a build guides assemble shared fragments from `docs/includes/` via pymdownx.snippets,
 so their soldering-tools sections (and Pico42's RP2040-flashing section) share one source of truth with the Notes/Flashing pages.
 GitHub blob views do not expand these includes; read those guides on this site.
 
