@@ -935,7 +935,98 @@
 </ul>
 <h1 id="required-soldering-tools">Required Soldering Tools<a class="headerlink" href="#required-soldering-tools" title="Permanent link">&para;</a></h1>
 <p><img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" /></p>
-<p>See <a href="../soldering-tools/">docs/soldering-tools.md</a></p>
+<ul>
+<li>
+<p>Soldering iron.</p>
+<ul>
+<li>Even a very cheap one will do.</li>
+</ul>
+</li>
+<li>
+<p>Soldering iron stand.</p>
+</li>
+<li>
+<p>Fume Extractor/Filter.</p>
+<ul>
+<li>Especially if you're soldering indoors.</li>
+</ul>
+</li>
+<li>
+<p>Solder.</p>
+<ul>
+<li>I would strongly recommend using better-than-the-cheapest solder.
+  My experience with cheap solder is that it doesn't have enough flux,
+  which makes soldering difficult.</li>
+</ul>
+</li>
+<li>
+<p>A sponge, or brass wool, for cleaning solder from the soldering iron.</p>
+</li>
+<li>
+<p>Desoldering sucker, or desoldering wick.</p>
+<ul>
+<li>A cheap desoldering sucker should be able to do the job.
+  However, I'd recommend getting nicer-than-cheapest because
+  if you're using a desoldering sucker,
+  you'll want to reduce frustration experienced.
+  (Especially if desoldering MX keyswitches).</li>
+</ul>
+</li>
+<li>
+<p>Flush cutters.</p>
+</li>
+<li>
+<p>Soldering mat; or cardboard or whatever to protect the surface from
+  damage while soldering.</p>
+</li>
+</ul>
+<h2 id="recommended-tools">Recommended Tools<a class="headerlink" href="#recommended-tools" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Digital Mulitmeter.</p>
+<ul>
+<li>The most useful functionality here is the continuity check.</li>
+<li>Take care, most cheap multimeters don't switch off automatically,
+  which results in the battery draining completely
+  after use if the multimeter isn't switched off.</li>
+</ul>
+</li>
+<li>
+<p>Bevel/chisel soldering iron tip.</p>
+<ul>
+<li>Not strictly necessary, but it's what I used in this build.</li>
+</ul>
+</li>
+<li>
+<p>Needle-nosed pliers.</p>
+</li>
+<li>
+<p>Tweezers.</p>
+</li>
+<li>
+<p>Wire stripper / Jumper wire.</p>
+<ul>
+<li>In many cases, jumper wire can be used to 'repair' a connection between
+  keyboard switches, or fix other small mistakes/damages.</li>
+</ul>
+</li>
+</ul>
+<h2 id="nice-to-have">Nice to Have<a class="headerlink" href="#nice-to-have" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Twin-Headed Soldering Iron</p>
+<ul>
+<li>If you're going to do a lot of soldering of SMD diodes/resistors/etc.,
+  then it's very useful to have twin-headed soldering tweezers.</li>
+</ul>
+</li>
+<li>
+<p>Hot Air Gun</p>
+<ul>
+<li>Makes it easier to solder SMD components.</li>
+</ul>
+</li>
+</ul>
 <h1 id="build-guide">Build Guide<a class="headerlink" href="#build-guide" title="Permanent link">&para;</a></h1>
 <p>The soldering required for this keyboard is very simple. (Simpler than soldering practice kits).</p>
 <ol>
@@ -974,6 +1065,47 @@
 when connecting the dev board to the computer.</p>
 <p>The UF2 file for the firmware (e.g. CircuitPython for KMK, or the UF2 from QMK)
 can then be copy-pasted onto this drive.</p>
+<p>One of the nice things about the RP2040 chip is that it natively supports
+flashing its firmware with UF2.  This saves the trouble of having to flash a
+custom bootloader onto the chip.</p>
+<p>The RP2040 chip is also powerful enough to run Circuit Python, and thus run <a href="https://github.com/KMKfw/kmk_firmware/">KMK
+firmware</a>[0].  Since KMK runs using
+Circuit Python, updating/changing keyboard maps written for KMK is as easy as
+editing files on a USB flash drive.</p>
+<h2 id="using-kmk-as-the-keyboard-firmware">Using KMK as the Keyboard Firmware<a class="headerlink" href="#using-kmk-as-the-keyboard-firmware" title="Permanent link">&para;</a></h2>
+<p>For running KMK, the RP2040 needs to be running Circuit Python firmware for the
+appropriate board. e.g. <a href="https://circuitpython.org/board/jpconstantineau_pykey60/">Circuit Python for JPConstantineau's PyKey60
+board</a>[1]. -- This can
+be flashed to the RP2040 by making it enter its bootloader, then copying the UF2
+file to the RP2040 drive.</p>
+<p>With Circuit Python running on the RP2040, setting up KMK involves copying the
+<code>kmk</code> directory from the <code>kmk_firmware</code> repository onto the device, etc., as
+explained in <a href="https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/Getting_Started.md">KMK's Getting Started
+docs</a>[3].
+-- Once it has been set up, changing the keyboard's keymap involves simply
+changing the <code>code.py</code> on the CIRCUITPY volume.</p>
+<p>For convenience, you might want to use <a href="https://github.com/KMKfw/kmk_firmware/blob/74677e28fac18281307d6e4436126472e956a75e/kmk/keys.py#L369">the <code>BOOTLOADER</code>
+key</a>[4]
+to enter the bootloader, if you want to be able to change the UF2 bootloader
+frequently. (If you plan on using KMK, you probably don't).</p>
+<h2 id="using-qmk-as-the-keyboard-firmware">Using QMK as the Keyboard Firmware<a class="headerlink" href="#using-qmk-as-the-keyboard-firmware" title="Permanent link">&para;</a></h2>
+<p>When using QMK, you need to compile the firmware each time you want to change
+the keymap.</p>
+<p>The QMK documentation <a href="https://docs.qmk.fm/#/flashing?id=raspberry-pi-rp2040-uf2">has notes on flashing for the
+RP2040</a>[4]. e.g. You
+can use its <code>QK_BOOT</code> keycode as a way of selecting a bootloader.</p>
+<p>The QMK documentation <a href="https://docs.qmk.fm/#/platformdev_rp2040">has notes on RP2040 specific
+details</a>, too.</p>
+<h2 id="entering-bootloader-via-hardware">Entering Bootloader via Hardware<a class="headerlink" href="#entering-bootloader-via-hardware" title="Permanent link">&para;</a></h2>
+<p>e.g. the PyKey40 has <code>BOOT</code> and <code>RST</code> on the PCB. To enter the bootloader, short
+(e.g. with a pair of tweezers) the <code>BOOT</code> pads, and then short the <code>RST</code> pads.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p>[0] <a href="https://github.com/KMKfw/kmk_firmware/">https://github.com/KMKfw/kmk_firmware/</a></p>
+<p>[1] <a href="https://circuitpython.org/board/jpconstantineau_pykey60/">https://circuitpython.org/board/jpconstantineau_pykey60/</a></p>
+<p>[2] <a href="https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/Getting_Started.md">https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/Getting_Started.md</a></p>
+<p>[3] <a href="https://github.com/KMKfw/kmk_firmware/blob/74677e28fac18281307d6e4436126472e956a75e/kmk/keys.py#L369">https://github.com/KMKfw/kmk_firmware/blob/74677e28fac18281307d6e4436126472e956a75e/kmk/keys.py#L369</a></p>
+<p>[4] <a href="https://docs.qmk.fm/#/flashing?id=raspberry-pi-rp2040-uf2">https://docs.qmk.fm/#/flashing?id=raspberry-pi-rp2040-uf2</a></p>
+<p>[5] <a href="https://docs.qmk.fm/#/platformdev_rp2040">https://docs.qmk.fm/#/platformdev_rp2040</a></p>
 
 
 

@@ -979,6 +979,9 @@
 <p>Build guides and shared notes for <a href="https://github.com/rgoulter/keyboard-labs">rgoulter/keyboard-labs</a>.</p>
 <p>Interactive BOMs remain at the <a href="https://rgoulter.com/keyboard-labs/">site root</a>.</p>
 <p>Markdown in <code>docs/</code> stays GitHub-readable. This MkDocs site publishes those same pages with Material nav and search.</p>
+<p>The Pico42 build guide assembles shared fragments from <code>docs/includes/</code> via pymdownx.snippets,
+so its soldering-tools and RP2040-flashing sections share one source of truth with the Notes/Flashing pages.
+GitHub blob views do not expand these includes; read that guide on this site.</p>
 <h2 id="local-preview">Local preview<a class="headerlink" href="#local-preview" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>just<span class="w"> </span>docs::serve
 </code></pre></div>
