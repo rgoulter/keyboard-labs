@@ -29,9 +29,7 @@ This document is a guide for soldering the CH552-44 keyboard.
 
 # Required Soldering Tools
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
-
-See [docs/soldering-tools.md](soldering-tools.md)
+--8<-- "includes/soldering-tools-body.md"
 
 # Build Guide
 
