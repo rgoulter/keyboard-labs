@@ -25,9 +25,7 @@ This document is a guide for soldering the Pico42 keyboard.
 
 # Required Soldering Tools
 
-<img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" />
-
-See [docs/soldering-tools.md](soldering-tools.md)
+--8<-- "includes/soldering-tools-body.md"
 
 # Build Guide
 
@@ -64,3 +62,5 @@ when connecting the dev board to the computer.
 
 The UF2 file for the firmware (e.g. CircuitPython for KMK, or the UF2 from QMK)
 can then be copy-pasted onto this drive.
+
+--8<-- "includes/rp2040-flashing-body.md"
