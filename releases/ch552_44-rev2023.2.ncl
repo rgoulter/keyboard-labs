@@ -34,5 +34,5 @@ The form factor encourages the thumbs to use 2-3 keys each (and rely on the pink
       firmware_config = "https://github.com/rgoulter/fak-config",
       firmware_keymaps = [{ name = "rgoulter", url = "https://github.com/rgoulter/fak/blob/rgoulter-keyboards-and-layouts/ncl/keymaps/ch552-44/rgoulter/keymap.ncl" }],
       ibom = [{ url = "https://rgoulter.com/keyboard-labs/ibom-keyboard-ch552-44-rev2023.2.html", label = "Interactive BOM" }],
-      build_guide = ["docs/buildguide-keyboard_ch552-44-rev2023.2.md"],
+      build_guide = ["https://rgoulter.com/keyboard-labs/docs/buildguide-keyboard_ch552-44-rev2023.2/"],
     }

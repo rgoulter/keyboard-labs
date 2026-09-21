@@ -46,5 +46,5 @@ The WABBLE-60 PCB includes LiPo charging.
       firmware_config = "https://github.com/rgoulter/smart-keyboard-config",
       firmware_keymaps = [{ name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-60key-rgoulter/keymap.ncl" }],
       ibom = [{ url = "https://rgoulter.com/keyboard-labs/ibom-keyboard-wabble-60-rev2024.2.html", label = "Interactive BOM" }],
-      build_guide = ["docs/buildguide_wabble-60_rev2024.2.md"],
+      build_guide = ["https://rgoulter.com/keyboard-labs/docs/buildguide_wabble-60_rev2024.2/"],
     }

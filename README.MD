@@ -77,7 +77,7 @@ _2D Renders of the PCB, revision rev2021.5_
 
 ### Build Guides
 
-- [rev2021.4 Budget Build Guide](docs/buildguide_rev2021.4_budget.md)
+- [rev2021.4 Budget Build Guide](https://rgoulter.com/keyboard-labs/docs/buildguide_rev2021.4_budget/)
 
 - [rev2021.5 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-100x100-minif4-dual-rgb-reversible-rev2021.5.html)
 
@@ -269,7 +269,7 @@ _2D Renders of the PCB, revision rev2023.2_
 
 - [rev2023.1 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-pico42-rev2023.1.html)
 
-- [rev2023.1 Build Guide Notes](docs/buildguide-keyboard_pico42-rev2023.1.md)
+- [rev2023.1 Build Guide Notes](https://rgoulter.com/keyboard-labs/docs/buildguide-keyboard_pico42-rev2023.1/)
 
 
 
@@ -325,13 +325,13 @@ _2D Renders of the PCB, revision rev2023.2_
 
 - [rev2023.2 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-ch552-44-rev2023.2.html)
 
-- [rev2023.2 Build Guide Notes](https://github.com/rgoulter/keyboard-labs/blob/master/docs/buildguide-keyboard_ch552-44-rev2023.2.md)
+- [rev2023.2 Build Guide Notes](https://rgoulter.com/keyboard-labs/docs/buildguide-keyboard_ch552-44-rev2023.2/)
 
 #### Firmware
 
 - Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
-(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
+(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://rgoulter.com/keyboard-labs/docs/guide-liveiso-flashing-fak/)).
 
 #### Plates and Cases
 
@@ -386,7 +386,7 @@ _2D Renders of the PCB, revision rev2023.1_
 
 - Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
-(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
+(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://rgoulter.com/keyboard-labs/docs/guide-liveiso-flashing-fak/)).
 
 #### Plates and Cases
 
@@ -459,7 +459,7 @@ Same as for the [CH552-48](#ch552-48-low-budget-pcba-in-bm40jj40-form-factor).
 
 - Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
-(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
+(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://rgoulter.com/keyboard-labs/docs/guide-liveiso-flashing-fak/)).
 
 #### Plates and Cases
 
@@ -531,7 +531,7 @@ _2D Renders of the PCB, revision rev2023.1_
 
 - Firmware: See [rgoulter/fak-config](https://github.com/rgoulter/fak-config)
 
-(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md)).
+(NOTE: for flashing new firmware, on Windows, [I recommend the official WCHISPTool](https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html). For flashing using open-source software, it's much easier to flash firmware onto the CH552 from Linux, e.g. [docs/guide-liveiso-flashing-fak.md](https://rgoulter.com/keyboard-labs/docs/guide-liveiso-flashing-fak/)).
 
 
 
@@ -574,7 +574,7 @@ _2D Renders of the PCB, revision rev2024.2_
 
 - [rev2024.2 Interactive BOM](https://rgoulter.com/keyboard-labs/ibom-keyboard-wabble-60-rev2024.2.html)
 
-- [rev2024.2 Build Guide](docs/buildguide_wabble-60_rev2024.2.md)
+- [rev2024.2 Build Guide](https://rgoulter.com/keyboard-labs/docs/buildguide_wabble-60_rev2024.2/)
 
 #### Firmware
 
@@ -920,21 +920,21 @@ _Example output of OpenSCAD code, which makes use of the Kicad PCB data to const
 
 # Notes
 
-- [docs/guide-liveiso-flashing-fak.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/guide-liveiso-flashing-fak.md):
+- [docs/guide-liveiso-flashing-fak.md](https://rgoulter.com/keyboard-labs/docs/guide-liveiso-flashing-fak/):
   guide for using the Live ISO on a bootable USB to flash Fak firmware.
 
-- [docs/pcb-rivets.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/pcb-rivets.md):
+- [docs/pcb-rivets.md](https://rgoulter.com/keyboard-labs/docs/pcb-rivets/):
   notes on usage of PCB rivets for allowing hot-swapping switches on
   PCBs with regular footprints.
 
-- [docs/socketing-devboards.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/socketing-devboards.md):
+- [docs/socketing-devboards.md](https://rgoulter.com/keyboard-labs/docs/socketing-devboards/):
   some comparison photos of some different ways of socketing
   devboards.
 
-- [docs/rgb-leds-logic-level-shifting.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/rgb-leds-logic-level-shifting.md):
+- [docs/rgb-leds-logic-level-shifting.md](https://rgoulter.com/keyboard-labs/docs/rgb-leds-logic-level-shifting/):
   some notes on logic level shifting.
 
-- [docs/stm32-flashing-and-bootloaders.md](https://github.com/rgoulter/keyboard-labs/blob/master/docs/stm32-flashing-and-bootloaders.md):
+- [docs/stm32-flashing-and-bootloaders.md](https://rgoulter.com/keyboard-labs/docs/stm32-flashing-and-bootloaders/):
   some notes on bootloaders for STM32.
 
 - [cad/docs/freecad-techdraw-threads.md](https://github.com/rgoulter/keyboard-labs/blob/master/cad/docs/freecad-techdraw-threads.md):

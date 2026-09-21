@@ -43,6 +43,7 @@ let Release = {
   firmware_fork | String | optional,
   firmware_config | String | optional,
   firmware_keymaps | Array { name | String, url | String } | optional,
+  # Full https URLs to published docs pages (not repo-relative paths).
   build_guide | Array String | optional,
   ibom | Array Ibom | optional,
 } in
