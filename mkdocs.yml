@@ -78,6 +78,7 @@ nav:
       - CH552-44 rev2023.1a: buildguide-keyboard_ch552-44-rev2023.1a.md
       - X-1 budget rev2021.4: buildguide_rev2021.4_budget.md
   - Flashing:
+      - CH32X0: wch-ch32x0-flashing.md
       - RP2040: rp2040-flashing-and-bootloaders.md
       - STM32: stm32-flashing-and-bootloaders.md
       - FAK live ISO: guide-liveiso-flashing-fak.md
