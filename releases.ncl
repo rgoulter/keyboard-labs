@@ -14,6 +14,10 @@ let Ibom = {
   url | String,
   label | String,
 } in
+let FlashingGuide = {
+  url | String,
+  label | String,
+} in
 let Release = {
   tag | String,
   title | String,
@@ -45,6 +49,7 @@ let Release = {
   firmware_keymaps | Array { name | String, url | String } | optional,
   # Full https URLs to published docs pages (not repo-relative paths).
   build_guide | Array String | optional,
+  flashing_guide | Array FlashingGuide | optional,
   ibom | Array Ibom | optional,
 } in
 {

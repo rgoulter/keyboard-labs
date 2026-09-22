@@ -50,4 +50,5 @@ Having a design which doesn't use a USB connector underneath the PCB works aroun
       firmware_keymaps = [{ name = "default", url = "https://github.com/rgoulter/qmk_firmware/blob/rgoulter-keyboards-and-layouts/keyboards/rgoulter/pico42/keymaps/default/keymap.c" }],
       ibom = [{ url = "https://rgoulter.com/keyboard-labs/ibom-keyboard-pico42-rev2023.1.html", label = "Interactive BOM" }],
       build_guide = ["https://rgoulter.com/keyboard-labs/docs/buildguide-keyboard_pico42-rev2023.1/"],
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/rp2040-flashing-and-bootloaders/" }],
     }

@@ -34,5 +34,6 @@ The switches are Redragon's low profile switches. See notes under [CH552-48-LPR]
       firmware_board_url = "https://github.com/rgoulter/smart-keymap/blob/master/firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-75.ncl",
       firmware_repo = "https://github.com/rgoulter/smart-keymap",
       firmware_config = "https://github.com/rgoulter/smart-keyboard-config",
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/wch-ch32x0-flashing/" }],
       firmware_keymaps = [{ name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-75key-rgoulter/keymap.ncl" }],
     }

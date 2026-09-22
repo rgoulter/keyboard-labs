@@ -67,6 +67,7 @@ It's essentially a port of the [CH552-36](https://github.com/rgoulter/keyboard-l
       firmware_board_url = "https://github.com/rgoulter/smart-keymap/blob/master/firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-36-lhs.ncl",
       firmware_repo = "https://github.com/rgoulter/smart-keymap",
       firmware_config = "https://github.com/rgoulter/smart-keyboard-config",
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/wch-ch32x0-flashing/" }],
       firmware_keymaps = [
         { name = "miryoku", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-miryoku/keymap.ncl" },
         { name = "seniply", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-36key-seniply/keymap.ncl" },

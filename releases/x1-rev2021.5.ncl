@@ -55,4 +55,5 @@ Available in MX and Choc variants.
         { url = "https://rgoulter.com/keyboard-labs/ibom-x1-minif4_36-rev2021.5-basic.html", label = "Interactive BOM (Basic)" },
       ],
       build_guide = ["https://rgoulter.com/keyboard-labs/docs/buildguide_rev2021.4_budget/"],
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/stm32-flashing-and-bootloaders/" }],
     }

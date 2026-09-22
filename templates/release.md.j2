@@ -141,6 +141,11 @@
 ### Firmware
 
 - Firmware: [{{ firmware_repo.split("/")[-2] }}/{{ firmware_repo.split("/")[-1] }}]({{ firmware_repo }}){% if firmware_fork is defined and firmware_fork %} ([{{ firmware_fork.split("/")[-2] }}/{{ firmware_fork.split("/")[-1] }}]({{ firmware_fork }})){% endif %}
+{% if flashing_guide is defined and flashing_guide %}
+{% for fg in flashing_guide %}
+- [{{ fg.label }}]({{ fg.url }})
+{% endfor %}
+{% endif %}
 {% if firmware_board is defined and firmware_board %}
 {% if firmware_board_url is defined and firmware_board_url %}
 - Board definition: [{{ firmware_board }}]({{ firmware_board_url }})

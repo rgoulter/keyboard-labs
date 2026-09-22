@@ -51,6 +51,7 @@ It's essentially a port of the [CH552-48](https://github.com/rgoulter/keyboard-l
       firmware_board_url = "https://github.com/rgoulter/smart-keymap/blob/master/firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-48/rev2025_2.ncl",
       firmware_repo = "https://github.com/rgoulter/smart-keymap",
       firmware_config = "https://github.com/rgoulter/smart-keyboard-config",
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/wch-ch32x0-flashing/" }],
       firmware_keymaps = [
         { name = "48-key basic", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-48key-basic/keymap.ncl" },
         { name = "rgoulter", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-48key-rgoulter/keymap.ncl" },

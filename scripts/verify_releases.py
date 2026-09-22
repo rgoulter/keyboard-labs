@@ -74,6 +74,11 @@ for r in releases:
             if bg not in generated:
                 checks.append(f"MISSING build_guide {bg}")
                 ok=False
+    for fg in r.get("flashing_guide", []) or []:
+        fg_url = fg.get("url") if isinstance(fg, dict) else fg
+        if fg_url not in generated:
+            checks.append(f"MISSING flashing_guide {fg_url}")
+            ok=False
     for ib in r.get("ibom", []) or []:
         ib_url = ib.get("url") if isinstance(ib, dict) else ib
         if ib_url not in generated and ib_url not in r.get("intro",""):
@@ -91,7 +96,7 @@ for r in releases:
             print(f"{tag}: OK ({len(generated)} chars)")
 
 if ok:
-    print("\nAll releases.ncl → md checks passed (download/source/firmware/build_guide/ibom). No gh release edit performed.")
+    print("\nAll releases.ncl → md checks passed (download/source/firmware/build_guide/flashing_guide/ibom). No gh release edit performed.")
 else:
     print("\nSome checks failed")
     sys.exit(1)

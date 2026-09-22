@@ -30,5 +30,6 @@ mounts compatible with the JJ40/BM40.
       firmware_repo = "https://github.com/qmk/qmk_firmware",
       firmware_fork = "https://github.com/rgoulter/qmk_firmware",
       firmware_config = "https://github.com/rgoulter/qmk_userspace",
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/rp2040-flashing-and-bootloaders/" }],
       firmware_keymaps = [{ name = "default", url = "https://github.com/rgoulter/qmk_firmware/blob/rgoulter-keyboards-and-layouts/keyboards/rgoulter/pykey40/hsrgb/keymaps/default/keymap.c" }],
     }

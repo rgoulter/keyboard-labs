@@ -38,6 +38,7 @@ One downside to it is that DIP microcontrollers aren't quite powerful enough to 
       firmware_repo = "https://github.com/qmk/qmk_firmware",
       firmware_fork = "https://github.com/rgoulter/qmk_firmware",
       firmware_config = "https://github.com/rgoulter/qmk_userspace",
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/stm32-flashing-and-bootloaders/" }],
       firmware_keymaps = [{ name = "default", url = "https://github.com/rgoulter/qmk_firmware/blob/rgoulter-keyboards-and-layouts/keyboards/rgoulter/x_2/keymaps/default/keymap.c" }],
       
       ibom = [{ url = "https://rgoulter.com/keyboard-labs/ibom-x2-lumberjack-arm-rev2021.1.html", label = "Interactive BOM" }],
