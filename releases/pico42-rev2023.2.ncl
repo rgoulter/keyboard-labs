@@ -30,6 +30,7 @@
       gerber = ["keyboard-pico42-gerber_zip.zip"],
       plates = ["plate-pico42-devboard-cover.svg"],
       build_guide = ["https://rgoulter.com/keyboard-labs/docs/buildguide-keyboard_pico42-rev2023.1/"],
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/rp2040-flashing-and-bootloaders/" }],
       source_pcb = ["pcb/keyboard-pico42.kicad_pcb"],
       source_sch = ["pcb/keyboard-pico42.kicad_sch"],
       firmware_board = "keyboards/rgoulter/pico42",

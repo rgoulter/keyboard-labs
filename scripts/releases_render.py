@@ -61,7 +61,7 @@ def render_release(r):
     env.globals["photo_caption"] = photo_caption
     tmpl = env.get_template(tmpl_path.name)
     # Normalize arrays that may be single string in old data
-    for k in ("build_guide","ibom","plates","case_files","gerber","schematic","bom_jlc","cpl_jlc","firmware_bin","photos","pcb_renders","design_goals"):
+    for k in ("build_guide","flashing_guide","ibom","plates","case_files","gerber","schematic","bom_jlc","cpl_jlc","firmware_bin","photos","pcb_renders","design_goals"):
         if k in r and isinstance(r[k], str):
             r[k] = [r[k]]
     # Normalize prose fields so leading indentation in releases.ncl (m%" blocks)

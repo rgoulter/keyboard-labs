@@ -54,6 +54,7 @@ replacing the 6.25u spacebar with 6 keys.
       firmware_board_url = "https://github.com/rgoulter/smart-keymap/blob/master/firmware/ch32x035-usb-device-compositekm-c/ncl/boards/ch32x-60-improved.ncl",
       firmware_repo = "https://github.com/rgoulter/smart-keymap",
       firmware_config = "https://github.com/rgoulter/smart-keyboard-config",
+      flashing_guide = [{ label = "Flashing the firmware", url = "https://rgoulter.com/keyboard-labs/docs/wch-ch32x0-flashing/" }],
       firmware_keymaps = [
         { name = "66-key ansi-fn", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-66key-ansi-fn/keymap.ncl" },
         { name = "66-key extend", url = "https://github.com/rgoulter/smart-keymap/blob/master/tests/ncl/keymap-66key-extend/keymap.ncl" },
