@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://rgoulter.com/keyboard-labs/docs/rp2040-flashing-and-bootloaders/">
+        <link rel="canonical" href="https://rgoulter.com/keyboard-labs/docs/wch-ch32x0-flashing/">
       
       
-        <link rel="prev" href="../wch-ch32x0-flashing/">
+        <link rel="prev" href="../buildguide_rev2021.4_budget/">
       
       
-        <link rel="next" href="../stm32-flashing-and-bootloaders/">
+        <link rel="next" href="../rp2040-flashing-and-bootloaders/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>RP2040 - Keyboard Labs</title>
+        <title>CH32X0 - Keyboard Labs</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rp2040-flashing-and-bootloaders" class="md-skip">
+        <a href="#wch-ch32x0-flashing" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RP2040
+              CH32X0
             
           </span>
         </div>
@@ -541,10 +541,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../wch-ch32x0-flashing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -560,6 +569,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -569,37 +579,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RP2040
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../rp2040-flashing-and-bootloaders/" class="md-nav__link">
         
   
   
@@ -615,70 +598,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#using-kmk-as-the-keyboard-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using KMK as the Keyboard Firmware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-qmk-as-the-keyboard-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using QMK as the Keyboard Firmware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entering-bootloader-via-hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Entering Bootloader via Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1001,58 +920,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#using-kmk-as-the-keyboard-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using KMK as the Keyboard Firmware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-qmk-as-the-keyboard-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using QMK as the Keyboard Firmware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entering-bootloader-via-hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Entering Bootloader via Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1071,48 +938,7 @@
   
 
 
-<h1 id="rp2040-flashing-and-bootloaders">RP2040 Flashing and Bootloaders<a class="headerlink" href="#rp2040-flashing-and-bootloaders" title="Permanent link">&para;</a></h1>
-<p>One of the nice things about the RP2040 chip is that it natively supports
-flashing its firmware with UF2.  This saves the trouble of having to flash a
-custom bootloader onto the chip.</p>
-<p>The RP2040 chip is also powerful enough to run Circuit Python, and thus run <a href="https://github.com/KMKfw/kmk_firmware/">KMK
-firmware</a>[0].  Since KMK runs using
-Circuit Python, updating/changing keyboard maps written for KMK is as easy as
-editing files on a USB flash drive.</p>
-<h2 id="using-kmk-as-the-keyboard-firmware">Using KMK as the Keyboard Firmware<a class="headerlink" href="#using-kmk-as-the-keyboard-firmware" title="Permanent link">&para;</a></h2>
-<p>For running KMK, the RP2040 needs to be running Circuit Python firmware for the
-appropriate board. e.g. <a href="https://circuitpython.org/board/jpconstantineau_pykey60/">Circuit Python for JPConstantineau's PyKey60
-board</a>[1]. -- This can
-be flashed to the RP2040 by making it enter its bootloader, then copying the UF2
-file to the RP2040 drive.</p>
-<p>With Circuit Python running on the RP2040, setting up KMK involves copying the
-<code>kmk</code> directory from the <code>kmk_firmware</code> repository onto the device, etc., as
-explained in <a href="https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/Getting_Started.md">KMK's Getting Started
-docs</a>[3].
--- Once it has been set up, changing the keyboard's keymap involves simply
-changing the <code>code.py</code> on the CIRCUITPY volume.</p>
-<p>For convenience, you might want to use <a href="https://github.com/KMKfw/kmk_firmware/blob/74677e28fac18281307d6e4436126472e956a75e/kmk/keys.py#L369">the <code>BOOTLOADER</code>
-key</a>[4]
-to enter the bootloader, if you want to be able to change the UF2 bootloader
-frequently. (If you plan on using KMK, you probably don't).</p>
-<h2 id="using-qmk-as-the-keyboard-firmware">Using QMK as the Keyboard Firmware<a class="headerlink" href="#using-qmk-as-the-keyboard-firmware" title="Permanent link">&para;</a></h2>
-<p>When using QMK, you need to compile the firmware each time you want to change
-the keymap.</p>
-<p>The QMK documentation <a href="https://docs.qmk.fm/#/flashing?id=raspberry-pi-rp2040-uf2">has notes on flashing for the
-RP2040</a>[4]. e.g. You
-can use its <code>QK_BOOT</code> keycode as a way of selecting a bootloader.</p>
-<p>The QMK documentation <a href="https://docs.qmk.fm/#/platformdev_rp2040">has notes on RP2040 specific
-details</a>, too.</p>
-<h2 id="entering-bootloader-via-hardware">Entering Bootloader via Hardware<a class="headerlink" href="#entering-bootloader-via-hardware" title="Permanent link">&para;</a></h2>
-<p>e.g. the PyKey40 has <code>BOOT</code> and <code>RST</code> on the PCB. To enter the bootloader, short
-(e.g. with a pair of tweezers) the <code>BOOT</code> pads, and then short the <code>RST</code> pads.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<p>[0] <a href="https://github.com/KMKfw/kmk_firmware/">https://github.com/KMKfw/kmk_firmware/</a></p>
-<p>[1] <a href="https://circuitpython.org/board/jpconstantineau_pykey60/">https://circuitpython.org/board/jpconstantineau_pykey60/</a></p>
-<p>[2] <a href="https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/Getting_Started.md">https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/Getting_Started.md</a></p>
-<p>[3] <a href="https://github.com/KMKfw/kmk_firmware/blob/74677e28fac18281307d6e4436126472e956a75e/kmk/keys.py#L369">https://github.com/KMKfw/kmk_firmware/blob/74677e28fac18281307d6e4436126472e956a75e/kmk/keys.py#L369</a></p>
-<p>[4] <a href="https://docs.qmk.fm/#/flashing?id=raspberry-pi-rp2040-uf2">https://docs.qmk.fm/#/flashing?id=raspberry-pi-rp2040-uf2</a></p>
-<p>[5] <a href="https://docs.qmk.fm/#/platformdev_rp2040">https://docs.qmk.fm/#/platformdev_rp2040</a></p>
+<h1 id="wch-ch32x0-flashing">WCH CH32X0 Flashing<a class="headerlink" href="#wch-ch32x0-flashing" title="Permanent link">&para;</a></h1>
 
 
 
