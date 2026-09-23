@@ -4,35 +4,62 @@
 export tag:
     #!/usr/bin/env bash
     set -euo pipefail
-    uv run --script {{source_directory()}}/../scripts/releases_render.py --tag {{tag}} --format md > /tmp/{{tag}}.md
-    echo "wrote /tmp/{{tag}}.md"
-    cat /tmp/{{tag}}.md
+    out="{{source_directory()}}/../build/releases-md/{{tag}}.md"
+    make -C "{{source_directory()}}" "../build/releases-md/{{tag}}.md"
+    echo "wrote $out"
+    cat "$out"
 
 # export html preview for a single tag
 export-html tag:
     #!/usr/bin/env bash
     set -euo pipefail
-    out="/tmp/releases-html"
-    mkdir -p "$out"
-    uv run --script {{source_directory()}}/../scripts/releases_render.py --tag {{tag}} --format html > "$out/{{tag}}.html"
-    echo "wrote $out/{{tag}}.html"
-    ls -lh "$out/{{tag}}.html"
+    out="{{source_directory()}}/../build/releases-html/{{tag}}.html"
+    make -C "{{source_directory()}}" "../build/releases-html/{{tag}}.html"
+    echo "wrote $out"
+    ls -lh "$out"
 
 # export all markdown + html for every tag in releases.ncl
 export-all:
     #!/usr/bin/env bash
     set -euo pipefail
-    uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format md --out /tmp/releases-md
-    uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format html --out /tmp/releases-html
-    echo "md: $(ls /tmp/releases-md | wc -l) files, html: $(ls /tmp/releases-html | wc -l) files"
-    ls /tmp/releases-md | head -n 20
-    ls /tmp/releases-html | head -n 20
+    make -C "{{source_directory()}}" md html
+    echo "md: $(ls {{source_directory()}}/../build/releases-md | wc -l) files, html: $(ls {{source_directory()}}/../build/releases-html | wc -l) files"
+    ls {{source_directory()}}/../build/releases-md | head -n 20
+    ls {{source_directory()}}/../build/releases-html | head -n 20
 
 # verify generated markdown vs live releases (read-only, does not edit)
 verify:
     #!/usr/bin/env bash
     set -euo pipefail
     uv run --script {{source_directory()}}/../scripts/verify_releases.py
+
+# push a single tag's rendered markdown to the GitHub release (requires gh auth, does not upload assets)
+update tag:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    file="{{source_directory()}}/../build/releases-md/{{tag}}.md"
+    make -C "{{source_directory()}}" "../build/releases-md/{{tag}}.md"
+    echo "rendered $file ($(wc -c < "$file") bytes)"
+    gh release edit {{tag}} --notes-file "$file"
+    echo "updated https://github.com/rgoulter/keyboard-labs/releases/tag/{{tag}}"
+
+# push all tags' rendered markdown to GitHub releases (requires gh auth)
+update-all:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    make -C "{{source_directory()}}" md
+    out="{{source_directory()}}/../build/releases-md"
+    count=$(ls "$out" | wc -l)
+    echo "rendered $count files to $out"
+    for f in "$out"/*.md; do
+      tag=$(basename "$f" .md)
+      echo "== $tag =="
+      if gh release edit "$tag" --notes-file "$f"; then
+        echo "updated $tag"
+      else
+        echo "failed $tag"
+      fi
+    done
 
 # render keymap diagrams for production layouts (see docs/keymaps/README.md)
 # (e.g. just releases::viz ch32x_60_improved_extend; empty = all)
@@ -54,14 +81,18 @@ preview-gh-pages:
     #!/usr/bin/env bash
     set -euo pipefail
     out="{{source_directory()}}/../../keyboard-labs-gh-pages/releases-preview"
+    tags_list="{{source_directory()}}/../build/tags.list"
     mkdir -p "$out"
+    mkdir -p "$(dirname "$tags_list")"
     uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format html --out "$out"
     mkdir -p "$out/md"
     uv run --script {{source_directory()}}/../scripts/releases_render.py --all --format md --out "$out/md"
-    ls "$out"/*.html | grep -v index.html | xargs -I {} basename {} | sed 's/.html$//' | sort > /tmp/tags.list
+    ls "$out"/*.html | grep -v index.html | xargs -I {} basename {} | sed 's/.html$//' | sort > "$tags_list"
     echo "<!doctype html><html><head><meta charset='utf-8'><link rel='stylesheet' href='https://cdn.simplecss.org/simple.min.css'><title>Releases Preview</title></head><body><h1>Releases Preview (gh-pages worktree)</h1><ul>" > "$out/index.html"
-    while read -r tag; do echo "<li><a href=\"$tag.html\">$tag</a> — <a href=\"md/$tag.md\">md</a></li>" >> "$out/index.html"; done < /tmp/tags.list
+    while read -r tag; do
+      echo "<li><a href=\"$tag.html\">$tag</a> — <a href=\"md/$tag.md\">md</a></li>" >> "$out/index.html"
+    done < "$tags_list"
     echo "</ul><p>Generated from <code>releases.ncl</code> via <code>scripts/releases_render.py</code>. Not yet pushed to gh-pages.</p></body></html>" >> "$out/index.html"
-    echo "wrote $out/index.html with $(wc -l < /tmp/tags.list) releases"
+    echo "wrote $out/index.html with $(wc -l < "$tags_list") releases"
     ls -lh "$out/index.html"
     cat "$out/index.html"

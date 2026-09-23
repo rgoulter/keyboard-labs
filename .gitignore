@@ -21,3 +21,7 @@ __pycache__
 # MkDocs Material local preview
 .venv/
 site/
+
+# generated release previews (releases/Makefile -> build/releases-*)
+/build/
+build/
