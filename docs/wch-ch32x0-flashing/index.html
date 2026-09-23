@@ -1075,15 +1075,51 @@ Be sure to read the notes on the readme
 <p>This bootloader is read-only,
  so you will always be able to enter the bootloader
  using this method.</p>
+<p>The steps to flash with this method are:</p>
+<ol>
+<li>
+<p>Short the BOOT pads together
+   (e.g. using a paperclip or tweezers to connect the two BOOT pads together).</p>
+</li>
+<li>
+<p>Connect the keyboard to the computer.</p>
+</li>
+<li>
+<p>Flash the firmware using whichever WCH ISP tool you're using.</p>
+</li>
+</ol>
 <h3 id="smart-keymap-firmware-hold-down-the-first-key">smart-keymap Firmware: Hold Down the First Key<a class="headerlink" href="#smart-keymap-firmware-hold-down-the-first-key" title="Permanent link">&para;</a></h3>
 <p>For keyboard firmware built with the smart-keymap firmware,
  the firmware will enter the bootloader if the key <code>SW_1_1</code>
  is held when the USB is connected.</p>
 <p>This works if the correct keyboard firmware has been flashed.</p>
+<p>The steps to flash with this method are:</p>
+<ol>
+<li>
+<p>With a keyboard running the smart-keymap firmware,
+   hold down the switch at the top left (<code>SW_1_1</code>).</p>
+</li>
+<li>
+<p>Connect the keyboard to the computer.</p>
+</li>
+<li>
+<p>Flash the firmware using whichever WCH ISP tool you're using.</p>
+</li>
+</ol>
 <h3 id="smart-keymap-firmware-boot-key">smart-keymap Firmware: BOOT Key<a class="headerlink" href="#smart-keymap-firmware-boot-key" title="Permanent link">&para;</a></h3>
 <p>For keyboard firmware built with the smart-keymap firmware,
  the firmware will enter the bootloader
  when the <code>K.BOOT</code>/<code>K.reset_to_bootloader</code> key is pressed.</p>
+<p>The steps to flash with this method are:</p>
+<ol>
+<li>
+<p>With a keyboard running the smart-keymap firmware,
+   and with the keyboard connected to the computer: tap the <code>K.BOOT</code> key.</p>
+</li>
+<li>
+<p>Flash the firmware using whichever WCH ISP tool you're using.</p>
+</li>
+</ol>
 <h2 id="help-i-bricked-my-keyboard">Help, I Bricked my Keyboard<a class="headerlink" href="#help-i-bricked-my-keyboard" title="Permanent link">&para;</a></h2>
 <p>Because the USB bootloader is in the CH32X0's ROM,
  it's practically impossible to brick the keyboard.
