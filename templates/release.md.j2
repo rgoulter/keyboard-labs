@@ -124,28 +124,27 @@
 **Firmware binaries**
 
 {% for b in firmware_bin|default([]) %}
-{% if b is string %}- [{{ b }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b }})
-{% elif b is mapping %}- [{{ b.file }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b.file }})
-
+- [{{ b.file }}](https://github.com/rgoulter/keyboard-labs/releases/download/{{ tag }}/{{ b.file }}){% if b.keymap_url %} ([keymap source]({{ b.keymap_url }})){% endif %}
+{% if b.dense is defined and b.stacked is defined %}
   <p>
   <a href="{{ b.stacked }}"><img src="{{ b.dense }}" width="600" alt="{{ b.keymap }} layout" /></a>
   </p>
 
   <p><em>{{ b.keymap }}. Full layers in the <a href="{{ b.stacked }}">stacked diagram</a>.</em></p>
-
 {% endif %}
 {% endfor %}
+{% if flashing_guide is defined and flashing_guide %}
+{% for fg in flashing_guide %}
+See: [{{ fg.label }}]({{ fg.url }})
+{% endfor %}
+{% endif %}
 {% endif %}
 
 {% if firmware_repo is defined and firmware_repo %}
 ### Firmware
 
-- Firmware: [{{ firmware_repo.split("/")[-2] }}/{{ firmware_repo.split("/")[-1] }}]({{ firmware_repo }}){% if firmware_fork is defined and firmware_fork %} ([{{ firmware_fork.split("/")[-2] }}/{{ firmware_fork.split("/")[-1] }}]({{ firmware_fork }})){% endif %}
-{% if flashing_guide is defined and flashing_guide %}
-{% for fg in flashing_guide %}
-- [{{ fg.label }}]({{ fg.url }})
-{% endfor %}
-{% endif %}
+This keyboard has firmware written with [{{ firmware_repo.split("/")[-1] }}]({{ firmware_repo }}){% if firmware_fork is defined and firmware_fork %} ([{{ firmware_fork.split("/")[-2] }}/{{ firmware_fork.split("/")[-1] }}]({{ firmware_fork }})){% endif %}.
+
 {% if firmware_board is defined and firmware_board %}
 {% if firmware_board_url is defined and firmware_board_url %}
 - Board definition: [{{ firmware_board }}]({{ firmware_board_url }})
@@ -155,11 +154,12 @@
 - Board: {{ firmware_board }}
 {% endif %}
 {% endif %}
-{% if firmware_keymaps is defined and firmware_keymaps %}
-- Keymaps:{% for km in firmware_keymaps %}
-    - [{{ km.name }}]({{ km.url }}){% endfor %}
-{% endif %}
 {% if firmware_config is defined and firmware_config %}
-- Config: [{{ firmware_config.split("/")[-2] }}/{{ firmware_config.split("/")[-1] }}]({{ firmware_config }})
+- Example 'user-config' repo: [{{ firmware_config.split("/")[-2] }}/{{ firmware_config.split("/")[-1] }}]({{ firmware_config }})
+{% endif %}
+{% if flashing_guide is defined and flashing_guide and firmware_bin is not defined %}
+{% for fg in flashing_guide %}
+- [{{ fg.label }}]({{ fg.url }})
+{% endfor %}
 {% endif %}
 {% endif %}
