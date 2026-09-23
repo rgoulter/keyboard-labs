@@ -39,6 +39,15 @@ This bootloader is read-only,
  so you will always be able to enter the bootloader
  using this method.
 
+The steps to flash with this method are:
+
+1. Short the BOOT pads together
+   (e.g. using a paperclip or tweezers to connect the two BOOT pads together).
+
+2. Connect the keyboard to the computer.
+
+3. Flash the firmware using whichever WCH ISP tool you're using.
+
 ### smart-keymap Firmware: Hold Down the First Key
 
 For keyboard firmware built with the smart-keymap firmware,
@@ -47,11 +56,27 @@ For keyboard firmware built with the smart-keymap firmware,
 
 This works if the correct keyboard firmware has been flashed.
 
+The steps to flash with this method are:
+
+1. With a keyboard running the smart-keymap firmware,
+   hold down the switch at the top left (`SW_1_1`).
+
+2. Connect the keyboard to the computer.
+
+3. Flash the firmware using whichever WCH ISP tool you're using.
+
 ### smart-keymap Firmware: BOOT Key
 
 For keyboard firmware built with the smart-keymap firmware,
  the firmware will enter the bootloader
  when the `K.BOOT`/`K.reset_to_bootloader` key is pressed.
+
+The steps to flash with this method are:
+
+1. With a keyboard running the smart-keymap firmware,
+   and with the keyboard connected to the computer: tap the `K.BOOT` key.
+
+2. Flash the firmware using whichever WCH ISP tool you're using.
 
 ## Help, I Bricked my Keyboard
 
