@@ -72,6 +72,7 @@ exclude_docs: |
 nav:
   - Home: index.md
   - Build guides:
+      - CH32X-60: buildguide-keyboard_ch32x-60-improved-rev2026.1.md
       - Pico42 rev2023.1: buildguide-keyboard_pico42-rev2023.1.md
       - WABBLE-60 rev2024.2: buildguide_wabble-60_rev2024.2.md
       - CH552-44 rev2023.2: buildguide-keyboard_ch552-44-rev2023.2.md
