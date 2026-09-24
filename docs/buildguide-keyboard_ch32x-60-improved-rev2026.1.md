@@ -46,24 +46,55 @@ That is, you don't need to check all 66 keys, you only need to check one row
 
 The soldering required for this keyboard is very simple.
 
-1. Mount the 2U stabilizers on the PCB.
+1. Mount all 4 of the 2U stabilizers on the PCB.
 
-2. If you're using a switch plate, arrange the plate to arrange some switches before soldering the switches.
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-00-stabilisers.jpg" />
+
+2. If you're using a switch plate,
+    arrange the plate and place some switches before soldering.
+
+    It can help to solder just the four corner switches first to hold the plate in place.
+
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-01-solder_corners.jpg" />
 
 3. Solder the switches.
 
-A switch plate is entirely optional.
+    If not using a switch plate,
+     I recommend soldering just one pad of each switch first,
+     then checking that the switch is sitting flush on the PCB
+     (heat the solder and push the switch against the PCB;
+      then remove the iron from the solder, and then stop pushing the switch).
+    It's easier to correctly align the switches if only one of its pads soldered.
 
-If not using a switch plate,
-I recommend soldering just one pad of each switch first,
- then checking that the switch is sitting flush on the PCB
- (heat the solder and push the switch against the PCB;
-  then remove the iron from the solder, and then stop pushing the switch).
-It's easier to correctly align the switches with only one of its pads soldered.
+    A switch plate is entirely optional,
+     and with 5-pin switches the plate is not needed to hold the switches.
 
-If you didn't flash the firmware before, you'll want to flash the firmware
- before assembling it into the case, since the keyboard PCB's BOOT pads
- can be a bit cumbersome to access when it's in the case.
+    Either way, I think it's easiest to start by soldering the switches in the corners:
 
-With the switches soldered, you can then assemble the keyboard into the case,
- and place the keycaps.
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-02-soldering.jpg" />
+
+    Continue placing & soldering switches until you're done:
+
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-03-soldering_place_switches.jpg" />
+
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-04-soldering.jpg" />
+
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-05-all_soldered.jpg" />
+
+    If you didn't flash the firmware before,
+     you'll want to flash the firmware
+     before assembling it into the case,
+     since the keyboard PCB's BOOT pads
+     can be a bit cumbersome to access when it's in the case.
+
+    Ensure that you've soldered the switch to both pads for all of the switches.
+
+4. Assemble the keyboard into the case.
+
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-06-mount_in_case.jpg" />
+
+5. Place the keycaps.
+
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-07-place_keycaps.jpg" />
+
+    <img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/gh-pages/images/2026-09-16-soldering-ch32x-60-improved/buildguide-ch32x-60-08-done.jpg" />
