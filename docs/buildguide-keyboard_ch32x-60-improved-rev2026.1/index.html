@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://rgoulter.com/keyboard-labs/docs/stm32-flashing-and-bootloaders/">
+        <link rel="canonical" href="https://rgoulter.com/keyboard-labs/docs/buildguide-keyboard_ch32x-60-improved-rev2026.1/">
       
       
-        <link rel="prev" href="../rp2040-flashing-and-bootloaders/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../guide-liveiso-flashing-fak/">
+        <link rel="next" href="../buildguide-keyboard_pico42-rev2023.1/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>STM32 - Keyboard Labs</title>
+        <title>CH32X-60 - Keyboard Labs</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#my-experience-with-stm32s-native-dfu-bootloader" class="md-skip">
+        <a href="#build-guide-for-ch32x-60-improved-rev20261" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              STM32
+              CH32X-60
             
           </span>
         </div>
@@ -286,8 +286,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -298,13 +300,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -325,7 +325,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -340,10 +340,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../buildguide-keyboard_ch32x-60-improved-rev2026.1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -359,6 +368,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -515,8 +525,6 @@
       
   
   
-    
-  
   
   
     
@@ -529,11 +537,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -554,7 +564,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -625,19 +635,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../stm32-flashing-and-bootloaders/" class="md-nav__link">
         
   
   
@@ -653,7 +654,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -966,56 +966,229 @@
   
 
 
-<h1 id="my-experience-with-stm32s-native-dfu-bootloader">My Experience with STM32's Native DFU Bootloader<a class="headerlink" href="#my-experience-with-stm32s-native-dfu-bootloader" title="Permanent link">&para;</a></h1>
-<p>In my experience, I have found this to be frequently unreliable and
-inconsistent/indiscernable behaviour considering computer, operating
-system, or particular board used.</p>
-<p>I see the <a href="https://docs.qmk.fm/#/platformdev_blackpill_f4x1">QMK Documentation page on the Blackpill</a>[5] explains that this has to with its 25MHz crystal; and because my MiniF4-36 design uses the pin A10 without an external pull-up resistor.</p>
-<p>Not even "<a href="https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu">hold the boot button for 2
-minutes</a>[4]"
-was enough to help.</p>
-<p>Ultimately, I think having an ST-Link device is necessary to at least
-flash an easier to use bootloader onto the board.</p>
-<h1 id="bootloaders-qmk-docs-recommend">Bootloaders QMK Docs Recommend<a class="headerlink" href="#bootloaders-qmk-docs-recommend" title="Permanent link">&para;</a></h1>
-<p>In the <a href="https://docs.qmk.fm/#/flashing">QMK Docs, "Using QMK" -&gt; "Guides" -&gt; "Flashing" -&gt; "Flashing"</a>[0],
-the following bootloaders are suggested:</p>
+<h1 id="build-guide-for-ch32x-60-improved-rev20261">Build Guide for CH32X-60-Improved rev2026.1<a class="headerlink" href="#build-guide-for-ch32x-60-improved-rev20261" title="Permanent link">&para;</a></h1>
+<p>This document is a guide for soldering the CH32X-60-Improved keyboard.</p>
+<p><img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/keyboards/ch32x-60-improved/keyboard-ch32x-60-improved-2026.1-top.jpg" width="600" /></p>
+<h1 id="required-materials">Required Materials<a class="headerlink" href="#required-materials" title="Permanent link">&para;</a></h1>
+<ul>
+<li>1x CH32X-60-Improved PCB, preassembled with SMT components</li>
+<li>Available from Elecrow marketplace: <a href="https://www.elecrow.com/ch32x-60-improved-ansi-keyboard-pcb.html">CH32X-60 Improved ANSI Keyboard PCB</a></li>
+<li>66x MX-compatible switches (5-pin)</li>
+<li>"5-pin" allows for the switches to be mounted to the PCB
+    without requiring a switch plate.</li>
+<li>4x 2U MX stabilizers (PCB mount)</li>
+<li>GH-60 compatible case</li>
+<li>(Optional) Switch plate (1.5mm thick for MX switches)</li>
+<li>Switch plate is optional if using 5-pin switches.</li>
+<li><a href="https://github.com/rgoulter/keyboard-labs/releases/tag/ch32x-60-improved-rev2026.1">The SVGs for switch plates can be found on the Release page</a></li>
+</ul>
+<h1 id="required-soldering-tools">Required Soldering Tools<a class="headerlink" href="#required-soldering-tools" title="Permanent link">&para;</a></h1>
+<p><img src="https://raw.githubusercontent.com/rgoulter/keyboard-labs/master/docs/images/buildlog-rev2021.4-minimal/tools.JPG" /></p>
 <ul>
 <li>
-<p>For STM32F4 (e.g. the WeAct Studio MiniF4 "Black pill" boards):</p>
-</li>
-<li>
-<p><a href="https://github.com/adafruit/tinyuf2">Adafruit's tinyuf2</a>[1].</p>
+<p>Soldering iron.</p>
 <ul>
-<li>QMK will generate a <code>.uf2</code> firmware file if the <code>rules.mk</code>
-  is configured correctly.</li>
+<li>Even a very cheap one will do.</li>
 </ul>
 </li>
 <li>
-<p>For STM32F103 (e.g. the "blue pill" boards):</p>
+<p>Soldering iron stand.</p>
 </li>
 <li>
-<p><a href="https://github.com/rogerclarkmelbourne/STM32duino-bootloader">rogerclarkmelbourne/STM32duino-bootloader</a>[2].</p>
+<p>Fume Extractor/Filter.</p>
+<ul>
+<li>Especially if you're soldering indoors.</li>
+</ul>
+</li>
+<li>
+<p>Solder.</p>
+<ul>
+<li>I would strongly recommend using better-than-the-cheapest solder.
+  My experience with cheap solder is that it doesn't have enough flux,
+  which makes soldering difficult.</li>
+</ul>
+</li>
+<li>
+<p>A sponge, or brass wool, for cleaning solder from the soldering iron.</p>
+</li>
+<li>
+<p>Desoldering sucker, or desoldering wick.</p>
+<ul>
+<li>A cheap desoldering sucker should be able to do the job.
+  However, I'd recommend getting nicer-than-cheapest because
+  if you're using a desoldering sucker,
+  you'll want to reduce frustration experienced.
+  (Especially if desoldering MX keyswitches).</li>
+</ul>
+</li>
+<li>
+<p>Flush cutters.</p>
+</li>
+<li>
+<p>Soldering mat; or cardboard or whatever to protect the surface from
+  damage while soldering.</p>
+</li>
+</ul>
+<h2 id="recommended-tools">Recommended Tools<a class="headerlink" href="#recommended-tools" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>With QMK, and the <code>rules.mk</code> set to use this bootloader, (e.g.
-  as <code>handwired/onekey/bluepill</code> has by default), the complied
-  <code>.bin</code> won't work if flashed to the board without this
-  bootloader present. (e.g. flashing the keyboard firmware's
-  <code>.bin</code> using <code>st-flash</code> is insufficient).</p>
+<p>Digital Mulitmeter.</p>
+<ul>
+<li>The most useful functionality here is the continuity check.</li>
+<li>Take care, most cheap multimeters don't switch off automatically,
+  which results in the battery draining completely
+  after use if the multimeter isn't switched off.</li>
+</ul>
 </li>
 <li>
-<p>See <a href="https://github.com/stm32duino/wiki/wiki/Upload-methods">stm32duino's wiki page on Upload methods</a>[3] for more details.</p>
+<p>Bevel/chisel soldering iron tip.</p>
+<ul>
+<li>Not strictly necessary, but it's what I used in this build.</li>
+</ul>
 </li>
+<li>
+<p>Needle-nosed pliers.</p>
+</li>
+<li>
+<p>Tweezers.</p>
+</li>
+<li>
+<p>Wire stripper / Jumper wire.</p>
+<ul>
+<li>In many cases, jumper wire can be used to 'repair' a connection between
+  keyboard switches, or fix other small mistakes/damages.</li>
 </ul>
 </li>
 </ul>
-<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
-<p>[0] <a href="https://docs.qmk.fm/#/flashing">https://docs.qmk.fm/#/flashing</a></p>
-<p>[1] <a href="https://github.com/adafruit/tinyuf2">https://github.com/adafruit/tinyuf2</a></p>
-<p>[2] <a href="https://github.com/rogerclarkmelbourne/STM32duino-bootloader">https://github.com/rogerclarkmelbourne/STM32duino-bootloader</a></p>
-<p>[3] <a href="https://github.com/stm32duino/wiki/wiki/Upload-methods">https://github.com/stm32duino/wiki/wiki/Upload-methods</a></p>
-<p>[4] <a href="https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu">https://electronics.stackexchange.com/questions/291402/stm32f4-taking-2-minutes-to-enter-dfu</a></p>
-<p>[5] <a href="https://docs.qmk.fm/#/platformdev_blackpill_f4x1">https://docs.qmk.fm/#/platformdev_blackpill_f4x1</a></p>
+<h2 id="nice-to-have">Nice to Have<a class="headerlink" href="#nice-to-have" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Twin-Headed Soldering Iron</p>
+<ul>
+<li>If you're going to do a lot of soldering of SMD diodes/resistors/etc.,
+  then it's very useful to have twin-headed soldering tweezers.</li>
+</ul>
+</li>
+<li>
+<p>Hot Air Gun</p>
+<ul>
+<li>Makes it easier to solder SMD components.</li>
+</ul>
+</li>
+</ul>
+<h1 id="flash-firmware-and-check-pcb-works">Flash Firmware and Check PCB Works<a class="headerlink" href="#flash-firmware-and-check-pcb-works" title="Permanent link">&para;</a></h1>
+<p>Before soldering the switches, you can flash the PCB with firmware
+ and check that the PCB works.</p>
+<p>You can download a <a href="https://github.com/rgoulter/keyboard-labs/releases/tag/ch32x-60-improved-rev2026.1">precompiled firmware binary</a>
+ from the releases page, then use tweezers or a paperclip
+ to short the switch pads (connect the plated circular through-holes together).</p>
+<p>Shorting the switch pads together is like pressing the switch,
+ so you can visit a keyboard testing website and check each key works.</p>
+<p>You can be confident the keyboard works if every key in any column works,
+ and every key in any row works.
+That is, you don't need to check all 66 keys, you only need to check one row
+ and one column.</p>
+<h2 id="flashing-instructions">Flashing Instructions<a class="headerlink" href="#flashing-instructions" title="Permanent link">&para;</a></h2>
+<h2 id="wch-isp-programs">WCH ISP Programs<a class="headerlink" href="#wch-isp-programs" title="Permanent link">&para;</a></h2>
+<h3 id="official-wch-isp-tool">Official WCH ISP Tool<a class="headerlink" href="#official-wch-isp-tool" title="Permanent link">&para;</a></h3>
+<p>You can flash firmware onto the keyboards with the CH32X0
+ using WCH's WCH ISP tool.</p>
+<p><a href="https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html">https://www.wch-ic.com/downloads/WCHISPTool_Setup_exe.html</a></p>
+<h3 id="open-source-wch-command-line-tools">Open Source wch command line tools<a class="headerlink" href="#open-source-wch-command-line-tools" title="Permanent link">&para;</a></h3>
+<p>There are several open source programs which can be used.</p>
+<p>I like the Rust <code>wchisp</code> command line tool.
+ (<a href="https://github.com/ch32-rs/wchisp">https://github.com/ch32-rs/wchisp</a>).
+Be sure to read the notes on the readme
+ (e.g. installation requirements for Windows/Linux/etc.).</p>
+<p>With <code>wchisp</code>, you enter the bootloader and then run:</p>
+<div class="highlight"><pre><span></span><code>wchisp flash &lt;my firmware.hex&gt;
+</code></pre></div>
+<h2 id="entering-the-bootloader">Entering the Bootloader<a class="headerlink" href="#entering-the-bootloader" title="Permanent link">&para;</a></h2>
+<p>There are different ways to enter bootloader mode.</p>
+<h3 id="shorting-bootdownload-and-plugging-in-usb">Shorting BOOT/DOWNLOAD and Plugging in USB<a class="headerlink" href="#shorting-bootdownload-and-plugging-in-usb" title="Permanent link">&para;</a></h3>
+<p>WCH's CH32X0 MCUs have a bootloader
+ which runs in bootloader mode
+ when the USB is plugged in with BOOT shorted.</p>
+<p>On the PCBs in this repository, the pads to short together
+ are labelled with "BOOT".</p>
+<p>This bootloader is read-only,
+ so you will always be able to enter the bootloader
+ using this method.</p>
+<p>The steps to flash with this method are:</p>
+<ol>
+<li>
+<p>Short the BOOT pads together
+   (e.g. using a paperclip or tweezers to connect the two BOOT pads together).</p>
+</li>
+<li>
+<p>Connect the keyboard to the computer.</p>
+</li>
+<li>
+<p>Flash the firmware using whichever WCH ISP tool you're using.</p>
+</li>
+</ol>
+<h3 id="smart-keymap-firmware-hold-down-the-first-key">smart-keymap Firmware: Hold Down the First Key<a class="headerlink" href="#smart-keymap-firmware-hold-down-the-first-key" title="Permanent link">&para;</a></h3>
+<p>For keyboard firmware built with the smart-keymap firmware,
+ the firmware will enter the bootloader if the key <code>SW_1_1</code>
+ is held when the USB is connected.</p>
+<p>This works if the correct keyboard firmware has been flashed.</p>
+<p>The steps to flash with this method are:</p>
+<ol>
+<li>
+<p>With a keyboard running the smart-keymap firmware,
+   hold down the switch at the top left (<code>SW_1_1</code>).</p>
+</li>
+<li>
+<p>Connect the keyboard to the computer.</p>
+</li>
+<li>
+<p>Flash the firmware using whichever WCH ISP tool you're using.</p>
+</li>
+</ol>
+<h3 id="smart-keymap-firmware-boot-key">smart-keymap Firmware: BOOT Key<a class="headerlink" href="#smart-keymap-firmware-boot-key" title="Permanent link">&para;</a></h3>
+<p>For keyboard firmware built with the smart-keymap firmware,
+ the firmware will enter the bootloader
+ when the <code>K.BOOT</code>/<code>K.reset_to_bootloader</code> key is pressed.</p>
+<p>The steps to flash with this method are:</p>
+<ol>
+<li>
+<p>With a keyboard running the smart-keymap firmware,
+   and with the keyboard connected to the computer: tap the <code>K.BOOT</code> key.</p>
+</li>
+<li>
+<p>Flash the firmware using whichever WCH ISP tool you're using.</p>
+</li>
+</ol>
+<h2 id="help-i-bricked-my-keyboard">Help, I Bricked my Keyboard<a class="headerlink" href="#help-i-bricked-my-keyboard" title="Permanent link">&para;</a></h2>
+<p>Because the USB bootloader is in the CH32X0's ROM,
+ it's practically impossible to brick the keyboard.
+You'll always be able to flash new firmware by
+ shorting BOOT/DOWNLOAD and plugging in USB.</p>
+<h1 id="build-guide">Build Guide<a class="headerlink" href="#build-guide" title="Permanent link">&para;</a></h1>
+<p>The soldering required for this keyboard is very simple.</p>
+<ol>
+<li>
+<p>Mount the 2U stabilizers on the PCB.</p>
+</li>
+<li>
+<p>If you're using a switch plate, arrange the plate to arrange some switches before soldering the switches.</p>
+</li>
+<li>
+<p>Solder the switches.</p>
+</li>
+</ol>
+<p>A switch plate is entirely optional.</p>
+<p>If not using a switch plate,
+I recommend soldering just one pad of each switch first,
+ then checking that the switch is sitting flush on the PCB
+ (heat the solder and push the switch against the PCB;
+  then remove the iron from the solder, and then stop pushing the switch).
+It's easier to correctly align the switches with only one of its pads soldered.</p>
+<p>If you didn't flash the firmware before, you'll want to flash the firmware
+ before assembling it into the case, since the keyboard PCB's BOOT pads
+ can be a bit cumbersome to access when it's in the case.</p>
+<p>With the switches soldered, you can then assemble the keyboard into the case,
+ and place the keycaps.</p>
 
 
 
