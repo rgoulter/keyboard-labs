@@ -5,3 +5,6 @@
 tmp/
 
 
+
+*.step
+case_pykey40.stl
