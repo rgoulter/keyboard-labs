@@ -11,6 +11,16 @@ This document is a guide for soldering the CH32X-60-Improved keyboard.
 - 66x MX-compatible switches (5-pin)
   - "5-pin" allows for the switches to be mounted to the PCB
     without requiring a switch plate.
+- 66x MX-compatible keycaps
+  - Compared to a standard ANSI 60% with a 6.25u spacebar,
+    this board replaces the 6.25u spacebar with 1× 1.25u and 5× 1u keys.
+  - Full count by row (top to bottom):
+    - Row 1 (R4): 13× 1u + 1× 2u
+    - Row 2 (R3): 12× 1u + 2× 1.5u
+    - Row 3 (R2): 11× 1u + 1× 1.75u + 1× 2.25u
+    - Row 4 (R1): 10× 1u + 1× 2.25u + 1× 2.75u
+    - Row 5 (R1, bottom): 5× 1u + 8× 1.25u
+      (3× 1.25u left mods, 1× 1.25u + 5× 1u thumb cluster, 4× 1.25u right mods).
 - 4x 2U MX stabilizers (PCB mount)
 - GH-60 compatible case
 - (Optional) Switch plate (1.5mm thick for MX switches)
