@@ -36,29 +36,116 @@ case file="":
       make -C "$dir" "$file.stl"
     fi
 
-# plates: `just cad::plates` (all) or `just cad::plates jj40_switch_plate`
-# Pass a keyboard directory as the second argument, or use its named recipe.
-[doc("build cad plates (all or single, chooser if no arg)")]
-plates file="" keyboard="keyboard-pykey40":
+# plates: `just cad::plates` → fzf keyboard-* family, then plate
+#         `just cad::plates jj40_switch_plate` (defaults to pykey40 if unique)
+#         `just cad::plates '' keyboard-x2-lumberjack-arm` or named recipes below
+[doc("build cad plates (fzf over keyboard-* families, or pass file / keyboard)")]
+plates file="" keyboard="":
     #!/usr/bin/env bash
     set -euo pipefail
     file="{{file}}"
     keyboard="{{keyboard}}"
-    case "$keyboard" in
-      keyboard-pykey40|keyboard-x2-lumberjack-arm|keyboard-100x100-minif4-dual-rgb-reversible) ;;
-      *) echo "unknown keyboard plate directory: $keyboard" >&2; exit 2 ;;
-    esac
-    dir="{{source_directory()}}/keyboard_plates/$keyboard"
+    plates_root="{{source_directory()}}/keyboard_plates"
+
+    list_keyboards() {
+      find "$plates_root" -mindepth 1 -maxdepth 1 -type d -name 'keyboard-*' -print \
+        | while read -r d; do
+            [ -f "$d/Makefile" ] && basename "$d"
+          done \
+        | sort
+    }
+
+    list_plate_stems() {
+      local dir="$1"
+      # Prefer Makefile `scads :=` so shared modules (common, footprint_*) stay out of fzf.
+      if [ -f "$dir/Makefile" ] && grep -q '^scads *:=' "$dir/Makefile"; then
+        awk '
+          /^scads *:=/ { grab=1; next }
+          grab && /^plates *:=/ { exit }
+          grab {
+            gsub(/\\/, "")
+            for (i = 1; i <= NF; i++) {
+              if ($i ~ /\.scad$/) {
+                s = $i
+                sub(/.*\//, "", s)
+                sub(/\.scad$/, "", s)
+                print s
+              }
+            }
+          }
+        ' "$dir/Makefile"
+      else
+        ls "$dir"/*.scad 2>/dev/null \
+          | xargs -n1 basename -s .scad \
+          | grep -Ev '^(common|footprint_modules)$' || true
+      fi
+    }
+
+    resolve_keyboard_for_file() {
+      local stem="$1"
+      stem="${stem%.scad}"
+      stem="${stem%.dxf}"
+      stem="${stem%.svg}"
+      local matches=()
+      while read -r kb; do
+        [ -z "$kb" ] && continue
+        if list_plate_stems "$plates_root/$kb" | grep -qx "$stem"; then
+          matches+=("$kb")
+        elif [ -f "$plates_root/$kb/$stem.scad" ]; then
+          matches+=("$kb")
+        fi
+      done < <(list_keyboards)
+      if [ "${#matches[@]}" -eq 1 ]; then
+        echo "${matches[0]}"
+      elif [ "${#matches[@]}" -eq 0 ]; then
+        # backward-compatible default for historical pykey40 calls
+        echo "keyboard-pykey40"
+      else
+        printf '%s\n' "${matches[@]}" \
+          | fzf --prompt="cad plates family for $stem> " --height=40% --reverse \
+          || true
+      fi
+    }
+
+    if [ -z "$keyboard" ]; then
+      if [ -n "$file" ]; then
+        keyboard="$(resolve_keyboard_for_file "$file")"
+        [ -z "$keyboard" ] && exit 1
+      else
+        choice=$(
+          (
+            echo "[all]"
+            list_keyboards
+          ) \
+            | fzf --prompt="cad plates family> " --height=40% --reverse \
+            || true
+        )
+        [ -z "$choice" ] && exit 1
+        if [ "$choice" = "[all]" ]; then
+          while read -r kb; do
+            make -C "$plates_root/$kb" all
+          done < <(list_keyboards)
+          exit 0
+        fi
+        keyboard="$choice"
+      fi
+    fi
+
+    if ! list_keyboards | grep -qx "$keyboard"; then
+      echo "unknown keyboard plate directory: $keyboard" >&2
+      echo "known:" >&2
+      list_keyboards >&2
+      exit 2
+    fi
+
+    dir="$plates_root/$keyboard"
     if [ -z "$file" ]; then
       choice=$(
         (
           echo "[all]"
-          ls "$dir"/*.scad 2>/dev/null \
-            | xargs -n1 basename -s .scad
+          list_plate_stems "$dir"
         ) \
-          | fzf --prompt="cad plates ($keyboard)> " \
-            --height=40% \
-            --reverse \
+          | fzf --prompt="cad plates ($keyboard)> " --height=40% --reverse \
           || true
       )
       [ -z "$choice" ] && exit 1
@@ -68,7 +155,7 @@ plates file="" keyboard="keyboard-pykey40":
       fi
       file="$choice"
     fi
-    # support dxf/svg or bare stem
+
     if [[ "$file" == *.dxf || "$file" == *.svg ]]; then
       make -C "$dir" "$file"
     elif [[ "$file" == *.scad ]]; then
@@ -87,10 +174,14 @@ plates-minif4 file="":
 
 [doc("clean cad artifacts")]
 clean:
-    -make -C "{{source_directory()}}/keyboard_case" clean
-    -make -C "{{source_directory()}}/keyboard_plates/keyboard-pykey40" clean
-    -make -C "{{source_directory()}}/keyboard_plates/keyboard-x2-lumberjack-arm" clean
-    -make -C "{{source_directory()}}/keyboard_plates/keyboard-100x100-minif4-dual-rgb-reversible" clean
+    #!/usr/bin/env bash
+    set -euo pipefail
+    root="{{source_directory()}}"
+    make -C "$root/keyboard_case" clean || true
+    find "$root/keyboard_plates" -mindepth 1 -maxdepth 1 -type d -name 'keyboard-*' -print \
+      | while read -r d; do
+          [ -f "$d/Makefile" ] && make -C "$d" clean || true
+        done
 
 # filter-out 3dp-constants.scad like the Makefile does
 [doc("interactive chooser for cad recipes")]
