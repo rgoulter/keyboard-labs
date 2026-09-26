@@ -37,12 +37,18 @@ case file="":
     fi
 
 # plates: `just cad::plates` (all) or `just cad::plates jj40_switch_plate`
+# Pass a keyboard directory as the second argument, or use its named recipe.
 [doc("build cad plates (all or single, chooser if no arg)")]
-plates file="":
+plates file="" keyboard="keyboard-pykey40":
     #!/usr/bin/env bash
     set -euo pipefail
     file="{{file}}"
-    dir="{{source_directory()}}/keyboard_plates/keyboard-pykey40"
+    keyboard="{{keyboard}}"
+    case "$keyboard" in
+      keyboard-pykey40|keyboard-x2-lumberjack-arm|keyboard-100x100-minif4-dual-rgb-reversible) ;;
+      *) echo "unknown keyboard plate directory: $keyboard" >&2; exit 2 ;;
+    esac
+    dir="{{source_directory()}}/keyboard_plates/$keyboard"
     if [ -z "$file" ]; then
       choice=$(
         (
@@ -50,7 +56,7 @@ plates file="":
           ls "$dir"/*.scad 2>/dev/null \
             | xargs -n1 basename -s .scad
         ) \
-          | fzf --prompt="cad plates> " \
+          | fzf --prompt="cad plates ($keyboard)> " \
             --height=40% \
             --reverse \
           || true
@@ -71,10 +77,20 @@ plates file="":
       make -C "$dir" "$file.dxf" "$file.svg"
     fi
 
+[doc("build x2-lumberjack-arm plates")]
+plates-x2 file="":
+    @just cad::plates "{{file}}" keyboard-x2-lumberjack-arm
+
+[doc("build 100x100-minif4 plates")]
+plates-minif4 file="":
+    @just cad::plates "{{file}}" keyboard-100x100-minif4-dual-rgb-reversible
+
 [doc("clean cad artifacts")]
 clean:
     -make -C "{{source_directory()}}/keyboard_case" clean
     -make -C "{{source_directory()}}/keyboard_plates/keyboard-pykey40" clean
+    -make -C "{{source_directory()}}/keyboard_plates/keyboard-x2-lumberjack-arm" clean
+    -make -C "{{source_directory()}}/keyboard_plates/keyboard-100x100-minif4-dual-rgb-reversible" clean
 
 # filter-out 3dp-constants.scad like the Makefile does
 [doc("interactive chooser for cad recipes")]
