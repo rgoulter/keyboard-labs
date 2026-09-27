@@ -4,4 +4,12 @@
 *.FCStd*
 tmp/
 
+*.step
+case_pykey40.stl
 
+.venv/
+env.sh
+__pycache__/
+drawings/__pycache__/
+drawings/HOLE_AUDIT.md
+drawings/PLATE_AUDIT.md

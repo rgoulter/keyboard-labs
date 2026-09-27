@@ -7,3 +7,9 @@
 *.svg
 OpenSCAD_3D_Text_Generator
 dimlines.scad
+
+# build123d TechDraw previews (committed confidence artifacts)
+!keyboard_case/drawings/*.svg
+!keyboard_case/drawings/*.png
+!keyboard_case/drawings/*.md
+!keyboard_case/drawings/*.py
