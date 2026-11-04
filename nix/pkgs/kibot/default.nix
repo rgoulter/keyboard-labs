@@ -19,7 +19,6 @@
         lib
         fetchFromGitHub
         python3Packages
-        python3
         kicad
         ;
     },
