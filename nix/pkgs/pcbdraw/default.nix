@@ -2,42 +2,50 @@
   lib,
   fetchFromGitHub,
   python3Packages,
-  python3,
   kicad,
-  mistune ? import ../pythonPackages/mistune {inherit python3Packages;},
   pybars3 ? import ../pythonPackages/pybars3 {inherit python3Packages;},
   svgpathtools ? import ../pythonPackages/svgpathtools {inherit python3Packages;},
 }:
 with python3Packages;
   buildPythonApplication rec {
     pname = "pcbdraw";
-    version = "1.1.3-pre";
+    version = "1.4.0";
 
     pyproject = true;
-    build-system = [python3Packages.setuptools];
+    build-system = [
+      setuptools
+      versioneer
+    ];
 
     # fails on Windows-specific test
     doCheck = false;
 
-    propagatedBuildInputs = [
+    dependencies = [
       click
       lxml
       mistune
       numpy
-      pyvirtualdisplay
-      pcbnewtransition
       pillow
       pybars3
       pyyaml
       svgpathtools
-      wand
-      wxpython
-      versioneer
     ];
 
-    patches = [
-      ./allow-polygon-board-outlines.patch
-      ./pr-180.patch
+    # versioneer reads the version from git metadata,
+    # which the fetched source does not have.
+    # Fill in the keywords that `git archive` would expand.
+    postPatch = ''
+      substituteInPlace pcbdraw/_version.py \
+        --replace-fail 'git_refnames = "$Format:%d$"' 'git_refnames = " (tag: v${version})"'
+    '';
+
+    # PcbDraw exports the board through kicad-cli,
+    # which it looks for in $KICAD_CLI before searching PATH.
+    # Set a default so it uses this KiCad, and leave it overridable.
+    makeWrapperArgs = [
+      "--set-default"
+      "KICAD_CLI"
+      (lib.getExe' kicad "kicad-cli")
     ];
 
     # INTI-CMNB (GitHub owner of KiBot) also maintains a fork
@@ -45,7 +53,8 @@ with python3Packages;
     src = fetchFromGitHub {
       owner = "yaqwsx";
       repo = "PcbDraw";
-      rev = "1264f28eb0cb96ab7ec44ecb09c5d50eef508ec5";
-      hash = "sha256-IA08AeT+ootxa5GjU9O9F7Pghu5RUjV7kWR8K1ttIcw=";
+      tag = "v${version}";
+      fetchSubmodules = true;
+      hash = "sha256-wLminyAG8LniYn66Z5bpLKTZkcfsK/kP7OZr5jnhV9w=";
     };
   }
