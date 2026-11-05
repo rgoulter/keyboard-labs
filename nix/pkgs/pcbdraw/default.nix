@@ -32,6 +32,12 @@ with python3Packages;
       svgpathtools
     ];
 
+    # Find kicad-cli's SVG for layers with a user name,
+    # such as F.Cu named "Front".
+    patches = [
+      ./layer-user-names.patch
+    ];
+
     # versioneer reads the version from git metadata,
     # which the fetched source does not have.
     # Fill in the keywords that `git archive` would expand.
