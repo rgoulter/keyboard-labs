@@ -22,3 +22,8 @@ Seven boards are missing because unpatched pcbdraw 1.4.0 fails on them;
  (on the `pcbdraw-layer-names` branch), with KiCad 10.0.7.
 It covers the seven boards that give their copper layers user names,
  and `keyboard-ch32x-36-lhs`, whose SVGs are byte-identical to the unpatched renders in `all-boards/`.
+
+`bare/` holds renders of each `pcb/keyboard-*.kicad_pcb` board
+ from `pcbdraw plot --no-components` on the rebased `pcbdraw-1.4` branch (3b1da75),
+ with pcbdraw 1.4.0, the layer name patch, and KiCad 10.0.5 from the master `flake.lock`.
+The `ch32x-60-improved-*-after` files are copies of the matching `bare/` renders.
