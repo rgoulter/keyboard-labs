@@ -1,0 +1,218 @@
+From 63d49c9739fe42420177ab6eaf977c2ddb60f84a Mon Sep 17 00:00:00 2001
+From: rgoulter-bot <326525579+rgoulter-bot@users.noreply.github.com>
+Date: Thu, 5 Nov 2026 08:06:17 +0700
+Subject: [PATCH] Find SVG exports of layers with user names
+
+kicad-cli --mode-multi names each SVG after the layer's user name, so a
+board whose layer table has (0 "F.Cu" signal "Front") produces
+board-Front.svg instead of board-F_Cu.svg, and plotting fails with
+"kicad-cli did not produce an unambiguous SVG for layer F.Cu".
+
+Read the user names from the board's layer table and derive the file
+name suffix the way kicad-cli does.
+---
+ pcbdraw/kicad_cli.py         | 20 +++++++++--
+ pcbdraw/kicad_sexpr.py       | 45 +++++++++++++++++++++++++
+ test/units/test_kicad_cli.py | 65 +++++++++++++++++++++++++++++++++++-
+ 3 files changed, 127 insertions(+), 3 deletions(-)
+
+diff --git a/pcbdraw/kicad_cli.py b/pcbdraw/kicad_cli.py
+index 41b3231..a67a91d 100644
+--- a/pcbdraw/kicad_cli.py
++++ b/pcbdraw/kicad_cli.py
+@@ -21,7 +21,7 @@ from .kicad_formats import (
+     BoardData, DrillHole, parse_excellon, parse_gencad,
+ )
+ from .kicad_sexpr import component_footprint_ids, prepare_footprint_for_export
+-from .kicad_sexpr import component_properties
++from .kicad_sexpr import board_layer_user_names, component_properties
+ from .annotations import BoardScene
+ 
+ 
+@@ -243,6 +243,16 @@ def load_board_scene(board: str) -> BoardScene:
+     return _load_board_scene_cached(*_board_cache_key(board))
+ 
+ 
++def _plot_file_suffix(layer_name: str) -> str:
++    """Return the file name suffix kicad-cli uses for a layer in multi mode.
++
++    kicad-cli names each file after the layer's user name, or its standard
++    name when it has none, and replaces characters that are not allowed in
++    Windows file names, ``%`` and ``.`` with ``_``.
++    """
++    return re.sub(r'[*?\\/:"<>|%.]', "_", layer_name.strip())
++
++
+ def _export_svg_layers(
+     executable: str, path: str, mtime_ns: int, size: int,
+     layers: Tuple[str, ...]
+@@ -266,8 +276,14 @@ def _export_svg_layers(
+         ], executable=executable)
+         result: List[Tuple[str, bytes]] = []
+         files = list(Path(tmp).glob("*.svg"))
++        user_names = {
++            canonical_layer(name): user_name
++            for name, user_name in board_layer_user_names(
++                Path(path).read_text(encoding="utf-8")
++            ).items()
++        }
+         for layer in layers:
+-            suffix = "-" + layer.replace(".", "_") + ".svg"
++            suffix = "-" + _plot_file_suffix(user_names.get(layer, layer)) + ".svg"
+             matches = [file for file in files if file.name.endswith(suffix)]
+             if len(matches) != 1:
+                 raise KiCadCliError(
+diff --git a/pcbdraw/kicad_sexpr.py b/pcbdraw/kicad_sexpr.py
+index 9d92e14..de6363e 100644
+--- a/pcbdraw/kicad_sexpr.py
++++ b/pcbdraw/kicad_sexpr.py
+@@ -15,6 +15,28 @@ _POINT_RE = re.compile(
+ )
+ 
+ 
++# The board's layer table: a ``layers`` form whose children are all numbered
++# layer entries.  Group 1 holds the entries.  It matches
++#   (layers (0 "F.Cu" signal "Front") (2 "B.Cu" signal))
++# but not a pad's layer list, whose children are quoted names:
++#   (layers "F.Cu" "F.Mask")
++_BOARD_LAYER_TABLE_RE = re.compile(
++    r'\(layers((?:\s*\(\s*\d+\s+"(?:\\.|[^"\\])*"\s+[\w.]+'
++    r'(?:\s+"(?:\\.|[^"\\])*")?\s*\))+)\s*\)'
++)
++# One entry of the board's layer table: a layer number, the layer name, the
++# layer type, and an optional user name.  Group 1 holds the layer name and
++# group 2 the user name, or an empty string when there is none.  It matches
++#   (0 "F.Cu" signal "Front")   -> "F.Cu", "Front"
++#   (25 "Edge.Cuts" user)       -> "Edge.Cuts", ""
++# but not a pad's layer list:
++#   (layers "F.Cu" "F.Mask")
++_BOARD_LAYER_RE = re.compile(
++    r'\(\s*\d+\s+"((?:\\.|[^"\\])*)"\s+[\w.]+'
++    r'(?:\s+"((?:\\.|[^"\\])*)")?\s*\)'
++)
++
++
+ def _forms_with_spans(document: str, form_name: str) -> List[Tuple[int, int]]:
+     """Return spans for matching forms at any nesting depth."""
+     stack: List[Tuple[int, Optional[str]]] = []
+@@ -247,3 +269,26 @@ def normalize_embedded_footprint(document: str) -> str:
+         document = re.sub(r"\(justify\s+([^)]+)\)", remove_mirror, document)
+ 
+     return _hide_fields(document)
++
++
++def _unescape(value: str) -> str:
++    return re.sub(r'\\(["\\])', r'\1', value)
++
++
++def board_layer_user_names(document: str) -> Dict[str, str]:
++    """Return user-defined layer names from a board's layer table.
++
++    The result maps the layer name stored in the file (for example ``F.Cu``)
++    to its user name (for example ``Front``).  Layers without a user name are
++    omitted.  Footprint pads also contain ``layers`` forms, but they list
++    quoted names only, so the first form with numbered entries is the board's
++    layer table.
++    """
++    table = _BOARD_LAYER_TABLE_RE.search(document)
++    if table is None:
++        return {}
++    return {
++        _unescape(name): _unescape(user_name)
++        for name, user_name in _BOARD_LAYER_RE.findall(table.group(1))
++        if user_name
++    }
+diff --git a/test/units/test_kicad_cli.py b/test/units/test_kicad_cli.py
+index 5b154ea..7f60162 100644
+--- a/test/units/test_kicad_cli.py
++++ b/test/units/test_kicad_cli.py
+@@ -2,6 +2,7 @@ import pytest
+ 
+ import pcbdraw.kicad_cli as kicad_cli
+ from pcbdraw.kicad_cli import canonical_layer
++from pcbdraw.kicad_sexpr import board_layer_user_names
+ from pcbdraw.kicad_formats import (
+     BoardSide, Bounds, Point, Size, parse_excellon, parse_gencad,
+ )
+@@ -97,15 +98,77 @@ def test_pcb_svg_export_avoids_v10_only_scale_option(monkeypatch, tmp_path):
+ 
+     monkeypatch.setattr(kicad_cli, "_kicad_version", lambda executable: (9, 0, 9))
+     monkeypatch.setattr(kicad_cli, "run_kicad_cli", fake_run)
++    board = tmp_path / "board.kicad_pcb"
++    board.write_text("(kicad_pcb)", encoding="utf-8")
+ 
+     exported = kicad_cli._export_svg_layers(
+-        "kicad-cli", str(tmp_path / "board.kicad_pcb"), 0, 0, ("F.Cu",),
++        "kicad-cli", str(board), 0, 0, ("F.Cu",),
+     )
+ 
+     assert exported == (("F.Cu", b"<svg/>"),)
+     assert "--scale" not in commands[0]
+ 
+ 
++BOARD_WITH_LAYER_USER_NAMES = '''
++(kicad_pcb
++	(layers
++		(0 "F.Cu" signal "Front")
++		(2 "B.Cu" signal "Back")
++		(5 "F.SilkS" user "F.Silkscreen")
++		(25 "Edge.Cuts" user)
++		(39 "User.1" user "Notes: v1.0")
++	)
++	(footprint "Resistor_SMD:R_0603"
++		(pad "1" smd rect (layers "F.Cu" "F.Mask"))
++	)
++)
++'''
++
++
++def test_board_layer_user_names_reads_board_layer_table():
++    # Assemble: a board with user-named layers, an unnamed layer and a pad
++    document = BOARD_WITH_LAYER_USER_NAMES
++
++    # Act: read the user names from the layer table
++    user_names = board_layer_user_names(document)
++
++    # Assert: only the named layers appear, and the pad is ignored
++    assert user_names == {
++        "F.Cu": "Front",
++        "B.Cu": "Back",
++        "F.SilkS": "F.Silkscreen",
++        "User.1": "Notes: v1.0",
++    }
++
++
++def test_pcb_svg_export_finds_layers_with_user_names(monkeypatch, tmp_path):
++    # Assemble: a fake kicad-cli that names files the way kicad-cli does
++    def fake_run(arguments, **kwargs):
++        output = kicad_cli.Path(arguments[arguments.index("-o") + 1])
++        for name in ("Front", "Back", "F_Silkscreen", "Edge_Cuts", "Notes_ v1_0"):
++            (output / f"board-{name}.svg").write_bytes(name.encode())
++        return b""
++
++    monkeypatch.setattr(kicad_cli, "_kicad_version", lambda executable: (10, 0, 0))
++    monkeypatch.setattr(kicad_cli, "run_kicad_cli", fake_run)
++    board = tmp_path / "board.kicad_pcb"
++    board.write_text(BOARD_WITH_LAYER_USER_NAMES, encoding="utf-8")
++
++    layers = ("F.Cu", "B.Cu", "F.Silkscreen", "Edge.Cuts", "User.1")
++
++    # Act: export the layers by their standard names
++    exported = kicad_cli._export_svg_layers("kicad-cli", str(board), 0, 0, layers)
++
++    # Assert: each layer gets the file named after its user name, if any
++    assert exported == (
++        ("F.Cu", b"Front"),
++        ("B.Cu", b"Back"),
++        ("F.Silkscreen", b"F_Silkscreen"),
++        ("Edge.Cuts", b"Edge_Cuts"),
++        ("User.1", b"Notes_ v1_0"),
++    )
++
++
+ def test_marker_origin_accepts_kicad_9_rounded_radii():
+     svg = b"""
+         <svg>
+-- 
+2.47.3
+
