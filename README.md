@@ -15,5 +15,10 @@ The before PNGs are rendered at the size the SVG declares (about 2.7 mm by 2.2 m
 
 `all-boards/` holds pcbdraw 1.4.0 renders, with KiCad 10.0.7,
  of each `pcb/keyboard-*.kicad_pcb` board on the `pcbdraw-1.4` branch.
-Seven boards are missing because pcbdraw 1.4.0 fails on them;
+Seven boards are missing because unpatched pcbdraw 1.4.0 fails on them;
  the pull request description lists them.
+
+`layer-names/` holds renders from pcbdraw 1.4.0 with `nix/pkgs/pcbdraw/layer-user-names.patch`
+ (on the `pcbdraw-layer-names` branch), with KiCad 10.0.7.
+It covers the seven boards that give their copper layers user names,
+ and `keyboard-ch32x-36-lhs`, whose SVGs are byte-identical to the unpatched renders in `all-boards/`.
