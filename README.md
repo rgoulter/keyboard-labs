@@ -9,7 +9,7 @@ Each image comes from `pcbdraw plot BOARD OUT.svg`
 
 The `ch32x-60-improved-*` files compare two versions on `pcb/keyboard-ch32x-60-improved.kicad_pcb`.
 The before files come from pcbdraw 1.1.3-pre with KiCad 10.0.5 (the master `flake.lock`),
- and the after files from pcbdraw 1.4.0 with KiCad 10.0.7.
+ and the after files are copies of the matching `bare/` renders.
 The before PNGs are rendered at the size the SVG declares (about 2.7 mm by 2.2 mm),
  so they are a few pixels wide.
 
@@ -26,4 +26,3 @@ It covers the seven boards that give their copper layers user names,
 `bare/` holds renders of each `pcb/keyboard-*.kicad_pcb` board
  from `pcbdraw plot --no-components` on the rebased `pcbdraw-1.4` branch (3b1da75),
  with pcbdraw 1.4.0, the layer name patch, and KiCad 10.0.5 from the master `flake.lock`.
-The `ch32x-60-improved-*-after` files are copies of the matching `bare/` renders.
