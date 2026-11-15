@@ -29,6 +29,11 @@ fmt-check:
       nix fmt -- --fail-on-change; \
     fi
 
+# actionlint (runs shellcheck on run: steps when available)
+[doc("lint GitHub Actions workflows (actionlint)")]
+lint-workflows:
+    actionlint
+
 [doc("nix flake check (pcb + firmware builds)")]
 check:
     nix flake check --show-trace
